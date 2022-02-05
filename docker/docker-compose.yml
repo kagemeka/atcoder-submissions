@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  development:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kagemeka/atcoder-submissions-dev
+    restart: on-failure
+    tty: true
+    volumes:
+      - type: bind
+        source: $ROOT
+        target: /root/$PROJECT
