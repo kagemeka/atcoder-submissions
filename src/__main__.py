@@ -20,7 +20,7 @@ logging.basicConfig(
     format=_LOGGING_FORMAT,
     datefmt="%Y-%m-%d %H:%M:%S%z",
     handlers=[logging.StreamHandler()],
-    level=logging.CRITICAL,
+    level=logging.INFO,
 )
 
 
@@ -95,7 +95,12 @@ def _prepare_dir(filepath: str) -> None:
 def _filter_submissions(
     submissions: typing.List[Submission],
 ) -> typing.List[atcoder.submission.SubmissionResult]:
-    files = set(_find_local_files())
+    files = set(
+        map(
+            lambda file: os.path.splitext(file)[0],
+            _find_local_files(),
+        )
+    )
     return [
         submission
         for submission in submissions
@@ -115,9 +120,10 @@ def _save_submission_result(
         result.summary.task_id,
         result.id,
     )
-    path = f'{_get_path(submission)}.{extension}'
+    path = f"{_get_path(submission)}.{extension}"
     _prepare_dir(path)
-    with open(path, mode='w') as f:
+    # _LOGGER.info(f'save {path}')
+    with open(path, mode="w") as f:
         f.write(code)
 
 
@@ -141,6 +147,7 @@ async def _fetch_detailed_submissions(
                 fetches.append(task)
                 contest_ids.append(submission.contest_id)
             results = await asyncio.gather(*fetches)
+            await asyncio.sleep(0.2)
             for contest_id, result in zip(contest_ids, results):
                 _save_submission_result(contest_id, result)
 

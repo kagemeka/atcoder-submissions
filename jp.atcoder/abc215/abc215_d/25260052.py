@@ -1,0 +1,105 @@
+import typing
+import collections
+
+
+
+class SieveOfEratosthenes():
+  def __call__(
+    self,
+    n: int = 1 << 20,
+  ) -> typing.List[int]:
+    assert n > 1
+    s = self.gpf(n)
+    for i in range(n):
+      s[i] = s[i] == i
+    return s
+    
+  
+  def gpf(
+    self,
+    n: int = 1 << 20,
+  ) -> typing.List[int]:
+    assert n > 1
+    s = list(range(n))
+    s[0] = s[1] = -1
+    i = 0
+    while i * i < n - 1:
+      i += 1
+      if s[i] != i: continue
+      for j in range(i, n, i):
+        s[j] = i
+    return s
+  
+
+  def lpf(
+    self,
+    n: int = 1 << 20,
+  ) -> typing.List[int]:
+    assert n > 1
+    s = list(range(n))
+    s[0] = s[1] = -1
+    i = 0 
+    while i * i < n - 1:
+      i += 1
+      if s[i] != i: continue
+      for j in range(i, n, i):
+        if s[j] == j: s[j] = i
+    return s
+
+
+
+
+class PrimeFactorize():
+  def __call__(
+    self,
+    n: int,
+  ) -> typing.DefaultDict[int, int]:
+    f = collections.defaultdict(int)
+    while n > 1:
+      p = self.__lpf[n]
+      n //= p 
+      f[p] += 1
+    return f
+  
+
+  def __init__(
+    self,
+    n: int = 1 << 20,
+  ) -> typing.NoReturn:
+    self.__lpf = SieveOfEratosthenes().lpf(n)
+  
+
+  def factorial(
+    self,
+    n: int,
+  ) -> typing.List[int]:
+    f = collections.defaultdict(int)
+    for i in range(n + 1):
+      for p, c in self(i).items():
+        f[p] += c
+    return f
+
+
+
+def main() -> typing.NoReturn:
+  n, m = map(int, input().split())
+  *a, = map(int, input().split())
+
+  fn = PrimeFactorize(1 << 20)
+  
+  p = [False] * (1 << 20)
+  for x in a:
+    for i in fn(x): p[i] = True
+  
+  s = [True] * (m + 1)
+  s[0] = False
+  for i in range(m + 1):
+    if not p[i] or not s[i]: continue
+    for j in range(i, m + 1, i):
+      s[j] = False 
+  print(sum(s))
+  for i in range(m + 1):
+    if s[i]: print(i)
+
+
+main()
