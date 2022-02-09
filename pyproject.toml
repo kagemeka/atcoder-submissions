@@ -11,6 +11,7 @@ version = "0.1.0"
 [tool.poetry.dependencies]
 atcoder-api = "0.3.3"
 # filesystem-python = "0.1.0"
+PyYAML = "^"
 python = ">=3.9,<3.11"
 
 [tool.poetry.dev-dependencies]
@@ -42,11 +43,11 @@ target-version = ["py38", "py39", "py310"]
 
 [tool.flake8]
 count = 'true' # have not adaped to boolean value yet.
-exclude = ""
-ignore = 'E203'
-max_line_length = 79
-show-source = 'true'
-statistics = 'true'
+exclude = "" 
+ignore = 'E203' 
+max_line_length = 79 
+show-source = 'true' 
+statistics = 'true' 
 
 [tool.isort]
 # all config files -> https://pycqa.github.io/isort/docs/configuration/config_files.html
