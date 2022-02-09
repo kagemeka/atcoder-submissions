@@ -2,7 +2,7 @@ name: Fetch Submissions.yaml
 
 on:
   schedule:
-    - cron: "9 * * * *"
+    - cron: "10 * * * *"
 
 jobs:
   build:
