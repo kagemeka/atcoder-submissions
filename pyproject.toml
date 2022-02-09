@@ -3,12 +3,15 @@ authors = ["kagemeka <kagemeka1@gmail.com>"]
 description = ""
 license = "MIT"
 name = "atcoder-submissions"
+packages = [
+  {include = "src"}, # {include = "pseudo", from = "src"},
+]
 version = "0.1.0"
-# packages = [{include = "atcoder", from = "src"}]
 
 [tool.poetry.dependencies]
-python = "^3.9"
-# python = ">=3.8,<3.11"
+atcoder-api = "0.3.3"
+# filesystem-python = "0.1.0"
+python = ">=3.9,<3.11"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "^"
