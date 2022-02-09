@@ -8,7 +8,7 @@ def main():
     ca = np.array(sys.stdin.read().split(), dtype=np.int64)
     cost = ca[:100].reshape(10, 10)
     A = ca[100:]
-    
+
     min_cost = floyd_warshall(csgraph=csr_matrix(cost), directed=True)
 
     total_cost = min_cost[np.absolute(A)].T[1].astype(np.int64).sum()

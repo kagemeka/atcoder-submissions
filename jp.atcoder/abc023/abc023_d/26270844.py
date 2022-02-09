@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -11,11 +11,11 @@ def solve(hs: np.ndarray) -> typing.NoReturn:
   h, s = hs[:, 0], hs[:, 1]
 
   def possible(h0):
-    t = (h0 - h) // s 
+    t = (h0 - h) // s
     t.sort()
     return np.all(t >= np.arange(n))
-    
-  
+
+
   def binary_search():
     lo, hi = 0, 1 << 50
     while hi - lo > 1:

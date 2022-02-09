@@ -8,10 +8,10 @@ def main():
     for i in range(2, -1, -1):
         q, r = divmod(r, 60 ** i)
         res[i] = q
-    
+
     if res[0] >= 24:
         res = [23, 59, 59]
-        
+
     for i in range(3):
         if res[i] < 10:
             res[i] = '0' + str(res[i])
@@ -20,6 +20,6 @@ def main():
 
     ans = ':'.join(res)
     print(ans)
-        
+
 if __name__ == '__main__':
     main()

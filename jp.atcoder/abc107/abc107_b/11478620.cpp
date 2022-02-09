@@ -41,7 +41,7 @@ int main() {
     }
     if (flag) {
       for (int i = 0; i < h; i++) {
-        res[i][k] = res[i][j]; 
+        res[i][k] = res[i][j];
       }
       k++;
     }

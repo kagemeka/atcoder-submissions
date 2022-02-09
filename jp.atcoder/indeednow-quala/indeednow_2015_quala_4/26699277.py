@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 
 
 def main() -> typing.NoReturn:
@@ -14,10 +14,10 @@ def main() -> typing.NoReturn:
 
     def hf(i: int, v: int) -> int:
         y, x = divmod(i, w)
-        return abs(gy[v] - y) + abs(gx[v] - x)    
-    
+        return abs(gy[v] - y) + abs(gx[v] - x)
+
     h = sum(hf(i, v) for i, v in enumerate(a) if v != 0)
-    max_cost = 24 
+    max_cost = 24
     que = [set() for _ in range(max_cost + 2)]
     que[h].add((h, tuple(a)))
     dyx = ((-1, 0), (0, -1), (1, 0), (0, 1))
@@ -28,13 +28,13 @@ def main() -> typing.NoReturn:
     for score in range(max_cost + 1):
         while que[score]:
             cu, u = que[score].pop()
-            hu = score - cu 
+            hu = score - cu
             if hu == 0:
                 print(cu)
                 return
             i = u.index(0)
             y, x = divmod(i, w)
-            for dy, dx in dyx: 
+            for dy, dx in dyx:
                 ny, nx = y + dy, x + dx
                 if not on_board(ny, nx): continue
                 j = ny * w + x

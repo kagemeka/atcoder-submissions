@@ -32,7 +32,7 @@ fn main() {
     let q: usize = sc.scan();
     let r: usize = sc.scan();
     let mut g: Vec<Vec<usize>> = vec![vec![0; m]; n];
-    for _ in 0..r { 
+    for _ in 0..r {
         let x: usize = sc.scan::<usize>() - 1;
         let y: usize = sc.scan::<usize>() - 1;
         let z: usize = sc.scan();
@@ -44,7 +44,7 @@ fn main() {
         let mut a = vec![0usize; m];
         for i in 0..n {
             if s >> i & 1 != 1 { continue; }
-            for j in 0..m { 
+            for j in 0..m {
                 a[j] += g[i][j];
             }
         }

@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-07 13:42:36(JST)
 import sys
 # import collections
@@ -21,7 +21,7 @@ def main():
         for j in range(n-i+1):
             substring = s[j:j+i]
             substrings.append(substring)
-            
+
     substrings = sorted(list(set(substrings)))
     print(substrings[k-1])
 

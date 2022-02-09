@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -11,7 +11,7 @@ import (
 
 type Problem struct {
 	io *IO
-	t string 
+	t string
 	s string
 }
 
@@ -35,7 +35,7 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	s, t := p.s, p.t 
+	s, t := p.s, p.t
 	n := len(s)
 	cnt := make(map[byte]int)
 	for i := 0; i < n; i++ {
@@ -43,7 +43,7 @@ func (
 	}
 	for i := 0; i < 5; i++ {
 		fmt.Printf(
-			"%v ", 
+			"%v ",
 			cnt[t[i]],
 		)
 	}

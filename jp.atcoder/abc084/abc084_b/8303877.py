@@ -27,7 +27,7 @@ def main():
     else:
         print('No')
         exit()
-    
+
     print('Yes' if f_a and f_b else 'No')
 
 if __name__ == "__main__":

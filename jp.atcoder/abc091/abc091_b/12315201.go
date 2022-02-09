@@ -8,18 +8,18 @@ func maxInt(a ...int) int {m := a[0]; for _, x := range a {if x > m {m = x}}; re
 func minInt(a ...int) int {m := a[0]; for _, x := range a {if x < m {m = x}}; return m}
 
 func main() {
-  var n int 
+  var n int
   fmt.Scan(&n)
   res := make(map[string]int)
   for i := 0; i < n; i++ {
-    var s string 
+    var s string
     fmt.Scan(&s)
     res[s]++
   }
-  var m int 
+  var m int
   fmt.Scan(&m)
   for i := 0; i < m; i++ {
-    var t string 
+    var t string
     fmt.Scan(&t)
     res[t]--
   }

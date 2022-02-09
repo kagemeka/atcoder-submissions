@@ -1,15 +1,15 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8, ) * 4 + (nb.i8[:], ), cache=True)
 def solve(
-  t: int, 
-  l: int, 
-  x: int, 
-  y: int, 
+  t: int,
+  l: int,
+  x: int,
+  y: int,
   e: np.ndarray,
 ) -> typing.NoReturn:
   theta = 2 * np.pi * e / t

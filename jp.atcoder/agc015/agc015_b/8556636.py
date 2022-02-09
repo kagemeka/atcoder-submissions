@@ -5,7 +5,7 @@ import sys
 def main():
     s = '.' + sys.stdin.readline().rstrip()
     n = len(s) - 1
-    
+
     count = 0
     for i in range(1, n+1):
         if s[i] == 'U':

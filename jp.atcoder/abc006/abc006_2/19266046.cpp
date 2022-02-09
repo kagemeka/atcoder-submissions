@@ -13,7 +13,7 @@ using Type = typename decay<
 
 constexpr Modular() : value() {}
 
-template<typename U> 
+template<typename U>
 Modular(const U& x) {
   value = normalize(x);
 }
@@ -27,12 +27,12 @@ static Type normalize(
   return v;
 }
 
-const Type& operator() () const 
+const Type& operator() () const
 {
   return value;
 }
 
-template<typename U> 
+template<typename U>
 explicit operator U() const {
   return static_cast<U>(value);
 }
@@ -54,7 +54,7 @@ Modular& operator+=(
 Modular operator+(
   const Modular& other
 ) const {
-  Modular res(*this); 
+  Modular res(*this);
   return res += other;
 }
 
@@ -64,18 +64,18 @@ Modular& operator-=(
   value -= other.value;
   if (value < 0) {
     value += mod();
-  } 
+  }
   return *this;
 }
 
 Modular operator-(
   const Modular& other
 ) const {
-  Modular res(*this); 
+  Modular res(*this);
   return res -= other;
-} 
+}
 
-template<typename U> 
+template<typename U>
 Modular& operator+=(
   const U& other
 ) {
@@ -83,7 +83,7 @@ Modular& operator+=(
   return *this;
 }
 
-template<typename U> 
+template<typename U>
 Modular& operator-=(
   const U& other
 ) {
@@ -100,8 +100,8 @@ Modular& operator--() {
 }
 
 Modular operator++(int) {
-  Modular res(*this); 
-  *this += 1; 
+  Modular res(*this);
+  *this += 1;
   return res;
 }
 
@@ -126,7 +126,7 @@ Modular& operator*=(
 Modular operator*(
   const Modular& other
 ) const {
-  Modular res(*this); 
+  Modular res(*this);
   return res *= other;
 }
 
@@ -134,7 +134,7 @@ Modular operator*(
 template<typename U>
 Modular pow(const U& n) const {
   if (!n) return 1;
-  Modular a = pow(n>>1); 
+  Modular a = pow(n>>1);
   a *= a;
   if (n&1) a *= *this;
   return a;
@@ -154,20 +154,20 @@ Modular& operator/=(
 Modular operator/(
   const Modular& other
 ) const {
-  Modular res(*this); 
+  Modular res(*this);
   return res /= other;
 }
 
 template<typename U>
 friend std::istream& operator>>(
-  std::istream& is, 
+  std::istream& is,
   Modular<U>& number
 ) {
   return is >> number.value;
 }
 
 friend std::ostream& operator<<(
-  std::ostream& os, 
+  std::ostream& os,
   const Modular& number
 ) {
   return os << number.value;
@@ -181,24 +181,24 @@ Type value;
 };
 
 
-constexpr long long MOD 
+constexpr long long MOD
   = (long long)1e4 + 7;
 
 
 using Mint = Modular<
   std::integral_constant<
-    decay<decltype(MOD)>::type, 
+    decay<decltype(MOD)>::type,
     MOD
   >
 >;
 
 
-template<typename T> 
+template<typename T>
 vector<vector<T>> identity(
   int n
 ) {
   vector<vector<T>> e(
-    n, 
+    n,
     vector<T>(n)
   );
   for (int i = 0; i < n; i++) {
@@ -219,7 +219,7 @@ vector<vector<T>> matrix_dot(
   int w1 = (int)b[0].size();
   assert(w0 == h1);
   vector<vector<T>> c(
-    h0, 
+    h0,
     vector<T>(w1)
   );
   for (int i = 0; i < h0; i++) {
@@ -229,7 +229,7 @@ vector<vector<T>> matrix_dot(
       for (
         int k = 0; k < h1; k++
       ) {
-        c[i][j] += 
+        c[i][j] +=
           a[i][k] * b[k][j];
       }
     }
@@ -240,13 +240,13 @@ vector<vector<T>> matrix_dot(
 
 template<typename T>
 vector<vector<T>> matrix_pow(
-  const vector<vector<T>>& a, 
+  const vector<vector<T>>& a,
   long long n
 ) {
   if (!n) {
     int m = (int)a.size();
     return identity<T>(m);
-  } 
+  }
   auto b = matrix_pow(a, n>>1);
   b = matrix_dot(b, b);
   if (n&1) b = matrix_dot(b, a);

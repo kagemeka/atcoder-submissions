@@ -17,7 +17,7 @@ func dist(x1, y1, x2, y2 int) int {
 }
 
 func main() {
-  var n, m int 
+  var n, m int
   fmt.Scan(&n, &m)
   a := make([]int, n)
   b := make([]int, n)

@@ -11,12 +11,12 @@ import collections
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
     s = sys.stdin.readline().rstrip()
-    
+
     if len(s) == 1:
         print('YES')
         sys.exit()
@@ -29,12 +29,12 @@ def main():
             ans = 'YES'
         else:
             ans = 'NO'
-    else: 
+    else:
         if max(c) - min(c) >= 2:
             ans = 'NO'
         else:
             ans = 'YES'
-    
+
     print(ans)
 if __name__ == "__main__":
     main()

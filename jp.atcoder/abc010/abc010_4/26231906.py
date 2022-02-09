@@ -1,10 +1,10 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def maximum_flow_ford_fulkerson(
   g: np.ndarray,
   src: int,
@@ -29,7 +29,7 @@ def maximum_flow_ford_fulkerson(
         if g[u, v] == 0 or visited[v]: continue
         prev[v] = u
         st.append(v)
-      
+
   def compute_flow():
     v = sink
     flow = inf
@@ -38,7 +38,7 @@ def maximum_flow_ford_fulkerson(
       flow = min(flow, g[u, v])
       v = u
     if flow == inf: return 0
-    v = sink 
+    v = sink
     while prev[v] != -1:
       u = prev[v]
       g[u, v] -= flow
@@ -46,7 +46,7 @@ def maximum_flow_ford_fulkerson(
       v = u
     return flow
 
-  flow = 0 
+  flow = 0
   while 1:
     find_path()
     f = compute_flow()
@@ -56,8 +56,8 @@ def maximum_flow_ford_fulkerson(
 
 @nb.njit((nb.i8, nb.i8[:], nb.i8[:, :]), cache=True)
 def solve(
-  n: int, 
-  p: np.ndarray, 
+  n: int,
+  p: np.ndarray,
   ab: np.ndarray,
 ) -> typing.NoReturn:
   n += 1
@@ -69,7 +69,7 @@ def solve(
   v = maximum_flow_ford_fulkerson(g, 0, n - 1)
   print(v)
 
-  
+
 
 
 def main() -> typing.NoReturn:
@@ -81,7 +81,7 @@ def main() -> typing.NoReturn:
   ab = np.array(
     sys.stdin.read().split(),
     dtype=np.int64,
-  ).reshape(e, 2) 
+  ).reshape(e, 2)
   solve(n, p, ab)
 
 

@@ -1,12 +1,12 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
 
 def readline_ints():
   *ints, = map(
-    int, 
+    int,
     readline().split(),
   )
   return ints

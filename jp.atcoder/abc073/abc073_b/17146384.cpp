@@ -37,7 +37,7 @@ void abc084a() {
 
 void abc076a() {
   int r, g;
-  cin >> r >> g; 
+  cin >> r >> g;
   cout << 2*g - r << '\n';
 }
 
@@ -76,8 +76,8 @@ void ex6() {
     case '*': res = a*b; break;
     case '/': if (!b) {cout << "error" << '\n'; return;}
               res = a/b; break;
-    default : cout << "error" << '\n'; return; 
-    
+    default : cout << "error" << '\n'; return;
+
   }
   cout << res << '\n';
 }
@@ -88,7 +88,7 @@ void abc088a() {
   string ans = "No";
   if (n%500 <= a) {ans = "Yes";}
   cout << ans << '\n';
-  
+
 }
 
 
@@ -104,7 +104,7 @@ void abc083a() {
   cin >> a >> b >> c >> d;
   l = a+b, r = c+d;
   string ans = l>r? "Left" : (l==r? "Balanced" : "Right");
-  cout << ans << '\n'; 
+  cout << ans << '\n';
 }
 
 void abc080a() {
@@ -134,7 +134,7 @@ void ex8() {
 
 void ex9() {
   int x, a, b;
-  cin >> x >> a >> b;  
+  cin >> x >> a >> b;
   cout << ++x << '\n';
   x *= a+b; cout << x << '\n';
   x *= x; cout << x << '\n';
@@ -154,7 +154,7 @@ string repeat(string s, int n) {
 
 
 void ex10() {
-  int a, b; cin >> a >> b; 
+  int a, b; cin >> a >> b;
   cout << "A:" + repeat("]", a) << '\n';
   cout << "B:" + repeat("]", b) << '\n';
 }
@@ -169,7 +169,7 @@ void ex11() {
       case '*': a *= b; break;
       case '/': if (!b) {cout << "error" << '\n'; return;}
                 a /= b; break;
-      
+
     }
     cout << i+1 << ':' << a << '\n';
   }
@@ -184,7 +184,7 @@ void abc089b() {
   }
   string ans = s.size()==3? "Three" : "Four";
   cout << ans << '\n';
-  
+
 }
 
 void abc073b() {
@@ -223,5 +223,5 @@ int main() {
   // abc089b();
   abc073b();
   return 0;
-  
+
 }

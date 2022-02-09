@@ -31,7 +31,7 @@ fn main() {
     let k: usize = sc.scan();
     let mut s = vec![vec![0usize; w + 2]; h + 2];
     const INF: usize = std::usize::MAX;
-    for i in 0..h { 
+    for i in 0..h {
         for (j, c) in sc.scan::<String>().chars().enumerate() {
             if c == 'o' { s[i + 1][j + 1] = INF; }
         };
@@ -60,8 +60,8 @@ fn main() {
         }
     }
     let mut cnt = 0;
-    for i in 0..h { 
-        for j in 0..w { 
+    for i in 0..h {
+        for j in 0..w {
             if s[i][j] >= k { cnt += 1; }
         }
     }

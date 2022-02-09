@@ -35,7 +35,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	p.n = io.ReadInt()
 	p.m = io.ReadInt()
 }

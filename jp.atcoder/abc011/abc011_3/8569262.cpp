@@ -27,7 +27,7 @@ def main():
             ans = 'NO'
         else:
             ans = 'YES'
-    
+
     print(ans)
 
 if __name__ == '__main__':

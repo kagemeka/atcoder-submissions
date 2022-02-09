@@ -2,7 +2,7 @@ class Reader:
 
   @staticmethod
   def readline():
-    import sys 
+    import sys
     return sys.stdin.buffer \
       .readline().rstrip()
 
@@ -11,24 +11,24 @@ class Reader:
   def read_int(cls):
     i = int(cls.readline())
     return i
-  
-  
-  @classmethod 
+
+
+  @classmethod
   def read_str(cls):
     s = cls.readline().decode()
     return s
-  
+
 
   @classmethod
   def readline_ints(cls):
     *ints, = map(
-      int, 
+      int,
       cls.readline().split(),
     )
     return ints
 
-  
-  @classmethod 
+
+  @classmethod
   def readline_strs(cls):
     s = cls.read_str().split()
     return s
@@ -36,7 +36,7 @@ class Reader:
 
   @staticmethod
   def read():
-    import sys 
+    import sys
     i = sys.stdin.buffer.read()
     return i
 
@@ -44,13 +44,13 @@ class Reader:
   @classmethod
   def read_ints(cls):
     *ints, = map(
-      int, 
+      int,
       cls.read().split(),
     )
     return ints
-  
 
-  @classmethod 
+
+  @classmethod
   def read_strs(cls):
     return cls.read() \
       .decode().split()
@@ -75,7 +75,7 @@ class ReaderNumpy(Reader):
     import numpy as np
     return np.fromstring(
       string=cls.read_str(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -86,7 +86,7 @@ class ReaderNumpy(Reader):
     return np.fromstring(
       string=cls.read() \
         .decode(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -105,32 +105,32 @@ class Solver:
     a = reader.readline_ints()
     m = reader.read_int()
     b = reader.readline_ints()
-    self.t = t 
+    self.t = t
     self.n = n
     self.a = a
-    self.m = m 
-    self.b = b 
+    self.m = m
+    self.b = b
 
 
   def __solve(self):
-    t = self.t 
-    n = self.n 
+    t = self.t
+    n = self.n
     a = self.a
-    m = self.m 
-    b = self.b 
-    
+    m = self.m
+    b = self.b
+
     i = 0
     for j in b:
       while i<n and j-a[i]>t:
         i += 1
-      if i == n or a[i] > j: 
+      if i == n or a[i] > j:
         print('no')
-        return 
+        return
       i += 1
-    
+
     print('yes')
 
-  
+
   def run(self):
     self.__prepare()
     self.__solve()

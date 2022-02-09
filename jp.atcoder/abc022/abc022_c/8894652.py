@@ -26,7 +26,7 @@ def main():
         return -1
     else:
         return int(ans)
-        
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

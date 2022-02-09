@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -58,15 +58,15 @@ func (
 
 
 type Problem struct {
-	n, k int 
-	items Items 
+	n, k int
+	items Items
 }
 
 
 func (
 	p *Problem,
 ) Prepare() {
-	var n, k int 
+	var n, k int
 	fmt.Scan(&n, &k)
 	items := make(Items, n)
 	for i := 0; i < n; i++ {
@@ -74,10 +74,10 @@ func (
 		fmt.Scan(&x.W, &x.P)
 		items[i] = x
 	}
-	p.n = n 
-	p.k = k 
+	p.n = n
+	p.k = k
 	p.items = items
-}	
+}
 
 
 func (
@@ -93,15 +93,15 @@ func (
 ) Possible(
 	v float64,
 ) bool {
-	n := p.n 
+	n := p.n
 	items := make(Items, n)
 	copy(items, p.items)
 	for i := 0; i < n; i++ {
-		items[i].P -= v 
+		items[i].P -= v
 	}
 	sort.Sort(items)
-	k := p.k 
-	var s float64 
+	k := p.k
+	var s float64
 	for i := 0; i < k; i++ {
 		s += items[i].S()
 	}
@@ -119,10 +119,10 @@ func (
 		if p.Possible(v) {
 			lo = v
 		} else {
-			hi = v 
+			hi = v
 		}
 	}
-	return lo	
+	return lo
 }
 
 

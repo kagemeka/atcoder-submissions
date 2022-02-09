@@ -1,7 +1,7 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 
@@ -14,13 +14,13 @@ def solve(xy: np.ndarray) -> typing.NoReturn:
     eps = 1e-7
     deg = np.hstack((deg, deg + 360))
     k = 0
-    mx = 0  
+    mx = 0
     for i in range(n - 1):
       while k < i + n - 1 and deg[k + 1] - deg[i] < 180 + eps:
         k += 1
       mx = max(mx, deg[k] - deg[i])
-    return mx       
-      
+    return mx
+
   for j in range(n):
     cx, cy = xy[j]
     px, py = xy[np.arange(n) != j].T

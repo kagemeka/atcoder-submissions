@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 
 
 def rotate90(
@@ -16,4 +16,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-   

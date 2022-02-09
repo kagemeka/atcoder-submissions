@@ -15,7 +15,7 @@ def main():
     while stack:
         v, visited = stack.pop()
         visited ^= 2 ** v
-        if not visited ^ ramain: 
+        if not visited ^ ramain:
             cnt += 1
             continue
         for u in graph[v]:

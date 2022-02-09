@@ -34,7 +34,7 @@ def optimize(board, moves):
                     situation[nxt_board] = res
     results.sort()
     return results[0] if p == 2 else results[-1]
-    
+
 def main():
     board = tuple((0, 0, 0) for _ in range(3))
     res = optimize(board, 0)

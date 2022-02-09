@@ -8,9 +8,9 @@ def main():
         res = query_range
     #else:
         #res = query_range[:k] + query_range[-k:]
-    
+
     for i in res:
         print(i)
-    
+
 if __name__ == "__main__":
     main()

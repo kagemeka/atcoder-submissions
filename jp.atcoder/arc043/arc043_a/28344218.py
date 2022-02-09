@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -6,7 +6,7 @@ def main() -> typing.NoReturn:
     arr = [int(input()) for _ in range(n)]
 
     d = max(arr) - min(arr)
-    
+
     if d == 0:
         if b != 0:
             print(-1)
@@ -22,4 +22,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-    

@@ -1,11 +1,11 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     n, avg = map(int, input().split())
     a = list(map(int, input().split()))
     k = n * avg
-    
+
     dp = [[0] * (k + 1) for _ in range(n + 1)]
     dp[0][0] = 1
     for x in a:

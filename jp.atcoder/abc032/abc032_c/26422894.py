@@ -1,7 +1,7 @@
-import typing 
+import typing
 import sys
-import numpy as np 
-import numba as nb 
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:], nb.i8), cache=True)
@@ -24,7 +24,7 @@ def solve(s: np.ndarray, k: int) -> typing.NoReturn:
       l += 1
     mx = max(mx, r - l + 1)
   print(mx)
-    
+
 
 def main() -> typing.NoReturn:
   n, k = map(int, input().split())

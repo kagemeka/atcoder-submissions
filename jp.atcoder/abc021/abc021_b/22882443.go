@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -17,7 +17,7 @@ type Message struct {
 type Problem struct {
 	io *IO
 	msg Message
-	n, a, b, k int 
+	n, a, b, k int
 	c []int
 }
 
@@ -46,7 +46,7 @@ func (
 	for i := 0; i < k; i++ {
 		c[i] = io.ReadInt() - 1
 	}
-	p.k, p.c = k, c 
+	p.k, p.c = k, c
 }
 
 

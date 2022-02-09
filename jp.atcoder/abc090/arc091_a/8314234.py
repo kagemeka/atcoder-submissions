@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-06 21:30:22(JST)
 import sys
 # import collections
@@ -21,7 +21,7 @@ def main():
         ans = n - 2
     else:
         ans = (n - 2) * (m - 2)
-    
+
     print(ans)
 
 if __name__ == "__main__":

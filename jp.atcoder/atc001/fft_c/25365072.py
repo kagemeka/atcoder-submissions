@@ -1,8 +1,8 @@
-import typing 
+import typing
 import sys
-import numpy as np 
+import numpy as np
 import scipy
-from scipy import signal 
+from scipy import signal
 
 
 def solve(

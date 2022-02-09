@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 
 I = np.array(sys.stdin.read().split())
 R, C, K = I[:3].astype(np.int64)
@@ -22,7 +22,7 @@ def main():
         np.minimum(res[:, y - 1] + 1, res[:, y], out=res[:, y])
     for y in range(C, 0, -1):
         np.minimum(res[:, y + 1] + 1, res[:, y], out=res[:, y])
-    
+
     return np.count_nonzero(res >= K - 1)
 
 if __name__ == '__main__':

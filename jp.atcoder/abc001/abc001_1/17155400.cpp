@@ -7,7 +7,7 @@ using namespace std;
 namespace AtCoder {
   namespace ABC001 {
     void a() {
-      int a, b; cin >> a >> b; 
+      int a, b; cin >> a >> b;
       cout << a-b << '\n';
     }
     void b() {
@@ -37,5 +37,5 @@ int main() {
 
 
   return 0;
-  
+
 }

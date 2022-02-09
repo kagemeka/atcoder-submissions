@@ -1,12 +1,12 @@
-import typing 
+import typing
 
 
 
 def main() -> typing.NoReturn:
   m = int(input())
-  
+
   if m < 100:
-    vv = 0 
+    vv = 0
   elif 100 <= m <= 5_000:
     vv = m // 100
   elif 6_000 <= m <= 30_000:

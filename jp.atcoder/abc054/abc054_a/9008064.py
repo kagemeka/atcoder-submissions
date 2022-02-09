@@ -14,7 +14,7 @@ def main():
         return 'Alice'
     else:
         return 'Bob'
-    
+
 
 if __name__ == '__main__':
     ans = main()

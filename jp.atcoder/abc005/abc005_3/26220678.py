@@ -1,23 +1,23 @@
-import typing 
-import sys 
+import typing
+import sys
 
 
 def solve(
-  t: int, 
+  t: int,
   a: typing.List[int],
   b: typing.List[int],
 ) -> typing.NoReturn:
   n, m = len(a), len(b)
 
-  i = 0 
+  i = 0
   for x in b:
     while i < n and a[i] < x - t: i += 1
     if i == n or a[i] > x:
       print('no')
       return
-    i += 1 
+    i += 1
   print('yes')
-    
+
 
 
 def main() -> typing.NoReturn:

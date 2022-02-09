@@ -24,7 +24,7 @@ int main() {
     }
     res = nxt;
   }
-  string ans = (res.find(0) != res.end()) ? "Found" : "Nothing"; 
+  string ans = (res.find(0) != res.end()) ? "Found" : "Nothing";
   cout << ans << '\n';
   return 0;
 }

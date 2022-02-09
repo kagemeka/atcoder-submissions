@@ -1,5 +1,5 @@
-import sys 
-import numpy as np 
+import sys
+import numpy as np
 
 def A():
   x, y = map(int, sys.stdin.readline().split())
@@ -22,15 +22,15 @@ def C():
   for p in b:
     if i == n:
       print('no')
-      return 
+      return
     while p-a[i] > t:
       i += 1
       if i == n:
         print('no')
-        return 
+        return
     if a[i] > p:
       print('no')
-      return 
+      return
     i += 1
   print('yes')
 
@@ -46,7 +46,7 @@ def D():
       max_del[y][x] = np.amax(
         s[y:n+1, x:n+1] - s[0:n-y+1, x:n+1] - s[y:n+1, 0:n-x+1] + s[0:n-y+1, 0:n-x+1]
       )
-  
+
   res = np.arange(n**2+1)[:, None]
   i = np.arange(1, n+1)
   res = max_del[i, np.minimum(res//i, n)].max(axis=1)
@@ -56,7 +56,7 @@ def D():
 
 
 if __name__ == "__main__":
-  # A() 
+  # A()
   # B()
   # C()
   D()

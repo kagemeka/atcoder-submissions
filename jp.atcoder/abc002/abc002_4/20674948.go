@@ -29,7 +29,7 @@ func (
 		os.Stdin,
 	)
 	scanner.Buffer(
-		[]byte{}, 
+		[]byte{},
 		MaxBuffer,
 	)
 	scanner.Split(
@@ -85,7 +85,7 @@ func (
 func (
 	io *IO,
 ) ScanInt() int {
-	s := io.Scan()	
+	s := io.Scan()
 	v, _ := strconv.Atoi(s)
 	return v
 }
@@ -94,7 +94,7 @@ func (
 type Solver interface{
 	Init()
 	Prepare()
-	Solve()	
+	Solve()
 }
 
 
@@ -105,7 +105,7 @@ func Run(s Solver) {
 }
 
 
-type Int int 
+type Int int
 
 func (
 	i *Int,
@@ -118,7 +118,7 @@ func (
 		cnt += n & 1
 		n >>= 1
 	}
-	return 
+	return
 }
 
 
@@ -154,7 +154,7 @@ func (
 func (
 	p *ABC002D,
 ) Prepare() {
-	io := p.io 
+	io := p.io
 	n := io.ScanInt()
 	m := io.ScanInt()
 
@@ -165,9 +165,9 @@ func (
 	for i := 0; i < n; i++ {
 		relations[i] |= 1 << i
 	}
-	for 
-	i := 0; 
-	i < m; 
+	for
+	i := 0;
+	i < m;
 	i++ {
 		a := io.ScanInt() - 1
 		b := io.ScanInt() - 1
@@ -182,23 +182,23 @@ func (
 func (
 	p *ABC002D,
 ) Solve() {
-	n := p.n 
+	n := p.n
 	relations := p.relations
 	cnt := Int(0)
 
 	for
-	s := Int(0); 
-	s < 1<<n; 
+	s := Int(0);
+	s < 1<<n;
 	s++ {
 		t := s
 		for i := 0; i < n; i++ {
 			if ^s >> i & 1 == 1 {
-				continue 
+				continue
 			}
 			t &= relations[i]
 		}
 		if t != s {
-			continue 
+			continue
 		}
 		cnt = MaxInt(
 			cnt,

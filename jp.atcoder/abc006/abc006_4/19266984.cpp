@@ -4,7 +4,7 @@ using namespace std;
 
 template<typename T>
 vector<T>
-longest_increasing_seq( 
+longest_increasing_seq(
   const vector<T>& a
 ) {
   vector<T> lis(
@@ -37,9 +37,9 @@ void prepare() {
 
 
 void solve() {
-  auto lis = 
+  auto lis =
     longest_increasing_seq(c);
-  int inf = 
+  int inf =
     numeric_limits<int>::max();
   int i = lower_bound(
     lis.begin(),

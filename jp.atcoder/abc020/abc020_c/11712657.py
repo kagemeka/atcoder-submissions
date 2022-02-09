@@ -31,9 +31,9 @@ def main():
     lo = 0; hi = t
     while lo + 1 < hi:
         x = (lo + hi) // 2
-        if dijkstra(x): 
+        if dijkstra(x):
             lo = x
-        else: 
+        else:
             hi = x
     print(lo)
 

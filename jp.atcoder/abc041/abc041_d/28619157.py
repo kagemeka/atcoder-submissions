@@ -1,9 +1,9 @@
-import typing 
+import typing
 
 
 def main() -> None:
     n, m = map(int, input().split())
-    
+
     in_deg = [0] * n
     before = [0] * n
     for _ in range(m):
@@ -12,12 +12,12 @@ def main() -> None:
         y -= 1
         in_deg[y] += 1
         before[y] |= 1 << x
-    
+
     dp = [0] * (1 << n)
     for i in range(n):
         if in_deg[i] == 0:
             dp[1 << i] = 1
-    
+
     for s in range(1 << n):
         for i in range(n):
             if ~s >> i & 1:
@@ -28,4 +28,3 @@ def main() -> None:
     print(dp[-1])
 
 main()
-                

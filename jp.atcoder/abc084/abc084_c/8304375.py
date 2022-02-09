@@ -13,12 +13,12 @@ def main():
     for i in range(n-1):
         ci, si, fi = (int(x) for x in sys.stdin.readline().split())
         c.append(ci); s.append(si); f.append(fi)
-    
+
     x = []
     for i in range(n-1):
         xi = 0
         for j in range(i, n-1):
-            if s[j] >= xi: 
+            if s[j] >= xi:
                 xi = s[j]
                 xi += c[j]
             else:

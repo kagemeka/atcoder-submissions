@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -36,7 +36,7 @@ func (
 	n := p.n
 	base := 60
 	s := n % base
-	n /= base 
+	n /= base
 	m := n % base
 	h := n / base
 	f := fmt.Sprintf(

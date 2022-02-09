@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 
 
 class CompressArray():
@@ -44,7 +44,7 @@ def sa_doubling_countsort(a: typing.List[int]) -> typing.List[int]:
 
 
 def lcp_array_kasai(
-    a: typing.List[int], 
+    a: typing.List[int],
     sa: typing.List[int],
 ) -> typing.List[int]:
     n = len(a)

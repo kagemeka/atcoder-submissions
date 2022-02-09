@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 from scipy import signal
 
@@ -26,8 +26,8 @@ class ModConvolve():
     h = (h4 << N * 2) + (h3 << N) + h2
     h = (h % mod << N * 2) + (h1 << N) + h0
     return h % mod
-    
-  
+
+
   def __conv(
     self,
     f: np.ndarray,
@@ -39,10 +39,10 @@ class ModConvolve():
 
   def __init__(
     self,
-    mod: int, 
+    mod: int,
   ) -> typing.NoReturn:
     self.__mod = mod
-  
+
   def __conv(
     self,
     f: np.ndarray,
@@ -54,13 +54,13 @@ class ModConvolve():
 
   def __init__(
     self,
-    mod: int, 
+    mod: int,
   ) -> typing.NoReturn:
     self.__mod = mod
 
 
 mod = 998_244_353
-  
+
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())
@@ -73,7 +73,7 @@ def main() -> typing.NoReturn:
     dtype=np.int64,
   )
   convolve = ModConvolve(mod)
-  
+
   print(*convolve(a, b))
 
 

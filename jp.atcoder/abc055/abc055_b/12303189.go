@@ -41,7 +41,7 @@ func choose(n, r int) int {
 }
 
 func main() {
-  var n int 
+  var n int
   fmt.Scan(&n)
   fmt.Println(fac[n])
 }

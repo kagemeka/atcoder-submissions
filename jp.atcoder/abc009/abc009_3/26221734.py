@@ -1,6 +1,6 @@
-import typing 
-import heapq 
-import numpy as np 
+import typing
+import heapq
+import numpy as np
 import numba as nb
 
 
@@ -15,14 +15,14 @@ def solve(s: np.ndarray, k: int) -> typing.NoReturn:
       c = swap_cost[i] + swap_cost[j]
       if c > k: continue
       heapq.heappush(hq, (s[j], c, -j))
-    if not hq: continue 
+    if not hq: continue
     x, c, j = heapq.heappop(hq)
     j = -j
     k -= c
     swap_cost[i] = swap_cost[j] = 0
     s[i], s[j] = s[j], s[i]
   return s
-      
+
 
 def main() -> typing.NoReturn:
   n, k = map(int, input().split())

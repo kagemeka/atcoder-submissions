@@ -9,7 +9,7 @@ x = I[2:2+n]
 y = I[2+n:]
 
 def main():
-    sx = np.cumsum(x) % MOD 
+    sx = np.cumsum(x) % MOD
     sy = np.cumsum(y) % MOD
 
     sdx = np.sum((sx[n-1] - sx[:n-1]) - x[:n-1] * ((n-1) - np.arange(n-1))) % MOD

@@ -8,7 +8,7 @@ def main():
     t = ' ' + s
     for l, r in lr:
         t = t[:l] + t[r:l-1:-1] + t[r+1:]
- 
+
     return t.lstrip()
 
 if __name__ == '__main__':

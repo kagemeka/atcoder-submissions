@@ -30,7 +30,7 @@ func main() {
   var k int
   for i := 0; i < 3; i++ {
     fmt.Scan(&a[i])
-  } 
+  }
   fmt.Scan(&k)
   sort.Ints(a)
   res := a[0] + a[1] + a[2] * pow(2, k)

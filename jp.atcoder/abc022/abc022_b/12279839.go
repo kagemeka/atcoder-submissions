@@ -9,7 +9,7 @@ func main() {
   fmt.Scan(&n)
   res := make(map[int]int)
   for i := 0; i < n; i++ {
-    var a int 
+    var a int
     fmt.Scan(&a)
     res[a]++
   }

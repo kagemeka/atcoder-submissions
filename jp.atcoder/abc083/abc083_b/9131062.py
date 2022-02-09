@@ -9,7 +9,7 @@ def main():
         if a <= s <= b:
             res += i
     return res
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

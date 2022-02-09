@@ -1,5 +1,5 @@
-import typing 
-import collections 
+import typing
+import collections
 
 def main() -> typing.NoReturn:
     n = int(input())
@@ -11,7 +11,7 @@ def main() -> typing.NoReturn:
     for k, c in ct.items():
         if cd[k] >= c: continue
         print('NO')
-        return 
+        return
     print('YES')
 
 main()

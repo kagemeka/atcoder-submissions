@@ -11,7 +11,7 @@ def main():
             lim = x - lim
         else:
             lim = x - c
-            
+
     return cnt
 
 if __name__ == '__main__':

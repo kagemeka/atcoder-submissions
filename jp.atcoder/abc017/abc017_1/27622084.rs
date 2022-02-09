@@ -27,7 +27,7 @@ fn main() {
     let out = &mut std::io::BufWriter::new(stdout.lock());
 
     let mut tot: usize = 0;
-    for _ in 0..3 { 
+    for _ in 0..3 {
         let s: usize = sc.scan();
         let e: usize = sc.scan();
         tot += s / 10 * e;

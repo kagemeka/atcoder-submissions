@@ -15,7 +15,7 @@ def main():
     while stack:
         v, visited = stack.pop()
         visited.add(v)
-        if len(visited) == n: 
+        if len(visited) == n:
             cnt += 1
             continue
         for u in graph[v]:

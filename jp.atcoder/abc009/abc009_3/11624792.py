@@ -20,7 +20,7 @@ def main(k):
         k *= -1; j *= -1
         s[i], s[j] = s[j], s[i]
         swapped[i] = swapped[j] = True
-        
+
     print(''.join(s))
 
 if __name__ ==  '__main__':

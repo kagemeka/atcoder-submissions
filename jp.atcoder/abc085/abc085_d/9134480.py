@@ -20,7 +20,7 @@ def main():
     m = len(total)
     if needed_cnt <= m:
         return needed_cnt
-    
+
     remain = H - total[-1]
     return m + (remain + a_max - 1) // a_max
 

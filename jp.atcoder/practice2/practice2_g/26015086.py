@@ -1,11 +1,11 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 import scipy.sparse
 
 
 def solve(n: int, ab: np.ndarray) -> typing.NoReturn:
-  a, b = ab.T 
+  a, b = ab.T
   m = a.size
   c = np.full(m, 1, np.int64)
   g = scipy.sparse.csr_matrix(

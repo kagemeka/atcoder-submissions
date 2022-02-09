@@ -6,7 +6,7 @@ from dataclasses import (
 )
 
 import numpy as np
-import sys 
+import sys
 
 from typing import (
   List,
@@ -33,26 +33,26 @@ class Reader:
   def read_int(cls) -> int:
     ln = cls.readline()
     return int(ln)
-  
-  
-  @classmethod 
+
+
+  @classmethod
   def read_str(cls) -> str:
     ln = cls.readline()
     return ln.decode()
-  
+
 
   @classmethod
   def readline_ints(
     cls,
   ) -> List[int]:
     *ints, = map(
-      int, 
+      int,
       cls.readline().split(),
     )
     return ints
 
-  
-  @classmethod 
+
+  @classmethod
   def readline_strs(
     cls,
   ) -> List[str]:
@@ -75,13 +75,13 @@ class Reader:
     cls,
   ) -> List[int]:
     *ints, = map(
-      int, 
+      int,
       cls.read().split(),
     )
     return ints
-  
 
-  @classmethod 
+
+  @classmethod
   def read_strs(
     cls,
   ) -> List[str]:
@@ -115,7 +115,7 @@ class NumpyReader(Reader):
   ) -> np.array:
     return np.fromstring(
       string=cls.read_str(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -127,7 +127,7 @@ class NumpyReader(Reader):
     return np.fromstring(
       string=cls.read() \
         .decode(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -153,7 +153,7 @@ class Solver(ABC):
       **kwargs,
     )
 
-  
+
   def run(self):
     self.prepare()
     self.solve()
@@ -164,16 +164,16 @@ class Solver(ABC):
     ...
     self.ready = True
 
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     assert self.ready
     ...
 
 
 
-from enum import Enum 
+from enum import Enum
 from dataclasses import (
   dataclass,
   astuple,
@@ -183,7 +183,7 @@ from dataclasses import (
 )
 
 from typing import (
-  NamedTuple, 
+  NamedTuple,
   Iterable,
   Union,
   Dict,
@@ -210,7 +210,7 @@ class Vector(ABC):
 
   def __iter__(self):
     return iter(astuple(self))
-  
+
 
   def clone(self):
     return self.__class__(
@@ -232,7 +232,7 @@ class Vector(ABC):
       other = cls(*other)
     return other
 
-  
+
   def __iadd__(self, other):
     other = self.vectorize(
       other,
@@ -241,31 +241,31 @@ class Vector(ABC):
       f = f.name
       a = getattr(self, f)
       b = getattr(other, f)
-      a += b 
+      a += b
       setattr(self, f, a)
     return self
 
-  
+
   def __add__(self, other):
     res = self.clone()
-    res += other 
-    return res 
-  
+    res += other
+    return res
+
 
   def __radd__(self, other):
     return self + other
-  
-  
+
+
   def __neg__(self):
     return self.__class__(*(
       -getattr(self, f.name)
       for f in fields(self)
     ))
 
-  
+
   def __sub__(self, other):
     res = self.clone()
-    res += -other 
+    res += -other
     return res
 
 
@@ -284,59 +284,23 @@ class Vector(ABC):
       f = f.name
       a = getattr(self, f)
       b = getattr(other, f)
-      a *= b 
+      a *= b
       setattr(self, f, a)
-    return self 
-  
+    return self
+
 
   def __mul__(self, other):
     res = self.clone()
-    res *= other 
-    return res 
-  
+    res *= other
+    return res
+
 
   def __rmul__(self, other):
-    return self * other 
-  
+    return self * other
+
 
   def __itruediv__(
-    self, 
-    other,
-  ):
-    other = self.vectorize(
-      other,
-    )
-    for f in fields(self):
-      f = f.name 
-      a = getattr(self, f)
-      b = getattr(other, f)
-      a /= b 
-      setattr(self, f, a)
-    return self 
-  
-
-  def __truediv__(
-    self, 
-    other,
-  ):
-    res = self.clone()
-    res /= other 
-    return res 
-  
-
-  def __rtruediv__(
-    self, 
-    other,
-  ):
-    
-    other = self.vectorize(
-      other,
-    )
-    return other / self
-
-
-  def __ifloordiv__(
-    self, 
+    self,
     other,
   ):
     other = self.vectorize(
@@ -346,62 +310,98 @@ class Vector(ABC):
       f = f.name
       a = getattr(self, f)
       b = getattr(other, f)
-      a //= b 
+      a /= b
       setattr(self, f, a)
-    return self 
+    return self
 
 
-  def __floordiv__(
-    self, 
+  def __truediv__(
+    self,
     other,
   ):
     res = self.clone()
-    res //= other 
-    return res 
-  
+    res /= other
+    return res
+
+
+  def __rtruediv__(
+    self,
+    other,
+  ):
+
+    other = self.vectorize(
+      other,
+    )
+    return other / self
+
+
+  def __ifloordiv__(
+    self,
+    other,
+  ):
+    other = self.vectorize(
+      other,
+    )
+    for f in fields(self):
+      f = f.name
+      a = getattr(self, f)
+      b = getattr(other, f)
+      a //= b
+      setattr(self, f, a)
+    return self
+
+
+  def __floordiv__(
+    self,
+    other,
+  ):
+    res = self.clone()
+    res //= other
+    return res
+
 
   def __rfloordiv__(
-    self, 
+    self,
     other,
   ):
     other = self.vectorize(
       other,
     )
     return other // self
-  
+
 
   def __matmul__(self, other):
     assert (
-      other.__class__ 
+      other.__class__
       == self.__class__
     )
-    
+
     res = 0
     for f in fields(self):
-      f = f.name 
+      f = f.name
       a = getattr(self, f)
       b = getattr(other, f)
-      res += a * b 
-    return res 
+      res += a * b
+    return res
 
 
   def scale(self, ratio):
     return ratio * self
 
-  
+
   @property
   def norm(self):
     s = sum(
       self.asdict().values()
     )
     return sqrt(s)
-    
+
 
   def dot(self, other):
     return self @ other
 
 
-  @classmethod 
+  @classmethod
   def struct(cls, n):
     vector = make_dataclass(
       cls_name='vector',
@@ -413,7 +413,7 @@ class Vector(ABC):
     )
     return vector
 
-  
+
   def asdict(self):
     return asdict(self)
 
@@ -425,21 +425,21 @@ class Vector2D(Vector):
 
   def cross_prod(self, other):
     return (
-      self.x * other.y 
+      self.x * other.y
       - self.y * other.x
     )
-  
 
 
-@dataclass 
+
+@dataclass
 class Vector3D(Vector):
-  x: Numeric = 0 
-  y: Numeric = 0 
+  x: Numeric = 0
+  y: Numeric = 0
   z: Numeric = 0
 
 
 
-@dataclass 
+@dataclass
 class Triangle:
   p0: Vector2D
   p1: Vector2D
@@ -447,13 +447,13 @@ class Triangle:
 
 
   def area(self, sign=True):
-    p1 = self.p1 - self.p0 
+    p1 = self.p1 - self.p0
     p2 = self.p2 - self.p0
     s = p1.cross_prod(p2) / 2
     return (
       s if sign else abs(s)
     )
-     
+
 
 
 class ABC002C(
@@ -476,12 +476,12 @@ class ABC002C(
 
   def solve(self):
     assert self.ready
-    triangle = self.triangle 
+    triangle = self.triangle
     s = triangle.area(
       sign=False,
     )
     print(s)
-    
+
 
 
 def main():

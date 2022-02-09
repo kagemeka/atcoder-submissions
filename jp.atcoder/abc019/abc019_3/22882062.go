@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -12,7 +12,7 @@ import (
 type Problem struct {
 	io *IO
 	n int
-	a []int 
+	a []int
 }
 
 
@@ -27,20 +27,20 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	n := io.ReadInt()
 	a := make([]int, n)
 	for i := 0; i < n; i++ {
 		a[i] = io.ReadInt()
 	}
-	p.n, p.a = n, a 
+	p.n, p.a = n, a
 }
 
 
 func (
 	p *Problem,
 ) Solve() {
-	a := p.a 
+	a := p.a
 	seeds := make(map[int]bool)
 	for _, x := range a {
 		x = p.findSeed(x)

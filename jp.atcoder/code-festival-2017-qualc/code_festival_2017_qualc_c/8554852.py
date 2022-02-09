@@ -11,7 +11,7 @@ import collections
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 def is_palindrome_in(s):
     s = s.replace('x', '')
@@ -21,13 +21,13 @@ def is_palindrome_in(s):
 
 def main():
     s = sys.stdin.readline().rstrip()
-    
+
     if not is_palindrome_in(s):
         print(-1)
         sys.exit()
-    
+
     s = collections.deque(s)
-    
+
     count = 0
     while len(s) > 1:
         if s[0] == 'x':

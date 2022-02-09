@@ -1,6 +1,6 @@
 import typing
-import sys 
-import numpy as np 
+import sys
+import numpy as np
 
 
 
@@ -15,18 +15,18 @@ def f(n: int) -> int:
   p = 1
   while n:
     n, r = divmod(n, 10)
-    p *= r 
+    p *= r
   return p
 
 
 def solve(n: int, b: int) -> typing.NoReturn:
   cands = enumerate_fx() + b
-  
-  cnt = 0 
+
+  cnt = 0
   for x in cands.tolist():
     cnt += 1 <= x <= n and x - f(x) == b
   print(cnt)
-    
+
 
 def main() -> typing.NoReturn:
   n, b = map(int, input().split())

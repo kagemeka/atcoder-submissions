@@ -22,6 +22,6 @@ def main():
 
     print(ans_red)
     print(ans_blue)
-        
+
 if __name__ == '__main__':
     main()

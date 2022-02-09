@@ -102,7 +102,7 @@ void c() {
   sort(r.begin(), r.end(), greater<int>());
   double res = 0;
   for (int i = k-1; i > -1; i--) {res = (res + r[i])/2;}
-  cout << setprecision(16) << res << '\n';  
+  cout << setprecision(16) << res << '\n';
 }
 
 void d() {
@@ -213,7 +213,7 @@ namespace ABC006 {
 void a() {
   int n; cin >> n;
   if (n%3==0) {cout << "YES";} else {cout << "NO";}
-  cout << '\n'; 
+  cout << '\n';
 }
 }
 
@@ -230,5 +230,5 @@ int main() {
 
 
   return 0;
-  
+
 }

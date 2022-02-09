@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 # 3
@@ -18,20 +18,20 @@ def calc_wind_power(dist: int) -> typing.Union[int, str]:
   elif dist < 1_707: return 10
   elif dist < 1_959: return 11
   else: return 12
- 
+
 
 # 22.5
 def calc_wind_direction(degree: int) -> str:
   dir = [
-    'N', 'NNE', 'NE', 
-    'ENE', 'E', 'ESE', 
+    'N', 'NNE', 'NE',
+    'ENE', 'E', 'ESE',
     'SE', 'SSE', 'S', 'SSW', 'SW',
     'WSW', 'W', 'WNW',
     'NW', 'NNW',
-  ] 
+  ]
   i = (degree * 10 + 1_125) % 3_6000 // 2_250
   return dir[i]
-  
+
 
 
 

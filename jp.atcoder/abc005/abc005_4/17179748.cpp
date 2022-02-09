@@ -102,7 +102,7 @@ void c() {
   sort(r.begin(), r.end(), greater<int>());
   double res = 0;
   for (int i = k-1; i > -1; i--) {res = (res + r[i])/2;}
-  cout << setprecision(16) << res << '\n';  
+  cout << setprecision(16) << res << '\n';
 }
 
 void d() {
@@ -223,5 +223,5 @@ int main() {
 
 
   return 0;
-  
+
 }

@@ -9,14 +9,14 @@ def dist(u, v):
 
 def main():
     n = int(sys.stdin.readline().rstrip())
-    
+
     # root = 1 とする
     diameter = 0
     for i in range(2, n+1):
         d = dist(1, i)
         if d > diameter:
             v, diameter = i, d
- 
+
     for i in range(2, n+1):
         if i != v:
             diameter = max(diameter, dist(v, i))

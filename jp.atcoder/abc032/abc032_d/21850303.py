@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -88,9 +88,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -123,8 +123,8 @@ class Problem(
       items,
       dtype=int,
     ).reshape(n, 2)
-    self.n = n 
-    self.w = w 
+    self.n = n
+    self.w = w
     self.items = items
     self.k = 1 << 18
 
@@ -135,7 +135,7 @@ class Problem(
       f'self.search{ptn}',
     )
     print(search())
-  
+
 
   def search2(self):
     items = self.items
@@ -158,13 +158,13 @@ class Problem(
     s = np.array([])
     print(s.max())
     return s.max()
-  
+
 
   def support(
     self,
     items: np.ndarray,
   ):
-    n = items.shape[0] 
+    n = items.shape[0]
     s = np.arange(1 << n)
     i = np.arange(n)
     s = s[:, None] >> i & 1
@@ -178,11 +178,11 @@ class Problem(
       axis=0,
       out=a,
     )
-    return a 
-    
+    return a
+
 
   def search0(self):
-    items = self.items 
+    items = self.items
     w = self.w
     s = items.sum(axis=0)
     if s[1] <= w:
@@ -192,23 +192,23 @@ class Problem(
       dtype=int,
     )
     for item in items:
-      i, j = item 
+      i, j = item
       np.maximum(
         dp[j:],
         dp[:-j] + i,
         out=dp[j:],
       )
     return dp[w]
-  
+
 
   def search1(self):
-    items = self.items 
+    items = self.items
     w = self.w
     dp = np.full(
       self.K,
       np.inf,
     )
-    dp[0] = 0 
+    dp[0] = 0
     for item in items:
       i, j = item
       np.minimum(
@@ -225,12 +225,12 @@ class Problem(
       w,
       'right',
     ) - 1
-    
-    
+
+
   def check_pattern(
     self,
   ) -> int:
-    items = self.items 
+    items = self.items
     w = items[:, 1]
     if (w < self.M).all():
       return 0
@@ -238,7 +238,7 @@ class Problem(
     if (v < self.M).all():
       return 1
     return 2
-    
+
 
 
 def main():

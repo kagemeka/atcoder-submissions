@@ -12,7 +12,7 @@ def main():
     for a, b in ab:
         res[a] += 1
         res[b+1] -= 1
-    
+
     ans = max(accumulate(res))
     print(ans)
 

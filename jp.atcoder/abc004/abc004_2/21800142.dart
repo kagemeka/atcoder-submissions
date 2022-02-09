@@ -70,7 +70,7 @@ abstract class Solver {
 
 
 
-mixin Runner 
+mixin Runner
 implements Solver {
 
 
@@ -101,7 +101,7 @@ with Runner {
     ) {
       this.i = i;
       readLine();
-    } 
+    }
   }
 
 
@@ -119,7 +119,7 @@ with Runner {
 
   void solve() {
     for (
-      var row in c.reversed 
+      var row in c.reversed
     ) {
       writeIter(
         row.reversed,

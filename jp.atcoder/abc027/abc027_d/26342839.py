@@ -1,6 +1,6 @@
-import typing 
-import numpy as np 
-import numba as nb 
+import typing
+import numpy as np
+import numba as nb
 
 
 
@@ -25,7 +25,7 @@ def solve(s: np.ndarray) -> typing.NoReturn:
       j += 1
       continue
     h += x * s[i]
-    
+
   print(h)
 
 

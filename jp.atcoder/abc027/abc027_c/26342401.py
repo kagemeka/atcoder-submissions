@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -12,7 +12,7 @@ def solve(n: int) -> typing.NoReturn:
     turn ^= 1
   ans = 'Takahashi' if turn == 0 else 'Aoki'
   print(ans)
-    
+
 
 def main() -> typing.NoReturn:
   n = int(input())

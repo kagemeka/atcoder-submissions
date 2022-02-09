@@ -30,7 +30,7 @@ def main():
         ans = res_l + c + res_r + ')' * count
     print(ans)
     # s = '.' + s
-    
+
     # # 左右から一度ずつチェック
     # # 左から
     # count = 0
@@ -51,7 +51,7 @@ def main():
     #                 count -= 1
     #             else:
     #                 break
-    
+
     # s = s.replace('.', '') + '.'
     # if count >= 1:
     #     s = '(' * count + s
@@ -76,14 +76,14 @@ def main():
     #             else:
     #                 break
     #     print(count)
-    
+
     # s = s.replace('.', '')
     # if count >= 1:
     #     s = s + ')' * count
 
     # print(s)
 
-            
+
 
 if __name__ == "__main__":
     main()

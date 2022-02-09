@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 # import numpy as np
 
@@ -8,8 +8,8 @@ import sys
 #   def __butterfly(
 #     self,
 #   ) -> typing.NoReturn:
-#     n = self.__n 
-#     a = self.__a 
+#     n = self.__n
+#     a = self.__a
 #     b = 1
 #     sign= -1 + 2 * self.__inv
 #     while b < n:
@@ -19,8 +19,8 @@ import sys
 #       s, t = a[k + j], a[k + j + b] * w
 #       a[k + j], a[k + j + b] = s + t, s - t
 #       b <<= 1
-    
-    
+
+
 #   def __call__(
 #     self,
 #     a: np.ndarray,
@@ -31,16 +31,16 @@ import sys
 #     self.__n, self.__h = n, h
 #     self.__reverse_bits()
 #     self.__butterfly()
-#     a = self.__a 
+#     a = self.__a
 #     if self.__inv: a /= n
-#     return a 
+#     return a
 
 
 #   def __init__(
 #     self,
 #     inverse: bool=False,
 #   ) -> typing.NoReturn:
-#     self.__inv = inverse 
+#     self.__inv = inverse
 
 
 #   def __reverse_bits(
@@ -100,9 +100,9 @@ def solve(
   fft(b)
   c = [a[i] * b[i] for i in range(m)]
   ifft(c)
-  c = [int(round(x.real)) for x in c]  
+  c = [int(round(x.real)) for x in c]
   print(*c[1:2 * n - 1], sep='\n')
- 
+
 
 
 def main() -> typing.NoReturn:

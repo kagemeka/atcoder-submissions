@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -9,7 +9,7 @@ import numba as nb
 def solve(n: int, a: int, b: int, c: int) -> typing.NoReturn:
   m = 10_000
 
-  mn = m 
+  mn = m
   for i in range(m):
     s0 = n - i * a
     if s0 < 0: break
@@ -20,7 +20,7 @@ def solve(n: int, a: int, b: int, c: int) -> typing.NoReturn:
       if r: continue
       mn = min(mn, i + j + k)
   print(mn)
-    
+
 
 def main() -> typing.NoReturn:
   n = int(input())

@@ -1,8 +1,8 @@
 import sys
-import numpy as np 
+import numpy as np
 
 n = int(sys.stdin.readline().rstrip())
-c, p = np.array(sys.stdin.read().split()).reshape(-1, 2).T 
+c, p = np.array(sys.stdin.read().split()).reshape(-1, 2).T
 p = p.astype(np.int64)
 
 def main():

@@ -13,12 +13,12 @@ def main():
     count = 0
     while still_can_be_divided:
         for i in range(n):
-            if numbers[i] % 2 == 0: 
+            if numbers[i] % 2 == 0:
                 numbers[i] //= 2
-            else: 
+            else:
                 still_can_be_divided = False
         if still_can_be_divided:
-            count += 1        
+            count += 1
 
     print(count)
 

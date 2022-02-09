@@ -12,15 +12,15 @@ def main():
 
     for a, b, c in abc:
         res[a:, b:] = np.minimum(res[a:, b:], res[:-a, :-b] + c)
-    
+
     ans = np.inf
     for i in range(1, min(sa//ma, sb//mb) + 1):
         ans = np.minimum(ans, res[ma * i, mb * i])
-    
+
     if ans == np.inf:
         return -1
     return int(ans)
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

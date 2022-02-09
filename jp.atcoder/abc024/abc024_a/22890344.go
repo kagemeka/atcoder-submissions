@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -26,7 +26,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	p.a = io.ReadInt()
 	p.b = io.ReadInt()
 	p.c = io.ReadInt()
@@ -39,12 +39,12 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	a, b, c := p.a, p.b, p.c 
-	k, s, t := p.k, p.s, p.t 
-	n := s + t 
+	a, b, c := p.a, p.b, p.c
+	k, s, t := p.k, p.s, p.t
+	n := s + t
 	tot := s * a + t * b
 	if n >= k {
-		tot -= c * n 
+		tot -= c * n
 	}
 	p.io.Write(tot)
 }

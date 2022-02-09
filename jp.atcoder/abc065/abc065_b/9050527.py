@@ -11,7 +11,7 @@ def main():
             return i
         if on in lightened:
             return -1
-        lightened.add(on) 
+        lightened.add(on)
 
 if __name__ == '__main__':
     ans = main()

@@ -14,7 +14,7 @@ def main():
     res += c[0]
     for v in c.values():
         res += (1 + v - 1) * (v - 1) // 2
-    
+
     return res
 
 if __name__ == '__main__':

@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import dataclasses
 sys.setrecursionlimit(1 << 20)
 
@@ -39,7 +39,7 @@ def lca_binary_lifting(
     for i in range(k - 1):
         for j in range(n):
             ancestor[i + 1][j] = ancestor[i][ancestor[i][j]]
-    
+
     def get(u: int, v: int) -> int:
         if depth[u] > depth[v]:
             u, v = v, u
@@ -78,7 +78,7 @@ def lca_tarjan_offline(
     uf = UnionFind(n)
     ancestor = [n] * n
     lca = [n] * len(query_pairs)
-    
+
     def dfs(u: int) -> None:
         visited[u] = True
         ancestor[u] = u
@@ -88,11 +88,11 @@ def lca_tarjan_offline(
             dfs(v)
             uf.unite(u, v)
             ancestor[uf.find(u)] = u
-        
+
         for v, query_id in queries[u]:
             if visited[v]:
                 lca[query_id] = ancestor[uf.find(v)]
-    
+
     dfs(root)
     return lca
 
@@ -138,13 +138,13 @@ def lca_euler_tour_rmq(
     first_idx = compute_first_index(tour)
     semigroup = Semigroup[typing.Tuple[int, int]](op=min)
     get_min = sparse_table(semigroup, [(depth[i], i) for i in tour])
-    
+
     def get_lca(u: int, v: int) -> int:
         left, right = first_idx[u], first_idx[v]
         if left > right:
             left, right = right, left
         return get_min(left, right + 1)[1]
-    
+
     return get_lca
 
 
@@ -173,7 +173,7 @@ def bit_length_table(n: int) -> list[int]:
     for i in range(1, n):
         length[i] = length[i >> 1] + 1
     return length
-    
+
 
 def sparse_table(
     semigroup: Semigroup[S],
@@ -189,14 +189,14 @@ def sparse_table(
         data.append(data[i].copy())
         for j in range(n - (1 << i)):
             data[i + 1][j] = semigroup.op(data[i][j], data[i][j + (1 << i)])
-    
+
     def get(left: int, right: int) -> S:
         assert 0 <= left < right <= n
         if right - left == 1:
             return data[0][left]
         k = bit_length[right - 1 - left] - 1
         return semigroup.op(data[k][left], data[k][right - (1 << k)])
-    
+
     return get
 
 
@@ -353,11 +353,11 @@ def main() -> None:
     edges = [tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(n - 1)]
     q = int(input())
     res = []
-    
+
     _, depth = tree_bfs(edges, 0)
     # get = lca_binary_lifting(edges, 0)
     get = lca_euler_tour_rmq(edges, 0)
-    
+
     def dist(u: int, v: int) -> int:
         return depth[u] + depth[v] - 2 * depth[get(u, v)]
 
@@ -366,16 +366,14 @@ def main() -> None:
         u -= 1
         v -= 1
         res.append(dist(u, v) + 1)
-    
+
     # queries = [tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(q)]
     # lca = lca_tarjan_offline(edges, 0, queries)
     # for i in range(q):
     #     u, v = queries[i]
     #     res.append(depth[u] + depth[v] - 2 * depth[lca[i]] + 1)
-        
-    
+
+
     print(*res, sep='\n')
 
 main()
-
-    

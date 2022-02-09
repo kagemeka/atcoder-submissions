@@ -1,6 +1,6 @@
 # 2019-11-25 16:19:29(JST)
 import sys
-import numpy as np 
+import numpy as np
 
 def main():
     H, W, K = map(int, sys.stdin.readline().split())
@@ -12,7 +12,7 @@ def main():
     for h, w in hw:
         vert[h] += 1
         horiz[w] += 1
-    
+
     cnt_vert = np.bincount(vert[1:], minlength=K+1)
     cnt_horiz = np.bincount(horiz[1:], minlength=K+1)
 

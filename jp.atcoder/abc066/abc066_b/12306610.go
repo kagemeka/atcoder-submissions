@@ -13,7 +13,7 @@ func substr(rs []rune, l, r int) string {
 }
 
 func main() {
-  var s string 
+  var s string
   fmt.Scan(&s)
   res := []rune(s)
   n := len(res)

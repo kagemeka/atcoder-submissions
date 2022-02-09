@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -12,7 +12,7 @@ import (
 type Problem struct {
 	io *IO
 	target map[string]bool
-	n int 
+	n int
 	w []string
 }
 
@@ -47,11 +47,11 @@ func (
 	p *Problem,
 ) Solve() {
 	w := p.w
-	n := p.n 
+	n := p.n
 	s := w[n - 1]
 	s = s[:len(s) - 1]
 	w[n - 1] = s
-	tgt := p.target 
+	tgt := p.target
 	cnt := 0
 	for _, s := range w {
 		if tgt[s] { cnt++ }

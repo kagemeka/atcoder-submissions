@@ -32,5 +32,5 @@ for a in range(n - m + 1):
         break
 else:
     ans = "No"
-        
+
 print(ans)

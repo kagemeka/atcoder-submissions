@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -12,11 +12,11 @@ import (
 
 type Result struct {
 	id int
-	score int 
+	score int
 }
 
 
-type Results []Result 
+type Results []Result
 
 
 func (
@@ -47,7 +47,7 @@ func (
 
 type Problem struct {
 	io *IO
-	n int 
+	n int
 	a []int
 	results Results
 }
@@ -66,12 +66,12 @@ func (
 	p *Problem,
 ) Input() {
 	n := p.n
-	io := p.io 
+	io := p.io
 	a := make([]int, n)
 	for i := 0; i < n; i++ {
 		a[i] = io.ReadInt()
 	}
-	p.a = a 
+	p.a = a
 }
 
 
@@ -79,7 +79,7 @@ func (
 	p *Problem,
 ) Solve() {
 	p.makeResults()
-	n, res := p.n, p.results 
+	n, res := p.n, p.results
 	sort.Sort(res)
 	ord := make([]int, n)
 	for i := 0; i < n; i++ {
@@ -88,7 +88,7 @@ func (
 	io := p.io
 	for _, i := range ord {
 		io.Write(i)
-	}	
+	}
 }
 
 
@@ -100,7 +100,7 @@ func (
 	for i := 0; i < n; i++ {
 		res[i] = Result{i, a[i]}
 	}
-	p.results = res 
+	p.results = res
 }
 
 

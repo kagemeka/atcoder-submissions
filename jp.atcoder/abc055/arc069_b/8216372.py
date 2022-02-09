@@ -5,7 +5,7 @@ def loop():
     for i in range(1, n-1):
         if ans[i] == 'S':
             if s[i] == 'x':
-                if ans[i-1] == 'S':         
+                if ans[i-1] == 'S':
                     ans[i+1] = 'W'
                 else:
                     ans[i+1] = 'S'
@@ -68,6 +68,6 @@ loop()
 if ans[n-1] == 'W':
     if (s[n-1] == 'x' and ans[n-2] == 'W') or (s[n-1] == 'o' and ans[n-2] == 'S'):
         print(''.join(ans))
-        exit()        
+        exit()
 
 print(-1)

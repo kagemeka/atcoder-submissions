@@ -6,7 +6,7 @@ using namespace std;
 
 
 // template <typename T>
-// // std::vector<int> 
+// // std::vector<int>
 
 int main() {
   ios::sync_with_stdio(false);

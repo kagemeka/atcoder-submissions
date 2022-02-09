@@ -1,46 +1,46 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
 
 def readline_ints():
   *ints, = map(
-    int, 
+    int,
     readline().split(),
   )
-  return ints 
+  return ints
 
 
 def read():
-  import sys 
+  import sys
   return sys.stdin.buffer.read()
 
 
 def read_ints():
   *ints, = map(
-    int, 
+    int,
     read().split(),
   )
   return ints
 
 
 from abc import (
-  ABCMeta, 
+  ABCMeta,
   abstractmethod,
 )
 
 
 class Edge:
   def __init__(
-      self, 
-      weight=1, 
-      capacity=1, 
+      self,
+      weight=1,
+      capacity=1,
       **args,
       ):
     self.weight = weight
     self.capacity = capacity
-  
+
   def __str__(self):
     s = f'weight: {self.weight},' \
       f' cap: {self.capacity}'
@@ -60,35 +60,35 @@ class Graph:
 
 
   def add_node_info(
-      self, 
-      v, 
-      **args): 
+      self,
+      v,
+      **args):
     self.nodes[v] = Node(**args)
 
 
   def add_edge(
-      self, 
-      u, v, 
-      update=False, 
-      **args): 
+      self,
+      u, v,
+      update=False,
+      **args):
     if not update and \
-        v in self.edges[u]: 
-      return 
+        v in self.edges[u]:
+      return
     self.edges[u][v] = Edge(**args)
 
 
 class MaximumFlow(Graph):
   @abstractmethod
   def maximum_flow(
-      self, 
-      source, 
+      self,
+      source,
       sink):
     ...
-  
+
 
   def minimum_cut(
-      self, 
-      source, 
+      self,
+      source,
       sink):
     return self.maximum_flow(
       source,
@@ -121,27 +121,27 @@ class Dinic(MaximumFlow):
 
   def flow_to_sink(
         self, u, flow_in):
-    if u == self.sink: 
+    if u == self.sink:
       return flow_in
     flow_out = 0
     for v, e in \
         self.edges[u].items():
-      if e.capacity == 0: continue 
+      if e.capacity == 0: continue
       if self.lv[v] <= self.lv[u]:
         continue
       flow = self.flow_to_sink(
-        v, 
+        v,
         min(flow_in, e.capacity),
       )
       if not flow: continue
       self.edges[u][v].capacity \
         -= flow
-      if u in self.edges[v]: 
+      if u in self.edges[v]:
         self.edges[v][u].capacity \
           += flow
-      else: 
+      else:
         self.add_edge(
-          v, u, 
+          v, u,
           capacity=flow,
         )
       flow_in -= flow
@@ -159,7 +159,7 @@ class Dinic(MaximumFlow):
     while True:
       self.bfs(source)
       if self.lv[sink] is None:
-        return flow 
+        return flow
       flow += self.flow_to_sink(
         source, inf)
 

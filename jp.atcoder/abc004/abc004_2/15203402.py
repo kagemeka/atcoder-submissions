@@ -1,4 +1,4 @@
-import sys 
+import sys
 
 def A():
   print(int(sys.stdin.readline().rstrip())*2)
@@ -18,7 +18,7 @@ def D():
   pass
 
 if __name__ == "__main__":
-  # A() 
+  # A()
   B()
   C()
   D()

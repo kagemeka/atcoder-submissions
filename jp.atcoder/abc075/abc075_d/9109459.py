@@ -12,7 +12,7 @@ def main():
     for i in range(n):
         x.append(xy[i][0])
         y.append(xy[i][1])
-    
+
     area = inf
     for l in range(n-k+1):
         for r in range(l+k-1, n):

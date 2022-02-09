@@ -2,7 +2,7 @@
 const fs = require('fs');
 
 function int(n) {
-  return parseInt(n, 10); 
+  return parseInt(n, 10);
 }
 
 function main(input) {

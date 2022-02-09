@@ -1,4 +1,4 @@
-package main 
+package main
 
 import (
 	"fmt"
@@ -29,7 +29,7 @@ type PairInt struct{ x, y int }
 type PairStringInt struct{S string; I int}
 
 
-func ReversedString(s string) (t string) { for _, c := range s {t = string(c) + t}; return} 
+func ReversedString(s string) (t string) { for _, c := range s {t = string(c) + t}; return}
 func AbsInt(x int) int {if x < 0 {x *= -1}; return x}
 func AbsFloat(x float64) float64 {if x < 0 {x *= -1}; return x}
 func MaxInt(a ...int) int {m := a[0]; for _, x := range a {if x > m {m = x}}; return m}
@@ -58,7 +58,7 @@ var atCoder = proconSite{
 				var a, b int; fmt.Scan(&a, &b)
 				fmt.Println(a - b)
 			},
-			
+
 			"B": func() {
 				var m float64
 				fmt.Scan(&m)
@@ -74,7 +74,7 @@ var atCoder = proconSite{
 				} else {
 					m = 89
 				}
-			
+
 				res := strconv.Itoa(int(m))
 				if len(res) == 1 {
 					res = "0" + res
@@ -96,7 +96,7 @@ var atCoder = proconSite{
 					vowels[c] = true
 				}
 				var s string; fmt.Scan(&s)
-				var t string 
+				var t string
 				for _, c := range s {
 					if !vowels[c] {t += string(c)}
 				}
@@ -111,12 +111,12 @@ var atCoder = proconSite{
 				var x0, y0, x1, y1, x2, y2 float64
 				fmt.Scan(&x0, &y0, &x1, &y1, &x2, &y2)
 				fmt.Println(triangleArea(x0, y0, x1, y1, x2, y2))
-				
+
 			},
 
 			"D": func() {
-				var n, m int 
-				var a, b int 
+				var n, m int
+				var a, b int
 				fmt.Scan(&n, &m)
 
 				relations := make([]int, n)
@@ -124,7 +124,7 @@ var atCoder = proconSite{
 				for i := 0; i < m; i++ {
 					fmt.Scan(&a, &b)
 					a -= 1; b -= 1
-					relations[a] |= 1<<b 
+					relations[a] |= 1<<b
 					relations[b] |= 1<<a
 				}
 
@@ -145,13 +145,13 @@ var atCoder = proconSite{
 					}
 				}
 				fmt.Println(res)
-				
+
 			},
 		},
 
 		"ABC003": contest{
 			"A": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				fmt.Println((n+1)*5000)
 
@@ -166,13 +166,13 @@ var atCoder = proconSite{
 					if s[i] == t[i] {continue}
 					if s[i] == '@' && atcoder[t[i]] || t[i] == '@' && atcoder[s[i]] {continue}
 					fmt.Println("You will lose")
-					return 
+					return
 				}
 				fmt.Println("You can win")
 			},
 
 			"C": func() {
-				var n, k int 
+				var n, k int
 				fmt.Scan(&n, &k)
 				r := make([]int, n)
 				for i := 0; i < n; i++ {
@@ -184,14 +184,14 @@ var atCoder = proconSite{
 					res = (res + float64(v)) / 2
 				}
 				fmt.Println(res)
-			
+
 			},
 
 		},
 
 		"ABC004": contest{
 			"A": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				fmt.Println(2*n)
 			},
@@ -199,7 +199,7 @@ var atCoder = proconSite{
 			"B": func() {
 				n := 4
 				var board [4]string
-				
+
 				for i := 0; i < n; i++ {
 					scanner.Scan()
 					board[i] = scanner.Text()
@@ -211,7 +211,7 @@ var atCoder = proconSite{
 			},
 
 			"C": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				n %= 30
 				res := []rune("123456")
@@ -226,13 +226,13 @@ var atCoder = proconSite{
 
 		"ABC005": contest{
 			"A": func() {
-				var x, y int 
+				var x, y int
 				fmt.Scan(&x, &y)
 				fmt.Println(y / x)
 			},
 
 			"B": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				var t = make([]int, n)
 				for i := 0; i < n; i++ {fmt.Scan(&t[i])}
@@ -241,7 +241,7 @@ var atCoder = proconSite{
 			},
 
 			"C": func() {
-				var t, n, m int 
+				var t, n, m int
 				var a, b []int
 				fmt.Scan(&t, &n)
 				a = make([]int, n)
@@ -265,20 +265,20 @@ var atCoder = proconSite{
 						if i == n {
 							fmt.Println("no")
 							return
-						} 
+						}
 					}
 					if b[j] - a[i] < 0 {
 						fmt.Println("no")
-						return 
+						return
 					}
 					j++; i++
 				}
 				fmt.Println("yes")
 
 			},
-			
+
 			"D": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				var d = make([][]int, n+1); d[0] = make([]int, n+1)
 				for i := 1; i <= n; i++ {
@@ -287,13 +287,13 @@ var atCoder = proconSite{
 						fmt.Scan(&d[i][j])
 					}
 				}
-				var q int 
+				var q int
 				fmt.Scan(&q)
 				var p = make([]int, q)
 				for i := 0; i < q; i++ {
 					fmt.Scan(&p[i])
 				}
-				
+
 				for i := 1; i <= n; i++ {
 					for j := 1; j < n; j++ {
 						d[i][j+1] += d[i][j]
@@ -327,7 +327,7 @@ var atCoder = proconSite{
 
 		"ABC006": contest{
 			"A": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				ans := "NO"
 				if n % 3 == 0 {
@@ -339,7 +339,7 @@ var atCoder = proconSite{
 			},
 
 			"B": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				var m = 10007
 				t := []int{0, 0, 1}
@@ -349,13 +349,13 @@ var atCoder = proconSite{
 					t[l] %= m
 				}
 				fmt.Println(t[n-1])
-				
+
 			},
 
 			"C": func() {
-				var n, m int 
+				var n, m int
 				fmt.Scan(&n, &m)
-				var x, y, z int 
+				var x, y, z int
 
 				if m & 1 == 1 {
 					y = 1
@@ -364,7 +364,7 @@ var atCoder = proconSite{
 				}
 
 				z = m/2 - n
-				x = n - z 
+				x = n - z
 				if x >= 0 && y >= 0 && z >= 0 {
 					fmt.Printf("%v %v %v\n", x, y, z)
 				} else {
@@ -374,7 +374,7 @@ var atCoder = proconSite{
 			},
 
 			"D": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				var c = make([]int, n)
 				for i := 0; i < n; i++ {
@@ -397,7 +397,7 @@ var atCoder = proconSite{
 
 		"ABC007": contest{
 			"A": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				fmt.Println(n - 1)
 			},
@@ -413,7 +413,7 @@ var atCoder = proconSite{
 			},
 
 			"C": func() {
-				var h, w, sy, sx, gy, gx int 
+				var h, w, sy, sx, gy, gx int
 				fmt.Scan(&h, &w, &sy, &sx, &gy, &gx)
 				sy -= 1; sx -= 1; gy -= 1; gx -= 1
 				var maze = make([]string, h)
@@ -464,12 +464,12 @@ var atCoder = proconSite{
 				f := func(x int) int {
 					n := strconv.Itoa(x)
 					dp := make([][]int, len(n)+1)
-					dp[0] = make([]int, 2); dp[0][0] = 1 
+					dp[0] = make([]int, 2); dp[0][0] = 1
 					for i := 0; i < len(n); i++ {
 						dp[i+1] = make([]int, 2)
 						d := int(n[i]-'0')
-	
-						
+
+
 						dp[i+1][1] = dp[i][1]*8 + dp[i][0]*count(d)
 						dp[i+1][0] = dp[i][0]*Booltoi(d != 4 && d != 9)
 
@@ -486,13 +486,13 @@ var atCoder = proconSite{
 
 		"ABC008": contest{
 			"A": func() {
-				var s, t int 
+				var s, t int
 				fmt.Scan(&s, &t)
 				fmt.Println(t-s+1)
 
 			},
 			"B": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				var numVotes = make(map[string]int)
 				for i := 0; i < n; i++ {
@@ -515,7 +515,7 @@ var atCoder = proconSite{
 			},
 
 			"C": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				c := make([]int, n)
 				for i := 0; i < n; i++ {
@@ -536,24 +536,24 @@ var atCoder = proconSite{
 			},
 
 			"D": func() {
-				var w, h, n int 
+				var w, h, n int
 				fmt.Scan(&w, &h, &n)
 				type coordinate struct {
 					x, y int
 				}
 				type rectangle struct {
-					x1, y1, x2, y2 int 
+					x1, y1, x2, y2 int
 				}
 
 				xy := make([]coordinate, n)
 				for i := 0; i < n; i++ {
-					var x, y int 
+					var x, y int
 					fmt.Scan(&x, &y)
 					xy[i] = coordinate{x, y}
 				}
 
 				cnt := make(map[rectangle]int)
-				
+
 				var count func(r rectangle) int
 				count = func(r rectangle) int {
 					if res, has := cnt[r]; has {return res}
@@ -562,7 +562,7 @@ var atCoder = proconSite{
 					for _, coord := range xy {
 						x, y := coord.x, coord.y
 						if !(x1 <= x && x <= x2 && y1 <= y && y <= y2) {continue}
-	
+
 						tmp := (x2-x1) + (y2-y1) + 1
 						tmp += count(rectangle{x1, y1, x-1, y-1})
 						tmp += count(rectangle{x1, y+1, x-1, y2})
@@ -570,24 +570,24 @@ var atCoder = proconSite{
 						tmp += count(rectangle{x+1, y+1, x2, y2})
 						res = MaxInt(res, tmp)
 					}
-					cnt[r] = res 
+					cnt[r] = res
 					return res
 
 				}
-				
+
 				fmt.Println(count(rectangle{1, 1, w, h}))
-				
+
 			},
 		},
 
 		"ABC009": contest{
 			"A": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				fmt.Println((n+1)/2)
 			},
 			"B": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				price := make([]int, n)
 				for i := 0; i < n; i++ {
@@ -598,7 +598,7 @@ var atCoder = proconSite{
 			},
 
 			"C": func() {
-				var n, k int 
+				var n, k int
 				var s string
 				fmt.Scan(&n, &k, &s)
 				t := []rune(s)
@@ -638,14 +638,14 @@ var atCoder = proconSite{
 func main() {
 	atCoder.contests["ABC009"]["C"]()
 
-} 
+}
 
 
 // change "Item, Less" according to problems.
 
 // ABC009 C
 type Item struct { char rune; cost, index int }
-type Heap []*Item 
+type Heap []*Item
 
 func(h Heap) Len() int {return len(h)}
 func(h Heap) Swap(i, j int) {h[i], h[j] = h[j], h[i]}
@@ -662,11 +662,10 @@ func(h Heap) Less(i, j int) bool {
 }
 func (h *Heap) Push(x interface{}) { *h = append(*h, x.(*Item))}
 func (h *Heap) Pop() interface{} {
-	old := *h 
+	old := *h
 	n := len(old)
 	item := old[n-1]
-	old[n-1] = nil 
+	old[n-1] = nil
 	*h = old[:n-1]
 	return item
 }
-

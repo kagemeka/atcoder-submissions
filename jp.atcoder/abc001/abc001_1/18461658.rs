@@ -1,4 +1,4 @@
-use std::io; 
+use std::io;
 // use std::mem;
 
 
@@ -11,7 +11,7 @@ fn read() -> String {
 
 fn read_int() -> i32 {
   let x: i32 = read().trim().parse().expect("cannot convert");
-  return x;  
+  return x;
 }
 
 fn abc001a() {

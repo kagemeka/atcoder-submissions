@@ -12,7 +12,7 @@ def main():
             return m - 2
     else:
         return (n - 2) * (m - 2)
-        
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

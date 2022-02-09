@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -88,9 +88,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -111,22 +111,22 @@ class Problem(
 
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     n = reader.int()
-    polygon = [None] * 2 * n 
+    polygon = [None] * 2 * n
     for i in range(2 * n):
       polygon[i] = reader.int()
     polygon = np.array(
       polygon,
     ).reshape(n, 2)
-    self.n = n 
+    self.n = n
     self.polygon = polygon
 
 
   def solve(self):
-    n = self.n 
-    polygon = self.polygon 
-    self.right = 0 
+    n = self.n
+    polygon = self.polygon
+    self.right = 0
     self.obtuse = 0
     for i in range(n):
       j = np.arange(n - 1)
@@ -135,13 +135,13 @@ class Problem(
       a -= polygon[i]
       self.a = a
       self.count_up()
-    r = self.right 
-    o = self.obtuse 
+    r = self.right
+    o = self.obtuse
     a = n * (n - 1) * (n - 2)
     a //= 6
     a -= r + o
     print(a, r, o)
-  
+
 
   def count_up(self):
     e = self.EPS
@@ -173,9 +173,9 @@ class Problem(
     )
     self.obtuse += np.sum(
       r - c,
-    ) 
+    )
 
-  
+
 
 def main():
   t = 1

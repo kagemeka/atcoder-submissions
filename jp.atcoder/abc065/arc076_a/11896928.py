@@ -39,6 +39,6 @@ def main():
   elif d == 1: res = fac[n] * fac[m] % MOD
   else: res = fac[n] * fac[m] % MOD * 2 % MOD
   print(res)
-  
+
 if __name__ == '__main__':
   main()

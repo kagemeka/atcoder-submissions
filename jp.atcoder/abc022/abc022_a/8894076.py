@@ -11,7 +11,7 @@ def main():
         w += a[i]
         if s <= w <= t:
             cnt += 1
-    
+
     return cnt
 
 if __name__ == '__main__':

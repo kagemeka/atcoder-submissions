@@ -1,12 +1,12 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 def solve(t: np.ndarray, px: np.ndarray) -> typing.NoReturn:
   n, m = t.size, len(px)
-  p, x = px.T 
+  p, x = px.T
   s = t.sum()
   res = s + x - t[p]
   print(*res)

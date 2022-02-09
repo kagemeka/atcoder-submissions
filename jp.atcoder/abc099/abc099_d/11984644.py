@@ -11,7 +11,7 @@ for i in range(n):
     k = (i + j) % 3
     for l in range(c):
       cost[k][l] += d[grid[i][j]][l]
-  
+
 def main():
   res = []
   for comb in combinations(range(c), 3):

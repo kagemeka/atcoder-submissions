@@ -27,8 +27,8 @@ def dijkstra(v):
                     used_edges[x].add((z, x))
                 else:
                     used_edges[x].add((x, z))
-            continue   
-        
+            continue
+
         dist[x] = d
         if x != v:
             used_edges[x] |= used_edges[z]
@@ -52,8 +52,8 @@ def main():
     res = set()
     for v in range(n):
         res |= dijkstra(v)
-    
-    
+
+
     ans = m - len(res)
     return ans
 

@@ -51,7 +51,7 @@ abstract class Solver {
 
 
 
-mixin Runner 
+mixin Runner
 implements Solver {
 
 
@@ -75,7 +75,7 @@ with Runner {
 
   void prepare() {
     x = readInt();
-    y = readInt();   
+    y = readInt();
   }
 
 

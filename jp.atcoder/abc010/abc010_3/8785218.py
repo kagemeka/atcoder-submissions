@@ -10,13 +10,13 @@ def dist(s, g):
 
 def main():
     d = dist([sx, sy], xy) + dist(xy, [gx, gy])
-    
+
     if np.any(d <= V * T):
         ans = 'YES'
     else:
         ans = 'NO'
-    
+
     print(ans)
-    
+
 if __name__ == '__main__':
     main()

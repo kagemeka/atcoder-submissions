@@ -13,6 +13,6 @@ def main():
         ans = max(t[0] + t[3], sum(t[1:3]))
 
     print(ans)
-    
+
 if __name__ == '__main__':
     main()

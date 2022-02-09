@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-08 15:54:47(JST)
 ### modules
 ## from standard library
@@ -13,8 +13,8 @@ import sys
 # import functools
 # import operator
 ## from external libraries
-# import scipy.special   # if use comb function on AtCoder, 
-# import scipy.misc      # select scipy.misc.comb (old version)  
+# import scipy.special   # if use comb function on AtCoder,
+# import scipy.misc      # select scipy.misc.comb (old version)
 
 
 def stringRotation(s):
@@ -31,7 +31,7 @@ def main():
         s = stringRotation(s)
     else:
         ans = 'No'
-    
+
     print(ans)
 
 

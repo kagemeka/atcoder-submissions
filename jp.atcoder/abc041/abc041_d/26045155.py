@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -11,11 +11,11 @@ def solve(n: int, xy: np.ndarray) -> typing.NoReturn:
   after = np.zeros(n, np.int64)
   for i in range(m):
     x, y = xy[i]
-    after[x] |= 1 << y 
+    after[x] |= 1 << y
 
   dp = np.zeros(1 << n, np.int64)
   dp[0] = 1
-  
+
   for s in range(1 << n):
     for i in range(n):
       if ~s >> i & 1: continue

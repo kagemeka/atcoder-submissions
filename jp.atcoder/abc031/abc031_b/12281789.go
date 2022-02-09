@@ -5,10 +5,10 @@ import (
 )
 
 func main() {
-  var l, h, n int 
+  var l, h, n int
   fmt.Scan(&l, &h, &n)
   for i := 0; i < n; i++ {
-    var a int 
+    var a int
     fmt.Scan(&a)
     ans := -1
     if a <= l {

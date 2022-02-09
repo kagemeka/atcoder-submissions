@@ -1,6 +1,6 @@
 import sys
 import numpy as np
-from heapq import heappush, heappop 
+from heapq import heappush, heappop
 from bisect import bisect_left as bi_l, bisect_right as bi_r
 from collections import deque, Counter, defaultdict
 from itertools import combinations, product
@@ -15,8 +15,8 @@ class ABC001():
     print(h1-h2)
 
   def B(): pass
-  def C(): pass 
-  def D(): pass 
+  def C(): pass
+  def D(): pass
 
 
 class ABC002():
@@ -26,11 +26,11 @@ class ABC002():
 
   def B():
     vowels = set('aeiou')
-    s = sys.stdin.readline().rstrip() 
+    s = sys.stdin.readline().rstrip()
     t = ''
     for c in s:
-      if c in vowels: continue 
-      t += c 
+      if c in vowels: continue
+      t += c
     print(t)
 
   def C():
@@ -67,10 +67,10 @@ class ABC003():
     s, t = sys.stdin.read().split()
     for i in range(len(s)):
       if s[i] == t[i]: continue
-      if s[i] == '@' and t[i] in atcoder: continue 
+      if s[i] == '@' and t[i] in atcoder: continue
       if t[i] == '@' and s[i] in atcoder: continue
       print('You will lose')
-      return 
+      return
     print('You can win')
 
   def C():
@@ -80,7 +80,7 @@ class ABC003():
       res = (res+x) / 2
     print(res)
 
-  def D(): pass 
+  def D(): pass
 
 
 
@@ -102,7 +102,7 @@ class ABC004():
       res[i], res[i+1] = res[i+1], res[i]
     print(''.join(map(str, res)))
 
-  def D(): pass 
+  def D(): pass
 
 
 class ABC005():
@@ -122,11 +122,11 @@ class ABC005():
     b = [int(x) for x in sys.stdin.readline().split()]
     i = 0
     for p in b:
-      if i == n: print('no'); return 
+      if i == n: print('no'); return
       while p-a[i] > t:
         i += 1
-        if i == n: print('no'); return 
-      if a[i] > p: print('no'); return 
+        if i == n: print('no'); return
+      if a[i] > p: print('no'); return
       i += 1
     print('yes')
 
@@ -161,23 +161,23 @@ class ABC006():
       t.append(t[-1]+t[-2]+t[-3]); t[-1] %= mod
     n = int(sys.stdin.readline().rstrip())
     print(t[n-1])
-    
+
   def C():
     n, m = map(int, sys.stdin.readline().split())
     cnt = [0, 0, 0]
     if m == 1: cnt = [-1, -1, -1]
     else:
       if m & 1: m -= 3; cnt[1] += 1; n -= 1
-      cnt[2] = m//2 - n 
+      cnt[2] = m//2 - n
       cnt[0] = n - cnt[2]
     if cnt[0]<0 or cnt[1]<0 or cnt[2]<0: print(-1, -1, -1)
     else: print(*cnt, sep=' ')
-      
+
   def D():
     n, *c = map(int, sys.stdin.read().split())
     inf = float('inf')
-    lis = [inf]*n 
-    for x in c: lis[bi_l(lis, x)] = x 
+    lis = [inf]*n
+    for x in c: lis[bi_l(lis, x)] = x
     print(n - bi_l(lis, inf))
 
 

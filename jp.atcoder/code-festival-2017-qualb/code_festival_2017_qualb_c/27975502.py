@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -30,7 +30,7 @@ def label_bipartite(g: typing.List[typing.List[int]]) -> bool:
             que.append(v)
     return label
 
-    
+
 
 def main() -> typing.NoReturn:
     n, m = map(int, input().split())

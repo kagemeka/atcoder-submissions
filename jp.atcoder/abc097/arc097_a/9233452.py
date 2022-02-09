@@ -9,7 +9,7 @@ def main():
     for i in range(n):
         for j in range(i, i+4):
             res.add(s[i:j+1])
-    
+
     return sorted(res)[k-1]
 
 if __name__ == '__main__':

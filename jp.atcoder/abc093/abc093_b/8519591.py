@@ -15,6 +15,6 @@ def main():
 
     for i in res:
         print(i)
-    
+
 if __name__ == "__main__":
     main()

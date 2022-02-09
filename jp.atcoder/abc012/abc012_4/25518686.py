@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import scipy 
+import typing
+import sys
+import numpy as np
+import scipy
 from scipy import sparse
 
 
@@ -16,7 +16,7 @@ def solve(
     shape=(n, n),
     dtype=np.int64,
   )
-  g[a, b] = t 
+  g[a, b] = t
   g += g.T
   dist = sparse.csgraph.shortest_path(
     csgraph=g,
@@ -32,7 +32,7 @@ def main() -> typing.NoReturn:
   a, b, t = np.array(
     sys.stdin.read().split(),
     dtype=np.int64,
-  ).reshape(m, 3).T 
+  ).reshape(m, 3).T
   a -= 1
   b -= 1
   solve(n, a, b, t)

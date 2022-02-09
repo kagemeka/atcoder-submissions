@@ -23,7 +23,7 @@ func isOk(s, t byte) bool {
 
 func main() {
   create("atcoder")
-  var s, t string 
+  var s, t string
   fmt.Scan(&s, &t)
   n := len(s)
   ans := "You can win"

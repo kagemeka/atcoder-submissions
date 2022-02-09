@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -29,7 +29,7 @@ func Min(
 }
 
 
-	
+
 
 
 type Problem struct {
@@ -52,7 +52,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	p.n = io.ReadInt()
 	d := io.ReadInt()
 	k := io.ReadInt()
@@ -68,7 +68,7 @@ func (
 		s[i] = io.ReadInt()
 		t[i] = io.ReadInt()
 	}
-	p.d, p.l, p.r = d, l, r 
+	p.d, p.l, p.r = d, l, r
 	p.k, p.s, p.t = k, s , t
 }
 
@@ -79,12 +79,12 @@ func (
 	j := p.j
 	l, r := p.l[j], p.r[j]
 	k, s, t := p.k, p.s, p.t
-	res := p.res 
+	res := p.res
 	for i := 0; i < k; i++ {
 		if s[i] < l || s[i] > r {
 			continue
 		}
-		if s[i] == t[i] { 
+		if s[i] == t[i] {
 			continue
 		}
 		if s[i] < t[i] {
@@ -105,9 +105,9 @@ func (
 	p *Problem,
 ) Solve() {
 	d := p.d
-	k := p.k 
+	k := p.k
 	res := make([]int, k)
-	p.res = res 
+	p.res = res
 	for i := 0; i < d; i++ {
 		p.j = i
 		p.moveAll()

@@ -28,7 +28,7 @@ abstract class Solver {
 
 
 
-mixin Runner 
+mixin Runner
 implements Solver {
 
 

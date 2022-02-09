@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -12,7 +12,7 @@ import (
 
 type Problem struct {
 	io *IO
-	n int 
+	n int
 	s []string
 }
 
@@ -29,7 +29,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	n := p.n 
+	n := p.n
 	io := p.io
 	s := make([]string, n)
 	for i := 0; i < n; i++ {
@@ -43,16 +43,16 @@ func (
 	p *Problem,
 ) Solve() {
 	s := p.s
-	cnt := 0 
+	cnt := 0
 	for _, w := range s {
 		if strings.Contains(
-			w, 
+			w,
 			"r",
 		) {
 			cnt ++
 		}
 	}
-	p.io.Write(cnt)	
+	p.io.Write(cnt)
 }
 
 

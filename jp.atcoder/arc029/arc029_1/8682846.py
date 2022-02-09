@@ -11,8 +11,8 @@ def main():
         ans = max(sum(t[:2]), t[2])
     elif n == 4:
         ans = min(max(t[3], sum(t[:3])), max(t[0] + t[3], sum(t[1:3]))):
-        
+
     print(ans)
-    
+
 if __name__ == '__main__':
     main()

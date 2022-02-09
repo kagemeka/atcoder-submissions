@@ -29,15 +29,15 @@ fn main() {
     let n: usize = sc.scan();
     let mut k: usize = sc.scan();
     let mut s: Vec<char> = sc.scan::<String>().chars().collect();
-    
+
     let mut swap_cost = vec![1; n];
-    for i in 0..n { 
+    for i in 0..n {
         let mut hq = std::collections::BinaryHeap::new();
         for j in i + 1..n {
             if s[j] >= s[i] { continue; }
             let cost = swap_cost[i] + swap_cost[j];
             if cost > k { continue; }
-            hq.push((std::cmp::Reverse(s[j]), std::cmp::Reverse(cost), j)); 
+            hq.push((std::cmp::Reverse(s[j]), std::cmp::Reverse(cost), j));
         }
         if let Some((_, std::cmp::Reverse(cost), j)) = hq.pop() {
             k -= cost;

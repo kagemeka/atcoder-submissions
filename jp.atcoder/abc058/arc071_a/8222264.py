@@ -39,4 +39,3 @@ for char, count in each_count.items():
 
 ans = ''.join(res)
 print(ans)
-

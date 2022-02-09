@@ -32,7 +32,7 @@ void solve() {
   for (const auto& p: cnt)
   {
     int i = p.second;
-    ev += (double)(i/2 + 1) 
+    ev += (double)(i/2 + 1)
       / (i+1);
   }
   printf("%.10f\n", ev);

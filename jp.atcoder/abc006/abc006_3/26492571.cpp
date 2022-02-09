@@ -8,7 +8,7 @@ int main() {
 
   int n, m; cin >> n >> m;
 
-  int x, y, z;  
+  int x, y, z;
   if (m & 1) {
     m -= 3;
     n--;

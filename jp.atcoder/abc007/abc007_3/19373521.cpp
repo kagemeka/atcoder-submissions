@@ -11,9 +11,9 @@ T weight, capacity;
 
 Edge(
   T weight=1, T capacity=1
-) 
+)
 : weight(weight),
-  capacity(capacity) 
+  capacity(capacity)
 {}
 };
 
@@ -25,7 +25,7 @@ struct Node {};
 template<typename T>
 struct Graph {
 
-public: 
+public:
 
 Graph(int n=0)
 : edges(n), nodes(n)
@@ -36,7 +36,7 @@ void add_edge(
   T weight=1, T capacity=1
 ) {
   edges[u].emplace(
-    v, 
+    v,
     Edge<T>(weight, capacity)
   );
 }
@@ -73,7 +73,7 @@ void bfs(int source=0)
       level[v] = level[u] + 1;
       que.push(v);
     }
-  } 
+  }
 }
 
 };
@@ -86,7 +86,7 @@ vector<char> maze;
 
 
 void prepare() {
-  cin >> r >> c >> sy >> sx 
+  cin >> r >> c >> sy >> sx
     >> gy >> gx;
   sy--; sx--; gy--; gx--;
   n = r * c;
@@ -102,7 +102,7 @@ void solve() {
   int dst = gy * c + gx;
 
   Graph<int> g(n);
-  
+
   vector<int> delta = {
     -c, -1, 1, c
   };
@@ -131,14 +131,14 @@ void solve() {
       if (maze[j] == '#')
       {
         continue;
-      }      
+      }
       g.add_edge(i, j);
     }
   }
   g.bfs(src);
   cout << g.level[dst] << '\n';
 
-  
+
 }
 
 

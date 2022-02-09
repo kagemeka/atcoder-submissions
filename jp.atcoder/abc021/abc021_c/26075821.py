@@ -1,33 +1,33 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def csgraph_to_undirected(g: np.ndarray) -> np.ndarray:
   m = len(g)
   g = np.vstack((g, g))
   g[m:, :2] = g[m:, 1::-1]
-  return g 
+  return g
 
 
 
-@nb.njit 
+@nb.njit
 def sort_csgraph(
-  n: int, 
+  n: int,
   g: np.ndarray,
 ) -> typing.Tuple[np.ndarray, np.ndarray, np.ndarray]:
   sort_idx = np.argsort(g[:, 0], kind='mergesort')
   g = g[sort_idx]
   edge_idx = np.searchsorted(g[:, 0], np.arange(n + 1))
   original_idx = np.arange(len(g))[sort_idx]
-  return g, edge_idx, original_idx 
+  return g, edge_idx, original_idx
 
 
-@nb.njit 
+@nb.njit
 def shortest_path_cnt_bfs(
-  n: int, 
+  n: int,
   g: np.ndarray,
   src: int,
   mod: int,

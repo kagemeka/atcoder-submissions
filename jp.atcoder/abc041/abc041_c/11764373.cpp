@@ -18,5 +18,5 @@ int main() {
     cout << a[i].second << '\n';
   }
   return 0;
-  
+
 }

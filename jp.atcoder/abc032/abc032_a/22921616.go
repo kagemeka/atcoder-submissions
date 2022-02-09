@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -20,7 +20,7 @@ func GCD(
 	}
 	return GCD(y, x % y)
 }
-		
+
 
 func LCM(
 	x, y int,
@@ -33,7 +33,7 @@ func LCM(
 
 type Problem struct {
 	io *IO
-	a, b, n int 
+	a, b, n int
 }
 
 
@@ -48,7 +48,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	p.a = io.ReadInt()
 	p.b = io.ReadInt()
 	p.n = io.ReadInt()
@@ -58,7 +58,7 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	a, b, n := p.a, p.b, p.n 
+	a, b, n := p.a, p.b, p.n
 	l := LCM(a, b)
 	x := (n + l - 1) / l * l
 	p.io.Write(x)

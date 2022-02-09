@@ -14,7 +14,7 @@ def main():
     for x, y in red:
         a.append(x)
         b.append(y)
-    
+
     paired = [False] * n
     cnt = 0
     for c, d in blue:
@@ -27,7 +27,7 @@ def main():
         if not pair is None:
             paired[pair] = True
             cnt += 1
-    
+
     return cnt
 
 if __name__ == '__main__':

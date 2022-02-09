@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-07 12:33:44(JST)
 import sys
 # import collections
@@ -30,10 +30,10 @@ def main():
         if b <= c * 2:
             cost += b * remainder
         else:
-            cost += c * remainder * 2 
-    
+            cost += c * remainder * 2
+
     print(cost)
-    
+
 if __name__ == "__main__":
     # execute only if run as a script
     main()

@@ -1,4 +1,4 @@
-import sys 
+import sys
 
 def A():
   n = sys.stdin.readline().rstrip()
@@ -16,10 +16,10 @@ def B():
   for _ in range(1001001):
     t.append(t[-1]+t[-2]+t[-3])
     t[-1] %= mod
-    
+
   n = int(sys.stdin.readline().rstrip())
   print(t[n-1])
-  
+
 
 def C():
   pass
@@ -30,7 +30,7 @@ def D():
 
 
 if __name__ == "__main__":
-  # A() 
+  # A()
   B()
   C()
   D()

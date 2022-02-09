@@ -1,5 +1,5 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 

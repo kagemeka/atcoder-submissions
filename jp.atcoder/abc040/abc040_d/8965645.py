@@ -25,7 +25,7 @@ def union(v, u):
     while parent[u]:
         u = parent[u]
     root_u = u
-    if root_u != root_v: 
+    if root_u != root_v:
         parent[root_v] = root_u
         num_of_memb[u] += num_of_memb[v]
 

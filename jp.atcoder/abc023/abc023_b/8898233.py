@@ -7,7 +7,7 @@ def main():
     return set('c')
     if n & 1 ^ 1:
         return -1
-    
+
     if n % 3 == 0:
         a = s[::3]
         b = s[1::3]
@@ -20,7 +20,7 @@ def main():
         c = s[::3]
         a = s[1::3]
         b = s[2::3]
-    
+
     if set(a) - set('a') or set(b) - set('b') or set(c) - set('c'):
         return -1
     return n // 2

@@ -5,11 +5,11 @@ import (
 )
 
 func main() {
-  var n int 
+  var n int
   fmt.Scan(&n)
   res := make(map[string]bool)
   for i := 0; i < n; i++ {
-    var s string 
+    var s string
     fmt.Scan(&s)
     res[s] = true
   }

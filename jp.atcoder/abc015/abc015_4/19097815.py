@@ -1,10 +1,10 @@
 def read():
-  import sys 
+  import sys
   return sys.stdin.buffer.read()
 
 
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
@@ -15,7 +15,7 @@ def read_int():
 
 def read_ints():
   *ints, = map(
-    int, 
+    int,
     read().split(),
   )
   return ints
@@ -37,7 +37,7 @@ def solve(w, n, k, ab):
 
 
 def main():
-  w = read_int() 
+  w = read_int()
   n, k, *ab = read_ints()
   ab = zip(*[iter(ab)]*2)
   solve(w, n, k, ab)

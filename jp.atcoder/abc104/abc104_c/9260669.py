@@ -27,7 +27,7 @@ def main():
             else:
                 continue
         res = min(res, cnt)
-    
+
     return res
 
 if __name__ == '__main__':

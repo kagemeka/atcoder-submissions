@@ -1,5 +1,5 @@
 import typing
-import sys 
+import sys
 
 
 

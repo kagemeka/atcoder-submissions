@@ -26,7 +26,7 @@ void ex4() {
 void ex5() {
   int a, b; cin >> a >> b;
   cout << a+b << '\n';
-  
+
 }
 
 int main() {

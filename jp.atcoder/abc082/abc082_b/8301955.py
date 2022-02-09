@@ -15,18 +15,18 @@ def main():
     if n < m:
         for i in range(n):
             if s[i] < t[i]: ans = 'Yes'; break
-            elif s[i] > t[i]: ans = 'No'; break  
+            elif s[i] > t[i]: ans = 'No'; break
         else:
             ans = 'Yes'
     else:
         for i in range(m):
             if s[i] < t[i]: ans = 'Yes'; break
-            elif s[i] > t[i]: ans = 'No'; break  
+            elif s[i] > t[i]: ans = 'No'; break
         else:
             ans = 'No'
 
     print(ans)
-        
+
 
 if __name__ == "__main__":
     # execute only if run as a script

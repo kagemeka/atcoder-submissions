@@ -11,7 +11,7 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
@@ -21,12 +21,12 @@ def main():
     if k > n:
         print(0)
         sys.exit()
-    
+
     cand = set()
     for i in range(n-k+1): # prefix
         sub = s[i:i+k]
         cand.add(sub)
-    
+
     print(len(cand))
 if __name__ == "__main__":
     main()

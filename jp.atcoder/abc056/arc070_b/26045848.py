@@ -1,15 +1,15 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 
 
 
 def solve(a: np.ndarray, k: int) -> typing.NoReturn:
-  n = a.size 
+  n = a.size
   a.sort()
   np.minimum(a, k, out=a)
   a = a.tolist()
-  
+
   def is_needed(i):
     dp = np.zeros(k, np.bool8)
     dp[0] = True
@@ -17,7 +17,7 @@ def solve(a: np.ndarray, k: int) -> typing.NoReturn:
       if j == i: continue
       dp[a[j]:] |= dp[:-a[j]]
     return np.any(dp[k - a[i]:])
-      
+
   def binary_search():
     lo, hi = -1, n
     while hi - lo > 1:
@@ -27,10 +27,10 @@ def solve(a: np.ndarray, k: int) -> typing.NoReturn:
       else:
         lo = i
     return hi
-  
+
   print(binary_search())
 
-    
+
 
 
 def main() -> typing.NoReturn:

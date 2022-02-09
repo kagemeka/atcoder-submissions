@@ -38,7 +38,7 @@ def main():
                             changed[i], changed[j] = True, True
                             swapped = True
                             break
-                    
+
             if swapped:
                 break
 

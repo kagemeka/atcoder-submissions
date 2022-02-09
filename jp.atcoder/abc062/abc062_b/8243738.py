@@ -9,4 +9,3 @@ lines.append('#' * (w + 2))
 
 for i in range(h+2):
     print(lines[i])
-

@@ -15,6 +15,6 @@ def main():
   c = Counter(cand)
   ans = c[max(c.keys())]
   print(ans)
-  
+
 if __name__ == '__main__':
   main()

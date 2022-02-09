@@ -8,4 +8,3 @@ for i in range(N-1):
     else:
         total += T
 print(total)
-

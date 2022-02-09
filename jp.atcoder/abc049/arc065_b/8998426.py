@@ -9,7 +9,7 @@ reach_rail = [set([i]) for i in range(n)]
 
 def union(v, u, kind):
     if kind == 'ro':
-        reach_road[v] |= reach_road[u] 
+        reach_road[v] |= reach_road[u]
         reach_road[u] = reach_road[v]
     elif kind == 'ra':
         reach_rail[v] |= reach_rail[u]
@@ -18,7 +18,7 @@ def union(v, u, kind):
 def main():
     for v, u in roads:
         union(v, u, 'ro')
-    
+
     for v, u in railways:
         union(v, u, 'ra')
 

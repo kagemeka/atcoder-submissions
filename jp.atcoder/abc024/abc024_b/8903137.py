@@ -5,7 +5,7 @@ n, T, *t = map(int, sys.stdin.read().split())
 def main():
     total = 0
     opened = t[0]
-    will_close = opened + T 
+    will_close = opened + T
     for i in range(1, n):
         if t[i] >= will_close:
             total += will_close - opened

@@ -10,8 +10,8 @@ def main():
             d += timedelta(days=28) # months はargsになかった
         else:
             d += timedelta(days=1)
-    
-    print(d.strftime('%Y/%m/%d')) 
+
+    print(d.strftime('%Y/%m/%d'))
 
 if __name__ == '__main__':
     main()

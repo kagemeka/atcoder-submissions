@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-06 22:04:18(JST)
 import sys
 # import collections
@@ -25,7 +25,7 @@ def main():
         if b_index == len(bd_sorted_by_ac) - 1:
             bd_sorted_by_ac.remove(b)
             continue
-        
+
         range_to_scope = bd_sorted_by_ac[b_index+1:]
         possible_elements = [x for x in range_to_scope if x > b]
         if not possible_elements:

@@ -32,4 +32,3 @@ res = ''
 for char, count in each_count.items():
     res += char * count
 print(res)
-

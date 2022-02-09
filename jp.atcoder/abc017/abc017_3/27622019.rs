@@ -30,7 +30,7 @@ fn main() {
     let m: usize = sc.scan();
     let mut a: Vec<isize> = vec![0; m + 1];
     let mut tot: isize = 0;
-    for _ in 0..n { 
+    for _ in 0..n {
         let l = sc.scan::<usize>() - 1;
         let r = sc.scan::<usize>() - 1;
         let s = sc.scan::<isize>();
@@ -41,5 +41,5 @@ fn main() {
     for i in 0..m { a[i + 1] += a[i]; }
     let mn = a[..m].iter().min().unwrap();
     writeln!(out, "{}", tot - mn).unwrap();
-    
+
 }

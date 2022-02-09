@@ -6,7 +6,7 @@ from dataclasses import (
 )
 
 import numpy as np
-import sys 
+import sys
 
 from typing import (
   List,
@@ -33,26 +33,26 @@ class Reader:
   def read_int(cls) -> int:
     ln = cls.readline()
     return int(ln)
-  
-  
-  @classmethod 
+
+
+  @classmethod
   def read_str(cls) -> str:
     ln = cls.readline()
     return ln.decode()
-  
+
 
   @classmethod
   def readline_ints(
     cls,
   ) -> List[int]:
     *ints, = map(
-      int, 
+      int,
       cls.readline().split(),
     )
     return ints
 
-  
-  @classmethod 
+
+  @classmethod
   def readline_strs(
     cls,
   ) -> List[str]:
@@ -75,13 +75,13 @@ class Reader:
     cls,
   ) -> List[int]:
     *ints, = map(
-      int, 
+      int,
       cls.read().split(),
     )
     return ints
-  
 
-  @classmethod 
+
+  @classmethod
   def read_strs(
     cls,
   ) -> List[str]:
@@ -115,7 +115,7 @@ class NumpyReader(Reader):
   ) -> np.array:
     return np.fromstring(
       string=cls.read_str(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -127,7 +127,7 @@ class NumpyReader(Reader):
     return np.fromstring(
       string=cls.read() \
         .decode(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -153,7 +153,7 @@ class Solver(ABC):
       **kwargs,
     )
 
-  
+
   def run(self):
     self.prepare()
     self.solve()
@@ -164,9 +164,9 @@ class Solver(ABC):
     ...
     self.ready = True
 
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     assert self.ready
     ...
@@ -175,16 +175,16 @@ class Solver(ABC):
 from enum import (
   Enum,
   auto,
-) 
+)
 
 class TimeFormat(Enum):
   MIN = auto()
   HM = auto()
 
 
-@dataclass 
+@dataclass
 class Time:
-  start: int 
+  start: int
   end: int
 
   def __iter__(self):
@@ -206,17 +206,17 @@ class Time:
       self.end,
     )
 
-    s = s // 5 * 5 
+    s = s // 5 * 5
     e = (e + 4) // 5 * 5
     return self.__class__(
-      start=s, 
+      start=s,
       end=e,
     )
-  
 
-  @classmethod 
+
+  @classmethod
   def from_str(
-    cls, 
+    cls,
     t: str,
   ):
     t = map(
@@ -227,14 +227,14 @@ class Time:
     t.as_minites()
     return t
 
-  
-  @staticmethod 
+
+  @staticmethod
   def to_minutes(t):
     q, r = divmod(t, 100)
     return 60 * q + r
 
 
-  @staticmethod 
+  @staticmethod
   def to_hmform(t):
     q, r = divmod(t, 60)
     return 100 * q + r
@@ -250,15 +250,15 @@ class Time:
       self.form: (
         TimeFormat
       ) = None
-    
+
     return self.form == f
 
-    
+
   def as_minites(self):
     if self.assert_format(
       TimeFormat.MIN,
     ):
-      return 
+      return
     (
       self.start,
       self.end,
@@ -267,13 +267,13 @@ class Time:
       [*self],
     )
     self.form = TimeFormat.MIN
-  
+
 
   def as_hmform(self):
     if self.assert_format(
       TimeFormat.HM,
     ):
-      return 
+      return
     (
       self.start,
       self.end,
@@ -305,29 +305,29 @@ class ProblemName(
     for i in range(m):
       term[i + 1] += term[i]
 
-    self.term = term 
-    self.m = m   
+    self.term = term
+    self.m = m
     self.ready = True
 
 
   def solve(self):
     assert self.ready
-    n, m = self.n, self.m 
-    term = self.term 
-    
+    n, m = self.n, self.m
+    term = self.term
+
     res = []
-    raining = False 
+    raining = False
     for i in range(m + 1):
       if term[i]:
-        if raining: 
-          continue 
-        s = i 
+        if raining:
+          continue
+        s = i
         raining = True
       elif raining:
         e = i - 1
         res.append(
           Time(
-            start=s, 
+            start=s,
             end=e,
           )
         )
@@ -350,4 +350,3 @@ def main():
 
 if __name__ == '__main__':
   main()
-

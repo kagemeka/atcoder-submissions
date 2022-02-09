@@ -7,5 +7,5 @@ int main() {
   s[3] = '8';
   cout << s << endl;
   return 0;
-  
+
 }

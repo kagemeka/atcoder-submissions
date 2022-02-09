@@ -6,7 +6,7 @@ from dataclasses import (
 )
 
 import numpy as np
-import sys 
+import sys
 
 from typing import (
   List,
@@ -33,26 +33,26 @@ class Reader:
   def read_int(cls) -> int:
     ln = cls.readline()
     return int(ln)
-  
-  
-  @classmethod 
+
+
+  @classmethod
   def read_str(cls) -> str:
     ln = cls.readline()
     return ln.decode()
-  
+
 
   @classmethod
   def readline_ints(
     cls,
   ) -> List[int]:
     *ints, = map(
-      int, 
+      int,
       cls.readline().split(),
     )
     return ints
 
-  
-  @classmethod 
+
+  @classmethod
   def readline_strs(
     cls,
   ) -> List[str]:
@@ -75,13 +75,13 @@ class Reader:
     cls,
   ) -> List[int]:
     *ints, = map(
-      int, 
+      int,
       cls.read().split(),
     )
     return ints
-  
 
-  @classmethod 
+
+  @classmethod
   def read_strs(
     cls,
   ) -> List[str]:
@@ -115,7 +115,7 @@ class NumpyReader(Reader):
   ) -> np.array:
     return np.fromstring(
       string=cls.read_str(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -127,7 +127,7 @@ class NumpyReader(Reader):
     return np.fromstring(
       string=cls.read() \
         .decode(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -153,7 +153,7 @@ class Solver(ABC):
       **kwargs,
     )
 
-  
+
   def run(self):
     self.prepare()
     self.solve()
@@ -164,16 +164,16 @@ class Solver(ABC):
     ...
     self.ready = True
 
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     assert self.ready
     ...
 
 
 
-@dataclass 
+@dataclass
 class Message:
   to_loser: str
   to_winner: str
@@ -191,7 +191,7 @@ class ABC002_0(
 
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     (
       s, t,
     ) = reader.read_strs()
@@ -201,26 +201,26 @@ class ABC002_0(
 
   def solve(self):
     assert self.ready
-    s, t = self.s, self.t 
+    s, t = self.s, self.t
     msg = self.msg
     n = len(s)
     for i in range(n):
-      if s[i] == t[i]: 
+      if s[i] == t[i]:
         continue
       if (
         s[i] == '@' and
         t[i] in self.atcoder
       ):
-        continue 
+        continue
       if (
         t[i] == '@' and
         s[i] in self.atcoder
       ):
-        continue 
+        continue
       print(msg.to_loser)
-      return 
+      return
     print(msg.to_winner)
- 
+
 
 def main():
   t = 1

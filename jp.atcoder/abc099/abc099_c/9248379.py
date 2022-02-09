@@ -26,7 +26,7 @@ def main():
         if n in nex:
             return cnt
         res = nex
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

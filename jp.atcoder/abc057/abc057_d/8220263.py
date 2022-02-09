@@ -40,7 +40,3 @@ def cmb(n, r):
     return nCr[(n,r)]
 
 print(cmb(full, accepted))
-
-
-
-

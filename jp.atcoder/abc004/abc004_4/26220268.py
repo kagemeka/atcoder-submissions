@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def solve(r: int, g: int, b: int) -> typing.NoReturn:

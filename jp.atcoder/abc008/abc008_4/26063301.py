@@ -1,12 +1,12 @@
-import typing 
-import sys 
+import typing
+import sys
 sys.setrecursionlimit(1 << 20)
-import functools 
+import functools
 
 
 def solve(
-  h: int, 
-  w: int, 
+  h: int,
+  w: int,
   xy: typing.List[typing.Tuple[int, int]],
 ) -> typing.NoReturn:
 
@@ -14,8 +14,8 @@ def solve(
   def max_count(l: int, r: int, d: int, u: int) -> int:
     def on_grid(x: int, y: int) -> bool:
       return l <= x < r and d <= y < u
-    
-    mx = 0 
+
+    mx = 0
     for x, y in xy:
       if not on_grid(x, y): continue
       s = r - l + u - d - 1
@@ -25,10 +25,10 @@ def solve(
       s += max_count(x + 1, r, y + 1, u)
       mx = max(mx, s)
     return mx
-  
+
   print(max_count(0, w, 0, h))
-    
-    
+
+
 
 def main() -> typing.NoReturn:
   w, h = map(int, input().split())

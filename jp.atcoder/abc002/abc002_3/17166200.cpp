@@ -20,7 +20,7 @@ namespace GeometryTopology {
 namespace AtCoder {
   namespace ABC001 {
     void a() {
-      int a, b; cin >> a >> b; 
+      int a, b; cin >> a >> b;
       cout << a-b << '\n';
     }
     void b() {
@@ -56,7 +56,7 @@ namespace AtCoder {
       auto s = GeometryTopology::triangle_area(p0, p1, p2, false);
       cout << setprecision(16)  << s <<'\n';
     }
-    
+
   }
 }
 
@@ -75,5 +75,5 @@ int main() {
 
 
   return 0;
-  
+
 }

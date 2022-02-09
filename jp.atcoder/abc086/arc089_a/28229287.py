@@ -14,7 +14,7 @@ def main() -> typing.NoReturn:
         if d <= dt and (dt - d) % 2 == 0:
             continue
         print('No')
-        return 
+        return
     print('Yes')
 
 main()

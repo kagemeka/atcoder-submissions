@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -11,7 +11,7 @@ import (
 
 type Problem struct {
 	io *IO
-	s string 
+	s string
 	n int
 }
 
@@ -27,7 +27,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	p.s = io.Read()
 	p.n = io.ReadInt()
 }

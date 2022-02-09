@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -6,12 +6,12 @@ def main() -> typing.NoReturn:
     i = s.find('C')
     if i == -1:
         print('No')
-        return 
-    
+        return
+
     i = s[i + 1:].find('F')
     if i == -1:
         print('No')
-        return 
+        return
     print('Yes')
 
 main()

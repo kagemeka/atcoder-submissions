@@ -12,7 +12,7 @@ v -= 1
 def main():
     G = np.full((n, n), np.inf)
     G[u, v] = G[v, u] = l
-    
+
     g = np.copy(G)
     g[0] = g[:, 0] = np.inf
     dist = floyd_warshall(csgraph=csr_matrix(g), directed=False)
@@ -24,7 +24,7 @@ def main():
         return -1
     else:
         return int(ans)
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

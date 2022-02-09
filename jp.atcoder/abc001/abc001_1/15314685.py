@@ -1,6 +1,6 @@
 import sys
 import numpy as np
-from heapq import heappush, heappop 
+from heapq import heappush, heappop
 from bisect import bisect_left as bi_l, bisect_right as bi_r
 from collections import deque, Counter, defaultdict
 from itertools import product
@@ -15,8 +15,8 @@ class ABC001():
     print(h1-h2)
 
   def B(): pass
-  def C(): pass 
-  def D(): pass 
+  def C(): pass
+  def D(): pass
 
 
 if __name__ == '__main__':

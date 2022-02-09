@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -13,9 +13,9 @@ def main() -> typing.NoReturn:
         return c + min(r - x * c, (b - c) // y)
 
     def ternary_search() -> int:
-        # return the number of red bouquet 
+        # return the number of red bouquet
         lo, hi = 0, min(r // x, b)
-        
+
         while hi - lo > 1:
             c0 = (2 * lo + hi + 3 - 1) // 3
             c1 = (lo + 2 * hi) // 3
@@ -25,8 +25,8 @@ def main() -> typing.NoReturn:
                 lo = c0
             else:
                 hi = c1
-        # print(lo, hi) 
-        # print(count(lo), count(hi))       
+        # print(lo, hi)
+        # print(count(lo), count(hi))
         return lo if count(lo) >= count(hi) else hi
 
     c = ternary_search()

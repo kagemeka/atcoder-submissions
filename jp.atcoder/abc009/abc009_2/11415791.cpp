@@ -16,7 +16,7 @@ int main() {
   }
 
   vector<int> t(a.begin(), a.end());
-  
+
   cout << t[t.size()-2] << '\n';
   return 0;
 }

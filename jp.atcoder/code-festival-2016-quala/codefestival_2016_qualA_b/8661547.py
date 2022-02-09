@@ -9,7 +9,7 @@ def main():
         j = a[i]
         if j > i and a[j] == i:
             cnt += 1
-    
+
     print(cnt)
 
 if __name__ == '__main__':

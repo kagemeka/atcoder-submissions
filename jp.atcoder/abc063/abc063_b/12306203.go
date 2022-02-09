@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-  var s string 
+  var s string
   fmt.Scan(&s)
   res := make(map[rune]bool)
   for _, c := range s {

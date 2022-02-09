@@ -1,4 +1,4 @@
-package main 
+package main
 
 import (
 	"fmt"
@@ -27,7 +27,7 @@ func (
 		os.Stdin,
 	)
 	scanner.Buffer(
-		[]byte{}, 
+		[]byte{},
 		MaxBuffer,
 	)
 	scanner.Split(
@@ -83,7 +83,7 @@ func (
 func (
 	io *IO,
 ) ScanInt() int {
-	s := io.Scan()	
+	s := io.Scan()
 	v, _ := strconv.Atoi(s)
 	return v
 }
@@ -133,7 +133,7 @@ func (
 func (
 	p *ABC001A,
 ) Solve() {
-	d := p.h1 - p.h2 
+	d := p.h1 - p.h2
 	fmt.Println(d)
 }
 

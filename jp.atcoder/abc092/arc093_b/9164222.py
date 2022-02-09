@@ -10,7 +10,7 @@ def paint(color, cnt):
         i = j = 0
     else:
         i = 51; j = 0
-    
+
     while cnt:
         canvas[i][j] = color
         cnt -= 1

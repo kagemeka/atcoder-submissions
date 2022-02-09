@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -15,9 +15,7 @@ def main() -> typing.NoReturn:
             cnt[a[l]] -= 1
             l += 1
         mx = max(mx, i + 1 - l)
-        
+
     print(mx)
 
 main()
-
-    

@@ -17,16 +17,16 @@ namespace bit_matrix {
 
   Matrix dot(const Matrix &a, const Matrix &b) {
     int h = a.size(), w = a[0].size(), y = b.size(), x = b[0].size();
-    assert(w == y); 
+    assert(w == y);
     Matrix c(h, vector<uint>(x));
     for (int i = 0; i < h; i++) {
       for (int j = 0; j < x; j++) {
         for (int k = 0; k < w; k++) {
           c[i][j] ^= a[i][k] & b[k][j];
-        }    
+        }
       }
     }
-    return c;    
+    return c;
   }
 
   template <typename T>

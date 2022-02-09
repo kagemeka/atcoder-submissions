@@ -29,7 +29,7 @@ func (
 		os.Stdin,
 	)
 	scanner.Buffer(
-		[]byte{}, 
+		[]byte{},
 		MaxBuffer,
 	)
 	scanner.Split(
@@ -103,7 +103,7 @@ func (
 		cnt += n & 1
 		n >>= 1
 	}
-	return 
+	return
 }
 
 func (
@@ -112,7 +112,7 @@ func (
 	Int,
 ){
 	if n == 0 {
-		return 1 
+		return 1
 	}
 	a := i.Pow(n >> 1)
 	a *= a
@@ -141,7 +141,7 @@ func (
 	m Modular,
 ) String() string {
 	return fmt.Sprint(m.Value)
-} 
+}
 
 
 func (m *Modular) clone(
@@ -155,7 +155,7 @@ func (
 ) IAdd(
 	other Modular,
 ) {
-	m.Value += other.Value 
+	m.Value += other.Value
 	m.Init()
 }
 
@@ -187,7 +187,7 @@ func (
 ) ISub(
 	other Modular,
 ) {
-	negOther := other.Neg() 
+	negOther := other.Neg()
 	m.IAdd(negOther)
 }
 
@@ -200,7 +200,7 @@ func (
 ) {
 	res := m.clone()
 	res.ISub(other)
-	return res 
+	return res
 }
 
 
@@ -210,7 +210,7 @@ func (
 	other Modular,
 ) {
 	mod := m.Mod
-	m.Value *= other.Value 
+	m.Value *= other.Value
 	m.Value %= mod
 }
 
@@ -300,7 +300,7 @@ func (
 	for i := e; i < n; i++ {
 		fact[i+1].IMul(fact[i])
 	}
-	return 
+	return
 }
 
 func (
@@ -323,7 +323,7 @@ func (
 		nx.IMul(invFact[i])
 		invFact[i-1] = nx
 	}
-	return 
+	return
 }
 
 
@@ -337,7 +337,7 @@ type Combinations struct {
 func (
 	c *Combinations,
 ) Init(n Modular) {
-	c.Fact, c.InvFact = 
+	c.Fact, c.InvFact =
 		n.Factorial(),
 		n.InverseFactorial()
 	c.Mod = n.Mod
@@ -359,7 +359,7 @@ func (
 	comb.IMul(
 		c.InvFact[n - r],
 	)
-	return	
+	return
 }
 
 
@@ -376,7 +376,7 @@ func (
 func (
 	io *IO,
 ) ScanInt() Int {
-	s := string(io.Scan())	
+	s := string(io.Scan())
 	v, _ := strconv.Atoi(s)
 	return Int(v)
 }
@@ -385,7 +385,7 @@ func (
 type Solver interface{
 	Init()
 	Prepare()
-	Solve()	
+	Solve()
 }
 
 
@@ -416,24 +416,24 @@ func (
 func (
 	p *Problem,
 ) Prepare() {
-	io := p.io 
+	io := p.io
 	r := io.ScanInt()
 	c := io.ScanInt()
-	y := io.ScanInt() 
-	x := io.ScanInt() 
+	y := io.ScanInt()
+	x := io.ScanInt()
 	d := io.ScanInt()
-	l := io.ScanInt() 
+	l := io.ScanInt()
 	comb := new(Combinations)
 	mod := Int(1_000_000_007)
 	n := Modular{r * c, mod}
 	comb.Init(n)
 	p.r = r
-	p.c = c 
-	p.y = y 
-	p.x = x 
-	p.d = d 
+	p.c = c
+	p.y = y
+	p.x = x
+	p.d = d
 	p.l = l
-	p.comb = comb 
+	p.comb = comb
 }
 
 
@@ -456,16 +456,16 @@ func (
 	)
 	c2 := comb.Choose(d + l, d)
 	c.IMul(c2)
-	return c	
-}  
+	return c
+}
 
 func (
 	p *Problem,
 ) Solve() {
-	r := p.r 
-	c := p.c 
-	y := p.y 
-	x := p.x 
+	r := p.r
+	c := p.c
+	y := p.y
+	x := p.x
 	mod := p.comb.Mod
 	blocks := Modular{
 		(r - y + 1) * (c - x + 1),
@@ -473,14 +473,14 @@ func (
 	}
 	n := 4
 	s := Modular{0, mod}
-	for 
-	i := Int(0); 
-	i < 1<<n; 
+	for
+	i := Int(0);
+	i < 1<<n;
 	i++ {
 		var bits [2]Int
 		for j := 0; j < n; j++ {
 			if ^i >> j & 1 == 1 {
-				continue 
+				continue
 			}
 			bits[j & 1]++
 		}
@@ -498,7 +498,7 @@ func (
 		s.IAdd(
 			f.Mul(cnt),
 		)
-	} 
+	}
 	s.IMul(blocks)
 	fmt.Println(s)
 

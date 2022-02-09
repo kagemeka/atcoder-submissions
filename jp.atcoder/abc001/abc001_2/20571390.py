@@ -6,7 +6,7 @@ from dataclasses import (
 )
 
 import numpy as np
-import sys 
+import sys
 
 from typing import (
   List,
@@ -33,26 +33,26 @@ class Reader:
   def read_int(cls) -> int:
     ln = cls.readline()
     return int(ln)
-  
-  
-  @classmethod 
+
+
+  @classmethod
   def read_str(cls) -> str:
     ln = cls.readline()
     return ln.decode()
-  
+
 
   @classmethod
   def readline_ints(
     cls,
   ) -> List[int]:
     *ints, = map(
-      int, 
+      int,
       cls.readline().split(),
     )
     return ints
 
-  
-  @classmethod 
+
+  @classmethod
   def readline_strs(
     cls,
   ) -> List[str]:
@@ -75,13 +75,13 @@ class Reader:
     cls,
   ) -> List[int]:
     *ints, = map(
-      int, 
+      int,
       cls.read().split(),
     )
     return ints
-  
 
-  @classmethod 
+
+  @classmethod
   def read_strs(
     cls,
   ) -> List[str]:
@@ -115,7 +115,7 @@ class NumpyReader(Reader):
   ) -> np.array:
     return np.fromstring(
       string=cls.read_str(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -127,7 +127,7 @@ class NumpyReader(Reader):
     return np.fromstring(
       string=cls.read() \
         .decode(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -153,7 +153,7 @@ class Solver(ABC):
       **kwargs,
     )
 
-  
+
   def run(self):
     self.prepare()
     self.solve()
@@ -164,9 +164,9 @@ class Solver(ABC):
     ...
     self.ready = True
 
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     assert self.ready
     ...
@@ -178,7 +178,7 @@ class ABC001B(
 ):
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     m = reader.read_int()
     self.m = m
     self.ready = True
@@ -187,16 +187,16 @@ class ABC001B(
   def solve(self):
     assert self.ready
     m = self.m
-    m /= 1000 
+    m /= 1000
     vv = (
-      0 if m < 0.1 
-      else int(m * 10) 
+      0 if m < 0.1
+      else int(m * 10)
       if m <= 5
-      else int(m) + 50 
-      if m <= 30 
+      else int(m) + 50
+      if m <= 30
       else (m - 30) / 5 + 80
       if m <= 70
-      else 89    
+      else 89
     )
     print(f'{vv:02}')
 

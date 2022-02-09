@@ -6,11 +6,11 @@ import (
 )
 
 func main() {
-  var n int 
+  var n int
   fmt.Scan(&n)
   board := make([][]string, n)
   for i := 0; i < n; i++ {
-    var s string 
+    var s string
     fmt.Scan(&s)
     board[i] = strings.Split(s, "")
   }

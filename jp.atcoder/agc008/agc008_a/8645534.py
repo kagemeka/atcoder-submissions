@@ -2,7 +2,7 @@
 import sys
 def main():
     x, y = map(int, sys.stdin.readline().split())
-    
+
     if y == 0:
         if x > 0:
             ans = x + 1
@@ -22,7 +22,7 @@ def main():
             ans = x - y + 2
         else:
             ans = y - x
-    
+
     print(ans)
 
 if __name__ == '__main__':

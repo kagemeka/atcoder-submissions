@@ -1,7 +1,7 @@
-import typing 
+import typing
 import sys
-import numpy as np 
-import numba as nb 
+import numpy as np
+import numba as nb
 
 
 
@@ -10,14 +10,14 @@ def solve(n: int, a: np.ndarray, k: int) -> typing.NoReturn:
   b = np.arange(n)
   for i in a[::-1]:
     b[i], b[i + 1] = b[i + 1], b[i]
-  
+
 
 
   def arr_mul(a, b):
     b = b.copy()
     for i in range(len(a)): b[i] = a[b[i]]
     return b
-      
+
 
   def arr_pow(a, k):
     b = np.arange(n)
@@ -30,9 +30,9 @@ def solve(n: int, a: np.ndarray, k: int) -> typing.NoReturn:
   b = arr_pow(b, k)
   for x in b:
     print(x + 1)
-  
-  
-  
+
+
+
 
 
 

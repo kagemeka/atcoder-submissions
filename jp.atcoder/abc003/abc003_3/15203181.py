@@ -1,4 +1,4 @@
-import sys 
+import sys
 
 def A():
   n = int(sys.stdin.readline().rstrip())
@@ -10,10 +10,10 @@ def B():
   s, t = sys.stdin.read().split()
   for i in range(len(s)):
     if s[i] == t[i]: continue
-    if s[i] == '@' and t[i] in atcoder: continue 
+    if s[i] == '@' and t[i] in atcoder: continue
     if t[i] == '@' and s[i] in atcoder: continue
     print('You will lose')
-    return 
+    return
   print('You can win')
 
 
@@ -31,7 +31,7 @@ def D():
 
 
 if __name__ == "__main__":
-  # A() 
+  # A()
   # B()
   C()
   D()

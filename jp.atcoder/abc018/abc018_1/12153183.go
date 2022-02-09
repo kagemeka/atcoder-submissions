@@ -5,7 +5,7 @@ import (
   "sort"
 )
 
-func ReverseSortInt(a []int) {sort.Sort(sort.Reverse(sort.IntSlice(a)))} 
+func ReverseSortInt(a []int) {sort.Sort(sort.Reverse(sort.IntSlice(a)))}
 
 func main() {
   var a [3]int

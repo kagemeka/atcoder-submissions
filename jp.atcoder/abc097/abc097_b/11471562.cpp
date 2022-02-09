@@ -10,7 +10,7 @@ int main() {
   int res = 1;
   for (int i = 2; i < floor(sqrt(x)) + 1; i++) {
     res = max(res, (int)pow(i, (int)(log(x) / log(i) + 0.0001)));
-  }  
+  }
   cout << res << '\n';
   return 0;
 }

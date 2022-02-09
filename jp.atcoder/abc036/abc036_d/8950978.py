@@ -10,10 +10,10 @@ G = [[] for _ in range(n+1)]
 for a, b in ab:
     G[a].append(b)
     G[b].append(a)
-    
+
 def main():
     rank = [set() for _ in range(n)]
-    stack = [(1, 0)] 
+    stack = [(1, 0)]
     childs = [set() for _ in range(n+1)]
     while stack:
         i, r = stack.pop()
@@ -34,7 +34,7 @@ def main():
                 w %= MOD
                 b %= MOD
             res[i] = (w, b)
-    
+
     ans = sum(res[1]) % MOD
     return ans
 

@@ -1,23 +1,23 @@
-import typing 
+import typing
 import sys
 import numpy as np
-import numba as nb  
+import numba as nb
 import heapq
 
 
 @nb.njit
 def sort_csgraph(
-  n: int, 
+  n: int,
   g: np.ndarray,
 ) -> typing.Tuple[np.ndarray, np.ndarray, np.ndarray]:
   sort_idx = np.argsort(g[:, 0], kind='mergesort')
   g = g[sort_idx]
   original_idx = np.arange(len(g))[sort_idx]
   edge_idx = np.searchsorted(g[:, 0], np.arange(n + 1))
-  return g, edge_idx, original_idx 
+  return g, edge_idx, original_idx
 
 
-@nb.njit 
+@nb.njit
 def csgraph_to_undirected(g: np.ndarray) -> np.ndarray:
   m = len(g)
   g = np.vstack((g, g))
@@ -25,7 +25,7 @@ def csgraph_to_undirected(g: np.ndarray) -> np.ndarray:
   return g
 
 
-@nb.njit 
+@nb.njit
 def shortest_path_dijkstra(
   n: int,
   g: np.ndarray,
@@ -44,7 +44,7 @@ def shortest_path_dijkstra(
     if du > dist[u]: continue
     for i in range(edge_idx[u], edge_idx[u + 1]):
       _, v, w = g[i]
-      dv = du + w 
+      dv = du + w
       if dv >= dist[v]: continue
       dist[v] = dv
       predecessor[v] = u

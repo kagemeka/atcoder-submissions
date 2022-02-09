@@ -1,4 +1,4 @@
-import typing 
+import typing
 import collections
 
 
@@ -6,7 +6,7 @@ def prime_factorize(
     n: int,
 ) -> typing.Tuple[typing.List[int], typing.List[int]]:
     primes = []
-    count = [] 
+    count = []
 
     for i in range(2, n + 1):
         if i * i > n: break
@@ -17,21 +17,21 @@ def prime_factorize(
             cnt += 1
             n //= i
         count.append(cnt)
-    
+
     if n > 1:
         primes.append(n)
         count.append(1)
     return primes, count
-    
+
 
 def main() -> typing.NoReturn:
     a, b = map(int, input().split())
-    
+
 
     k = 1 << 20
-    
+
     count = collections.Counter()
-    
+
     for x in range(b + 1, a + 1):
         for p, c in zip(*prime_factorize(x)):
             count[p] += c

@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -10,7 +10,7 @@ import (
 
 
 type Reversible interface {
-	Len() int 
+	Len() int
 	Swap(i, j int)
 }
 
@@ -25,7 +25,7 @@ func Reverse(
 }
 
 
-type Str string 
+type Str string
 
 
 func (
@@ -69,7 +69,7 @@ func (
 type Problem struct {
 	io *IO
 	s string
-	n int 
+	n int
 	l, r []int
 }
 
@@ -85,7 +85,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	p.s = io.Read()
 	n := io.ReadInt()
 	l := make([]int, n)
@@ -102,7 +102,7 @@ func (
 	p *Problem,
 ) Solve() {
 	a := Runes(p.s)
-	n, l, r := p.n, p.l, p.r 
+	n, l, r := p.n, p.l, p.r
 	for i := 0; i < n; i++ {
 		Reverse(a[l[i]:r[i] + 1])
 	}

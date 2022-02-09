@@ -37,7 +37,7 @@ void abc084a() {
 
 void abc076a() {
   int r, g;
-  cin >> r >> g; 
+  cin >> r >> g;
   cout << 2*g - r << '\n';
 }
 

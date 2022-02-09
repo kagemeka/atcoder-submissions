@@ -15,8 +15,8 @@ def main():
                 q -= nex; p += nex
                 left += 1
             else:
-                break  
-        
+                break
+
         while right < n - 2:
             nex = a[right+1]
             if abs((s - nex) - (r + nex)) <= abs(s - r):

@@ -20,6 +20,3 @@ for times in range(1, size+1):
         count = 0
 else:
     print("-1, -1")
-
-
-

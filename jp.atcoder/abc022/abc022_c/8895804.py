@@ -14,19 +14,19 @@ def main():
     G[u, v] = G[v, u] = l
     g = np.copy(G)
     g[0] = g[:, 0] = np.inf
-    
+
     dist = floyd_warshall(csgraph=csr_matrix(g), directed=False)
     np.fill_diagonal(dist, np.inf)
     for i in range(n):
         dist[i, :] += G[0, i]
         dist[:, i] += G[0, i]
-    
+
     ans = np.amin(dist)
     if ans == np.inf:
         return -1
     else:
         return int(ans)
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

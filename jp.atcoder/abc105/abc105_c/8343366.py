@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-09 11:51:37(JST)
 ### modules
 ## from standard library
@@ -13,9 +13,9 @@ import sys
 # import functools
 # import operator
 ## from external libraries
-# import scipy.special   
-# import scipy.misc      
-# import numpy as np 
+# import scipy.special
+# import scipy.misc
+# import numpy as np
 
 
 def baseConvert(n, base):
@@ -25,11 +25,11 @@ def baseConvert(n, base):
         for i in range(abs(base)):
             if n % abs(base) == i:
                 return baseConvert((n - i) // base, base) + str(i)
- 
+
 def main():
     n = int(sys.stdin.readline().rstrip())
     base = -2
-    
+
     if n == 0:
         ans = '0'
     else:

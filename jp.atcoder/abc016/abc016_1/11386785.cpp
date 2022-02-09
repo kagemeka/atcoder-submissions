@@ -6,5 +6,5 @@ int main() {
   cin >> m >> d;
   string ans = (m % d == 0) ? "YES" : "NO";
   cout << ans << endl;
-  return 0; 
+  return 0;
 }

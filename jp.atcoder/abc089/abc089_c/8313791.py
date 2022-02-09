@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-06 16:52:04(JST)
 import sys
 # import collections
@@ -26,17 +26,17 @@ def main():
 
 
     march = {k: v for k, v in march.items() if v != 0}
-    
+
     if len(march) < 2:
         print(0)
         exit()
-    
+
     total_cmb = 0
     for cmb in itertools.combinations(march.values(), 3):
         total_cmb += cmb[0] * cmb[1] * cmb[2]
-    
+
     print(total_cmb)
-        
+
 if __name__ == "__main__":
     # execute only if run as a script
     main()

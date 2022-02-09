@@ -10,5 +10,5 @@ for i in range(1, n+1):
       if total_digit >= a and total_digit <= b:
         total += i
       break
-    
+
 print(total)

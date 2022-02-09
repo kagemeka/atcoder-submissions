@@ -1,32 +1,32 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
 
 def readline_ints():
   *ints, = map(
-    int, 
+    int,
     readline().split(),
   )
-  return ints 
+  return ints
 
 
 def read():
-  import sys 
+  import sys
   return sys.stdin.buffer.read()
 
 
 def read_ints():
   *ints, = map(
-    int, 
+    int,
     read().split(),
   )
   return ints
 
 
 def solve(n, p, ab):
-  x, y = [], [] 
+  x, y = [], []
   for a, b in ab:
     x.append(a)
     y.append(b)
@@ -52,7 +52,7 @@ def solve(n, p, ab):
   )
   min_cut = maximum_flow(
     csgraph=g,
-    source=0, 
+    source=0,
     sink=n,
   ).flow_value
   print(min_cut)

@@ -2,7 +2,7 @@ class Reader:
 
   @staticmethod
   def readline():
-    import sys 
+    import sys
     return sys.stdin.buffer \
       .readline().rstrip()
 
@@ -11,24 +11,24 @@ class Reader:
   def read_int(cls):
     i = int(cls.readline())
     return i
-  
-  
-  @classmethod 
+
+
+  @classmethod
   def read_str(cls):
     s = cls.readline().decode()
     return s
-  
+
 
   @classmethod
   def readline_ints(cls):
     *ints, = map(
-      int, 
+      int,
       cls.readline().split(),
     )
     return ints
 
-  
-  @classmethod 
+
+  @classmethod
   def readline_strs(cls):
     s = cls.read_str().split()
     return s
@@ -36,7 +36,7 @@ class Reader:
 
   @staticmethod
   def read():
-    import sys 
+    import sys
     i = sys.stdin.buffer.read()
     return i
 
@@ -44,13 +44,13 @@ class Reader:
   @classmethod
   def read_ints(cls):
     *ints, = map(
-      int, 
+      int,
       cls.read().split(),
     )
     return ints
-  
 
-  @classmethod 
+
+  @classmethod
   def read_strs(cls):
     return cls.read() \
       .decode().split()
@@ -75,7 +75,7 @@ class ReaderNumpy(Reader):
     import numpy as np
     return np.fromstring(
       string=cls.read_str(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -86,7 +86,7 @@ class ReaderNumpy(Reader):
     return np.fromstring(
       string=cls.read() \
         .decode(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -99,9 +99,9 @@ class Solver:
 
 
   def round_time(self, s, e):
-    s = s // 5 * 5 
+    s = s // 5 * 5
     e = (e + 4) // 5 * 5
-    return s, e 
+    return s, e
 
 
   def __prepare(self):
@@ -129,37 +129,37 @@ class Solver:
     for i in range(m):
       term[i+1] += term[i]
 
-    self.term = term 
-    self.m = m   
+    self.term = term
+    self.m = m
 
 
-  @staticmethod 
+  @staticmethod
   def to_minutes(t):
     q, r = divmod(t, 100)
     return 60 * q + r
 
 
-  @staticmethod 
+  @staticmethod
   def to_hmform(t):
     q, r = divmod(t, 60)
     return 100 * q + r
 
 
   def __solve(self):
-    n, m = self.n, self.m 
-    term = self.term 
-    
+    n, m = self.n, self.m
+    term = self.term
+
     res = []
-    raining = False 
+    raining = False
     for i in range(m + 1):
       if term[i]:
-        if raining: continue 
-        s = i 
+        if raining: continue
+        s = i
         raining = True
       elif raining:
         res.append((s, i-1))
-        raining = False 
-    
+        raining = False
+
     for se in res:
       s, e = map(
         self.to_hmform,
@@ -167,11 +167,11 @@ class Solver:
       )
       print(f'{s:04}-{e:04}')
 
-  
+
   def run(self):
     self.__prepare()
     self.__solve()
-      
+
 
 def main():
   t = 1

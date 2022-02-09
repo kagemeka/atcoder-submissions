@@ -8,7 +8,7 @@ def matrix_pow_mod(x, n, mod):
         return np.identity(3)
     elif n == 1:
         return x
-    
+
     y = x.dot(x) % mod
     res = np.identity(3)
     for i in range(21):

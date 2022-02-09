@@ -1,20 +1,20 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
 
 def solve(s: str):
-  global vowels 
+  global vowels
   s = ''.join([
-    c for c in s 
+    c for c in s
     if not c in vowels
   ])
   print(s)
 
 
 def main():
-  global vowels 
+  global vowels
   vowels = set('aeiou')
   w = readline().decode()
   solve(w)

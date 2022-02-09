@@ -24,8 +24,8 @@ fn main() {
     let stdin = std::io::stdin();
     let mut sc = Scanner::new(std::io::BufReader::new(stdin.lock()));
     let stdout = std::io::stdout();
-    let out = &mut std::io::BufWriter::new(stdout.lock());  
-    
+    let out = &mut std::io::BufWriter::new(stdout.lock());
+
     let n: usize = sc.scan();
     const MOD: usize = 1_000_7;
     let mut t = vec![0; 1 << 20];

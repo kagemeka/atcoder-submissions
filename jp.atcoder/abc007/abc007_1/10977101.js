@@ -7,7 +7,7 @@ function int(n) {
 function main(input) {
   var n = int(input.trim());
   console.log(n - 1);
-  
+
 }
 
 input = fs.readFileSync('/dev/stdin', 'utf8');

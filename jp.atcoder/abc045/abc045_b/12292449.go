@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-  var a, b, c string 
+  var a, b, c string
   fmt.Scan(&a, &b, &c)
   res := make(map[rune][]rune)
   res['a'] = []rune(a)

@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 
 
@@ -9,8 +9,8 @@ def solve(
   yx: np.ndarray,
   k: int,
 ) -> typing.NoReturn:
-  y, x = yx.T 
-  
+  y, x = yx.T
+
   bin_y = np.bincount(y)
   bin_x = np.bincount(x)
   bin2_y = np.bincount(bin_y, minlength=k + 1)

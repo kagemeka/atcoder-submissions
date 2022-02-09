@@ -9,9 +9,9 @@ def main():
   for x in a[1:]:
     cand.append(x - mi)
     mi = min(mi, x)
-  cand.sort() 
+  cand.sort()
   ans = n - bi_l(cand, cand[-1]) - 1
   print(ans)
-  
+
 if __name__ == '__main__':
   main()

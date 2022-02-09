@@ -12,7 +12,7 @@ def obtainable(s):
       return False
     if not s:
       return True
-    
+
 s = sys.stdin.readline().rstrip()
 
 def main():

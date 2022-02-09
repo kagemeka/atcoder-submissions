@@ -1,5 +1,5 @@
-import sys 
-from itertools import combinations 
+import sys
+from itertools import combinations
 
 def A():
   x, y = map(int, sys.stdin.readline().split())
@@ -8,13 +8,13 @@ def A():
 
 def B():
   vowels = set('aeiou')
-  s = sys.stdin.readline().rstrip() 
+  s = sys.stdin.readline().rstrip()
   t = ''
   for c in s:
-    if c in vowels: continue 
-    t += c 
+    if c in vowels: continue
+    t += c
   print(t)
-    
+
 
 def C():
   *coords, = map(int, sys.stdin.readline().split())
@@ -39,13 +39,13 @@ def D():
       if (x, y) not in edges: break
     else:
       cand.append(len(s))
-  
+
   print(max(cand))
   pass
 
 
 if __name__ == "__main__":
-  # A() 
+  # A()
   # B()
   # C()
   D()

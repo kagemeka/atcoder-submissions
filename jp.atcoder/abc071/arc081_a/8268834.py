@@ -1,7 +1,7 @@
 from sys import stdin
 
 n, *a = map(int, stdin.read().split())
-lengths = sorted(set(a), reverse=1)     
+lengths = sorted(set(a), reverse=1)
 a.sort()
 
 long_side, short_side = 0, 0

@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -33,13 +33,13 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	n := 2025 - p.n 
+	n := 2025 - p.n
 	io := p.io
 	for i := 1; i < 10; i++ {
 		if n % i != 0 {
 			continue
 		}
-		j := n / i 
+		j := n / i
 		if j >= 10 {
 			continue
 		}
@@ -48,7 +48,7 @@ func (
 			i, j,
 		)
 		io.Write(f)
-	}		
+	}
 }
 
 

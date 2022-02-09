@@ -37,7 +37,7 @@ void abc084a() {
 
 void abc076a() {
   int r, g;
-  cin >> r >> g; 
+  cin >> r >> g;
   cout << 2*g - r << '\n';
 }
 
@@ -74,8 +74,8 @@ void ex6() {
     case '-': res = a-b; break;
     case '*': res = a*b; break;
     case '/': res = a/b; break;
-    default : cout << "error" << '\n'; return; 
-    
+    default : cout << "error" << '\n'; return;
+
   }
   cout << res << '\n';
 }
@@ -95,5 +95,5 @@ int main() {
   // abc081a();
   ex6();
   return 0;
-  
+
 }

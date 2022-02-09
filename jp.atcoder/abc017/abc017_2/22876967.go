@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -10,7 +10,7 @@ import (
 
 
 type Message struct {
-	Ok, Ng string 
+	Ok, Ng string
 }
 
 
@@ -66,7 +66,7 @@ func (
 	if t[s[n - 2:]] {
 		return p.isChoku(s[:n - 2])
 	}
-	return false 
+	return false
 }
 
 

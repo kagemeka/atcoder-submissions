@@ -1,14 +1,14 @@
-import typing 
+import typing
 import heapq
 
 def main() -> typing.NoReturn:
     n, m = map(int, input().split())
     a = [list(map(lambda x: int(x) - 1, input().split()))[::-1] for _ in range(n)]
-    
+
     cnt = [0] * m
     for i in range(n):
         cnt[a[i][-1]] += 1
-    
+
     mn = n
     removed = set()
     for _ in range(m - 1):
@@ -27,5 +27,3 @@ def main() -> typing.NoReturn:
     print(mn)
 
 main()
-             
-        

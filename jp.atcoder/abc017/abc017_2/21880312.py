@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -88,9 +88,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -112,20 +112,20 @@ class Problem(
 
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     x = reader.str()
     self.x = x
 
 
   def solve(self):
-    x = self.x 
+    x = self.x
     ok = self.is_choku(
       x,
     )
     print(
       'YES' if ok else 'NO',
     )
-  
+
 
   @classmethod
   def is_choku(
@@ -147,8 +147,8 @@ class Problem(
         s[:-2],
       )
     return False
-    
-  
+
+
 
 def main():
   t = 1

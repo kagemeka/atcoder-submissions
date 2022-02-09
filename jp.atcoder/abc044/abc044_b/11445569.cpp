@@ -15,10 +15,10 @@ int main() {
   for (auto &cv : cnt) {
     if (cv.second & 1) {
       ans = "No";
-      break; 
+      break;
     }
   }
   cout << ans << '\n';
   return 0;
-  
+
 }

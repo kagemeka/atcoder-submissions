@@ -10,7 +10,7 @@ def main():
             res += ops[i] + s[i+1]
         if eval(res) == 7:
             print(res + '=7')
-            return 
+            return
 
 if __name__ ==  '__main__':
     main()

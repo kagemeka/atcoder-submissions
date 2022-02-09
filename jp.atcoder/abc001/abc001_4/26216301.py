@@ -1,6 +1,6 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 
 
 
@@ -18,7 +18,7 @@ def main() -> typing.NoReturn:
     lambda x: tuple(map(int, x.split('-'))),
     sys.stdin.read().split(),
   ))
-  
+
   s, e = np.array(se).T
   s = s // 5 * 5
   e = (e + 4) // 5 * 5
@@ -30,7 +30,7 @@ def main() -> typing.NoReturn:
   np.add.at(a, s, 1)
   np.subtract.at(a, e + 1, 1)
   a = a.cumsum().tolist()
-  
+
 
   se = []
   raining = False
@@ -48,7 +48,7 @@ def main() -> typing.NoReturn:
   for s, e in se:
     s = transform_inverse(s)
     e = transform_inverse(e)
-    print(f'{s:04}-{e:04}')  
-      
-  
+    print(f'{s:04}-{e:04}')
+
+
 main()

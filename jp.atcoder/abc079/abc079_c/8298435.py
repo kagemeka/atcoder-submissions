@@ -15,7 +15,7 @@ def main():
     elif sum([b, -c, d]) == s: res = '+-+'
     elif sum([b, c, -d]) == s: res = '++-'
     elif sum([-b, -c, d]) == s: res = '--+'
-    elif sum([-b, c, -d]) == s: res = '-+-' 
+    elif sum([-b, c, -d]) == s: res = '-+-'
     if res[0] == '-': b = -b
     if res[1] == '-': c = -c
     if res[2] == '-': d = -d

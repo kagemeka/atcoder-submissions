@@ -1,11 +1,11 @@
 import typing
-import sys 
-import numpy as np 
-import numba as nb 
+import sys
+import numpy as np
+import numba as nb
 
 
 
-@nb.njit 
+@nb.njit
 def cross(x0: int, y0: int, x1: int, y1: int) -> int:
   return x0 * y1 - x1 * y0
 
@@ -24,12 +24,12 @@ def solve(
   x1 -= x0
   y1 -= y0
   x -= x0
-  y -= y0  
-  p = cross(x1, y1, x[:-1], y[:-1]) 
+  y -= y0
+  p = cross(x1, y1, x[:-1], y[:-1])
   p *= cross(x1, y1, x[1:], y[1:])
   cnt = 1 + np.count_nonzero(p < 0) // 2
   print(cnt)
-  
+
 
 
 def main() -> typing.NoReturn:

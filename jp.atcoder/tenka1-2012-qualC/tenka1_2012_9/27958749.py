@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 def main() -> typing.NoReturn:
     n = int(input())
@@ -10,12 +10,12 @@ def main() -> typing.NoReturn:
         if not is_prime[i]: continue
         for j in range(i * i, k, i):
             is_prime[j] = False
-    
-    
-    cnt = 0 
+
+
+    cnt = 0
     for i in range(n):
         cnt += is_prime[i]
     print(cnt)
 
 
-main()    
+main()

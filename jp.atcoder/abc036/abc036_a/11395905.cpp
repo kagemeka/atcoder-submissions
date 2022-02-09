@@ -7,5 +7,5 @@ int main() {
   int c = (b + a - 1) / a;
   cout << c << endl;
   return 0;
-  
+
 }

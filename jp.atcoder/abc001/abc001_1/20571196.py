@@ -6,7 +6,7 @@ from dataclasses import (
 )
 
 import numpy as np
-import sys 
+import sys
 
 from typing import (
   List,
@@ -33,26 +33,26 @@ class Reader:
   def read_int(cls) -> int:
     ln = cls.readline()
     return int(ln)
-  
-  
-  @classmethod 
+
+
+  @classmethod
   def read_str(cls) -> str:
     ln = cls.readline()
     return ln.decode()
-  
+
 
   @classmethod
   def readline_ints(
     cls,
   ) -> List[int]:
     *ints, = map(
-      int, 
+      int,
       cls.readline().split(),
     )
     return ints
 
-  
-  @classmethod 
+
+  @classmethod
   def readline_strs(
     cls,
   ) -> List[str]:
@@ -75,13 +75,13 @@ class Reader:
     cls,
   ) -> List[int]:
     *ints, = map(
-      int, 
+      int,
       cls.read().split(),
     )
     return ints
-  
 
-  @classmethod 
+
+  @classmethod
   def read_strs(
     cls,
   ) -> List[str]:
@@ -115,7 +115,7 @@ class NumpyReader(Reader):
   ) -> np.array:
     return np.fromstring(
       string=cls.read_str(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -127,7 +127,7 @@ class NumpyReader(Reader):
     return np.fromstring(
       string=cls.read() \
         .decode(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -153,7 +153,7 @@ class Solver(ABC):
       **kwargs,
     )
 
-  
+
   def run(self):
     self.prepare()
     self.solve()
@@ -163,9 +163,9 @@ class Solver(ABC):
   def prepare(self):
     ...
     self.ready = True
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     assert self.ready
     ...
@@ -178,7 +178,7 @@ class ABC001A(
 
   def prepare(self):
     super().prepare()
-    reader = self.reader 
+    reader = self.reader
     h1, h2 = reader.read_ints()
     (
       self.h1,
@@ -189,7 +189,7 @@ class ABC001A(
 
   def solve(self):
     assert self.ready
-    h1 = self.h1 
+    h1 = self.h1
     h2 = self.h2
     print(h1 - h2)
 

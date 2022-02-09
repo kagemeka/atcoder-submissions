@@ -13,7 +13,7 @@ int main() {
   for (char &c : s) {
     if (appeared.find(c) != appeared.end()) {
       ans = "no";
-      break;      
+      break;
     }
     appeared.insert(c);
   }

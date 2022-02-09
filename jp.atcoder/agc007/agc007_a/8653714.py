@@ -1,6 +1,6 @@
 # 2019-11-26 01:21:13(JST)
 import sys
-import numpy as np 
+import numpy as np
 
 def main():
     H, W = map(int, sys.stdin.readline().split())
@@ -10,7 +10,7 @@ def main():
     if np.char.count(visited, '#').sum() != H + W - 1:
         print('Impossible')
         sys.exit()
-    
+
     h, w = 0, 0
     for _ in range(H + W - 2):
         if visited[h+1][w] == '#' and visited[h][w+1] == '.':

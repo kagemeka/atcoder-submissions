@@ -22,7 +22,7 @@ func NewStdIO() *StdIO {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Buffer([]byte{}, maxBuffer)
 	scanner.Split(bufio.ScanWords)
-	return &StdIO { 
+	return &StdIO {
 		scanner: scanner,
 		writer: bufio.NewWriter(os.Stdout),
 	}
@@ -54,10 +54,10 @@ func Max(a ...int) int {
 
 
 func Min(a ...int) int {
-	// len(a) > 0 
+	// len(a) > 0
 	mn := a[0]
 	for _, x := range a { if x < mn { mn = x } }
-	return mn 
+	return mn
 }
 
 
@@ -102,7 +102,7 @@ func SAIS(a []int) (sa []int) {
 	for i := n - 2; i > -1; i-- {
 		if a[i] == a[i + 1] {
 			isS[i] = isS[i + 1]
-		} else { 
+		} else {
 			isS[i] = a[i] < a[i + 1]
 		}
 	}
@@ -124,7 +124,7 @@ func SAIS(a []int) (sa []int) {
 			saIdx[x]--
 			sa[saIdx[x]] = i
 		}
-		
+
 		copy(saIdx, bucket)
 		s := 0
 		for i := 0; i < m; i++ { s, saIdx[i] = s + saIdx[i], s }
@@ -190,14 +190,14 @@ func SADoubling(a []int) (sa []int) {
 	for {
 		for i := 0; i < n; i++ {
 			key[i] = rank[i] << 30
-			if i + k < n { key[i] |= 1 + rank[i + k] } 
+			if i + k < n { key[i] |= 1 + rank[i + k] }
 		}
 		sa = make([]int, n)
 		for i := 0; i < n; i++ { sa[i] = i }
 		sort.SliceStable(sa, func(i, j int) bool { return key[sa[i]] < key[sa[j]] } )
 		rank[sa[0]] = 0
 		for i := 0; i < n - 1; i++ {
-			rank[sa[i + 1]] = rank[sa[i]] 
+			rank[sa[i + 1]] = rank[sa[i]]
 			if key[sa[i + 1]] > key[sa[i]] { rank[sa[i + 1]]++ }
 		}
 		k <<= 1
@@ -218,7 +218,7 @@ func SADoublingCountsort(a []int) (sa []int) {
 			key[cnt[a[i]]] = i
 			cnt[a[i]]++
 		}
-		return key 
+		return key
 	}
 
 	ac := new(ArrayCompression)
@@ -239,7 +239,7 @@ func SADoublingCountsort(a []int) (sa []int) {
 		}
 		rank[sa[0]] = 0
 		for i := 0; i < n - 1; i++ {
-			rank[sa[i + 1]] = rank[sa[i]] 
+			rank[sa[i + 1]] = rank[sa[i]]
 			if key[i + 1] > key[i] { rank[sa[i + 1]]++ }
 		}
 		k <<= 1
@@ -264,7 +264,7 @@ func LCPArrayKasai(a, sa []int) (lcp []int) {
 		for i + h < n && j + h < n && a[i + h] == a[j + h] { h++ }
 		lcp[r] = h
 	}
-	return 
+	return
 }
 
 
@@ -273,7 +273,7 @@ func main() {
 	s := io.Scan()
 	n := len(s)
 	a := make([]int, n)
-	for i, c := range s { a[i] = int(c - 'a') }	
+	for i, c := range s { a[i] = int(c - 'a') }
 	sa := SADoublingCountsort(a)
 	// sa := SADoubling(a)
 	// sa := SAIS(a)

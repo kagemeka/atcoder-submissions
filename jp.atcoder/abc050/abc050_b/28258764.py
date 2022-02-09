@@ -1,6 +1,6 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 
 
 def main() -> typing.NoReturn:
@@ -13,13 +13,13 @@ def main() -> typing.NoReturn:
     p, x = np.array(
         sys.stdin.read().split(),
         dtype=np.int64,
-    ).reshape(m, 2).T 
+    ).reshape(m, 2).T
     p -= 1
-    
+
     s = t.sum()
     res = s + x - t[p]
     for i in res.tolist():
         print(i)
-    
+
 
 main()

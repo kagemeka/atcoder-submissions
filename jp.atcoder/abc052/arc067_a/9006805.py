@@ -25,12 +25,12 @@ def primeFactorize(n):
 def main():
     for i in range(1, n+1):
         primeFactorize(i)
-    
+
     ans = 1
     for c in res.values():
         ans *= c + 1
         ans %= MOD
-    
+
     return ans
 
 if __name__ == '__main__':

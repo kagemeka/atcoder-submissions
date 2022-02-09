@@ -8,7 +8,7 @@ def main():
     # 3 + 3 == 2 + 4 なので、老人は偶奇合わせだけで良い。
     if r == 3:
         cnt[1] += 1
-        n -= 1   
+        n -= 1
     elif r == 1:
         cnt[0] += 1
         cnt[1] += 1
@@ -25,7 +25,7 @@ def main():
         possible = False
     elif n < q or q * 2 < n:
         possible = False
-    
+
     if not possible:
         print(-1, -1, -1)
         sys.exit()

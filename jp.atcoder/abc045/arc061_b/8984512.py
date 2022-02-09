@@ -15,7 +15,7 @@ def main():
                 j = b + db
                 if 1 <= i <= h - 2 and 1 <= j <= w - 2:
                     c[(i, j)] += 1
-    
+
     res = Counter(c.values())
     cnt_0 = (h - 2) * (w - 2) - sum(res.values())
     yield cnt_0

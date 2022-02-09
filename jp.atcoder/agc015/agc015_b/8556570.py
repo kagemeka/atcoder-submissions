@@ -5,7 +5,7 @@ import sys
 def main():
     s = sys.stdin.readline().rstrip()
     n = len(s)
-    
+
     take_times = [[None for _ in range(n)] for _ in range(n)]
     for i in range(n):
         for j in range(n):
@@ -21,7 +21,7 @@ def main():
                     take_times[i][j] = 2
                 elif j < i:
                     take_times[i][j] = 1
-                    
+
     ans = sum(sum(take_times[i]) for i in range(n))
     print(ans)
 

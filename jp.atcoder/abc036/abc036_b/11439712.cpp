@@ -11,7 +11,7 @@ int main() {
   for (int i = 0; i < n; i++) {
     cin >> grid[i];
   }
-  
+
   for (int j = 0; j < n; j++) {
     for (int i = n-1; i > -1; i--) {
       cout << grid[i][j];

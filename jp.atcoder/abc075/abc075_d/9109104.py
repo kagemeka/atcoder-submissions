@@ -14,7 +14,7 @@ def minimize(xy, key):
         y.append(xy[i][1])
     if key == 1:
         x, y = y, x
-    
+
     area = inf
     for i in range(n-k+1):
         l = i; r = i + k - 1

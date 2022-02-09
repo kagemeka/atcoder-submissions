@@ -23,7 +23,7 @@ def main():
             if s2 >= 0:
                 c2 += abs(-1 - s2)
                 s2 = -1
-    
+
     return min(c1, c2)
 
 if __name__ == '__main__':

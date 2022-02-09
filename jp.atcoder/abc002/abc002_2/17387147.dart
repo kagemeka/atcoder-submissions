@@ -33,7 +33,7 @@ class ABC002 {
     for (var i = 0; i < s.length; i++) {
       if (vowels.contains(s[i])) continue;
       t += s[i];
-    } 
+    }
     print(t);
   }
 }
@@ -41,7 +41,3 @@ class ABC002 {
 void main() {
   ABC002.b();
 }
-
-
-
-

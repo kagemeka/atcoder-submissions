@@ -12,7 +12,7 @@ sx = [0] * n
 sx[0] = x[0]
 for i in range(n-1):
     sx[i+1] = sx[i] + x[i+1]
-sxd = 0  
+sxd = 0
 for i in range(n-1):
     sxd += ((sx[n-1] - sx[i]) - x[i] * ((n-1) - (i+1) + 1)) % mod
 

@@ -9,7 +9,7 @@ def main():
     if n % 2 == 0:
         print(-1)
         sys.exit()
-    
+
     ops = n // 2
     remainder = ops
     s = deque(list(s))
@@ -35,7 +35,7 @@ def main():
     else:
         if s[0] == 'b':
             ans = ops
-    
+
     print(ans)
 
 if __name__ == '__main__':

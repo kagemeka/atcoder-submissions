@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit
@@ -34,7 +34,7 @@ def solve(a: np.ndarray) -> typing.NoReturn:
     for i in range(m - 1):
         if b[i + 1] == 0:
             print(0)
-            return 
+            return
         c[i + 1] = c[i] * pow(mod, (pow2[b[i]] - 1) % mod, b[i + 1]) % mod * pow(mod, 2, choose2(b[i + 1])) % mod
     print(c[-1])
 

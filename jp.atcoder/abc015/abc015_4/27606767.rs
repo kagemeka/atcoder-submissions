@@ -31,7 +31,7 @@ fn main() {
     let k: usize = sc.scan();
 
     let mut dp: Vec<Vec<usize>> = vec![vec![0; w + 1]; n + 1];
-    for _ in 0..n { 
+    for _ in 0..n {
         let a: usize = sc.scan();
         let b: usize = sc.scan();
         for i in (1..n + 1).rev() {

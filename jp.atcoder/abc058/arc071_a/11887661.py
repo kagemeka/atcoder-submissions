@@ -7,7 +7,7 @@ n = int(n)
 
 def main():
     cnt = [Counter(s[i]) for i in range(n)]
-    
+
     for i in range(n - 1):
         for c in ascii_lowercase:
             cnt[i+1][c] = min(cnt[i+1][c], cnt[i][c])

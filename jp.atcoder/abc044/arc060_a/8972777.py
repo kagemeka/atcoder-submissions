@@ -12,7 +12,7 @@ def main():
                 res[i+1][j][k] += res[i][j][k]
                 if k >= cur:
                     res[i+1][j][k] += res[i][j-1][k-cur]
-    
+
     ans = 0
     for j in range(1, n+1):
         ans += res[n][j][j*a]

@@ -7,7 +7,4 @@ if c in vowels:
 else:
     ans = 'consonant'
 
-print(ans)    
-    
-
-
+print(ans)

@@ -17,7 +17,7 @@ def main():
                     x = j + dj
                     if canvas[y][x] == '#':
                         res[i][j] += 1
-    
+
     for i in range(1, h+1):
         yield ''.join(list(map(str, res[i][1:])))
 

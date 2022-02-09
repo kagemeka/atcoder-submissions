@@ -35,7 +35,7 @@ func (
 	bufSize int,
 ) {
 	io.Scanner.Buffer(
-		[]byte{}, 
+		[]byte{},
 		bufSize,
 	)
 }
@@ -89,7 +89,7 @@ func (
 func (
 	io *IO,
 ) ScanInt() Int {
-	s := string(io.Scan())	
+	s := string(io.Scan())
 	v, _ := strconv.Atoi(s)
 	return Int(v)
 }
@@ -151,7 +151,7 @@ func (
 		cnt += n & 1
 		n >>= 1
 	}
-	return 
+	return
 }
 
 
@@ -196,7 +196,7 @@ func (
 	case Int:
 		return Int(res)
 	}
-	return res 
+	return res
 }
 
 
@@ -224,7 +224,7 @@ func (
 	case Int:
 		return Int(res)
 	}
-	return res 
+	return res
 }
 
 
@@ -272,7 +272,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(Int) 
+	return x <= other.(Int)
 }
 
 
@@ -306,7 +306,7 @@ func (
 	if x < 0 {
 		return -x
 	}
-	return x 
+	return x
 }
 
 
@@ -402,7 +402,7 @@ func (
 	Numeric,
 ){
 	if n == 0 {
-		return Float(1) 
+		return Float(1)
 	}
 	a := x.Pow(n >> 1).(Float)
 	a *= a
@@ -445,7 +445,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(Float) 
+	return x <= other.(Float)
 }
 
 
@@ -485,7 +485,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(String) 
+	return x <= other.(String)
 }
 
 
@@ -715,7 +715,7 @@ type Numeric interface {
 
 
 func Sum(
-	a ...Numeric,	
+	a ...Numeric,
 ) (
 	s Numeric,
 ) {
@@ -723,7 +723,7 @@ func Sum(
 	for  _, x := range a {
 		s = s.Add(x)
 	}
-	return 
+	return
 }
 
 
@@ -742,7 +742,7 @@ func (
 ) {
 	const dx = 1e-8
 	d = (f(x + dx) - f(x)) / dx
-	return 
+	return
 }
 
 
@@ -755,14 +755,14 @@ func (
 ) {
 	x = x0
 	const maxIter = 1 << 4
-	for 
-	i := 0; 
-	i < maxIter; 
+	for
+	i := 0;
+	i < maxIter;
 	i++ {
-		x -= f(x) / 
+		x -= f(x) /
 			f.Derivative(x)
 	}
-	return 
+	return
 }
 
 
@@ -780,7 +780,7 @@ func Newton(
 type Solver interface{
 	Init()
 	Prepare()
-	Solve()	
+	Solve()
 }
 
 
@@ -805,7 +805,7 @@ func (
 	io.Init()
 	const bufSize = 1 << 7
 	io.SetScanBuf(bufSize)
-	p.io = io 
+	p.io = io
 }
 
 
@@ -815,7 +815,7 @@ func (
 	io := p.io
 	const n = 4
 	c := make(
-		StringSlice2D, 
+		StringSlice2D,
 		n,
 	)
 	for i := 0; i < n; i++ {
@@ -834,7 +834,7 @@ func (
 	p *Problem,
 ) Solve() {
 	io := p.io
-	c := p.c 
+	c := p.c
 	n := len(c)
 	c.Reverse()
 	for i := 0; i < n; i++{
@@ -862,8 +862,8 @@ func (
 	a StringSlice,
 ) Reversed() (
 	s StringSlice,
-) { 
-	s = 
+) {
+	s =
 		Reversed(a).
 		(StringSlice)
 	return
@@ -905,7 +905,7 @@ func (
 	s := make(StringSlice, n)
 	copy(s, a)
 	return s
-} 
+}
 
 
 func (
@@ -933,7 +933,7 @@ func (
 	i, j int,
 ) bool {
 	return a[i] < a[j]
-} 
+}
 
 
 func (
@@ -980,7 +980,7 @@ func (
 			(StringSlice))
 	}
 	return s
-} 
+}
 
 
 func (
@@ -994,8 +994,8 @@ func (
 	a StringSlice2D,
 ) Reversed() (
 	s StringSlice2D,
-) { 
-	s = 
+) {
+	s =
 		Reversed(a).
 		(StringSlice2D)
 	return

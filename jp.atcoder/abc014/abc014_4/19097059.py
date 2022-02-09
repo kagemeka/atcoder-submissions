@@ -1,15 +1,15 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
 
 def readline_ints():
   *ints, = map(
-    int, 
+    int,
     readline().split(),
   )
-  return ints 
+  return ints
 
 
 def read_int():
@@ -19,14 +19,14 @@ def read_int():
 
 class Edge:
   def __init__(
-      self, 
-      weight=1, 
-      capacity=1, 
+      self,
+      weight=1,
+      capacity=1,
       **kwargs,
       ):
     self.weight = weight
     self.capacity = capacity
-  
+
   def __str__(self):
     s = f'weight: {self.weight},' \
       f' cap: {self.capacity}'
@@ -44,19 +44,19 @@ class Graph:
       {} for _ in range(n)]
 
   def add_node_info(
-      self, 
-      v, 
-      **kwargs): 
+      self,
+      v,
+      **kwargs):
     self.nodes[v] = Node(**kwargs)
 
   def add_edge(
-      self, 
-      u, v, 
-      update=False, 
-      **kwargs): 
+      self,
+      u, v,
+      update=False,
+      **kwargs):
     if not update and \
-        v in self.edges[u]: 
-      return 
+        v in self.edges[u]:
+      return
     self.edges[u][v] = Edge(
       **kwargs)
 
@@ -69,7 +69,7 @@ class Tree(Graph):
 
 
   def init_root(
-      self, 
+      self,
       root: int=...,
       **kwargs
       ):
@@ -79,12 +79,12 @@ class Tree(Graph):
       and 0 <= root < n
     assert valid, 'Invalid root'
     self.root = root
-    self.depth = [None] * n 
+    self.depth = [None] * n
     self.depth[root] = 0
-    self.parent = [None] * n 
-    self.parent[root] = root 
-    self.dist = [inf] * n 
-    self.dist[root] = 0 
+    self.parent = [None] * n
+    self.parent[root] = root
+    self.dist = [inf] * n
+    self.dist[root] = 0
 
 
   def _search(self, u):
@@ -92,16 +92,16 @@ class Tree(Graph):
         self.edges[u].items():
       if v == self.parent[u]:
         continue
-      self.parent[v] = u 
+      self.parent[v] = u
       self.depth[v] = \
         self.depth[u] + 1
       self.dist[v] = \
-        self.dist[u] + e.weight 
+        self.dist[u] + e.weight
       self.que.append(v)
 
 
   def bfs(self, source: int=None):
-    if source is not None: 
+    if source is not None:
       self.init_root(root=source)
     from collections import deque
     self.que = deque([self.root])
@@ -117,7 +117,7 @@ class LowestCommonAncestor(Tree):
     l = max(self.depth).bit_length()
     for _ in range(l):
       self.ancestors.append([
-        self.ancestors[-1][u] 
+        self.ancestors[-1][u]
         for u in self.ancestors[-1]
       ])
 
@@ -129,12 +129,12 @@ class LowestCommonAncestor(Tree):
       - 2 * self.dist[lca]
     return d
 
-  
+
   def _sort_by_depth(self, u, v):
     du = self.depth[u]
     dv = self.depth[v]
     if du > dv:
-      u, v = v, u 
+      u, v = v, u
     return u, v
 
 
@@ -169,7 +169,7 @@ def solve(n, xy, ab):
     x -= 1; y -= 1
     g.add_edge(x, y, weight=1)
     g.add_edge(y, x, weight=1)
-  
+
   g.bfs(source=0)
   g.find_ancestors()
 
@@ -181,12 +181,12 @@ def solve(n, xy, ab):
 def main():
   n = read_int()
   xy = [
-    readline_ints() 
+    readline_ints()
     for _ in range(n-1)
   ]
   q = read_int()
   ab = [
-    readline_ints() 
+    readline_ints()
     for _ in range(q)
   ]
   solve(n, xy, ab)

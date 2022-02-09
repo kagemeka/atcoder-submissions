@@ -33,7 +33,7 @@ def main():
     ans = np.sum(res, axis=1) % MOD
     ans = sum(ans) % MOD
     return ans
-            
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

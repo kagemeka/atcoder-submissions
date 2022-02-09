@@ -1,4 +1,4 @@
-import sys 
+import sys
 
 def A():
   x, y = map(int, sys.stdin.readline().split())
@@ -21,15 +21,15 @@ def C():
   for p in b:
     if i == n:
       print('no')
-      return 
+      return
     while p-a[i] > t:
       i += 1
       if i == n:
         print('no')
-        return 
+        return
     if a[i] > p:
       print('no')
-      return 
+      return
     i += 1
   print('yes')
 
@@ -40,7 +40,7 @@ def D():
 
 
 if __name__ == "__main__":
-  # A() 
+  # A()
   # B()
   C()
   D()

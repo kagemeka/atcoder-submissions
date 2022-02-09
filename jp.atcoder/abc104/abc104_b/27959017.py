@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 def main() -> typing.NoReturn:
     s = input()
@@ -11,4 +11,3 @@ def main() -> typing.NoReturn:
     print('AC' if ok else 'WA')
 
 main()
-        

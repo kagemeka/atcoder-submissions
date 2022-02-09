@@ -12,7 +12,7 @@ def main():
     can_go = False
     i = j = 1 # start
     c = 0     # real cost
-    h = max(H - i, W - j) # goalまでの推定cost 
+    h = max(H - i, W - j) # goalまでの推定cost
     s = c + h # score
     q = [] # open list
     heappush(q, (s, c, i, j))
@@ -22,7 +22,7 @@ def main():
     while q:
         s, c, i, j = heappop(q)
         visited.add((i, j))
-        if c == s: 
+        if c == s:
             can_go = True
             break
         for dy, dx in [(1, 0), (0, 1), (-1, 0), (0, -1)]:
@@ -33,7 +33,7 @@ def main():
                 h = max(H - y, W - x)
                 s = h + c + 1
                 heappush(q, (s, c+1, y, x))
- 
+
     if can_go:
         ans = (grid == '.').sum() - (c + 1)
     else:

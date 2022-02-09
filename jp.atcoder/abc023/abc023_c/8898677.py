@@ -14,7 +14,7 @@ def main():
     res = y + x
     res[grid == 1] -= 1
     ans = np.count_nonzero(res == K)
-    return ans 
+    return ans
 
 if __name__ == '__main__':
     ans = main()

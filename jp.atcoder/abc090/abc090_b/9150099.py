@@ -12,7 +12,7 @@ def main():
                 palindromic_nums.append(int(''.join(list(map(str, x)))))
 
     return bi_r(palindromic_nums, b) - bi_l(palindromic_nums, a)
-                
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

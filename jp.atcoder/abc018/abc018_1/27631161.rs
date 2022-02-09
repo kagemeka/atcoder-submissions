@@ -29,19 +29,19 @@ fn main() {
 
     let n: usize = 3;
     let mut a = vec![0usize; n];
-    for i in 0..n { 
+    for i in 0..n {
         a[i] = sc.scan();
     }
     let idx = argsort(&a);
     let mut rank = vec![0usize; n];
-    for i in 0..n { 
+    for i in 0..n {
         rank[idx[n - 1 - i]] = i + 1;
     }
-    for i in 0..n { 
+    for i in 0..n {
         writeln!(out, "{}", rank[i]).unwrap();
     }
-    
-    
+
+
 }
 
 

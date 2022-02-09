@@ -6,7 +6,7 @@ table = dict()
 def choose(n, r, mod=None): # no mod, or mod ≠ prime
     if r > n or r < 0: return 0
     if r == 0: return 1
-    if (n, r) in table: return table[(n, r)] 
+    if (n, r) in table: return table[(n, r)]
     table[(n, r)] = (choose(n - 1, r) + choose(n - 1, r - 1))
     return table[(n,r)]
 

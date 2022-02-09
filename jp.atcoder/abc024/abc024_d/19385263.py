@@ -2,7 +2,7 @@ class Reader:
 
   @staticmethod
   def readline():
-    import sys 
+    import sys
     return sys.stdin.buffer \
       .readline().rstrip()
 
@@ -11,24 +11,24 @@ class Reader:
   def read_int(cls):
     i = int(cls.readline())
     return i
-  
-  
-  @classmethod 
+
+
+  @classmethod
   def read_str(cls):
     s = cls.readline().decode()
     return s
-  
+
 
   @classmethod
   def readline_ints(cls):
     *ints, = map(
-      int, 
+      int,
       cls.readline().split(),
     )
     return ints
 
-  
-  @classmethod 
+
+  @classmethod
   def readline_strs(cls):
     s = cls.read_str().split()
     return s
@@ -36,7 +36,7 @@ class Reader:
 
   @staticmethod
   def read():
-    import sys 
+    import sys
     i = sys.stdin.buffer.read()
     return i
 
@@ -44,13 +44,13 @@ class Reader:
   @classmethod
   def read_ints(cls):
     *ints, = map(
-      int, 
+      int,
       cls.read().split(),
     )
     return ints
-  
 
-  @classmethod 
+
+  @classmethod
   def read_strs(cls):
     return cls.read() \
       .decode().split()
@@ -75,7 +75,7 @@ class ReaderNumpy(Reader):
     import numpy as np
     return np.fromstring(
       string=cls.read_str(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -86,7 +86,7 @@ class ReaderNumpy(Reader):
     return np.fromstring(
       string=cls.read() \
         .decode(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -94,8 +94,8 @@ class ReaderNumpy(Reader):
 class Modular:
 
   def __init__(
-      self, 
-      n: int, 
+      self,
+      n: int,
       mod: int=10**9+7):
     self.value = n
     self.value %= mod
@@ -105,13 +105,13 @@ class Modular:
   def __repr__(self) -> str:
     return f'{self.value}'
 
-  
+
   def clone(self):
     return self.__class__(
       self.value,
       self.mod
     )
-  
+
 
   def modularize(self, other):
     if type(other) == int:
@@ -119,15 +119,15 @@ class Modular:
         other,
         self.mod,
       )
-    return other 
-      
+    return other
+
 
   def __iadd__(self, other):
     other = self.modularize(
       other,
     )
     self.value += other.value
-    self.value %= self.mod  
+    self.value %= self.mod
     return self
 
 
@@ -152,7 +152,7 @@ class Modular:
     res += -other
     return res
 
-  
+
   def __rsub__(self, other):
     other = self.modularize(
       other,
@@ -164,20 +164,20 @@ class Modular:
     other = self.modularize(
       other,
     )
-    self.value *= other.value 
+    self.value *= other.value
     self.value %= self.mod
     return self
 
 
   def __mul__(self, other):
     res = self.clone()
-    res *= other 
-    return res 
-  
+    res *= other
+    return res
+
 
   def __rmul__(self, other):
     return self * other
-  
+
 
   def __truediv__(self, other):
     other = self.modularize(
@@ -185,8 +185,8 @@ class Modular:
     )
     res = self.clone()
     res *= other.invert()
-    return res 
-  
+    return res
+
 
   def __rtruediv__(
       self, other):
@@ -199,13 +199,13 @@ class Modular:
   def __floordiv__(
       self, other):
     return self / other
-  
+
 
   def __rfloordiv__(
       self, other):
     return other / self
 
-  
+
   def pow(self, n):
     if n == 0:
       return self.modularize(
@@ -223,32 +223,32 @@ class Modular:
     )
 
     self.value = pow(
-      self.value, 
+      self.value,
       other.value,
       self.mod,
     )
     return self
 
-  
+
   def __pow__(self, other):
     res = self.clone()
     res **= other
-    return res 
+    return res
 
-  
+
   def __rpow__(self, other):
     other = self.modularize(
       other,
     )
     return other ** self
 
-    
+
   def invert(self):
     return \
       self ** (self.mod - 2)
 
 
-Mint = Modular 
+Mint = Modular
 
 
 class Solver:
@@ -270,16 +270,16 @@ class Solver:
 
 
   def __solve(self):
-    a = self.a 
-    b = self.b 
-    c = self.c 
+    a = self.a
+    b = self.b
+    c = self.c
     denom = a*b - b*c + c*a
-    denom = denom.invert() 
-    w = (b*c - a*b) * denom 
-    h = (b*c - a*c) * denom 
+    denom = denom.invert()
+    w = (b*c - a*b) * denom
+    h = (b*c - a*c) * denom
     print(h, w)
 
-  
+
   def run(self):
     self.__prepare()
     self.__solve()

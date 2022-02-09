@@ -1,28 +1,28 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 import re
 
 
-@nb.njit 
+@nb.njit
 def sort_csgraph(n: int, g: np.ndarray) -> tuple[(np.ndarray, ) * 3]:
     key = (g[:, 0] << 30) + g[:, 1]
     sort_idx = np.argsort(key, kind='mergesort')
     g = g[sort_idx]
     original_idx = np.arange(len(g))[sort_idx]
     edge_idx = np.searchsorted(g[:, 0], np.arange(n + 1))
-    return g, edge_idx, original_idx 
+    return g, edge_idx, original_idx
 
 
-@nb.njit 
+@nb.njit
 def csgraph_to_directed(g: np.ndarray) -> np.ndarray:
     m = len(g)
     g = np.vstack((g, g))
     g[m:, :2] = g[m:, 1::-1]
     return g
 
-    
+
 @nb.njit((nb.i8, nb.i8[:, :], nb.i8, nb.i8), cache=True)
 def solve(n: int, ab: np.ndarray, s: int, k: int) -> typing.NoReturn:
     g, edge_idx, original_idx = sort_csgraph(n, csgraph_to_directed(ab))
@@ -34,7 +34,7 @@ def solve(n: int, ab: np.ndarray, s: int, k: int) -> typing.NoReturn:
                 b.append(y)
         a = np.unique(np.array(b))
     print(len(a))
-    
+
 
 def main() -> typing.NoReturn:
     n, m = map(int, input().split())

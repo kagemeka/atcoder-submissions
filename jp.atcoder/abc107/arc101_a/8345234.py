@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-09 16:39:51(JST)
 ### modules
 ## from standard library
@@ -13,9 +13,9 @@ import bisect
 # import functools
 # import operator
 ## from external libraries
-# import scipy.special   
-# import scipy.misc      
-# import numpy as np 
+# import scipy.special
+# import scipy.misc
+# import numpy as np
 
 def main():
     n, k, *x = (int(i) for i in sys.stdin.read().split())
@@ -27,7 +27,7 @@ def main():
         right = x[i + k - 1]
         mi = min(abs(left) + abs(right - left), abs(right) + abs(left - right))
         minimums.append(mi)
-    
+
     ans = min(minimums)
     print(ans)
 

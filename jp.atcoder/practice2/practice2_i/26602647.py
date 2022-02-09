@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 import numba as nb
 
@@ -48,7 +48,7 @@ def lcp_array_kasai(a: np.array, sa: np.array) -> np.array:
         j = sa[r + 1]
         while i + h < n and j + h < n and a[i + h] == a[j + h]: h += 1
         lcp[r] = h
-    return lcp 
+    return lcp
 
 
 @nb.njit((nb.i8[:], ), cache=True)

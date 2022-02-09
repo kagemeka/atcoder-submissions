@@ -15,7 +15,7 @@ def main():
     for i in range(n, -1, -1):
         j = ((n * e - (b + e) * i - h) / (d + e) + 1) // 1
         costs.append(cost(i, j))
-        
+
     return min(costs)
 
 if __name__ == '__main__':

@@ -12,7 +12,7 @@ def main():
         l = s[m-1::-1]
         r = s[m:]
     base = l[0]
-    
+
     cnt = m
     i = 0
     while i <= m:
@@ -22,7 +22,7 @@ def main():
         else:
             break
     return cnt
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

@@ -14,6 +14,6 @@ for i in range(n):
             dp[i+1][w] = max(dp[i][w - weight[i]] + value[i], dp[i][w])
         else:
             dp[i+1][w] = dp[i][w]
-   
+
 ans = dp[n][W]
 print(ans)

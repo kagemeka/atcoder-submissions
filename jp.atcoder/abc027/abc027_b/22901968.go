@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -9,7 +9,7 @@ import (
 )
 
 
-type Ints []int 
+type Ints []int
 
 
 func (
@@ -17,17 +17,17 @@ func (
 ) Sum() (
 	s int,
 ) {
-	for _, x := range a { 
+	for _, x := range a {
 		s += x
 	}
-	return s	
+	return s
 }
 
 
 
 type Problem struct {
 	io *IO
-	n int 
+	n int
 	a []int
 }
 
@@ -49,14 +49,14 @@ func (
 	for i := 0; i < n; i++ {
 		a[i] = io.ReadInt()
 	}
-	p.n, p.a = n, a 
+	p.n, p.a = n, a
 }
 
 
 func (
 	p *Problem,
 ) Solve() {
-	n, a := p.n, p.a 
+	n, a := p.n, p.a
 	m := 0
 	for _, x := range a {
 		m += x
@@ -75,11 +75,11 @@ func (
 		island++
 		if pop != island * m {
 			continue
-		}		
+		}
 		bridge += island - 1
 		island, pop = 0, 0
 	}
-	io.Write(bridge)	
+	io.Write(bridge)
 }
 
 

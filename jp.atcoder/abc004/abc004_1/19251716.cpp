@@ -3,7 +3,7 @@ using namespace std;
 
 
 void solve() {
-  int n; 
+  int n;
   cin >> n;
   cout << n * 2 << '\n';
 }

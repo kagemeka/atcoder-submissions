@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 import cmath
 
@@ -12,9 +12,9 @@ class FFT():
     n = len(a)
     if self.__inv:
       for i in range(n): a[i] /= n
-    
-    
-  
+
+
+
   def __dft(
     self,
     a: typing.List[int],
@@ -36,7 +36,7 @@ class FFT():
       a[i] = b[i % m] + x * c[i % m]
       x *= zeta
 
-  
+
   def __init__(
     self,
     inverse: bool=False
@@ -59,9 +59,9 @@ def solve(
   fft(b)
   c = [a[i] * b[i] for i in range(m)]
   ifft(c)
-  c = [int(round(x.real)) for x in c]  
+  c = [int(round(x.real)) for x in c]
   print(*c[1:2 * n - 1], sep='\n')
- 
+
 
 
 def main() -> typing.NoReturn:

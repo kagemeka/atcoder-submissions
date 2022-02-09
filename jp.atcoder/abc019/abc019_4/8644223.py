@@ -2,7 +2,7 @@
 import sys
 def main():
     n = int(sys.stdin.readline().rstrip())
-    
+
     # root = 1 とする
     from_1 = []
     for i in range(2, n+1):
@@ -10,7 +10,7 @@ def main():
         sys.stdout.flush
         dist = int(sys.stdin.readline().rstrip())
         from_1.append((dist, i))
-    
+
     from_1.sort()
     v = from_1[-1][1]
     from_v = []

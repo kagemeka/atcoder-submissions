@@ -12,16 +12,16 @@ pub struct Scanner {
 
 
 impl Scanner {
-    pub fn next<T: std::str::FromStr>(&mut self) -> T 
-    where 
+    pub fn next<T: std::str::FromStr>(&mut self) -> T
+    where
         <T as std::str::FromStr>::Err: std::fmt::Debug,
     {
         loop {
             if let Some(token) = self.buffer.pop() {
                 return token.parse::<T>().unwrap();
             }
-            self.buffer = 
-                readline()   
+            self.buffer =
+                readline()
                 .split_whitespace().rev()
                 .map(String::from)
                 .collect();
@@ -39,7 +39,7 @@ fn main() {
     println!("{:?}", set);
     let s = scanner.next::<String>();
     let mut t: String = String::new();
-    for c in s.chars() { 
+    for c in s.chars() {
         if !set.contains(&c) {t.push(c);}
     }
     println!("{}", t);

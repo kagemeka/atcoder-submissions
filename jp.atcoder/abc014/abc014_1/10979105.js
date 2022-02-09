@@ -8,7 +8,7 @@ function main(input) {
   var a, b;
   input = input.trim().split('\n').map(n => int(n));
   a = input[0];
-  b = input[1];  
+  b = input[1];
   var needed = b * Math.ceil(a / b);
   var res = needed - a;
   console.log(res);

@@ -8,7 +8,7 @@ import (
 func main() {
   var res [][]int
   for i := 0; i < 3; i++ {
-    var s int 
+    var s int
     fmt.Scan(&s)
     res = append(res, []int{s, i + 1})
   }

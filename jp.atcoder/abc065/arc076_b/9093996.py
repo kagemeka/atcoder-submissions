@@ -24,7 +24,7 @@ def main():
     res = minimum_spanning_tree(graph)
     ans = np.sum(res)
     return int(ans)
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

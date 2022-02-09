@@ -10,7 +10,7 @@ def reachable(deltas, goal):
             return True
         else:
             return False
-    
+
     s = sum(deltas)
     if goal < -s or s < goal:
         return False
@@ -57,7 +57,7 @@ def main():
             tmp += 1
 
     return 'Yes' if reachable(dx, gx) & reachable(dy, gy) else 'No'
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

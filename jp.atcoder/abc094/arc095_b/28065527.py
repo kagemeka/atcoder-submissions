@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -16,6 +16,6 @@ def main() -> typing.NoReturn:
         x = a[j]
         mx = d
     print(y, x)
-        
 
-main()    
+
+main()

@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:, :], ), cache=True)
@@ -19,7 +19,7 @@ def shortest_dist_floyd_warshall(g: np.ndarray) -> np.ndarray:
   return g
 
 
-@nb.njit 
+@nb.njit
 def csgraph_to_directed(g: np.ndarray) -> np.ndarray:
   m = len(g)
   g = np.vstack((g, g))
@@ -27,7 +27,7 @@ def csgraph_to_directed(g: np.ndarray) -> np.ndarray:
   return g
 
 
-@nb.njit 
+@nb.njit
 def csgraph_to_dense(n: int, g: np.ndarray) -> np.ndarray:
   inf = 1 << 60
   m = len(g)
@@ -36,21 +36,21 @@ def csgraph_to_dense(n: int, g: np.ndarray) -> np.ndarray:
   for i in range(m):
     u, v, w = g[i]
     t[u, v] = w
-  return t 
+  return t
 
 
 
-@nb.njit((nb.i8, nb.i8[:, :]), cache=True) 
+@nb.njit((nb.i8, nb.i8[:, :]), cache=True)
 def solve(n: int, abt: np.ndarray) -> typing.NoReturn:
   inf = 1 << 60
   g = csgraph_to_dense(n, csgraph_to_directed(abt))
-  
+
   dist = shortest_dist_floyd_warshall(g)
   mn = inf
   for i in range(n):
     mn = min(mn, dist[i].max())
   print(mn)
-  
+
 
 
 def main() -> typing.NoReturn:

@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -27,7 +27,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	n := io.ReadInt()
 	p.s = io.ReadInt()
 	p.t = io.ReadInt()
@@ -42,12 +42,12 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	a := p.a 
-	n := p.n 
+	a := p.a
+	n := p.n
 	for i := 0; i < n - 1; i++ {
 		a[i + 1] += a[i]
 	}
-	s, t := p.s, p.t 
+	s, t := p.s, p.t
 	cnt := 0
 	for _, x := range a {
 		if x < s || x > t {

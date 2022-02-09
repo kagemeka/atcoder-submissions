@@ -111,7 +111,7 @@ class ABC173 {
     var s = sum(...a);
     console.log(s);
 
-    
+
   }
   static E(input) {
   }

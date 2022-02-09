@@ -31,7 +31,5 @@ fn main() {
 
     let x: char = sc.scan();
     writeln!(out, "{}", x as u8 - 'A' as u8 + 1).unwrap();
-    
+
 }
-
-

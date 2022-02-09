@@ -6,7 +6,7 @@ from bisect import bisect_left as bi_l
 def main():
     n, m = [int(x) for x in sys.stdin.readline().split()]
     X, Y = [int(x) for x in sys.stdin.readline().split()]
-    
+
     a = [int(x) for x in sys.stdin.readline().split()] # n
     b = [int(x) for x in sys.stdin.readline().split()] # m
 
@@ -30,6 +30,6 @@ def main():
 
     ans = count // 2
     print(ans)
-    
+
 if __name__ == '__main__':
     main()

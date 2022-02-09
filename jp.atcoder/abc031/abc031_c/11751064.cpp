@@ -21,13 +21,13 @@ int main() {
       int l = min(i, j), r = max(i, j);
       int tmp = 0;
       for (int k = l + 1; k <= r; k += 2) {
-        tmp += a[k];        
+        tmp += a[k];
       }
       res.push_back({tmp, s[r] - s[l-1] - tmp});
     }
     sort(res.begin(), res.end(), greater<vector<int>>());
     ans = max(ans, res[0][1]);
-  } 
+  }
   cout << ans << '\n';
   return 0;
 }

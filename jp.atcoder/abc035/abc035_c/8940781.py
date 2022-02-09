@@ -12,7 +12,7 @@ def main():
     res = np.cumsum(res)
     ans = res[:-1] % 2
     return ans
-    
+
 if __name__ == '__main__':
     ans = main()
     print(*ans, sep='')

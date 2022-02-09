@@ -3,7 +3,7 @@ import sys
 def main():
     n, *a = map(int, sys.stdin.read().split())
     a.append(0)
-    
+
     res = 0
     cnt = 1
     for i in range(n):

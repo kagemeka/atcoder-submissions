@@ -1,43 +1,43 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
 
 def read():
-  import sys 
+  import sys
   return sys.stdin.buffer.read()
 
 
 def readline_ints():
   *ints, = map(
-    int, 
+    int,
     readline().split(),
   )
-  return ints 
+  return ints
 
 
 def read_ints():
   import numpy as np
   return np.fromstring(
-    string=read().decode(), 
-    dtype=np.int64, 
+    string=read().decode(),
+    dtype=np.int64,
     sep=' ',
   )
 
 
 def bit_count(n):
   cnt = 0
-  while n: 
-    cnt += n&1 
-    n >>= 1 
+  while n:
+    cnt += n&1
+    n >>= 1
   return cnt
 
 
-import numpy as np 
+import numpy as np
 
 def solve(
-    n: int, m: int, 
+    n: int, m: int,
     xy: np.ndarray) -> None:
 
   relations = [0] * n
@@ -49,16 +49,16 @@ def solve(
   for s in range(1<<n):
     t = (1<<n)-1
     for i in range(n):
-      if ~ s>>i & 1: continue 
+      if ~ s>>i & 1: continue
       t &= relations[i] | 1<<i
-    if not s&t == s: continue 
+    if not s&t == s: continue
     cnt = max(cnt, bit_count(s))
 
   print(cnt)
-  
+
 
 def main():
-  import numpy as np 
+  import numpy as np
   n, m = readline_ints()
   xy = read_ints().reshape(m, 2) - 1
   solve(n, m, xy)

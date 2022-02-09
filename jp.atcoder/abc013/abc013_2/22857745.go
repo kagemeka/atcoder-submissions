@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -26,7 +26,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	p.a = io.ReadInt()
 	p.b = io.ReadInt()
 }
@@ -36,14 +36,14 @@ func (
 	p *Problem,
 ) Solve() {
 	io := p.io
-	a, b := p.a, p.b 
+	a, b := p.a, p.b
 	d := b - a
 	if d < 0 {
 		d = -d
 	}
 	if d <= 5 {
 		io.Write(d)
-		return 
+		return
 	}
 	io.Write(10 - d)
 }

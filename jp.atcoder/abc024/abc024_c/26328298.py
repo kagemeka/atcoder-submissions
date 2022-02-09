@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:, :], nb.i8[:, :]), cache=True)
@@ -14,18 +14,18 @@ def solve(lr: np.ndarray, st: np.ndarray) -> typing.NoReturn:
       s, t = st[j]
       if s == t: continue
       if not l <= s <= r: continue
-      if t < l: 
+      if t < l:
         s = l
-      elif t <= r: 
+      elif t <= r:
         s = t
         res[j] = i + 1
-      elif t > r: 
+      elif t > r:
         s = r
       st[j] = (s, t)
   for x in res:
     print(x)
-      
-    
+
+
 
 def main() -> typing.NoReturn:
   n, d, k = map(int, input().split())

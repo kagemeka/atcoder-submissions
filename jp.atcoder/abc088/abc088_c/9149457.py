@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 
 c = np.array(sys.stdin.read().split(), dtype=np.int8).reshape(3, 3)
 

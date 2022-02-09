@@ -2,17 +2,17 @@ def primeFactorize(n):
     if n > 1:
         prime_factors = []
         while n % 2 == 0:
-            n //= 2 
-            # n is divisible by 2 so 'n //= 2' is equal to 
-            # 'n /= 2'. but '//=' returns an integer, whereas 
+            n //= 2
+            # n is divisible by 2 so 'n //= 2' is equal to
+            # 'n /= 2'. but '//=' returns an integer, whereas
             # '/=' returns a float.
             prime_factors.append(2)
-        
-        # n cannot be a even number at this point. 
+
+        # n cannot be a even number at this point.
         # so range is from 3 to int(n**0.5), but step is 2.
         for i in range(3, int(n**0.5)+1, 2):
             while n % i == 0:
-                n //= i 
+                n //= i
                 prime_factors.append(i)
             if n == 1: # otherwise, n > i.
                 return prime_factors

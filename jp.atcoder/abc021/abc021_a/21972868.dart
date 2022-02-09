@@ -4,7 +4,7 @@ import 'dart:math';
 
 
 
-class IO 
+class IO
 {
 
 
@@ -19,26 +19,26 @@ class IO
   );
 
 
-  String read() 
+  String read()
   {
     List<int> bytes = [];
     const int maxWait = 1 << 8;
     int wait = 0;
-    while (true) 
+    while (true)
     {
       var b = readByte();
       if (
         wait == maxWait
       ) break;
-      if (b == -1) 
+      if (b == -1)
       {
         wait++;
         continue;
       }
       wait = 0;
       if (
-        b == 10 || 
-        b == 32 
+        b == 10 ||
+        b == 32
       ) {
         break;
       }
@@ -75,7 +75,7 @@ class IO
 
 
 
-abstract class Solver 
+abstract class Solver
 {
 
 
@@ -107,10 +107,10 @@ mixin Runner<
 
 
 class Problem
-with 
-Runner<Problem>, 
+with
+Runner<Problem>,
 IO
-implements Solver 
+implements Solver
 {
 
 
@@ -125,7 +125,7 @@ implements Solver
   void solve() {
     const m = 4;
     write(n.bitCount);
-    
+
     for (
       int i = 0; i < m; i++
     ) {
@@ -155,7 +155,7 @@ extension BitCount on int
       cnt += n & 1;
       n >>= 1;
     }
-    return cnt; 
+    return cnt;
   }
 
 
@@ -163,7 +163,7 @@ extension BitCount on int
 
 
 
-void main() 
+void main()
 {
   var p = new Problem();
   p();

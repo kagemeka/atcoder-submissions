@@ -11,7 +11,7 @@ else:
 for i in range(1, n-1):
     if ans[i] == 'S':
         if s[i] == 'x':
-            if ans[i-1] == 'S':         
+            if ans[i-1] == 'S':
                 ans[i+1] = 'W'
             else:
                 ans[i+1] = 'S'
@@ -44,7 +44,7 @@ else: # 最初と最後の一匹が羊と仮定していたことに矛盾する
     for i in range(1, n-1):
         if ans[i] == 'S':
             if s[i] == 'x':
-                if ans[i-1] == 'S':         
+                if ans[i-1] == 'S':
                     ans[i+1] = 'W'
                 else:
                     ans[i+1] = 'S'

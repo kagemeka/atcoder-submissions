@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 import numba as nb
 
@@ -16,7 +16,7 @@ def fft(
   h = 1
   while 1 << h < n: h += 1
   assert 1 << h == n
-  
+
   def _reverse_bits():
     idx = np.empty(n, dtype=np.int32)
     for i in range(n):
@@ -26,7 +26,7 @@ def fft(
       idx[i] = j
     nonlocal a
     a = a[idx]
-  
+
   def _butterfly():
     sign = -1 + 2 * inverse
     b = 1
@@ -35,9 +35,9 @@ def fft(
         w = np.exp(sign * np.pi / b * j * 1j)
         for k in range(0, n, 2 * b):
           s, t = a[k + j], a[k + j + b] * w
-          a[k + j], a[k + j + b] = s + t, s - t 
+          a[k + j], a[k + j + b] = s + t, s - t
       b <<= 1
-  
+
   _reverse_bits()
   _butterfly()
   if inverse: a /= n
@@ -54,7 +54,7 @@ def convolve(
   while m < n: m <<= 1
   na = np.zeros(m, dtype=np.complex128)
   nb = np.zeros(m, dtype=np.complex128)
-  na[:a.size] = a 
+  na[:a.size] = a
   nb[:b.size] = b
   a, b = na, nb
   a = fft(a, inverse=False)
@@ -75,7 +75,7 @@ def solve(
   a = np.hstack((np.array([0]), a))
   b = np.hstack((np.array([0]), b))
   c = convolve(a, b)
-  n = a.size 
+  n = a.size
   for x in c[1:2 * n + 1]:
     print(x)
 

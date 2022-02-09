@@ -35,7 +35,7 @@ void solve() {
     res.end(),
     [](
       const P& a,
-      const P& b 
+      const P& b
     ) {
       return
         a.second > b.second;

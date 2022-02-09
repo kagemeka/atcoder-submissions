@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-08 18:39:24(JST)
 ### modules
 ## from standard library
@@ -13,13 +13,13 @@ import sys
 # import functools
 # import operator
 ## from external libraries
-# import scipy.special   # if use comb function on AtCoder, 
-# import scipy.misc      # select scipy.misc.comb (old version)  
-# imort numpy as np 
+# import scipy.special   # if use comb function on AtCoder,
+# import scipy.misc      # select scipy.misc.comb (old version)
+# imort numpy as np
 
 def main():
     s = sys.stdin.readline().rstrip()
-    
+
     if s[0] == 'A':
         s = s[1:]
         if 'C' in s[1:-1] and s.count('C') == 1:
@@ -29,7 +29,7 @@ def main():
                 exit()
 
     print('WA')
- 
+
 if __name__ == "__main__":
     # execute only if run as a script
     main()

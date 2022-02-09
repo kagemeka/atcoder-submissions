@@ -7,7 +7,7 @@ def main():
 
     remain = set(range(1, n + 1))
     res = defaultdict(int)
-    for i in range(m-1, -1, -1):   
+    for i in range(m-1, -1, -1):
         res[a[i]] = 1
         remain -= {a[i]}
     res = list(res.keys()) + sorted(remain)

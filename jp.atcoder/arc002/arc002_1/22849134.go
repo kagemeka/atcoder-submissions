@@ -1,4 +1,4 @@
-package main 
+package main
 
 import (
 	"bufio"
@@ -71,7 +71,7 @@ func (
 
 
 type Message struct {
-	Ok, Ng string 
+	Ok, Ng string
 }
 
 
@@ -87,21 +87,21 @@ func main() {
 		fmt.Println(
 			msg.Ok,
 		)
-		return 
+		return
 	}
 	if y % 100 == 0 {
 		fmt.Println(
 			msg.Ng,
 		)
-		return 
+		return
 	}
 	if y % 4 == 0 {
 		fmt.Println(
 			msg.Ok,
 		)
-		return 
+		return
 	}
 	fmt.Println(
 		msg.Ng,
-	)	
+	)
 }

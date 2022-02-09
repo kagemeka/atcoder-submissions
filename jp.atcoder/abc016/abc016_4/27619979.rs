@@ -36,17 +36,17 @@ fn main() {
     let n: usize = sc.scan();
     let mut x: Vec<i64> = Vec::with_capacity(n);
     let mut y: Vec<i64> = Vec::with_capacity(n);
-    for i in 0..n { 
+    for i in 0..n {
         x.push(sc.scan());
         y.push(sc.scan());
     }
     let mut cnt = 0usize;
-    for i in 0..n { 
-        let seg1 = LineSegment { v0: Vector { data: [x[i], y[i]] }, v1: Vector { data: [x[(i + 1) % n], y[(i + 1) % n]] } }; 
+    for i in 0..n {
+        let seg1 = LineSegment { v0: Vector { data: [x[i], y[i]] }, v1: Vector { data: [x[(i + 1) % n], y[(i + 1) % n]] } };
         if LineSegment::intersect(&seg0, &seg1) { cnt += 1; }
     }
     writeln!(out, "{}", 1 + cnt / 2).unwrap();
-    
+
 }
 
 
@@ -98,7 +98,7 @@ impl<T: Default + Copy + std::ops::Neg<Output=T>, const DIM: usize> std::ops::Ne
 }
 
 
-impl<T, const DIM: usize> Vector<T, DIM> 
+impl<T, const DIM: usize> Vector<T, DIM>
 where
     T:  Copy + std::ops::Add<Output=T> + std::ops::Mul<Output=T>,
 {
@@ -132,7 +132,7 @@ impl LineSegment<i64, 2> {
 
 
     pub fn intersect(lhs: &Self, rhs: &Self) -> bool {
-        lhs.across(rhs) && rhs.across(lhs) 
+        lhs.across(rhs) && rhs.across(lhs)
     }
 }
 
@@ -140,7 +140,7 @@ impl LineSegment<i64, 2> {
 
 
 pub mod traits {
-    pub trait Identity { fn e() -> Self; } 
+    pub trait Identity { fn e() -> Self; }
     pub trait Inverse { fn inv(&self) -> Self;}
     pub trait Semigroup {
         fn op(_: &Self, _: &Self) -> Self;
@@ -157,13 +157,8 @@ pub mod traits {
     pub trait MulInverse { fn inv(&self) -> Self; }
     pub trait Semiring: Sized + std::ops::Add<Output=Self> + std::ops::Mul<Output=Self> + AddIdentity + MulIdentity {
         const MUL_COMMUTATIVE: bool;
-        const ADD_IDEMPOTNET: bool; 
+        const ADD_IDEMPOTNET: bool;
     }
     pub trait Ring: Semiring + AddInverse {}
 
 }
-
-
-
-
-

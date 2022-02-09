@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -9,7 +9,7 @@ def main() -> typing.NoReturn:
         d = int(d)
         if i & 1: y += d
         else: x += d
-    
+
     print(y, x)
 
 main()

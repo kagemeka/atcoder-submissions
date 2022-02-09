@@ -1,13 +1,13 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 
 
 def solve(a: np.ndarray, k: int) -> typing.NoReturn:
-  n = a.size 
+  n = a.size
   for i in range(n):
     a[i] = min(a[i], k)
-  
+
   def compute_dp(a):
     dp = np.zeros((n + 1, k), np.int16)
     dp[0, 0] = 1
@@ -28,8 +28,8 @@ def solve(a: np.ndarray, k: int) -> typing.NoReturn:
       if k - a[i] - x > 0:
         s -= r[k - a[i] - x - 1]
       if s >= 1: return True
-    return False 
-    
+    return False
+
   def binary_search():
     lo, hi = -1, n
     while hi - lo > 1:
@@ -39,7 +39,7 @@ def solve(a: np.ndarray, k: int) -> typing.NoReturn:
       else:
         lo = i
     return hi
-  
+
   print(binary_search())
 
 

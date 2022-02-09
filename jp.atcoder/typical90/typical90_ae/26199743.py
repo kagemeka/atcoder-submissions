@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:], nb.i8[:]), cache=True)
@@ -14,8 +14,8 @@ def solve(w: np.ndarray, b: np.ndarray) -> typing.NoReturn:
   cnt = np.zeros(b_mx // 2 + 1, np.int64)
   def compute_grundy(w, b):
     if w > 0: cnt[g[w - 1, b + w]] += 1
-    for k in range(1, b // 2 + 1): cnt[g[w, b - k]] += 1 
-    mex = 0 
+    for k in range(1, b // 2 + 1): cnt[g[w, b - k]] += 1
+    mex = 0
     while cnt[mex]: mex += 1
     g[w, b] = mex
     for k in range(1, b // 2 + 1): cnt[g[w, b - k]] -= 1

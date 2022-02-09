@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit
@@ -13,7 +13,7 @@ def csgraph_to_directed(g: np.ndarray) -> np.ndarray:
 
 
 
-@nb.njit 
+@nb.njit
 def sort_csgraph(
   n: int,
   g: np.ndarray,
@@ -26,7 +26,7 @@ def sort_csgraph(
 
 
 
-@nb.njit 
+@nb.njit
 def euler_tour_edge(
   g: np.ndarray,
   edge_idx: np.ndarray,
@@ -64,7 +64,7 @@ def solve(b: np.ndarray) -> typing.NoReturn:
   salary = np.ones(n, np.int64)
   for u in tour:
     if u >= 0: continue
-    u = ~u 
+    u = ~u
     cand = [0] * 0
     for v in g[edge_idx[u]:edge_idx[u + 1], 1]:
       if v == parent[u]: continue
@@ -72,7 +72,7 @@ def solve(b: np.ndarray) -> typing.NoReturn:
     if not cand: continue
     salary[u] += max(cand) + min(cand)
   print(salary[0])
-    
+
 
 
 

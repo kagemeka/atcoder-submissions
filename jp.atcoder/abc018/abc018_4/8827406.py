@@ -15,11 +15,11 @@ def main():
         for x in comb:
             for y in range(1, m + 1):
                 res[y] += graph[x][y]
-        
+
         ans = max(ans, sum(sorted(res)[-q:]))
 
     return ans
-        
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

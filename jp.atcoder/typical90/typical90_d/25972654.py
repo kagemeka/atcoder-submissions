@@ -1,18 +1,18 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
-@nb.njit 
+@nb.njit
 def cumsum(a: np.ndarray) -> typing.NoReturn:
   for i in range(len(a) - 1): a[i + 1] += a[i]
 
 
 @nb.njit((nb.i8[:, :], ), cache=True)
 def solve(a: np.ndarray) -> typing.NoReturn:
-  h, w = a.shape 
+  h, w = a.shape
   b = np.zeros((h, w), np.int64)
   c = a.copy()
   cumsum(c)
@@ -27,7 +27,7 @@ def solve(a: np.ndarray) -> typing.NoReturn:
   cumsum(c)
   b += c[::-1].T
   b -= a * 3
-  return b 
+  return b
 
 
 def main() -> typing.NoReturn:

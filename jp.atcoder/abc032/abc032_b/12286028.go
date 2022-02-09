@@ -14,8 +14,8 @@ func substr(rs []rune, l, r int) string {
 
 func main() {
   res := make(map[string]bool)
-  var s string 
-  var k int 
+  var s string
+  var k int
   fmt.Scan(&s, &k)
   n := len(s)
   rs := []rune(s)

@@ -1,4 +1,4 @@
-import sys 
+import sys
 
 def A():
   x, y = map(int, sys.stdin.readline().split())
@@ -7,13 +7,13 @@ def A():
 
 def B():
   vowels = set('aeiou')
-  s = sys.stdin.readline().rstrip() 
+  s = sys.stdin.readline().rstrip()
   t = ''
   for c in s:
-    if c in vowels: continue 
-    t += c 
+    if c in vowels: continue
+    t += c
   print(t)
-    
+
 
 def C():
   *coords, = map(int, sys.stdin.readline().split())
@@ -37,13 +37,13 @@ def D():
     comb = [j for j in range(n) if i>>j & 1]
     if len(set(comb)&aquaintance[comb[0]]) == len(comb)-1:
       cand.append(len(comb))
-  
+
   print(max(cand))
   pass
 
 
 if __name__ == "__main__":
-  # A() 
+  # A()
   # B()
   # C()
   D()

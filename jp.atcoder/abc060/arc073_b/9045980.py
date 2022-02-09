@@ -9,10 +9,10 @@ def main():
     min_w = wv[0][0]
 
     items = [[] for _ in range(4)]
-    
+
     for w, v in wv:
         items[w-min_w].append(v)
-    
+
     for i in range(4):
         items[i].sort(reverse=True)
         items[i].insert(0, 0)

@@ -34,7 +34,7 @@ def main():
 
     for v in range(1, n+1):
         find_root(v)
-        
+
     dist = [None] * (n + 1)
     for v in set(root[1:]):
         dist[v] = 0
@@ -48,7 +48,7 @@ def main():
                 elif dist[y] != dist[x] + d:
                     return 'No'
     return 'Yes'
-      
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:], ) * 2, cache=True)
@@ -13,10 +13,10 @@ def solve(x: np.ndarray, y: np.ndarray) -> typing.NoReturn:
     s = np.sum((i + 1) * x[i + 1] % mod) % mod
     s -= np.sum((n - 1 - i) * x[i] % mod) % mod
     return s % mod
-  
+
   s = calc_sum(x) * calc_sum(y) % mod
   print(s)
-    
+
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())
@@ -28,7 +28,7 @@ def main() -> typing.NoReturn:
     sys.stdin.readline().split(),
     dtype=np.int64,
   )
-  solve(x, y)           
+  solve(x, y)
 
 
 main()

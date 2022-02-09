@@ -32,5 +32,5 @@ for a in range(n - m + 1):
         break
 else: # if not 'found==True' even after last loop, then it means B is not in A.
     ans = "No"
-        
+
 print(ans)

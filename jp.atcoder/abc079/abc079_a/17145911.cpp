@@ -37,7 +37,7 @@ void abc084a() {
 
 void abc076a() {
   int r, g;
-  cin >> r >> g; 
+  cin >> r >> g;
   cout << 2*g - r << '\n';
 }
 
@@ -76,8 +76,8 @@ void ex6() {
     case '*': res = a*b; break;
     case '/': if (!b) {cout << "error" << '\n'; return;}
               res = a/b; break;
-    default : cout << "error" << '\n'; return; 
-    
+    default : cout << "error" << '\n'; return;
+
   }
   cout << res << '\n';
 }
@@ -88,7 +88,7 @@ void abc088a() {
   string ans = "No";
   if (n%500 <= a) {ans = "Yes";}
   cout << ans << '\n';
-  
+
 }
 
 
@@ -104,7 +104,7 @@ void abc083a() {
   cin >> a >> b >> c >> d;
   l = a+b, r = c+d;
   string ans = l>r? "Left" : (l==r? "Balanced" : "Right");
-  cout << ans << '\n'; 
+  cout << ans << '\n';
 }
 
 void abc080a() {
@@ -138,5 +138,5 @@ int main() {
   // abc080a();
   abc079a();
   return 0;
-  
+
 }

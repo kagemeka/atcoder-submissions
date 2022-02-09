@@ -4,7 +4,7 @@ packs = [int(candies) for candies in input().split()]
 N = int(len(packs))
 if sum(packs) % 2 == 0:
     half = int(sum(packs) / 2)
-else: 
+else:
     print('No')
     exit()
 

@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -88,9 +88,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -109,11 +109,11 @@ from dataclasses import (
 )
 
 
-@dataclass 
+@dataclass
 class Item:
 
-  
-  char: str 
+
+  char: str
   index: int
   cost: int
 
@@ -142,18 +142,18 @@ class Problem(
 
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     n = reader.int()
     k = reader.int()
     s = list(reader.str())
-    self.n = n 
-    self.k = k 
-    self.s = s 
+    self.n = n
+    self.k = k
+    self.s = s
 
 
   def solve(self):
-    s = self.s 
-    n = self.n 
+    s = self.s
+    n = self.n
     self.cost = [1] * n
     for i in range(n):
       self.i = i
@@ -163,8 +163,8 @@ class Problem(
 
 
   def search(self):
-    i = self.i 
-    s = self.s 
+    i = self.i
+    s = self.s
     n = self.n
     cost = self.cost
     h = []
@@ -184,9 +184,9 @@ class Problem(
       heappush(h, item)
     self.heap = h
 
-  
+
   def update(self):
-    i = self.i 
+    i = self.i
     h = self.heap
     if not h: return
     item = heappop(h)
@@ -196,7 +196,7 @@ class Problem(
     cost = self.cost
     cost[i] = cost[j] = 0
 
-  
+
   def swap(
     self,
     i: int,

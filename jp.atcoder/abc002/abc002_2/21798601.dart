@@ -70,7 +70,7 @@ abstract class Solver {
 
 
 
-mixin Runner 
+mixin Runner
 implements Solver {
 
 
@@ -88,10 +88,10 @@ class Problem
 extends IO
 with Runner {
 
-  
+
   String w = '';
   Set<int> vowels = (
-    'aeiou'.runes.toSet()  
+    'aeiou'.runes.toSet()
   );
 
 

@@ -4,7 +4,7 @@ import (
   "fmt"
 )
 
-var lucas = make([]int, 87) 
+var lucas = make([]int, 87)
 func createLucas() {
   lucas[0] = 2
   lucas[1] = 1
@@ -15,8 +15,8 @@ func createLucas() {
 
 func main() {
   createLucas()
-  var n int 
+  var n int
   fmt.Scan(&n)
   fmt.Println(lucas[n])
-  
+
 }

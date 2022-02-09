@@ -2,7 +2,7 @@ from sys import stdin
 n, *a = map(int, stdin.read().split())
 c2, c4 = 0, 0
 for i in a:
-    if i % 2 == 0: 
+    if i % 2 == 0:
         if i % 4 == 0:
             c4 += 1
         else:

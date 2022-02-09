@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -13,8 +13,8 @@ def solve(a: np.ndarray) -> typing.NoReturn:
     while a[i] % 2 == 0:
       a[i] //= 2
     b[a[i]] = True
-  
-  cnt = 0 
+
+  cnt = 0
   for x in b:
     cnt += x
   print(cnt)

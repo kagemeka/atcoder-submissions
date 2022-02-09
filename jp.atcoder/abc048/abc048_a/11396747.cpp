@@ -10,5 +10,5 @@ int main() {
   string t = "";
   for (string &s : ss) t += s[0];
   cout << t << endl;
-  return 0; 
+  return 0;
 }

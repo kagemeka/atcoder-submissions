@@ -12,5 +12,5 @@ int main() {
   else if (a > b) d = min(b + 10 - a, a - b);
   else d = min(b - a, a - (b - 10));
   cout << d << '\n';
-  return 0; 
+  return 0;
 }

@@ -1,24 +1,24 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
 
 def readline_ints():
   *ints, = map(
-    int, 
+    int,
     readline().split(),
   )
-  return ints 
+  return ints
 
 
-import numpy as np 
+import numpy as np
 
 def get_result(n, a):
   b = list(range(n))
   for i in a[::-1]:
     b[i-1], b[i] = b[i], b[i-1]
-  return b 
+  return b
 
 
 def solve(n, a, d):
@@ -35,7 +35,7 @@ def f(a, n):
   b = b[b]
   if n&1: b = a[b]
   return b
-  
+
 
 def main():
   n, _, d = readline_ints()

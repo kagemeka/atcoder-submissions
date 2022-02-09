@@ -25,7 +25,7 @@ def comb(n, r):
     for k in range(r):
         if numerator[k] > 1:
             result *= int(numerator[k])
-    
+
     return result
 
 def main():

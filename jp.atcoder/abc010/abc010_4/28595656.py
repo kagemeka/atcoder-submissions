@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 # O(EV^2)
@@ -153,9 +153,9 @@ def maxflow_edmonds_karp(
             v = parent[v]
             path.append(v)
         return path
-    
+
     inf = 1 << 63
-    
+
     def augment_flow(path: typing.List[int]) -> int:
         flow = inf
         for i in range(len(path) - 1):
@@ -168,34 +168,33 @@ def maxflow_edmonds_karp(
                 graph[v].append(u)
             residual_flow[v][u] += flow
         return flow
-    
-    flow = 0 
+
+    flow = 0
     while True:
         path = find_path()
         if len(path) == 1:
-            break 
+            break
         flow += augment_flow(path)
     return flow
-        
+
 
 def main() -> None:
     n, m, k = map(int, input().split())
     p = list(map(int, input().split()))
     graph = [[] for _ in range(n + 1)]
-    
+
     for x in p:
         graph[x].append((n, 1))
-    
+
     for _ in range(k):
         a, b = map(int, input().split())
         graph[a].append((b, 1))
         graph[b].append((a, 1))
-    
+
     # f = maxflow_dinic(graph, 0, n)
     # f = maxflow_ford_fulkerson(graph, 0, n)
     f = maxflow_edmonds_karp(graph, 0, n)
-    
+
     print(f)
 
 main()
-    

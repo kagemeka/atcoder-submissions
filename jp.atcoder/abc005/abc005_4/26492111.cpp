@@ -34,7 +34,7 @@ int main() {
   vector<int> res(n * n + 1);
   for (int y = 1; y < n + 1; y++) {
     for (int x = 1; x < n + 1; x++) {
-      int mx = 0; 
+      int mx = 0;
       for (int i = y; i < n + 1; i++) {
         for (int j = x; j < n + 1; j++) {
           mx = max(mx, d[i][j] - d[i - y][j] - d[i][j - x] + d[i - y][j - x]);

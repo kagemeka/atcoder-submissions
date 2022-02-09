@@ -26,8 +26,8 @@ def main():
                 cnt += 1
                 tmp += a[i]
 
-    return cnt 
-            
+    return cnt
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:], ), cache=True)
@@ -12,9 +12,9 @@ def solve(a: np.ndarray) -> typing.NoReturn:
     for j in range(n):
       divisors_cnt[i] += a[i] % a[j] == 0
 
-  ex = 0 
+  ex = 0
   for c in divisors_cnt:
-    ex += ((c + 1) // 2) / c 
+    ex += ((c + 1) // 2) / c
   print(ex)
 
 

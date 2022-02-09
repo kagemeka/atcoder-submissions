@@ -9,7 +9,7 @@ def main():
     dt = t[1:] - t[:-1]
     dd = np.absolute(x[1:] - x[:-1]) + np.absolute(y[1:] - y[:-1])
     ans = 'Yes' if np.all((dt >= dd) & (dt & 1 == dd & 1)) else 'No'
-    print(ans) 
+    print(ans)
 
 if __name__ ==  '__main__':
     main()

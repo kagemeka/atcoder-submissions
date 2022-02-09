@@ -1,6 +1,6 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 import numba as nb
 
 
@@ -28,7 +28,7 @@ def floyd_warshall(
           dist[i, j],
           dist[i, k] + dist[k, j],
         )
-  return dist 
+  return dist
 
 
 @nb.njit(
@@ -41,8 +41,8 @@ def to_undirected(
   n = len(g)
   g = np.vstack((g, g))
   g[n:, :2] = g[n:, 1::-1]
-  return g  
-  
+  return g
+
 
 
 @nb.njit(

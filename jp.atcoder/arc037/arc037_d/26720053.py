@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit
@@ -9,10 +9,10 @@ def pow(mod: int, x: int, n: int) -> int:
     y = 1
     while n:
         if n & 1: y = y * x % mod
-        x = x * x % mod 
+        x = x * x % mod
         n >>= 1
     return y
-    
+
 
 @nb.njit((nb.i8, ), cache=True)
 def solve(l: int) -> typing.NoReturn:

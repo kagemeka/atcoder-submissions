@@ -33,9 +33,9 @@ fn main() {
     let x: usize = sc.scan();
     let mut a: Vec<usize> = Vec::with_capacity(n);
     for _ in 0..n { a.push(sc.scan()); }
-    
+
     let mut s: usize = 0;
-    for i in 0..n { 
+    for i in 0..n {
         if x >> i & 1 == 1 { s += a[i]; }
     }
     writeln!(out, "{}", s).unwrap();

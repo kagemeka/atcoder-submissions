@@ -20,7 +20,7 @@ using namespace GeometryTopology;
 
 
 // what field ?
-template<typename T> 
+template<typename T>
 vector<T> LIS(vector<T> &a) {
   vector<T> b((int)a.size(), numeric_limits<T>::max());
   for (T &x : a) { b[lower_bound(b.begin(), b.end(), x) - b.begin()] = x;}
@@ -30,7 +30,7 @@ vector<T> LIS(vector<T> &a) {
 
 
 namespace Algebra {
-template<typename T> 
+template<typename T>
 vector<vector<T>> identity(int n) {
   vector<vector<T>> e(n, vector<T>(n));
   for (int i = 0; i < n; i++) e[i][i] = 1;
@@ -118,7 +118,7 @@ PrimeNumber(): prime_nums(0) {
     for (T j = i*2; j < N; j += i) is_prime[j] = 0;
   }
   for (T i = 0; i < N; i++) {
-    if (is_prime[i]) prime_nums.emplace_back(i);  
+    if (is_prime[i]) prime_nums.emplace_back(i);
   }
 }
 T& operator[](int i) {return prime_nums[i];}
@@ -244,7 +244,7 @@ void c() {
   sort(r.begin(), r.end(), greater<int>());
   double res = 0;
   for (int i = k-1; i > -1; i--) {res = (res + r[i])/2;}
-  cout << setprecision(16) << res << '\n';  
+  cout << setprecision(16) << res << '\n';
 }
 
 void d() {
@@ -355,7 +355,7 @@ namespace ABC006 {
 void a() {
   int n; cin >> n;
   if (n%3==0) {cout << "YES";} else {cout << "NO";}
-  cout << '\n'; 
+  cout << '\n';
 }
 
 void b() {
@@ -378,7 +378,7 @@ void c() {
   a = n - c;
   if (a<0 || b<0 || c<0) {a = b = c = -1;}
   cout << a << ' ' << b << ' ' << c << '\n';
-  
+
 }
 
 void d() {
@@ -415,7 +415,7 @@ void d() {
   reverse(a.begin(), a.end());
   d = bitwise_mat_pow(d, m-k);
   cout << bitwise_dot(d, a)[0][0] << '\n';
-  
+
 }
 }
 }
@@ -428,5 +428,5 @@ int main() {
 
   AtCoder::ABC006::d();
   return 0;
-  
+
 }

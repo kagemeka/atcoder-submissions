@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -88,9 +88,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -145,17 +145,17 @@ class Graph:
     edges = [
       [] for _ in range(n)
     ]
-    self.nodes = nodes 
+    self.nodes = nodes
     self.edges = edges
-  
+
 
   def add_edge(
     self,
     e: Edge,
   ):
-    i = e.from_ 
+    i = e.from_
     self.edges[i].append(e)
-  
+
 
   def add_edges(
     self,
@@ -163,9 +163,9 @@ class Graph:
   ):
     for e in edges:
       self.add_edge(e)
-  
 
-  @property 
+
+  @property
   def size(self):
     return len(self.nodes)
 
@@ -176,18 +176,18 @@ from collections import (
 )
 
 class GraphBFS:
-  
+
 
   level: List[int]
-  
+
 
   def __init__(
     self,
     graph: Graph,
   ):
-    self.g = graph 
+    self.g = graph
     self.inf = float('inf')
-  
+
 
   def search(
     self,
@@ -196,24 +196,24 @@ class GraphBFS:
     self.init_level()
     self.level[src] = 0
     self.set_queue()
-    que = self.queue 
+    que = self.queue
     que.append(src)
     while que:
       x = que.popleft()
       self.explore(x)
-  
+
 
   def explore(
     self,
     u: int,
   ):
     g = self.g
-    lv = self.level 
+    lv = self.level
     que = self.queue
     for e in g.edges[u]:
       v = e.to
       if lv[v] is not None:
-        continue 
+        continue
       lv[v] = lv[u] + 1
       que.append(v)
 
@@ -225,7 +225,7 @@ class GraphBFS:
 
   def init_level(self):
     lv = [None] * self.g.size
-    self.level = lv 
+    self.level = lv
 
 
 
@@ -235,57 +235,57 @@ class Problem(
 
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     r = reader.int()
     c = reader.int()
     sy = reader.int() - 1
     sx = reader.int() - 1
     gy = reader.int() - 1
     gx = reader.int() - 1
-  
-    maze = [None] * r 
+
+    maze = [None] * r
     for i in range(r):
       maze[i] = reader.str()
     maze = ''.join(maze)
 
-    self.r = r 
-    self.c = c 
-    self.sy = sy 
-    self.sx = sx 
-    self.gy = gy 
-    self.gx = gx 
+    self.r = r
+    self.c = c
+    self.sy = sy
+    self.sx = sx
+    self.gy = gy
+    self.gx = gx
     self.maze = maze
 
 
   def solve(self):
-    c = self.c 
+    c = self.c
     self.moves = (-c, -1, 1, c)
     self.make_graph()
     print(self.calc_dist())
 
-  
+
   def calc_dist(self) -> int:
-    g = self.g 
-    c = self.c 
+    g = self.g
+    c = self.c
     src = self.sy * c + self.sx
     dst = self.gy * c + self.gx
     bfs = GraphBFS(graph=g)
     bfs.search(src)
     dist = bfs.level[dst]
     return dist
-    
-  
+
+
   def make_graph(
     self,
   ):
-    r, c = self.r, self.c 
-    n = r * c 
+    r, c = self.r, self.c
+    n = r * c
     g = Graph(n)
     for i in range(n):
       edges = self.gen_edges(i)
       g.add_edges(edges)
     self.g = g
-    
+
 
   def gen_edges(
     self,
@@ -298,7 +298,7 @@ class Problem(
     for d in self.moves:
       j = i + d
       if maze[j] == '#':
-        continue 
+        continue
       e = Edge(
         from_ = i,
         to = j,

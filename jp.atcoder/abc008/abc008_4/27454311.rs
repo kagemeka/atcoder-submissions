@@ -30,9 +30,9 @@ fn main() {
     let w: usize = sc.scan();
     let h: usize = sc.scan();
     let n: usize = sc.scan();
-    
+
     let mut points = Vec::with_capacity(n);
-    for _ in 0..n { 
+    for _ in 0..n {
         let x: usize = sc.scan();
         let y: usize = sc.scan();
         points.push(Point { x: x - 1, y: y - 1});
@@ -58,4 +58,3 @@ struct Point {
     x: usize,
     y: usize,
 }
-

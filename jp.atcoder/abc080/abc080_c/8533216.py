@@ -12,7 +12,7 @@ import itertools
 
 # bit を使ってci を管理する
 
-def toBit(n): 
+def toBit(n):
     return bin(eval('0b' + str(n)))
 
 def main():

@@ -4,7 +4,7 @@ using namespace std;
 int main() {
   string a, b, c;
   cin >> a >> b >> c;
-  
+
   map<char, string> s = {{'a', a}, {'b', b}, {'c', c}};
   char nex = 'a';
   char cur;

@@ -13,7 +13,7 @@ def main():
         else:
             h -= 1
             w += 1
-    
+
     ans = min(res1, res2)
     print(ans)
 

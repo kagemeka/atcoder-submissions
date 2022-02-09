@@ -35,7 +35,7 @@ fn main() {
     }
     let q: usize = sc.scan();
     let mut ab: Vec<(usize, usize)> = Vec::with_capacity(q);
-    for _ in 0..q { 
+    for _ in 0..q {
         ab.push((sc.scan::<usize>() - 1, sc.scan::<usize>() - 1));
     }
     // let lca = BinaryLifting::new(&g, 0);
@@ -51,7 +51,7 @@ fn main() {
         let (a, b) = ab[i];
         writeln!(out, "{}", depth[a] + depth[b] - 2 * depth[lca[i]] + 1).unwrap();
     }
-        
+
 
 }
 
@@ -85,7 +85,7 @@ impl<'a, S: Copy> SegmentTree<'a, S> {
         for i in 0..size { data[n + i] = a[i]; }
         let mut seg = Self { m, data, size };
         for i in (0..n).rev() { seg.merge(i); }
-        seg        
+        seg
     }
 
     fn merge(&mut self, i: usize) {
@@ -108,7 +108,7 @@ impl<'a, S: Copy> SegmentTree<'a, S> {
         while l < r {
             if l & 1 == 1 { vl = (self.m.op)(&vl, &self.data[l]); l += 1; }
             if r & 1 == 1 { r -= 1; vr = (self.m.op)(&self.data[r], &vr); }
-            l >>= 1; r >>= 1; 
+            l >>= 1; r >>= 1;
         }
         (self.m.op)(&vl, &vr)
     }
@@ -139,8 +139,8 @@ impl<'a, S: Copy> SegmentTree<'a, S> {
 
 
 impl<'a, S: Copy> std::ops::Index<usize> for SegmentTree<'a, S> {
-    type Output = S; 
-    
+    type Output = S;
+
     fn index(&self, i: usize) -> &Self::Output {
         assert!(i < self.size);
         &self.data[i + (self.data.len() >> 1)]
@@ -188,9 +188,9 @@ pub fn euler_tour_node(g: &Vec<(usize, usize)>, root: usize) -> (Vec<isize>, Vec
     let mut last_idx = vec![n; n];
     for i in 0..tour.len() {
         let mut u = tour[i];
-        if u < 0 { 
+        if u < 0 {
             u = parent[!u as usize] as isize;
-            tour[i] = u; 
+            tour[i] = u;
         } else {
             first_idx[u as usize] = i;
         }
@@ -226,12 +226,12 @@ use structs::*;
 
 
 
-/// Sparse Table 
+/// Sparse Table
 /// references
 /// - https://cp-algorithms.com/data_structures/sparse-table.html
 pub struct SparseTable<'a, S> {
     sg: Semigroup<'a, S>,
-    data: Vec<Vec<S>>, 
+    data: Vec<Vec<S>>,
 }
 
 
@@ -249,8 +249,8 @@ impl<'a, S: Default + Clone> SparseTable<'a, S> {
             for j in 0..n - (1 << i) {
                 data[i + 1][j] = (sg.op)(&data[i][j], &data[i][j + (1 << i)])
             }
-        }   
-        Self { sg: sg, data: data }     
+        }
+        Self { sg: sg, data: data }
     }
 
     /// O(1)
@@ -264,13 +264,13 @@ impl<'a, S: Default + Clone> SparseTable<'a, S> {
 
 
 
-/// Disjoint Sparse Table 
+/// Disjoint Sparse Table
 /// references
 /// - https://noshi91.hatenablog.com/entry/2018/05/08/183946
 /// - https://github.com/noshi91/NoshiMochiLibrary/blob/master/SparseTable/DisjointSparseTable.noshi.cpp
 pub struct DisjointSparseTable<'a, S> {
     sg: Semigroup<'a, S>,
-    data: Vec<Vec<S>>, 
+    data: Vec<Vec<S>>,
 }
 
 
@@ -344,7 +344,7 @@ impl UnionFind {
     pub fn new(n: usize) -> Self {
         Self { data: vec![-1; n] }
     }
-    
+
     pub fn find(&mut self, u: usize) -> usize {
         if self.data[u] < 0 { return u; }
         self.data[u] = self.find(self.data[u] as usize) as i32;
@@ -369,23 +369,23 @@ impl UnionFind {
 /// Lowest Common Ancestor with Tarjan's offline algorithm.
 /// O(V + Q) preprocessing, O(1) per query.
 /// references
-/// - https://cp-algorithms.com/graph/lca_tarjan.html 
+/// - https://cp-algorithms.com/graph/lca_tarjan.html
 /// - https://en.wikipedia.org/wiki/Tarjan%27s_off-line_lowest_common_ancestors_algorithm
 /// - https://tjkendev.github.io/procon-library/python/graph/lca-tarjan.html
 pub fn tarjan_offline(g: &Vec<(usize, usize)>, uv: &Vec<(usize, usize)>, root: usize) -> Vec<usize> {
     fn dfs(
-        g: &Vec<Vec<usize>>, 
-        q: &Vec<Vec<(usize, usize)>>, 
-        visited: &mut Vec<bool>, 
-        uf: &mut UnionFind, 
-        ancestor: &mut Vec<usize>, 
+        g: &Vec<Vec<usize>>,
+        q: &Vec<Vec<(usize, usize)>>,
+        visited: &mut Vec<bool>,
+        uf: &mut UnionFind,
+        ancestor: &mut Vec<usize>,
         lca: &mut Vec<usize>,
         u: usize,
     ) {
         visited[u] = true;
         ancestor[u] = u;
         for &v in g[u].iter() {
-            if visited[v] { continue; }            
+            if visited[v] { continue; }
             dfs(g, q, visited, uf, ancestor, lca, v);
             uf.unite(u, v);
             ancestor[uf.find(u)] = u;
@@ -417,10 +417,10 @@ pub fn tarjan_offline(g: &Vec<(usize, usize)>, uv: &Vec<(usize, usize)>, root: u
 
 /// Lowest Common Ancestor with Binary Lifting.
 /// references
-/// - https://cp-algorithms.com/graph/lca_binary_lifting.html 
+/// - https://cp-algorithms.com/graph/lca_binary_lifting.html
 pub struct BinaryLifting {
     ancestor: Vec<Vec<usize>>,
-    depth: Vec<usize>,    
+    depth: Vec<usize>,
 }
 
 
@@ -434,7 +434,7 @@ impl BinaryLifting {
         ancestor[0] = parent;
         ancestor[0][root] = root;
         for i in 0..k - 1 {
-            for j in 0..n { 
+            for j in 0..n {
                 ancestor[i + 1][j] = ancestor[i][ancestor[i][j]];
             }
         }
@@ -535,4 +535,3 @@ pub mod eulertour_rmq {
 /// - https://ei1333.hateblo.jp/entry/2018/05/29/011140
 /// - https://www.slideshare.net/iwiwi/2-12188845
 pub struct WithHLD {}
-

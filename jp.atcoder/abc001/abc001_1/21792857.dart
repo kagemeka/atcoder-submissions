@@ -5,7 +5,7 @@ import 'dart:convert';
 
 class Reader {
 
-  
+
   List<int> buf = [];
   List<String> gen = [];
   int cnt = 0;
@@ -73,7 +73,7 @@ abstract class Solver {
 
 
 
-mixin Runner 
+mixin Runner
 implements Solver {
 
 

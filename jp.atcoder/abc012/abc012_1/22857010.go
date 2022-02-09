@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -36,8 +36,8 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	a, b := p.a, p.b 
-	io := p.io 
+	a, b := p.a, p.b
+	io := p.io
 	io.Write(b, a)
 }
 

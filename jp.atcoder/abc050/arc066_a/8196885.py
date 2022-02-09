@@ -15,7 +15,7 @@ if N % 2 != 0:
             continue
         print(0)
         exit()
-    
+
     #order_count = 1
     #for i in range((N - 1) // 2):
     order_count = 2 ** ((N - 1) // 2) % mod
@@ -30,5 +30,3 @@ else:
     order_count = 2 ** (N // 2) % mod
 
 print(order_count)
-
-

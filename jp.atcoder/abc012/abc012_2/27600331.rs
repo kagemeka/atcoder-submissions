@@ -36,4 +36,3 @@ fn main() {
     let s = n % 60;
     writeln!(out, "{:02}:{:02}:{:02}", h, m, s).unwrap();
 }
-

@@ -2,7 +2,7 @@
 using namespace std;
 
 string make(int n) {
-  
+
 }
 
 

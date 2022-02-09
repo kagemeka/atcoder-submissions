@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-  var a [3]int 
+  var a [3]int
   for i := 0; i < 3; i++ {fmt.Scan(&a[i])}
   sort.Ints(a[:])
   fmt.Println(a[1])

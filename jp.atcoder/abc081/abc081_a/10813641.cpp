@@ -10,5 +10,5 @@ int main() {
       cnt++;
     }
   }
-  cout << cnt << endl; 
+  cout << cnt << endl;
 }

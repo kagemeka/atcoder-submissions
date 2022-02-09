@@ -28,13 +28,13 @@ def main():
 
     q = int(sys.stdin.readline().rstrip())
     lines = sys.stdin.readlines()
-    
+
     for j in range(q):
         l, r = [int(x) for x in lines[j].split()]
         res = 0
         for i in range(l if l % 2 == 1 else l + 1, r + 1, 2):
             res += (prime_table[(i + 1) // 2] if prime_table[i] else 0)
-        
+
         print(res)
 
 

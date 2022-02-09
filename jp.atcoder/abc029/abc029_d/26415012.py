@@ -1,6 +1,6 @@
-import typing 
-import numpy as np 
-import numba as nb 
+import typing
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8, ), cache=True)
@@ -11,7 +11,7 @@ def solve(n: int) -> typing.NoReturn:
   for i in range(9):
     pow_10[i + 1] = pow_10[i] * 10
 
-  cnt = 0 
+  cnt = 0
   for i in range(9):
     q, r = divmod(n, pow_10[i + 1])
     cnt += q * pow_10[i]
@@ -25,4 +25,4 @@ def main() -> typing.NoReturn:
   solve(n)
 
 
-main()	
+main()

@@ -22,7 +22,7 @@ func NewStdIO() *StdIO {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Buffer([]byte{}, maxBuffer)
 	scanner.Split(bufio.ScanWords)
-	return &StdIO { 
+	return &StdIO {
 		scanner: scanner,
 		writer: bufio.NewWriter(os.Stdout),
 	}
@@ -54,10 +54,10 @@ func Max(a ...int) int {
 
 
 func Min(a ...int) int {
-	// len(a) > 0 
+	// len(a) > 0
 	mn := a[0]
 	for _, x := range a { if x < mn { mn = x } }
-	return mn 
+	return mn
 }
 
 
@@ -100,7 +100,7 @@ func SADoublingCountsort(a []int) (sa []int) {
 			key[cnt[a[i]]] = i
 			cnt[a[i]]++
 		}
-		return key 
+		return key
 	}
 
 	ac := new(ArrayCompression)
@@ -121,7 +121,7 @@ func SADoublingCountsort(a []int) (sa []int) {
 		}
 		rank[sa[0]] = 0
 		for i := 0; i < n - 1; i++ {
-			rank[sa[i + 1]] = rank[sa[i]] 
+			rank[sa[i + 1]] = rank[sa[i]]
 			if key[i + 1] > key[i] { rank[sa[i + 1]]++ }
 		}
 		k <<= 1
@@ -150,7 +150,7 @@ func LCPArrayKasai(a, sa []int) (lcp []int) {
 		}
 		lcp[r] = h
 	}
-	return 
+	return
 }
 
 
@@ -159,7 +159,7 @@ func main() {
 	s := io.Scan()
 	n := len(s)
 	a := make([]int, n)
-	for i, c := range s { a[i] = int(c - 'a') }	
+	for i, c := range s { a[i] = int(c - 'a') }
 	sa := SADoublingCountsort(a)
 	lcp := LCPArrayKasai(a, sa)
 	io.Write(n * (n + 1) / 2 - Sum(lcp...))

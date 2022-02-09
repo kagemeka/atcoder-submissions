@@ -10,11 +10,11 @@ def main():
             a, b = b, a
         res = 0
         res += (a - 1) * 2
-        
+
         if b - a <= 1:
-            yield res 
+            yield res
             continue
-        
+
         p = a * b
         c = floor(sqrt(p))
         res += (c - a) * 2 + 1

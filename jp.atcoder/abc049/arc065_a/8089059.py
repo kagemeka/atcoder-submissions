@@ -12,5 +12,5 @@ ls = ["eraser", "dreamer", "erase", "dream"]
 for word in ls:
   reversed_word = reverse(word)
   reversed_s = split_and_join(reversed_s, reversed_word)
-  
+
 print(reversed_s)

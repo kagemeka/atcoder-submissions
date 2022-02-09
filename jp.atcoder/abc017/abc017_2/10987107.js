@@ -16,7 +16,7 @@ function main(input) {
       if (tail.has(s.slice(-2))) {
         s = s.slice(0, -2);
         continue;
-      } 
+      }
     }
     console.log('NO');
     return;

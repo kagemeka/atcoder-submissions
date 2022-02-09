@@ -32,7 +32,7 @@ fn main() {
     let m: usize = sc.scan();
     let d: usize = sc.scan();
     let mut a: Vec<usize> = Vec::with_capacity(m);
-    for _ in 0..m { 
+    for _ in 0..m {
         a.push(sc.scan::<usize>() - 1);
     }
     let mut b = vec![0usize; n];
@@ -48,21 +48,21 @@ fn main() {
         }
         a
     };
-    
+
     let op = |a: &Vec<usize>, b: &Vec<usize>| -> Vec<usize> {
         let mut res = vec![0usize; n];
-        for i in 0..n { 
+        for i in 0..n {
             res[i] = a[b[i]];
         }
         res
     };
-    
+
 
     let pow = |a: &Vec<usize>, mut k: usize| -> Vec<usize> {
         let mut x = a.clone();
         let mut y = e();
         while k > 0 {
-            if k & 1 == 1{ 
+            if k & 1 == 1{
                 y = op(&y, &x);
             }
             x = op(&x, &x);
@@ -75,7 +75,5 @@ fn main() {
     for x in b.iter() {
         writeln!(out, "{}", x + 1).unwrap();
     }
-    
+
 }
-
-

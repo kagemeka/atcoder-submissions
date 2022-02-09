@@ -33,6 +33,6 @@ def main():
         if dijkstra(x): lo = x
         else: hi = x
     print(lo)
-    
+
 if __name__ ==  '__main__':
     main()

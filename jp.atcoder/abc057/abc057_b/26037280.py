@@ -1,6 +1,6 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 
 
 def solve(ab: np.ndarray, cd: np.ndarray) -> typing.NoReturn:

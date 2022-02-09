@@ -18,7 +18,7 @@ def main():
             for c in string.ascii_lowercase:
                 if s[i] == c: f_s = True
                 if t[i] == c: f_t = True
-                
+
                 if f_s and not f_t: print('Yes'); exit()
                 elif not f_s and f_t: print('No'); exit()
                 elif f_s and f_t: break
@@ -30,7 +30,7 @@ def main():
                 f_s, f_t = False, False
                 if s[i] == c: f_s = True
                 if t[i] == c: f_t = True
-                
+
                 if f_s and not f_t: print('Yes'); exit()
                 elif not f_s and f_t: print('No'); exit()
                 elif f_s and f_t: break
@@ -38,7 +38,7 @@ def main():
         ans = 'No'
 
     print(ans)
-        
+
 
 if __name__ == "__main__":
     # execute only if run as a script

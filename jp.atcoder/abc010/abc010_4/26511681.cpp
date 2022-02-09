@@ -10,7 +10,7 @@ namespace graph_theory {
   struct SparseDirectedGraph {
     using E = Edge<U>;  // G::E edge{u, v, data};
     std::vector<T> nodes;
-    std::vector<std::vector<E>> edges;    
+    std::vector<std::vector<E>> edges;
     SparseDirectedGraph(int n) : nodes(n), edges(n) {}
     void add_edge(const E &e) { edges[e.u].push_back(e); }
   };
@@ -21,7 +21,7 @@ namespace graph_theory {
     std::vector<T> nodes;
     std::vector<std::vector<U>> edges;
     DenseDirectedGraph(int n) : nodes(n), edges(n, std::vector<U>(n)) {}
-    std::vector<U>& operator[](int i) { return edges[i]; } 
+    std::vector<U>& operator[](int i) { return edges[i]; }
   };
 
 
@@ -69,8 +69,8 @@ namespace graph_theory {
           for (const auto &e : g.edges[u]) {
             if (level[e.v] != -1 || e.data.capacity <= 0) continue;
             level[e.v] = level[u] + 1;
-            fifo_que.push(e.v);                       
-          }   
+            fifo_que.push(e.v);
+          }
         }
       };
 
@@ -101,7 +101,7 @@ namespace graph_theory {
         flow += flow_to_sink(src, inf);
       }
     };
-  };  
+  };
 
   // e.g. using G = graph_theory::maximum_flow::DinicGraph<long long>;
 };
@@ -125,5 +125,5 @@ int main() {
     g.add_edge({a, b, {1}});
     g.add_edge({b, a, {1}});
   }
-  std::cout << graph_theory::maximum_flow::dinic(g, 0, n) << '\n';  
+  std::cout << graph_theory::maximum_flow::dinic(g, 0, n) << '\n';
 }

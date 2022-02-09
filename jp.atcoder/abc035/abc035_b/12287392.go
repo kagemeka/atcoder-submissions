@@ -7,8 +7,8 @@ import (
 func absInt(x int) int {if x >= 0 {return x}; return -x}
 
 func main() {
-  var s string 
-  var t int 
+  var s string
+  var t int
   fmt.Scan(&s, &t)
   dy, dx, cnt := 0, 0, 0
   for _, c := range s {
@@ -28,7 +28,7 @@ func main() {
   if t == 1 {
     fmt.Println(d + cnt)
   } else {
-    d -= cnt 
+    d -= cnt
     if d < 0 {
       d &= 1
     }

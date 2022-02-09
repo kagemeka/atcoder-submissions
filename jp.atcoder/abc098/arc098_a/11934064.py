@@ -12,6 +12,6 @@ def main():
         res.append(cnt)
         cur = c
     print(min(res))
-    
+
 if __name__ ==  '__main__':
     main()

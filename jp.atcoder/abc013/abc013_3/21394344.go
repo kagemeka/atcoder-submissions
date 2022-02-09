@@ -14,7 +14,7 @@ import (
 
 
 
-type Bool bool 
+type Bool bool
 
 
 func (
@@ -40,7 +40,7 @@ func (
 		if !x {
 			continue
 		}
-		return true 
+		return true
 	}
 	return false
 }
@@ -55,7 +55,7 @@ func (
 		if x {
 			continue
 		}
-		return false 
+		return false
 	}
 	return true
 }
@@ -73,7 +73,7 @@ func (
 	s := strconv.Itoa(
 		int(x),
 	)
-	return Str(s) 
+	return Str(s)
 }
 
 
@@ -99,7 +99,7 @@ func (
 		cnt += n & 1
 		n >>= 1
 	}
-	return 
+	return
 }
 
 
@@ -141,7 +141,7 @@ func (
 	case Int:
 		return Int(res)
 	}
-	return res 
+	return res
 }
 
 
@@ -169,7 +169,7 @@ func (
 	case Int:
 		return Int(res)
 	}
-	return res 
+	return res
 }
 
 
@@ -197,17 +197,17 @@ func (
 ) Divmod(
 	other Int,
 ) (
-	q Int, 
+	q Int,
 	r Int,
 ) {
 	q = x / other
 	r = x % other
 	if r * other >= 0 {
-		return 
+		return
 	}
-	r += other 
+	r += other
 	q += -1
-	return 
+	return
 }
 
 
@@ -236,7 +236,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(Int) 
+	return x <= other.(Int)
 }
 
 
@@ -282,16 +282,16 @@ func (
 func (
 	a IntSlice,
 ) Make(
-	n Int, 
+	n Int,
 	v Int,
 ) (
 	b IntSlice,
 ) {
 	b = make(IntSlice, n)
 	for i := Int(0); i < n; i++ {
-		b[i] = v 
+		b[i] = v
 	}
-	return 
+	return
 }
 
 
@@ -304,7 +304,7 @@ func (
 	s := make(IntSlice, n)
 	copy(s, a)
 	return s
-} 
+}
 
 
 func (
@@ -331,7 +331,7 @@ func (
 	for i := 0; i < n; i++ {
 		b[i] = a[i]
 	}
-	return 
+	return
 }
 
 
@@ -340,7 +340,7 @@ func (
 ) String() string {
 	n := len(a)
 	return fmt.Sprintf(
-		SliceFormat(n, " "), 
+		SliceFormat(n, " "),
 		a.IS()...,
 	)
 }
@@ -407,7 +407,7 @@ func (
 	i, j int,
 ) bool {
 	return a[i] < a[j]
-} 
+}
 
 
 func (
@@ -430,7 +430,7 @@ func (
 	a IntSlice,
 ) Reversed() (
 	s IntSlice,
-) { 
+) {
 	s = a.Clone().(IntSlice)
 	s.Reverse()
 	return
@@ -465,7 +465,7 @@ func (
 	for i := 0; i < n-1; i++ {
 		b[i+1] += b[i]
 	}
-	return 
+	return
 }
 
 
@@ -479,7 +479,7 @@ func (
 	for i := 0; i < n-1; i++ {
 		b[i+1] *= b[i]
 	}
-	return 
+	return
 }
 
 
@@ -496,7 +496,7 @@ func (
 			b[i],
 		).(Int)
 	}
-	return 
+	return
 }
 
 
@@ -514,7 +514,7 @@ func (
 		return a[i] >= x
 	}
 	i = Int(sort.Search(n, f))
-	return 
+	return
 }
 
 
@@ -532,7 +532,7 @@ func (
 		return a[i] > x
 	}
 	i = Int(sort.Search(n, f))
-	return 
+	return
 }
 
 
@@ -576,14 +576,14 @@ func (
 	n := len(a)
 	b = make(BitMatrix, n)
 	for i := 0; i < n; i++ {
-		b[i] = IntSlice{a[i]}		
+		b[i] = IntSlice{a[i]}
 	}
 	return
 }
 
 
 
-type IntMatrix []IntSlice 
+type IntMatrix []IntSlice
 
 
 func (
@@ -610,7 +610,7 @@ func (
 ) {
 	n := len(a)
 	return fmt.Sprintf(
-		SliceFormat(n, "\n"), 
+		SliceFormat(n, "\n"),
 		a.IS()...,
 	)
 }
@@ -673,7 +673,7 @@ func (
 			(IntSlice))
 	}
 	return s
-} 
+}
 
 
 func (
@@ -687,7 +687,7 @@ func (
 	a IntMatrix,
 ) Reversed() (
 	s IntMatrix,
-) { 
+) {
 	s = (
 		a.Clone().
 		(IntMatrix))
@@ -719,7 +719,7 @@ func (
 			b[i+1][j] += b[i][j]
 		}
 	}
-	return 	
+	return
 }
 
 
@@ -736,7 +736,7 @@ func (
 			b[i][j+1] += b[i][j]
 		}
 	}
-	return 	
+	return
 }
 
 
@@ -755,14 +755,14 @@ func (
 		for
 		j := Int(0); j < m; j++ {
 			x := Modular{
-				a[i][j], 
+				a[i][j],
 				mod,
 			}
 			x.Init()
 			b[i][j] = x
 		}
 	}
-	return 
+	return
 }
 
 
@@ -794,7 +794,7 @@ func (
 ) {
 	n := len(a)
 	return fmt.Sprintf(
-		SliceFormat(n, "\n"), 
+		SliceFormat(n, "\n"),
 		a.IS()...,
 	)
 }
@@ -854,7 +854,7 @@ func (
 			(IntSlice))
 	}
 	return s
-} 
+}
 
 
 func (
@@ -868,7 +868,7 @@ func (
 	a BitMatrix,
 ) Reversed() (
 	s BitMatrix,
-) { 
+) {
 	s = (
 		a.Clone().
 		(BitMatrix))
@@ -888,7 +888,7 @@ func (
 	for i := Int(0); i < n; i++ {
 		e[i][i] = ^0
 	}
-	return 
+	return
 }
 
 
@@ -903,9 +903,9 @@ func (
 	_, m := b.Shape()
 	c = a.Make(n, m)
 	for i := Int(0); i < n; i++ {
-		for 
-		j := Int(0); 
-		j < m; 
+		for
+		j := Int(0);
+		j < m;
 		j++ {
 			c.dotSupport(a, b, i, j)
 		}
@@ -944,7 +944,7 @@ func (
 	if n & 1 == 1 {
 		b = b.Dot(a)
 	}
-	return b	
+	return b
 }
 
 
@@ -960,7 +960,7 @@ func (
 	if x < 0 {
 		return -x
 	}
-	return x 
+	return x
 }
 
 
@@ -1056,7 +1056,7 @@ func (
 	Numeric,
 ){
 	if n == 0 {
-		return Float(1) 
+		return Float(1)
 	}
 	a := x.Pow(n >> 1).(Float)
 	a *= a
@@ -1099,7 +1099,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(Float) 
+	return x <= other.(Float)
 }
 
 
@@ -1145,16 +1145,16 @@ func (
 func (
 	a FloatSlice,
 ) Make(
-	n Int, 
+	n Int,
 	v Float,
 ) (
 	b FloatSlice,
 ) {
 	b = make(FloatSlice, n)
 	for i := Int(0); i < n; i++ {
-		b[i] = v 
+		b[i] = v
 	}
-	return 
+	return
 }
 
 
@@ -1167,7 +1167,7 @@ func (
 	s := make(FloatSlice, n)
 	copy(s, a)
 	return s
-} 
+}
 
 
 func (
@@ -1203,7 +1203,7 @@ func (
 ) String() string {
 	n := len(a)
 	return fmt.Sprintf(
-		SliceFormat(n, " "), 
+		SliceFormat(n, " "),
 		a.IS()...,
 	)
 }
@@ -1270,7 +1270,7 @@ func (
 	i, j int,
 ) bool {
 	return a[i] < a[j]
-} 
+}
 
 
 func (
@@ -1293,7 +1293,7 @@ func (
 	a FloatSlice,
 ) Reversed() (
 	s FloatSlice,
-) { 
+) {
 	s = a.Clone().(FloatSlice)
 	s.Reverse()
 	return
@@ -1332,7 +1332,7 @@ func (
 		return a[i] >= x
 	}
 	i = Int(sort.Search(n, f))
-	return 
+	return
 }
 
 
@@ -1350,7 +1350,7 @@ func (
 		return a[i] > x
 	}
 	i = Int(sort.Search(n, f))
-	return 
+	return
 }
 
 
@@ -1369,7 +1369,7 @@ func (
 
 
 
-type FloatMatrix []FloatSlice 
+type FloatMatrix []FloatSlice
 
 
 func (
@@ -1396,7 +1396,7 @@ func (
 ) {
 	n := len(a)
 	return fmt.Sprintf(
-		SliceFormat(n, "\n"), 
+		SliceFormat(n, "\n"),
 		a.IS()...,
 	)
 }
@@ -1458,7 +1458,7 @@ func (
 			(FloatSlice))
 	}
 	return s
-} 
+}
 
 
 func (
@@ -1472,7 +1472,7 @@ func (
 	a FloatMatrix,
 ) Reversed() (
 	s FloatMatrix,
-) { 
+) {
 	s = (
 		a.Clone().
 		(FloatMatrix))
@@ -1504,7 +1504,7 @@ func (
 			b[i+1][j] += b[i][j]
 		}
 	}
-	return 	
+	return
 }
 
 
@@ -1521,7 +1521,7 @@ func (
 			b[i][j+1] += b[i][j]
 		}
 	}
-	return 	
+	return
 }
 
 
@@ -1587,7 +1587,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(Str) 
+	return x <= other.(Str)
 }
 
 
@@ -1699,7 +1699,7 @@ func (
 	s := make(StrSlice, n)
 	copy(s, a)
 	return s
-} 
+}
 
 
 func (
@@ -1726,7 +1726,7 @@ func (
 	for i := 0; i < n; i++ {
 		b[i] = a[i]
 	}
-	return 
+	return
 }
 
 
@@ -1735,7 +1735,7 @@ func (
 ) String() string {
 	n := len(a)
 	return fmt.Sprintf(
-		SliceFormat(n, " "), 
+		SliceFormat(n, " "),
 		a.IS()...,
 	)
 }
@@ -1786,7 +1786,7 @@ func (
 	i, j int,
 ) bool {
 	return a[i] < a[j]
-} 
+}
 
 
 func (
@@ -1809,7 +1809,7 @@ func (
 	a StrSlice,
 ) Reversed() (
 	s StrSlice,
-) { 
+) {
 	s = a.Clone().(StrSlice)
 	s.Reverse()
 	return
@@ -1848,7 +1848,7 @@ func (
 		return a[i] >= x
 	}
 	i = Int(sort.Search(n, f))
-	return 
+	return
 }
 
 
@@ -1866,7 +1866,7 @@ func (
 		return a[i] > x
 	}
 	i = Int(sort.Search(n, f))
-	return 
+	return
 }
 
 
@@ -1917,7 +1917,7 @@ func (
 			(StrSlice))
 	}
 	return s
-} 
+}
 
 
 func (
@@ -1931,7 +1931,7 @@ func (
 	a StrMatrix,
 ) Reversed() (
 	s StrMatrix,
-) { 
+) {
 	s = (
 		a.Clone().
 		(StrMatrix))
@@ -1958,7 +1958,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(Rune) 
+	return x <= other.(Rune)
 }
 
 
@@ -2071,7 +2071,7 @@ func (
 ) {
 	n := len(a)
 	return fmt.Sprintf(
-		SliceFormat(n, " "), 
+		SliceFormat(n, " "),
 		a.IS()...,
 	)
 }
@@ -2132,7 +2132,7 @@ func (
 	i, j int,
 ) bool {
 	return a[i] < a[j]
-} 
+}
 
 
 func (
@@ -2141,7 +2141,7 @@ func (
 	i, j int,
 ) {
 	a[i], a[j] = a[j], a[i]
-} 
+}
 
 
 func (
@@ -2155,7 +2155,7 @@ func (
 	a RuneSlice,
 ) Reversed() (
 	s RuneSlice,
-) { 
+) {
 	s = a.Clone().(RuneSlice)
 	s.Reverse()
 	return
@@ -2194,7 +2194,7 @@ func (
 		return a[i] >= x
 	}
 	i = Int(sort.Search(n, f))
-	return 
+	return
 }
 
 
@@ -2212,7 +2212,7 @@ func (
 		return a[i] > x
 	}
 	i = Int(sort.Search(n, f))
-	return 
+	return
 }
 
 
@@ -2248,7 +2248,7 @@ func SliceFormat(
 		f[i] = "%v"
 	}
 	format = strings.Join(
-		f, 
+		f,
 		sep,
 	)
 	return
@@ -2303,18 +2303,18 @@ type CompSlice []Comparable
 func (
 	a CompSlice,
 ) Make(
-	n Int, 
+	n Int,
 	v Comparable,
 ) (
 	b CompSlice,
 ) {
 	b = make(CompSlice, n)
 	for i := Int(0); i < n; i++ {
-		b[i] = v 
+		b[i] = v
 	}
-	return 
+	return
 }
- 
+
 
 func (
 	a CompSlice,
@@ -2326,7 +2326,7 @@ func (
 	for i := 0; i < n; i++ {
 		b[i] = a[i].(Int)
 	}
-	return 
+	return
 }
 
 
@@ -2340,7 +2340,7 @@ func (
 	for i := 0; i < n; i++ {
 		b[i] = a[i].(Float)
 	}
-	return 
+	return
 }
 
 
@@ -2354,7 +2354,7 @@ func (
 	for i := 0; i < n; i++ {
 		b[i] = a[i].(Str)
 	}
-	return 
+	return
 }
 
 
@@ -2368,7 +2368,7 @@ func (
 	for i := 0; i < n; i++ {
 		b[i] = a[i].(Rune)
 	}
-	return 
+	return
 }
 
 
@@ -2425,7 +2425,7 @@ func (
 	}
 	i := BisectLeft(lis, inf)
 	lis = lis[:i]
-	return 
+	return
 }
 
 
@@ -2442,7 +2442,7 @@ type Numeric interface {
 
 
 func Sum(
-	a ...Numeric,	
+	a ...Numeric,
 ) (
 	s Numeric,
 ) {
@@ -2450,7 +2450,7 @@ func Sum(
 	for  _, x := range a {
 		s = s.Add(x)
 	}
-	return 
+	return
 }
 
 
@@ -2587,7 +2587,7 @@ func (
 	area Float,
 ) {
 	V1 := t.V1.Sub(t.V0)
-	V2 := t.V2.Sub(t.V0) 
+	V2 := t.V2.Sub(t.V0)
 	cross := V1.Cross(V2)
 	switch cross.(type) {
 	case Int:
@@ -2597,7 +2597,7 @@ func (
 	case Float:
 		area = cross.(Float) / 2
 	}
-	return 
+	return
 }
 
 
@@ -2606,7 +2606,7 @@ func (
 ) Area() (
 	Float,
 ) {
-	s := 
+	s :=
 		t.SignedArea().
 		Abs().
 		(Float)
@@ -2666,7 +2666,7 @@ func (
 ) {
 	const dx = 1e-8
 	d = (f(x + dx) - f(x)) / dx
-	return 
+	return
 }
 
 
@@ -2679,14 +2679,14 @@ func (
 ) {
 	x = x0
 	const maxIter = 1 << 4
-	for 
-	i := 0; 
-	i < maxIter; 
+	for
+	i := 0;
+	i < maxIter;
 	i++ {
-		x -= f(x) / 
+		x -= f(x) /
 			f.Derivative(x)
 	}
-	return 
+	return
 }
 
 
@@ -2721,7 +2721,7 @@ func (
 	m Modular,
 ) String() string {
 	return fmt.Sprint(m.Value)
-} 
+}
 
 
 func (
@@ -2738,7 +2738,7 @@ func (
 ) IAdd(
 	other Modular,
 ) {
-	m.Value += other.Value 
+	m.Value += other.Value
 	m.Init()
 }
 
@@ -2772,7 +2772,7 @@ func (
 ) ISub(
 	other Modular,
 ) {
-	negOther := other.Neg() 
+	negOther := other.Neg()
 	m.IAdd(negOther)
 }
 
@@ -2795,7 +2795,7 @@ func (
 	other Modular,
 ) {
 	mod := m.Mod
-	m.Value *= other.Value 
+	m.Value *= other.Value
 	m.Value %= mod
 }
 
@@ -2808,7 +2808,7 @@ func (
 	Modular,
 ) {
 	m.IMul(other)
-	return m 
+	return m
 }
 
 
@@ -2880,7 +2880,7 @@ func (
 	}
 	fact[0] = Modular{1, mod}
 	fact = fact.CumProd()
-	return 
+	return
 }
 
 
@@ -2903,7 +2903,7 @@ func (
 		Invert())
 	invFact = invFact.CumProd()
 	invFact.Reverse()
-	return 
+	return
 }
 
 
@@ -2920,7 +2920,7 @@ func (
 	s := make(ModSlice, n)
 	copy(s, a)
 	return s
-} 
+}
 
 
 func (
@@ -2950,7 +2950,7 @@ func (
 	a ModSlice,
 ) Reversed() (
 	s ModSlice,
-) { 
+) {
 	s = a.Clone().(ModSlice)
 	s.Reverse()
 	return
@@ -2967,7 +2967,7 @@ func (
 	for i := 0; i < n-1; i++ {
 		b[i+1].IAdd(b[i])
 	}
-	return 
+	return
 }
 
 
@@ -2981,7 +2981,7 @@ func (
 	for i := 0; i < n-1; i++ {
 		b[i+1].IMul(b[i])
 	}
-	return 
+	return
 }
 
 
@@ -3032,7 +3032,7 @@ func (
 	for i := Int(0); i < n; i++ {
 		e[i][i] = Modular{1, mod}
 	}
-	return 
+	return
 }
 
 
@@ -3048,9 +3048,9 @@ func (
 	mod := a[0][0].Mod
 	c = a.Make(n, m, mod)
 	for i := Int(0); i < n; i++ {
-		for 
-		j := Int(0); 
-		j < m; 
+		for
+		j := Int(0);
+		j < m;
 		j++ {
 			c.dotSupport(a, b, i, j)
 		}
@@ -3090,7 +3090,7 @@ func (
 	if n & 1 == 1 {
 		b = b.Dot(a)
 	}
-	return b	
+	return b
 }
 
 
@@ -3105,7 +3105,7 @@ type ModChoose struct {
 func (
 	c *ModChoose,
 ) Init(n Modular) {
-	c.Fact, c.InvFact = 
+	c.Fact, c.InvFact =
 		n.Factorial(),
 		n.InverseFactorial()
 	c.Mod = n.Mod
@@ -3164,13 +3164,13 @@ type NodeSlice []Node
 type Edge struct {
 	ID Int
 	From, To Int
-	Weight Int 
+	Weight Int
 	Capacity Int
 }
 
 
 
-type EdgeSlice []Edge 
+type EdgeSlice []Edge
 
 
 func (
@@ -3206,15 +3206,15 @@ func (
 		)
 		edges[i] = e
 	}
-	g.Nodes = nodes 
-	g.Edges = edges 
+	g.Nodes = nodes
+	g.Edges = edges
 }
 
 
 func (
 	g *Graph,
 ) AddEdge(e Edge) {
-	u := e.From 
+	u := e.From
 	g.Edges[u].PushBack(e)
 }
 
@@ -3235,7 +3235,7 @@ func (
 ) AddNode(
 	v Node,
 ) {
-	g.Nodes[v.ID] = v 
+	g.Nodes[v.ID] = v
 }
 
 
@@ -3282,7 +3282,7 @@ func (
 func (
 	bfs *GraphBFS,
 ) Search() {
-	que := &bfs.Que 
+	que := &bfs.Que
 	for que.Len() > 0 {
 		x := que.PopFront()
 		bfs.Explore(x)
@@ -3299,7 +3299,7 @@ func (
 	g := &bfs.G
 	que := &bfs.Que
 	lv := &bfs.Level
-	for 
+	for
 	_, e := range g.Edges[u] {
 		v := e.To
 		if (*lv)[v] != -1 {
@@ -3313,7 +3313,7 @@ func (
 
 
 type DijkstraItem struct {
-	Node Int 
+	Node Int
 	Dist Int
 }
 
@@ -3363,7 +3363,7 @@ func (
 	x interface{},
 ) {
 	*h = append(
-		*h, 
+		*h,
 		x.(DijkstraItem),
 	)
 }
@@ -3420,7 +3420,7 @@ func (
 			Dist: 0,
 		},
 	)
-	di.Dist = dist 
+	di.Dist = dist
 	di.Heap = h
 }
 
@@ -3428,7 +3428,7 @@ func (
 func (
 	di *Dijkstra,
 ) Search() {
-	h := &di.Heap 
+	h := &di.Heap
 	for h.Len() > 0 {
 		x, ok := di.Open()
 		if !ok {continue}
@@ -3449,7 +3449,7 @@ func (
 		(DijkstraItem))
 	u, du := x.Node, x.Dist
 	if du > di.Dist[u] {
-		return 
+		return
 	}
 	ok = true
 	return
@@ -3510,7 +3510,7 @@ func (
 		n,
 		inf,
 	)
-	fw.Dist = dist 
+	fw.Dist = dist
 	for i := Int(0); i < n; i++ {
 		fw.prepareSupport(i)
 	}
@@ -3527,9 +3527,9 @@ func (
 ) {
 	g := &fw.G
 	dist := fw.Dist
-	for 
+	for
 	_, e := range g.Edges[i] {
-		j := e.To 
+		j := e.To
 		d := e.Weight
 		dist[i][j] = Min(
 			dist[i][j],
@@ -3546,7 +3546,7 @@ func (
 	for k := 0; k < n; k++ {
 		fw.mid = k
 		fw.searchSupport0()
-	}	
+	}
 }
 
 
@@ -3566,7 +3566,7 @@ func (
 ) searchSupport1() {
 	n := len(fw.Dist)
 	k, i := fw.mid, fw.src
-	d := fw.Dist 
+	d := fw.Dist
 	for j := 0; j < n; j++ {
 		d[i][j] = Min(
 			d[i][j],
@@ -3589,7 +3589,7 @@ func (
 ) SetGraph(
 	g Graph,
 ) {
-	di.G = g 
+	di.G = g
 }
 
 
@@ -3599,7 +3599,7 @@ func (
 	Src, Sink Int,
 ) {
 	di.Src = Src
-	di.Sink = Sink 
+	di.Sink = Sink
 }
 
 
@@ -3610,7 +3610,7 @@ func (
 ) {
 	sink := di.Sink
 	src := di.Src
-	const inf = 1 << 60 
+	const inf = 1 << 60
 	for {
 		di.UpdateLevel()
 		if di.Level[sink] == -1 {
@@ -3621,7 +3621,7 @@ func (
 			inf,
 		)
 	}
-	return 
+	return
 }
 
 
@@ -3645,8 +3645,8 @@ func (
 	out Int,
 ) {
 	if u == di.Sink {
-		out = in 
-		return 
+		out = in
+		return
 	}
 	g := &di.G
 	lv := di.Level
@@ -3665,7 +3665,7 @@ func (
 		f := di.FlowToSink(
 			v,
 			Min(
-				in - out, 
+				in - out,
 				e.Capacity,
 			).(Int),
 		)
@@ -3684,7 +3684,7 @@ func (
 		g.Edges[v].PushBack(e)
 		out += f
 	 }
-	g.Edges[u] = nxtEdges 
+	g.Edges[u] = nxtEdges
 	return
 }
 
@@ -3716,7 +3716,7 @@ func (
 	bufSize int,
 ) {
 	io.Scanner.Buffer(
-		[]byte{}, 
+		[]byte{},
 		bufSize,
 	)
 }
@@ -3809,7 +3809,7 @@ func (
 type Solver interface{
 	Init()
 	Prepare()
-	Solve()	
+	Solve()
 }
 
 
@@ -3823,7 +3823,7 @@ func Run(s Solver) {
 
 type Problem struct {
 	io *IO
-	n, h Int 
+	n, h Int
 	a, b, c, d, e Int
 }
 
@@ -3843,11 +3843,11 @@ func (
 	p *Problem,
 ) Prepare() {
 	io := p.io
-	p.n = io.ScanInt() 
-	p.h = io.ScanInt() 
-	p.a = io.ScanInt() 
-	p.b = io.ScanInt() 
-	p.c = io.ScanInt() 
+	p.n = io.ScanInt()
+	p.h = io.ScanInt()
+	p.a = io.ScanInt()
+	p.b = io.ScanInt()
+	p.c = io.ScanInt()
 	p.d = io.ScanInt()
 	p.e = io.ScanInt()
 }
@@ -3860,7 +3860,7 @@ func (
 	n := p.n
 	c  := p.c
 	mn := c * n
-	for 
+	for
 	x := Int(0); x <= n; x++ {
 		y := p.g(x)
 		if x + y > n {
@@ -3879,7 +3879,7 @@ func (
 ) f(x, y Int) (
 	s Int,
 ) {
-	a, c := p.a, p.c 
+	a, c := p.a, p.c
 	s = a * x + c * y
 	return
 }
@@ -3890,8 +3890,8 @@ func (
 ) g(x Int) (
 	y Int,
 ) {
-	n, h := p.n, p.h 
-	b, d, e := p.b, p.d, p.e 
+	n, h := p.n, p.h
+	b, d, e := p.b, p.d, p.e
 	num := n*e - h - x*(b + e)
 	den := d + e
 	y = num + den - 1

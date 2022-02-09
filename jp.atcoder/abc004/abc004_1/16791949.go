@@ -1,4 +1,4 @@
-package main 
+package main
 
 import (
 	"fmt"
@@ -36,9 +36,9 @@ var atCoder = proconSite{
 				var a, b int; fmt.Scan(&a, &b)
 				fmt.Println(a - b)
 			},
-			
+
 			"B": func() {
-				
+
 			},
 
 		},
@@ -55,7 +55,7 @@ var atCoder = proconSite{
 					vowels[c] = true
 				}
 				var s string; fmt.Scan(&s)
-				var t string 
+				var t string
 				for _, c := range s {
 					if !vowels[c] {t += string(c)}
 				}
@@ -70,12 +70,12 @@ var atCoder = proconSite{
 				var x0, y0, x1, y1, x2, y2 float64
 				fmt.Scan(&x0, &y0, &x1, &y1, &x2, &y2)
 				fmt.Println(triangleArea(x0, y0, x1, y1, x2, y2))
-				
+
 			},
 
 			"D": func() {
-				var n, m int 
-				var a, b int 
+				var n, m int
+				var a, b int
 				fmt.Scan(&n, &m)
 
 				relations := make([]int, n)
@@ -83,7 +83,7 @@ var atCoder = proconSite{
 				for i := 0; i < m; i++ {
 					fmt.Scan(&a, &b)
 					a -= 1; b -= 1
-					relations[a] |= 1<<b 
+					relations[a] |= 1<<b
 					relations[b] |= 1<<a
 				}
 
@@ -104,13 +104,13 @@ var atCoder = proconSite{
 					}
 				}
 				fmt.Println(res)
-				
+
 			},
 		},
 
 		"ABC003": contest{
 			"A": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				fmt.Println((n+1)*5000)
 
@@ -125,13 +125,13 @@ var atCoder = proconSite{
 					if s[i] == t[i] {continue}
 					if s[i] == '@' && atcoder[t[i]] || t[i] == '@' && atcoder[s[i]] {continue}
 					fmt.Println("You will lose")
-					return 
+					return
 				}
 				fmt.Println("You can win")
 			},
 
 			"C": func() {
-				var n, k int 
+				var n, k int
 				fmt.Scan(&n, &k)
 				r := make([]int, n)
 				for i := 0; i < n; i++ {
@@ -143,14 +143,14 @@ var atCoder = proconSite{
 					res = (res + float64(v)) / 2
 				}
 				fmt.Println(res)
-			
+
 			},
 
 		},
 
 		"ABC004": contest{
 			"A": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				fmt.Println(2*n)
 			},
@@ -164,4 +164,3 @@ var atCoder = proconSite{
 func main() {
 	atCoder.contests["ABC004"]["A"]()
 }
-

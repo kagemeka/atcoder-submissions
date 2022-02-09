@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -15,7 +15,7 @@ def main() -> typing.NoReturn:
             y_list.append(y + hi)
             y += 2 * hi
             hi -= 1
-        
+
         for y in y_list:
             if lo >= hi: break
             res[lo] = (x0 + 2 * (n + 1) - lo - 1, y)
@@ -27,5 +27,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-        
-        

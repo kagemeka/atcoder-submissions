@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-  int n; 
+  int n;
   cin >> n;
   int a[n];
   int tot = 0;

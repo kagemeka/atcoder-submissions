@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-08 02:12:52(JST)
 ## internal modules
 import sys
@@ -12,8 +12,8 @@ import sys
 # import functools
 # import operator
 ## external modules
-# import scipy.special   # if use comb function on AtCoder, 
-# import scipy.misc      # select scipy.misc.comb (old version) 
+# import scipy.special   # if use comb function on AtCoder,
+# import scipy.misc      # select scipy.misc.comb (old version)
 
 def main():
     a, b = (int(x) for x in sys.stdin.readline().split())

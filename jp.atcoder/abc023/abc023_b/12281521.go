@@ -5,9 +5,9 @@ import (
 )
 
 func main() {
-  var n int 
-  var s string 
-  fmt.Scan(&n, &s) 
+  var n int
+  var s string
+  fmt.Scan(&n, &s)
   if n & 1 == 0 {
     fmt.Println(-1)
     return

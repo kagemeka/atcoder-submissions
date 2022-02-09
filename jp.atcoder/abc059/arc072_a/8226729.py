@@ -7,7 +7,7 @@ for i in range(1, n):
         if previous + a[i] > 0:
             previous = previous + a[i]
         else:
-            break       
+            break
     elif previous > 0:
         if previous + a[i] < 0:
             previous = previous + a[i]

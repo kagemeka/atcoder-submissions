@@ -11,7 +11,7 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
@@ -22,7 +22,7 @@ def main():
     for i in range(n):
         l, r = lr[i][0], lr[i][1]+1
         s = s[:l] + s[r-1:l-1:-1] + s[r:]
-        
+
     print(s[1:])
 
 

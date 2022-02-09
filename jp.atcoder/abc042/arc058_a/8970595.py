@@ -13,7 +13,7 @@ def main():
     res = bi_l(cand, int(n))
     if res < len(likes) ** len(n):
         return cand[res]
-    
+
     if likes[0] == '0':
         ans = likes[1] + '0' * len(n)
     else:

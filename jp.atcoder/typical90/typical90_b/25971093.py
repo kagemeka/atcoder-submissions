@@ -1,14 +1,14 @@
 from copyreg import add_extension
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 import numba as nb
 
 
 @nb.njit((nb.i8, nb.i8[:]), cache=True)
 def next_repeated_permutations(
   n: int,
-  a: np.ndarray, 
+  a: np.ndarray,
 ) -> typing.NoReturn:
   k = a.size
   i = k - 1
@@ -17,27 +17,27 @@ def next_repeated_permutations(
     if a[i] < n: return
     a[i] = 0
     i -= 1
-  a[:] = -1 
+  a[:] = -1
 
 
 @nb.njit((nb.i8, ), cache=True)
 def solve(n: int) -> np.ndarray:
   res = np.empty((1 << n, n), np.int64)
-  idx_to_add = 0 
+  idx_to_add = 0
   def add_result(s):
     nonlocal idx_to_add
-    res[idx_to_add] = s 
+    res[idx_to_add] = s
     idx_to_add += 1
 
   p = np.zeros(n, np.int64)
   while p[0] != -1:
     l = 0
-    ok = True  
+    ok = True
     for j in p:
       l -= j * 2 - 1
       if l <= 0: continue
       ok = False
-      break 
+      break
     ok &= l == 0
     if ok: add_result(p)
     next_repeated_permutations(2, p)
@@ -54,7 +54,7 @@ def main() -> typing.NoReturn:
     a = ['(' if x == 1 else ')' for x in a]
     res[i] = ''.join(a)
   print(*res, sep='\n')
-  
+
 
 
 main()

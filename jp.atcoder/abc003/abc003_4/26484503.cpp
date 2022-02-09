@@ -8,7 +8,7 @@ class ModChoosePascal {
 
 public:
   ModChoosePascal(
-    const int &n, 
+    const int &n,
     const T &mod
   ) : c(n, std::vector<T>(n)) {
     for (int i = 0; i < n; i++) c[i][0] = 1;
@@ -35,7 +35,7 @@ int main() {
   auto choose = ModChoosePascal<long long>(1 << 10, mod);
 
   int h, w, y, x, d, l;
-  std::cin >> h >> w >> y >> x >> d >> l; 
+  std::cin >> h >> w >> y >> x >> d >> l;
 
   long long ans = choose(y * x, d + l);
   int n = 4;

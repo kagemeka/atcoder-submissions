@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -15,15 +15,15 @@ def solve(a: np.ndarray) -> typing.NoReturn:
 
   for d in range(2, n):
     for l in range(n - d):
-      r = l + d 
+      r = l + d
       dp[l, r] = dp[l + 1, r - 1] + np.abs(a[l] - a[r])
       for m in range(l + 1, r - 1):
         dp[l, r] = min(
           dp[l, r],
           dp[l, m] + dp[m + 1, r],
         )
-    
-        
+
+
   print(dp[0, -1])
 
 

@@ -21,7 +21,7 @@ def main():
                 if w == W:
                     h += 1
                     w = W - 1
-    
+
     for i in range(H):
         yield' '.join(canvas[i])
 

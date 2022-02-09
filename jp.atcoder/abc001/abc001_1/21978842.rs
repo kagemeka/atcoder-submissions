@@ -2,7 +2,7 @@
 
 
 fn readline()
--> String 
+-> String
 {
   use std::io;
   let stdin = io::stdin();
@@ -39,5 +39,3 @@ fn main()
   let h2 = read_int();
   solve(h1, h2);
 }
-
-

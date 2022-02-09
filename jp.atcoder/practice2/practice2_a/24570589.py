@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -8,19 +8,19 @@ class UnionFind():
     n: int,
   ) -> typing.NoReturn:
     self.__a = [-1] * n
-  
+
 
   def find(
     self,
     u: int,
   ) -> int:
-    a = self.__a 
+    a = self.__a
     au = a[u]
     if au < 0: return u
     au = self.find(au)
-    a[u] = au 
+    a[u] = au
     return au
-  
+
 
   def unite(
     self,
@@ -29,12 +29,12 @@ class UnionFind():
   ) -> typing.NoReturn:
     u = self.find(u)
     v = self.find(v)
-    if u == v: return 
-    a = self.__a 
+    if u == v: return
+    a = self.__a
     if a[u] > a[v]: u, v = v, u
     a[u] += a[v]
     a[v] = u
-  
+
 
   def same(
     self,
@@ -58,12 +58,10 @@ def main() -> typing.NoReturn:
     sys.stdin.read().split(),
   )
   for t, u, v in zip(*[q] * 3):
-    if t == 0: 
+    if t == 0:
       uf.unite(u, v)
       continue
     print(uf.same(u, v) * 1)
 
 
-main() 
-
-  
+main()

@@ -1,5 +1,5 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
@@ -10,7 +10,7 @@ def read_int():
 
 def readline_ints():
   *ints, = map(
-    int, 
+    int,
     readline().split(),
   )
   return ints
@@ -21,22 +21,22 @@ def solve(n, a, k, b):
   for i in range(n + 1):
     if str(i) == k:
       print(a + 1)
-      return 
+      return
     if order[a] is not None:
       l, d =  i - order[a], order[a]
-      break 
+      break
     order[a] = i
     a = b[a]
-  
+
   import numpy as np
   m = len(k)
   r = [None] * m
   r[0] = 1
   for i in range(m - 1):
-    r[i+1] = r[i] * 10 % l 
+    r[i+1] = r[i] * 10 % l
   k = np.array([*map(int, k[::-1])])
   r = np.array(r)
-  d = ((r*k).sum() - d) % l 
+  d = ((r*k).sum() - d) % l
   for _ in range(d): a = b[a]
   print(a+1)
 

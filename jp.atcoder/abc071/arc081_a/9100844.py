@@ -17,7 +17,7 @@ def main():
                 i += 2
                 continue
         i += 1
-    
+
     return a * b
 
 if __name__ == '__main__':

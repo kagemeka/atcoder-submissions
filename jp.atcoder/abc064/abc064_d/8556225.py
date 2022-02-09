@@ -17,11 +17,11 @@ def main():
                 right -= 1
             else:
                 left += 1
-    
+
     ans = '(' * left + s + ')' * right
     print(ans)
 
-            
+
 
 if __name__ == "__main__":
     main()

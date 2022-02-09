@@ -23,5 +23,5 @@ int main() {
   int n; cin >> n;
   cout << base_convert(n, -2) << '\n';
   return 0;
-  
+
 }

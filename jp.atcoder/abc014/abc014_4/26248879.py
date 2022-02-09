@@ -1,11 +1,11 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
-@nb.njit 
+@nb.njit
 def bit_length(n: int) -> int:
-  l = 0 
+  l = 0
   while 1 << l <= n: l += 1
   return l
 
@@ -30,7 +30,7 @@ def tree_bfs(
 
 
 
-@nb.njit 
+@nb.njit
 def lca_preprocess(
   n: int,
   g: np.ndarray,
@@ -47,7 +47,7 @@ def lca_preprocess(
   return depth, ancestors
 
 
-@nb.njit 
+@nb.njit
 def lca(
   depth: np.ndarray,
   ancestors: np.ndarray,
@@ -65,18 +65,18 @@ def lca(
     u, v = nu, nv
   return ancestors[0, u]
 
-  
-@nb.njit 
+
+@nb.njit
 def csgraph_to_directed(g: np.ndarray) -> np.ndarray:
   m = len(g)
   g = np.vstack((g, g))
   g[m:, :2] = g[m:, 1::-1]
-  return g 
+  return g
 
 
-@nb.njit 
+@nb.njit
 def sort_csgraph(
-  n: int, 
+  n: int,
   g: np.ndarray,
 ) -> typing.Tuple[np.ndarray, np.ndarray, np.ndarray]:
   sort_idx = np.argsort(g[:, 0], kind='mergesort')
@@ -92,11 +92,11 @@ def solve(xy: np.ndarray, ab: np.ndarray) -> typing.NoReturn:
   g = csgraph_to_directed(xy)
   g, edge_idx, _ = sort_csgraph(n, g)
   depth, ancestors = lca_preprocess(n, g, edge_idx, 0)
-  
+
   def dist(u, v):
     l = lca(depth, ancestors, u, v)
     return depth[u] + depth[v] - 2 * depth[l]
-  
+
   for i in range(len(ab)):
     a, b = ab[i]
     print(dist(a, b) + 1)
@@ -115,4 +115,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-  

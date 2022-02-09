@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -34,22 +34,22 @@ func (
 	for i := 0; i < n; i++ {
 		a[i] = io.ReadInt()
 	}
-	p.n, p.a = n, a 
+	p.n, p.a = n, a
 }
 
 
 func (
 	p *Problem,
 ) Solve() {
-	n, t, a := p.n, p.t, p.a 
+	n, t, a := p.n, p.t, p.a
 	dt := make([]int, n - 1)
 	for i := 0; i < n - 1; i ++ {
 		dt[i] = a[i + 1] - a[i]
 	}
-	tot := t 
+	tot := t
 	for _, x := range dt {
 		if x > t { x = t }
-		tot += x 
+		tot += x
 	}
 	p.io.Write(tot)
 }

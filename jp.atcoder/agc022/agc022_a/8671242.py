@@ -24,7 +24,7 @@ def main():
                 break
         else:
             ans = -1
-    
+
     print(ans)
 
 if __name__ == '__main__':

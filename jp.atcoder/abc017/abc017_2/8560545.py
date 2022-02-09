@@ -4,7 +4,7 @@ import sys
 
 def main():
     s = sys.stdin.readline().rstrip()
-    
+
 
     end = ['ch', 'o', 'k', 'u']
     for char in end:
@@ -15,6 +15,6 @@ def main():
         ans = 'YES'
 
     print(ans)
-    
+
 if __name__ == '__main__':
     main()

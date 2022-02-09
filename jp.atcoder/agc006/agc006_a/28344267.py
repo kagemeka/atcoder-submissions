@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -11,7 +11,7 @@ def main() -> typing.NoReturn:
         if s[i:] != t[:n - i]: continue
         print(n + i)
         return
-    
+
     print(2 * n)
 
 main()

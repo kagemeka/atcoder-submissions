@@ -20,11 +20,10 @@ while x >= 2 or y >= 2:
             x += (y - 1) // 2
             y = 1
             times += 1
-    
+
 if times % 2 == 0:
     winner = "Brown"
 else:
     winner = "Alice"
 
 print(winner)
-

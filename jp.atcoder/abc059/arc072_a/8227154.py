@@ -9,7 +9,7 @@ for i in range(1, n):
             previous = previous + a[i]
         else:
             times += 1 - (previous + a[i])
-            previous = 1      
+            previous = 1
     elif previous > 0:
         if previous + a[i] < 0:
             previous = previous + a[i]

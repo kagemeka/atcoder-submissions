@@ -19,9 +19,9 @@ def main():
             r -= fst_occur[i]
             r %= rot_step
             break
-        
+
         fst_occur[i] = cnt
-    
+
     for _ in range(r):
         i = b[i-1]
 

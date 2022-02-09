@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -9,13 +9,13 @@ def main() -> typing.NoReturn:
     # after: mn := multiple of a[i], mx := multiple of a[i]
     # before: mn := multiple of a[i], mx := multiple of a[i] + (a[i] - 1)
     # if there is no x (mn <= x <= mx \land x = c*a[i]), impossible.
-    
+
     mn = mx = 2
-    
+
     for p in a[::-1]:
-        if mx // p * p < mn: 
+        if mx // p * p < mn:
             print(-1)
-            return 
+            return
         mx = mx // p * p + p - 1
         mn = (mn + p - 1) // p * p
     print(mn, mx)

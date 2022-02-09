@@ -8,9 +8,9 @@ def main():
         while not i % 2:
             i //= 2
             cnt += 1
-    
+
     return cnt
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

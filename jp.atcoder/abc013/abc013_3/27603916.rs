@@ -36,7 +36,7 @@ fn main() {
     let c: isize = sc.scan();
     let d: isize = sc.scan();
     let e: isize = sc.scan();
-    
+
     let mut res = c * n;
     for x in 0..n + 1 {
         let y = ((n * e - (b + e) * x - h) as f64 / (d + e) as f64).floor() as isize + 1;
@@ -46,5 +46,3 @@ fn main() {
     }
     writeln!(out, "{}", res).unwrap();
 }
-
-

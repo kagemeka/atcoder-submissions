@@ -17,7 +17,7 @@ def main():
     remainder = B - np.sum(b)
     if remainder >= 0:
         a = np.sort(a * A ** b)
-        q, r = divmod(remainder, n)     
+        q, r = divmod(remainder, n)
         a[:r] *= A
         a = np.sort(a) % MOD
         res = np.full(n, 1)
@@ -29,7 +29,7 @@ def main():
             a[0] *= A
             a = a.sort(a)
         ans = a % MOD
-    
+
     print('\n'.join(map(str, ans)))
 
 if __name__ == '__main__':

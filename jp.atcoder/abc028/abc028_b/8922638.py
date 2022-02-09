@@ -10,7 +10,7 @@ def main():
             yield c[char]
         else:
             yield 0
-    
+
 if __name__ == '__main__':
     ans = main()
     print(*ans, sep=' ')

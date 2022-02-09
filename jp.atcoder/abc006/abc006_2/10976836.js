@@ -13,7 +13,7 @@ function main(input) {
   tribonacci[2] = 1;
   for (var i = 3; i <= n; i++) {
     tribonacci[i] = tribonacci[i-3] + tribonacci[i-2] + tribonacci[i-1]
-    tribonacci[i] %= mod; 
+    tribonacci[i] %= mod;
   }
   n = int(input.trim());
   console.log(tribonacci[n-1])

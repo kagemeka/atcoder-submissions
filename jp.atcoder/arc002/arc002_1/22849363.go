@@ -1,4 +1,4 @@
-package main 
+package main
 
 import (
 	"bufio"
@@ -117,7 +117,7 @@ func (
 
 
 type Write struct {
-	writer *bufio.Writer 
+	writer *bufio.Writer
 }
 
 
@@ -153,7 +153,7 @@ func (
 
 
 type Message struct {
-	Ok, Ng string 
+	Ok, Ng string
 }
 
 
@@ -170,21 +170,21 @@ func main() {
 		io.Write(
 			msg.Ok,
 		)
-		return 
+		return
 	}
 	if y % 100 == 0 {
 		io.Write(
 			msg.Ng,
 		)
-		return 
+		return
 	}
 	if y % 4 == 0 {
 		io.Write(
 			msg.Ok,
 		)
-		return 
+		return
 	}
 	io.Write(
 		msg.Ng,
-	)	
+	)
 }

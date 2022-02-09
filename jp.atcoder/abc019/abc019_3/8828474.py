@@ -9,7 +9,7 @@ def main():
             a[i] //= 2
         res.add(a[i])
 
-    return len(res)        
+    return len(res)
 
 if __name__ == '__main__':
     ans = main()

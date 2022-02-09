@@ -10,5 +10,5 @@ for i in range(1, n+1):
   else:
     ans = "No"
     break
- 
+
 print(ans)

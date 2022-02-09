@@ -1,25 +1,25 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
 
 def readline_ints():
   *ints, = map(
-    int, 
+    int,
     readline().split(),
   )
-  return ints 
+  return ints
 
 
 def read():
-  import sys 
+  import sys
   return sys.stdin.buffer.read()
 
 
 def read_ints():
   *ints, = map(
-    int, 
+    int,
     read().split(),
   )
   return ints
@@ -27,14 +27,14 @@ def read_ints():
 
 class Edge:
   def __init__(
-      self, 
-      weight=1, 
-      capacity=1, 
+      self,
+      weight=1,
+      capacity=1,
       **kwargs,
       ):
     self.weight = weight
     self.capacity = capacity
-  
+
   def __str__(self):
     s = f'weight: {self.weight},' \
       f' cap: {self.capacity}'
@@ -52,19 +52,19 @@ class Graph:
       {} for _ in range(n)]
 
   def add_node_info(
-      self, 
-      v, 
-      **kwargs): 
+      self,
+      v,
+      **kwargs):
     self.nodes[v] = Node(**kwargs)
 
   def add_edge(
-      self, 
-      u, v, 
-      update=False, 
-      **kwargs): 
+      self,
+      u, v,
+      update=False,
+      **kwargs):
     if not update and \
-        v in self.edges[u]: 
-      return 
+        v in self.edges[u]:
+      return
     self.edges[u][v] = Edge(
       **kwargs)
 
@@ -110,13 +110,13 @@ def solve(n, abt):
     a -= 1; b -= 1
     g.add_edge(a, b, weight=t)
     g.add_edge(b, a, weight=t)
-  
+
   res = min(
     max(d)
     for d in g.shortest_dist()
   )
   print(res)
-    
+
 
 def main():
   n, m = readline_ints()

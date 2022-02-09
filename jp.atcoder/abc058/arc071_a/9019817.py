@@ -11,11 +11,11 @@ def main():
     shared = set(ascii_lowercase)
     for s in strings:
         shared &= set(s)
-    
+
     cnts = [Counter(s) for s in strings]
-    
+
     res = dict([(char, INF) for char in shared])
-    
+
     for char in shared:
         for c in cnts:
             res[char] = min(res[char], c[char])
@@ -25,7 +25,7 @@ def main():
         ans += char * c
 
     return ans
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

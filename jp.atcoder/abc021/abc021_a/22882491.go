@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -9,7 +9,7 @@ import (
 )
 
 
-type Int int 
+type Int int
 
 
 func (
@@ -50,7 +50,7 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	n := p.n 
+	n := p.n
 	io := p.io
 	io.Write(Int(n).BitCnt())
 	b := 1

@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> 
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
@@ -8,7 +8,7 @@ int main() {
   for (int i = 0; i < n; i++) {
     cin >> r[i];
   }
-  
+
   sort(r.begin(), r.end(), greater<int>());
 
   double rate = 0;

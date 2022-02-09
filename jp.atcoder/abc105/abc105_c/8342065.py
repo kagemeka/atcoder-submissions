@@ -1,5 +1,5 @@
 -9
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-09 11:51:37(JST)
 ### modules
 ## from standard library
@@ -14,9 +14,9 @@ import math
 # import functools
 # import operator
 ## from external libraries
-# import scipy.special   
-# import scipy.misc      
-# import numpy as np 
+# import scipy.special
+# import scipy.misc
+# import numpy as np
 
 
 def f(n):
@@ -27,17 +27,17 @@ def f(n):
             return f(n // (-2)) + '0'
         else:
             return f((n - 1) // (-2)) + '1'
-    
- 
+
+
 def main():
     n = int(sys.stdin.readline().rstrip())
-    
+
     if n == 0:
         ans = '0'
     else:
         ans = f(n)
     print(ans)
-    
+
 
 
 

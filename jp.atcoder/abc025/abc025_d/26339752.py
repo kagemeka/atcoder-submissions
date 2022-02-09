@@ -1,13 +1,13 @@
-import typing 
-import sys 
-import functools 
+import typing
+import sys
+import functools
 sys.setrecursionlimit(1 << 20)
-  
+
 
 
 def solve(a: typing.List[int]) -> typing.NoReturn:
   n = len(a)
-  fixed_idx = [-1] * n 
+  fixed_idx = [-1] * n
   fixed_val = [-1] * n
   for i in range(n):
     if a[i] == -1: continue
@@ -18,9 +18,9 @@ def solve(a: typing.List[int]) -> typing.NoReturn:
   def can_transit(s, i):
     y, x = divmod(i, 5)
     if 1 <= y < 4 and (s >> i - 5 & 1) ^ (s >> i + 5 & 1):
-      return False 
+      return False
     if 1 <= x < 4 and (s >> i - 1 & 1) ^ (s >> i + 1 & 1):
-      return False 
+      return False
     return True
 
 
@@ -35,7 +35,7 @@ def solve(a: typing.List[int]) -> typing.NoReturn:
       u = s & ~(1 << i)
       if can_transit(u, i):
         cnt += dp(u, v - 1)
-      return cnt 
+      return cnt
     for i in range(n):
       if ~s >> i & 1: continue
       if fixed_val[i] != -1 and fixed_val[i] != v: continue

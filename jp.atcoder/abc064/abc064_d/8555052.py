@@ -3,7 +3,7 @@ import sys
 
 def main():
     n, s = sys.stdin.read().split()
-    
+
     # 左右から一度ずつチェック
     # 左から
     count = 0
@@ -20,7 +20,7 @@ def main():
                 flag = True
             else:
                 break
-    
+
     s = '(' * count + s
 
     # 右から

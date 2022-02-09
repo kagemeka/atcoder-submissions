@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-  var n int 
+  var n int
   fmt.Scan(&n)
   cand := []int{17, 13, 10, 9, 8, 6, 5, 3, 2, 1}
   ans := "Yes"

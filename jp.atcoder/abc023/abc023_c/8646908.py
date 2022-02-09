@@ -1,6 +1,6 @@
 # 2019-11-25 16:19:29(JST)
 import sys
-import numpy as np 
+import numpy as np
 
 def main():
     H, W, K = map(int, sys.stdin.readline().split())
@@ -14,14 +14,14 @@ def main():
         candy[h][w] = 1
         vert[h] += 1
         hori[w] += 1
-    
+
 
     a = np.array([1, 3, 4, 5, 6])
     b = np.array([1, 3, 4, 5, 7])
 
     res = np.array([vert[i] + hori[j] - candy[i][j] for i in range(1, H+1) for j in range(1, W + 1)])
     res.sort()
-    
+
     ans = np.searchsorted(res, K, side='right') - np.searchsorted(res, K, side='left')
     print(ans)
 

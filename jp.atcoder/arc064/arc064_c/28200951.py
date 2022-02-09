@@ -1,4 +1,4 @@
-import typing 
+import typing
 import math
 
 
@@ -10,7 +10,7 @@ def compute_dist(x0: int, y0: int, x1: int, y1: int) -> float:
 Numeric = typing.Union[int, float]
 
 # class Numeric(typing.Protocol):
-    
+
 
 def dijkstra_dense(
     g: typing.List[typing.List[Numeric]],
@@ -22,7 +22,7 @@ def dijkstra_dense(
     for i in range(n):
         for j in range(n): assert g[i][j] >= 0
     dist = [inf] * n
-    dist[src] = 0 
+    dist[src] = 0
     fixed = [False] * n
     # u = src
     for _ in range(n - 1):
@@ -35,7 +35,7 @@ def dijkstra_dense(
             dist[v] = min(dist[v], du + g[u][v])
     return dist
 
-    
+
 
 
 def main() -> typing.NoReturn:
@@ -50,19 +50,18 @@ def main() -> typing.NoReturn:
     n += 2
     inf = 1 << 60
     dist = [[inf] * n for _ in range(n)]
-    
+
     for i in range(n - 1):
         for j in range(i + 1, n):
             xi, yi, ri = xyr[i]
             xj, yj, rj = xyr[j]
             d = max(0, compute_dist(xi, yi, xj, yj) - ri - rj)
-            dist[i][j] = dist[j][i] = d 
+            dist[i][j] = dist[j][i] = d
     for i in range(n):
         dist[i][i] = 0
-    
-    dist = dijkstra_dense(dist, n - 2)  
+
+    dist = dijkstra_dense(dist, n - 2)
     print(dist[n - 1])
 
 
 main()
-    

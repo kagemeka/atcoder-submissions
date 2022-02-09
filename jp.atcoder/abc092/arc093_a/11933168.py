@@ -10,6 +10,6 @@ def main():
         elif a[i-1] >= a[i] >= a[i+1]: res = s
         else: res = s - 2 * min(abs(a[i] - a[i-1]), abs(a[i+1] - a[i]))
         print(res)
-            
+
 if __name__ ==  '__main__':
     main()

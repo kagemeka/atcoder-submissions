@@ -3,7 +3,7 @@ import sys
 from collections import defaultdict, OrderedDict
 
 def main():
-    n, m, *a = sys.stdin.read().split() 
+    n, m, *a = sys.stdin.read().split()
 
     no_dup = OrderedDict((thread, True) for thread in reversed(a))
 

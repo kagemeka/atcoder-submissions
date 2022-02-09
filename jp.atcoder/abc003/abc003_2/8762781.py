@@ -19,7 +19,7 @@ def main():
         break
     else:
         ans = 'You can win'
-    
+
     print(ans)
 
 if __name__ == '__main__':

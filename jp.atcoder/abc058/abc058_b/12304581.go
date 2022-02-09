@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-  var o, e string 
+  var o, e string
   fmt.Scan(&o, &e)
   res := make([]byte, len(o) + len(e))
   for i := 0; i < len(o); i++ {

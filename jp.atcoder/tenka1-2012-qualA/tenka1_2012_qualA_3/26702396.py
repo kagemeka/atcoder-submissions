@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import re
 
 
@@ -17,7 +17,7 @@ def main() -> typing.NoReturn:
     m = re.match(ptn, s)
     s = int(m.groups()[0]) - 1
     k = m.groups()[1].split('"')
-    
+
     a = [s]
     for w in k:
         b = set(y for x in a for y in g[x])

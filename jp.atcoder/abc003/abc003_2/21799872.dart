@@ -70,7 +70,7 @@ abstract class Solver {
 
 
 
-mixin Runner 
+mixin Runner
 implements Solver {
 
 
@@ -109,7 +109,7 @@ with Runner {
   void solve() {
     int n = s.length;
     for (
-      int i = 0; i < n; i++ 
+      int i = 0; i < n; i++
     ) {
       this.i = i;
       if (
@@ -128,7 +128,7 @@ with Runner {
     y = t.codeUnitAt(i);
     if (x == y) return true;
     if (
-      x == wildcard && 
+      x == wildcard &&
       atcoder.contains(y)
     ) return true;
     if (

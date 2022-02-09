@@ -16,7 +16,7 @@ def main():
         for j in range(n+1-i):
             k = n - i - j
             t = 10 * i + 5 * j + k
-            if t == y: 
+            if t == y:
                 print(i, j, k)
                 exit()
     print(-1, -1, -1)

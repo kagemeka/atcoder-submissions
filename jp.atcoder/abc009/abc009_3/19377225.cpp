@@ -17,7 +17,7 @@ void prepare() {
 void solve() {
   using Tup =
     tuple<int, int, int>;
-  
+
   vector<int> cost(n, 1);
   for (int i = 0; i < n; i++)
   {
@@ -26,7 +26,7 @@ void solve() {
       vector<Tup>,
       greater<Tup>
     > que;
-    
+
     for (
       int j = i+1; j < n; j++
     ) {
@@ -34,16 +34,16 @@ void solve() {
       {
         continue;
       }
-      
+
       que.push(
         Tup(
-          s[j], 
+          s[j],
           cost[i] + cost[j],
           -j
         )
       );
     }
-    
+
     while (!que.empty())
     {
       Tup t = que.top();

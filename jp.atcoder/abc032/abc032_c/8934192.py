@@ -10,11 +10,11 @@ def main():
         if cumprod[i] == 0:
             return n
 
-    res = [None] * n 
+    res = [None] * n
     res[0] = bi_r(cumprod, k)
     for i in range(1, n):
         res[i] = bi_r(cumprod, cumprod[i-1] * k) - i
-    
+
     ans = max(res)
     return ans
 

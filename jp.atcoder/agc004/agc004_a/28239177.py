@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -7,5 +7,5 @@ def main() -> typing.NoReturn:
         print(0)
     else:
         print(min(a * b, b * c, c * a))
-    
+
 main()

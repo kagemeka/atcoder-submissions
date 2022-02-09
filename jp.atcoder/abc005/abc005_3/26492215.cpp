@@ -19,10 +19,10 @@ int main() {
       cout << "no" << '\n';
       return 0;
     }
-    j++; 
-    continue;    
+    j++;
+    continue;
   }
   cout << "yes" << '\n';
-  
+
 
 }

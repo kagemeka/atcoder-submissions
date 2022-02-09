@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -11,7 +11,7 @@ import (
 
 type Problem struct {
 	io *IO
-	a int 
+	a int
 }
 
 
@@ -33,7 +33,7 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	a := p.a 
+	a := p.a
 	mx := a / 2
 	mx *= (a + 1) / 2
 	p.io.Write(mx)

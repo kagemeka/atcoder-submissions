@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def dijkstra_sparse(
@@ -29,7 +29,7 @@ def main() -> typing.NoReturn:
     # there exist at least 1 node i such that dist_s[i] = dist_t[i]
 
     s, t = map(lambda x: int(x) - 1, input().split())
-    
+
     g = [[] for _ in range(n)]
     for _ in range(m):
         x, y, d = map(int, input().split())
@@ -37,7 +37,7 @@ def main() -> typing.NoReturn:
         y -= 1
         g[x].append((y, d))
         g[y].append((x, d))
-    
+
     inf = 1 << 60
     dist_s = dijkstra_sparse(g, s)
     dist_t = dijkstra_sparse(g, t)
@@ -45,7 +45,7 @@ def main() -> typing.NoReturn:
         if dist_s[i] == inf: continue
         if dist_s[i] != dist_t[i]: continue
         print(i + 1)
-        return 
+        return
     print(-1)
 
-main() 
+main()

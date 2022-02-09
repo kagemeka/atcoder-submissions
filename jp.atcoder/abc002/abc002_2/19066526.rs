@@ -22,7 +22,7 @@ impl Scanner {
     &mut self,
   ) -> T {
     loop {
-      if let Some(token) = 
+      if let Some(token) =
       self.buffer.pop() {
         return {
           token.parse().ok()

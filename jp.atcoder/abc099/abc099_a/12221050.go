@@ -10,6 +10,6 @@ func main() {
   ans := "ABD"
   if n < 1000 {
     ans = "ABC"
-  } 
+  }
   fmt.Println(ans)
 }

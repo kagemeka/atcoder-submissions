@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 from itertools import permutations
 
 I = np.array(sys.stdin.read().split(), dtype=np.int64)

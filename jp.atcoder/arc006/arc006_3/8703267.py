@@ -2,7 +2,7 @@ import sys
 
 def main():
     n, *w = map(int, sys.stdin.read().split())
-    
+
     res = set()
     for i in range(n):
         nex = w[i]
@@ -15,6 +15,6 @@ def main():
 
     ans = len(res)
     print(ans)
-        
+
 if __name__ == '__main__':
     main()

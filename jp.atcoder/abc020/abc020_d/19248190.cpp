@@ -2,7 +2,7 @@
 using namespace std;
 
 
-constexpr long long MOD 
+constexpr long long MOD
   = (long long)1e9 + 7;
 
 template<typename T>
@@ -10,14 +10,14 @@ class Modular {
 
 public:
 
-using Type 
+using Type
   = typename decay<
   decltype(T::value)
   >::type;
 
 constexpr Modular() : value() {}
 
-template<typename U> 
+template<typename U>
 Modular(const U& x) {
   value = normalize(x);
 }
@@ -31,12 +31,12 @@ static Type normalize(
   return v;
 }
 
-const Type& operator() () const 
+const Type& operator() () const
 {
   return value;
 }
 
-template<typename U> 
+template<typename U>
 explicit operator U() const {
   return static_cast<U>(value);
 }
@@ -58,7 +58,7 @@ Modular& operator+=(
 Modular operator+(
   const Modular& other
 ) const {
-  Modular res(*this); 
+  Modular res(*this);
   return res += other;
 }
 
@@ -68,18 +68,18 @@ Modular& operator-=(
   value -= other.value;
   if (value < 0) {
     value += mod();
-  } 
+  }
   return *this;
 }
 
 Modular operator-(
   const Modular& other
 ) const {
-  Modular res(*this); 
+  Modular res(*this);
   return res -= other;
-} 
+}
 
-template<typename U> 
+template<typename U>
 Modular& operator+=(
   const U& other
 ) {
@@ -87,7 +87,7 @@ Modular& operator+=(
   return *this;
 }
 
-template<typename U> 
+template<typename U>
 Modular& operator-=(
   const U& other
 ) {
@@ -104,8 +104,8 @@ Modular& operator--() {
 }
 
 Modular operator++(int) {
-  Modular res(*this); 
-  *this += 1; 
+  Modular res(*this);
+  *this += 1;
   return res;
 }
 
@@ -130,14 +130,14 @@ Modular& operator*=(
 Modular operator*(
   const Modular& other
 ) const {
-  Modular res(*this); 
+  Modular res(*this);
   return res *= other;
 }
 
 template<typename U>
 Modular pow(const U& n) const {
   if (!n) return 1;
-  Modular a = pow(n>>1); 
+  Modular a = pow(n>>1);
   a *= a;
   if (n&1) a *= *this;
   return a;
@@ -157,20 +157,20 @@ Modular& operator/=(
 Modular operator/(
   const Modular& other
 ) const {
-  Modular res(*this); 
+  Modular res(*this);
   return res /= other;
 }
 
 template<typename U>
 friend std::istream& operator>>(
-  std::istream& is, 
+  std::istream& is,
   Modular<U>& number
 ) {
   return is >> number.value;
 }
 
 friend std::ostream& operator<<(
-  std::ostream& os, 
+  std::ostream& os,
   const Modular& number
 ) {
   return os << number.value;
@@ -186,7 +186,7 @@ Type value;
 
 using Mint = Modular<
   std::integral_constant<
-    decay<decltype(MOD)>::type, 
+    decay<decltype(MOD)>::type,
     MOD
   >
 >;
@@ -197,7 +197,7 @@ template<typename T>
 vector<T> find_divisors(T n) {
   vector<T> d(0);
   for (T i = 1; i*i <= n; i++) {
-    if (n%i) {continue;} 
+    if (n%i) {continue;}
     d.push_back(i);
     if (i*i != n) {
       d.push_back(n/i);
@@ -209,12 +209,12 @@ vector<T> find_divisors(T n) {
 
 
 void solve(
-  long long n, 
+  long long n,
   long long k
 ) {
   auto divs = find_divisors(k);
   reverse(
-    divs.begin(), 
+    divs.begin(),
     divs.end()
   );
   int l = (int)divs.size();
@@ -233,7 +233,7 @@ void solve(
   }
   Mint res = 0;
   for (int i = 0; i < l; i++) {
-    res += s[i] / divs[i]; 
+    res += s[i] / divs[i];
   }
   res *= k;
   cout << res << '\n';

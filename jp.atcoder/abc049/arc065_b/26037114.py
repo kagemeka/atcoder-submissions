@@ -1,7 +1,7 @@
-import typing 
-import  sys 
-import numpy as np 
-import numba as nb 
+import typing
+import  sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit
@@ -16,14 +16,14 @@ def uf_find(uf: np.ndarray, u:int) -> int:
   return uf[u]
 
 
-@nb.njit 
+@nb.njit
 def uf_unite(
   uf: np.ndarray,
   u: int,
   v: int,
 ) -> typing.NoReturn:
   u, v = uf_find(uf, u), uf_find(uf, v)
-  if u == v: return 
+  if u == v: return
   if uf[u] > uf[v]: u, v = v, u
   uf[u] += uf[v]
   uf[v] = u
@@ -48,27 +48,27 @@ def compress_array(
 ) -> typing.Tuple[np.ndarray, np.ndarray]:
   v = np.unique(a)
   i = np.searchsorted(v, a)
-  return i, v 
+  return i, v
 
 
 
 @nb.njit((nb.i8, nb.i8[:, :], nb.i8[:, :]), cache=True)
 def solve(
-  n: int, 
-  pq: np.ndarray, 
+  n: int,
+  pq: np.ndarray,
   rs: np.ndarray,
 ) -> typing.NoReturn:
   k, l = len(pq), len(rs)
   label0 = connected_components(n, pq)
   label1 = connected_components(n, rs)
-  
+
   label = np.empty((n, 2), np.int64)
   label = label0 * (1 << 17) + label1
   label, _ = compress_array(label)
   b = np.bincount(label)
   cnt = b[label]
   for c in cnt:
-    print(c)  
+    print(c)
 
 
 def main() -> typing.NoReturn:

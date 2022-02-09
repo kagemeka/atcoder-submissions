@@ -31,5 +31,5 @@ fn main() {
     for _ in 0..n { a.push(sc.scan()); }
     a = a.into_iter().filter(|&x| x != 0).collect::<Vec<_>>();
     let res: usize = (a.iter().sum::<usize>() + a.len() - 1) / a.len();
-    writeln!(out, "{}", res).unwrap(); 
+    writeln!(out, "{}", res).unwrap();
 }

@@ -8,7 +8,7 @@ import (
 func main() {
   cnt := 0
   for i := 0; i < 12; i++ {
-    var s string 
+    var s string
     fmt.Scan(&s)
     if strings.Contains(s, 'r') {cnt++}
   }

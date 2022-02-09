@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:, :], ), cache=True)
@@ -17,9 +17,9 @@ def shortest_dist_floyd_warshall(g: np.ndarray) -> np.ndarray:
       for j in range(n):
         g[i, j] = min(g[i, j], g[i, k] + g[k, j])
   return g
-  
 
-@nb.njit((nb.i8, nb.i8[:, :]), cache=True) 
+
+@nb.njit((nb.i8, nb.i8[:, :]), cache=True)
 def solve(n: int, abt: np.ndarray) -> typing.NoReturn:
   inf = 1 << 60
   g = np.full((n, n), inf, np.int64)
@@ -27,13 +27,13 @@ def solve(n: int, abt: np.ndarray) -> typing.NoReturn:
   for i in range(m):
     a, b, t = abt[i]
     g[a, b] = g[b, a] = t
-  
+
   dist = shortest_dist_floyd_warshall(g)
   mn = inf
   for i in range(n):
     mn = min(mn, dist[i].max())
   print(mn)
-  
+
 
 
 def main() -> typing.NoReturn:

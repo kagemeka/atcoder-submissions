@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -33,7 +33,7 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	x := p.x 
+	x := p.x
 	s := x  % 10 + x / 10
 	p.io.Write(s)
 }

@@ -8,7 +8,7 @@ def main():
         while not i & 1:
             i //= 2
         res.add(i)
-    return len(res)        
+    return len(res)
 
 if __name__ == '__main__':
     ans = main()

@@ -18,7 +18,7 @@ def main():
         res += 1
     elif cnt >= 2:
         res += cnt - 1
-    
+
     return res
 
 if __name__ == '__main__':

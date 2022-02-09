@@ -9,7 +9,7 @@ def main():
     while x ** (1 / i) >= 2:
         res.append(floor(x ** (1 / i)) ** i)
         i += 1
-    
+
     return max(res)
 
 if __name__ == '__main__':

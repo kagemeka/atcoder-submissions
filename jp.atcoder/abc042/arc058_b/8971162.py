@@ -28,9 +28,9 @@ def main():
     for i in range(h - a, h):
         ng += comb_mod(i + j, i) * comb_mod(h-1-i + w-1-b, h-1-i) % MOD
         ng %= MOD
-    
+
     ans = (total - ng) % MOD
-    return ans 
+    return ans
 
 if __name__ == '__main__':
     ans = main()

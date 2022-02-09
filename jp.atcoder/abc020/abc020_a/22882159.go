@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -33,7 +33,7 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	q := p.q 
+	q := p.q
 	io := p.io
 	res := "ABC"
 	if q == 2 {

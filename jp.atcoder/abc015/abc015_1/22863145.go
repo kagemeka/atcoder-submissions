@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -26,7 +26,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	p.a = io.Read()
 	p.b = io.Read()
 }
@@ -35,7 +35,7 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	a, b := p.a, p.b 
+	a, b := p.a, p.b
 	var s string
 	if len(a) >= len(b) {
 		s = a

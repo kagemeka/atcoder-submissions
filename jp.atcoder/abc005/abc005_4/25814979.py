@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8, nb.i8), cache=True)
@@ -27,9 +27,9 @@ def fw_build_from_array(a: np.ndarray) -> np.ndarray:
 
 @nb.njit((nb.i8[:, :], nb.i8, nb.i8, nb.i8), cache=True)
 def fw_set(
-  fw: np.ndarray, 
-  i: int, 
-  j: int, 
+  fw: np.ndarray,
+  i: int,
+  j: int,
   x: int,
 ) -> typing.NoReturn:
   n, m = fw.shape
@@ -45,14 +45,14 @@ def fw_set(
 @nb.njit((nb.i8[:, :], nb.i8, nb.i8), cache=True)
 def fw_get(fw: np.ndarray, i: int, j:int) -> int:
   v = 0
-  j0 = j 
+  j0 = j
   while i > 0:
     j = j0
     while j > 0:
       v += fw[i, j]
       j -= j & -j
     i -= i & -i
-  return v 
+  return v
 
 
 
@@ -69,14 +69,14 @@ def solve(
     for y in range(n - h + 1):
       for x in range(n - w + 1):
         v = (
-          fw_get(fw, y + h, x + w) 
+          fw_get(fw, y + h, x + w)
           - fw_get(fw, y + h, x)
           - fw_get(fw, y, x + w)
           + fw_get(fw, y, x)
         )
         mx = max(mx, v)
-    return mx 
-        
+    return mx
+
   res = np.zeros(n * n + 1, np.int64)
   for h in range(1, n + 1):
     for w in range(1, n + 1):
@@ -84,11 +84,11 @@ def solve(
       res[i] = max(res[i], calc_max(h, w))
   for i in range(n * n):
     res[i + 1] = max(res[i + 1], res[i])
-  
+
   for x in res[p]:
     print(x)
 
-  
+
 def main() -> typing.NoReturn:
   n = int(input())
   tmp = np.array(

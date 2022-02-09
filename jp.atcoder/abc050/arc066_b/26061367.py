@@ -1,13 +1,13 @@
 import typing
-import sys 
-import numpy as np 
-import numba as nb 
+import sys
+import numpy as np
+import numba as nb
 
 
 
 @nb.njit((nb.i8, ), cache=True)
 def solve(n: int) -> typing.NoReturn:
-  mod = 10 ** 9 + 7 
+  mod = 10 ** 9 + 7
 
   dp = np.zeros(3, np.int64)
   dp[0] = 1
@@ -23,9 +23,9 @@ def solve(n: int) -> typing.NoReturn:
       ndp[1] += dp[1]
       ndp[2] += dp[2] * 3 + dp[1]
     dp = ndp % mod
-  
+
   print(dp.sum() % mod)
-  
+
 
 def main() -> typing.NoReturn:
   n = int(input())

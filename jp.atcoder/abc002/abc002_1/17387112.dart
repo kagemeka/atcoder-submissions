@@ -30,7 +30,3 @@ class ABC002 {
 void main() {
   ABC002.a();
 }
-
-
-
-

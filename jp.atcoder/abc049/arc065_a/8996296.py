@@ -7,7 +7,7 @@ def main():
     cands = 'eraser, erase, dreamer, dream'.split(', ')
     for c in cands:
         t = t.replace(c, '')
-    
+
     return 'YES' if not t else 'NO'
 
 if __name__ == '__main__':

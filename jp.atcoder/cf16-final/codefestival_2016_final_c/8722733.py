@@ -11,7 +11,7 @@ def main():
         *languages, = map(int, sys.stdin.readline().split())
         for l in languages[1:]:
             can_speak[l].append(i)
-    
+
     G = [[0] * n for _ in range(n)]
 
     for language in can_speak:

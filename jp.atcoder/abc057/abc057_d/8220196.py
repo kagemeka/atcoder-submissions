@@ -34,7 +34,3 @@ def cmb(n, r):
 
 
 print(cmb(full, accepted))
-
-
-
-

@@ -1,6 +1,6 @@
 import sys
 input = sys.stdin.readline
-from math import factorial 
+from math import factorial
 mod = 10 ** 9 + 7
 
 N, M = [int(x) for x in input().split()]

@@ -13,7 +13,7 @@ def main():
     for s1 in range(0, F+1, C):
         for s2 in range(0, F-s1+1, D):
             s.add(s1 + s2)
-            
+
     w = sorted(w)
     s = sorted(s)
 

@@ -9,14 +9,14 @@ def reachable(deltas, goal):
             return True
         else:
             return False
-    
+
     s = sum(deltas)
     if goal < -s or s < goal:
         return False
-        
-    res = [False] * (s * 2 + 1) 
+
+    res = [False] * (s * 2 + 1)
     res[s] = True
-    
+
     for d in deltas:
         prev = res.copy()
         for i in range(s*2+1):
@@ -55,7 +55,7 @@ def main():
             tmp += 1
 
     return 'Yes' if reachable(dx, gx) & reachable(dy, gy) else 'No'
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

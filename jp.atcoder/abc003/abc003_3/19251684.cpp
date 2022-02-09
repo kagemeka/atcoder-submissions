@@ -10,7 +10,7 @@ void solve() {
     cin >> r[i];
   }
   sort(
-    r.begin(), 
+    r.begin(),
     r.end(),
     greater<int>()
   );

@@ -12,12 +12,12 @@ def main():
 
     for a, b, c in abc:
         res[a:, b:] = np.minimum(res[a:, b:], res[:-a, :-b] + c)
-    
+
     a = np.arange(ma, sa+1, ma)
     b = np.arange(mb, sb+1, mb)
     lim = min(sa//ma, sb//mb)
     ans = np.amin(res[a[:lim], b[:lim]])
-    
+
     if ans == np.inf:
         return -1
     return int(ans)

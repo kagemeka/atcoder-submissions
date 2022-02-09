@@ -17,7 +17,7 @@ def main():
     res = np.sum(res[:, -q:], axis=1)
     ans = np.amax(res)
     return ans
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

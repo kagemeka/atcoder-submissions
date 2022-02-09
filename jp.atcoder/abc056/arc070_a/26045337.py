@@ -1,5 +1,5 @@
-import typing 
-import math 
+import typing
+import math
 
 
 def main() -> typing.NoReturn:
@@ -7,6 +7,6 @@ def main() -> typing.NoReturn:
 
   t = math.ceil((2 * x + 1 / 4) ** .5 - 1 / 2)
   print(t)
-  
+
 
 main()

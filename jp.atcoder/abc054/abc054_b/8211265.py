@@ -27,5 +27,5 @@ for a in range(n - m + 1):
         else: # if not loop broken.
             ans = "Yes"
             break
-        
+
 print(ans)

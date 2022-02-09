@@ -12,7 +12,7 @@ import (
 
 
 
-type Bool bool 
+type Bool bool
 
 
 func (
@@ -51,7 +51,7 @@ func (
 		cnt += n & 1
 		n >>= 1
 	}
-	return 
+	return
 }
 
 
@@ -96,7 +96,7 @@ func (
 	case Int:
 		return Int(res)
 	}
-	return res 
+	return res
 }
 
 
@@ -124,7 +124,7 @@ func (
 	case Int:
 		return Int(res)
 	}
-	return res 
+	return res
 }
 
 
@@ -172,7 +172,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(Int) 
+	return x <= other.(Int)
 }
 
 
@@ -276,7 +276,7 @@ func (
 	i, j int,
 ) bool {
 	return a[i] < a[j]
-} 
+}
 
 
 func (
@@ -297,7 +297,7 @@ func (
 	s := make(IntSlice, n)
 	copy(s, a)
 	return s
-} 
+}
 
 
 func (
@@ -311,7 +311,7 @@ func (
 	a IntSlice,
 ) Reversed() (
 	s IntSlice,
-) { 
+) {
 	s = a.Clone().(IntSlice)
 	s.Reverse()
 	return
@@ -348,7 +348,7 @@ func (
 	if x < 0 {
 		return -x
 	}
-	return x 
+	return x
 }
 
 
@@ -444,7 +444,7 @@ func (
 	Numeric,
 ){
 	if n == 0 {
-		return Float(1) 
+		return Float(1)
 	}
 	a := x.Pow(n >> 1).(Float)
 	a *= a
@@ -487,7 +487,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(Float) 
+	return x <= other.(Float)
 }
 
 
@@ -591,7 +591,7 @@ func (
 	i, j int,
 ) bool {
 	return a[i] < a[j]
-} 
+}
 
 
 func (
@@ -612,7 +612,7 @@ func (
 	s := make(FloatSlice, n)
 	copy(s, a)
 	return s
-} 
+}
 
 
 func (
@@ -626,7 +626,7 @@ func (
 	a FloatSlice,
 ) Reversed() (
 	s FloatSlice,
-) { 
+) {
 	s = a.Clone().(FloatSlice)
 	s.Reverse()
 	return
@@ -686,7 +686,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(String) 
+	return x <= other.(String)
 }
 
 
@@ -824,7 +824,7 @@ func (
 	i, j int,
 ) bool {
 	return a[i] < a[j]
-} 
+}
 
 
 func (
@@ -845,7 +845,7 @@ func (
 	s := make(StringSlice, n)
 	copy(s, a)
 	return s
-} 
+}
 
 
 func (
@@ -859,7 +859,7 @@ func (
 	a StringSlice,
 ) Reversed() (
 	s StringSlice,
-) { 
+) {
 	s = a.Clone().(StringSlice)
 	s.Reverse()
 	return
@@ -918,7 +918,7 @@ func (
 			(StringSlice))
 	}
 	return s
-} 
+}
 
 
 func (
@@ -932,7 +932,7 @@ func (
 	a StringSlice2D,
 ) Reversed() (
 	s StringSlice2D,
-) { 
+) {
 	s = (
 		a.Clone().
 		(StringSlice2D))
@@ -959,7 +959,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(Rune) 
+	return x <= other.(Rune)
 }
 
 
@@ -1057,7 +1057,7 @@ func (
 	i, j int,
 ) bool {
 	return a[i] < a[j]
-} 
+}
 
 
 func (
@@ -1078,7 +1078,7 @@ func (
 	s := make(RuneSlice, n)
 	copy(s, a)
 	return s
-} 
+}
 
 
 func (
@@ -1092,7 +1092,7 @@ func (
 	a RuneSlice,
 ) Reversed() (
 	s RuneSlice,
-) { 
+) {
 	s = a.Clone().(RuneSlice)
 	s.Reverse()
 	return
@@ -1178,7 +1178,7 @@ func Abs(
 
 
 func Sum(
-	a ...Numeric,	
+	a ...Numeric,
 ) (
 	s Numeric,
 ) {
@@ -1186,7 +1186,7 @@ func Sum(
 	for  _, x := range a {
 		s = s.Add(x)
 	}
-	return 
+	return
 }
 
 
@@ -1232,7 +1232,7 @@ func (
 ) {
 	const dx = 1e-8
 	d = (f(x + dx) - f(x)) / dx
-	return 
+	return
 }
 
 
@@ -1245,14 +1245,14 @@ func (
 ) {
 	x = x0
 	const maxIter = 1 << 4
-	for 
-	i := 0; 
-	i < maxIter; 
+	for
+	i := 0;
+	i < maxIter;
 	i++ {
-		x -= f(x) / 
+		x -= f(x) /
 			f.Derivative(x)
 	}
-	return 
+	return
 }
 
 
@@ -1293,7 +1293,7 @@ func (
 	bufSize int,
 ) {
 	io.Scanner.Buffer(
-		[]byte{}, 
+		[]byte{},
 		bufSize,
 	)
 }
@@ -1347,7 +1347,7 @@ func (
 func (
 	io *IO,
 ) ScanInt() Int {
-	s := string(io.Scan())	
+	s := string(io.Scan())
 	v, _ := strconv.Atoi(s)
 	return Int(v)
 }
@@ -1387,7 +1387,7 @@ func (
 type Solver interface{
 	Init()
 	Prepare()
-	Solve()	
+	Solve()
 }
 
 
@@ -1422,7 +1422,7 @@ func (
 	io := p.io
 	const n = 4
 	c := make(
-		StringSlice2D, 
+		StringSlice2D,
 		n,
 	)
 	for i := 0; i < n; i++ {
@@ -1441,7 +1441,7 @@ func (
 	p *Problem,
 ) Solve() {
 	io := p.io
-	c := p.c 
+	c := p.c
 	n := len(c)
 	c.Reverse()
 	for i := 0; i < n; i++{

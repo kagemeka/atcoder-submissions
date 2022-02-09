@@ -9,7 +9,7 @@ W2 = 4 * n
 
 def main():
     dp = [[[0] * (W2 + 1) for _ in range(n+1)] for _ in range(n+1)]
-    
+
     for i in range(n):
         w, v = wv[i]
         w -= min_w - 1

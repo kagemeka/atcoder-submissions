@@ -6,10 +6,10 @@ import (
 
 func main() {
   res := make(map[string]int)
-  var n int 
+  var n int
   fmt.Scan(&n)
   for i := 0; i < n; i++ {
-    var s string 
+    var s string
     fmt.Scan(&s)
     res[s]++
   }
@@ -17,7 +17,7 @@ func main() {
   var ans string
   for name, c := range res {
     if c > m {
-      m = c 
+      m = c
       ans = name
     }
   }

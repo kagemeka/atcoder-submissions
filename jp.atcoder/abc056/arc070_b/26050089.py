@@ -1,17 +1,17 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 @nb.njit((nb.i4[:], nb.i4), cache=True)
 def solve(a: np.ndarray, k: int) -> typing.NoReturn:
-  n = a.size 
+  n = a.size
   for i in range(n):
     a[i] = min(a[i], k)
-  
+
   a.sort()
-  
+
   def compute_dp(a):
     dp = np.zeros((n + 1, k), np.int16)
     dp[0, 0] = 1
@@ -26,7 +26,7 @@ def solve(a: np.ndarray, k: int) -> typing.NoReturn:
   for i in range(n + 1):
     for j in range(k - 1):
       dp_r[i, j + 1] += dp_r[i, j]
-    
+
   def is_needed(i):
     l = dp_l[i]
     r = dp_r[i + 1]
@@ -36,7 +36,7 @@ def solve(a: np.ndarray, k: int) -> typing.NoReturn:
       if k - a[i] - x > 0:
         s -= r[k - a[i] - x - 1]
       if s >= 1: return True
-    return False 
+    return False
 
   def binary_search():
     lo, hi = -1, n
@@ -47,7 +47,7 @@ def solve(a: np.ndarray, k: int) -> typing.NoReturn:
       else:
         lo = i
     return hi
-  
+
   print(binary_search())
 
 

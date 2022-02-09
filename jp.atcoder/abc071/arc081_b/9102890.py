@@ -14,7 +14,7 @@ def main():
         i = 2
         res = 6
         flag = 1
-    
+
     while i < n:
         if s1[i] == s2[i]:
             if flag:

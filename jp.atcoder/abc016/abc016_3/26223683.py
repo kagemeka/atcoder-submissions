@@ -1,16 +1,16 @@
 import typing
-import sys 
-import numpy as np 
+import sys
+import numpy as np
 import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def bit_count(n: int) -> int:
   cnt = 0
   while n:
     cnt += n & 1
     n >>= 1
-  return cnt 
+  return cnt
 
 
 @nb.njit((nb.i8, nb.i8[:, :]), cache=True)
@@ -21,9 +21,9 @@ def solve(n: int, ab: np.ndarray) -> typing.NoReturn:
     a, b = ab[i]
     g[a] |= 1 << b
     g[b] |= 1 << a
-  
+
   for i in range(n):
-    s = 0 
+    s = 0
     for j in range(n):
       if ~g[i] >> j & 1: continue
       s |= g[j]

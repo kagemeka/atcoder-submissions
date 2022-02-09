@@ -1,12 +1,12 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
 def solve(a: np.ndarray) -> typing.NoReturn:
-  h, w = a.shape 
+  h, w = a.shape
   b = np.zeros((h, w), np.int64)
   b += a.cumsum(axis=0)
   b += a[::-1].cumsum(axis=0)[::-1]
@@ -27,4 +27,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-  

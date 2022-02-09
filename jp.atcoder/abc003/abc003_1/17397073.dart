@@ -35,12 +35,12 @@ class ABC002 {
     for (var i = 0; i < s.length; i++) {
       if (vowels.contains(s[i])) continue;
       t += s[i];
-    } 
+    }
     print(t);
   }
 
   static void c() {
-    
+
   }
 
   static void d() {
@@ -80,7 +80,3 @@ class ABC003 {
 void main() {
   ABC003.a();
 }
-
-
-
-

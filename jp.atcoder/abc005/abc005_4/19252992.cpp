@@ -42,7 +42,7 @@ void cumsum() {
     for (
       int i = 1; i < n; i++
     ) {
-      d[i+1][j] += d[i][j];   
+      d[i+1][j] += d[i][j];
     }
   }
 }
@@ -60,7 +60,7 @@ void calc_concrete_yx(
       s[k] = max(
         s[k],
         d[i][j]
-          - d[i][x-1] 
+          - d[i][x-1]
           - d[y-1][j]
           + d[y-1][x-1]
       );
@@ -79,7 +79,7 @@ void solve() {
       calc_concrete_yx(y, x);
     }
   }
-  for (int i = 0; i < n*n; i++) 
+  for (int i = 0; i < n*n; i++)
   {
     s[i+1] = max(s[i+1], s[i]);
   }

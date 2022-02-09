@@ -30,13 +30,13 @@ for a in range(n - m + 1):
                     break
             else:   # if not substring in string.
                 break
-        
+
         if not dup_b[b] in dup_a[b+a]:
             break
 
         # if not loop broken.
         ans = "Yes"
         break
-        
+
 
 print(ans)

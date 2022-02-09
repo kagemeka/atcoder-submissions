@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 from heapq import heappush, heappop
 
 I = np.array(sys.stdin.read().split())

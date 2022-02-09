@@ -15,9 +15,9 @@ def main():
     for i, j in c.items():
         if j < i: count += j
         else: count += j - i
-    
+
     print(count)
-    
+
 if __name__ == "__main__":
     # execute only if run as a script
     main()

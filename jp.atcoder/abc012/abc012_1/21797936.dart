@@ -62,7 +62,7 @@ abstract class Solver {
 
 
 
-mixin Runner 
+mixin Runner
 implements Solver {
 
 
@@ -93,7 +93,7 @@ with Runner {
   void solve() {
     writeIter([b, a]);
   }
-  
+
 
 }
 

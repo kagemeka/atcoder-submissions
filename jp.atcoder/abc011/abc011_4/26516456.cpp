@@ -25,7 +25,7 @@ int main() {
   std::cin >> n >> d >> x >> y;
   x = std::abs(x);
   y = std::abs(y);
-  
+
   if (y % d || x % d) {
     std::cout << 0 << '\n';
     return 0;
@@ -36,7 +36,7 @@ int main() {
     std::cout << 0 << '\n';
     return 0;
   }
-  
+
   auto p = binom_pascal(1 << 10);
   double res = .0;
   int k = n - x - y;
@@ -45,8 +45,8 @@ int main() {
     int u = y + d;
     int l = (k - i) / 2;
     int r = x + l;
-    res += p[n][u] * p[n - u][d] * p[n - u - d][l] * p[n - u - d - l][r]; 
-  } 
+    res += p[n][u] * p[n - u][d] * p[n - u - d][l] * p[n - u - d - l][r];
+  }
   std::cout << std::setprecision(16) << res << '\n';
-  
+
 }

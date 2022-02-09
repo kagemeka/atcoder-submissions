@@ -10,5 +10,5 @@ func minInt(a ...int) int {m := a[0]; for _, x := range a {if x < m {m = x}}; re
 func main() {
   var n, x int; fmt.Scan(&n, &x)
   fmt.Println(minInt(n-x, x-1))
-  
+
 }

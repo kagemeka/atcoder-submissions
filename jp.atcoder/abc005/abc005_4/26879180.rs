@@ -11,7 +11,7 @@ pub fn scan<T: std::str::FromStr>() -> T {
 fn main() {
     use std::io::Write;
     let out = &mut std::io::BufWriter::new(std::io::stdout());
-    
+
     let n: usize = scan();
     let mut d = vec![vec![0i32; n + 1]; n + 1];
     for i in 0..n {

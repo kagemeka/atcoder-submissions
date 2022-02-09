@@ -29,7 +29,7 @@ func pow(args ...int) int {
 }
 
 func main() {
-  var x int 
+  var x int
   fmt.Scan(&x)
   y := int(math.Sqrt(float64(x)))
   res := 1

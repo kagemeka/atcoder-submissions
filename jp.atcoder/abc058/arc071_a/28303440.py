@@ -1,4 +1,4 @@
-import typing 
+import typing
 import collections
 import string
 
@@ -7,7 +7,7 @@ def main() -> typing.NoReturn:
     cnt = collections.Counter()
     for c in string.ascii_lowercase:
         cnt[c] = 1 << 20
-    
+
     for _ in range(n):
         tmp = collections.Counter(input())
         for c in cnt.keys():

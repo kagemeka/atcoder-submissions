@@ -19,7 +19,7 @@ int main() {
     } else {
       cnt = 1;
     }
-  } 
+  }
   if (!flag) {
     ans = "No";
   }

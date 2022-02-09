@@ -1,13 +1,13 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8, nb.i8, nb.i8[:, :]), cache=True)
 def solve(w: int, h: int, xya: np.ndarray) -> typing.NoReturn:
   n = len(xya)
-  x_mn = y_mn = 0 
+  x_mn = y_mn = 0
   x_mx, y_mx = w, h
   for i in range(n):
     x, y, a = xya[i]

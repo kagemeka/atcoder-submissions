@@ -2,8 +2,8 @@ packs = [int(candies) for candies in input().split()]
 N = int(len(packs))
 X = 2
 if sum(packs) % X == 0:
-    A = int(sum(packs) / X) 
-else: 
+    A = int(sum(packs) / X)
+else:
     print('No')
     exit()
 

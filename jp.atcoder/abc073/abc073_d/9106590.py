@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 from scipy.sparse.csgraph import floyd_warshall
 from scipy.sparse import csr_matrix
 from itertools import combinations
@@ -14,7 +14,7 @@ graph = csr_matrix((c, (a, b)), shape=(n, n))
 def main():
     dist = floyd_warshall(graph, directed=False).astype(np.int64)
     *combs, = combinations(r, 2)
-    v, u = np.array(combs).T 
+    v, u = np.array(combs).T
     ans = np.amax(dist[v, u])
     return ans
 

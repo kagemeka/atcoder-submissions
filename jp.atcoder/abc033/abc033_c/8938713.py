@@ -9,7 +9,7 @@ def main(s):
     ans = sum([eval(seq) for seq in s.split('+')])
     # 長過ぎて一度に評価できない
     return ans
-            
+
 if __name__ == '__main__':
     ans = main(s)
     print(ans)

@@ -24,7 +24,7 @@ fn main() {
     let stdin = std::io::stdin();
     let mut sc = Scanner::new(std::io::BufReader::new(stdin.lock()));
     let stdout = std::io::stdout();
-    let out = &mut std::io::BufWriter::new(stdout.lock());  
+    let out = &mut std::io::BufWriter::new(stdout.lock());
 
     let a: usize = sc.scan();
     let b: usize = sc.scan();
@@ -42,5 +42,3 @@ fn count(n: usize) -> usize {
     }
     n + 1 - dp[0] - dp[1]
 }
-
-

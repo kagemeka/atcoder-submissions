@@ -1,6 +1,6 @@
 import sys
 import numpy as np
-from heapq import heappush, heappop 
+from heapq import heappush, heappop
 from bisect import bisect_left as bi_l, bisect_right as bi_r
 from collections import deque, Counter, defaultdict
 from itertools import combinations, product
@@ -15,8 +15,8 @@ class ABC001():
     print(h1-h2)
 
   def B(): pass
-  def C(): pass 
-  def D(): pass 
+  def C(): pass
+  def D(): pass
 
 
 class ABC002():
@@ -26,11 +26,11 @@ class ABC002():
 
   def B():
     vowels = set('aeiou')
-    s = sys.stdin.readline().rstrip() 
+    s = sys.stdin.readline().rstrip()
     t = ''
     for c in s:
-      if c in vowels: continue 
-      t += c 
+      if c in vowels: continue
+      t += c
     print(t)
 
   def C():

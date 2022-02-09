@@ -1,4 +1,4 @@
-import typing 
+import typing
 import bisect
 
 
@@ -10,4 +10,3 @@ def main() -> typing.NoReturn:
     print(*b, sep='\n')
 
 main()
-

@@ -36,7 +36,7 @@ def main():
     time = [None] * n
     for i in range(n):
         time[i] = t_a2x[i] + t_x2a[i]
-    
+
     money = [None] * n
     for i in range(n):
         money[i] = point[i] * (T - time[i])

@@ -16,7 +16,7 @@ def main():
     h, r = divmod(n, 60 ** 2)
     if h >= 24:
         return hms(23, 59, 59)
-    
+
     m, s = divmod(r, 60)
     return hms(h, m, s)
 

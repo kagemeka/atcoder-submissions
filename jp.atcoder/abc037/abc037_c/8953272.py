@@ -12,7 +12,7 @@ def main():
             res += a[i] * (n - i + 1)
         else:
             res += a[i] * k
-    
+
     return res
 
 if __name__ == '__main__':

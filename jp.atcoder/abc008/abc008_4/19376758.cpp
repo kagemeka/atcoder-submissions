@@ -21,7 +21,7 @@ void prepare() {
   }
 }
 
-using Tup = 
+using Tup =
   tuple<int, int, int, int>;
 
 map<Tup, long long> cache;
@@ -53,7 +53,7 @@ long long count(
       x[i]+1, y0, x1, y[i]);
     tot += count(
       x[i]+1, y[i]+1, x1, y1);
-    
+
     cnt = max(cnt, tot);
   }
   return cache[t] = cnt;

@@ -1,12 +1,12 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:, :], nb.i8, nb.i8[:, :]), cache=True)
 def solve(a: np.ndarray, d: int, lr: np.ndarray) -> typing.NoReturn:
-    h, w = a.shape 
+    h, w = a.shape
     coord = np.empty((h * w, 2), np.int64)
     for i in range(h):
         for j in range(w):
@@ -20,7 +20,7 @@ def solve(a: np.ndarray, d: int, lr: np.ndarray) -> typing.NoReturn:
     for i in range(len(lr)):
         l, r = lr[i]
         print(cost[r] - cost[l])
-    
+
 
 def main() -> typing.NoReturn:
     h, w, d = map(int, input().split())
@@ -31,6 +31,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-
-
-

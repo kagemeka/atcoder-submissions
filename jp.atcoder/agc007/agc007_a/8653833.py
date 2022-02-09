@@ -1,6 +1,6 @@
 # 2019-11-26 01:21:13(JST)
 import sys
-import numpy as np 
+import numpy as np
 
 def main():
     H, W = map(int, sys.stdin.readline().split())

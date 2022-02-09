@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-08 18:39:24(JST)
 ### modules
 ## from standard library
@@ -13,9 +13,9 @@ import sys
 # import functools
 # import operator
 ## from external libraries
-# import scipy.special   # if use comb function on AtCoder, 
-# import scipy.misc      # select scipy.misc.comb (old version)  
-# imort numpy as np 
+# import scipy.special   # if use comb function on AtCoder,
+# import scipy.misc      # select scipy.misc.comb (old version)
+# imort numpy as np
 
 def main():
     r = int(sys.stdin.readline().rstrip())

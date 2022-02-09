@@ -7,15 +7,15 @@ fn main()
   let s = stdin();
 
   let mut y = String::new();
-  
+
   s.read_line(&mut y).unwrap();
-  let y: i64 = 
+  let y: i64 =
     y
     .trim()
     .parse()
     .unwrap();
   if y % 400 == 0
-  { 
+  {
     println!("YES");
     return;
   }

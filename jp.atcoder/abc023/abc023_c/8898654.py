@@ -14,7 +14,7 @@ def main():
     res = y + x
     res[grid == 1] -= 1
     ans = np.bincount(res.ravel())[K]
-    return ans 
+    return ans
 
 if __name__ == '__main__':
     ans = main()

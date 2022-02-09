@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:], ), cache=True)
@@ -33,9 +33,9 @@ def solve(a: np.ndarray) -> typing.NoReturn:
       if b <= sb: continue
       sa, sb = a, b
     return sa
-    
 
-  def compute_max_score():    
+
+  def compute_max_score():
     s = -inf
     for i in range(n):
       s = max(s, compute_takahashi_score(i))

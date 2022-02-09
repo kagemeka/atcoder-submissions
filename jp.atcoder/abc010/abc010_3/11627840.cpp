@@ -18,5 +18,5 @@ int main() {
     if (dist(a, b, x, y) + dist(x, y, c, d) <= t * v) ans = "YES";
   }
   cout << ans << '\n';
-  return 0; 
+  return 0;
 }

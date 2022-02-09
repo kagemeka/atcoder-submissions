@@ -10,7 +10,7 @@ for i in range(n+1):
     total = 10000*a + 5000*b + 1000*c
     if total == y:
       res10000, res5000, res1000 = a, b, c
-     
+
     if res10000 != -1:
       break
 

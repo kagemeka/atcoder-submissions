@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-  var board [4][4]string 
+  var board [4][4]string
   for i := 0; i < 4; i++ {
     for j := 0; j < 4; j++ {
       fmt.Scan(&board[i][j])

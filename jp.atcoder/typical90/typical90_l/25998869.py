@@ -1,16 +1,16 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
-@nb.njit 
+@nb.njit
 def uf_build(n: int) -> np.ndarray:
   return np.full(n, -1, np.int64)
 
 
-@nb.njit 
+@nb.njit
 def uf_find(uf: np.ndarray, u: int) -> int:
   if uf[u] < 0: return u
   uf[u] = uf_find(uf, uf[u])
@@ -24,7 +24,7 @@ def uf_unite(
   v: int,
 ) -> typing.NoReturn:
   u, v = uf_find(uf, u), uf_find(uf, v)
-  if u == v: return 
+  if u == v: return
   if uf[u] > uf[v]: u, v = v, u
   uf[u] += uf[v]
   uf[v] = u
@@ -38,15 +38,15 @@ def solve(
 ) -> typing.NoReturn:
   n = h * w
   uf = uf_build(n)
-  
+
   def to_1d(y, x):
     return y * w + x
 
   def on_grid(y, x):
     return 0 <= y < h and 0 <= x < w
-  
+
   is_red = np.zeros(n, np.bool8)
-  
+
   dyx = ((-1, 0), (0, -1), (0, 1), (1, 0))
 
   while q.size:
@@ -54,7 +54,7 @@ def solve(
       y, x = q[1:3]
       q = q[3:]
       u = to_1d(y, x)
-      is_red[u] = True 
+      is_red[u] = True
       for i in range(4):
         dy, dx = dyx[i]
         ny, nx = y + dy, x + dx
@@ -70,7 +70,7 @@ def solve(
       ans = 'Yes' if same and is_red[u] else 'No'
       print(ans)
 
-    
+
 
 
 def main() -> typing.NoReturn:

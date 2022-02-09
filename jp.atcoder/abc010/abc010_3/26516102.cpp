@@ -10,7 +10,7 @@ int main() {
   std::cin >> sx >> sy >> gx >> gy >> t >> v;
   int n; std::cin >> n;
 
-  bool ok = true;  
+  bool ok = true;
   while (n--) {
     int x, y; std::cin >> x >> y;
     double d1 = std::sqrt((x - sx) * (x - sx) + (y - sy) * (y - sy));

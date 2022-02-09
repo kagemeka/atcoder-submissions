@@ -39,7 +39,7 @@ func (
 	bufSize int,
 ) {
 	io.Scanner.Buffer(
-		[]byte{}, 
+		[]byte{},
 		bufSize,
 	)
 }
@@ -93,7 +93,7 @@ func (
 func (
 	io *IO,
 ) ScanInt() Int {
-	s := string(io.Scan())	
+	s := string(io.Scan())
 	v, _ := strconv.Atoi(s)
 	return Int(v)
 }
@@ -155,7 +155,7 @@ func (
 		cnt += i & 1
 		i >>= 1
 	}
-	return 
+	return
 }
 
 
@@ -165,7 +165,7 @@ func (
 	Numeric,
 ){
 	if n == 0 {
-		return Int(1) 
+		return Int(1)
 	}
 	a := x.Pow(n >> 1).(Int)
 	a *= a
@@ -177,7 +177,7 @@ func (
 
 
 
-type String string 
+type String string
 
 
 
@@ -198,7 +198,7 @@ func (
 type Solver interface{
 	Init()
 	Prepare()
-	Solve()	
+	Solve()
 }
 
 
@@ -289,7 +289,7 @@ func (
 	if x < 0 {
 		return -x
 	}
-	return x 
+	return x
 }
 
 
@@ -315,7 +315,7 @@ func (
 	case Int:
 		return Int(res)
 	}
-	return res 
+	return res
 }
 
 
@@ -435,7 +435,7 @@ func (
 	case Int:
 		return Int(res)
 	}
-	return res 
+	return res
 }
 
 
@@ -458,7 +458,7 @@ func (
 	Numeric,
 ){
 	if n == 0 {
-		return Float(1) 
+		return Float(1)
 	}
 	a := x.Pow(n >> 1).(Float)
 	a *= a
@@ -504,14 +504,14 @@ func Newton(
 ) (x Float) {
 	x = x0
 	const maxIter = 100
-	for 
-	i := 0; 
-	i < maxIter; 
+	for
+	i := 0;
+	i < maxIter;
 	i++ {
-		x -= f(x) / 
+		x -= f(x) /
 			Derivative(f, x)
 	}
-	return 
+	return
 }
 
 func Derivative(
@@ -520,7 +520,7 @@ func Derivative(
 ) (d Float) {
 	const dx = 1e-8
 	d = (f(x + dx) - f(x)) / dx
-	return 	
+	return
 }
 
 
@@ -609,7 +609,7 @@ func (
 	area Float,
 ) {
 	p1 := t.p1.Sub(t.p0)
-	p2 := t.p2.Sub(t.p0) 
+	p2 := t.p2.Sub(t.p0)
 	cross := p1.Cross(p2)
 	switch cross.(type) {
 	case Int:
@@ -617,7 +617,7 @@ func (
 	case Float:
 		area = cross.(Float) / 2
 	}
-	return 
+	return
 }
 
 
@@ -626,7 +626,7 @@ func (
 ) Area() (
 	Float,
 ) {
-	s := 
+	s :=
 		t.SignedArea().
 		Abs().
 		(Float)

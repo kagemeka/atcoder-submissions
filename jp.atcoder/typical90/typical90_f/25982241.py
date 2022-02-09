@@ -1,8 +1,8 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
-import heapq 
+import typing
+import sys
+import numpy as np
+import numba as nb
+import heapq
 
 
 
@@ -12,7 +12,7 @@ def solve(s: np.ndarray, k: int) -> np.ndarray:
   hq = [(0, 0)] * 0
   for i in range(n - k):
     heapq.heappush(hq, (s[i], i))
-  
+
   res = np.empty(k, np.int64)
   l = -1
   for i in range(k):
@@ -25,7 +25,7 @@ def solve(s: np.ndarray, k: int) -> np.ndarray:
       break
     res[i] = x
   return res
-  
+
 
 
 def main() -> typing.NoReturn:
@@ -36,8 +36,8 @@ def main() -> typing.NoReturn:
     dtype=np.int64,
   ) - ord('a')
   res = solve(s, k)
-  print(''.join([chr(x + ord('a')) for x in res])) 
-  
+  print(''.join([chr(x + ord('a')) for x in res]))
+
 
 
 main()

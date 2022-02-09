@@ -4,7 +4,7 @@ import math
 def main():
     a, b, k = map(int, sys.stdin.readline().split())
     query_range = range(a, b + 1)
-    
+
     query_range = list(query_range)
     print('なんだこのバグ')
     exit()
@@ -18,6 +18,6 @@ def main():
 
     for i in res:
         print(i)
-    
+
 if __name__ == "__main__":
     main()

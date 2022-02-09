@@ -10,5 +10,3 @@ h1 = +prompt();
 h2 = +prompt();
 
 console.log(h1 - h2);
-
-

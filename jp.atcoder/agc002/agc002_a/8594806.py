@@ -1,6 +1,6 @@
 # 2019-11-24 12:12:53(JST)
 import sys
-# import numpy as np 
+# import numpy as np
 
 def main():
     a, b = map(int, sys.stdin.read().split())
@@ -14,7 +14,7 @@ def main():
             ans = 'Positive'
         else:
             ans = 'Negative'
-    
+
     print(ans)
 
 if __name__ == '__main__':

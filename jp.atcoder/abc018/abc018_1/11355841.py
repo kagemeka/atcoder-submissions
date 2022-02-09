@@ -8,6 +8,6 @@ def main():
     for i in range(3):
         res[b[i][0]] = i + 1
     print(*res, sep='\n')
-    
+
 if __name__ ==  '__main__':
     main()

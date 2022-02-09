@@ -33,7 +33,7 @@ fn main() {
 
     let inf = std::i64::MAX;
     let mut g: Vec<Vec<i64>> = vec![vec![inf; n]; n];
-    for _ in 0..m { 
+    for _ in 0..m {
         let mut a: usize = sc.scan();
         let mut b: usize = sc.scan();
         a -= 1;
@@ -45,7 +45,7 @@ fn main() {
     for i in 0..n { g[i][i] = 0; }
     let dist = floyd_warshall(g.clone()).ok().unwrap();
     writeln!(out, "{:?}", dist.iter().map(|x| x.iter().max().unwrap()).min().unwrap()).unwrap();
-    
+
 }
 
 
@@ -57,7 +57,7 @@ pub struct NegativeCycleError {
 impl NegativeCycleError {
     fn new() -> Self {
         Self { msg: "Negative Cycle Found." }
-    }  
+    }
 }
 
 impl std::fmt::Display for NegativeCycleError {

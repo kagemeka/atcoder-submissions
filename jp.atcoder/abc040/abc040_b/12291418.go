@@ -10,7 +10,7 @@ const inf = 1 << 63 - 1
 func divmod(a, b int) (int, int) {return a / b, a % b}
 
 func main() {
-  var n int 
+  var n int
   fmt.Scan(&n)
   m := int(math.Sqrt(float64(n)))
   d := n

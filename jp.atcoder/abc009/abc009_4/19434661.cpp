@@ -13,7 +13,7 @@ using Mat = vector<vector<T>>;
 Matrix() {}
 
 Matrix(
-  const int& h, 
+  const int& h,
   const int& w) {
   m = Mat(h, vector<T>(w));
 }
@@ -23,7 +23,7 @@ Matrix(const int& n) {
 }
 
 vector<T>& operator[](
-  int i) 
+  int i)
 {
   return m[i];
 }
@@ -129,15 +129,15 @@ void prepare() {
   {
     cin >> c[i];
   }
-  
+
 }
 
 
 void solve() {
   Matrix<uint> d(k);
   d[0] = c;
-  
-  int inf = 
+
+  int inf =
     numeric_limits<uint>::max();
   for (int i = 1; i < k; i++)
   {

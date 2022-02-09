@@ -4,7 +4,7 @@ import 'dart:math';
 
 
 
-class IO 
+class IO
 {
 
 
@@ -19,26 +19,26 @@ class IO
   );
 
 
-  String read() 
+  String read()
   {
     List<int> bytes = [];
     const int maxWait = 1 << 8;
     int wait = 0;
-    while (true) 
+    while (true)
     {
       var b = readByte();
       if (
         wait == maxWait
       ) break;
-      if (b == -1) 
+      if (b == -1)
       {
         wait++;
         continue;
       }
       wait = 0;
       if (
-        b == 10 || 
-        b == 32 
+        b == 10 ||
+        b == 32
       ) {
         break;
       }
@@ -75,7 +75,7 @@ class IO
 
 
 
-abstract class Solver 
+abstract class Solver
 {
 
 
@@ -106,7 +106,7 @@ mixin Runner<
 
 
 
-abstract class AddSemiGroup<T> 
+abstract class AddSemiGroup<T>
 {
   T operator +(
     T other,
@@ -147,7 +147,7 @@ mixin Subtraction<
 
 
 
-abstract class MulSemiGroup<T> 
+abstract class MulSemiGroup<T>
 {
   T operator *(
     T other,
@@ -228,21 +228,21 @@ MulGroup<T>
 
 
 class Modular
-with 
+with
 Power<Modular>,
 Division<Modular>,
 Subtraction<Modular>
-implements 
+implements
 Field<Modular>
 {
 
-  
+
   int value = 0;
   final int mod;
 
 
   Modular(
-    this.value, 
+    this.value,
     this.mod,
   ) {
     value %= mod;
@@ -258,7 +258,7 @@ Field<Modular>
     return Modular(value, mod);
   }
 
-  
+
   Modular operator +(
     final Modular other,
   ) {
@@ -321,7 +321,7 @@ Field<Modular>
     return a;
   }
 
-  
+
   List<Modular> invFactorial()
   {
     int n = value;
@@ -343,10 +343,10 @@ Field<Modular>
 
 
 
-extension 
+extension
 CumProd<
   T extends MulSemiGroup<T>
-> 
+>
 on List<T> {
 
 
@@ -367,10 +367,10 @@ on List<T> {
 
 
 
-extension 
+extension
 CumSum<
   T extends AddSemiGroup<T>
-> 
+>
 on List<T> {
 
 
@@ -422,7 +422,7 @@ class ModChoose<T>
     res = fac[n];
     res *= iFac[r];
     res *= iFac[n - r];
-    return res;    
+    return res;
   }
 
 
@@ -433,12 +433,12 @@ class ModChoose<T>
 
 
 class Problem
-with 
-Runner<Problem>, 
+with
+Runner<Problem>,
 IO
-implements Solver 
-{ 
-  
+implements Solver
+{
+
 
   final mint = Modular.define(
     1000000007,
@@ -452,7 +452,7 @@ implements Solver
   d = 0,
   l = 0;
 
-  
+
   void prepare()
   {
     r = readInt();
@@ -467,7 +467,7 @@ implements Solver
   var choose;
 
 
-  void solve() 
+  void solve()
   {
     const int mx = 1 << 10;
     choose = ModChoose(
@@ -509,7 +509,7 @@ implements Solver
     return s;
   }
 
-  
+
   Modular chooseSupport(
     int y,
     int x,
@@ -525,7 +525,7 @@ implements Solver
   }
 
 
-  void countSupport() 
+  void countSupport()
   {
     for (
       int j = 0; j < n; j++
@@ -556,7 +556,7 @@ extension BitCount on int
       cnt += n & 1;
       n >>= 1;
     }
-    return cnt; 
+    return cnt;
   }
 
 
@@ -565,7 +565,7 @@ extension BitCount on int
 
 
 
-void main() 
+void main()
 {
   var p = new Problem();
   p();

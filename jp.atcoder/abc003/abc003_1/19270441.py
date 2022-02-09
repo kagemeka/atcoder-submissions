@@ -2,7 +2,7 @@ class StdinReader:
 
   @staticmethod
   def readline():
-    import sys 
+    import sys
     return sys.stdin.buffer \
       .readline().rstrip()
 
@@ -15,7 +15,7 @@ class StdinReader:
   @classmethod
   def readline_ints(cls):
     *ints, = map(
-      int, 
+      int,
       cls.readline().split(),
     )
     return ints
@@ -26,15 +26,15 @@ class StdinReader:
   #   import numpy as np
   #   return np.fromstring(
   #     string=cls.readline() \
-  #       .decode(), 
-  #     dtype=np.int64, 
+  #       .decode(),
+  #     dtype=np.int64,
   #     sep=' ',
   #   )
 
 
   @staticmethod
   def read():
-    import sys 
+    import sys
     i = sys.stdin.buffer.read()
     return i
 
@@ -42,7 +42,7 @@ class StdinReader:
   @classmethod
   def read_ints(cls):
     *ints, = map(
-      int, 
+      int,
       cls.read().split(),
     )
     return ints
@@ -53,15 +53,15 @@ class StdinReader:
   #   import numpy as np
   #   return np.fromstring(
   #     string=cls.read() \
-  #       .decode(), 
-  #     dtype=np.int64, 
+  #       .decode(),
+  #     dtype=np.int64,
   #     sep=' ',
   #   )
 
 
   @staticmethod
   def readlines():
-    import sys 
+    import sys
     return sys.stdin.buffer \
       .readlines()
 
@@ -78,11 +78,11 @@ class Solver:
 
 
   def __solve(self):
-    n = self.n 
+    n = self.n
     salary = (n + 1) * 5000
     print(salary)
-    
-  
+
+
   def run(self):
     self.__prepare()
     self.__solve()

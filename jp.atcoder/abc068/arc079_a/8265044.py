@@ -9,7 +9,7 @@ ab.sort()
 ab_end_n = [may for may in ab if may[1] == n]
 
 for m in ab:
-    if m[0] == 1: 
+    if m[0] == 1:
         if (m[1], n) in ab_end_n: print('POSSIBLE'); exit()
         else:
             continue

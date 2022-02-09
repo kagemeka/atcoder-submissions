@@ -32,7 +32,7 @@ fn main() {
     let d: usize = sc.scan();
     let mut x = sc.scan::<isize>().abs() as usize;
     let mut y = sc.scan::<isize>().abs() as usize;
-    if x % d != 0 || y % d != 0 { 
+    if x % d != 0 || y % d != 0 {
         writeln!(out, "{}", 0).unwrap();
         return;
     }
@@ -42,7 +42,7 @@ fn main() {
         writeln!(out, "{}", 0).unwrap();
         return;
     }
-    let p = pascal::<Num>(1 << 10);   
+    let p = pascal::<Num>(1 << 10);
 
     let mut res: f64 = 0.;
     for k in 0..(n - x - y) / 2 + 1 {
@@ -52,7 +52,7 @@ fn main() {
         let r = x + l;
         res += p[n][u].0 * p[n - u][d].0 * p[n - u - d][l].0 * p[n - u - d - l][r].0;
     }
-    writeln!(out, "{:0.10}", res).unwrap(); 
+    writeln!(out, "{:0.10}", res).unwrap();
 }
 
 #[derive(Debug, Clone, Copy, Default)]
@@ -90,7 +90,7 @@ impl traits::Semiring for Num {
 
 
 pub mod traits {
-    pub trait Identity { fn e() -> Self; } 
+    pub trait Identity { fn e() -> Self; }
     pub trait Inverse { fn inv(&self) -> Self;}
     pub trait Semigroup {
         fn op(_: &Self, _: &Self) -> Self;
@@ -107,7 +107,7 @@ pub mod traits {
     pub trait MulInverse { fn inv(&self) -> Self; }
     pub trait Semiring: Sized + std::ops::Add<Output=Self> + std::ops::Mul<Output=Self> + AddIdentity + MulIdentity {
         const MUL_COMMUTATIVE: bool;
-        const ADD_IDEMPOTNET: bool; 
+        const ADD_IDEMPOTNET: bool;
     }
     pub trait Ring: Semiring + AddInverse {}
 

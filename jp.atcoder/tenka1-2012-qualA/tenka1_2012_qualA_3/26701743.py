@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import re
 
 
@@ -18,7 +18,7 @@ def main() -> typing.NoReturn:
     ptn = re.compile(r'^[^\d]*(\d+)[^\d]*$')
     m = re.match(ptn, s)
     s = int(m.groups()[0]) - 1
-    
+
     a = [s]
     for _ in range(k):
         a = list(set(y for x in a for y in g[x]))

@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -35,7 +35,7 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	d := p.a + p.b 
+	d := p.a + p.b
 	i, _ := strconv.Atoi(d)
 	p.io.Write(i * 2)
 }

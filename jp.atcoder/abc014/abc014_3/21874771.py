@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -88,9 +88,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -107,10 +107,10 @@ class Problem(
   Solver,
 ):
 
-  M: Final[int] = 1 << 20 
+  M: Final[int] = 1 << 20
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     n = reader.int()
     a = [
       reader.int()
@@ -120,14 +120,14 @@ class Problem(
       a,
     ).reshape(n, 2)
     a, b = a.T
-    self.n = n 
-    self.a = a 
+    self.n = n
+    self.a = a
     self.b = b
 
 
   def solve(self):
     a, b = self.a, self.b
-    m = self.M 
+    m = self.M
     c = np.zeros(m, dtype=int)
     np.add.at(c, a, 1)
     np.add.at(c, b + 1, -1)

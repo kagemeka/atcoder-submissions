@@ -1,4 +1,4 @@
-import typing 
+import typing
 import cmath
 
 
@@ -8,19 +8,19 @@ class FFT():
     self,
   ) -> typing.NoReturn:
     n = self.__n
-    a = self.__a 
+    a = self.__a
     b = 1
     sign = -1 + 2 * self.__inv
     while b < n:
       for j in range(b):
         w = cmath.rect(1., sign * cmath.pi / b * j)
-        k = 0 
+        k = 0
         while k < n:
           s, t = a[k + j], a[k + j + b] * w
           a[k + j], a[k + j + b] = s + t, s - t
           k += 2 * b
       b <<= 1
-    
+
 
   def __call__(
     self,
@@ -33,9 +33,9 @@ class FFT():
     self.__reverse_bits()
     self.__butterfly()
     a = self.__a
-    if self.__inv: 
+    if self.__inv:
       for i in range(n): a[i] /= n
-    return a 
+    return a
 
 
   def __init__(
@@ -43,7 +43,7 @@ class FFT():
     inverse: bool=False,
   ) -> typing.NoReturn:
     self.__inv = inverse
-  
+
 
   def __reverse_bits(
     self,
@@ -52,12 +52,12 @@ class FFT():
     n, h = self.__n, self.__h
     idx = [-1] * n
     for i in range(n):
-      j = 0 
+      j = 0
       for k in range(h):
         j |= (i >> k & 1) << (h - 1 - k)
       idx[i] = j
     self.__a = [a[i] for i in idx]
-    
+
 
 
 def solve(
@@ -74,9 +74,9 @@ def solve(
   b = fft(b)
   c = [a[i] * b[i] for i in range(m)]
   c = ifft(c)
-  c = [int(round(x.real)) for x in c]  
+  c = [int(round(x.real)) for x in c]
   print(*c[1:2 * n - 1], sep='\n')
- 
+
 
 
 def main() -> typing.NoReturn:

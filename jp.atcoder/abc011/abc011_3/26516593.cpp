@@ -13,7 +13,7 @@ int main() {
     int x; std::cin >> x;
     ng.insert(x);
   }
-  
+
   if (ng.count(n)) {
     std::cout << "NO" << '\n';
     return 0;

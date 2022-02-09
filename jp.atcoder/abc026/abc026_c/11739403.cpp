@@ -6,7 +6,7 @@ int dfs(int x, vector<unordered_set<int>> &graph) {
   vector<int> salaries(0);
   for (int y : graph[x]) {
     salaries.push_back(dfs(y, graph));
-  } 
+  }
   sort(salaries.begin(), salaries.end());
   return salaries[0] + salaries[salaries.size()-1] + 1;
 }

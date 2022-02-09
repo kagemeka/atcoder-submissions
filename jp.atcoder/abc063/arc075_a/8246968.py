@@ -18,4 +18,3 @@ for i in range(len(s_not_multiple_of_10), 0, -1):
         else:
             print(sum(c) + sum(s_multiple_of_10))
             exit()
-        

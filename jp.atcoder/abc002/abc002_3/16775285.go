@@ -1,4 +1,4 @@
-package main 
+package main
 
 import (
 	"fmt"
@@ -32,9 +32,9 @@ var atCoder = proconSite{
 				var a, b int; fmt.Scan(&a, &b)
 				fmt.Println(a - b)
 			},
-			
+
 			"B": func() {
-				
+
 			},
 
 		},
@@ -51,7 +51,7 @@ var atCoder = proconSite{
 					vowels[c] = true
 				}
 				var s string; fmt.Scan(&s)
-				var t string 
+				var t string
 				for _, c := range s {
 					if _, has := vowels[c]; !has {t += string(c)}
 				}
@@ -66,7 +66,7 @@ var atCoder = proconSite{
 				var x0, y0, x1, y1, x2, y2 float64
 				fmt.Scan(&x0, &y0, &x1, &y1, &x2, &y2)
 				fmt.Println(triangleArea(x0, y0, x1, y1, x2, y2))
-				
+
 			},
 
 			"D": func() {
@@ -83,4 +83,3 @@ var atCoder = proconSite{
 func main() {
 	atCoder.contests["ABC002"]["C"]()
 }
-

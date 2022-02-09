@@ -6,7 +6,7 @@ def main():
     cnt = 0
     for c in s:
         if c == 'o': cnt += 1
-    
+
     cost = 700 + 100 * cnt
     print(cost)
 

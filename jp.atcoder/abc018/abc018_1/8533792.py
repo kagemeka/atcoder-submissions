@@ -11,7 +11,7 @@ import collections
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
@@ -20,7 +20,7 @@ def main():
     c = collections.defaultdict(int)
     for i in range(len(score)):
         c[rank[i]] += i + 1
-    
+
     for s in score:
         print(c[s])
 

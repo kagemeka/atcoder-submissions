@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 
 I = np.array(sys.stdin.read().split(), dtype=np.int64)
 n = I[0]
@@ -17,7 +17,7 @@ def main():
 
     ans = np.amax(res)
     return ans
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

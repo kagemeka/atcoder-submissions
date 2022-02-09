@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -11,8 +11,8 @@ import (
 
 type Problem struct {
 	io *IO
-	n, a, b int 
-	s []string 
+	n, a, b int
+	s []string
 	d []int
 }
 
@@ -28,7 +28,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	n := io.ReadInt()
 	p.a = io.ReadInt()
 	p.b = io.ReadInt()
@@ -45,26 +45,26 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	n, a, b := p.n, p.a, p.b 
-	s, d := p.s, p.d 
+	n, a, b := p.n, p.a, p.b
+	s, d := p.s, p.d
 	c := 0
 	for i := 0; i < n; i++ {
 		s, d := s[i], d[i]
 		if d < a { d = a }
 		if d > b { d = b }
 		if s == "West" {
-			d *= -1 
+			d *= -1
 		}
-		c += d 
+		c += d
 	}
-	io := p.io 
+	io := p.io
 	if c == 0 {
 		io.Write(0)
-		return 
+		return
 	}
 	if c > 0 {
 		io.Write("East", c)
-		return 
+		return
 	}
 	io.Write("West", -c)
 }

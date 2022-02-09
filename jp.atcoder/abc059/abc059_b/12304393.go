@@ -5,10 +5,10 @@ import (
 )
 
 func main() {
-  var a, b string 
+  var a, b string
   fmt.Scan(&a, &b)
-  
-  var ans string 
+
+  var ans string
   if len(a) > len(b) {
     ans = "GREATER"
   } else if len(a) < len(b) {

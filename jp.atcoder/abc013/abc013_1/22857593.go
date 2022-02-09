@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -27,7 +27,7 @@ func (
 	p *Problem,
 ) Input() {
 	x := p.io.Read()
-	p.x = x[0]	
+	p.x = x[0]
 }
 
 
@@ -207,4 +207,4 @@ func (
 	w.writer = bufio.NewWriter(
 		os.Stdout,
 	)
-}	
+}

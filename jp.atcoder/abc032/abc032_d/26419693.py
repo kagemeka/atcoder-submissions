@@ -1,6 +1,6 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 import numba as nb
 
 
@@ -35,7 +35,7 @@ def solve(w_max: int, vw: np.ndarray) -> typing.NoReturn:
       j = np.searchsorted(b[:, 1], w_max - aw, side='right')
       v_max = max(v_max, av + b[j - 1, 0])
     print(v_max)
-      
+
   elif np.all(vw[:, 0] <= 1000):
     inf = 1 << 60
     s = vw[:, 0].sum()
@@ -46,8 +46,8 @@ def solve(w_max: int, vw: np.ndarray) -> typing.NoReturn:
       for j in range(s, v - 1, -1):
         dp[j] = min(dp[j], dp[j - v] + w)
     for i in range(s, -1, -1):
-      if dp[i] <= w_max: return i   
-  
+      if dp[i] <= w_max: return i
+
   elif np.all(vw[:, 1] <= 1000):
     s = vw[:, 1].sum()
     if w_max > s:

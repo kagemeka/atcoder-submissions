@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -6,7 +6,7 @@ def main() -> typing.NoReturn:
     a = list(map(int, input().split()))
     b = list(map(int, input().split()))
     pos = 0
-    neg = 0 
+    neg = 0
     for i in range(n):
         if a[i] > b[i]:
             neg += a[i] - b[i]

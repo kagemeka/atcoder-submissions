@@ -11,7 +11,7 @@ import sys
 # import heapq
 # import array
 from scipy.misc import comb # (default: exact=False)
-import numpy as np 
+import numpy as np
 
 
 def main():
@@ -31,7 +31,7 @@ def main():
         for i in range(count0+1):
             for j in range(0, count1+1, 2):
                 ans += comb(count0, i, exact=True) * comb(count1, j, exact=True)
-    
+
     print(ans)
 
 

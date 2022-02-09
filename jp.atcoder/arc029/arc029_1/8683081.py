@@ -15,6 +15,6 @@ def main():
                 dp[i+1][j] = dp[i][j]
     ans = sum(t) - dp[n][s]
     print(ans)
-    
+
 if __name__ == '__main__':
     main()

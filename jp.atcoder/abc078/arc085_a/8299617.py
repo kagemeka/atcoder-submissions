@@ -12,7 +12,7 @@ read = sys.stdin.buffer.read
 
 def main():
     n, m = (int(x) for x in read().split())
-    ans = (1900 * m + 100 *(n - m)) * 2 ** m    
+    ans = (1900 * m + 100 *(n - m)) * 2 ** m
     print(ans)
     # editorialカンニングした
     # m個TLEがあるとき、次に提出したときにそれらがすべてACとなる確率は(1/2)**m

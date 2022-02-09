@@ -1,6 +1,6 @@
-import typing 
-import numpy as np 
-import numba as nb 
+import typing
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8, ) * 7, cache=True)
@@ -8,8 +8,8 @@ def solve(
   n: int,
   h: int,
   a: int,
-  b: int, 
-  c: int, 
+  b: int,
+  c: int,
   d: int,
   e: int,
 ) -> typing.NoReturn:
@@ -20,7 +20,7 @@ def solve(
     if not 0 <= x + y <= n: continue
     mn = min(mn, a * x + c * y)
   print(mn)
-    
+
 
 
 def main() -> typing.NoReturn:

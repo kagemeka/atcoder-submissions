@@ -19,7 +19,7 @@ for i in range(n-1):
 count2 = count
 for i in range(n-1):
     while b[i] + b[i+1] > x:
-        
+
         if b[i+1] > 0:
             b[i+1] -= 1
         else:
@@ -28,9 +28,3 @@ for i in range(n-1):
 
 count = min(count1, count2)
 print(count)
-
-
-
-
-
-

@@ -10,5 +10,5 @@ for i in range(n):
   if current != ls[i]:
     layer += 1
     current = ls[i]
-  
+
 print(layer)

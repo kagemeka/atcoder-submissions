@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -10,7 +10,7 @@ import (
 
 
 type Player struct {
-	first, second string 
+	first, second string
 }
 
 
@@ -18,7 +18,7 @@ type Player struct {
 type Problem struct {
 	io *IO
 	player Player
-	a, b, c, d int 
+	a, b, c, d int
 }
 
 
@@ -48,9 +48,9 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	x := p.b * p.c 
-	y := p.a * p.d 
-	var res string 
+	x := p.b * p.c
+	y := p.a * p.d
+	var res string
 	player := p.player
 	if x > y {
 		res = player.first

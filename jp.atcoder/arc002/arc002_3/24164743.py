@@ -7,7 +7,7 @@ class ReadStdin:
     self,
   ) -> bytes:
     return next(self.__chunks)
-    
+
 
   def __init__(
     self,
@@ -34,7 +34,7 @@ class ReadStdin:
       l = self.__buf.readline()
       for chunk in l.split():
         yield chunk
-  
+
 
   def str(
     self,
@@ -61,7 +61,7 @@ class Solver(
     self._prepare()
     self._solve()
 
-  
+
   def __init__(
     self,
   ) -> typing.NoReturn:
@@ -74,7 +74,7 @@ class Solver(
   ) -> typing.NoReturn:
     ...
 
-  
+
   @abstractmethod
   def _solve(
     self,
@@ -115,7 +115,7 @@ class Problem(
       c = self.__calc()
       cnt = min(cnt, c)
     print(cnt)
-  
+
 
   def __calc(
     self,
@@ -135,7 +135,7 @@ class Problem(
         dp[i][1],
       )
       w = s[i:i + 2]
-      if not w in comb: 
+      if not w in comb:
         continue
       dp[i + 1][1] = (
         dp[i][0] + 1
@@ -158,9 +158,9 @@ class Problem(
       p,
       2,
     )
-    self.__combs = c 
-    
-    
+    self.__combs = c
+
+
 
 
 def main():

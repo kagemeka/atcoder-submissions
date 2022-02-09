@@ -25,7 +25,7 @@ func pow(args ...int) int {
 }
 
 func main() {
-  var n, k int 
+  var n, k int
   fmt.Scan(&n, &k)
   fmt.Println(k * pow(k-1, n-1))
 

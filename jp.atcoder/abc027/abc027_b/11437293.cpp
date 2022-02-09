@@ -18,5 +18,5 @@ int main() {
     }
   }
   cout << tot << '\n';
-  return 0; 
+  return 0;
 }

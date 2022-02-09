@@ -16,7 +16,7 @@ def main():
             elif a[i] < b[i]:
                 return 'LESS'
         return 'EQUAL'
-                
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

@@ -1,10 +1,10 @@
 import sys
-import numpy as np 
+import numpy as np
 from scipy.optimize import brenth, bisect
 
 I = np.array(sys.stdin.read().split(), dtype=np.float64)
 n, k = I[:2].astype(np.int64)
-water, percent = I[2:].reshape(-1, 2).T 
+water, percent = I[2:].reshape(-1, 2).T
 
 def can_make(p):
     solt = water * (percent - p) / 100

@@ -9,7 +9,7 @@ def main():
         res.add(sum(c))
 
     ans = sorted(res)[-3]
-    return ans 
+    return ans
 
 if __name__ == '__main__':
     ans = main()

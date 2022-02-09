@@ -12,5 +12,5 @@ func main() {
   ans := "A"
   if absInt(a - x) > absInt(b - x) {ans = "B"}
   fmt.Println(ans)
-  
+
 }

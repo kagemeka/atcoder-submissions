@@ -7,7 +7,7 @@ def cmb(n, r):
     if (n,r) in nCr: return nCr[(n,r)]
     nCr[(n,r)] = cmb(n-1,r) + cmb(n-1,r-1)
     return nCr[(n,r)]
-  
+
 n, a, b = [int(_) for _ in input().split()]
 values = [int(v) for v in input().split()]
 values.sort(reverse=True)

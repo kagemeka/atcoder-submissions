@@ -9,5 +9,5 @@ int main() {
   string ans = (s == t) ? "Yes" : "No";
   cout << ans << endl;
   return 0;
-  
+
 }

@@ -10,5 +10,5 @@ for i in range(1, n+1):
     t, x, y = ti, xi, yi
   else:
     ans = "No"
- 
+
 print(ans)

@@ -1,27 +1,27 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
 
 def readline_ints():
   *ints, = map(
-    int, 
+    int,
     readline().split(),
   )
-  return ints 
+  return ints
 
 
 def read():
-  import sys 
+  import sys
   return sys.stdin.buffer.read()
 
 
 def read_ints():
   import numpy as np
   return np.fromstring(
-    string=read().decode(), 
-    dtype=np.int64, 
+    string=read().decode(),
+    dtype=np.int64,
     sep=' ',
   )
 
@@ -33,7 +33,7 @@ def solve(n, a, b, t):
   from scipy.sparse import (
     csr_matrix,
   )
-  import numpy as np 
+  import numpy as np
   g = csr_matrix(
     arg1=(t, (a, b)),
     shape=(n, n),

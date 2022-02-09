@@ -4,4 +4,3 @@ n = int(input())
 
 ans = factorial(n)
 print(ans % mod)
-

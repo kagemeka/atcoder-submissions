@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-  var n int 
+  var n int
   fmt.Scan(&n)
   r := make([]float64, n + 1)
   for i := 1; i < n + 1; i++ {

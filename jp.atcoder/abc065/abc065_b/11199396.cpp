@@ -17,7 +17,7 @@ int main() {
     }
     pressed[now-1] = true;
     now = a[now-1];
-    
+
     if (pressed[now-1]) {
       cout << -1 << endl;
       return 0;

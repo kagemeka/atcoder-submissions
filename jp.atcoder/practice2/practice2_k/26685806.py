@@ -12,23 +12,23 @@ S = typing.TypeVar('S')
 
 class Monoid(typing.Generic[S]):
     def __init__(
-        self, 
+        self,
         op: typing.Callable[[S, S], S],
         e: typing.Callable[[], S],
         commutative: bool,
     ) -> typing.NoReturn:
         self.op = op
-        self.e = e 
-        self.commutative = commutative 
+        self.e = e
+        self.commutative = commutative
 
 
 S = typing.TypeVar('S')
 F = typing.TypeVar('F')
 class SegmentTreeLazy():
     def __init__(
-        self, 
-        ms: Monoid[S], 
-        mf: Monoid[F], 
+        self,
+        ms: Monoid[S],
+        mf: Monoid[F],
         map_: typing.Callable[[F, S], S],
         a: typing.List[S],
     ) -> typing.NoReturn:
@@ -60,18 +60,18 @@ class SegmentTreeLazy():
         self.__apply(i << 1, lz[i])
         self.__apply(i << 1 | 1, lz[i])
         lz[i] = self.__mf.e()
-    
+
     def set(self, l: int, r: int, f: F) -> typing.NoReturn:
         assert 0 <= l <= r <= self.size
         n = len(self) >> 1
         l, r = n + l, n + r
         h = n.bit_length()
-        
+
         for i in range(h, 0, -1):
             if (l >> i) << i != l: self.__propagate(l >> i)
             if (r >> i) << i != r: self.__propagate((r - 1) >> i)
-        
-        l0, r0 = l, r 
+
+        l0, r0 = l, r
         while l < r:
             if l & 1: self.__apply(l, f); l += 1
             if r & 1: r -= 1; self.__apply(r, f)
@@ -91,14 +91,14 @@ class SegmentTreeLazy():
         for i in range(h, 0, -1):
             if (l >> i) << i != l: self.__propagate(l >> i)
             if (r >> i) << i != r: self.__propagate((r - 1) >> i)
-        
-        ms, d = self.__ms, self.__data 
+
+        ms, d = self.__ms, self.__data
         vl, vr = ms.e(), ms.e()
         while l < r:
             if l & 1: vl = ms.op(vl, d[l]); l += 1
             if r & 1: r -= 1; vr = ms.op(d[r], vr)
             l, r = l >> 1, r >> 1
-        return ms.op(vl, vr)    
+        return ms.op(vl, vr)
 
     def update(self, i: int, x: S) -> typing.NoReturn:
         assert 0 <= i < self.size
@@ -108,15 +108,15 @@ class SegmentTreeLazy():
         for j in range(h, 0, -1): self.__propagate(i >> j)
         self.__data[i] = x
         for j in range(1, h + 1): self.__merge(i >> j)
-    
+
 
 S = typing.TypeVar('S')
 F = typing.TypeVar('F')
 class SegmentTreeLazyDFS():
     def __init__(
-        self, 
-        ms: Monoid[S], 
-        mf: Monoid[F], 
+        self,
+        ms: Monoid[S],
+        mf: Monoid[F],
         map_: typing.Callable[[F, S], S],
         a: typing.List[S],
     ) -> typing.NoReturn:
@@ -148,7 +148,7 @@ class SegmentTreeLazyDFS():
         self.__apply(i << 1, lz[i])
         self.__apply(i << 1 | 1, lz[i])
         lz[i] = self.__mf.e()
-    
+
     def set(self, l: int, r: int, f: F) -> typing.NoReturn:
         assert 0 <= l <= r <= self.size
         self.__set(l, r, f, 0, len(self) >> 1, 1)
@@ -160,12 +160,12 @@ class SegmentTreeLazyDFS():
         if l <= s and t <= r:
             self.__apply(i, f)
             if i < n: self.__propagate(i)
-            return 
+            return
         c = (s + t) >> 1
         self.__set(l, r, f, s, c, i << 1)
         self.__set(l, r, f, c, t, i << 1 | 1)
         self.__merge(i)
-        
+
     def get(self, l: int, r: int) -> S:
         assert 0 <= l <= r <= self.size
         return self.__get(l, r, 0, len(self) >> 1, 1)
@@ -217,7 +217,7 @@ def op_f(f: F, g: F) -> F:
 def map_(f: F, x: S) -> S:
     f1, f0 = divmod(f, 1 << 30)
     x1, x0 = divmod(x, 1 << 30)
-    y0 = x0 
+    y0 = x0
     y1 = (f1 * x1 + f0 * x0) % MOD
     return (y1 << 30) + y0
 

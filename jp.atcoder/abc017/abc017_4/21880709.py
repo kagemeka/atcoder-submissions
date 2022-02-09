@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -79,7 +79,7 @@ from abc import (
 
 class Modular(ABC):
   mod: int = None
-  
+
 
   def __init__(
     self,
@@ -87,14 +87,14 @@ class Modular(ABC):
   ):
     value %= self.mod
     self.value = value
-  
+
 
   def __repr__(
     self,
   ):
     return f'{self.value}'
-  
-  
+
+
   def clone(
     self,
   ):
@@ -105,7 +105,7 @@ class Modular(ABC):
 
   @classmethod
   def modularize(
-    cls, 
+    cls,
     other,
   ):
     if type(other) == int:
@@ -121,7 +121,7 @@ class Modular(ABC):
     x.value += other.value
     x.value %= self.mod
     return x
-  
+
 
   def __iadd__(self, other):
     return self + other
@@ -129,7 +129,7 @@ class Modular(ABC):
 
   def __radd__(self, other):
     return self + other
-  
+
 
   def __neg__(self):
     return self.__class__(
@@ -139,14 +139,14 @@ class Modular(ABC):
 
   def __sub__(self, other):
     return self + -other
-  
+
 
   def __isub__(self, other):
     return self - other
 
-  
+
   def __rsub__(self, other):
-    return -self + other 
+    return -self + other
 
 
   def __mul__(self, other):
@@ -165,14 +165,14 @@ class Modular(ABC):
 
   def __rmul__(self, other):
     return self * other
-  
+
 
   def __truediv__(self, other):
     other = self.modularize(
       other,
     )
     return self * other.inv()
-  
+
 
   def __itruediv__(
     self,
@@ -182,10 +182,10 @@ class Modular(ABC):
 
 
   def __rtruediv__(
-    self,   
+    self,
     other,
   ):
-    return self.inv() * other 
+    return self.inv() * other
 
 
   def __pow__(self, n: int):
@@ -196,7 +196,7 @@ class Modular(ABC):
     a *= a
     if n & 1: a *= self
     return a
-  
+
 
   def __ipow__(self, n: int):
     return self ** n
@@ -213,11 +213,11 @@ class Modular(ABC):
   def mul_identity(cls):
     return cls(1)
 
-    
+
   def inv(self):
     i = self ** (self.mod - 2)
     return i
-  
+
 
   def __eq__(self, other):
     other = self.modularize(
@@ -229,14 +229,14 @@ class Modular(ABC):
 
 
   def congruent(
-    self, 
+    self,
     other,
   ):
     return self == other
-  
+
 
   def factorial(
-    self, 
+    self,
   ):
     n = self.value
     fact = [
@@ -248,15 +248,15 @@ class Modular(ABC):
     fact[0] = e
     fact.cumprod(out=fact)
     return fact
-  
+
 
   def inv_factorial(
     self,
-  ): 
+  ):
     fact = self.factorial()
     n = self.value
     ifact = np.arange(
-      1, 
+      1,
       n + 1,
     ).astype(object)
     ifact[-1] = fact[-1].inv()
@@ -264,7 +264,7 @@ class Modular(ABC):
       out=ifact[::-1],
     )
     return ifact
-      
+
 
   @classmethod
   def define(
@@ -297,9 +297,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -324,30 +324,30 @@ class Problem(
 
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     n = reader.int()
     m = reader.int()
     f = [
       reader.int() - 1
       for _ in range(n)
     ]
-    self.n = n 
-    self.m = m 
-    self.f = f 
+    self.n = n
+    self.m = m
+    self.f = f
 
 
   def solve(self):
     self.preprocess()
-    n = self.n 
+    n = self.n
     mint = self.mint
     dp = [
       mint(0)
       for _ in range(n + 1)
     ]
     dp[0] += 1
-    
+
     prev = self.prev
-    self.l = 0 
+    self.l = 0
     self.s = dp[0]
     self.dp = dp
     for i in range(n):
@@ -365,7 +365,7 @@ class Problem(
       return
     while self.l <= i:
       self.s -= self.dp[self.l]
-      self.l += 1 
+      self.l += 1
 
 
   def preprocess(
@@ -373,7 +373,7 @@ class Problem(
   ):
     n = self.n
     prev = [None] * n
-    f = self.f 
+    f = self.f
     m = self.m
     cache = [None] * m
     for i in range(n):
@@ -381,8 +381,8 @@ class Problem(
       prev[i] = cache[x]
       cache[x] = i
     self.prev = prev
- 
-    
+
+
 
 def main():
   t = 1

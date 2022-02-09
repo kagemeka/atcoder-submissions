@@ -16,13 +16,13 @@ template <typename T>
 int bit_count(T n) {
   int cnt = 0;
   while (n) {cnt += n & 1; n >>= 1;}
-  return cnt; 
+  return cnt;
 }
 
 int main() {
   std::ios::sync_with_stdio(false);
   std::cin.tie(nullptr);
-  
+
   int n, m;
   std::cin >> n >> m;
   std::vector<int> relation(n);
@@ -45,5 +45,5 @@ int main() {
     mx = std::max(mx, bit_count(s));
   }
   std::cout << mx << '\n';
-      
+
 }

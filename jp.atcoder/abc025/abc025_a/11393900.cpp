@@ -16,7 +16,7 @@ int main() {
   string s;
   int n;
   cin >> s >> n;
-  
+
   vector<string> res = dfs({""}, s, 2);
   cout << res[n-1] << endl;
   return 0;

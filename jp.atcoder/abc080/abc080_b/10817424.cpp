@@ -14,6 +14,6 @@ int main() {
     ans = "No";
   } else {
     ans = "Yes";
-  } 
+  }
   cout << ans << endl;
 }

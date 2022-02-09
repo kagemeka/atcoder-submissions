@@ -10,7 +10,7 @@ def main():
     blue = list(map(lambda x: x[1], abcd))
     ab.sort(key=lambda x: x[0], reverse=True)
     reversed_b_sorted_by_a = list(map(lambda x: x[1], ab))
-    
+
     cnt = 0
     for b in reversed_b_sorted_by_a:
         i = blue.index(b)

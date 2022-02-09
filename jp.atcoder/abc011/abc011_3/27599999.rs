@@ -31,7 +31,7 @@ fn main() {
     let mut n: isize = sc.scan();
     let mut ng = std::collections::HashSet::new();
     for _ in 0..3 {
-        ng.insert(sc.scan::<isize>()); 
+        ng.insert(sc.scan::<isize>());
     }
     if ng.contains(&n) {
         writeln!(out, "NO").unwrap();
@@ -41,7 +41,7 @@ fn main() {
         let mut ok = false;
         for d in (1..4).rev() {
             if ng.contains(&(n - d)) {
-                continue; 
+                continue;
             }
             n -= d;
             ok = true;

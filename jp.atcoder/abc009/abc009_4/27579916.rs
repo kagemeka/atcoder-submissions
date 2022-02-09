@@ -29,17 +29,17 @@ fn main() {
     let k: usize = sc.scan();
     let m: usize = sc.scan();
     let mut a = vec![vec![0usize]; k];
-    for i in 0..k { 
+    for i in 0..k {
         a[k - 1 - i][0] = sc.scan();
     }
-    
+
     fn op(lhs: &Vec<Vec<usize>>, rhs: &Vec<Vec<usize>>) -> Vec<Vec<usize>> {
         let n = lhs[0].len();
         let h = lhs.len();
         assert_eq!(rhs.len(), n);
         let w = rhs[0].len();
         let mut res = vec![vec![0usize; w]; h];
-        for i in 0..h { 
+        for i in 0..h {
             for j in 0..w {
                 for k in 0..n {
                     res[i][j] ^= lhs[i][k] & rhs[k][j];
@@ -65,22 +65,22 @@ fn main() {
     };
     let pow = Power::new(mon);
 
-    
+
     let mut c = vec![vec![0usize; k]; k];
-    for i in 0..k { 
+    for i in 0..k {
         c[0][i] = sc.scan();
     }
     for i in 0..k - 1 {
         c[i + 1][i] = std::usize::MAX;
     }
-    if m <= k { 
+    if m <= k {
         writeln!(out, "{}", a[k - m][0]).unwrap();
         return;
     }
     c = pow.r#do(&c, m - k);
     a = op(&c, &a);
     writeln!(out, "{}", a[0][0]).unwrap();
-    
+
 }
 
 pub mod structs {

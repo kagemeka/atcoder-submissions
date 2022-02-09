@@ -8,7 +8,7 @@ def main():
     cnt = defaultdict(int)
     for a, b in ab:
         cnt[a] += b
-    
+
     s = 0
     for v, c in sorted(cnt.items()):
         s += c

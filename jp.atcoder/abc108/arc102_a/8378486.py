@@ -15,7 +15,7 @@ def oddCaseK(n, k):
     for x in range(1, n+1):
         if x % k == 0:
             cand += 1
-    
+
     number_of_possibles = 0
     if cand >= 1:
         number_of_possibles += cand
@@ -23,10 +23,10 @@ def oddCaseK(n, k):
         number_of_possibles += nCr(cand, 2) * nCr(2, 1) * 3
     if cand >= 3:
         number_of_possibles += nCr(cand, 3) * math.factorial(3)
-    
+
     return number_of_possibles
 
-    
+
 
 def evenCaseK(n, k):
     cand1 = 0
@@ -36,7 +36,7 @@ def evenCaseK(n, k):
             cand1 += 1
         elif x % k == k // 2:
             cand2 += 1
-    
+
     number_of_possibles = 0
     number_of_possibles = 0
     if cand1 >= 1:
@@ -62,13 +62,10 @@ def main():
         ans = evenCaseK(n, k)
     else:
         ans = oddCaseK(n, k)
-    
+
     print(ans)
 
 
 
 if __name__ == "__main__":
     main()
-
-
-

@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-07 02:35:07(JST)
 import sys
 # import collections
@@ -20,7 +20,7 @@ def main():
         res = ab[:k] + ab[-k:]
     for r in res:
         print(r)
-    
+
 if __name__ == "__main__":
     # execute only if run as a script
     main()

@@ -1,5 +1,5 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
@@ -18,13 +18,13 @@ def matrix_mod_pow(a, n, mod):
     return e
   a %= mod
   b = matrix_mod_pow(a, n//2, mod)
-  b = np.dot(b, b) % mod 
-  if n&1: b = np.dot(b, a) % mod 
+  b = np.dot(b, b) % mod
+  if n&1: b = np.dot(b, a) % mod
   return b
 
 
 def solve(n):
-  import numpy as np 
+  import numpy as np
   a = np.array([0, 0, 1])
   if n < 3:
     print(a[n])
@@ -37,14 +37,14 @@ def solve(n):
   c[0] = 1
   global mod
   c = matrix_mod_pow(c, n-2, mod)
-  a = np.dot(c, a) % mod 
+  a = np.dot(c, a) % mod
   print(a.ravel()[0])
 
 
 def main():
   n = read_int() - 1
-  global mod 
-  mod = 10_007 
+  global mod
+  mod = 10_007
   solve(n)
 
 

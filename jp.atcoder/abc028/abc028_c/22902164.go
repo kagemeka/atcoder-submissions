@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -19,7 +19,7 @@ func Max(
 
 type Problem struct {
 	io *IO
-	a, b, c, d, e int 
+	a, b, c, d, e int
 }
 
 
@@ -34,7 +34,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	p.a = io.ReadInt()
 	p.b = io.ReadInt()
 	p.c = io.ReadInt()
@@ -46,7 +46,7 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	a, b, c := p.a, p.b, p.c 
+	a, b, c := p.a, p.b, p.c
 	d, e := p.d, p.e
 	s := Max(
 		a + d + e,

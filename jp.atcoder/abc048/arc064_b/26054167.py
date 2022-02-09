@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -7,7 +7,7 @@ def main() -> typing.NoReturn:
 
   def f(n):
     return n // x + 1
-  
+
   print(f(b) - f(a - 1))
 
 

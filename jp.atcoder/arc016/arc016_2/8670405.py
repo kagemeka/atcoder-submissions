@@ -23,7 +23,7 @@ def main():
         if flag:
             cnt += 1
             flag = False
-    
+
     print(cnt)
 
 if __name__ == '__main__':

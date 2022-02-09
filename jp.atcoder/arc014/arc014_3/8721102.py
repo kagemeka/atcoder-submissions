@@ -9,7 +9,7 @@ def main():
     c = defaultdict(int)
     for i in range(n):
         c[s[i]] += 1
-    
+
     res = c['R'] % 2 + c['G'] % 2 + c['B'] % 2
     '''
     4色以上だと絶対ではないが、3色以下ならうまくやると絶対に消せる。
@@ -21,6 +21,6 @@ def main():
     '''
 
     print(res)
-    
+
 if __name__ == '__main__':
     main()

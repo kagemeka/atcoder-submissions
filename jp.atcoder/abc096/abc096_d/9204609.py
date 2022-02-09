@@ -22,7 +22,7 @@ for p in ps:
 n = int(sys.stdin.readline().rstrip())
 
 def main():
-    return cand[:n]  
+    return cand[:n]
 
 if __name__ == '__main__':
     ans = main()

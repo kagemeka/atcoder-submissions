@@ -21,7 +21,7 @@ def main():
     n, *a = [int(x) for x in sys.stdin.read().split()]
     s = list(itertools.accumulate(a))
 
-    
+
     res = s.count(0)
     for x in [x for x in collections.Counter(s).values() if x >= 2]:
         res += comb(x, 2, exact=True)

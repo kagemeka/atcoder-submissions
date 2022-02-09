@@ -6,7 +6,7 @@ def main():
     y = sorted(x)
     r = y[n // 2]
     l = y[n // 2 - 1]
-    
+
     for i in range(n):
         if x[i] <= l:
             yield r

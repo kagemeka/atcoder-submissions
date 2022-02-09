@@ -4,7 +4,7 @@ import 'dart:math';
 
 
 
-class IO 
+class IO
 {
 
 
@@ -19,26 +19,26 @@ class IO
   );
 
 
-  String read() 
+  String read()
   {
     List<int> bytes = [];
     const int maxWait = 1 << 8;
     int wait = 0;
-    while (true) 
+    while (true)
     {
       var b = readByte();
       if (
         wait == maxWait
       ) break;
-      if (b == -1) 
+      if (b == -1)
       {
         wait++;
         continue;
       }
       wait = 0;
       if (
-        b == 10 || 
-        b == 32 
+        b == 10 ||
+        b == 32
       ) {
         break;
       }
@@ -75,7 +75,7 @@ class IO
 
 
 
-abstract class Solver 
+abstract class Solver
 {
 
 
@@ -107,10 +107,10 @@ mixin Runner<
 
 
 class Problem
-with 
-Runner<Problem>, 
+with
+Runner<Problem>,
 IO
-implements Solver 
+implements Solver
 {
 
   String s = '';
@@ -127,7 +127,7 @@ implements Solver
     n--;
     int l = s.length;
     List<int> d = [0, 0];
-    for ( 
+    for (
       int i = 0; i < 2; i++
     ) {
       d[i] = n % l;
@@ -146,7 +146,7 @@ implements Solver
 
 
 
-void main() 
+void main()
 {
   var p = new Problem();
   p();

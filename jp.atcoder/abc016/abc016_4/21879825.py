@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -88,9 +88,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -110,33 +110,33 @@ class Vector:
 
   x: int
   y: int
-  
+
 
   def cross(
     self,
     other: Vector,
   ) -> int:
-    res = self.x * other.y 
+    res = self.x * other.y
     res -= self.y * other.x
     return res
-  
+
 
   def __add__(
     self,
     other,
   ):
-    x = self.x + other.x 
+    x = self.x + other.x
     y = self.y + other.y
     return Vector(x, y)
-  
+
 
   def __neg__(
     self,
   ):
-    x = -self.x 
-    y = -self.y 
+    x = -self.x
+    y = -self.y
     return Vector(x, y)
-  
+
 
   def __sub__(
     self,
@@ -144,9 +144,9 @@ class Vector:
   ):
     return self + -other
 
-    
-  
-@dataclass 
+
+
+@dataclass
 class LineSegment:
 
 
@@ -161,14 +161,14 @@ class LineSegment:
     ok = self.across(other)
     ok &= other.across(self)
     return ok
-  
+
 
   def across(
     self,
     other: LineSegment,
   ) -> bool:
     v0 = other.v1 - other.v0
-    v1 = self.v0 - other.v0 
+    v1 = self.v0 - other.v0
     v2 = self.v1 - other.v0
     c0 = v0.cross(v1)
     c1 = v0.cross(v2)
@@ -182,7 +182,7 @@ class Problem(
 
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     ax = reader.int()
     ay = reader.int()
     bx = reader.int()
@@ -195,17 +195,17 @@ class Problem(
     x = np.array(
       x,
     ).reshape(n, 2)
-    self.ax = ax 
-    self.ay = ay 
-    self.bx = bx 
+    self.ax = ax
+    self.ay = ay
+    self.bx = bx
     self.by = by
-    self.n = n 
+    self.n = n
     self.x = x
-    
+
 
   def solve(self):
     self.preprocess()
-    s0 = self.s0 
+    s0 = self.s0
     s = self.s
     ok = s0.intersect(s)
     c = np.count_nonzero(ok)
@@ -223,7 +223,7 @@ class Problem(
       self.bx,
       self.by,
     )
-    x = self.x 
+    x = self.x
     x = np.vstack([x, x])
     n = self.n
     p0 = x[:n]
@@ -232,9 +232,9 @@ class Problem(
     p1 = Vector(*p1.T)
     s0 = LineSegment(a, b)
     s = LineSegment(p0, p1)
-    self.s0 = s0 
+    self.s0 = s0
     self.s = s
-  
+
 
 
 def main():

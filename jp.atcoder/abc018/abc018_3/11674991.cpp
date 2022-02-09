@@ -5,7 +5,7 @@ int INF = numeric_limits<int>::max();
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
-  
+
   int r, c, k;
   cin >> r >> c >> k;
   vector<vector<int>> res(r + 2, vector<int>(c + 2));

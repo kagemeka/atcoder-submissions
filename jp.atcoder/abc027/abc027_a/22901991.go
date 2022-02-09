@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -12,7 +12,7 @@ import (
 
 type Problem struct {
 	io *IO
-	n int 
+	n int
 	l []int
 }
 
@@ -42,7 +42,7 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	l := p.l 
+	l := p.l
 	sort.Ints(l)
 	var res int
 	if l[0] == l[1] {

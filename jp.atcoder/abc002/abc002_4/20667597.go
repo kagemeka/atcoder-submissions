@@ -29,7 +29,7 @@ func (
 		os.Stdin,
 	)
 	scanner.Buffer(
-		[]byte{}, 
+		[]byte{},
 		MaxBuffer,
 	)
 	scanner.Split(
@@ -85,7 +85,7 @@ func (
 func (
 	io *IO,
 ) ScanInt() int {
-	s := io.Scan()	
+	s := io.Scan()
 	v, _ := strconv.Atoi(s)
 	return v
 }
@@ -94,7 +94,7 @@ func (
 type Solver interface{
 	Init()
 	Prepare()
-	Solve()	
+	Solve()
 }
 
 
@@ -111,7 +111,7 @@ type ABC002D struct {
 }
 
 
-type Int int 
+type Int int
 
 
 func (
@@ -125,7 +125,7 @@ func (
 		cnt += n & 1
 		n >>= 1
 	}
-	return 
+	return
 }
 
 
@@ -153,7 +153,7 @@ func (
 func (
 	p *ABC002D,
 ) Prepare() {
-	io := p.io 
+	io := p.io
 	n := io.ScanInt()
 	m := io.ScanInt()
 
@@ -178,12 +178,12 @@ func (
 		t := s
 		for i := 0; i < n; i++ {
 			if ^s >> i & 1 == 1 {
-				continue 
+				continue
 			}
 			t &= relations[i]
 		}
 		if t != s {
-			continue 
+			continue
 		}
 		cnt = MaxInt(
 			cnt,

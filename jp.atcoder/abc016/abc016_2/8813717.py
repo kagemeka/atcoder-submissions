@@ -2,7 +2,7 @@ import sys
 
 a, b, c = map(int, sys.stdin.readline().split())
 
-def main(): 
+def main():
     res1 = False
     if a + b == c:
         res1 =  True

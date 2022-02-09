@@ -20,7 +20,7 @@ def main():
             hi = cnt
         else:
             lo = cnt
-    
+
     return hi
 
 if __name__ == '__main__':

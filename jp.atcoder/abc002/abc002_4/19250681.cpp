@@ -5,22 +5,22 @@ using namespace std;
 namespace Algebra {
 
 template<typename T> int bit_length(T n) {
-  int length = 0; 
+  int length = 0;
   while (n) {
-    n >>= 1; 
+    n >>= 1;
     length++;
-  }; 
+  };
   return length;
 }
 
-template<typename T> 
+template<typename T>
 int bit_count(T n) {
   int cnt = 0;
-  int l = bit_length(n); 
+  int l = bit_length(n);
   while (l--) {
-    cnt += n & 1; 
+    cnt += n & 1;
     n >>= 1;
-  }; 
+  };
   return cnt;
 }
 
@@ -50,7 +50,7 @@ void solve(
     }
     if ((s&t) != s) continue;
     cnt = max(
-      cnt, 
+      cnt,
       bit_count(s)
     );
   }

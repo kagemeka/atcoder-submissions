@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8, nb.i8, nb.i8[:]), cache=True)
@@ -10,12 +10,12 @@ def solve(
   b: int,
   c: np.ndarray,
 ) -> typing.NoReturn:
-  mod = 10 ** 9 + 7 
+  mod = 10 ** 9 + 7
   m = 60
   pow10_pow2 = np.empty(m, np.int64)
   pow10_pow2[0] = 10 % b
   for i in range(m - 1):
-    pow10_pow2[i + 1] = pow10_pow2[i] ** 2 % b 
+    pow10_pow2[i + 1] = pow10_pow2[i] ** 2 % b
 
   def _mul(x, y, d):
     z = np.zeros(b, np.int64)
@@ -38,7 +38,7 @@ def solve(
 
   def _pow(n):
     y = _identity()
-    d = 0       
+    d = 0
     while n:
       if n & 1: y = _mul(y, a[d], d)
       d += 1
@@ -46,7 +46,7 @@ def solve(
     return y
 
   print(_pow(n)[0])
-  
+
 
 def main() -> typing.NoReturn:
   n, b, k = map(int, input().split())

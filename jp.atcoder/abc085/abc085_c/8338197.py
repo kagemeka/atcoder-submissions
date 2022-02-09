@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-08 23:31:18(JST)
 ### modules
 ## from standard library
@@ -13,9 +13,9 @@ import sys
 # import functools
 # import operator
 ## from external libraries
-# import scipy.special   
-# import scipy.misc      
-# import numpy as np 
+# import scipy.special
+# import scipy.misc
+# import numpy as np
 
 def main():
     n, y = (int(i) for i in sys.stdin.readline().split())
@@ -31,7 +31,7 @@ def main():
             if 10 * i + 5 * j + k == y:
                 print(i, j, k)
                 exit()
-    
+
     print(-1, -1, -1)
 
 if __name__ == "__main__":

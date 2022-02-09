@@ -1,13 +1,13 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
 
 
-@nb.njit 
+@nb.njit
 def lpf(n: int) -> np.ndarray:
   s = np.arange(n)
   s[:2] = -1
@@ -24,7 +24,7 @@ def solve(n: int, k: int) -> typing.NoReturn:
   a = lpf(1 << 24)
 
   def is_ok(x):
-    cnt = 0 
+    cnt = 0
     p = -1
     while a[x] > 0:
       if a[x] != p:
@@ -32,13 +32,13 @@ def solve(n: int, k: int) -> typing.NoReturn:
         cnt += 1
       x //= a[x]
     return cnt >= k
-      
-  cnt = 0 
+
+  cnt = 0
   for i in range(2, n + 1):
     cnt += is_ok(i)
-  
+
   print(cnt)
-  
+
 
 
 def main() -> typing.NoReturn:
@@ -47,5 +47,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-    
-  

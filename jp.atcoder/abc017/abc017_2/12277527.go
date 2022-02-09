@@ -19,7 +19,7 @@ func main() {
     "k": 0,
     "u": 0,
   }
-  var x string 
+  var x string
   fmt.Scan(&x)
   ans := "YES"
   for len(x) > 0 {

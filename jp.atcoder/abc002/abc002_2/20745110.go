@@ -39,7 +39,7 @@ func (
 	bufSize int,
 ) {
 	io.Scanner.Buffer(
-		[]byte{}, 
+		[]byte{},
 		bufSize,
 	)
 }
@@ -93,7 +93,7 @@ func (
 func (
 	io *IO,
 ) ScanInt() Int {
-	s := string(io.Scan())	
+	s := string(io.Scan())
 	v, _ := strconv.Atoi(s)
 	return Int(v)
 }
@@ -155,7 +155,7 @@ func (
 		cnt += i & 1
 		i >>= 1
 	}
-	return 
+	return
 }
 
 
@@ -165,7 +165,7 @@ func (
 	Int,
 ){
 	if n == 0 {
-		return 1 
+		return 1
 	}
 	a := i.Pow(n >> 1)
 	a *= a
@@ -177,7 +177,7 @@ func (
 
 
 
-type String string 
+type String string
 
 
 
@@ -198,7 +198,7 @@ func (
 type Solver interface{
 	Init()
 	Prepare()
-	Solve()	
+	Solve()
 }
 
 
@@ -240,7 +240,7 @@ func (
 ) Prepare() {
 	io := p.io
 	w := io.Scan()
-	p.w = w 
+	p.w = w
 }
 
 
@@ -248,11 +248,11 @@ func (
 	p *Problem,
 ) Solve() {
 	io := p.io
-	vowels := p.vowels 
+	vowels := p.vowels
 	w := p.w
 	s := make(
-		[]rune, 
-		0, 
+		[]rune,
+		0,
 		1 << 5,
 	)
 	for _, c := range w {

@@ -1,13 +1,13 @@
 def read():
-  import sys 
+  import sys
   return sys.stdin.buffer.read()
 
 
 def read_ints():
   import numpy as np
   return np.fromstring(
-    string=read().decode(), 
-    dtype=np.int64, 
+    string=read().decode(),
+    dtype=np.int64,
     sep=' ',
   )
 

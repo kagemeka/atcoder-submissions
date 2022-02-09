@@ -6,7 +6,7 @@ if s[0]  == 'x':
     ans[1] = 'W'
 for i in range(1, n-1):
     if ans[i] == 'S':
-        if s[i] == 'x' and ans[i-1] == 'S':         
+        if s[i] == 'x' and ans[i-1] == 'S':
             ans[i+1] = 'W'
         elif s[i] == 'o' and ans[i-1] == 'W':
             ans[i+1] = 'W'

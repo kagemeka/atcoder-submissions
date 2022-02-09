@@ -9,7 +9,7 @@ def main():
         cnt += 10 ** i * q
         if r >= 10 ** i:
             cnt += min(10 ** i, r + 1 - 10 ** i)
-        
+
     return cnt
 
 if __name__ == '__main__':

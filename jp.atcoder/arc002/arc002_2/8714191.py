@@ -10,8 +10,8 @@ def main():
             d += timedelta(days=28)
         else:
             d += timedelta(days=1)
-    
-    print(str(d).replace('-', '/')) 
+
+    print(str(d).replace('-', '/'))
 
 if __name__ == '__main__':
     main()

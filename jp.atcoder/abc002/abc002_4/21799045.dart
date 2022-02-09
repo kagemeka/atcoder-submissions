@@ -70,7 +70,7 @@ abstract class Solver {
 
 
 
-mixin Runner 
+mixin Runner
 implements Solver {
 
 
@@ -88,7 +88,7 @@ class Problem
 extends IO
 with Runner {
 
-  
+
   int n = 0, m = 0;
   List<int> x = [], y = [];
 
@@ -151,7 +151,7 @@ with Runner {
       int i = 0; i < n; i++
     ) rel[i] |= 1 << i;
 
-    for ( 
+    for (
       int i = 0; i < m; i++
     ) {
       int x, y;

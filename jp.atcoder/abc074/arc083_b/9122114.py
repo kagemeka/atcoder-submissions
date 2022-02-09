@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 from scipy.sparse.csgraph import floyd_warshall
 from scipy.sparse import csr_matrix
 
@@ -10,9 +10,9 @@ def main():
     B = floyd_warshall(csr_matrix(A), directed=False)
     if np.any(B < A):
         return -1
-        
+
     np.fill_diagonal(B, np.inf)
-    
+
     total_length = 0
     for v in range(n-1):
         for u in range(v+1, n):

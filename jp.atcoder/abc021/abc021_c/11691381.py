@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 from scipy.sparse.csgraph import dijkstra, csgraph_to_dense
 from scipy.sparse import csr_matrix
 
@@ -19,7 +19,7 @@ def main():
         v = np.where(dist == d + 1)[0]
         paths[v] = np.sum(paths[u] * graph[:, u][v], axis=1)
         paths[v] %= MOD
-    
+
     print(paths[b])
 
 if __name__ == '__main__':

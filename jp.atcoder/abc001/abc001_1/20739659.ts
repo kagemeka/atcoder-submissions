@@ -33,7 +33,7 @@ class IO {
       s.trim().split(/ |\n/)
     );
   }
-  
+
 
   private *toGen(
     chunks: string[],
@@ -101,12 +101,12 @@ class ABC001A
 extends Solver {
 
   h1: number;
-  
+
   h2: number;
 
 
   prepare() {
-    const io = this.io; 
+    const io = this.io;
     const h1: (
       number
     ) = io.readInt();

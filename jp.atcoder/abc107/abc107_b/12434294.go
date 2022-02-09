@@ -5,11 +5,11 @@ import (
 )
 
 func main() {
-  var h, w int 
+  var h, w int
   fmt.Scan(&h, &w)
   res := make([]string, 0)
   for i := 0; i < h; i++ {
-    var s string 
+    var s string
     fmt.Scan(&s)
     for j := 0; j < w; j++ {
       if s[j] == '#' {

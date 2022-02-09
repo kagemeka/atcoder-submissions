@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-07 13:42:36(JST)
 import sys
 # import collections
@@ -19,7 +19,7 @@ def main():
         print(1)
         exit()
 
-    
+
     cand = []
     for b in range(math.floor(x ** 0.5), 1, -1):
         bp = b ** math.floor(math.log(x, b))

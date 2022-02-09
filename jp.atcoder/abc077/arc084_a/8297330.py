@@ -16,7 +16,7 @@ def main():
         i = bisect.bisect_left(uppers, j)
         k = len(lowers) - bisect.bisect_right(lowers, j)
         count += i * k
-        
+
     print(count)
 
 if __name__ == "__main__":

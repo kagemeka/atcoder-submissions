@@ -1,10 +1,10 @@
 def read():
-  import sys 
+  import sys
   return sys.stdin.buffer.read()
 
 
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
@@ -16,8 +16,8 @@ def read_int():
 def read_ints():
   import numpy as np
   return np.fromstring(
-    string=read().decode(), 
-    dtype=np.int64, 
+    string=read().decode(),
+    dtype=np.int64,
     sep=' ',
   )
 
@@ -29,14 +29,14 @@ def solve(n, hs):
   t = np.arange(n)
 
   def is_ok(x):
-    bl = np.sort((x - h) // s) >= t 
+    bl = np.sort((x - h) // s) >= t
     return np.all(bl)
-  
+
   lo, hi = 0, 10<<50,
   while lo + 1 < hi:
     x = (lo + hi) // 2
     if is_ok(x): hi = x
-    else: lo = x 
+    else: lo = x
   print(hi)
 
 

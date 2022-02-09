@@ -16,8 +16,8 @@ void solve() {
     cin >> b[i];
   }
   for (
-    int i = 0, j = 0; 
-    i < m; 
+    int i = 0, j = 0;
+    i < m;
     i++
   ) {
     while (
@@ -26,7 +26,7 @@ void solve() {
     if (j == n || a[j] > b[i]) {
       cout << "no" << '\n';
       return;
-    } 
+    }
     j++;
   }
   cout << "yes" << '\n';

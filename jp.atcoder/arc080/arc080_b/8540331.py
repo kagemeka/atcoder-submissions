@@ -11,15 +11,15 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
     H, W, n, *a = [int(x) for x in sys.stdin.read().split()]
-    color_count = [None] + a 
-    
+    color_count = [None] + a
+
     canvas = [[None for _ in range(W)] for _ in range(H)]
-    
+
     h, w = 0, 0
     for i in range(1, n+1):
         while color_count[i] > 0:

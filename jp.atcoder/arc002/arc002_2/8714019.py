@@ -10,8 +10,8 @@ def main():
             date.month += 1
         else:
             date += datetime.timedelta(days=1)
-    
-    print(str(date).replace('-', '/')) 
+
+    print(str(date).replace('-', '/'))
 
 if __name__ == '__main__':
     main()

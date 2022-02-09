@@ -15,7 +15,7 @@ def main():
     np.add.at(res, (l+1, np.full(m, n+1)), 1)
     res = np.cumsum(res, axis=0)
     res = np.cumsum(res, axis=1)
-    
+
     ans = res[p, q]
     return ans
 

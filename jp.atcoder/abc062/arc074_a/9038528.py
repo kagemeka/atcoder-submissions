@@ -12,7 +12,7 @@ def minimize(H, W):
     block.sort()
     res2 = block[-1] - block[0]
     return min(res1, res2)
-    
+
 def main():
     return min(minimize(H, W), minimize(W, H))
 

@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:, :], nb.i8, nb.i8, nb.i8, nb.i8), cache=True)
@@ -26,7 +26,7 @@ def solve(
   for y, x in que:
     for dy, dx in dyx:
       ny = y + dy
-      nx = x + dx 
+      nx = x + dx
       if not on_grid(ny, nx): continue
       if grid[ny, nx] == 1: continue
       d = dist[y, x] + 1
@@ -50,7 +50,7 @@ def main() -> typing.NoReturn:
     dtype='S1',
   ).reshape(h, -1)[:, :-1]
   grid = np.zeros((h, w), np.int64)
-  grid[c == b'#'] = 1 
+  grid[c == b'#'] = 1
   solve(grid, sy, sx, gy, gx)
 
 

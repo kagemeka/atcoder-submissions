@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-09 11:51:37(JST)
 ### modules
 ## from standard library
@@ -13,13 +13,13 @@ import sys
 # import functools
 # import operator
 ## from external libraries
-# import scipy.special   
-# import scipy.misc      
-# import numpy as np 
+# import scipy.special
+# import scipy.misc
+# import numpy as np
 
 def main():
     n = int(sys.stdin.readline().rstrip())
-    
+
     for x in range(n // 7 + 1):
         if (n - 7 * x) % 4 == 0:
             print('Yes')

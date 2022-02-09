@@ -10,7 +10,7 @@ function main(input) {
   input = input.trim().split('\n');
   var n = int(input[0]);
   var s = input[1];
-  
+
   if (!(n & 1)) {
     console.log(-1);
     return;

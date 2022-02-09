@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -36,7 +36,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	p.m = io.ReadInt()
 	p.d = io.ReadInt()
 }
@@ -45,9 +45,9 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	m, d := p.m, p.d 
-	msg := p.msg 
-	var s string 
+	m, d := p.m, p.d
+	msg := p.msg
+	var s string
 	if m % d == 0 {
 		s = msg.Ok
 	} else {

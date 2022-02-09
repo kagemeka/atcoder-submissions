@@ -7,5 +7,5 @@ int main() {
   string ans = (abs(c-a) <= d || (abs(b-a) <= d && abs(c-b) <= d)) ? "Yes" : "No";
   cout << ans << endl;
   return 0;
-  
+
 }

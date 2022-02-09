@@ -1,5 +1,5 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
@@ -7,8 +7,8 @@ def readline():
 def readline_ints():
   import numpy as np
   return np.fromstring(
-    string=readline().decode(), 
-    dtype=np.int64, 
+    string=readline().decode(),
+    dtype=np.int64,
     sep=' ',
   )
 
@@ -21,17 +21,17 @@ def solve(k, m, a, c):
     dtype=dtype,
   )
   d = np.eye(
-    N=k, 
-    M=k, 
-    k=-1, 
+    N=k,
+    M=k,
+    k=-1,
     dtype=dtype,
   ) * bitmat.mask
 
   d[0] = c
-  if m <= k: 
+  if m <= k:
     print(a[m - 1])
-    return 
-  
+    return
+
   a = a[::-1][:, None]
   d = bitmat.pow(d, m - k)
   a = bitmat.dot(d, a)
@@ -47,7 +47,7 @@ def main():
 
 
 class BitwiseMatUtil:
-  
+
 
   def __init__(
     self,
@@ -55,20 +55,20 @@ class BitwiseMatUtil:
   ):
     self.dtype = dtype
 
-  
+
   @property
   def mask(self):
     return np.iinfo(
       self.dtype,
-    ).max 
-  
+    ).max
+
 
   @property
   def mul_identity(
     self,
   ):
     e = np.identity(
-      self.n, 
+      self.n,
       dtype=self.dtype,
     )
     np.fill_diagonal(
@@ -89,8 +89,8 @@ class BitwiseMatUtil:
       axis=-1,
     )
     return c
-  
-  
+
+
   def pow(
     self,
     a: np.ndarray,

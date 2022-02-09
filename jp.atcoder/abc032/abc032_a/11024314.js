@@ -22,7 +22,7 @@ function lcm(a, b) {
 function main(input) {
   input = input.trim().split('\n').map(n => int(n));
   var a, b, n;
-  a = input[0]; 
+  a = input[0];
   b = input[1];
   n = input[2];
   var l = lcm(a, b);

@@ -1,10 +1,10 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 
 def solve(a: np.ndarray, t: int) -> typing.NoReturn:
   mn = np.minimum.accumulate(a)
-  d = a - mn 
+  d = a - mn
   cnt = np.count_nonzero(d == d.max())
   print(cnt)
 

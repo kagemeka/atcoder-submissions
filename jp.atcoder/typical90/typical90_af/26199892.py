@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -13,7 +13,7 @@ def next_permutation(a: np.ndarray) -> typing.NoReturn:
     if a[j - 1] >= a[j]: continue
     i = j - 1
     break
-  if i == -1: 
+  if i == -1:
     a[:] = -1
     return
   a[i + 1:] = a[i + 1:][::-1]
@@ -32,20 +32,20 @@ def solve(a: np.ndarray, xy: np.ndarray) -> typing.NoReturn:
     x, y = xy[i]
     ng_after[x] |= 1 << y
     ng_after[y] |= 1 << x
-  
+
   def check_ok(perm):
     for i in range(n - 1):
       if ng_after[perm[i]] >> perm[i + 1] & 1: return False
     return True
-  
+
   def total_time(perm):
     t = 0
     for i in range(n):
       t += a[perm[i], i]
     return t
-      
+
   inf = 1 << 60
-  mn = inf 
+  mn = inf
   perm = np.arange(n)
   while perm[0] != -1:
     if check_ok(perm):

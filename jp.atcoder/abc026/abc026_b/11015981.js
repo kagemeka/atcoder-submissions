@@ -16,7 +16,7 @@ function main(input) {
   r = input.slice(1).sort((a, b) => a - b);
   var s = r.map(r => circleArea(int(r)));
   s = [0].concat(s);
-  
+
   var res = 0;
   for (var i = n; i >= 1; i -= 2) {
     res += s[i] - s[i-1];

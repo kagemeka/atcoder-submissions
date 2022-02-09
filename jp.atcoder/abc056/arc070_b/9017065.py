@@ -12,7 +12,7 @@ def is_needed(i):
     for j in chain(a[:i], a[i+1:]):
         res |= res << j
         res &= mask
-    return res >> (k - a[i]) 
+    return res >> (k - a[i])
 
 def main():
     # neededとなるindexの最小を求める
@@ -26,7 +26,7 @@ def main():
             lo = i + 1
 
     return hi
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

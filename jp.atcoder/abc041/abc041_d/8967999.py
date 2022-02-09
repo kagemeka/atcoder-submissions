@@ -19,7 +19,7 @@ def main():
         for j in partial:
             if not graph[j] & partial:
                 res[i] += res[i ^ (2**j)]
-                
+
     return res[-1]
 
 if __name__ == '__main__':

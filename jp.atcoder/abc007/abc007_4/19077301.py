@@ -1,15 +1,15 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
-    
+
 
 def readline_ints():
   *ints, = map(
-    int, 
+    int,
     readline().split(),
   )
-  return ints 
+  return ints
 
 
 def f(n: int) -> int:
@@ -19,7 +19,7 @@ def f(n: int) -> int:
   cnt = 0
   for d in x:
     cnt *= 8
-    if not flg: continue 
+    if not flg: continue
     cnt += d - (d > 4)
     if d in ng: flg = False
   cnt += flg

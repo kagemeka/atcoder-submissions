@@ -1,19 +1,19 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def bit_length(n: int) -> int:
-  l = 0 
+  l = 0
   while 1 << l <= n: l += 1
   return l
 
 
 S = typing.TypeVar('S')
 
-@nb.njit 
+@nb.njit
 def seg_build(
   op: typing.Callable[[S, S], S],
   e: typing.Callable[[], S],
@@ -25,33 +25,33 @@ def seg_build(
   seg[n:n + len(a)] = a.copy()
   for i in range(n - 1, 0, -1):
     seg[i] = op(seg[i << 1], seg[i << 1 | 1])
-  return seg 
+  return seg
 
 
-@nb.njit 
+@nb.njit
 def seg_set(
   seg: np.ndarray,
   op: typing.Callable[[S, S], S],
-  i: int, 
+  i: int,
   x: S,
 ) -> typing.NoReturn:
-  i += len(seg) >> 1 
+  i += len(seg) >> 1
   seg[i] = x
   while i > 1:
     i >>= 1
     seg[i] = op(seg[i << 1], seg[i << 1 | 1])
 
 
-@nb.njit 
+@nb.njit
 def seg_get(
   seg: np.ndarray,
   op: typing.Callable[[S, S], S],
   e: typing.Callable[[], S],
-  l: int, 
+  l: int,
   r: int,
 ) -> int:
   n = len(seg) >> 1
-  l, r = l + n, r + n 
+  l, r = l + n, r + n
   vl = vr = e()
   while l < r:
     if l & 1:
@@ -74,7 +74,7 @@ def seg_max_right(
   l: int,
   size: int,
 ) -> int:
-  n = len(seg) >> 1 
+  n = len(seg) >> 1
   assert 0 <= l < size
   i = l + n
   v = e()
@@ -91,50 +91,50 @@ def seg_max_right(
       v = op(v, seg[i])
       i += 1
     return i - n
-  
+
 
 
 S = typing.TypeVar('S')
-@nb.njit 
+@nb.njit
 def seg_op(a: S, b: S) -> S:
   return max(a, b)
 
 
-@nb.njit 
+@nb.njit
 def seg_e() -> S:
   return -(1 << 60)
 
 
-@nb.njit 
+@nb.njit
 def build_seg(a: np.ndarray) -> np.ndarray:
   return seg_build(seg_op, seg_e, a)
 
 
-@nb.njit 
+@nb.njit
 def set_point_seg(
-  seg: np.ndarray, 
-  i: int, 
+  seg: np.ndarray,
+  i: int,
   x: S,
 ) -> typing.NoReturn:
   seg_set(seg, seg_op, i, x)
 
 
-@nb.njit 
+@nb.njit
 def get_range_seg(seg: np.ndarray, l: int, r: int) -> S:
   return seg_get(seg, seg_op, seg_e, l, r)
 
 
-@nb.njit 
+@nb.njit
 def csgraph_to_directed(g: np.ndarray) -> np.ndarray:
   m = len(g)
   g = np.vstack((g, g))
   g[m:, :2] = g[m:, 1::-1]
-  return g 
+  return g
 
 
-@nb.njit 
+@nb.njit
 def sort_csgraph(
-  n: int, 
+  n: int,
   g: np.ndarray,
 ) -> typing.Tuple[np.ndarray, np.ndarray, np.ndarray]:
   sort_idx = np.argsort(g[:, 0], kind='mergesort')
@@ -147,7 +147,7 @@ def sort_csgraph(
 @nb.njit((nb.i8[:], nb.i8[:, :]), cache=True)
 def solve(a: np.ndarray, q: np.ndarray) -> typing.NoReturn:
   seg = build_seg(a)
-  is_ok = lambda x, mx: x < mx 
+  is_ok = lambda x, mx: x < mx
   for i in range(len(q)):
     t, x, y = q[i]
     if t == 1:
@@ -177,4 +177,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-  

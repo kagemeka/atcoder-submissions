@@ -22,7 +22,7 @@ def main():
     graph = coo_matrix((d, (a, b)), shape=(n, n)).tocsr()
     res = minimum_spanning_tree(graph, overwrite=True)
     return int(np.sum(res))
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

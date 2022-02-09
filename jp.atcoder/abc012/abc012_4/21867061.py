@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -88,9 +88,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -145,17 +145,17 @@ class Graph:
     edges = [
       [] for _ in range(n)
     ]
-    self.nodes = nodes 
+    self.nodes = nodes
     self.edges = edges
-  
+
 
   def add_edge(
     self,
     e: Edge,
   ):
-    i = e.from_ 
+    i = e.from_
     self.edges[i].append(e)
-  
+
 
   def add_edges(
     self,
@@ -163,53 +163,53 @@ class Graph:
   ):
     for e in edges:
       self.add_edge(e)
-  
 
-  @property 
+
+  @property
   def size(self):
     return len(self.nodes)
 
 
 
 class FloydWarshall:
-  
+
 
   def __init__(
     self,
     graph: Graph,
   ):
     self.g = graph
-    self.inf = float('inf') 
+    self.inf = float('inf')
 
 
   def __call__(
     self,
   ) -> None:
     self.init_dist_mat()
-    n = self.g.size 
+    n = self.g.size
     for i in range(n):
-      self.mid = i 
+      self.mid = i
       self.support0()
-  
+
 
   def support0(self):
     n = self.g.size
     for i in range(n):
       self.src = i
       self.support1()
-    
+
 
   def support1(self):
-    n = self.g.size 
-    dist = self.dist 
-    k, i = self.mid, self.src 
+    n = self.g.size
+    dist = self.dist
+    k, i = self.mid, self.src
     for j in range(n):
       d = min(
         dist[i][j],
         dist[i][k] + dist[k][j]
       )
       dist[i][j] = d
-    
+
 
   def init_dist_mat(
     self,
@@ -219,24 +219,24 @@ class FloydWarshall:
       [self.inf] * n
       for _ in range(n)
     ]
-    self.dist = dist 
+    self.dist = dist
     for i in range(n):
-      self.i = i 
+      self.i = i
       self.__init_dist()
 
-  
+
   def __init_dist(
     self,
   ):
-    dist = self.dist 
-    i = self.i 
-    dist[i][i] = 0 
+    dist = self.dist
+    i = self.i
+    dist[i][i] = 0
     g = self.g
     for e in g.edges[i]:
       j = e.to
       dist[i][j] = e.weight
 
-  
+
 
 class Problem(
   Solver,
@@ -244,7 +244,7 @@ class Problem(
 
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     n = reader.int()
     m = reader.int()
     a = [
@@ -255,21 +255,21 @@ class Problem(
       a,
     ).reshape(m, 3)
     a[:, :2] -= 1
-    self.n, self.m = n, m 
+    self.n, self.m = n, m
     self.a = a
 
 
   def solve(self):
     self.make_graph()
     self.compute_dist_mat()
-    dist = self.dist 
+    dist = self.dist
     d = min(
       max(d)
       for d in dist
     )
     print(d)
 
-  
+
   def compute_dist_mat(
     self,
   ):
@@ -277,12 +277,12 @@ class Problem(
     fw()
     self.dist = fw.dist
 
-  
+
   def make_graph(
     self,
   ):
-    a = self.a 
-    n = self.n 
+    a = self.a
+    n = self.n
     g = Graph(n)
     for i, j, w in a:
       e = Edge(

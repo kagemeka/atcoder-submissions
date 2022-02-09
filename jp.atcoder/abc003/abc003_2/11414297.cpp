@@ -20,5 +20,5 @@ int main() {
   }
   cout << "You can win" << endl;
   return 0;
-  
+
 }

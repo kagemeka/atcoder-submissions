@@ -24,7 +24,7 @@ def main():
     else:
         allowed_cnt = bi_r(ma, lo)
         res = comb(lo_cnt, allowed_cnt)
-    
+
     yield res
 
 if __name__ == '__main__':

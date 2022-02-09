@@ -30,9 +30,7 @@ fn main() {
 
     let mut a: usize = sc.scan();
     let mut b: usize = sc.scan();
-    
+
     if a > b { std::mem::swap(&mut a, &mut b); }
     writeln!(out, "{}", std::cmp::min(b - a, 10 - b + a)).unwrap();
 }
-
-

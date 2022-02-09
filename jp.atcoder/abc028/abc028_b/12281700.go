@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-  var s string 
+  var s string
   fmt.Scan(&s)
   res := make(map[rune]int)
   for _, c := range s {
@@ -16,6 +16,6 @@ func main() {
     fmt.Print(res[c])
     tail := " "
     if c == 'F' {tail = "\n"}
-    fmt.Print(tail)    
+    fmt.Print(tail)
   }
 }

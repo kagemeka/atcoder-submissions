@@ -17,7 +17,7 @@ def main():
             min_possible = a * (n - 1) + b
             max_possible = b * (n - 1) + a
             ans = max_possible - min_possible + 1
-    
+
     print(ans)
 
 if __name__ == '__main__':

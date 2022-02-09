@@ -15,7 +15,7 @@ def main():
         f_of_f = set()
         for f in friends:
             f_of_f |= set(graph[f])
-        
+
         res = f_of_f - friends - set([i])
         yield len(res)
 

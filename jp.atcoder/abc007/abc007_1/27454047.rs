@@ -30,4 +30,3 @@ fn main() {
     writeln!(out, "{}", n - 1).unwrap();
 
 }
-

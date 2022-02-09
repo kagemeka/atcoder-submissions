@@ -28,12 +28,12 @@ def main():
             if s[i][j] == '#' and not (i, j) in to_be_black:
                 print('impossible')
                 sys.exit()
-    
+
     yield 'possible'
     res = [['.'] * w for _ in range(h)]
     for i, j in cand:
         res[i-1][j-1] = '#'
-    
+
     for i in range(h):
         yield ''.join(res[i])
 

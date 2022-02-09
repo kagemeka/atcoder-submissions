@@ -33,7 +33,7 @@ def main():
         res = 0
         for i in range(l if l % 2 == 1 else l + 1, r + 1, 2):
             res += (prime_table[(i + 1) // 2] if prime_table[i] else 0)
-        
+
         print(res)
 
 

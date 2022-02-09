@@ -15,9 +15,9 @@ def main():
         cnt_a = bi_l(a, i)
         cnt_c = n - bi_r(c, i)
         res += cnt_a * cnt_c
- 
+
     return res
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

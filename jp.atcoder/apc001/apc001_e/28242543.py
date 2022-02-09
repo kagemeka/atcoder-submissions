@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 sys.setrecursionlimit(1 << 20)
 
 
@@ -10,9 +10,9 @@ def main() -> typing.NoReturn:
         a, b = map(int, input().split())
         g[a].append(b)
         g[b].append(a)
-    
-    
-    
+
+
+
     def dfs(u: int, p: int) -> typing.Tuple[int, bool]:
         ok = []
         cnt = []
@@ -27,7 +27,7 @@ def main() -> typing.NoReturn:
                 c = 1
                 deg += 1
             cnt.append(c)
-        
+
         s = sum(cnt)
         if u == 0:
             for i in range(len(cnt)):
@@ -36,11 +36,7 @@ def main() -> typing.NoReturn:
                 s += 1
                 break
         return s, deg == len(cnt) >= 1
-    
+
     print(dfs(0, -1)[0])
 
 main()
-        
-
-            
-            

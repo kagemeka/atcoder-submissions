@@ -11,7 +11,7 @@ def main():
 
     for val in a:
         cnt[val] += 1
-    
+
     ans = 0
     for i in range(l, r):
         ans = max(ans, cnt[i-1] + cnt[i] + cnt[i+1])

@@ -15,7 +15,7 @@ def main():
             return 0
 
     return pow(2, n // 2, MOD)
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

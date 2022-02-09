@@ -12,6 +12,6 @@ def main():
                 ans = alphabet[j] + str(i+1)
                 print(ans)
                 sys.exit()
-                
+
 if __name__ == '__main__':
     main()

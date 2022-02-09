@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -15,7 +15,7 @@ def main() -> typing.NoReturn:
             y_list.append(y + hi)
             y += 2 * hi
             hi -= 1
-        
+
         for y in y_list:
             if lo >= hi: break
             res[lo] = (x0 + 2 * (n + 1) - lo - 1, y)
@@ -24,14 +24,12 @@ def main() -> typing.NoReturn:
     print(res)
     for x, y in res:
         print(x, y)
-    
+
     for i in range(n):
         x, y = res[i]
         r = i + 1
         assert 0 <= x - r and x + r <= w and 0 <= y - r and y + r <= h
-        
+
 
 
 main()
-        
-        

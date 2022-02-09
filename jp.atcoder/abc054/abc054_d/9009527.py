@@ -23,7 +23,7 @@ def main():
     ans = INF
     for i in range(1, min(sa//ma, sb//mb)+1):
         ans = min(ans, res[n][ma * i][mb * i])
-    
+
     if ans == INF:
         return -1
     else:

@@ -1,5 +1,5 @@
-import sys 
-import numpy as np 
+import sys
+import numpy as np
 
 def A():
   n = int(sys.stdin.readline().rstrip())
@@ -29,7 +29,7 @@ def C():
     for i, j in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
       i += y; j += x
       if maze[i][j] == '#' or dist[i, j] != np.inf:
-        continue 
+        continue
       dist[i, j] = dist[y, x] + 1
       queue.append((i, j))
   print(int(dist[gy, gx]))
@@ -40,7 +40,7 @@ def D():
 
 
 if __name__ == "__main__":
-  # A() 
+  # A()
   # B()
   C()
   D()

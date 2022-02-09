@@ -7,5 +7,5 @@ int main() {
   string ans = x < 1200 ? "ABC" : "ARC";
   cout << ans << endl;
   return 0;
-  
+
 }

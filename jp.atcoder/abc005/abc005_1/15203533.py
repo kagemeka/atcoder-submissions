@@ -1,4 +1,4 @@
-import sys 
+import sys
 
 def A():
   x, y = map(int, sys.stdin.readline().split())
@@ -20,7 +20,7 @@ def D():
 
 
 if __name__ == "__main__":
-  A() 
+  A()
   B()
   C()
   D()

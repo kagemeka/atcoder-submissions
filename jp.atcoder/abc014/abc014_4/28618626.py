@@ -35,7 +35,7 @@ def query_on_path_binary_lifting(
             depth[v] = depth[u] + 1
             value_to_parent[v] = value
             que.append(v)
-    
+
     k = max(1, max(depth).bit_length())
     ancestor = [[n] * n for _ in range(k)]
     ancestor[0] = parent
@@ -49,7 +49,7 @@ def query_on_path_binary_lifting(
                 value_to_ancestor[i][j],
                 value_to_ancestor[i][ancestor[i][j]],
             )
-    
+
     def get_value(u: int, v: int) -> S:
         value = monoid.e()
         if depth[u] > depth[v]:
@@ -71,7 +71,7 @@ def query_on_path_binary_lifting(
         value = monoid.op(value, value_to_parent[u])
         value = monoid.op(value, value_to_parent[v])
         return value
-    
+
     return get_value
 
 
@@ -80,21 +80,19 @@ def main() -> None:
     edges = [tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(n - 1)]
     q = int(input())
     res = []
-    
+
     get = query_on_path_binary_lifting(
         Monoid(lambda x, y: x + y, lambda: 0),
         [(u, v, 1) for u, v in edges],
     )
-    
+
     for _ in range(q):
         u, v = map(int, input().split())
         u -= 1
         v -= 1
         res.append(get(u, v) + 1)
 
-    
+
     print(*res, sep='\n')
 
 main()
-
-    

@@ -1,4 +1,4 @@
-import typing 
+import typing
 import collections
 
 def main() -> typing.NoReturn:
@@ -7,7 +7,7 @@ def main() -> typing.NoReturn:
     s = [0] * (n + 1)
     for i in range(n):
         s[i + 1] = (s[i] + a[i]) % m
-    
+
     cnt = collections.defaultdict(int)
     tot = 0
     for i in range(n + 1):
@@ -16,4 +16,3 @@ def main() -> typing.NoReturn:
     print(tot)
 
 main()
-    

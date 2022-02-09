@@ -1,12 +1,12 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-# import numba as nb 
+# import numba as nb
 import functools
 
-# @nb.njit 
+# @nb.njit
 def bit_count(n: int) -> int:
-  cnt = 0 
+  cnt = 0
   while n:
     cnt += n & 1
     n >>= 1
@@ -20,11 +20,11 @@ def solve(b: np.ndarray, c: np.ndarray) -> typing.NoReturn:
 
 
   def calc_chokudai_score(board: int) -> typing.NoReturn:
-    s = 0 
+    s = 0
     for y in range(2):
       for x in range(3):
         i = y * 3 + x
-        j = i + 3 
+        j = i + 3
         s += b[y][x] * (board >> i & 1 == board >> j & 1)
     for y in range(3):
       for x in range(2):
@@ -32,7 +32,7 @@ def solve(b: np.ndarray, c: np.ndarray) -> typing.NoReturn:
         j = i + 1
         s += c[y][x] * (board >> i & 1 == board >> j & 1)
     return s
-  
+
   n = 9
 
   @functools.lru_cache(maxsize=None)
@@ -40,7 +40,7 @@ def solve(b: np.ndarray, c: np.ndarray) -> typing.NoReturn:
     used_cnt = bit_count(used)
     if used_cnt == n:
       return calc_chokudai_score(board)
-  
+
     turn = (9 - used_cnt) & 1
     cand = []
     for i in range(n):

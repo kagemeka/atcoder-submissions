@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -39,7 +39,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	n := io.ReadInt()
 	k := io.ReadInt()
 	t := make([][]int, n)
@@ -49,7 +49,7 @@ func (
 			t[i][j] = io.ReadInt()
 		}
 	}
-	p.n, p.k, p.t = n, k, t 	
+	p.n, p.k, p.t = n, k, t
 }
 
 
@@ -57,7 +57,7 @@ func (
 	p *Problem,
 ) Solve() {
 	p.a = []int{0}
-	n := p.n 
+	n := p.n
 	for i := 0; i < n; i++ {
 		p.i = i
 		p.calcXor()
@@ -78,13 +78,13 @@ func (
 ) calcXor() {
 	t := p.t[p.i]
 	a := p.a
-	b := make([]int, 0) 
+	b := make([]int, 0)
 	for _, x := range a {
 		for _, y := range t {
 			b = append(b, x ^ y)
 		}
 	}
-	p.a = b	
+	p.a = b
 }
 
 

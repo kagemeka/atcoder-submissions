@@ -6,5 +6,5 @@ int main() {
   cin >> n >> a >> b;
   cout << min(n * a, b) << endl;
   return 0;
-  
+
 }

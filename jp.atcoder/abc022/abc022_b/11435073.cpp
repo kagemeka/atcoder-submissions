@@ -7,7 +7,7 @@ int main() {
 
   int n;
   cin >> n;
-  
+
   unordered_set<int> visited;
   int cnt = 0;
   int a;

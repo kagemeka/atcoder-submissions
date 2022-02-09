@@ -10,6 +10,6 @@ b = convert(b)
 def main():
     ans = 'D' if a ^ b else 'H'
     print(ans)
-    
+
 if __name__ ==  '__main__':
     main()

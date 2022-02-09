@@ -9,7 +9,7 @@ for i in range(1, n):
             previous = previous + a[i]
         else:
             times += 1 - (previous + a[i])
-            previous = 1      
+            previous = 1
     elif previous > 0:
         if previous + a[i] < 0:
             previous = previous + a[i]
@@ -31,7 +31,7 @@ for i in range(1, n):
             previous = previous + a[i]
         else:
             times2 += 1 - (previous + a[i])
-            previous = 1      
+            previous = 1
     elif previous > 0:
         if previous + a[i] < 0:
             previous = previous + a[i]
@@ -52,7 +52,7 @@ for i in range(1, n):
             previous = previous + a[i]
         else:
             times3 += 1 - (previous + a[i])
-            previous = 1      
+            previous = 1
     elif previous > 0:
         if previous + a[i] < 0:
             previous = previous + a[i]
@@ -61,4 +61,3 @@ for i in range(1, n):
             previous = -1
 
 print(min(times, times2, times3))
-

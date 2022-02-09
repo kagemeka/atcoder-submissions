@@ -8,9 +8,9 @@ def main():
     res = 0
     if c < 2 * s:
         return m // 2
-    
+
     res += s
-    c -= 2 * s 
+    c -= 2 * s
     res += c // 4
     return res
 

@@ -8,7 +8,7 @@ s = sys.stdin.readline().rstrip()
 def main():
     formula = [None] * 7
     formula[::2] = list(s)
-    
+
     for op in product(ops, repeat=3):
         f = formula.copy()
         f[1::2] = list(op)

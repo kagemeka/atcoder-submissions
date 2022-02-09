@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit
@@ -28,15 +28,15 @@ def euler_tour(
   return tour, parent, depth
 
 
-@nb.njit 
+@nb.njit
 def bit_length(n: int) -> int:
-  l = 0 
+  l = 0
   while 1 << l <= n: l += 1
   return l
 
 
 S = typing.TypeVar('S')
-@nb.njit 
+@nb.njit
 def sparse_table_build(
   op: typing.Callable[[S, S], S],
   a: np.ndarray,
@@ -52,11 +52,11 @@ def sparse_table_build(
   return table
 
 
-@nb.njit 
+@nb.njit
 def sparse_table_get(
-  table: np.ndarray, 
+  table: np.ndarray,
   op: typing.Callable[[S, S], S],
-  l: int, 
+  l: int,
   r: int,
 ) -> S:
   k = bit_length(r - l) - 1
@@ -64,14 +64,14 @@ def sparse_table_get(
 
 
 
-@nb.njit 
+@nb.njit
 def sparse_table_op(x: S, y: S) -> S:
-  # return x.copy() if x[0] <= y[0] else y.copy() 
-  return x if x[0] <= y[0] else y 
-  
+  # return x.copy() if x[0] <= y[0] else y.copy()
+  return x if x[0] <= y[0] else y
 
 
-@nb.njit 
+
+@nb.njit
 def lca_preprocess(
   n: int,
   g: np.ndarray,
@@ -91,10 +91,10 @@ def lca_preprocess(
   a[:, 0], a[:, 1] = depth[tour], tour
   table = sparse_table_build(sparse_table_op, a)
   return first_idx, table
- 
 
 
-@nb.njit 
+
+@nb.njit
 def lca(
   first_idx: np.ndarray,
   sparse_table: np.ndarray,
@@ -108,17 +108,17 @@ def lca(
 
 
 
-@nb.njit 
+@nb.njit
 def csgraph_to_directed(g: np.ndarray) -> np.ndarray:
   m = len(g)
   g = np.vstack((g, g))
   g[m:, :2] = g[m:, 1::-1]
-  return g 
+  return g
 
 
-@nb.njit 
+@nb.njit
 def sort_csgraph(
-  n: int, 
+  n: int,
   g: np.ndarray,
 ) -> typing.Tuple[np.ndarray, np.ndarray, np.ndarray]:
   sort_idx = np.argsort(g[:, 0], kind='mergesort')
@@ -140,7 +140,7 @@ def solve(xy: np.ndarray, ab: np.ndarray) -> typing.NoReturn:
   def dist(u, v):
     l = lca(first_idx, table, u, v)
     return depth[u] + depth[v] - 2 * depth[l]
-    
+
 
   for i in range(len(ab)):
     a, b = ab[i]

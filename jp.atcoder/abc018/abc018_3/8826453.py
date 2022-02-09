@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 
 I = np.array(sys.stdin.read().split())
 R, C, K = I[:3].astype(np.int64)

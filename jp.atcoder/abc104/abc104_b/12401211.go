@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-  var s string 
+  var s string
   fmt.Scan(&s)
   res := "AC"
   if s[0] == 'A' {

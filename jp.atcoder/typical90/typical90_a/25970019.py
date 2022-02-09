@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -15,11 +15,11 @@ def solve(
   a = np.hstack((a, np.array([l])))
 
   def possible(x):
-    cnt = 0 
-    s = 0 
+    cnt = 0
+    s = 0
     for v in a:
-      if v - s < x: continue 
-      s = v 
+      if v - s < x: continue
+      s = v
       cnt += 1
     return cnt >= k + 1
 
@@ -31,9 +31,9 @@ def solve(
       if possible(x):
         lo = x
       else:
-        hi = x 
+        hi = x
     return lo
-  
+
 
   print(binary_search())
 

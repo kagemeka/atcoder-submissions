@@ -31,4 +31,3 @@ for c, m in dict(counts).items():
     ans += c * m
 
 print(ans)
-

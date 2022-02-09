@@ -5,7 +5,7 @@ def main():
     n, s = sys.stdin.read().split()
 
     s = '.' + s
-    
+
     # 左右から一度ずつチェック
     # 左から
     count = 0
@@ -26,7 +26,7 @@ def main():
                     count -= 1
                 else:
                     break
-    
+
     s = s.replace('.', '') + '.'
     if count >= 1:
         s = '(' * count + s
@@ -50,14 +50,14 @@ def main():
                     count -= 1
                 else:
                     break
-    
+
     s = s.replace('.', '')
     if count >= 1:
         s = s + ')' * count
-        
+
     print(s)
 
-            
+
 
 if __name__ == "__main__":
     main()

@@ -12,7 +12,7 @@ def main():
         t = max(t_a, t_b)
         c_a = a * t
         c_b = b * t
-    
+
     ans = c_a + c_b
     return ans
 

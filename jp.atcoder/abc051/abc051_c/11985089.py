@@ -9,6 +9,6 @@ def main():
   res += 'UL'
   res += 'U' * (dy + 1) + 'R' * (dx + 1) + 'D' * (dy + 1) + 'L' * dx
   print(res)
-   
+
 if __name__ == '__main__':
   main()

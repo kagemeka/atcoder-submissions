@@ -30,12 +30,11 @@ fn main() {
 
 
     let n: usize = sc.scan();
-    for i in 1usize..10 { 
+    for i in 1usize..10 {
         if n % i != 0 { continue; }
         let j = n / i;
         if j >= 10 { continue; }
         writeln!(out, "{} x {}", i, j).unwrap();
     }
-    
-}
 
+}

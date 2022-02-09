@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -21,7 +21,7 @@ def solve(
     d1 = np.sqrt((gx - x) ** 2 + (gy - y) ** 2)
     if d0 + d1 <= v * t:
       print('YES')
-      return 
+      return
   print('NO')
 
 

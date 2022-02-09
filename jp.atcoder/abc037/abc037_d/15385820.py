@@ -13,13 +13,13 @@ def D():
     for y, x in [(i-1, j), (i, j-1), (i+1, j), (i, j+1)]:
       if 0<=y<h and 0<=x<w and a[y][x]<val:
         cnt += paths(y, x)
-    cnt %= MOD 
+    cnt %= MOD
     res[(i, j)] = cnt
-    return cnt 
+    return cnt
   for i in range(h):
     for j in range(w):
       tot += paths(i, j)
-      tot %= MOD 
+      tot %= MOD
   print(tot)
 
 if __name__ == '__main__':

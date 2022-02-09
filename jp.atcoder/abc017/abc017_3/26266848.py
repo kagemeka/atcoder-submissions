@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -13,7 +13,7 @@ def solve(lrs: np.ndarray, m: int) -> typing.NoReturn:
     l, r, s = lrs[i]
     a[l] += s
     a[r + 1] -= s
-    tot += s 
+    tot += s
   a = a[:m].cumsum()
   print(tot - a.min())
 

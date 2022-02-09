@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-  var s, t string 
+  var s, t string
   fmt.Scan(&s, &t)
   rs := []rune(s)
   n := len(rs)

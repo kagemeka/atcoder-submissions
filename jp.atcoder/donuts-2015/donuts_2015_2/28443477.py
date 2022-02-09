@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -42,8 +42,8 @@ def main() -> None:
         b[i], _, *c = map(int, input().split())
         for j in c:
             t[i] |= 1 << (j - 1)
-    
-    
+
+
     mx = 0
     for s in range(1 << n):
         tot = 0
@@ -52,11 +52,10 @@ def main() -> None:
             if ~s >> i & 1: continue
             cnt += 1
             tot += a[i]
-        if cnt != 9: continue 
+        if cnt != 9: continue
         for i in range(m):
             tot += b[i] * (popcount(t[i] & s) >= 3)
         mx = max(mx, tot)
     print(mx)
 
 main()
-            

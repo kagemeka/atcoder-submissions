@@ -11,7 +11,7 @@ def main():
         y = (1 + n * e - (b + e) * x - h + (d + e) - 1) // (d + e)
         if y <= n - x:
             costs.append(cost(x, max(y, 0)))
-    
+
     return min(costs) if costs else d * n
 
 if __name__ == '__main__':

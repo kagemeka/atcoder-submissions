@@ -11,7 +11,7 @@ for i in range(1, n):
             sum_prefix += a[i]
         else:
             times += 1 - (sum_prefix + a[i])
-            sum_prefix = 1      
+            sum_prefix = 1
     elif sum_prefix > 0:
         if sum_prefix + a[i] < 0:
             sum_prefix += a[i]
@@ -33,7 +33,7 @@ for i in range(1, n):
             sum_prefix = sum_prefix + a[i]
         else:
             times2 += 1 - (sum_prefix + a[i])
-            sum_prefix = 1      
+            sum_prefix = 1
     elif sum_prefix > 0:
         if sum_prefix + a[i] < 0:
             sum_prefix = sum_prefix + a[i]
@@ -42,4 +42,3 @@ for i in range(1, n):
             sum_prefix = -1
 
 print(min(times, times2))
-

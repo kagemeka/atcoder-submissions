@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -11,7 +11,7 @@ import (
 
 type Problem struct {
 	io *IO
-	n, x int 
+	n, x int
 	a []int
 }
 
@@ -27,14 +27,14 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	n := io.ReadInt()
 	p.x = io.ReadInt()
 	a := make([]int, n)
 	for i := 0; i < n; i++ {
 		a[i] = io.ReadInt()
 	}
-	p.n = n 
+	p.n = n
 	p.a = a
 }
 
@@ -42,8 +42,8 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	n, x := p.n, p.x 
-	a := p.a 
+	n, x := p.n, p.x
+	a := p.a
 	tot := 0
 	for i := 0; i < n; i++ {
 		if ^x >> i & 1 == 1 {

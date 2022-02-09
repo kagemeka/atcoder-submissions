@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 from scipy import signal
 
@@ -25,7 +25,7 @@ def mod_convolve(
 
 
 mod = 998_244_353
-  
+
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())

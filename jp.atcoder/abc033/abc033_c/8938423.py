@@ -21,7 +21,7 @@ def main():
                     flag = False
 
     return cnt
-            
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

@@ -11,7 +11,7 @@ def main():
             if p[i+1] == i + 1:
                 i += 1
         i += 1
-        
+
     print(cnt)
 
 if __name__ == '__main__':

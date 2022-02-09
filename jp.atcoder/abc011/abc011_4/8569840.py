@@ -9,7 +9,7 @@ def main():
     if x % d != 0 or y % d != 0:
         print(0.0)
         sys.exit()
-    
+
     if x + y > n * d:
         print(0.0)
         sys.exit()
@@ -22,17 +22,17 @@ def main():
         if n % 2 == 0:
             print(0.0)
             sys.exit()
-    
+
     r, u = x // d, y // d
     remainder = n - r - u
-    
+
     s =  remainder // 2
 
     ans = 0
     for i in range(s+1):
         ans += comb(n, r + i, exact=True) * comb(n - (r + i), i, exact=True) * comb(n - (r + i * 2), u + (s - i), exact=True)
         # 右 x 左 x 上(下は残りなので書かなくてもいい) に何回行くか
-    
+
     ans *= (1 / 4) ** n
     print(ans)
 

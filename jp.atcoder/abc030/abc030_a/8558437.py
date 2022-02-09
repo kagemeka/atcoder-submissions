@@ -13,7 +13,7 @@ def main():
         ans = 'TAKAHASHI'
     elif takahashi_p < aoki_p:
         ans = 'AOKI'
-    
+
     print(ans)
 
 

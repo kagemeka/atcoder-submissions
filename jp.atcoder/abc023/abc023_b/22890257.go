@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -35,13 +35,13 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	n := p.n 
-	io := p.io 
+	n := p.n
+	io := p.io
 	if n & 1 == 0 {
 		io.Write(-1)
 		return
 	}
-	s := p.s 
+	s := p.s
 	m := n / 2
 	i := m % 3
 	t := "bac"

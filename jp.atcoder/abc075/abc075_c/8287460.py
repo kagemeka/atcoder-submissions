@@ -12,7 +12,7 @@ while still_exist:
             if i % 2 == 0: del ab[i:i+2]
             else: del ab[i-1:i+1]
             bridges += 1
-            break 
+            break
     aft = len(ab)
     if bef == aft: still_exist = False
 

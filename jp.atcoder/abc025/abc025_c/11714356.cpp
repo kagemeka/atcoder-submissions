@@ -9,7 +9,7 @@ vector<int> optimize(vector<vector<int>> board, int moves) {
     int tot_1 = 0, tot_2 = 0;
     for (int i = 0; i < 2; i++) {
       for (int j = 0; j < 3; j++) {
-        (board[i][j] == board[i+1][j]) ? tot_1 += b[i][j] : tot_2 += b[i][j]; 
+        (board[i][j] == board[i+1][j]) ? tot_1 += b[i][j] : tot_2 += b[i][j];
       }
     }
     for (int i = 0; i < 3; i++) {

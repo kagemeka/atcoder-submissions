@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -39,7 +39,7 @@ func (
 	cnt := 0
 	for _, s := range a {
 		if strings.Contains(
-			s, 
+			s,
 			"0",
 		) {
 			continue

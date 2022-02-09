@@ -6,6 +6,6 @@ def main():
     else:
         ans = 'Red'
     print(ans)
-    
+
 if __name__ == '__main__':
     main()

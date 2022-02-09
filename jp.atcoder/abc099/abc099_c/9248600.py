@@ -30,7 +30,7 @@ def main():
                 bit9[i] = 8
                 i += 1
             else:
-                break        
+                break
 
         res = min(res, sum(bit6) + sum(bit9))
 

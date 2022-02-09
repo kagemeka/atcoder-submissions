@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-07 23:33:56(JST)
 ## internal modules
 import sys
@@ -12,8 +12,8 @@ import sys
 # import functools
 # import operator
 ## external modules
-# import scipy.special   # if use comb function on AtCoder, 
-# import scipy.misc      # select scipy.misc.comb (old version) 
+# import scipy.special   # if use comb function on AtCoder,
+# import scipy.misc      # select scipy.misc.comb (old version)
 
 def main():
     n = int(sys.stdin.readline().rstrip())
@@ -27,7 +27,7 @@ def main():
             if l in s2:
                 count += 1
         max_count = max(count, max_count)
-    
+
     print(max_count)
 
 

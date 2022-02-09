@@ -14,20 +14,20 @@ def main():
         a[0] *= A
         b -= 1
         a = sorted(a)
-    
+
     for i in range(n):
         a[i] %= MOD
 
     if b == 0:
         print(*a, sep='\n')
         sys.exit()
-    
+
     q, r = divmod(b, n)
     for i in range(n):
         a[i] = a[i] * pow(A, q, MOD) % MOD
     for i in range(r):
         a[i] = a[i] * A % MOD
-    
+
     res = a[r:] + a[:r]
     print(*res, sep='\n')
 

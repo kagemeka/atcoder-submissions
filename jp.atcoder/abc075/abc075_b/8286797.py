@@ -23,4 +23,3 @@ for i in range(1, h + 1):
     ans.append(s)
 
 for s in ans: print(s)
-

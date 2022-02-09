@@ -14,7 +14,7 @@ def main():
             s = (s_prime[:i] + t + s_prime[i+lt:]).replace('?', 'a')
             return s
     return 'UNRESTORABLE'
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

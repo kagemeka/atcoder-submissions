@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -25,8 +25,8 @@ func Reverse(
 
 type Problem struct {
 	io *IO
-	n int 
-	r []int 
+	n int
+	r []int
 }
 
 
@@ -41,7 +41,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	n := io.ReadInt()
 	r := make([]int, n)
 	for i := 0; i < n; i++ {
@@ -54,7 +54,7 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	n, r := p.n, p.r 
+	n, r := p.n, p.r
 	sort.Ints(r)
 	Reverse(r)
 	var tot float64
@@ -64,7 +64,7 @@ func (
 		if i & 1 == 1 {
 			s *= -1
 		}
-		tot += s 
+		tot += s
 	}
 	p.io.Write(tot)
 }

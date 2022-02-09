@@ -1,11 +1,11 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 # dense graph $O(V^2)$
-@nb.njit 
+@nb.njit
 def maximum_flow_dinic(
   g: np.ndarray,
   src: int,
@@ -14,7 +14,7 @@ def maximum_flow_dinic(
   n = len(g)
   inf = 1 << 60
   level = np.full(n, -1, np.int32)
-  
+
   def _update_level():
     level[:] = -1
     level[src] = 0
@@ -66,16 +66,16 @@ def maximum_flow_dinic(
     _update_level()
     if level[sink] == -1: return flow
     flow += _compute_flow()
-      
-  
+
+
 
 
 
 
 @nb.njit((nb.i8, nb.i8[:], nb.i8[:, :]), cache=True)
 def solve(
-  n: int, 
-  p: np.ndarray, 
+  n: int,
+  p: np.ndarray,
   ab: np.ndarray,
 ) -> typing.NoReturn:
   n += 1
@@ -87,7 +87,7 @@ def solve(
   v = maximum_flow_dinic(g, 0, n - 1)
   print(v)
 
-  
+
 
 
 def main() -> typing.NoReturn:
@@ -99,7 +99,7 @@ def main() -> typing.NoReturn:
   ab = np.array(
     sys.stdin.read().split(),
     dtype=np.int64,
-  ).reshape(e, 2) 
+  ).reshape(e, 2)
   solve(n, p, ab)
 
 

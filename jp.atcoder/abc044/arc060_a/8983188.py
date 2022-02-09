@@ -6,7 +6,7 @@ n, a, *x = map(int, sys.stdin.read().split())
 def main():
     for i in range(n):
         x[i] -= a
-    
+
     c = defaultdict(int)
     c[0] = 1
     for i in x:

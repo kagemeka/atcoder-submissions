@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-09 15:46:24(JST)
 ### modules
 ## from standard library
@@ -13,9 +13,9 @@ import math
 # import functools
 # import operator
 ## from external libraries
-# import scipy.special   
-# import scipy.misc      
-# import numpy as np 
+# import scipy.special
+# import scipy.misc
+# import numpy as np
 def divisors(n):
     divisors = []
     for i in range(1, n + 1):
@@ -26,12 +26,12 @@ def divisors(n):
 
 def main():
     n = int(sys.stdin.readline().rstrip())
-    
+
     count = 0
     for i in range(1, n + 1, 2):
         if len(divisors(i)) == 8:
             count += 1
-    
+
     print(count)
 
 

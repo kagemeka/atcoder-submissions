@@ -14,7 +14,7 @@ def main():
         if d > dist:
             dist = d
             u = v
-    
+
     for v in range(2, n + 1):
         if v != u:
             d = ask(u, v)
@@ -23,7 +23,7 @@ def main():
 
     diameter = dist
     return '! {0}'.format(diameter)
-            
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

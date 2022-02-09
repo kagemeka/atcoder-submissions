@@ -57,7 +57,7 @@ import (
 
 
 
-type Ints []int 
+type Ints []int
 
 
 func (
@@ -73,7 +73,7 @@ func (
 	n := len(a)
 	return sort.Search(n, f)
 }
-	
+
 
 
 func (
@@ -196,27 +196,27 @@ func (
 	for i := 0; i < m; i++ {
 		b[i] = io.ReadInt()
 	}
-	p.n, p.a = n, a 
-	p.m, p.b = m, b 
+	p.n, p.a = n, a
+	p.m, p.b = m, b
 }
 
 
 func (
 	p *Problem,
 ) Solve() {
-	
-	n, a, x := p.n, p.a, p.x 
-	m, b, y := p.m, p.b, p.y 
-	
+
+	n, a, x := p.n, p.a, p.x
+	m, b, y := p.m, p.b, p.y
+
 	t := 0
 	for i := 0; i < n + m; i++ {
-		a := a 
+		a := a
 		x := x
-		n := n 
+		n := n
 		if i & 1 == 1 {
 			a = b
 			x = y
-			n = m 
+			n = m
 		}
 		j := a.BisectLeft(t)
 		if j == n {

@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -12,10 +12,10 @@ import (
 
 type Problem struct {
 	io *IO
-	n int 
-	b, a []int 
-	salary int 
-	i int 
+	n int
+	b, a []int
+	salary int
+	i int
 }
 
 
@@ -30,7 +30,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	n := io.ReadInt()
 	b := make([]int, n)
 	for i := 1; i < n; i++ {
@@ -54,13 +54,13 @@ func (
 	i := p.i
 	sals := make([]int, 0)
 	s := 1
-	n := p.n 
+	n := p.n
 	a := p.a[i]
 	for i := 0; i < n; i++ {
 		if ^a >> i & 1 == 1 {
 			continue
 		}
-		p.i = i 
+		p.i = i
 		p.dfs()
 		sals = append(
 			sals,
@@ -75,7 +75,7 @@ func (
 	}
 	sort.Ints(sals)
 	s += sals[0] + sals[n - 1]
-	p.salary = s 
+	p.salary = s
 }
 
 func (
@@ -87,7 +87,7 @@ func (
 	for i, x := range b[1:] {
 		a[x] |= 1 << (i + 1)
 	}
-	p.a = a 
+	p.a = a
 }
 
 

@@ -23,14 +23,14 @@ def main():
                 r //= 2
             else:
                 r = r // 2 - 1
-            
+
             if l & 1:
                 l = l // 2 + 1
             else:
                 l // 2
-        
+
         cnt += 1
-        
+
     return 'Takahashi' if flag else 'Aoki'
 
 if __name__ == '__main__':

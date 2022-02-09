@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -12,7 +12,7 @@ import (
 
 
 type Int int
- 
+
 
 func (
 	x Int,
@@ -31,7 +31,7 @@ func (
 type PI [2]int
 
 
-type Cache map[PI]int 
+type Cache map[PI]int
 
 
 type Problem struct {
@@ -57,7 +57,7 @@ func (
 	p *Problem,
 ) Input() {
 	const k = 6
-	n := p.n 
+	n := p.n
 	b := make([]int, n)
 	c := make([]int, n)
 	io := p.io
@@ -80,13 +80,13 @@ func (
 	)
 	p.dfs()
 	io := p.io
-	b, c := p.b, p.c 
+	b, c := p.b, p.c
 	tot := 0
-	n := p.n 
+	n := p.n
 	for i := 0; i < n; i++ {
 		tot += b[i] + c[i]
 	}
-	sa := p.score 
+	sa := p.score
 	sb := tot - sa
 	io.Write(sa)
 	io.Write(sb)
@@ -97,7 +97,7 @@ func (
 func (
 	p *Problem,
 ) dfs() {
-	n := p.n 
+	n := p.n
 	flg, bits := p.flg, p.bits
 	cache := p.cache
 	key := PI{flg, bits}
@@ -128,14 +128,14 @@ func (
 	}
 	p.flg, p.bits = flg, bits
 	sort.Ints(scores)
-	var score int 
+	var score int
 	if isOdd {
 		score = scores[0]
 	} else {
 		n := len(scores)
 		score = scores[n - 1]
 	}
-	cache[key] = score 
+	cache[key] = score
 	p.score = score
 }
 
@@ -146,7 +146,7 @@ func (
 ) calcScore() {
 	bits := p.bits
 	score := 0
-	b, c := p.b, p.c 
+	b, c := p.b, p.c
 	n := p.n
 	for i := 0; i < 6; i++ {
 		b1 := bits >> i & 1
@@ -165,7 +165,7 @@ func (
 	}
 	p.score = score
 }
-			
+
 
 
 

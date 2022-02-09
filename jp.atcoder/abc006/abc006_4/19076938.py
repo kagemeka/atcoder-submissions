@@ -1,10 +1,10 @@
 def read():
-  import sys 
+  import sys
   return sys.stdin.buffer.read()
 
 
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
@@ -15,7 +15,7 @@ def read_int():
 
 def read_ints():
   *ints, = map(
-    int, 
+    int,
     read().split(),
   )
   return ints
@@ -27,7 +27,7 @@ def longest_increasing_sequence(a):
   )
   inf = float('inf')
   lis = [inf] * len(a)
-  for x in a: 
+  for x in a:
     lis[bisect_left(lis, x)] = x
   return lis
 

@@ -12,7 +12,7 @@ func (p runeSlice) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
 func reverseSortRuneSlice(a []rune) {sort.Sort(sort.Reverse(runeSlice(a)))}
 
 func main() {
-  var s, t string 
+  var s, t string
   fmt.Scan(&s, &t)
   rs := []rune(s)
   rt := []rune(t)

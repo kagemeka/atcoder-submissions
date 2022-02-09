@@ -30,7 +30,7 @@ func (
 		os.Stdin,
 	)
 	scanner.Buffer(
-		[]byte{}, 
+		[]byte{},
 		MaxBuffer,
 	)
 	scanner.Split(
@@ -88,7 +88,7 @@ func (
 func (
 	io *IO,
 ) ScanInt() Int {
-	s := string(io.Scan())	
+	s := string(io.Scan())
 	v, _ := strconv.Atoi(s)
 	return Int(v)
 }
@@ -124,7 +124,7 @@ func (
 		cnt += n & 1
 		n >>= 1
 	}
-	return 
+	return
 }
 
 
@@ -134,7 +134,7 @@ func (
 	Int,
 ){
 	if n == 0 {
-		return 1 
+		return 1
 	}
 	a := i.Pow(n >> 1)
 	a *= a
@@ -146,7 +146,7 @@ func (
 
 
 
-type String string 
+type String string
 
 
 
@@ -167,7 +167,7 @@ func (
 type Solver interface{
 	Init()
 	Prepare()
-	Solve()	
+	Solve()
 }
 
 
@@ -181,7 +181,7 @@ func Run(s Solver) {
 
 type Problem struct {
 	io *IO
-	m Int 
+	m Int
 }
 
 
@@ -197,30 +197,30 @@ func (
 func (
 	p *Problem,
 ) Prepare() {
-	io := p.io 
+	io := p.io
 	m := io.ScanInt()
-	p.m = m 
+	p.m = m
 }
 
 
 func (
 	p *Problem,
 ) Solve() {
-	m := p.m 
+	m := p.m
 	var vv Int
 	if m < 100 {
 		vv = 0
-	} else 
+	} else
 	if m <= 5_000 {
 		vv = m * 10
-	} else 
+	} else
 	if m <= 30_000 {
 		vv = m + 50 * 1000
-	} else 
+	} else
 	if m <= 70_000 {
-		vv = 
-			(m - 30 * 1000) / 
-			5 + 80 * 1000 
+		vv =
+			(m - 30 * 1000) /
+			5 + 80 * 1000
 	} else {
 		vv = 89_000
 	}
@@ -238,4 +238,3 @@ func main() {
 	p := new(Problem)
 	Run(p)
 }
-

@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 import numba as nb
 
@@ -13,19 +13,19 @@ def fft(
   inverse: bool=False
 ) -> np.ndarray:
   n = a.size
-  if n == 1: return a.copy() 
+  if n == 1: return a.copy()
   h = 1
   while 1 << h < n: h += 1
   assert 1 << h == n
 
   b = fft(a[::2].copy(), inverse)
   c = fft(a[1::2].copy(), inverse)
-  
+
   a = np.zeros(n, dtype=np.complex128)
   sign = -1 + 2 * inverse
   zeta = np.exp(sign * 2j * np.pi / n * np.arange(n))
   m = n // 2
-  a[:m] = a[m:] = c 
+  a[:m] = a[m:] = c
   a *= zeta
   a[:m] += b; a[m:] += b
   return a
@@ -49,7 +49,7 @@ def convolve(
   while m < n: m <<= 1
   na = np.zeros(m, dtype=np.complex128)
   nb = np.zeros(m, dtype=np.complex128)
-  na[:a.size] = a 
+  na[:a.size] = a
   nb[:b.size] = b
   a, b = na, nb
   a = fft(a, inverse=False)
@@ -71,7 +71,7 @@ def solve(
   a = np.hstack((np.array([0]), a))
   b = np.hstack((np.array([0]), b))
   c = convolve(a, b)
-  n = a.size 
+  n = a.size
   for x in c[1:2 * n + 1]:
     print(x)
 

@@ -8,6 +8,6 @@ def main(x):
         cnt += 1
         x *= 2
     print(cnt)
-        
+
 if __name__ ==  '__main__':
     main(x)

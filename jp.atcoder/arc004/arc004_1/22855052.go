@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -195,7 +195,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	n := io.ReadInt()
 	points := make([]Point, n)
 	for i := 0; i < n; i++ {
@@ -203,7 +203,7 @@ func (
 		y := io.ReadInt()
 		points[i] = Point{x, y}
 	}
-	p.n = n 
+	p.n = n
 	p.points = points
 }
 
@@ -221,7 +221,7 @@ func (
 func (
 	p *Problem,
 ) calcDist() {
-	n := p.n 
+	n := p.n
 	for i := 0; i < n - 1; i++ {
 		p.i = i
 		p.calcDistSupport()
@@ -233,7 +233,7 @@ func (
 	p *Problem,
 ) calcDistSupport() {
 	i := p.i
-	points := p.points 
+	points := p.points
 	u := points[i]
 	n := p.n
 	for j := i + 1; j < n; j++ {

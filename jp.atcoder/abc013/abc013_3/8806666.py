@@ -12,7 +12,7 @@ def main():
         y = floor((n * e - (b + e) * x - h) / (d + e) + 1)
         if y <= n - x:
             costs.append(cost(x, max(y, 0)))
-    
+
     return min(costs) if costs else d * n
 
 if __name__ == '__main__':

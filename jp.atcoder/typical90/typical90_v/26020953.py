@@ -1,5 +1,5 @@
-import typing 
-import math 
+import typing
+import math
 
 def main() -> typing.NoReturn:
   *a, = map(int, input().split())

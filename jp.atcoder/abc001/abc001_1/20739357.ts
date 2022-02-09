@@ -22,7 +22,7 @@ class IO {
       s.trim().split(/ |\n/)
     );
   }
-  
+
   *toGen(chunks: string[]): (
     Generator
   ) {

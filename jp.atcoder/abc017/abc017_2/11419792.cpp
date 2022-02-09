@@ -4,7 +4,7 @@ using namespace std;
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
-  
+
   unordered_set<char> one = {'o', 'k', 'u'};
 
   string s;

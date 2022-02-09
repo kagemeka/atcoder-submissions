@@ -10,7 +10,7 @@ namespace graph_theory {
   struct SparseDirectedGraph {
     using E = Edge<U>;  // G::E edge{u, v, data};
     std::vector<T> nodes;
-    std::vector<std::vector<E>> edges;    
+    std::vector<std::vector<E>> edges;
     SparseDirectedGraph(int n) : nodes(n), edges(n) {}
     void add_edge(const E &e) { edges[e.u].push_back(e); }
   };
@@ -21,7 +21,7 @@ namespace graph_theory {
     std::vector<T> nodes;
     std::vector<std::vector<U>> edges;
     DenseDirectedGraph(int n) : nodes(n), edges(n, std::vector<U>(n)) {}
-    std::vector<U>& operator[](int i) { return edges[i]; } 
+    std::vector<U>& operator[](int i) { return edges[i]; }
   };
 
 
@@ -54,15 +54,15 @@ namespace graph_theory {
   namespace maximum_flow {
     template <typename T> struct EdmondsKarpData { T capacity; };
     template <typename T> using EdmondsKarpGraph = DenseDirectedGraph<void *, EdmondsKarpData<T>>;
-    
 
-    template <typename T> 
+
+    template <typename T>
     T edmonds_karp(EdmondsKarpGraph<T> g, int src, int sink) {
       int n = g.nodes.size();
       T inf = std::numeric_limits<T>::max();
       std::vector<int> prev(n, -1);
       std::vector<bool> visited(n);
-      std::queue<int> fifo_que; 
+      std::queue<int> fifo_que;
 
       std::function<void()> find_path = [&]() -> void {
         std::fill(prev.begin(), prev.end(), -1);
@@ -76,7 +76,7 @@ namespace graph_theory {
             visited[v] = true;
             prev[v] = u;
             fifo_que.push(v);
-          }          
+          }
         }
       };
 
@@ -86,7 +86,7 @@ namespace graph_theory {
         while (prev[v] != -1) {
           u = prev[v];
           flow = std::min(flow, g.edges[u][v].capacity);
-          v = u;          
+          v = u;
         }
         if (flow == inf) return 0;
         v = sink;
@@ -128,5 +128,5 @@ int main() {
     g.edges[a][b] = {1};
     g.edges[b][a] = {1};
   }
-  std::cout << graph_theory::maximum_flow::edmonds_karp(g, 0, n) << '\n';  
+  std::cout << graph_theory::maximum_flow::edmonds_karp(g, 0, n) << '\n';
 }

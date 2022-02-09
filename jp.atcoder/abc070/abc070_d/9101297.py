@@ -23,7 +23,7 @@ def dfs(v):
 
 def main():
     dist_k = dfs(k)
-    
+
     for x, y in xy:
         yield dist_k[x] + dist_k[y]
 

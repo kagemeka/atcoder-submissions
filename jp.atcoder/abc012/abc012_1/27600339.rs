@@ -32,4 +32,3 @@ fn main() {
     let b: usize = sc.scan();
     writeln!(out, "{} {}", b, a).unwrap();
 }
-

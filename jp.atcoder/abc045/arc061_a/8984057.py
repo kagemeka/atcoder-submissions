@@ -14,9 +14,9 @@ def main():
             for i in idces[::-1]:
                 t.insert(i, '+')
             res += eval(''.join(t))
-            
+
     return res
-                     
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

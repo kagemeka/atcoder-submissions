@@ -23,12 +23,12 @@ n, *a = map(int, sys.stdin.read().split())
 def main():
     appeared = [False] * (n + 1)
     for i in range(n+1):
-        cur = a[i] 
+        cur = a[i]
         if appeared[cur]:
             x1, x2 = appeared[cur], i+1
             break
         appeared[cur] = i+1
-    
+
     res = [0] * (n + 2)
     for i in range(1, n+2):
         res[i] += comb_mod(n+1, i)

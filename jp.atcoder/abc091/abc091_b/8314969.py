@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-06 22:04:18(JST)
 import sys
 import collections
@@ -23,7 +23,7 @@ def main():
 
     ma = max(max(a.values()), 0)
     print(ma)
-        
+
 
 if __name__ == "__main__":
     # execute only if run as a script

@@ -9,7 +9,7 @@ def A():
 def B():
   MOD = 10**9+7
   a, b, c = map(int, sys.stdin.readline().split())
-  ans = a * b % MOD * c % MOD 
+  ans = a * b % MOD * c % MOD
   print(ans)
 
 def C():
@@ -22,7 +22,7 @@ def C():
 def D():
   n, m, *xy = map(int, sys.stdin.read().split())
   *xy, = zip(*[iter(xy)]*2)
-  edges = [0] * n 
+  edges = [0] * n
   for x, y in xy:
     x -= 1; y -= 1
     edges[x] |= 1<<y
@@ -33,7 +33,7 @@ def D():
     for i in range(n):
       if (bit>>i) & 1 and not edges[i]:
         nxt_bit = bit & ~(1<<i)
-        nxt_edges = edges.copy() 
+        nxt_edges = edges.copy()
 
         for j in range(n):
           nxt_edges[j] &= ~(1<<i)
@@ -44,7 +44,7 @@ def D():
 
   print(count(edges, (1<<n)-1))
 
-  
+
 
 
 if __name__ == "__main__":

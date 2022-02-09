@@ -7,7 +7,7 @@ def main():
     H, W = map(int, sys.stdin.readline().split())
     cost = np.array([sys.stdin.readline().split() for _ in range(10)], dtype=np.int64)
     A = np.array(sys.stdin.read().split(), dtype=np.int64)
-    
+
     graph = csr_matrix(cost)
     dist = floyd_warshall(csgraph=graph, directed=True)
 

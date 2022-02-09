@@ -29,7 +29,7 @@ while still_possible:
                 else:
                     passed.append(e[0])
                     current = e[0]
-                    break        
+                    break
         else: # if e all in edges are not accepted
             if passed == [1]:
                 still_possible = False
@@ -39,5 +39,3 @@ while still_possible:
         paths.append(passed)
 
 print(len(paths))
-
-

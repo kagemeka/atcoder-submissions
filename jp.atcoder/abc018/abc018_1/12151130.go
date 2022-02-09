@@ -12,7 +12,7 @@ type Person struct {
 func main() {
   var res []Person
   for i := 0; i < 3; i++ {
-    var s int 
+    var s int
     fmt.Scan(&s)
     res = append(res, Person{s, i + 1})
   }

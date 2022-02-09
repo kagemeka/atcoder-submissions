@@ -19,7 +19,7 @@ T count(T n)
   bool flg = true;
   T cnt = 0;
   for (const char& i: x)
-  { 
+  {
     int d = i - '0';
     cnt *= 8;
     if (!flg) continue;

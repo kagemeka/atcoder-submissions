@@ -1,22 +1,22 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
 
-@nb.njit 
+@nb.njit
 def csgraph_to_directed(g: np.ndarray) -> np.ndarray:
   m = len(g)
   g = np.vstack((g, g))
   g[m:, :2] = g[m:, 1::-1]
-  return g 
+  return g
 
 
-@nb.njit 
+@nb.njit
 def sort_csgraph(
-  n: int, 
+  n: int,
   g: np.ndarray,
 ) -> typing.Tuple[np.ndarray, np.ndarray, np.ndarray]:
   sort_idx = np.argsort(g[:, 0], kind='mergesort')
@@ -52,7 +52,7 @@ def euler_tour_edge(
 
 
 
-@nb.njit 
+@nb.njit
 def euler_tour_node(
   g: np.ndarray,
   edge_idx: np.ndarray,
@@ -72,22 +72,22 @@ def euler_tour_node(
 
 
 
-@nb.njit 
+@nb.njit
 def uf_build(n: int) -> np.ndarray:
   return np.full(n, -1, np.int64)
 
 
-@nb.njit 
+@nb.njit
 def uf_find(uf: np.ndarray, u: int) -> int:
-  if uf[u] < 0: return u 
+  if uf[u] < 0: return u
   uf[u] = uf_find(uf, uf[u])
   return uf[u]
 
 
-@nb.njit 
+@nb.njit
 def uf_unite(
-  uf: np.ndarray, 
-  u: int, 
+  uf: np.ndarray,
+  u: int,
   v: int,
 ) -> typing.NoReturn:
   u, v = uf_find(uf, u), uf_find(uf, v)
@@ -98,7 +98,7 @@ def uf_unite(
 
 
 
-@nb.njit 
+@nb.njit
 def lca(
   g: np.ndarray,
   edge_idx: np.ndarray,
@@ -111,7 +111,7 @@ def lca(
   for i in range(len(tour)):
     u = tour[i]
     if u < 0: continue
-    first_idx[u] = i 
+    first_idx[u] = i
 
   for i in range(m):
     v, u = vu[i]
@@ -131,7 +131,7 @@ def lca(
     uf_unite(uf, v, p)
     ancestor[uf_find(uf, v)] = p
   _lca = np.zeros(m, np.int64)
-  return _lca  
+  return _lca
 
 
 

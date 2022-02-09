@@ -19,6 +19,6 @@ else:
         if not(A[i] == i + 1 and A[i+1] == i + 1):
             print(0)
             exit()
-    order_count = 2 ** (N // 2) % mod 
+    order_count = 2 ** (N // 2) % mod
 
 print(order_count)

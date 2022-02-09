@@ -10,9 +10,9 @@ def main():
     for x in c:
         i = bi_l(res, x)
         res[i] = x
-    
+
     ans = n - bi_l(res, INF)
     print(ans)
-    
+
 if __name__ ==  '__main__':
     main()

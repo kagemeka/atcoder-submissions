@@ -31,9 +31,9 @@ fn main() {
 
     let n: usize = sc.scan();
     let m: usize = 1 << 20;
-    
+
     let mut cnt: Vec<isize> = vec![0; m + 1];
-    for _ in 0..n { 
+    for _ in 0..n {
         let a: usize = sc.scan();
         let b: usize = sc.scan();
         cnt[a] += 1;

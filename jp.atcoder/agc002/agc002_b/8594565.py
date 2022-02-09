@@ -15,7 +15,7 @@ def main():
             may_contain_red.add(y)
             if count[x] == 0:
                 may_contain_red ^= set([x])
-    
+
     ans = len(may_contain_red)
     print(ans)
 

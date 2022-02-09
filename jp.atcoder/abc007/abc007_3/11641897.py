@@ -18,7 +18,7 @@ def bfs(graph, sy, sx):
                 parent[i][j] = (y, x)
                 q.append((d + 1, i, j))
     return dist, parent
-    
+
 h, w, a, b, c, d, *g = sys.stdin.read().split()
 h, w, a, b, c, d = map(int, [h, w, a, b, c, d])
 a -= 1; b -= 1; c -= 1; d -= 1

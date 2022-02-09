@@ -14,7 +14,7 @@ def main():
             res = x[r]
         ans = min(ans, res)
         l += 1; r += 1
-    
+
     return ans
 
 if __name__ == '__main__':

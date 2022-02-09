@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> 
+#include <bits/stdc++.h>
 using namespace std;
 
 unordered_set<char> vowel = {'a', 'e', 'i', 'o', 'u'};

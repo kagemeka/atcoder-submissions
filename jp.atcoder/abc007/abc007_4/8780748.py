@@ -20,7 +20,7 @@ def ngCnt(n):
             break
     else:
         ok_cnt += 1
-    
+
     return all_cnt - ok_cnt
 
 def main():

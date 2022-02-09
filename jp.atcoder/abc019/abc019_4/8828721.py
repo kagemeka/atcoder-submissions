@@ -12,13 +12,13 @@ def main():
         d = ask(1, v)
         if d > dist:
             dist, u = d, v
-    
+
     for v in range(2, n + 1):
         if v != u:
             dist = max(dist, ask(u, v))
 
     return '! {0}'.format(dist)
-            
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

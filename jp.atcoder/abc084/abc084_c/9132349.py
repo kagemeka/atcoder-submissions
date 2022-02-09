@@ -3,7 +3,7 @@ import sys
 n = int(sys.stdin.readline().rstrip())
 csf = list(zip(*[map(int, sys.stdin.read().split())] * 3))
 
-def main(): 
+def main():
     take_time = [None] * n
 
     for i in range(n):
@@ -19,7 +19,7 @@ def main():
             cur += 1
         take_time[i] = t
     return take_time
-        
+
 if __name__ == '__main__':
     ans = main()
     print(*ans, sep='\n')

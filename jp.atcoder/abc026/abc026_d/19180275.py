@@ -1,12 +1,12 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
 
 def readline_ints():
   *ints, = map(
-    int, 
+    int,
     readline().split(),
   )
   return ints
@@ -21,7 +21,7 @@ def solve(a, b, c):
     h = a*t + b*np.sin(c*t*np.pi) \
       - 100
     return h
-  
+
   print(brenth(f, a=0, b=200))
 
 

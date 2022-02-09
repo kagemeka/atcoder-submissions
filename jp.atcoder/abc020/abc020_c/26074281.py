@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 import heapq
 
 
@@ -14,7 +14,7 @@ def solve(
   gx: int,
   t: int,
 ) -> typing.NoReturn:
-  h, w = grid.shape 
+  h, w = grid.shape
   inf = 1 << 60
 
   def on_grid(y, x):
@@ -22,7 +22,7 @@ def solve(
 
   def possible(t2):
     dist = np.full((h, w), inf, np.int64)
-    dist[sy, sx] = 0 
+    dist[sy, sx] = 0
     hq = [(0, sy, sx)]
     dyx = ((-1, 0), (0, -1), (0, 1), (1, 0))
     while hq:
@@ -33,7 +33,7 @@ def solve(
         if not on_grid(ny, nx): continue
         dv = du + (t2 if grid[ny, nx] else 1)
         if dv >= dist[ny, nx]: continue
-        dist[ny, nx] = dv 
+        dist[ny, nx] = dv
         heapq.heappush(hq, (dv, ny, nx))
     return dist[gy, gx] <= t
 
@@ -42,17 +42,17 @@ def solve(
     while hi - lo > 1:
       x = (lo + hi) // 2
       if possible(x):
-        lo = x 
+        lo = x
       else:
-        hi = x 
+        hi = x
     return lo
-  
+
   print(binary_search())
 
 
 def main() -> typing.NoReturn:
   read = sys.stdin.buffer.read
-  readline = sys.stdin.buffer.readline 
+  readline = sys.stdin.buffer.readline
   h, w, t = map(int, readline().split())
   s = np.frombuffer(
     read(),

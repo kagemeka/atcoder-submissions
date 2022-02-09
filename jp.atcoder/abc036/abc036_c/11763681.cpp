@@ -11,7 +11,7 @@ int main() {
   for (int i = 0; i < n; i++) {
     int v;
     cin >> v;
-    a[i] = {v, i}; 
+    a[i] = {v, i};
   }
   sort(a.begin(), a.end());
   vector<int> b(n);

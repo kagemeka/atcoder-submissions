@@ -1,6 +1,6 @@
-import typing 
+import typing
 import sys
-import numpy as np 
+import numpy as np
 import numba as nb
 
 
@@ -25,7 +25,7 @@ def unite(
 ) -> typing.NoReturn:
   u = find(a, u)
   v = find(a, v)
-  if u == v: return 
+  if u == v: return
   if a[u] > a[v]: u, v = v, u
   a[u] += a[v]
   a[v] = u
@@ -63,6 +63,6 @@ def main() -> typing.NoReturn:
     dtype=np.int64,
   )
   solve(n, q)
-  
 
-main() 
+
+main()

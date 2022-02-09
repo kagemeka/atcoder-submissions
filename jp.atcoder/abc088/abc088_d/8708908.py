@@ -27,13 +27,13 @@ def main():
             x = j + dx
             if grid[y][x] == '.' and not (y, x) in visited:
                 heappush(q, (c + 1, y, x))
-    
+
 
     if cost[H][W] != np.inf:
         ans = int(np.sum(grid == '.') - (cost[H][W] + 1))
     else:
         ans = -1
 
-    print(ans)  
+    print(ans)
 if __name__ == "__main__":
     main()

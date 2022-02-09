@@ -44,7 +44,7 @@ func (
 ) dfs() {
 	s := p.s
 	l := len(s)
-	n := p.n 
+	n := p.n
 	if l == n {
 		p.io.Write(s)
 		return

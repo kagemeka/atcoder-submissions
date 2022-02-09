@@ -24,20 +24,20 @@ fn main() {
     let mut sc = Scanner::new(std::io::BufReader::new(stdin.lock()));
     let stdout = std::io::stdout();
     let out = &mut std::io::BufWriter::new(stdout.lock());
-    
+
     let n: usize = sc.scan();
     let m: usize = sc.scan();
 
     let mut relation = vec![0usize; n];
-    for _ in 0..m { 
+    for _ in 0..m {
         let a: usize = sc.scan::<usize>() - 1;
         let b: usize = sc.scan::<usize>() - 1;
         relation[a] |= 1 << b;
         relation[b] |= 1 << a;
     }
-    for i in 0..n { 
+    for i in 0..n {
         let mut ff = 0usize;
-        for j in 0..n { 
+        for j in 0..n {
             if relation[i] >> j & 1 == 0 { continue; }
             ff |= relation[j];
         }

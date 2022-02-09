@@ -21,7 +21,7 @@ def main():
             bus_count += 1
             count = 1
             t = T[i]
-    
+
     print(bus_count)
 
 

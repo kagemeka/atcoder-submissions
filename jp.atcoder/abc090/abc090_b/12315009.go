@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-  var a, b int 
+  var a, b int
   fmt.Scan(&a, &b)
   cnt := 0
   for i := a; i <= b; i++ {

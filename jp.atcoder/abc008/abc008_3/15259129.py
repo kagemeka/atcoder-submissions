@@ -1,5 +1,5 @@
-import sys 
-import numpy as np 
+import sys
+import numpy as np
 
 
 def A():
@@ -30,7 +30,7 @@ def D():
   pass
 
 if __name__ == "__main__":
-  # A() 
+  # A()
   # B()
   C()
   D()

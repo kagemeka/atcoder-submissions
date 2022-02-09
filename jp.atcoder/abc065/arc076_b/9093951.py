@@ -21,7 +21,7 @@ def main():
     b1 = indices1[1:]
     a2 = indices2[:-1]
     b2 = indices2[1:]
-    
+
     graph[a1, b1] = d1
     graph[a2, b2] = np.minimum(graph[a2, b2], d2)
     graph[graph == np.inf] = 0
@@ -30,7 +30,7 @@ def main():
     t = minimum_spanning_tree(graph)
     ans = np.sum(t)
     return int(ans)
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

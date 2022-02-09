@@ -14,7 +14,7 @@ int main() {
   }
   sort(v.begin(), v.end(), greater<int>());
   for (int i = 0; i < n; i++) {
-    (i & 1) ? b += v[i] : a += v[i]; 
+    (i & 1) ? b += v[i] : a += v[i];
   }
   cout << a - b << '\n';
   return 0;

@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-06 12:47:30(JST)
 import sys
 # import collections
@@ -23,11 +23,11 @@ def main():
         if dt - (distx + disty) >= 0 and (dt - (distx + disty)) % 2 == 0:
             continue
         else:
-            ans = 'No'        
+            ans = 'No'
             break
     else:
         ans = 'Yes'
-    
+
     print(ans)
 
 if __name__ == "__main__":

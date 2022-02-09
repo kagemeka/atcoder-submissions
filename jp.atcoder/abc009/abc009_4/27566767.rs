@@ -31,19 +31,19 @@ fn main() {
     type Matrix = Tensor<MyInt, 2>;
     let mut a = Matrix::new([k, 1]);
     let mut c = Matrix::new([k, k]);
-    for i in 0..k { 
+    for i in 0..k {
         for j in 0..k { c[[i, j]] = <MyInt as AddIdentity>::e(); }
     }
-    for i in 0..k { 
+    for i in 0..k {
         a[[k - 1 - i, 0]] = MyInt(sc.scan());
     }
-    for i in 0..k { 
+    for i in 0..k {
         c[[0, i]] = MyInt(sc.scan());
     }
     for i in 0..k - 1 {
         c[[i + 1, i]] = <MyInt as MulIdentity>::e();
     }
-    if m <= k { 
+    if m <= k {
         writeln!(out, "{}", a[[k - m, 0]].0).unwrap();
         return;
     }
@@ -73,7 +73,7 @@ pub mod structs {
 }
 
 pub mod traits {
-    pub trait Identity { fn e() -> Self; } 
+    pub trait Identity { fn e() -> Self; }
     pub trait Inverse { fn inv(&self) -> Self;}
     pub trait Semigroup {
         fn op(_: &Self, _: &Self) -> Self;
@@ -90,7 +90,7 @@ pub mod traits {
     pub trait MulInverse { fn inv(&self) -> Self; }
     pub trait Semiring: Sized + std::ops::Add<Output=Self> + std::ops::Mul<Output=Self> + AddIdentity + MulIdentity {
         const MUL_COMMUTATIVE: bool;
-        const ADD_IDEMPOTNET: bool; 
+        const ADD_IDEMPOTNET: bool;
     }
     pub trait Ring: Semiring + AddInverse {}
 
@@ -186,7 +186,7 @@ impl<T, const NDIM: usize> std::ops::Index<[usize; NDIM]> for Tensor<T, NDIM> {
     type Output = T;
     fn index(&self, index: [usize; NDIM]) -> &Self::Output {
         &self.data[self.flat_index(index)]
-    }    
+    }
 }
 
 /// https://doc.rust-lang.org/std/ops/trait.IndexMut.html
@@ -194,22 +194,22 @@ impl<T, const NDIM: usize> std::ops::IndexMut<[usize; NDIM]> for Tensor<T, NDIM>
     fn index_mut(&mut self, index: [usize; NDIM]) -> &mut Self::Output {
         let idx = self.flat_index(index);
         &mut self.data[idx]
-    }    
+    }
 }
 
-impl<T> std::ops::Mul for Tensor<T, 2> 
+impl<T> std::ops::Mul for Tensor<T, 2>
 where
     T: Copy + Default + std::ops::Add<Output = T> + std::ops::Mul<Output = T>,
 {
     type Output = Self;
-    
+
     fn mul(self, rhs: Self) -> Self {
         assert_eq!(self.shape[1], rhs.shape[0]);
         let h = self.shape[0];
         let w = rhs.shape[1];
         let n = self.shape[1];
         let mut res = Self::new([h, w]);
-        for i in 0..h { 
+        for i in 0..h {
             for j in 0..w {
                 for k in 0..n {
                     res[[i, j]] = res[[i, j]] + self[[i, k]] * rhs[[k, j]];
@@ -224,7 +224,7 @@ impl<T: Copy + Default + Semiring> Tensor<T, 2> {
     pub fn e(&self) -> Self {
         let (h, w) = (self.shape[0], self.shape[1]);
         let mut e = Self::new(self.shape);
-        for i in 0..h { 
+        for i in 0..h {
             for j in 0..w {
                 e[[i, j]] = self::AddIdentity::e();
             }
@@ -240,7 +240,7 @@ impl<T: Copy + Default + Semiring> Tensor<T, 2> {
         let w = rhs.shape[1];
         let n = lhs.shape[1];
         let mut res = Self::new([h, w]);
-        for i in 0..h { 
+        for i in 0..h {
             for j in 0..w {
                 for k in 0..n {
                     res[[i, j]] = res[[i, j]] + lhs[[i, k]] * rhs[[k, j]];
@@ -258,7 +258,7 @@ impl<T: Copy + Default + Semiring> Tensor<T, 2> {
         if n & 1 == 1 { x = Self::op(&x, self); }
         x
     }
-} 
+}
 
 
 

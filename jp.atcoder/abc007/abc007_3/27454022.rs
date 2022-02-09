@@ -24,7 +24,7 @@ fn main() {
     let stdin = std::io::stdin();
     let mut sc = Scanner::new(std::io::BufReader::new(stdin.lock()));
     let stdout = std::io::stdout();
-    let out = &mut std::io::BufWriter::new(stdout.lock());  
+    let out = &mut std::io::BufWriter::new(stdout.lock());
 
     let h: usize = sc.scan();
     let w: usize = sc.scan();
@@ -35,14 +35,14 @@ fn main() {
     let gx = sc.scan::<usize>() - 1;
 
     let mut grid: Vec<Vec<char>> = vec![Vec::new(); h];
-    for i in 0..h { 
+    for i in 0..h {
         grid[i] = sc.scan::<String>().chars().collect();
     }
-    
+
     let n = h * w;
     let dyx = [(-1, 0), (0, -1), (1, 0), (0, 1)];
     let mut g: Vec<Vec<usize>> = vec![vec![]; n];
-    for i in 1..h - 1 { 
+    for i in 1..h - 1 {
         for j in 1..w - 1 {
             if grid[i][j] == '#' { continue; }
             for (dy, dx) in dyx.iter() {
@@ -75,5 +75,3 @@ pub fn bfs(g: &[Vec<usize>], src: usize) -> Vec<usize> {
     }
     dist
 }
-
-

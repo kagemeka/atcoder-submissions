@@ -6,7 +6,7 @@ from dataclasses import (
 )
 
 import numpy as np
-import sys 
+import sys
 
 from typing import (
   List,
@@ -33,26 +33,26 @@ class Reader:
   def read_int(cls) -> int:
     ln = cls.readline()
     return int(ln)
-  
-  
-  @classmethod 
+
+
+  @classmethod
   def read_str(cls) -> str:
     ln = cls.readline()
     return ln.decode()
-  
+
 
   @classmethod
   def readline_ints(
     cls,
   ) -> List[int]:
     *ints, = map(
-      int, 
+      int,
       cls.readline().split(),
     )
     return ints
 
-  
-  @classmethod 
+
+  @classmethod
   def readline_strs(
     cls,
   ) -> List[str]:
@@ -75,13 +75,13 @@ class Reader:
     cls,
   ) -> List[int]:
     *ints, = map(
-      int, 
+      int,
       cls.read().split(),
     )
     return ints
-  
 
-  @classmethod 
+
+  @classmethod
   def read_strs(
     cls,
   ) -> List[str]:
@@ -115,7 +115,7 @@ class NumpyReader(Reader):
   ) -> np.array:
     return np.fromstring(
       string=cls.read_str(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -127,7 +127,7 @@ class NumpyReader(Reader):
     return np.fromstring(
       string=cls.read() \
         .decode(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -153,7 +153,7 @@ class Solver(ABC):
       **kwargs,
     )
 
-  
+
   def run(self):
     self.prepare()
     self.solve()
@@ -164,9 +164,9 @@ class Solver(ABC):
     ...
     self.ready = True
 
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     assert self.ready
     ...
@@ -180,7 +180,7 @@ from dataclasses import (
 from typing import (
   Union,
 )
-import numpy as np 
+import numpy as np
 
 
 class Modulus(Enum):
@@ -192,8 +192,8 @@ class Modulus(Enum):
 
 class ModularInt:
   def __init__(
-    self, 
-    value: int=0, 
+    self,
+    value: int=0,
     modulus: Union[
       Modulus,
       int,
@@ -201,7 +201,7 @@ class ModularInt:
       Modulus.MOD2
     ),
   ):
-    
+
     self.mod: int = modulus
     self.value: int = value
 
@@ -209,26 +209,26 @@ class ModularInt:
   @property
   def mod(self):
     return self.modulus
-  
+
 
   @mod.setter
   def mod(self, v):
     if type(v) == Modulus:
       v = v.value
-    self.modulus = v 
+    self.modulus = v
 
 
   @property
   def value(self):
     return self._value
-  
+
 
   @value.setter
   def value(self, v):
-    assert type(v) == int 
+    assert type(v) == int
     self._value = v % self.mod
 
-  
+
   @value.deleter
   def value(self):
     del self._value
@@ -237,13 +237,13 @@ class ModularInt:
   def __repr__(self) -> str:
     return f'{self.value}'
 
-  
+
   def clone(self):
     return self.__class__(
       self.value,
       self.mod,
     )
-  
+
 
   def modularize(self, other):
     if (
@@ -253,15 +253,15 @@ class ModularInt:
         int(other),
         self.mod,
       )
-    return other 
-      
+    return other
+
 
   def __iadd__(self, other):
     other = self.modularize(
       other,
     )
     self.value += other.value
-    self.value %= self.mod  
+    self.value %= self.mod
     return self
 
 
@@ -286,7 +286,7 @@ class ModularInt:
     res += -other
     return res
 
-  
+
   def __rsub__(self, other):
     other = self.modularize(
       other,
@@ -298,20 +298,20 @@ class ModularInt:
     other = self.modularize(
       other,
     )
-    self.value *= other.value 
+    self.value *= other.value
     self.value %= self.mod
     return self
 
 
   def __mul__(self, other):
     res = self.clone()
-    res *= other 
-    return res 
-  
+    res *= other
+    return res
+
 
   def __rmul__(self, other):
     return self * other
-  
+
 
   def __truediv__(self, other):
     other = self.modularize(
@@ -319,11 +319,11 @@ class ModularInt:
     )
     res = self.clone()
     res *= other.invert()
-    return res 
-  
+    return res
+
 
   def __rtruediv__(
-    self,   
+    self,
     other,
   ):
     other = self.modularize(
@@ -333,19 +333,19 @@ class ModularInt:
 
 
   def __floordiv__(
-    self, 
+    self,
     other,
   ):
     return self / other
-  
+
 
   def __rfloordiv__(
-    self, 
+    self,
     other,
   ):
     return other / self
 
-  
+
   def pow(self, n):
     if n == 0:
       return self.modularize(1)
@@ -361,26 +361,26 @@ class ModularInt:
     )
 
     self.value = pow(
-      self.value, 
+      self.value,
       other.value,
       self.mod,
     )
     return self
 
-  
+
   def __pow__(self, other):
     res = self.clone()
     res **= other
-    return res 
+    return res
 
-  
+
   def __rpow__(self, other):
     other = self.modularize(
       other,
     )
     return other ** self
 
-    
+
   def invert(self):
     i = self ** (self.mod - 2)
     return i
@@ -396,14 +396,14 @@ class ModularInt:
 
 
   def congruent(
-    self, 
+    self,
     other,
   ):
     return self == other
-  
+
 
   def factorial(
-    self, 
+    self,
   ):
     n = self.value
     fact = range(n + 1)
@@ -411,7 +411,7 @@ class ModularInt:
       np.ndarray
     ) = np.array((
       *map(
-        ModularInt, 
+        ModularInt,
         fact,
       ),
     ))
@@ -421,11 +421,11 @@ class ModularInt:
     )
     fact.cumprod(out=fact)
     return fact
-  
+
 
   def inverse_factorial(
     self,
-  ): 
+  ):
     fact = self.factorial()
     inv_fact: (
       np.ndarray
@@ -439,7 +439,7 @@ class ModularInt:
       out=inv_fact[::-1]
     )
     return inv_fact
-    
+
 Mint = ModularInt
 
 
@@ -448,9 +448,9 @@ class ChooseMod(
   Mint,
 ):
   def __init__(
-    self, 
+    self,
     n: int=1 << 20,
-    *args, 
+    *args,
     **kwargs,
   ):
     super().__init__(
@@ -467,19 +467,19 @@ class ChooseMod(
     )
 
 
-  def __call__(self, n, r): 
+  def __call__(self, n, r):
     return self.choose(n, r)
 
 
   def choose(
-    self, 
-    n: int, 
+    self,
+    n: int,
     r: int,
   ):
     bl = (0 <= r) & (r <= n)
     p = self.mod
     return (
-      bl * self.fact[n] 
+      bl * self.fact[n]
       * self.inv_fact[r]
       * self.inv_fact[n - r]
     )
@@ -536,12 +536,12 @@ class ABC003D_0(
     )
     print(res)
 
-  
+
   @lru_cache(maxsize=None)
   def count(self, y, x):
-    d, l = self.d, self.l 
+    d, l = self.d, self.l
     if y * x < d + l:
-      return 0 
+      return 0
     c = (
       self.choose(y*x, d+l)
       * self.choose(d+l, l)

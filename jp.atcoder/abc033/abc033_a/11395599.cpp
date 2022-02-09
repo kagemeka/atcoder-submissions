@@ -9,5 +9,5 @@ int main() {
   string ans = (s.size() == 1) ? "SAME" : "DIFFERENT";
   cout << ans << endl;
   return 0;
-  
+
 }

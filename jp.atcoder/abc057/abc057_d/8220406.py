@@ -51,7 +51,3 @@ else:
     ans = cmb(full, accepted)
 
 print(ans)
-
-
-
-

@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -88,9 +88,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -120,7 +120,7 @@ class Problem(
 
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     sx = reader.int()
     sy = reader.int()
     gx = reader.int()
@@ -137,20 +137,20 @@ class Problem(
     ).reshape(n, 2)
     s = np.array([sx, sy])
     g = np.array([gx, gy])
-    self.s = s 
-    self.g = g 
-    self.t = t 
-    self.t = t 
-    self.v = v 
+    self.s = s
+    self.g = g
+    self.t = t
+    self.t = t
+    self.v = v
     self.a = a
 
 
   def solve(self):
-    a = self.a 
-    s = self.s 
-    g = self.g 
+    a = self.a
+    s = self.s
+    g = self.g
     d0 = np.linalg.norm(
-      a - s, 
+      a - s,
       axis=1,
     )
     d1 = np.linalg.norm(
@@ -158,13 +158,13 @@ class Problem(
       axis=1,
     )
     d = d0 + d1
-    v, t = self.v, self.t 
+    v, t = self.v, self.t
     possible = np.any(
       d <= v * t,
     )
-    msg = self.MSG 
+    msg = self.MSG
     ans = (
-      msg.ok if possible 
+      msg.ok if possible
       else msg.ng
     )
     print(ans)

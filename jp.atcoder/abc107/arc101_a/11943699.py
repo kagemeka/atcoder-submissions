@@ -12,6 +12,6 @@ def main():
             d = x[j]
         res = min(res, d)
     print(res)
-    
+
 if __name__ ==  '__main__':
     main()

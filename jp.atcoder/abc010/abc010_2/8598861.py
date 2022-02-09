@@ -1,10 +1,10 @@
 # 2019-11-24 13:14:50(JST)
 import sys
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, *a = map(int, sys.stdin.read().split())
-    
+
     count = 0
     for petal in a:
         ok = False

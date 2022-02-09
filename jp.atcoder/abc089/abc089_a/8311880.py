@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-06 16:52:04(JST)
 import sys
 # import collections
@@ -6,7 +6,7 @@ import sys
 # import string
 # import bisect
 # import re
-# import itertools 
+# import itertools
 # import statistics
 
 def main():

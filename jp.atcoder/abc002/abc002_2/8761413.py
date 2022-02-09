@@ -7,6 +7,6 @@ def main():
         if not c in ng:
             t += c
     print(t)
-    
+
 if __name__ == '__main__':
     main()

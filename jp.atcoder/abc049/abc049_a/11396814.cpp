@@ -8,5 +8,5 @@ int main() {
   cin >> c;
   string ans = (vowel.find(c) != vowel.end()) ? "vowel" : "consonant";
   cout << ans << endl;
-  return 0; 
+  return 0;
 }

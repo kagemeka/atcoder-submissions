@@ -28,7 +28,7 @@ fn main() {
 
     let n: usize = sc.scan();
     let mut cnt = std::collections::BTreeMap::new();
-    for _ in 0..n { 
+    for _ in 0..n {
         let s: String = sc.scan();
         *cnt.entry(s).or_insert(0usize) += 1;
     }

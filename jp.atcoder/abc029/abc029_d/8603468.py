@@ -5,7 +5,7 @@ import sys
 
 def main():
     n = int(sys.stdin.readline().rstrip())
-    
+
 
     count = 0
     for i in range(1, len(str(n))+1):
@@ -19,7 +19,7 @@ def main():
         else:
             count += 10 ** (i - 1)
 
-        
+
     print(count)
 
 # editorial

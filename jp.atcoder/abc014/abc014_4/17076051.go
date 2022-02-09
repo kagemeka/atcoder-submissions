@@ -1,4 +1,4 @@
-package main 
+package main
 
 import (
 	"fmt"
@@ -38,8 +38,8 @@ type Pair struct {a, b interface{}}
 type PairStringInt struct{S string; I int}
 
 // ReversedString .
-func ReversedString(s string) (t string) { for _, c := range s {t = string(c) + t}; return} 
-// SumInt . 
+func ReversedString(s string) (t string) { for _, c := range s {t = string(c) + t}; return}
+// SumInt .
 func SumInt(a ...int) (s int) {for _, v := range a {s += v}; return}
 // AbsInt .
 func AbsInt(x int) int {if x < 0 {x *= -1}; return x}
@@ -108,12 +108,12 @@ func BisectRight(a []int, x int) int {return sort.Search(len(a), func(i int) boo
 // Booltoi .
 func Booltoi(b bool) int { if b {return 1}; return 0}
 // BitsLen .
-func BitsLen(x int) int {return bits.Len(uint(x))} 
+func BitsLen(x int) int {return bits.Len(uint(x))}
 // BitsCount .
 func BitsCount(x int) int {return bits.OnesCount(uint(x))}
 // BitwiseNot .
 func BitwiseNot(x int) int {return x ^ (1<<63-1)}
-// SubStr . don't use many times on a string. 
+// SubStr . don't use many times on a string.
 func SubStr(s string, l, r int) string {return string([]rune(s)[l:r])}
 // FindDivisors .
 func FindDivisors(n int) (res []int) {
@@ -144,7 +144,7 @@ func SortedStr(s string) string {
 
 // NumberTheory .
 type NumberTheory struct {
-	IsPrime []bool 
+	IsPrime []bool
 	PrimeNumbers[]int
 }
 
@@ -185,7 +185,7 @@ func (nt *NumberTheory) PrimeFactorizeFactorial(n int) map[int]int {
   }
   return res
 }
-// sample 
+// sample
 func samplePrimeFactorize() {
 	nt := new(NumberTheory); nt.Init(2e6)
 	fmt.Println(nt.PrimeFactorizeFactorial(100))
@@ -205,7 +205,7 @@ func Permutations(a []interface{}, r int) [][]interface{} {
 			res = append(res, Perm(b, r, i+1)...)
 		}
 		return
-	} 
+	}
 	return Perm(a, r, 0)
 }
 func permutationsSample() {
@@ -254,7 +254,7 @@ type Graph struct{
 	edges map[interface{}]map[interface{}]*Edge
 
 	// tree
-	depth map[interface{}]int 
+	depth map[interface{}]int
 	dist map[interface{}]int
 	ancestors []map[interface{}]interface{}
 }
@@ -276,7 +276,7 @@ func (g *Graph) AddEdge(u, v interface{}, e *Edge) {
 	if _, ok := g.edges[u]; !ok {g.edges[u] = make(map[interface{}]*Edge)}
 
 	// if !g.nodes[v] {g.AddNode(v)}
-	g.edges[u][v] = e 
+	g.edges[u][v] = e
 }
 
 // GetSize .
@@ -292,7 +292,7 @@ func (g *Graph) FloydWarshall() map[interface{}]map[interface{}]int {
 	toN := make([]interface{}, n) // toNode
 	i := 0
 	for v := range g.nodes {
-		toI[v] = i 
+		toI[v] = i
 		toN[i] = v
 		i++
 	}
@@ -345,16 +345,16 @@ func (g *Graph) Dinic(src, sink interface{}) int {
 			}
 		}
 	}
-	var flowToSink func(u interface{}, flowIn int) int 
+	var flowToSink func(u interface{}, flowIn int) int
 	flowToSink = func(u interface{}, flowIn int) int {
 		if u == sink {return flowIn}
-		flow := 0 
+		flow := 0
 		for v, e := range g.edges[u] {
 			if e.cap==0 || lv[v]<=lv[u] {continue}
 			f := flowToSink(v, MinInt(flowIn, e.cap))
 			if f == 0 {continue}
 			g.edges[u][v].cap -= f; g.edges[v][u].cap += f
-			flowIn -= f; flow += f 
+			flowIn -= f; flow += f
 		}
 		return flow
 	}
@@ -407,7 +407,7 @@ func (g *Graph) FindLCA(u, v interface{}) interface{} {
 	du, dv := g.depth[u], g.depth[v]
 	if du > dv {u,v = v,u; du,dv = dv,du}
 	d := dv - du
-	// up-stream 
+	// up-stream
 	for i := 0; i < BitsLen(d); i++ {if d>>i & 1 == 1 {v = g.ancestors[i][v]}}
 	for i := BitsLen(du)-1; i > -1; i-- {
 		nu, nv := g.ancestors[i][u], g.ancestors[i][v]
@@ -420,11 +420,11 @@ func (g *Graph) FindLCA(u, v interface{}) interface{} {
 // change "Item, Less" according to problems.
 
 // Item .
-type Item struct { 
-	char rune; cost, index int // ABC009 C 
+type Item struct {
+	char rune; cost, index int // ABC009 C
 }
 // Heap .
-type Heap []*Item 
+type Heap []*Item
 
 func(h Heap) Len() int {return len(h)}
 func(h Heap) Swap(i, j int) {h[i], h[j] = h[j], h[i]}
@@ -443,10 +443,10 @@ func(h Heap) Less(i, j int) bool {
 func (h *Heap) Push(x interface{}) { *h = append(*h, x.(*Item))}
 // Pop .
 func (h *Heap) Pop() interface{} {
-	old := *h 
+	old := *h
 	n := len(old)
 	item := old[n-1]
-	old[n-1] = nil 
+	old[n-1] = nil
 	*h = old[:n-1]
 	return item
 }
@@ -454,11 +454,11 @@ func (h *Heap) Pop() interface{} {
 
 // SignedTriangleArea .
 func SignedTriangleArea(p1, p2, p3 PairInt) float64 {
-	var x1, y1, x2, y2 float64 
-	x1 = float64(p2.x - p1.x) 
+	var x1, y1, x2, y2 float64
+	x1 = float64(p2.x - p1.x)
 	y1 = float64(p2.y - p1.y)
 	x2 = float64(p3.x - p1.x)
-	y2 = float64(p3.y - p1.y) 
+	y2 = float64(p3.y - p1.y)
 	return (x1*y2 - x2*y1) / 2
 }
 
@@ -472,12 +472,12 @@ type LineSegment struct { a, b PairInt }
 
 // LineSegmentIntersect .
 func LineSegmentIntersect(seg1, seg2 LineSegment) bool {
-	p1, p2, p3, p4 := seg1.a, seg1.b, seg2.a, seg2.b 
+	p1, p2, p3, p4 := seg1.a, seg1.b, seg2.a, seg2.b
 	t1 := SignedTriangleArea(p1, p2, p3)
-	t2 := SignedTriangleArea(p1, p2, p4) 
-	t3 := SignedTriangleArea(p3, p4, p1) 
+	t2 := SignedTriangleArea(p1, p2, p4)
+	t3 := SignedTriangleArea(p3, p4, p1)
 	t4 := SignedTriangleArea(p3, p4, p2)
-	return t1*t2 < 0 && t3*t4 < 0  
+	return t1*t2 < 0 && t3*t4 < 0
 }
 
 
@@ -514,7 +514,7 @@ var AtCoder = proconSite{
 				var a, b int; fmt.Scan(&a, &b)
 				fmt.Println(a - b)
 			},
-			
+
 			"B": func() {
 				var m float64
 				fmt.Scan(&m)
@@ -530,7 +530,7 @@ var AtCoder = proconSite{
 				} else {
 					m = 89
 				}
-			
+
 				res := strconv.Itoa(int(m))
 				if len(res) == 1 {
 					res = "0" + res
@@ -552,7 +552,7 @@ var AtCoder = proconSite{
 					vowels[c] = true
 				}
 				var s string; fmt.Scan(&s)
-				var t string 
+				var t string
 				for _, c := range s {
 					if !vowels[c] {t += string(c)}
 				}
@@ -567,12 +567,12 @@ var AtCoder = proconSite{
 				var x0, y0, x1, y1, x2, y2 float64
 				fmt.Scan(&x0, &y0, &x1, &y1, &x2, &y2)
 				fmt.Println(triangleArea(x0, y0, x1, y1, x2, y2))
-				
+
 			},
 
 			"D": func() {
-				var n, m int 
-				var a, b int 
+				var n, m int
+				var a, b int
 				fmt.Scan(&n, &m)
 
 				relations := make([]int, n)
@@ -580,7 +580,7 @@ var AtCoder = proconSite{
 				for i := 0; i < m; i++ {
 					fmt.Scan(&a, &b)
 					a--; b--
-					relations[a] |= 1<<b 
+					relations[a] |= 1<<b
 					relations[b] |= 1<<a
 				}
 
@@ -601,13 +601,13 @@ var AtCoder = proconSite{
 					}
 				}
 				fmt.Println(res)
-				
+
 			},
 		},
 
 		"ABC003": contest{
 			"A": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				fmt.Println((n+1)*5000)
 
@@ -622,13 +622,13 @@ var AtCoder = proconSite{
 					if s[i] == t[i] {continue}
 					if s[i] == '@' && atcoder[t[i]] || t[i] == '@' && atcoder[s[i]] {continue}
 					fmt.Println("You will lose")
-					return 
+					return
 				}
 				fmt.Println("You can win")
 			},
 
 			"C": func() {
-				var n, k int 
+				var n, k int
 				fmt.Scan(&n, &k)
 				r := make([]int, n)
 				for i := 0; i < n; i++ {
@@ -640,14 +640,14 @@ var AtCoder = proconSite{
 					res = (res + float64(v)) / 2
 				}
 				fmt.Println(res)
-			
+
 			},
 
 		},
 
 		"ABC004": contest{
 			"A": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				fmt.Println(2*n)
 			},
@@ -655,7 +655,7 @@ var AtCoder = proconSite{
 			"B": func() {
 				n := 4
 				var board [4]string
-				
+
 				for i := 0; i < n; i++ {
 					scanner.Scan()
 					board[i] = scanner.Text()
@@ -667,7 +667,7 @@ var AtCoder = proconSite{
 			},
 
 			"C": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				n %= 30
 				res := []rune("123456")
@@ -682,13 +682,13 @@ var AtCoder = proconSite{
 
 		"ABC005": contest{
 			"A": func() {
-				var x, y int 
+				var x, y int
 				fmt.Scan(&x, &y)
 				fmt.Println(y / x)
 			},
 
 			"B": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				var t = make([]int, n)
 				for i := 0; i < n; i++ {fmt.Scan(&t[i])}
@@ -697,7 +697,7 @@ var AtCoder = proconSite{
 			},
 
 			"C": func() {
-				var t, n, m int 
+				var t, n, m int
 				var a, b []int
 				fmt.Scan(&t, &n)
 				a = make([]int, n)
@@ -721,20 +721,20 @@ var AtCoder = proconSite{
 						if i == n {
 							fmt.Println("no")
 							return
-						} 
+						}
 					}
 					if b[j] - a[i] < 0 {
 						fmt.Println("no")
-						return 
+						return
 					}
 					j++; i++
 				}
 				fmt.Println("yes")
 
 			},
-			
+
 			"D": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				var d = make([][]int, n+1); d[0] = make([]int, n+1)
 				for i := 1; i <= n; i++ {
@@ -743,13 +743,13 @@ var AtCoder = proconSite{
 						fmt.Scan(&d[i][j])
 					}
 				}
-				var q int 
+				var q int
 				fmt.Scan(&q)
 				var p = make([]int, q)
 				for i := 0; i < q; i++ {
 					fmt.Scan(&p[i])
 				}
-				
+
 				for i := 1; i <= n; i++ {
 					for j := 1; j < n; j++ {
 						d[i][j+1] += d[i][j]
@@ -783,7 +783,7 @@ var AtCoder = proconSite{
 
 		"ABC006": contest{
 			"A": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				ans := "NO"
 				if n % 3 == 0 {
@@ -795,7 +795,7 @@ var AtCoder = proconSite{
 			},
 
 			"B": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				var m = 10007
 				t := []int{0, 0, 1}
@@ -805,13 +805,13 @@ var AtCoder = proconSite{
 					t[l] %= m
 				}
 				fmt.Println(t[n-1])
-				
+
 			},
 
 			"C": func() {
-				var n, m int 
+				var n, m int
 				fmt.Scan(&n, &m)
-				var x, y, z int 
+				var x, y, z int
 
 				if m & 1 == 1 {
 					y = 1
@@ -820,7 +820,7 @@ var AtCoder = proconSite{
 				}
 
 				z = m/2 - n
-				x = n - z 
+				x = n - z
 				if x >= 0 && y >= 0 && z >= 0 {
 					fmt.Printf("%v %v %v\n", x, y, z)
 				} else {
@@ -830,7 +830,7 @@ var AtCoder = proconSite{
 			},
 
 			"D": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				var c = make([]int, n)
 				for i := 0; i < n; i++ {
@@ -853,7 +853,7 @@ var AtCoder = proconSite{
 
 		"ABC007": contest{
 			"A": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				fmt.Println(n - 1)
 			},
@@ -869,7 +869,7 @@ var AtCoder = proconSite{
 			},
 
 			"C": func() {
-				var h, w, sy, sx, gy, gx int 
+				var h, w, sy, sx, gy, gx int
 				fmt.Scan(&h, &w, &sy, &sx, &gy, &gx)
 				sy--; sx--; gy--; gx--
 				var maze = make([]string, h)
@@ -920,12 +920,12 @@ var AtCoder = proconSite{
 				f := func(x int) int {
 					n := strconv.Itoa(x)
 					dp := make([][]int, len(n)+1)
-					dp[0] = make([]int, 2); dp[0][0] = 1 
+					dp[0] = make([]int, 2); dp[0][0] = 1
 					for i := 0; i < len(n); i++ {
 						dp[i+1] = make([]int, 2)
 						d := int(n[i]-'0')
-	
-						
+
+
 						dp[i+1][1] = dp[i][1]*8 + dp[i][0]*count(d)
 						dp[i+1][0] = dp[i][0]*Booltoi(d != 4 && d != 9)
 
@@ -942,13 +942,13 @@ var AtCoder = proconSite{
 
 		"ABC008": contest{
 			"A": func() {
-				var s, t int 
+				var s, t int
 				fmt.Scan(&s, &t)
 				fmt.Println(t-s+1)
 
 			},
 			"B": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				var numVotes = make(map[string]int)
 				for i := 0; i < n; i++ {
@@ -971,7 +971,7 @@ var AtCoder = proconSite{
 			},
 
 			"C": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				c := make([]int, n)
 				for i := 0; i < n; i++ {
@@ -992,24 +992,24 @@ var AtCoder = proconSite{
 			},
 
 			"D": func() {
-				var w, h, n int 
+				var w, h, n int
 				fmt.Scan(&w, &h, &n)
 				type coordinate struct {
 					x, y int
 				}
 				type rectangle struct {
-					x1, y1, x2, y2 int 
+					x1, y1, x2, y2 int
 				}
 
 				xy := make([]coordinate, n)
 				for i := 0; i < n; i++ {
-					var x, y int 
+					var x, y int
 					fmt.Scan(&x, &y)
 					xy[i] = coordinate{x, y}
 				}
 
 				cnt := make(map[rectangle]int)
-				
+
 				var count func(r rectangle) int
 				count = func(r rectangle) int {
 					if res, has := cnt[r]; has {return res}
@@ -1018,7 +1018,7 @@ var AtCoder = proconSite{
 					for _, coord := range xy {
 						x, y := coord.x, coord.y
 						if !(x1 <= x && x <= x2 && y1 <= y && y <= y2) {continue}
-	
+
 						tmp := (x2-x1) + (y2-y1) + 1
 						tmp += count(rectangle{x1, y1, x-1, y-1})
 						tmp += count(rectangle{x1, y+1, x-1, y2})
@@ -1026,24 +1026,24 @@ var AtCoder = proconSite{
 						tmp += count(rectangle{x+1, y+1, x2, y2})
 						res = MaxInt(res, tmp)
 					}
-					cnt[r] = res 
+					cnt[r] = res
 					return res
 
 				}
-				
+
 				fmt.Println(count(rectangle{1, 1, w, h}))
-				
+
 			},
 		},
 
 		"ABC009": contest{
 			"A": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				fmt.Println((n+1)/2)
 			},
 			"B": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				price := make([]int, n)
 				for i := 0; i < n; i++ {
@@ -1054,7 +1054,7 @@ var AtCoder = proconSite{
 			},
 
 			"C": func() {
-				var n, k int 
+				var n, k int
 				var s string
 				fmt.Scan(&n, &k, &s)
 				t := []rune(s)
@@ -1088,14 +1088,14 @@ var AtCoder = proconSite{
 				for i := 0; i < k; i++ {fmt.Scan(&a[i])}
 				for i := 0; i < k; i++ {fmt.Scan(&c[i])}
 				d := make([][]int, k)
-				d[0] = c 
+				d[0] = c
 				mask := 1<<32 - 1
 				for i := 0; i < k-1; i++ {
 					d[i+1] = make([]int, k)
 					d[i+1][i] = mask
 				}
 
-				
+
 				bitwiseDot := func(a, b [][]int) [][]int {
 					h, w := len(a), len(b[0])
 					c := make([][]int, h)
@@ -1110,7 +1110,7 @@ var AtCoder = proconSite{
 					return c
 				}
 
-				var bitwiseMatPow func(a [][]int, n int) [][]int 
+				var bitwiseMatPow func(a [][]int, n int) [][]int
 				bitwiseMatPow = func(a [][]int, n int) [][]int {
 					res := make([][]int, k)
 					for i := 0; i < k; i++ {
@@ -1136,16 +1136,16 @@ var AtCoder = proconSite{
 
 		"ABC010": contest{
 			"A": func() {
-				var s string 
+				var s string
 				fmt.Scan(&s)
 				fmt.Println(s + "pp")
 			},
 
 			"B": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				res := 0
-				var a int 
+				var a int
 				for i := 0; i < n; i++ {
 					fmt.Scan(&a)
 					for a%2 == 0 || a%3 == 2 {
@@ -1157,7 +1157,7 @@ var AtCoder = proconSite{
 
 			"C": func() {
 				var x1, y1, x2, y2, t, v float64
-				var n int 
+				var n int
 				fmt.Scan(&x1, &y1, &x2, &y2, &t, &v, &n)
 
 				dist := func(x1, y1, x2, y2 float64) float64 {
@@ -1165,7 +1165,7 @@ var AtCoder = proconSite{
 				}
 				ans := "NO"
 				for i := 0; i < n; i++ {
-					var x, y float64 
+					var x, y float64
 					fmt.Scan(&x, &y)
 					if dist(x1, y1, x, y) + dist(x, y, x2, y2) <= v*t {ans = "YES"}
 				}
@@ -1173,7 +1173,7 @@ var AtCoder = proconSite{
 			},
 
 			"D": func() {
-				var n, m, r int 
+				var n, m, r int
 				fmt.Scan(&n, &m, &r)
 				g := new(Graph); g.Init()
 				for i := 0; i < n+1; i++ {g.AddNode(i)}
@@ -1182,39 +1182,39 @@ var AtCoder = proconSite{
 					g.AddEdge(p, n, &Edge{cap: 1})
 					g.AddEdge(n, p, &Edge{})
 				}
-			
+
 				for i := 0; i < r; i++ {
 					a, b := ScanInt(), ScanInt()
 					g.AddEdge(a, b, &Edge{cap: 1})
 					g.AddEdge(b, a, &Edge{cap: 1})
 				}
 				fmt.Println(g.Dinic(0, n))
-				
+
 			},
 		},
 
 		"ABC011": contest{
 			"A": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				fmt.Println(n%12+1)
 			},
 			"B": func() {
-				var s string 
+				var s string
 				fmt.Scan(&s)
 				fmt.Println(strings.ToUpper(s[:1]) + strings.ToLower(s[1:]))
 			},
 
 			"C": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				ng := make(map[int]bool)
 				for i := 0; i < 3; i++ {
-					var tmp int 
+					var tmp int
 					fmt.Scan(&tmp)
 					ng[tmp] = true
 				}
-				
+
 				if ng[n] {
 					fmt.Println("NO")
 					return
@@ -1224,11 +1224,11 @@ var AtCoder = proconSite{
 					for d := -3; d < 0; d++ {
 						if ng[n+d] {continue}
 						n += d; flg = true
-						break					
-					}		
+						break
+					}
 					if !flg {
 						fmt.Println("NO")
-						return 
+						return
 					}
 					if n <= 0 {
 						fmt.Println("YES")
@@ -1239,11 +1239,11 @@ var AtCoder = proconSite{
 			},
 
 			"D": func() {
-				var n, d, x, y int 
+				var n, d, x, y int
 				fmt.Scan(&n, &d, &x, &y)
 				x, y = AbsInt(x), AbsInt(y)
 				if x%d != 0 || y%d != 0 {fmt.Println(0); return}
-				x /= d; y /= d 
+				x /= d; y /= d
 				r := n - (x+y)
 				if r < 0 || r&1 == 1 {fmt.Println(0); return}
 
@@ -1254,7 +1254,7 @@ var AtCoder = proconSite{
 					if r == 0 {return 1.0}
 					p := PairInt{n, r}
 					if v, has := nCr[p]; has {return v}
-					nCr[p] = comb(n-1, r) + comb(n-1, r-1)/4 
+					nCr[p] = comb(n-1, r) + comb(n-1, r-1)/4
 					return nCr[p]
 				}
 				res := .0
@@ -1265,30 +1265,30 @@ var AtCoder = proconSite{
 								 comb(n-south-north, west) * comb(n-south-north-west, east)
 				}
 				fmt.Println(res)
-				
-				
+
+
 			},
 		},
 
 		"ABC012": contest{
 			"A": func() {
-				var a, b int 
+				var a, b int
 				fmt.Scan(&a, &b)
 				fmt.Println(b, a)
 			},
 			"B": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
-				h := n/3600; n = n%3600 
+				h := n/3600; n = n%3600
 				m := n/60; n = n%60
 				s := n
 				fmt.Printf("%02d:%02d:%02d\n", h, m, s)
 			},
 
 			"C": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
-				n = 2025 - n 
+				n = 2025 - n
 				for i := 1; i <= 9; i++ {
 					if n%i != 0 || n/i > 9 {continue}
 					fmt.Printf("%d x %d\n", i, n/i)
@@ -1296,7 +1296,7 @@ var AtCoder = proconSite{
 			},
 
 			"D": func() {
-				var n, m int 
+				var n, m int
 				fmt.Scan(&n, &m)
 				g := new(Graph); g.Init()
 				for i := 0; i < m; i++ {
@@ -1323,14 +1323,14 @@ var AtCoder = proconSite{
 			},
 
 			"B": func() {
-				var a, b int 
+				var a, b int
 				fmt.Scan(&a, &b)
 				d := AbsInt(a - b)
 				fmt.Println(MinInt(d, 10-d))
 			},
 
 			"C": func() {
-				var n, h, a, b, c, d, e int 
+				var n, h, a, b, c, d, e int
 				fmt.Scan(&n, &h, &a, &b, &c, &d, &e)
 
 				f := func(y int) (x int) {
@@ -1348,7 +1348,7 @@ var AtCoder = proconSite{
 			},
 
 			"D": func() {
-				var n, m, d int 
+				var n, m, d int
 				fmt.Scan(&n, &m, &d)
 				a := make([]int, m)
 				for i := 0; i < m; i++ {
@@ -1363,7 +1363,7 @@ var AtCoder = proconSite{
 				for i := m-1; i > -1; i-- {
 					swap(a[i]-1, a[i])
 				}
-				
+
 				group := make([][]int, n)
 				root := make([]int, n)
 				for i := 0; i < n; i++ {root[i] = -1}
@@ -1372,10 +1372,10 @@ var AtCoder = proconSite{
 
 				for i := 0; i < n; i++ {
 					if root[i] != -1 { continue}
-					j := i 
+					j := i
 					for c := 0; c < n; c++ {
 						group[i] = append(group[i], j)
-						root[j] = i 
+						root[j] = i
 						indexInGroup[j] = c
 						j = res[j]
 						if j == i {break}
@@ -1390,13 +1390,13 @@ var AtCoder = proconSite{
 
 		"ABC014": contest{
 			"A": func() {
-				var a, b int 
+				var a, b int
 				fmt.Scan(&a, &b)
 				fmt.Println((a+b-1)/b * b - a)
 			},
 
 			"B": func() {
-				var n, x int 
+				var n, x int
 				fmt.Scan(&n, &x)
 				a := make([]int, n)
 				for i := 0; i < n; i++ {a[i] = ScanInt()}
@@ -1408,11 +1408,11 @@ var AtCoder = proconSite{
 			},
 
 			"C": func() {
-				var n int 
+				var n int
 				fmt.Scan(&n)
 				res := make([]int, 1001001)
 				for i := 0; i < n; i++ {
-					a, b := ScanInt(), ScanInt() 
+					a, b := ScanInt(), ScanInt()
 					res[a]++; res[b+1]--
 				}
 				for i := 0; i < 1e6; i++ {
@@ -1426,27 +1426,27 @@ var AtCoder = proconSite{
 				n := ScanInt()
 				g := Graph{}; g.Init()
 				for i := 0; i < n-1; i++ {
-					a, b := ScanInt(), ScanInt() 
+					a, b := ScanInt(), ScanInt()
 					a--; b--
 					g.AddEdge(a, b, &Edge{weight: 1})
 					g.AddEdge(b, a, &Edge{weight: 1})
 				}
 				g.InitTree(0)
-			
-				q := ScanInt() 
+
+				q := ScanInt()
 				for i := 0; i < q; i++ {
 					a, b := ScanInt(), ScanInt()
 					a--; b--
 					fmt.Println(g.FindDist(a, b)+1)
 				}
-				
+
 			},
 
 		},
 
 		"ABC015": contest{
 			"A": func() {
-				var a, b string 
+				var a, b string
 				fmt.Scan(&a, &b)
 				if len(a) > len(b) {
 					fmt.Println(a)
@@ -1457,7 +1457,7 @@ var AtCoder = proconSite{
 
 			"B": func() {
 				n := ScanInt()
-				tot, cnt := 0, 0 
+				tot, cnt := 0, 0
 				for i := 0; i < n; i++ {
 					a := ScanInt()
 					if a != 0 {
@@ -1478,11 +1478,11 @@ var AtCoder = proconSite{
 						t[i][j] = ScanInt()
 					}
 				}
-				
+
 				ans := "Nothing"
 				stack := make([][2]int, 1)
 				stack[0] = [2]int{-1, 0}
-				
+
 				for len(stack) > 0 {
 					data := stack[len(stack)-1]; stack = stack[:len(stack)-1]
 					d, x := data[0], data[1]
@@ -1496,11 +1496,11 @@ var AtCoder = proconSite{
 				}
 
 				fmt.Println(ans)
-				
+
 			},
 
 			"D": func() {
-				var w, n, k int 
+				var w, n, k int
 				fmt.Scan(&w, &n, &k)
 				a, b := make([]int, n), make([]int, n)
 				for i := 0; i < n; i++ {
@@ -1528,13 +1528,13 @@ var AtCoder = proconSite{
 				}
 				fmt.Println(dp[n][k][w])
 			},
-			
+
 
 		},
 
 		"ABC016": contest{
 			"A": func() {
-				var m, d int 
+				var m, d int
 				fmt.Scan(&m, &d)
 				ans := "NO"
 				if m%d == 0 {ans = "YES"}
@@ -1542,10 +1542,10 @@ var AtCoder = proconSite{
 			},
 
 			"B": func() {
-				var a, b, c int 
+				var a, b, c int
 				fmt.Scan(&a, &b, &c)
 				f1, f2 := a+b==c, a-b==c
-				var ans string  
+				var ans string
 				if f1 && f2 {
 					ans = "?"
 				} else if f1 && !f2 {
@@ -1559,11 +1559,11 @@ var AtCoder = proconSite{
 			},
 
 			"C": func() {
-				var n, m int 
+				var n, m int
 				fmt.Scan(&n, &m)
 				f := make([]int, n)
 				for i := 0; i < m; i++ {
-					a, b := ScanInt(), ScanInt() 
+					a, b := ScanInt(), ScanInt()
 					a--; b--
 					f[a] |= 1<<b
 					f[b] |= 1<<a
@@ -1583,7 +1583,7 @@ var AtCoder = proconSite{
 			},
 
 			"D": func() {
-				var ax, ay, bx, by, n int 
+				var ax, ay, bx, by, n int
 				fmt.Scan(&ax, &ay, &bx, &by, &n)
 
 				xy := make([]PairInt, n)
@@ -1604,16 +1604,16 @@ var AtCoder = proconSite{
 
 		"ABC017": contest{
 			"A": func() {
-				tot := 0 
+				tot := 0
 				for i := 0; i < 3; i++ {
-					s, e := ScanInt(), ScanInt() 
-					tot += s/10 *e 
+					s, e := ScanInt(), ScanInt()
+					tot += s/10 *e
 				}
 				fmt.Println(tot)
 			},
 
 			"B": func() {
-				x := Scan() 
+				x := Scan()
 
 				chokuTail := map[string]bool{
 					"ch": true,
@@ -1622,7 +1622,7 @@ var AtCoder = proconSite{
 					"u": true,
 				}
 
-				var isChokuWord func(s string) bool 
+				var isChokuWord func(s string) bool
 				isChokuWord = func(s string) bool {
 					if s == "" {return true}
 					var t string
@@ -1649,13 +1649,13 @@ var AtCoder = proconSite{
 			},
 
 			"C": func() {
-				var n, m int 
+				var n, m int
 				fmt.Scan(&n, &m)
 				score := make([]int, m+1)
 				tot := 0
 				for i := 0; i < n; i++ {
 					l, r, s := ScanInt(), ScanInt(), ScanInt()
-					score[l-1] += s; score[r] -= s 
+					score[l-1] += s; score[r] -= s
 					tot += s
 				}
 				for i := 0; i < m; i++ {
@@ -1665,7 +1665,7 @@ var AtCoder = proconSite{
 			},
 
 			"D": func() {
-				var n, m int 
+				var n, m int
 				fmt.Scan(&n, &m)
 				f := make([]int, n)
 				for i := 0; i < n; i++ {f[i] = ScanInt()}
@@ -1674,7 +1674,7 @@ var AtCoder = proconSite{
 				for i := 0; i < n; i++ {
 					prev[i+1] = tmp[f[i]]
 					tmp[f[i]] = i+1
-				} 
+				}
 				dp := make([]int, n+1); dp[0] = 1
 				l, s := 0, dp[0]
 				for i := 1; i <= n; i++ {
@@ -1682,8 +1682,8 @@ var AtCoder = proconSite{
 						s = (s - dp[l]) % Mod; if s<0 {s += Mod}
 						l++
 					}
-					dp[i] = s 
-					s = (s + dp[i]) % Mod 
+					dp[i] = s
+					s = (s + dp[i]) % Mod
 				}
 				fmt.Println(dp[n])
 
@@ -1696,7 +1696,7 @@ var AtCoder = proconSite{
 				for i := 0; i < 3; i++ {
 					a[i] = make([]int, 2)
 					a[i][0] = i
-					a[i][1] = ScanInt() 
+					a[i][1] = ScanInt()
 				}
 				sort.SliceStable(a, func(i, j int) bool {
 					return a[i][1] > a[j][1]
@@ -1724,7 +1724,7 @@ var AtCoder = proconSite{
 
 			},
 			"C": func() {
-				var r, c, k int 
+				var r, c, k int
 				fmt.Scan(&r, &c, &k)
 				a := make([][]int, r+2)
 				for i := 0; i < r+2; i++ {a[i] = make([]int, c+2)}
@@ -1733,7 +1733,7 @@ var AtCoder = proconSite{
 					s := Scan()
 					for j := 0; j < c; j++ {a[i+1][j+1] = Booltoi(s[j]=='o')*math.MaxInt64}
 				}
-				
+
 				for i := 1; i < r+1; i++ {
 					for j := 1; j < c+1; j++ {
 						a[i][j] = MinInt(a[i-1][j]+1, a[i][j])
@@ -1763,13 +1763,13 @@ var AtCoder = proconSite{
 				fmt.Println(tot)
 			},
 			"D": func() {
-				var n, m, p, q, r int 
+				var n, m, p, q, r int
 				fmt.Scan(&n, &m, &p, &q, &r)
 				h := make([][]int, n)
 				for i := 0; i < n; i++ {h[i] = make([]int, m)}
 
 				for i := 0; i < r; i++ {
-					x, y, z := ScanInt(), ScanInt(), ScanInt() 
+					x, y, z := ScanInt(), ScanInt(), ScanInt()
 					x--; y--
 					h[x][y] = z
 				}
@@ -1786,7 +1786,7 @@ var AtCoder = proconSite{
 				}
 				fmt.Println(res)
 			},
-		
+
 		},
 		"ABC019": contest{
 			"A": func() {
@@ -1811,11 +1811,11 @@ var AtCoder = proconSite{
 					}
 				}
 				fmt.Println(SubStr(t, 2, len(t)))
-				
+
 
 			},
 			"C": func() {
-				n := ScanInt() 
+				n := ScanInt()
 				a := make([]int, n)
 				for i := 0; i < n; i++ {a[i] = ScanInt()}
 				res := make(map[int]bool)
@@ -1835,7 +1835,7 @@ var AtCoder = proconSite{
 				}
 
 				n := ScanInt()
-				dist := 0 
+				dist := 0
 				var u int
 				for v := 2; v <= n; v++ {
 					d := inquire(1, v)
@@ -1848,11 +1848,11 @@ var AtCoder = proconSite{
 				}
 				fmt.Printf("! %v", dist)
 			},
-		
+
 		},
 		"ABC020": contest{
 			"A": func() {
-				q := ScanInt() 
+				q := ScanInt()
 				if q == 1 {
 					fmt.Println("ABC")
 				} else {
@@ -1861,7 +1861,7 @@ var AtCoder = proconSite{
 
 			},
 			"B": func() {
-				var a, b string 
+				var a, b string
 				fmt.Scan(&a, &b)
 				c, _ := strconv.Atoi(a+b)
 				fmt.Println(c*2)
@@ -1874,7 +1874,7 @@ var AtCoder = proconSite{
 			"D": func() {
 
 			},
-		
+
 		},
 
 	},
@@ -1888,4 +1888,3 @@ func main() {
 
 
 }
-

@@ -12,7 +12,7 @@ def main():
         res[l-1:r] = t
 
     return res
-    
+
 if __name__ == '__main__':
     ans = main()
     print(*ans, sep='\n')

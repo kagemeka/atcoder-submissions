@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -14,10 +14,10 @@ def main() -> typing.NoReturn:
     if s[i] == '@' and t[i] in atcoder: continue
     if t[i] == '@' and s[i] in atcoder: continue
     print('You will lose')
-    return 
+    return
 
 
-  print('You can win')  
+  print('You can win')
 
 
 main()

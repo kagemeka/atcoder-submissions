@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -17,12 +17,12 @@ def solve(n: int, d: np.ndarray) -> typing.NoReturn:
     return True
 
   for x in range(n, at_most):
-    if not check_ok(x): continue 
+    if not check_ok(x): continue
     print(x)
-    return 
+    return
 
-    
-    
+
+
 
 def main() -> typing.NoReturn:
   n, k = map(int, input().split())

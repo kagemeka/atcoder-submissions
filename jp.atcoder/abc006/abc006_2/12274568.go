@@ -19,7 +19,7 @@ func create() {
 
 func main() {
   create()
-  var n int 
+  var n int
   fmt.Scan(&n)
   fmt.Println(tribonacci[n-1])
 }

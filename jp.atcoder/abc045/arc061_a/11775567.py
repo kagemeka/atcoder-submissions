@@ -5,7 +5,7 @@ n = len(s)
 
 def c(n):
     return pow(2, max(0, n - 1))
-  
+
 def main():
     res = 0
     for l in range(n):

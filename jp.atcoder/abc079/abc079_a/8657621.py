@@ -14,8 +14,8 @@ def main():
             cnt = 1
     else:
         ans = 'No'
-    
+
     print(ans)
-    
+
 if __name__ == "__main__":
     main()

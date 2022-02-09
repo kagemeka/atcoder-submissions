@@ -50,7 +50,7 @@ int main() {
   for (int i = 1; i < res.size(); i++) {
     res[i] = max(res[i], res[i-1]);
   }
-  
+
   for (int x : p) {
     cout << res[x] << endl;
   }

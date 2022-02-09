@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 from scipy.sparse.csgraph import floyd_warshall
 from scipy.sparse import csr_matrix
 from itertools import combinations
@@ -20,7 +20,7 @@ def main():
             if w != v and w != u:
                 if B[v, w] + B[w, u] == d:
                     will_subtract.append(d)
-    
+
     ans = np.sum(B) // 2 - sum(will_subtract)
     return int(ans)
 

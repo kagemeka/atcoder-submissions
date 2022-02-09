@@ -1,6 +1,6 @@
 import sys
 
-keyboard = 'WBWBWWBWBWBW' * 3 
+keyboard = 'WBWBWWBWBWBW' * 3
 
 s = sys.stdin.readline().rstrip()
 

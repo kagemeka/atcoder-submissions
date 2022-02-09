@@ -9,7 +9,7 @@ int main() {
   string res;
   for (int i = 0; i < 3; i++) {
     res += s[i][0];
-  } 
+  }
   cout << res << endl;
   return 0;
 }

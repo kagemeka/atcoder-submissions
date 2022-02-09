@@ -27,7 +27,7 @@ def main(a, b):
         if j == 100:
             j = 0
             i += 2
-    
+
     i = 51
     j = 0
     while b:
@@ -37,7 +37,7 @@ def main(a, b):
         if j == 100:
             j = 0
             i += 2
-        
+
     for i in range(h):
         yield ''.join(canvas[i])
 

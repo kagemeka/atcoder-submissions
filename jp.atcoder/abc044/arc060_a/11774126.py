@@ -12,6 +12,6 @@ def main():
       ndp[k+x[i]] += v
     dp = ndp
   print(dp[0] - 1)
-  
+
 if __name__ == '__main__':
   main()

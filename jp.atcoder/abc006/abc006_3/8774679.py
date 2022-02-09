@@ -7,7 +7,7 @@ def main():
     if r == 3:
         cnt[1] += 1
         n -= 1
-        
+
     elif r == 1:
         cnt[0] += 1
         cnt[1] += 1
@@ -23,7 +23,7 @@ def main():
         possible = False
     elif n < q or q * 2 < n:
         possible = False
-    
+
     if not possible:
         print(-1, -1, -1)
         sys.exit()

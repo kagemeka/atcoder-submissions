@@ -1,10 +1,10 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     n = int(input())
     a = list(map(int, input().split()))
-    
+
 
     s = t = 0
     r = 0
@@ -23,4 +23,3 @@ def main() -> typing.NoReturn:
     print(cnt)
 
 main()
-        

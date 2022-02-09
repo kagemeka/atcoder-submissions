@@ -13,7 +13,7 @@ function divmod(a, b) {
 
 function toS(i) {
   return (i < 10) ?  '0' + i.toString(10) : i.toString(10);
-} 
+}
 
 function main(input) {
   var n = int(input.trim());

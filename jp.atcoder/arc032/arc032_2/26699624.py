@@ -1,23 +1,23 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def uf_build(n: int) -> np.ndarray:
     return np.full(n, -1, np.int64)
 
-@nb.njit 
+@nb.njit
 def uf_find(uf: np.ndarray, u: int) -> int:
-    if uf[u] < 0: return u 
+    if uf[u] < 0: return u
     uf[u] = uf_find(uf, uf[u])
     return uf[u]
 
-@nb.njit 
+@nb.njit
 def uf_unite(uf: np.ndarray, u: int, v: int) -> typing.NoReturn:
     u, v = uf_find(uf, u), uf_find(uf, v)
-    if u == v: return 
+    if u == v: return
     if uf[u] > uf[v]: u, v = v, u
     uf[u] += uf[v]
     uf[v] = u
@@ -30,7 +30,7 @@ def solve(n: int, ab: np.ndarray) -> typing.NoReturn:
     for i in range(m):
         a, b = ab[i]
         uf_unite(uf, a, b)
-    
+
     root = np.empty(n, np.int64)
     for i in range(n): root[i] = uf_find(uf, i)
     # print(np.unique(root).size - 1)

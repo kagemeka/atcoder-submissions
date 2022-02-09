@@ -4,7 +4,7 @@ def main():
     amidakuji = [' ' + sys.stdin.readline().rstrip() + ' ' for _ in range(l)]
     goal = ' ' + sys.stdin.readline().rstrip()
     cur = goal.index('o')
-    
+
     for i in range(l-1, -1, -1):
         if amidakuji[i][cur-1] == '-':
             cur -= 2

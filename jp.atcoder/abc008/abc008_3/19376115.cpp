@@ -31,7 +31,7 @@ void solve() {
   double ev = .0;
   for (const int& i: cnt)
   {
-    ev += (i / 2 + 1) 
+    ev += (i / 2 + 1)
       / (double)(i + 1);
   }
   printf("%.10f\n", ev);

@@ -1,5 +1,5 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
@@ -9,15 +9,15 @@ def read_int():
 
 
 def solve(n):
-  cnt = 0 
-  for i in range(9): 
+  cnt = 0
+  for i in range(9):
     pp = pow(10, i + 1)
     p = pow(10, i)
     cc = n // pp * p
     c = n % pp - p + 1
     c = min(max(c, 0), p)
     cnt += cc + c
-    
+
   print(cnt)
 
 

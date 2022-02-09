@@ -20,10 +20,10 @@ def main():
             else:
                 if j - cur <= 99 * n - 1:
                     res[i+1][j] += res[i][j-cur]
-    
+
     ans = res[n][49*n] - 1
     return ans
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

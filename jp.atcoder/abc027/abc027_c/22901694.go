@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -9,7 +9,7 @@ import (
 )
 
 
-type Int int 
+type Int int
 
 
 func (
@@ -21,11 +21,11 @@ func (
 		x >>= 1
 		l++
 	}
-	return 
+	return
 }
 
 
-type Bool bool 
+type Bool bool
 
 
 func (
@@ -45,7 +45,7 @@ type Player struct {
 type Problem struct {
 	io *IO
 	player Player
-	n int 
+	n int
 }
 
 
@@ -71,11 +71,11 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	n := p.n 
+	n := p.n
 	l := Int(n).BitLen()
 	b1 := l & 1
 	x := 1
-	
+
 	for i := 0; i < l - 1; i++ {
 		b2 := i & 1
 		x <<= 1

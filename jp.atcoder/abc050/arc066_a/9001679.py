@@ -17,7 +17,7 @@ def main():
                 return 0
 
     return 2 ** (n // 2)
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

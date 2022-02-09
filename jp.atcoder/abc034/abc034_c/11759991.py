@@ -25,6 +25,6 @@ h, w = map(int, sys.stdin.readline().split())
 
 def main():
     print(mod_choose(h + w - 2, h - 1))
-    
+
 if __name__ ==  '__main__':
     main()

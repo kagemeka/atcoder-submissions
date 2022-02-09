@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 
 
@@ -9,21 +9,21 @@ def solve(d: np.ndarray, p: np.ndarray) -> typing.NoReturn:
   q = len(p)
   d = np.pad(d, pad_width=1)
   d = d.cumsum(axis=0).cumsum(axis=1)
-  
+
   res = np.zeros(n * n + 1, np.int64)
   for dy in range(1, n + 1):
     for dx in range(1, n + 1):
       k = dx * dy
       mx = np.max(
-        d[dy:, dx:] 
-        - d[dy:, :-dx] 
-        - d[:-dy, dx:] 
+        d[dy:, dx:]
+        - d[dy:, :-dx]
+        - d[:-dy, dx:]
         + d[:-dy, :-dx]
       )
       res[k] = max(res[k], mx)
   np.maximum.accumulate(res, out=res)
   print(*res[p], sep='\n')
-  
+
 
 
 def main() -> typing.NoReturn:

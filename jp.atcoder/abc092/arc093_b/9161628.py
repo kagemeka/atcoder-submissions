@@ -8,7 +8,7 @@ def main():
 
     s1 = [None] * w
     s2 = [None] * w
-    
+
     if a >= b:
         c1 = '.'
         c2 = '#'

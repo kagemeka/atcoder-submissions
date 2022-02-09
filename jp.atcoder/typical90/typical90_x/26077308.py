@@ -1,21 +1,21 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
 @nb.njit((nb.i8[:], nb.i8[:], nb.i8), cache=True)
 def solve(
-  a: np.ndarray, 
-  b: np.ndarray, 
+  a: np.ndarray,
+  b: np.ndarray,
   k: int,
 ) -> typing.NoReturn:
   n = len(a)
   d = 0
   for i in range(n):
     d += abs(a[i] - b[i])
-  
+
   k -= d
   ans = 'Yes' if k >= 0 and k & 1 == 0 else 'No'
   print(ans)

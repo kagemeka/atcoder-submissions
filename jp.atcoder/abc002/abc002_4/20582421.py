@@ -6,7 +6,7 @@ from dataclasses import (
 )
 
 import numpy as np
-import sys 
+import sys
 
 from typing import (
   List,
@@ -33,26 +33,26 @@ class Reader:
   def read_int(cls) -> int:
     ln = cls.readline()
     return int(ln)
-  
-  
-  @classmethod 
+
+
+  @classmethod
   def read_str(cls) -> str:
     ln = cls.readline()
     return ln.decode()
-  
+
 
   @classmethod
   def readline_ints(
     cls,
   ) -> List[int]:
     *ints, = map(
-      int, 
+      int,
       cls.readline().split(),
     )
     return ints
 
-  
-  @classmethod 
+
+  @classmethod
   def readline_strs(
     cls,
   ) -> List[str]:
@@ -75,13 +75,13 @@ class Reader:
     cls,
   ) -> List[int]:
     *ints, = map(
-      int, 
+      int,
       cls.read().split(),
     )
     return ints
-  
 
-  @classmethod 
+
+  @classmethod
   def read_strs(
     cls,
   ) -> List[str]:
@@ -115,7 +115,7 @@ class NumpyReader(Reader):
   ) -> np.array:
     return np.fromstring(
       string=cls.read_str(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -127,7 +127,7 @@ class NumpyReader(Reader):
     return np.fromstring(
       string=cls.read() \
         .decode(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -153,7 +153,7 @@ class Solver(ABC):
       **kwargs,
     )
 
-  
+
   def run(self):
     self.prepare()
     self.solve()
@@ -164,9 +164,9 @@ class Solver(ABC):
     ...
     self.ready = True
 
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     assert self.ready
     ...
@@ -175,9 +175,9 @@ class Solver(ABC):
 def bit_count(n):
   cnt = 0
   l = n.bit_length()
-  for _ in range(l): 
-    cnt += n & 1 
-    n >>= 1 
+  for _ in range(l):
+    cnt += n & 1
+    n >>= 1
   return cnt
 
 
@@ -198,19 +198,19 @@ class ABC002D(
       for i in range(n)
     ]
     for x, y in xy:
-      relations[x] |= 1 << y 
+      relations[x] |= 1 << y
       relations[y] |= 1 << x
-    
-    self.relations = relations 
-    self.n = n 
+
+    self.relations = relations
+    self.n = n
     self.ready = True
 
 
   def solve(self):
     assert self.ready
-    n = self.n 
-    relations = self.relations 
-    
+    n = self.n
+    relations = self.relations
+
     c = 0
     for s in range(1 << n):
       t = s
@@ -218,7 +218,7 @@ class ABC002D(
         if ~s >> i & 1:
           continue
         t &= relations[i]
-      if t != s: continue 
+      if t != s: continue
       c = max(
         c,
         bit_count(s),

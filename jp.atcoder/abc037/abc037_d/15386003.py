@@ -15,9 +15,9 @@ def D():
         res[y][x] %= MOD
   tot = 0
   for i in range(h):
-    tot += sum(res[i])%MOD 
-    tot %= MOD 
+    tot += sum(res[i])%MOD
+    tot %= MOD
   print(tot)
-    
+
 if __name__ == '__main__':
   D()

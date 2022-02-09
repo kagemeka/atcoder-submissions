@@ -9,7 +9,7 @@ func maxInt(a ...int) int {m := a[0]; for _, x := range a {if x > m {m = x}}; re
 func minInt(a ...int) int {m := a[0]; for _, x := range a {if x < m {m = x}}; return m}
 
 func main() {
-  var n, x int 
+  var n, x int
   fmt.Scan(&n, &x)
   m := make([]int, n)
   for i := 0; i < n; i++ {

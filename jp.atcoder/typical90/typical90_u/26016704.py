@@ -1,12 +1,12 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def sort_csgraph(
-  n: int, 
+  n: int,
   g: np.ndarray,
 ) -> typing.Tuple[np.ndarray, np.ndarray, np.ndarray]:
   sort_idx = np.argsort(g[:, 0], kind='mergesort')
@@ -17,8 +17,8 @@ def sort_csgraph(
 
 
 @nb.njit
-def scc(n: int, g: np.ndarray) -> np.ndarray:  
-  def _scc_dfs(n, g): 
+def scc(n: int, g: np.ndarray) -> np.ndarray:
+  def _scc_dfs(n, g):
     g, edge_idx, _ = sort_csgraph(n, g)
     order = np.empty(n,  np.int64)
     ptr = -1
@@ -41,7 +41,7 @@ def scc(n: int, g: np.ndarray) -> np.ndarray:
           st.append(v)
     assert np.all(flg == 2)
     return order
-      
+
   def _scc_reverse_dfs(n, g, order):
     g[:, :2] = g[:, 1::-1]
     g, edge_idx, _ = sort_csgraph(n, g)
@@ -59,11 +59,11 @@ def scc(n: int, g: np.ndarray) -> np.ndarray:
           st.append(v)
       l += 1
     return label
-  
+
   g = g.copy()
   order = _scc_dfs(n, g)
   return _scc_reverse_dfs(n, g, order)
-  
+
 
 @nb.njit((nb.i8, nb.i8[:, :]), cache=True)
 def solve(n: int, g: np.ndarray) -> typing.NoReturn:

@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -88,9 +88,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -115,7 +115,7 @@ class Problem(
 
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     n = reader.int()
     m = reader.int()
     a = [
@@ -125,28 +125,28 @@ class Problem(
     a = np.array(
       a,
     ).reshape(m, 3)
-    a, b, t = a.T 
-    self.n, self.m = n, m 
+    a, b, t = a.T
+    self.n, self.m = n, m
     self.a = a - 1
     self.b = b - 1
-    self.t = t 
+    self.t = t
 
 
   def solve(self):
     self.compute_dist_mat()
-    dist = self.dist 
+    dist = self.dist
     d = dist.max(axis=1).min()
     print(int(d))
-    
-  
+
+
 
   def compute_dist_mat(
     self,
   ):
-    n = self.n 
-    a = self.a 
-    b = self.b 
-    t = self.t 
+    n = self.n
+    a = self.a
+    b = self.b
+    t = self.t
     g = csr_matrix(
       (t, (a, b)),
       shape=(n, n),
@@ -155,8 +155,8 @@ class Problem(
       csgraph=g,
       directed=False,
     )
-    self.dist = dist 
-  
+    self.dist = dist
+
 
 
 def main():

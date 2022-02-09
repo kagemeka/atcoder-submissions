@@ -1,4 +1,4 @@
-#include <iostream> 
+#include <iostream>
 
 
 #include <vector>
@@ -6,7 +6,7 @@ int main() {
   using namespace std;
   ios::sync_with_stdio(false);
   cin.tie(0);
-  
+
   int n, m;
   cin >> n >> m;
   int inf = 1 << 29;
@@ -25,7 +25,7 @@ int main() {
       }
     }
   }
-    
+
   int mn = inf;
   for (int i = 0; i < n; i++) {
     int mx = 0;
@@ -34,5 +34,5 @@ int main() {
     }
     mn = min(mn, mx);
   }
-  cout << mn << '\n'; 
+  cout << mn << '\n';
 }

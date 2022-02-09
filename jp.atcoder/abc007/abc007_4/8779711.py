@@ -18,7 +18,7 @@ def ngCnt(n):
         else:
             ok_cnt += 8 * 8 ** (l - (i + 1))
             break
-    
+
     return a - ok_cnt
 
 def main():

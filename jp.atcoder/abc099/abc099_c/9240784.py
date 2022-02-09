@@ -13,7 +13,7 @@ def main():
     if 12 <= r <= 14:
         q, s = divmod(r, 6)
         cnt += q + s
-    
+
     return cnt
 
 if __name__ == '__main__':

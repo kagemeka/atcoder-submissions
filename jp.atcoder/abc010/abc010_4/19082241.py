@@ -1,5 +1,5 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
@@ -7,28 +7,28 @@ def readline():
 def readline_ints():
   import numpy as np
   return np.fromstring(
-    string=readline().decode(), 
-    dtype=np.int64, 
+    string=readline().decode(),
+    dtype=np.int64,
     sep=' ',
   )
 
 
 def read():
-  import sys 
+  import sys
   return sys.stdin.buffer.read()
 
 
 def read_ints():
   import numpy as np
   return np.fromstring(
-    string=read().decode(), 
-    dtype=np.int64, 
+    string=read().decode(),
+    dtype=np.int64,
     sep=' ',
   )
 
 
 def solve(n, p, ab):
-  import networkx as nx 
+  import networkx as nx
   g = nx.DiGraph()
   g.add_nodes_from(range(n+1))
   g.add_edges_from(ab, capacity=1)
@@ -46,7 +46,7 @@ def solve(n, p, ab):
 
 
 def main():
-  import numpy as np 
+  import numpy as np
   n, _, _ = readline_ints()
   p = readline_ints()
   ab = read_ints().reshape(-1, 2)

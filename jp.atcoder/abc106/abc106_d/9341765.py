@@ -8,7 +8,7 @@ p, q = I[3+m*2:].reshape(-1, 2).T
 
 def main():
     res = np.zeros((n+2, n+2), dtype=np.int64)
-    
+
     np.add.at(res, (1, r), 1)
     np.add.at(res, (l+1, r), -1)
     np.add.at(res, (1, n+1), -1)

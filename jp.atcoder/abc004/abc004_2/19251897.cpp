@@ -8,7 +8,7 @@ void solve() {
   for (int i = 0; i < n; i++) {
     getline(cin, c[i]);
     reverse(
-      c[i].begin(), 
+      c[i].begin(),
       c[i].end()
     );
   }

@@ -14,5 +14,5 @@ func main() {
     ans = "Yes"
   }
   fmt.Println(ans)
-  
+
 }

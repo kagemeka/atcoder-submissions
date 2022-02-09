@@ -7,7 +7,7 @@ int main() {
 
   string s, t;
   cin >> s >> t;
-  
+
   int n = s.size();
   string res = "";
   for (int i = 0; i < n; i++) {

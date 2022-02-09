@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 
 n = int(sys.stdin.readline().rstrip())
 d = np.array([sys.stdin.readline().split() for _ in range(n)], dtype=np.int64)
@@ -15,7 +15,7 @@ def main():
         for x in range(1, n + 1):
             res = d[y:n+1, x:n+1] - d[0:n-y+1, x:n+1] - d[y:n+1, 0:n-x+1] + d[0:n-y+1, 0:n-x+1]
             ma[y][x] = np.amax(res)
-    
+
     res = np.arange(n ** 2 + 1)[:, None]
     i = np.arange(1, n + 1)
     res = ma[i, np.minimum(res // i, n)]

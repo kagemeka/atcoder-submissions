@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 from scipy.sparse.csgraph import dijkstra, csgraph_to_dense
 from scipy.sparse import csr_matrix
 
@@ -17,7 +17,7 @@ def main():
     while not paths[b, 0]:
         paths = np.dot(graph, paths)
         paths %= MOD
-    
+
     print(paths[b, 0])
 
 if __name__ == '__main__':

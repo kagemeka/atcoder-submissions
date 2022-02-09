@@ -28,7 +28,7 @@ lr = zip(*[map(int, sys.stdin.read().split())] * 2)
 def main():
     for l, r in lr:
         yield cnt[r] - cnt[l-1]
-    
+
 if __name__ == '__main__':
     ans = main()
     print(*ans, sep='\n')

@@ -70,7 +70,7 @@ abstract class Solver {
 
 
 
-mixin Runner 
+mixin Runner
 implements Solver {
 
 
@@ -98,7 +98,7 @@ with Runner {
     k = readInt();
     r = List.filled(n, 0);
     for (
-      int i = 0; i < n; i++ 
+      int i = 0; i < n; i++
     ) r[i] = readInt();
   }
 
@@ -109,8 +109,8 @@ with Runner {
     );
     double rate = 0;
     for (
-      int i = k - 1; 
-      i > -1; 
+      int i = k - 1;
+      i > -1;
       i--
     ) {
       rate = (rate + r[i]) / 2;

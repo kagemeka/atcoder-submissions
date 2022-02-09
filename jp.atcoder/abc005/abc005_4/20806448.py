@@ -3,45 +3,45 @@ def read_int():
 
 
 def read():
-  import sys 
+  import sys
   return sys.stdin.buffer.read()
 
 
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
 
 def readline_ints():
   *ints, = map(
-    int, 
+    int,
     readline().split(),
   )
-  return ints 
+  return ints
 
 
 def read_ints():
   import numpy as np
   return np.fromstring(
-    string=read().decode(), 
-    dtype=np.int64, 
+    string=read().decode(),
+    dtype=np.int64,
     sep=' ',
   )
 
 
-import numpy as np 
+import numpy as np
 
 def pad_(arr):
   return np.pad(
     arr,
     pad_width=(
-      (1, 0), 
+      (1, 0),
       (1, 0),
     ),
     mode='constant',
     constant_values=(
-      (0, ), 
+      (0, ),
       (0, ),
     ),
   )
@@ -67,7 +67,7 @@ def solve(
     for x in range(1, n+1):
       mx[y, x] = np.amax(
         s[y:, x:]
-        - s[:-y, x:] 
+        - s[:-y, x:]
         - s[y:, :-x]
         + s[:-y, :-x]
       )
@@ -82,7 +82,7 @@ def solve(
   )
 
   print(*res[p], sep='\n')
-  
+
 
 def main():
   n = read_int()
@@ -90,7 +90,7 @@ def main():
     readline_ints()
     for _ in range(n)
   ])
-  _ = read_int() 
+  _ = read_int()
   p = read_ints()
 
   solve(n, d, p)

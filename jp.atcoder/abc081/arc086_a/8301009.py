@@ -24,7 +24,7 @@ def main():
         else:
             count += remainder * i
             break
-    
+
     print(count)
 
 if __name__ == "__main__":

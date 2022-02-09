@@ -23,7 +23,7 @@ def main():
     res = []
     for i in range(n+1):
         res.append(sum_left[i] + sum_right[n-i])
-        
+
     ans = max(res)
     return ans
 

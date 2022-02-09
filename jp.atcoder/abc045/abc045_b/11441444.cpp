@@ -4,10 +4,10 @@ using namespace std;
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
-  
+
   string a, b, c;
   cin >> a >> b >> c;
-  
+
   map<char, string> s = {{'a', a}, {'b', b}, {'c', c}};
   char nex = 'a';
   char cur;

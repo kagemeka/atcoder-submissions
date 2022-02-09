@@ -8,7 +8,7 @@ int main() {
   double m;
   cin >> m;
   m *= 0.001;
-  
+
   string ans;
   if (m < 0.1) {
     ans = "00";

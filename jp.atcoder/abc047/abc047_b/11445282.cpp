@@ -8,7 +8,7 @@ int main() {
   int r, u, n;
   cin >> r >> u >> n;
   int l = 0, d = 0;
-  
+
   int x, y, a;
   for (int i = 0; i < n; i++) {
     cin >> x >> y >> a;

@@ -1,9 +1,9 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     n = int(input())
-    g0 = 0 
+    g0 = 0
     for _ in range(n):
         a, b, c = map(int, input().split())
         m = int(input())

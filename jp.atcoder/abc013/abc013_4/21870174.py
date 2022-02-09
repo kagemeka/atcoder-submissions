@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -88,9 +88,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -105,7 +105,7 @@ class Problem(
 
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     n = reader.int()
     m = reader.int()
     d = reader.int()
@@ -113,9 +113,9 @@ class Problem(
       reader.int() - 1
       for _ in range(m)
     ]
-    self.n = n 
-    self.m = m 
-    self.d = d 
+    self.n = n
+    self.m = m
+    self.d = d
     self.a = a
 
 
@@ -130,10 +130,10 @@ class Problem(
     self,
   ):
     a = self.a
-    d = self.d 
+    d = self.d
     a = self.pow(a, d)
     self.a = a
-  
+
 
   def pow(
     self,
@@ -147,14 +147,14 @@ class Problem(
     if n & 1:
       x = x[a]
     return x
-  
+
 
   def identity(
     self,
   ):
-    n = self.n 
+    n = self.n
     return np.arange(n)
-    
+
 
   def solve_ghost_leg(
     self,
@@ -166,7 +166,7 @@ class Problem(
       j = i + 1
       b[i], b[j] = b[j], b[i]
     a = np.array(b)
-    self.a = a 
+    self.a = a
 
 
 

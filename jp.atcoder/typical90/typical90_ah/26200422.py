@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:], nb.i8), cache=True)
@@ -10,9 +10,9 @@ def solve(a: np.ndarray, k: int) -> typing.NoReturn:
   a = np.searchsorted(np.unique(a), a)
   m = a.max() + 1
   cnt = np.zeros(m, np.int64)
-  
-  r = 0 
-  mx = 0 
+
+  r = 0
+  mx = 0
   kind = 0
   for l in range(n):
     while r < n and kind <= k:

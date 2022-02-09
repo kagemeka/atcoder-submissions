@@ -39,7 +39,7 @@ func (
 	bufSize int,
 ) {
 	io.Scanner.Buffer(
-		[]byte{}, 
+		[]byte{},
 		bufSize,
 	)
 }
@@ -93,7 +93,7 @@ func (
 func (
 	io *IO,
 ) ScanInt() Int {
-	s := string(io.Scan())	
+	s := string(io.Scan())
 	v, _ := strconv.Atoi(s)
 	return Int(v)
 }
@@ -155,7 +155,7 @@ func (
 		cnt += n & 1
 		n >>= 1
 	}
-	return 
+	return
 }
 
 
@@ -200,7 +200,7 @@ func (
 	case Int:
 		return Int(res)
 	}
-	return res 
+	return res
 }
 
 
@@ -228,7 +228,7 @@ func (
 	case Int:
 		return Int(res)
 	}
-	return res 
+	return res
 }
 
 
@@ -276,7 +276,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(Int) 
+	return x <= other.(Int)
 }
 
 
@@ -310,7 +310,7 @@ func (
 	if x < 0 {
 		return -x
 	}
-	return x 
+	return x
 }
 
 
@@ -406,7 +406,7 @@ func (
 	Numeric,
 ){
 	if n == 0 {
-		return Float(1) 
+		return Float(1)
 	}
 	a := x.Pow(n >> 1).(Float)
 	a *= a
@@ -449,7 +449,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(Float) 
+	return x <= other.(Float)
 }
 
 
@@ -489,7 +489,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(String) 
+	return x <= other.(String)
 }
 
 
@@ -719,7 +719,7 @@ type Numeric interface {
 
 
 func Sum(
-	a ...Numeric,	
+	a ...Numeric,
 ) (
 	s Numeric,
 ) {
@@ -727,7 +727,7 @@ func Sum(
 	for  _, x := range a {
 		s = s.Add(x)
 	}
-	return 
+	return
 }
 
 
@@ -746,7 +746,7 @@ func (
 ) {
 	const dx = 1e-8
 	d = (f(x + dx) - f(x)) / dx
-	return 
+	return
 }
 
 
@@ -759,14 +759,14 @@ func (
 ) {
 	x = x0
 	const maxIter = 1 << 4
-	for 
-	i := 0; 
-	i < maxIter; 
+	for
+	i := 0;
+	i < maxIter;
 	i++ {
-		x -= f(x) / 
+		x -= f(x) /
 			f.Derivative(x)
 	}
-	return 
+	return
 }
 
 
@@ -784,7 +784,7 @@ func Newton(
 type Solver interface{
 	Init()
 	Prepare()
-	Solve()	
+	Solve()
 }
 
 
@@ -825,7 +825,7 @@ func (
 	p *Problem,
 ) Solve() {
 	io := p.io
-	n := p.n 
+	n := p.n
 	io.Write(2 * n)
 }
 

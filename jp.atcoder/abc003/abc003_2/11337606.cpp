@@ -16,7 +16,7 @@ int main() {
     if (c == '@' && atcoder.find(d) != atcoder.end()) continue;
     if (d == '@' && atcoder.find(c) != atcoder.end()) continue;
     ans = "You will lose";
-    break;  
+    break;
   }
   cout << ans << endl;
   return 0;

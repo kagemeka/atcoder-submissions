@@ -1,15 +1,15 @@
-import typing 
-import sys 
-import numpy as np 
-import itertools 
+import typing
+import sys
+import numpy as np
+import itertools
 
 
 def solve(a: np.ndarray, k: int) -> typing.NoReturn:
-  n = a.size 
+  n = a.size
   a.sort()
   np.minimum(a, k, out=a)
   a = a.tolist()
-  
+
   def is_needed(i):
     dp = 1
     mask = (1 << k) - 1
@@ -27,10 +27,10 @@ def solve(a: np.ndarray, k: int) -> typing.NoReturn:
       else:
         lo = i
     return hi
-  
+
   print(binary_search())
 
-    
+
 
 
 def main() -> typing.NoReturn:

@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -11,7 +11,7 @@ import (
 
 type Problem struct {
 	io *IO
-	n int 
+	n int
 	s, e []int
 }
 
@@ -29,11 +29,11 @@ func (
 	p *Problem,
 ) Input() {
 	io := p.io
-	n := p.n 
+	n := p.n
 	s := make([]int, n)
 	e := make([]int, n)
 	for i := 0; i < n; i++ {
-		s[i] = io.ReadInt()	
+		s[i] = io.ReadInt()
 		e[i] = io.ReadInt()
 	}
 	p.s, p.e = s, e
@@ -43,7 +43,7 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	n, s, e := p.n, p.s, p.e 
+	n, s, e := p.n, p.s, p.e
 	tot := 0
 	for i := 0; i < n; i++ {
 		tot += s[i] / 10 * e[i]

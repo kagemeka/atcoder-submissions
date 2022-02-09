@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 def main() -> typing.NoReturn:
     n = int(input())
@@ -9,8 +9,8 @@ def main() -> typing.NoReturn:
         if i * i > k: break
         if not is_prime[i]: continue
         for j in range(i * i, k + 1, i):
-            is_prime[j] = False 
-    
+            is_prime[j] = False
+
     cand = [i for i in range(k + 1) if is_prime[i] and i % 5 == 2]
     print(*cand[:n])
 

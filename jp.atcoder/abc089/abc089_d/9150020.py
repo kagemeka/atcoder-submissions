@@ -3,14 +3,14 @@ import sys
 h, w, d = map(int, sys.stdin.readline().split())
 a = [[int(x) for x in sys.stdin.readline().split()] for _ in range(h)]
 q = int(sys.stdin.readline().rstrip())
-lr = zip(*[map(int, sys.stdin.read().split())] * 2) 
+lr = zip(*[map(int, sys.stdin.read().split())] * 2)
 
 def main():
     place = [None] * (h * w + 1)
     for i in range(h):
         for j in range(w):
             place[a[i][j]] = (i, j)
-    
+
     cost = [0] * (h * w + 1)
     cost[0] = None
     for x in range(1, 1+d):

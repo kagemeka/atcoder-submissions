@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -7,6 +7,6 @@ def main() -> typing.NoReturn:
   for i in range(1, 10):
     if n % i or n // i >= 10: continue
     print(f'{i} x {n // i}')
-  
+
 
 main()

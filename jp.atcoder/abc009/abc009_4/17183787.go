@@ -23,7 +23,7 @@ using namespace GeometryTopology;
 namespace Algebra {
 
 
-template<typename T> 
+template<typename T>
 vector<vector<T>> identity(int n) {
   vector<vector<T>> e(n, vector<T>(n));
   for (int i = 0; i < n; i++) e[i][i] = 1;
@@ -88,7 +88,7 @@ vector<vector<T>> bitwise_mat_pow(vector<vector<T>> a, T n) {
     n >>= 1; a = bitwise_dot(a, a);
   }
   return b;
-  
+
 }
 }
 
@@ -179,7 +179,7 @@ void c() {
   sort(r.begin(), r.end(), greater<int>());
   double res = 0;
   for (int i = k-1; i > -1; i--) {res = (res + r[i])/2;}
-  cout << setprecision(16) << res << '\n';  
+  cout << setprecision(16) << res << '\n';
 }
 
 void d() {
@@ -290,7 +290,7 @@ namespace ABC006 {
 void a() {
   int n; cin >> n;
   if (n%3==0) {cout << "YES";} else {cout << "NO";}
-  cout << '\n'; 
+  cout << '\n';
 }
 
 void b() {
@@ -323,7 +323,7 @@ void d() {
   reverse(a.begin(), a.end());
   d = bitwise_mat_pow(d, m-k);
   cout << bitwise_dot(d, a)[0][0] << '\n';
-  
+
 }
 }
 }
@@ -339,5 +339,5 @@ int main() {
 
 
   return 0;
-  
+
 }

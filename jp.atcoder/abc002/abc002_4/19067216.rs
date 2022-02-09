@@ -20,7 +20,7 @@ impl Scanner {
     &mut self,
   ) -> T {
     loop {
-      if let Some(token) = 
+      if let Some(token) =
       self.buffer.pop() {
         return {
           token.parse().ok()
@@ -62,7 +62,7 @@ fn main() {
 
   let n: i64 = sc.next();
   let m: i64 = sc.next();
-  let mut relations = 
+  let mut relations =
     vec![0; n as usize];
   for _ in 0..m {
     let x = sc.next::<usize>() - 1;
@@ -75,7 +75,7 @@ fn main() {
     let mut t = (1<<n) - 1;
     for i in 0..n {
       if !s>>i&1 == 1 {continue}
-      t &= relations[i as usize] 
+      t &= relations[i as usize]
         | 1<<i;
     }
     if s&t != s {continue}

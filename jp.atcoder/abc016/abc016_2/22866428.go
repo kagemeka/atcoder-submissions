@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -26,7 +26,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	p.a = io.ReadInt()
 	p.b = io.ReadInt()
 	p.c = io.ReadInt()
@@ -36,10 +36,10 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	a, b, c := p.a, p.b, p.c 
+	a, b, c := p.a, p.b, p.c
 	b1 := a + b == c
 	b2 := a - b == c
-	var res string 
+	var res string
 	if b1 && b2 {
 		res = "?"
 	} else if b1 {
@@ -49,7 +49,7 @@ func (
 	} else {
 		res = "!"
 	}
-	p.io.Write(res) 
+	p.io.Write(res)
 }
 
 

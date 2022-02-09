@@ -10,9 +10,9 @@ wv.sort(reverse=1)  # sort in order that high value per unit weight.
 sw = [0] * n   # camulative sum of weights
 sw[0] = wv[0][1]
 sv = [0] * n   # camulative sum of values
-sv[0] = wv[0][2]  
+sv[0] = wv[0][2]
 for i in range(n-1):
-    sw[i+1] = sw[i] + wv[i+1][1] 
+    sw[i+1] = sw[i] + wv[i+1][1]
     sv[i+1] = sv[i] + wv[i+1][2]
 
 ans = 0
@@ -39,8 +39,6 @@ for i in range(n):
                         ans += wv[k][2]
                         print(ans)
                         exit()
-        
+
 
 print(ans)
-    
-

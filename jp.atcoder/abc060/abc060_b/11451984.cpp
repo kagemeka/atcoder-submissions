@@ -16,7 +16,7 @@ int main() {
     if (i % b == c) {
       ans = "YES";
       break;
-    } 
+    }
   }
   cout << ans << '\n';
   return 0;

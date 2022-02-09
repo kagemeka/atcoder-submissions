@@ -5,9 +5,9 @@ import (
 )
 
 func main() {
-  var a, b, c int 
+  var a, b, c int
   fmt.Scan(&a, &b, &c)
-  var bl1, bl2 bool 
+  var bl1, bl2 bool
   bl1 = a + b == c
   bl2 = a - b == c
   var ans string

@@ -6,4 +6,3 @@ for i in range(1, b):
         break
 else:
     print("NO")
-

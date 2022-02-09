@@ -1,10 +1,10 @@
 def read():
-  import sys 
+  import sys
   return sys.stdin.buffer.read()
 
 
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
@@ -16,8 +16,8 @@ def read_int():
 def read_ints():
   import numpy as np
   return np.fromstring(
-    string=read().decode(), 
-    dtype=np.int64, 
+    string=read().decode(),
+    dtype=np.int64,
     sep=' ',
   )
 
@@ -30,7 +30,7 @@ def solve(n, ab):
     axis=-1,
   ).sum(axis=1)
   print(dist[1] / dist[0])
-  
+
 
 def main():
   n = read_int()

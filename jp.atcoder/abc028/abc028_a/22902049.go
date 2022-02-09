@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -10,17 +10,17 @@ import (
 
 
 type Message struct {
-	bad, 
-	good, 
-	great, 
-	perfect string 
+	bad,
+	good,
+	great,
+	perfect string
 }
 
 
 type Problem struct {
 	io *IO
 	msg Message
-	n int 
+	n int
 }
 
 
@@ -48,16 +48,16 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	io := p.io 
-	msg := p.msg 
-	n := p.n 
-	var res string 
+	io := p.io
+	msg := p.msg
+	n := p.n
+	var res string
 	if n < 60 {
 		res = msg.bad
 	} else if n < 90 {
-		res = msg.good	
+		res = msg.good
 	} else if n < 100 {
-		res = msg.great 
+		res = msg.great
 	} else {
 		res = msg.perfect
 	}

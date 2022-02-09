@@ -12,7 +12,7 @@ def simulate(flag):
             x = x * 2 + 1
         cnt += 1
     return 'Aoki' if cnt & 1 else 'Takahashi'
-            
+
 def main():
     rank = 0
     m = n

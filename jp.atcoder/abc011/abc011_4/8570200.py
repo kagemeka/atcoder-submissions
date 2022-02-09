@@ -6,11 +6,11 @@ def main():
     n, d, x, y = map(int, sys.stdin.read().split())
     x, y = abs(x), abs(y) # 一般性は崩れない
 
-    
+
     if x % d != 0 or y % d != 0:
         print(0.0)
         sys.exit()
-    
+
     if x + y > n * d:
         print(0.0)
         sys.exit()
@@ -23,10 +23,10 @@ def main():
         if n % 2 == 0:
             print(0.0)
             sys.exit()
-    
+
     r, u = x // d, y // d
     remainder = n - r - u
-    
+
     s = remainder // 2
 
     ans = 0

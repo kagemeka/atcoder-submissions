@@ -13,7 +13,7 @@ def is_needed(i):
     for j in chain(a[:i], a[i+1:]):
         res |= (res << j)
         res &= mask
-    return res >> (k - a[i]) 
+    return res >> (k - a[i])
 
 def main():
     lo = 0
@@ -24,9 +24,9 @@ def main():
             hi = i
         else:
             lo = i
-    
+
     return hi
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

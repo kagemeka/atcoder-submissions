@@ -8,14 +8,14 @@ def f(times, prefix_sum):
                 prefix_sum += a[i]
             else:
                 times += 1 - (prefix_sum + a[i])
-                prefix_sum = 1      
+                prefix_sum = 1
         elif prefix_sum > 0:
             if prefix_sum + a[i] < 0:
                 prefix_sum += a[i]
             else:
                 times += abs(-1 - (prefix_sum + a[i]))
                 prefix_sum = -1
-    
+
     return times
 
 t1 = 0

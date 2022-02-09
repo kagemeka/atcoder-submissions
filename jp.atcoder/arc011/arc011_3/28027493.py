@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 import collections
 
@@ -10,7 +10,7 @@ def main() -> typing.NoReturn:
     m = len(s)
     a = [s] + a + [t]
     n += 2
-    
+
     g = [[] for _ in range(n)]
     for i in range(n - 1):
         for j in range(i + 1, n):
@@ -19,7 +19,7 @@ def main() -> typing.NoReturn:
             if diff >= 2: continue
             g[i].append((j, diff))
             g[j].append((i, diff))
-    
+
     que = collections.deque()
     que.append(0)
     inf = 1 << 60
@@ -50,10 +50,6 @@ def main() -> typing.NoReturn:
     print(len(res) - 2)
     for i in res[::-1]:
         print(a[i])
-        
+
 
 main()
-
-       
-        
-    

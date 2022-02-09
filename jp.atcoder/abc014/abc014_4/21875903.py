@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -88,9 +88,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -145,17 +145,17 @@ class Graph:
     edges = [
       [] for _ in range(n)
     ]
-    self.nodes = nodes 
+    self.nodes = nodes
     self.edges = edges
-  
+
 
   def add_edge(
     self,
     e: Edge,
   ):
-    i = e.from_ 
+    i = e.from_
     self.edges[i].append(e)
-  
+
 
   def add_edges(
     self,
@@ -163,9 +163,9 @@ class Graph:
   ):
     for e in edges:
       self.add_edge(e)
-  
 
-  @property 
+
+  @property
   def size(self):
     return len(self.nodes)
 
@@ -182,17 +182,17 @@ from collections import (
 )
 
 class GraphBFS:
-  
+
 
   level: List[int]
-  
+
 
   def __init__(
     self,
     graph: Graph,
   ):
-    self.g = graph 
-  
+    self.g = graph
+
 
   def search(
     self,
@@ -201,24 +201,24 @@ class GraphBFS:
     self.init_level()
     self.level[src] = 0
     self.set_queue()
-    que = self.queue 
+    que = self.queue
     que.append(src)
     while que:
       x = que.popleft()
       self.explore(x)
-  
+
 
   def explore(
     self,
     u: int,
   ):
     g = self.g
-    lv = self.level 
+    lv = self.level
     que = self.queue
     for e in g.edges[u]:
       v = e.to
       if lv[v] is not None:
-        continue 
+        continue
       lv[v] = lv[u] + 1
       que.append(v)
 
@@ -230,7 +230,7 @@ class GraphBFS:
 
   def init_level(self):
     lv = [None] * self.g.size
-    self.level = lv 
+    self.level = lv
 
 
 
@@ -251,7 +251,7 @@ class TreeBFS:
     self,
     tree: Tree,
   ):
-    self.g = tree 
+    self.g = tree
     self.inf = float('inf')
 
 
@@ -264,26 +264,26 @@ class TreeBFS:
     self.init_depth()
     self.init_dist()
     self.set_queue()
-    que = self.queue 
+    que = self.queue
     que.append(root)
     while que:
       x = que.popleft()
       self.explore(x)
-  
+
 
   def explore(
     self,
     u: int,
   ):
     g = self.g
-    dep = self.depth 
-    dist = self.dist 
+    dep = self.depth
+    dist = self.dist
     par = self.parent
     que = self.queue
     for e in g.edges[u]:
       v = e.to
       if dep[v] is not None:
-        continue 
+        continue
       d = e.weight
       dep[v] = dep[u] + 1
       dist[v] = dist[u] + d
@@ -309,10 +309,10 @@ class TreeBFS:
 
 
   def init_dist(self):
-    inf = self.inf 
+    inf = self.inf
     dist = [inf] * self.g.size
     dist[self.src] = 0
-    self.dist = dist 
+    self.dist = dist
 
 
 
@@ -325,7 +325,7 @@ class LCA:
   ):
     self.g = tree
     self.preprocess()
-  
+
 
   def calc_dist(
     self,
@@ -336,7 +336,7 @@ class LCA:
     dist = self.dist
     du, dv = dist[u], dist[v]
     d_lca = dist[lca]
-    return du + dv - 2 * d_lca 
+    return du + dv - 2 * d_lca
 
 
   def preprocess(
@@ -345,10 +345,10 @@ class LCA:
     bfs = TreeBFS(self.g)
     bfs.search(0)
     self.parent = bfs.parent
-    self.depth = bfs.depth 
+    self.depth = bfs.depth
     self.dist = bfs.dist
     self.find_ancestors()
-  
+
 
   def find_ancestors(
     self,
@@ -368,7 +368,7 @@ class LCA:
       a = list(ancestors[i])
       ancestors[i] = a
     self.ancestors = ancestors
-  
+
 
   def find_lca(
     self,
@@ -376,10 +376,10 @@ class LCA:
     v: int,
   ) -> int:
     u, v = self.sort(u, v)
-    dep = self.depth 
+    dep = self.depth
     du, dv = dep[u], dep[v]
     v = self.upstream(
-      v, 
+      v,
       dv - du,
     )
     if v == u:
@@ -396,7 +396,7 @@ class LCA:
     v: int,
   ) -> int:
     n = dep.bit_length()
-    ancestors = self.ancestors 
+    ancestors = self.ancestors
     for i in range(
       n - 1, -1, -1,
     ):
@@ -406,7 +406,7 @@ class LCA:
         continue
       u, v = nu, nv
     return self.parent[u]
-      
+
 
   def upstream(
     self,
@@ -418,15 +418,15 @@ class LCA:
       if ~d >> i & 1:
         continue
       v = self.ancestors[i][v]
-    return v 
-  
+    return v
+
 
   def sort(
     self,
     u: int,
     v: int,
   ):
-    dep = self.depth 
+    dep = self.depth
     du, dv = dep[u], dep[v]
     if du > dv:
       u, v = v, u
@@ -451,20 +451,20 @@ class Problem(
     a = np.array(
       a,
     ).reshape(n - 1, 2) - 1
-    self.n = n 
-    self.a = a 
+    self.n = n
+    self.a = a
 
 
   def solve(self):
     self.make_graph()
     self.lca = LCA(self.g)
-    reader = self.reader 
+    reader = self.reader
     n = reader.int()
     for _ in range(n):
       a = reader.int() - 1
       b = reader.int() - 1
       self.query(a, b)
-  
+
 
   def query(
     self,
@@ -479,9 +479,9 @@ class Problem(
   def make_graph(
     self,
   ):
-    n = self.n 
+    n = self.n
     g = Tree(n)
-    a = self.a 
+    a = self.a
     for x, y in a:
       e = Edge(
         from_ = x,
@@ -493,7 +493,7 @@ class Problem(
         to = x,
       )
       g.add_edge(e)
-    self.g = g 
+    self.g = g
 
 
 

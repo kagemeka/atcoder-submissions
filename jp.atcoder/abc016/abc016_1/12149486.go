@@ -9,5 +9,5 @@ func main() {
   fmt.Scan(&m, &d)
   ans := "NO"
   if m % d == 0 {ans = "YES"}
-  fmt.Println(ans) 
+  fmt.Println(ans)
 }

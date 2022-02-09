@@ -1,7 +1,7 @@
 a, b, x = map(int, input().split())
 
 def f(n, x):
-    if n < 0:   # a == 0 
+    if n < 0:   # a == 0
         return 0
     elif n == 0:
         return 1

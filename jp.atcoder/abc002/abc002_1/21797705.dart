@@ -52,7 +52,7 @@ abstract class Solver {
 
 
 
-mixin Runner 
+mixin Runner
 implements Solver {
 
 
@@ -71,11 +71,11 @@ extends IO
 with Runner {
 
   int x = 0, y = 0;
-  
+
 
   void prepare() {
     x = readInt();
-    y = readInt();  
+    y = readInt();
   }
 
 

@@ -5,6 +5,6 @@ dy = ty - sy
 ans = ('L' + 'U' * (dy + 1) + 'R' * (dx + 1) +
     'D' * (dy + 1) + 'L' * dx + 'U' * dy +
     'R' * (dx + 1) + 'D' * (dy + 1) + 'L' * (dx + 1) +
-    'U')    
+    'U')
 
 print(ans)

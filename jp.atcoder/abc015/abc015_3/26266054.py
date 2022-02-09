@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -17,7 +17,7 @@ def solve(t: np.ndarray) -> typing.NoReturn:
     a = np.unique(np.array(b))
   ans = 'Found' if a[0] == 0 else 'Nothing'
   print(ans)
-  
+
 
 def main() -> typing.NoReturn:
   n, k = map(int, input().split())

@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 from heapq import heappush, heappop
 
 I = np.array(sys.stdin.read().split())
@@ -37,7 +37,7 @@ def main():
                 h = heuristicCost(i, j)
                 s = h + d + 1
                 heappush(q, (s, -(d + 1), i, j))
-    
+
     print(int(dist[y][x]))
 
 if __name__ == '__main__':

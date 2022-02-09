@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-06 21:30:22(JST)
 import sys
 # import collections
@@ -20,7 +20,7 @@ def main():
         if n == n[::-1]:
             count += 1
 
-    print(count)       
+    print(count)
 
 if __name__ == "__main__":
     # execute only if run as a script

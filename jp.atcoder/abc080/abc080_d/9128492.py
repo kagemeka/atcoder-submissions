@@ -22,7 +22,7 @@ def main():
                     interval = s - last
                     to_use = i
         res[to_use] = (t, c)
-    
+
     ans = 0
     for i in range(C):
         if res[i][0] != -0.5:

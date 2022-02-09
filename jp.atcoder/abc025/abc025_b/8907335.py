@@ -18,7 +18,7 @@ def main():
         return 'East {0}'.format(res)
     else:
         return 'West {0}'.format(abs(res))
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

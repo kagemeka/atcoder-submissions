@@ -11,7 +11,7 @@ import collections
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 def is_palindrome_in(s):
     s = s.replace('x', '')
@@ -21,11 +21,11 @@ def is_palindrome_in(s):
 
 def main():
     s = sys.stdin.readline().rstrip()
-    
+
     if not is_palindrome_in(s):
         print(-1)
         sys.exit()
-    
+
     s = list(s)
     # deque で insertが使えるのがver3.5以降のようです(AtCoder はver3.4)
     # 初めdequeでやっててなぜRuntime Errorになるのか全くわからなかった
@@ -41,12 +41,12 @@ def main():
         elif s[-1-j] == 'x':
             s.insert(i, 'x')
             count += 1
-        
+
         i += 1
         j += 1
 
     print(count)
-    
+
 
 if __name__ == "__main__":
     main()

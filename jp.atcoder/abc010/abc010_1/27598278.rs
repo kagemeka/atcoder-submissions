@@ -29,4 +29,3 @@ fn main() {
     let s: String = sc.scan();
     writeln!(out, "{}", s + "pp").unwrap();
 }
-

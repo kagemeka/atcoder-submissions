@@ -25,7 +25,7 @@ func pow(args ...int) int {
 }
 
 func main() {
-  var d, n int 
+  var d, n int
   fmt.Scan(&d, &n)
   if n == 100 {
     fmt.Println(pow(100, d) * 101)

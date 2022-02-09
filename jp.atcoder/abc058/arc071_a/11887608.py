@@ -10,7 +10,7 @@ def main():
     for i in range(n):
         for c in s[i]:
             cnt[i][c] += 1
-    
+
     for i in range(n - 1):
         for c in ascii_lowercase:
             cnt[i+1][c] = min(cnt[i+1][c], cnt[i][c])

@@ -7,7 +7,7 @@ def main():
 
     threads = deque(range(1, n+1))
     for i in range(m):
-        if a[i] != threads[0]:     
+        if a[i] != threads[0]:
             threads.remove(a[i])
             threads.appendleft(a[i])
     print(threads)

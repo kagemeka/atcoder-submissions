@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -88,9 +88,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -105,7 +105,7 @@ class Problem(
 
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     n = reader.int()
     h = reader.int()
     a = reader.int()
@@ -113,34 +113,34 @@ class Problem(
     c = reader.int()
     d = reader.int()
     e = reader.int()
-    self.n = n 
+    self.n = n
     self.h = h
-    self.a = a 
-    self.b = b 
-    self.c = c 
-    self.d = d 
-    self.e = e 
+    self.a = a
+    self.b = b
+    self.c = c
+    self.d = d
+    self.e = e
 
 
   def solve(self):
     n = self.n
-    h = self.h 
-    a = self.a 
-    b = self.b 
-    c = self.c 
-    d = self.d 
+    h = self.h
+    a = self.a
+    b = self.b
+    c = self.c
+    d = self.d
     e = self.e
 
     x = np.arange(n + 1)
     num = (
       n * e - h - (b + e) * x
     )
-    den = d + e 
+    den = d + e
     y = num // den + 1
     np.maximum(y, 0, out=y)
     y = np.minimum(
       y,
-      n - x, 
+      n - x,
       out=y,
     )
     mn = np.amin(a * x + c * y)

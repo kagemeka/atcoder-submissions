@@ -47,7 +47,7 @@ fn main() {
     for i in 0..n {
         while l < prev[i] {
             if s < dp[l] { s += MOD; }
-            s -= dp[l]; 
+            s -= dp[l];
             l += 1;
         }
         dp[i + 1] = s;
@@ -55,5 +55,5 @@ fn main() {
         if s >= MOD { s -= MOD; }
     }
     writeln!(out, "{:?}", dp[n]).unwrap();
-        
+
 }

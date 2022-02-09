@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 from scipy.sparse.csgraph import dijkstra
 from scipy.sparse import csr_matrix
 
@@ -7,7 +7,7 @@ I = np.array(sys.stdin.read().split(), dtype=np.int64)
 h, w = I[:2]
 c = I[2:102].reshape(10, 10).T
 a = I[102:].reshape(h, w)
-                                                              
+
 def main():
     cost = dijkstra(csr_matrix(c), directed=True, indices=1).astype(np.int64)
 

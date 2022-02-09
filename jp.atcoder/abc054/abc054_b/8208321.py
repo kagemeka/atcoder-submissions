@@ -15,7 +15,7 @@ for a in range(n - m + 1):
             if b == 0:
                 index = img_a[a].index(img_b[0])
             current_index = img_a[b+a].index(img_b[b])
-            
+
             if current_index != index:
                 break
         else:
@@ -25,10 +25,3 @@ for a in range(n - m + 1):
         break
 
 print(ans)
-
-        
-
-
-
-
-

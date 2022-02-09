@@ -43,4 +43,3 @@ fn main() {
     }
     writeln!(out, "{}", if ok { "NO" } else { "YES" }).unwrap();
 }
-

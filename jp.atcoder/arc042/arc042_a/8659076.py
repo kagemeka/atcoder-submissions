@@ -3,7 +3,7 @@ import sys
 from collections import defaultdict, OrderedDict
 
 def main():
-    n, m, *a = sys.stdin.read().split() 
+    n, m, *a = sys.stdin.read().split()
 
     order_latest = OrderedDict((thread, True) for thread in reversed(a))
     res = list(order_latest.keys())

@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -54,7 +54,7 @@ def solve(ab: np.ndarray, h: np.ndarray, x: int) -> typing.NoReturn:
     n = len(h)
     g, edge_idx, _ = sort_csgraph(n, csgraph_to_directed(ab))
     tour, parent, _ = euler_tour_edge(g, edge_idx, x)
-    
+
     cost = np.zeros(n, np.int64)
     found = np.zeros(n, np.bool8)
     for u in tour:
@@ -66,7 +66,7 @@ def solve(ab: np.ndarray, h: np.ndarray, x: int) -> typing.NoReturn:
         cost[p] += cost[u] + 2
         found[p] |= found[u]
     print(cost[x])
-    
+
 
 def main() -> typing.NoReturn:
     n, x = map(int, input().split())

@@ -6,7 +6,7 @@ def main():
     dx = tx - sx + 1
     dy = ty - sy + 1
     u, r, d, l = list('URDL')
-    
+
     res = ''
     res += u * (dy - 1)
     res += r * dx

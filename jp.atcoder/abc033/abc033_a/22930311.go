@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -45,7 +45,7 @@ func (
 	p *Problem,
 ) Solve() {
 	n := p.n
-	mem := make(map[rune]bool) 
+	mem := make(map[rune]bool)
 	for _, d := range n {
 		mem[d] = true
 	}
@@ -56,7 +56,7 @@ func (
 	}
 	p.io.Write(ans)
 
-		
+
 }
 
 

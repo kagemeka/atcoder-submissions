@@ -13,21 +13,21 @@ while True:
             count += 1
         if count != 0:
             count_of_prime_factors.update({2: count})
-        if n == 1: 
-            break 
+        if n == 1:
+            break
 
         for i in range(3, N+1, 2):
             count = 0
             while n % i == 0:
-                n //= i 
+                n //= i
                 count += 1
             if count != 0:
                 count_of_prime_factors.update({i: count})
-            if n == 1: 
+            if n == 1:
                 break
-        else:        
+        else:
             count_of_prime_factors.update({n: 1})
-        break 
+        break
     else:
         print(1)
         exit()

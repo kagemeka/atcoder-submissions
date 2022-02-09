@@ -14,7 +14,7 @@ def main():
                 c_a += 1
             else:
                 c_b += 1
-    
+
     ans = c_a + c_b
     return ans
 

@@ -1,9 +1,9 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
   n = int(input())
-  
+
   if n < 60:
     ans = 'Bad'
   elif n < 90:

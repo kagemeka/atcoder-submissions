@@ -1,5 +1,5 @@
 W, H, N = map(int, input().split())
-w, h = W, H 
+w, h = W, H
 
 ll_ur = [0, w, 0, h]  # lower_left, upper_right corner
 
@@ -18,7 +18,7 @@ for i in range(N):
 
 if dic[1] < dic[2] and dic[3] < dic[4]:
     ans = (dic[2] - dic[1]) * (dic[4] - dic[3])
-else: 
+else:
     ans = 0
 
 print(ans)

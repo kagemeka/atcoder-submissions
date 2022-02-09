@@ -7,7 +7,7 @@ int main() {
 
   int n, a, b, k;
   cin >> n >> a >> b >> k;
-  
+
   unordered_set<int> visited;
   visited.insert(a);
   visited.insert(b);

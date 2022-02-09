@@ -29,5 +29,5 @@ fn main() {
 
     let n: usize = sc.scan();
     writeln!(out, "{}", (n + 1) / 2).unwrap();
-    
+
 }

@@ -4,7 +4,7 @@
 int main() {
   std::ios::sync_with_stdio(false);
   std::cin.tie(nullptr);
-  
+
   int n; std::cin >> n;
   int cnt = 0;
   while (n--) {

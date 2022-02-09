@@ -1,20 +1,20 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def csgraph_to_undirected(g: np.ndarray) -> np.ndarray:
   m = len(g)
   g = np.vstack((g, g))
   g[m:, :2] = g[m:, 1::-1]
-  return g 
+  return g
 
 
-@nb.njit 
+@nb.njit
 def sort_csgraph(
-  n: int, 
+  n: int,
   g: np.ndarray,
 ) -> typing.Tuple[np.ndarray, np.ndarray, np.ndarray]:
   sort_idx = np.argsort(g[:, 0], kind='mergesort')
@@ -40,15 +40,15 @@ def euler_tour(
   for i in range(2 * n):
     u = st.pop()
     tour[i] = u
-    if visited[u]: continue 
+    if visited[u]: continue
     visited[u] = True
     st.append(u)
     for v in g[edge_idx[u]:edge_idx[u + 1], 1][::-1]:
       if v == parent[u]: continue
-      parent[v] = u 
+      parent[v] = u
       depth[v] = depth[u] + 1
       st.append(v)
-  return tour, parent, depth 
+  return tour, parent, depth
 
 
 @nb.njit((nb.i8[:, :], ), cache=True)

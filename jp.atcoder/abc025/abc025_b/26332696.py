@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 
 
 
@@ -8,7 +8,7 @@ def solve(
   a: int,
   b: int,
 ) -> typing.NoReturn:
-  x = 0 
+  x = 0
   for s, d in sd:
     d = int(d)
     d = max(a, min(d, b))
@@ -18,8 +18,8 @@ def solve(
   elif x > 0:
     print('East', x)
   else:
-    print('West', -x) 
-       
+    print('West', -x)
+
 
 def main() -> typing.NoReturn:
   n, a, b = map(int, input().split())

@@ -3,42 +3,42 @@ def read_int():
 
 
 def read():
-  import sys 
+  import sys
   return sys.stdin.buffer.read()
 
 
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
 
 def readline_ints():
   *ints, = map(
-    int, 
+    int,
     readline().split(),
   )
-  return ints 
+  return ints
 
 
 def read_ints():
   import numpy as np
   return np.fromstring(
-    string=read().decode(), 
-    dtype=np.int64, 
+    string=read().decode(),
+    dtype=np.int64,
     sep=' ',
   )
 
 
 def pad_(arr):
-  import numpy as np 
+  import numpy as np
   return np.pad(
     arr,
     pad_width=((1, 0), (1, 0)),
     mode='constant',
     constant_values=((0, ), (0, )),
   )
-  
+
 
 def solve(
     n: int,
@@ -70,7 +70,7 @@ def solve(
   )
 
   print(*res[p], sep='\n')
-  
+
 
 
 def main():
@@ -79,7 +79,7 @@ def main():
     readline_ints()
     for _ in range(n)
   ])
-  _ = read_int() 
+  _ = read_int()
   p = read_ints()
 
   solve(n, d, p)

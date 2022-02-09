@@ -32,7 +32,7 @@ fn main() {
     let ok1 = a + b == c;
     let ok2 = a - b == c;
     writeln!(
-        out, 
+        out,
         "{}",
         if ok1 && ok2 { "?" } else if ok1 { "+" } else if ok2 { "-" } else { "!" },
     ).unwrap();

@@ -10,14 +10,14 @@ class _Induce():
     lms: typing.List[int],
     bucket: typing.List[int],
   ) -> typing.List[int]:
-    self.__a = a 
-    self.__is_s = is_s 
-    self.__lms = lms 
+    self.__a = a
+    self.__is_s = is_s
+    self.__lms = lms
     self.__b = bucket
     self.__set_lms()
     self.__induce_l()
     self.__induce_s()
-    return self.__sa 
+    return self.__sa
 
 
   def __induce_l(self) -> typing.NoReturn:
@@ -47,7 +47,7 @@ class _Induce():
 
 
   def __set_lms(self) -> typing.NoReturn:
-    a = self.__a 
+    a = self.__a
     sa = [-1] * len(a)
     idx = self.__b.copy()
     for i in range(len(idx) - 1): idx[i + 1] += idx[i]
@@ -80,7 +80,7 @@ class SAIS():
       l = len(lms)
       if max(a) < l - 1: continue
       lms_order = [-1] * l
-      for i in range(l): lms_order[a[i]] = i 
+      for i in range(l): lms_order[a[i]] = i
       break
 
     while st:
@@ -93,21 +93,21 @@ class SAIS():
 
   def __compute_next_array(
     self,
-    a: typing.List[int], 
-    sa: typing.List[int], 
+    a: typing.List[int],
+    sa: typing.List[int],
     is_lms: typing.List[bool],
   ) -> typing.List[int]:
     n = len(a)
     lms_idx = [i for i in sa if is_lms[i]]
     l = len(lms_idx)
-    na = [-1] * n 
+    na = [-1] * n
     na[-1] = i = 0
     for j in range(l - 1):
       j, k = lms_idx[j], lms_idx[j + 1]
       for d in range(n):
         j_is_lms = is_lms[j + d]
         k_is_lms = is_lms[k + d]
-        if a[j + d] != a[k + d] or j_is_lms ^ k_is_lms: 
+        if a[j + d] != a[k + d] or j_is_lms ^ k_is_lms:
           i += 1; break
         if d > 0 and j_is_lms | k_is_lms: break
       na[k] = i
@@ -124,7 +124,7 @@ class SAIS():
     is_s = [True] * n
     for i in range(n - 2, -1, -1):
       is_s[i] = (
-        is_s[i + 1] if a[i] == a[i + 1] else 
+        is_s[i + 1] if a[i] == a[i + 1] else
         a[i] < a[i + 1]
       )
     is_lms = [is_s[i] and not is_s[i - 1] for i in range(n)]
@@ -132,7 +132,7 @@ class SAIS():
     bucket = [0] * (max(a) + 1)
     for x in a: bucket[x] += 1
     return is_s, is_lms, lms, bucket
-    
+
 
 
 class LCPKasai():
@@ -145,7 +145,7 @@ class LCPKasai():
     assert n > 0 and len(sa) == n
     rank = [-1] * n
     for i, x in enumerate(sa): rank[x] = i
-    h, l = [0] * (n - 1), 0 
+    h, l = [0] * (n - 1), 0
     for i in range(n):
       if l > 0: l -= 1
       r = rank[i]

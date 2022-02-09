@@ -30,7 +30,7 @@ def optimize(board, moves):
     results.sort()
     situation[board] = results[0] if p == 2 else results[-1]
     return situation[board]
-    
+
 def main():
     board = tuple((0, 0, 0) for _ in range(3))
     res = optimize(board, 0)

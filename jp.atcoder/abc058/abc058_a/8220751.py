@@ -3,5 +3,5 @@ if b - a == c - b:
     ans = "YES"
 else:
     ans = "NO"
-    
+
 print(ans)

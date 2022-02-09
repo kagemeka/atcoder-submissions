@@ -11,7 +11,7 @@ def main():
     res = np.sum(grid, axis=1).reshape(-1, 1) + np.sum(grid, axis=0)
     res[grid == 1] -= 1
     ans = np.count_nonzero(res == K)
-    return ans 
+    return ans
 
 if __name__ == '__main__':
     ans = main()

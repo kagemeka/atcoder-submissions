@@ -3,15 +3,15 @@ import numpy as np
 from scipy.sparse.csgraph import shortest_path, maximum_flow
 from scipy.sparse import csr_matrix
 from scipy import optimize
-from scipy.special import comb 
-# from numba import jit 
-import networkx as nx 
-from heapq import heappush, heappop 
+from scipy.special import comb
+# from numba import jit
+import networkx as nx
+from heapq import heappush, heappop
 from bisect import bisect_left as bi_l, bisect_right as bi_r
 from collections import deque, Counter, defaultdict
 from itertools import combinations, product, accumulate
-import string 
-import math 
+import string
+import math
 inf = float('inf')
 from functools import lru_cache, reduce
 sys.setrecursionlimit(10**6)
@@ -22,7 +22,7 @@ MOD = 10**9+7
 class NumberTheory:
   def __init__(self, n=2*10**6, numpy=True):
     self.n = n
-    self.np_flg = numpy 
+    self.np_flg = numpy
     self.is_prime_number, self.prime_numbers = self.sieve_of_eratosthenes(n)
   def sieve_of_eratosthenes(self, n):
     if self.np_flg:
@@ -36,7 +36,7 @@ class NumberTheory:
         if not sieve[i]: continue
         for j in range(i*2, n+1, i): sieve[j] = 0
       prime_numbers = [i for i in range(2, n+1) if sieve[i]]
-    return sieve, prime_numbers 
+    return sieve, prime_numbers
   def prime_factorize(self, n):
     res = dict()
     if n < 2: return res
@@ -77,8 +77,8 @@ class NumberTheory:
 class UnionFind:
   def __init__(self, n=10**6):
     self.root = list(range(n))
-    self.height = [0] * n 
-    self.size = [1] * n 
+    self.height = [0] * n
+    self.size = [1] * n
   def find_root(self, u):
     if self.root[u] == u: return u
     self.root[u] = self.find_root(self.root[u])
@@ -86,15 +86,15 @@ class UnionFind:
   def unite(self, u, v):
     ru = self.find_root(u)
     rv = self.find_root(v)
-    if ru == rv: return 
+    if ru == rv: return
     hu = self.height[ru]
     hv = self.height[rv]
     if hu >= hv:
-      self.root[rv] = ru 
+      self.root[rv] = ru
       self.size[ru] += self.size[rv]
       self.height[ru] = max(hu, hv+1)
     else:
-      self.root[ru] = rv 
+      self.root[ru] = rv
       self.size[rv] += self.size[ru]
 
 class Combinatorics:
@@ -114,7 +114,7 @@ class Combinatorics:
     else:
       self.nCr[(n, r)] = (self.choose(n-1, r, mod) + self.choose(n-1, r-1, mod)) % mod
     return self.nCr[(n,r)]
-  
+
   def cumprod(self, a):
     p = self.mod
     l = len(a); sql = int(np.sqrt(l)+1)
@@ -161,24 +161,24 @@ class GeometryTopology:
       @staticmethod
       def dinic(graph, s, t): # s: source, t: sink
         def bfs():
-          level = defaultdict(int); level[s] = 0 
+          level = defaultdict(int); level[s] = 0
           q = deque([s])
           while q:
-            u = q.popleft() 
+            u = q.popleft()
             for v, cap in graph[u].items():
-              if cap == 0 or v in level: continue 
+              if cap == 0 or v in level: continue
               level[v] = level[u]+1
               q.append(v)
           return level
-        
+
         def flow_to_sink(u, flow_in):
           if u == t: return flow_in
           flow = 0
           for v, cap in graph[u].items():
-            if cap == 0 or level[v] <= level[u]: continue 
+            if cap == 0 or level[v] <= level[u]: continue
             f = flow_to_sink(v, min(flow_in, cap))
             if not f: continue
-            graph[u][v] -= f 
+            graph[u][v] -= f
             graph[v][u] += f
             flow_in -= f
             flow += f
@@ -189,7 +189,7 @@ class GeometryTopology:
           level = bfs()
           if not t in level: return flow
           flow += flow_to_sink(s, float('inf'))
-        
+
       @staticmethod
       def ford_fulkerson():
         pass
@@ -201,7 +201,7 @@ class GeometryTopology:
     class ShortestPath:
       pass
 
-  
+
 
 class AtCoder:
   class ABC001:
@@ -209,25 +209,25 @@ class AtCoder:
     def a():
       h1, h2 = map(int, sys.stdin.read().split()); print(h1-h2)
 
-      
+
   class ABC002:
     @staticmethod
     def a():
       print(max(map(int, sys.stdin.readline().split())))
 
-    @staticmethod 
+    @staticmethod
     def b():
       vowels = set('aeiou')
       print(''.join([c for c in sys.stdin.readline().rstrip() if c not in vowels]))
-    
-    @staticmethod 
+
+    @staticmethod
     def c():
       def triangle_area(x0, y0, x1, y1, x2, y2):
         x1 -= x0; x2 -= x0; y1 -= y0; y2 -= y0;
         return abs(x1*y2 - x2*y1) / 2
       print(triangle_area(*map(int, sys.stdin.readline().split())))
 
-    @staticmethod 
+    @staticmethod
     def d():
       n, m = map(int, sys.stdin.readline().split())
       edges = set((x-1, y-1) for x, y in zip(*[map(int, sys.stdin.read().split())]*2))
@@ -302,11 +302,11 @@ class AtCoder:
       b = [int(x) for x in sys.stdin.readline().split()]
       i = 0
       for p in b:
-        if i == n: print('no'); return 
+        if i == n: print('no'); return
         while p-a[i] > t:
           i += 1
-          if i == n: print('no'); return 
-        if a[i] > p: print('no'); return 
+          if i == n: print('no'); return
+        if a[i] > p: print('no'); return
         i += 1
       print('yes')
     @staticmethod
@@ -349,15 +349,15 @@ class AtCoder:
       if m == 1: cnt = [-1, -1, -1]
       else:
         if m & 1: m -= 3; cnt[1] += 1; n -= 1
-        cnt[2] = m//2 - n 
+        cnt[2] = m//2 - n
         cnt[0] = n - cnt[2]
       if cnt[0]<0 or cnt[1]<0 or cnt[2]<0: print(-1, -1, -1)
       else: print(*cnt, sep=' ')
     @staticmethod
     def d():
       n, *c = map(int, sys.stdin.read().split())
-      lis = [inf]*n 
-      for x in c: lis[bi_l(lis, x)] = x 
+      lis = [inf]*n
+      for x in c: lis[bi_l(lis, x)] = x
       print(n - bi_l(lis, inf))
 
   class ABC007:
@@ -383,7 +383,7 @@ class AtCoder:
         y, x = queue.popleft()
         for i, j in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
           i += y; j += x
-          if maze[i][j] == '#' or dist[i, j] != np.inf: continue 
+          if maze[i][j] == '#' or dist[i, j] != np.inf: continue
           dist[i, j] = dist[y, x] + 1
           queue.append((i, j))
       print(int(dist[gy, gx]))
@@ -402,7 +402,7 @@ class AtCoder:
         return n-(dp+flg)
       a, b = map(int, sys.stdin.readline().split())
       print(f(b) - f(a-1))
-          
+
   class ABC008:
     @staticmethod
     def a():
@@ -421,7 +421,7 @@ class AtCoder:
       c = n - np.count_nonzero(a[:, None]%a, axis=1)
       print(np.sum((c+1)//2/c))
 
-    @staticmethod 
+    @staticmethod
     def d():
       w, h, n, *xy = map(int, sys.stdin.read().split())
       *xy, = zip(*([iter(xy)]*2))
@@ -437,7 +437,7 @@ class AtCoder:
           cnt += count(x+1, y1, x2, y-1)
           cnt += count(x+1, y+1, x2, y2)
           res = max(res, cnt)
-        return res 
+        return res
       print(count(1, 1, w, h))
 
 
@@ -462,33 +462,33 @@ class AtCoder:
           if s[j] < s[i] and cost[i]+cost[j] <= r:
             heappush(q, (s[j], cost[i]+cost[j], -j))
         if not q: continue
-        _, c, j = heappop(q); j = -j 
+        _, c, j = heappop(q); j = -j
         s[i], s[j] = s[j], s[i]
-        r -= c 
+        r -= c
         cost[i] = cost[j] = 0
       print(''.join(s))
-    
-    @staticmethod 
+
+    @staticmethod
     def d():
       k, m = map(int, sys.stdin.readline().split())
       a = np.array([int(x) for x in sys.stdin.readline().split()])
       c = np.array([int(x) for x in sys.stdin.readline().split()])
       mask = (1<<32) - 1
-      d = np.eye(k, k, -1, dtype=np.uint32) * mask; d[0] = c 
+      d = np.eye(k, k, -1, dtype=np.uint32) * mask; d[0] = c
 
       def bitwise_dot(a, b):
         return np.bitwise_xor.reduce(a[:, None, :] & b.T[None, :, :], axis=-1)
-      
+
       def bitwise_mat_pow(a, n):
-        if n==0: return np.eye(k, dtype=np.uint32) * mask 
+        if n==0: return np.eye(k, dtype=np.uint32) * mask
         res = bitwise_mat_pow(a, n//2)
         res = bitwise_dot(res, res)
         return bitwise_dot(res, a) if n&1 else res
 
-      if m <= k: print(a[m-1]); return 
+      if m <= k: print(a[m-1]); return
       print(bitwise_dot(bitwise_mat_pow(d, m-k), a[::-1].reshape(-1, 1))[0].item())
-        
-        
+
+
   class ABC010:
     @staticmethod
     def a():
@@ -498,7 +498,7 @@ class AtCoder:
       n, *a = map(int, sys.stdin.read().split())
       tot = 0
       for x in a:
-        c = 0 
+        c = 0
         while x%2==0 or x%3==2:
           x -= 1
           c += 1
@@ -512,7 +512,7 @@ class AtCoder:
         return np.sqrt((x2-x1)**2 + (y2-y1)**2)
       ans = 'YES' if (dist(sx, sy, x, y)+dist(x, y, gx, gy) <= v*t).any() else 'NO'
       print(ans)
-    
+
     @staticmethod
     def d_1():
       n, g, e = map(int, sys.stdin.readline().split())
@@ -531,14 +531,14 @@ class AtCoder:
       c = [1] * len(x)
       min_cut = maximum_flow(csr_matrix((c, (x, y)), (n+1, n+1)), source=0, sink=n).flow_value
       print(min_cut)
-    
+
     @staticmethod
     def d_2():
       n, g, e = map(int, sys.stdin.readline().split())
       if g + e == 0:
         print(0)
-        return 
-      graph = nx.DiGraph() 
+        return
+      graph = nx.DiGraph()
       graph.add_nodes_from(range(n+1))
       for p in [int(x) for x in sys.stdin.readline().split()]:
         graph.add_edge(p, n, capacity=1)
@@ -553,7 +553,7 @@ class AtCoder:
       n, g, e = map(int, sys.stdin.readline().split())
       if g + e == 0:
         print(0)
-        return 
+        return
       graph = defaultdict(dict)
       for p in [int(x) for x in sys.stdin.readline().split()]:
         graph[p][n] = 1
@@ -572,7 +572,7 @@ class AtCoder:
       print(n%12+1)
     @staticmethod
     def b():
-      s = sys.stdin.readline().rstrip() 
+      s = sys.stdin.readline().rstrip()
       print(s[0].upper()+s[1:].lower())
     @staticmethod
     def c():
@@ -584,73 +584,73 @@ class AtCoder:
         while n > 0:
           if r == 0: print('NO'); return
           for i in range(3, 0, -1):
-            if (n-i) in ng: continue 
+            if (n-i) in ng: continue
             n -= i
             r -= 1
-            break 
-          else: print('NO'); return 
+            break
+          else: print('NO'); return
         print('YES')
-      
-    @staticmethod 
+
+    @staticmethod
     def d():
       n, d, x, y = map(int, sys.stdin.read().split())
       x, y = abs(x), abs(y)
-      if x%d or y%d: print(0); return 
+      if x%d or y%d: print(0); return
       x, y = x//d, y//d
       r = n - (x+y)
       if r < 0 or r&1: print(0); return
 
       res = 0
       half_p = pow(1/2, n)
-      for d in range(r//2 + 1): # 0 <= d <= r//2, south 
-        south, north = d, y+d  
+      for d in range(r//2 + 1): # 0 <= d <= r//2, south
+        south, north = d, y+d
         west = (r - 2*d)//2
         res += half_p * comb(n, south, exact=True) * comb(n-south, north, exact=True)\
                       * comb(n-south-north, west, exact=True) * half_p
       print(res)
 
-  
+
   class ABC012:
     @staticmethod
     def a():
       a, b = map(int, sys.stdin.readline().split())
       print(b, a)
-    
-    @staticmethod 
+
+    @staticmethod
     def b():
       n = int(sys.stdin.readline().rstrip())
       h, n = divmod(n, 3600)
       m, s = divmod(n, 60)
       print(f'{h:02}:{m:02}:{s:02}')
-    
+
     @staticmethod
     def c():
       n = 2025 - int(sys.stdin.readline().rstrip())
       res = []
       for i in range(1, 10):
-        if n%i != 0 or n//i > 9: continue 
+        if n%i != 0 or n//i > 9: continue
         res.append(f'{i} x {n//i}')
       print(*sorted(res), sep='\n')
 
     @staticmethod
     def d():
       n, m, *abt = map(int, sys.stdin.read().split())
-      a, b, t = np.array(abt).reshape(m, 3).T 
+      a, b, t = np.array(abt).reshape(m, 3).T
       res = shortest_path(csr_matrix((t, (a-1, b-1)), (n, n)), method='FW', directed=False)
       print(res.max(axis=-1).min().astype(np.int64))
 
   class ABC013:
-    @staticmethod 
+    @staticmethod
     def a():
       print(ord(sys.stdin.readline().rstrip()) - ord('A') + 1)
 
-    @staticmethod 
+    @staticmethod
     def b():
       a, b = map(int, sys.stdin.read().split())
       d = abs(a - b)
       print(min(d, 10-d))
 
-    @staticmethod 
+    @staticmethod
     def c():
       n, h, a, b, c, d, e = map(int, sys.stdin.read().split())
       y = np.arange(n+1)
@@ -659,38 +659,38 @@ class AtCoder:
       np.minimum(x, n-y, out=x)
       print(np.amin(a*x + c*y))
 
-    @staticmethod 
+    @staticmethod
     def d():
       n, m, d, *a = map(int, sys.stdin.read().split())
       res = list(range(n))
-      
+
       def swap(i, j): res[i], res[j] = res[j], res[i]
       for i in a[::-1]: swap(i-1, i)
 
-      group = [None] * n 
+      group = [None] * n
       root = [None] * n
       index_in_group = [None] * n
       for i in range(n):
         if root[i] is not None: continue
         group[i] = []
-        j = i 
+        j = i
         for cnt in range(1, n+1):
           index_in_group[j] = cnt-1
           group[i].append(j)
           j = res[j]
           root[j] = i
           if j == i: break
-      
+
       for i in range(n):
         g = group[root[i]]
         print(g[(index_in_group[i]+d)%len(g)] + 1)
 
   class ABC014:
-    @staticmethod 
+    @staticmethod
     def a():
       a, b = map(int, sys.stdin.read().split())
       print((a+b-1)//b * b - a)
-    
+
     @staticmethod
     def b():
       n, x, *a = map(int, sys.stdin.read().split())
@@ -699,7 +699,7 @@ class AtCoder:
     @staticmethod
     def c():
       n, *ab = map(int, sys.stdin.read().split())
-      a, b = np.array(ab).reshape(n, 2).T 
+      a, b = np.array(ab).reshape(n, 2).T
       res = np.zeros(10**6+2, dtype=np.int64)
       np.add.at(res, a, 1)
       np.subtract.at(res, b+1, 1)
@@ -724,7 +724,7 @@ class AtCoder:
     @staticmethod
     def c():
       n, k, *s = map(int, sys.stdin.read().split())
-      if 0 in s: print(n); return 
+      if 0 in s: print(n); return
       s += [inf]
       res = 0
       l = r = 0
@@ -750,7 +750,7 @@ class AtCoder:
       for _ in range(n):
         s, p = sys.stdin.readline().split()
         p = int(p)
-        res[s] = p 
+        res[s] = p
       tot = sum(res.values())
       for s, p in res.items():
         if p > tot/2:
@@ -780,7 +780,7 @@ class AtCoder:
     @staticmethod
     def d():
       n, k, *wp = map(int, sys.stdin.read().split())
-      w, p = np.array(wp).reshape(-1, 2).T 
+      w, p = np.array(wp).reshape(-1, 2).T
       def f(x):
         return np.sort(w*(p-x))[-k:].sum()
       print(optimize.bisect(f, 0, 100))
@@ -801,7 +801,7 @@ class AtCoder:
         elif c == 'L': x -= 1
         elif c == 'R': x += 1
         elif c == 'D': y -= 1
-        elif c == 'U': y += 1 
+        elif c == 'U': y += 1
       d = abs(y)+abs(x)
       if t == '1':
         print(d+z)
@@ -823,8 +823,8 @@ class AtCoder:
     def d():
       n, m, t = map(int, sys.stdin.readline().split())
       point = np.array(sys.stdin.readline().split(), dtype=int)
-      a, b, c = np.array(sys.stdin.read().split(), dtype=np.int64).reshape(m, 3).T 
-      a -= 1; b -= 1 
+      a, b, c = np.array(sys.stdin.read().split(), dtype=np.int64).reshape(m, 3).T
+      a -= 1; b -= 1
       d_1 = shortest_path(csr_matrix((c, (a, b)), (n, n)), method='D', directed=True, indices=0)
       d_2 = shortest_path(csr_matrix((c, (b, a)), (n, n)), method='D', directed=True, indices=0)
       print(int(np.amax((t-(d_1+d_2))*point)))
@@ -844,7 +844,7 @@ class AtCoder:
         for i in range(n-1, -1, -1):
           row += s[i][j]
         print(row)
-    
+
     @staticmethod
     def c():
       n, *a = map(int, sys.stdin.read().split())
@@ -854,9 +854,9 @@ class AtCoder:
       for i, x in sorted(enumerate(a), key=lambda x: x[1]):
         if x != prev: j += 1
         b[i] = j
-        prev = x     
-      print(*b, sep='\n') 
-    
+        prev = x
+      print(*b, sep='\n')
+
     @staticmethod
     def d():
       n, *ab = map(int, sys.stdin.read().split())
@@ -869,10 +869,10 @@ class AtCoder:
       def count(u):
         black, white = 1, 1
         for v in edges[u]:
-          if v == parent[u]: continue 
+          if v == parent[u]: continue
           parent[v] = u
           b, w = count(v)
-          black *= w; black %= MOD 
+          black *= w; black %= MOD
           white *= (b+w)%MOD; white %= MOD
         return black, white
       print(sum(count(0))%MOD)
@@ -888,9 +888,9 @@ class AtCoder:
       n, q, *lrt = map(int, sys.stdin.read().split())
       a = np.zeros(n, dtype=int)
       for l, r, t in zip(*[iter(lrt)]*3):
-        a[l-1:r] = t 
+        a[l-1:r] = t
       print(*a, sep='\n')
-    
+
     @staticmethod
     def c():
       n, k, *a = map(int, sys.stdin.read().split())
@@ -898,7 +898,7 @@ class AtCoder:
       np.cumsum(a, out=a)
       s = (a[k:] - a[:-k]).sum()
       print(s)
-    
+
     @staticmethod
     def d():
       h, w = map(int, sys.stdin.readline().split())
@@ -913,14 +913,14 @@ class AtCoder:
           y = i+dy; x = j+dx
           if 0<=y<h and 0<=x<w and a[y][x]<val:
             cnt += paths(y, x)
-            cnt %= MOD 
-        path[i][j] = cnt 
-        return cnt 
+            cnt %= MOD
+        path[i][j] = cnt
+        return cnt
       tot = 0
       for i in range(h):
         for j in range(w):
           tot += paths(i, j)
-          tot %= MOD 
+          tot %= MOD
       print(tot)
 
   class ABC038:
@@ -928,17 +928,17 @@ class AtCoder:
     def a():
       s = sys.stdin.readline().rstrip()
       print('YES' if s[-1]=='T' else 'NO')
-    
+
     @staticmethod
     def b():
       a, b, c, d = map(int, sys.stdin.read().split())
       print('YES' if a==c or b==c or a==d or b==d else 'NO')
-    
+
     @staticmethod
     def c():
       n, *a = map(int, sys.stdin.read().split())
       a += [-1]
-      cnt = n 
+      cnt = n
       tmp = 1
       for i in range(n):
         if a[i+1] > a[i]:
@@ -947,13 +947,13 @@ class AtCoder:
           cnt += tmp*(tmp-1)//2
           tmp = 1
       print(cnt)
-    
+
     @staticmethod
     def d():
       n, *wh = map(int, sys.stdin.read().split())
       wh = sorted(zip(*[iter(wh)]*2), key=lambda x: (-x[0], x[1]))
       w = [x[1] for x in wh][::-1]
-      res = [inf] * n 
+      res = [inf] * n
       for x in w:
         res[bi_l(res, x)] = x
       print(bi_l(res, inf))
@@ -963,14 +963,14 @@ class AtCoder:
     def a():
       a, b, c = map(int, sys.stdin.readline().split())
       print((a*b+b*c+c*a)*2)
-    
+
     @staticmethod
     def b():
       x = int(sys.stdin.readline().rstrip())
       for n in range(1, int(x**0.5)+1):
         if pow(n, 4)==x:
           print(n); return
-    
+
     @staticmethod
     def c():
       board = 'WBWBWWBWBWBW' * 3
@@ -990,24 +990,24 @@ class AtCoder:
           black_cand = set()
           for dy, dx in dyx:
             y = i+dy; x = j+dx
-            if y<0 or y>=h or x<0 or x>=w: continue 
-            if s[y][x] == '.': break 
+            if y<0 or y>=h or x<0 or x>=w: continue
+            if s[y][x] == '.': break
             black_cand.add((y, x))
           else:
             black_before.add((i, j))
-            black_certain |= black_cand 
+            black_certain |= black_cand
       for i in range(h):
         for j in range(w):
           if s[i][j]=='#' and not (i, j) in black_certain:
             print('impossible')
-            return 
+            return
       print('possible')
       for i in range(h):
         row = ''
         for j in range(w):
           row += '#' if (i, j) in black_before else '.'
         print(''.join(row))
-            
+
   class ABC040:
     @staticmethod
     def a():
@@ -1017,7 +1017,7 @@ class AtCoder:
     @staticmethod
     def b():
       n = int(sys.stdin.readline().rstrip())
-      res = inf 
+      res = inf
       for i in range(1, int(n**.5)+1):
         res = min(res, n//i-i+n%i)
       print(res)
@@ -1061,24 +1061,24 @@ class AtCoder:
       s, i = sys.stdin.read().split()
       i = int(i)
       print(s[i-1])
-    
+
     @staticmethod
     def b():
       a, b, c = map(int, sys.stdin.readline().split())
-      ans = a * b % MOD * c % MOD 
+      ans = a * b % MOD * c % MOD
       print(ans)
-    
+
     @staticmethod
     def c():
       n, *a = map(int, sys.stdin.read().split())
       for i, h in sorted(enumerate(a), key=lambda x: -x[1]):
         print(i+1)
-    
+
     @staticmethod
     def d():
       n, m, *xy = map(int, sys.stdin.read().split())
       *xy, = zip(*[iter(xy)]*2)
-      edges = [0] * n 
+      edges = [0] * n
       for x, y in xy:
         x -= 1; y -= 1
         edges[x] |= 1<<y
@@ -1089,7 +1089,7 @@ class AtCoder:
         for i in range(n):
           if (bit>>i) & 1 and not edges[i]:
             nxt_bit = bit & ~(1<<i)
-            nxt_edges = edges.copy() 
+            nxt_edges = edges.copy()
             for j in range(n):
               nxt_edges[j] &= ~(1<<i)
             cnt = count(nxt_edges, nxt_bit)
@@ -1103,7 +1103,7 @@ class AtCoder:
       a = [int(x) for x in sys.stdin.readline().split()]
       c = Counter(a)
       print('YES' if c[5]==2 and c[7]==1 else 'NO')
-    
+
     @staticmethod
     def b():
       n, l, *s = sys.stdin.read().split()
@@ -1116,7 +1116,7 @@ class AtCoder:
       ok = sorted(set(string.digits)-set(d))
       cand = [int(''.join(p)) for p in product(ok, repeat=l)] + [int(min(x for x in ok if x > '0')+min(ok)*l)]
       print(cand[bi_l(cand, int(n))])
-    
+
     @staticmethod
     def d():
       h, w, a, b = map(int, sys.stdin.read().split())
@@ -1132,7 +1132,7 @@ class AtCoder:
     def a():
       n = int(sys.stdin.readline().rstrip())
       print((1+n)*n//2)
-    
+
     @staticmethod
     def b():
       s = sys.stdin.readline().rstrip()
@@ -1141,24 +1141,24 @@ class AtCoder:
         if c == 'B': t = t[:-1]
         else: t += c
       print(t)
-    
+
     @staticmethod
     def c():
       n, *a = map(int, sys.stdin.read().split())
       a = np.array(a)
       x = np.around(a.sum()/n).astype(int)
       print(np.sum((a-x)**2))
-    
+
     @staticmethod
     def d():
       s = sys.stdin.readline().rstrip()
       n = len(s)
       for i in range(n-1):
         if s[i] == s[i+1]:
-          print(i+1, i+2); return 
+          print(i+1, i+2); return
       for i in range(n-2):
         if s[i] == s[i+2]:
-          print(i+1, i+3); return 
+          print(i+1, i+3); return
       print(-1, -1)
 
   class ABC170:
@@ -1169,7 +1169,7 @@ class AtCoder:
         if x[i] != i+1:
           print(i+1)
           break
-    
+
     @staticmethod
     def b():
       x, y = map(int, sys.stdin.readline().split())
@@ -1180,7 +1180,7 @@ class AtCoder:
       a = list(set(range(102)) - set(p))
       a = [(abs(y-x), y) for y in a]
       print(sorted(a)[0][1])
-    
+
     @staticmethod
     def d():
       n, *a = map(int, sys.stdin.read().split())
@@ -1194,7 +1194,7 @@ class AtCoder:
     @staticmethod
     def e():
       n, q = map(int, sys.stdin.readline().split())
-      queue = [] 
+      queue = []
       m = 2*10**5
       infants = [[] for _ in range(m)]
       highest_rate = [None] * m
@@ -1205,7 +1205,7 @@ class AtCoder:
         where[i] = k
         while infants[k]:
           r, j = heappop(infants[k])
-          if where[j] != k or j == i: continue 
+          if where[j] != k or j == i: continue
           if rate[i] >= -r:
             highest_rate[k] = rate[i]
             heappush(queue, (rate[i], k, i))
@@ -1233,19 +1233,19 @@ class AtCoder:
       def inquire():
         while True:
           r, k, i = heappop(queue)
-          if where[i] != k or r != highest_rate[k]: continue 
+          if where[i] != k or r != highest_rate[k]: continue
           heappush(queue, (r, k, i))
           return r
 
       for i in range(n):
         a, b = map(int, sys.stdin.readline().split())
-        rate[i] = a 
+        rate[i] = a
         entry(i, b-1)
       for _ in range(q):
         c, d = map(int, sys.stdin.readline().split())
         transfer(c-1, d-1)
         print(inquire())
-      
+
 
 
   class ABC171:
@@ -1253,12 +1253,12 @@ class AtCoder:
     def a():
       c = sys.stdin.readline().rstrip()
       print('A' if c < 'a' else 'a')
-    
+
     @staticmethod
     def b():
       n, k, *p = map(int, sys.stdin.read().split())
       print(sum(sorted(p)[:k]))
-    
+
 
     @staticmethod
     def c():
@@ -1267,13 +1267,13 @@ class AtCoder:
       l = 1
       while True:
         if n < pow(26, l):
-          break 
+          break
         n -= pow(26, l)
         l += 1
       res = ''.join([chr(ord('a')+d) for d in NumberTheory.base_convert(n, 26)][::-1])
       res = 'a'*(l-len(res)) + res
       print(res)
-    
+
     @staticmethod
     def d():
       n = int(sys.stdin.readline().rstrip())
@@ -1286,12 +1286,12 @@ class AtCoder:
         s += (c-b)*cnt[b]
         print(s)
         cnt[c] += cnt[b]; cnt[b] = 0
-    
+
     @staticmethod
     def e():
       n, *a = map(int, sys.stdin.read().split())
       s = 0
-      for x in a: s ^= x 
+      for x in a: s ^= x
       b = map(lambda x: x^s, a)
       print(*b, sep=' ')
 
@@ -1300,11 +1300,11 @@ class AtCoder:
     @staticmethod
     def a():
       a = int(sys.stdin.readline().rstrip()); print(a*(1+a+a**2))
-    
+
     @staticmethod
     def b():
       s, t = sys.stdin.read().split(); print(sum(s[i]!=t[i] for i in range(len(s))))
-    
+
     @staticmethod
     def c():
       n, m, k = map(int, sys.stdin.readline().split())
@@ -1315,11 +1315,11 @@ class AtCoder:
       res = 0
       for i in range(n+1):
         r = k - sa[i]
-        if r < 0: break 
+        if r < 0: break
         res = max(res, i+bi_r(sb, r))
       print(res)
 
-    @staticmethod 
+    @staticmethod
     def d():
       n = int(sys.stdin.readline().rstrip())
       f = np.zeros(n+1, dtype=np.int64)
@@ -1334,14 +1334,14 @@ class AtCoder:
       n = int(sys.stdin.readline().rstrip())
       charge = (n+999)//1000 * 1000 - n
       print(charge)
-    
+
     @staticmethod
     def b():
-      n, *s = sys.stdin.read().split() 
+      n, *s = sys.stdin.read().split()
       c = Counter(s)
       for v in 'AC, WA, TLE, RE'.split(', '):
         print(f'{v} x {c[v]}')
-    
+
 
     @staticmethod
     def c():
@@ -1354,7 +1354,7 @@ class AtCoder:
           for y in range(h):
             for x in range(w):
               if i>>y & 1 or j>>x & 1:
-                continue 
+                continue
               cnt += c[y][x] ==  '#'
           tot += cnt == k
       print(tot)
@@ -1365,14 +1365,14 @@ class AtCoder:
       a.sort(reverse=True)
       res = a[0] + sum(a[1:1+(n-2)//2])*2 + a[1+(n-2)//2]*(n & 1)
       print(res)
-    
+
     @staticmethod
     def e():
       MOD = 10**9+7
       n, k, *a = map(int, sys.stdin.read().split())
       minus = [x for x in a if x < 0]
       plus = [x for x in a if x > 0]
-      if len(plus) + len(minus)//2*2 >= k: # plus 
+      if len(plus) + len(minus)//2*2 >= k: # plus
         *minus, = map(abs, minus)
         minus.sort(reverse=True)
         plus.sort(reverse=True)
@@ -1391,7 +1391,7 @@ class AtCoder:
         cand.sort(reverse=True)
         for x in cand[:k//2]:
           res *= x
-          res %= MOD 
+          res %= MOD
         print(res)
       elif 0 in a:
         print(0)
@@ -1404,7 +1404,7 @@ class AtCoder:
         res = MOD - res
         print(res)
         pass
- 
+
 
   class ABC174:
     @staticmethod
@@ -1413,7 +1413,7 @@ class AtCoder:
 
 
   class ACL001:
-    @staticmethod 
+    @staticmethod
     def a():
       n, *xy = map(int, sys.stdin.read().split())
       *xy, = zip(*[iter(xy)]*2)
@@ -1429,7 +1429,7 @@ class AtCoder:
       x = int(sys.stdin.readline().rstrip())
       x -= 400
       print(8-x//200)
-    
+
     @staticmethod
     def b():
       r, g, b, k = map(int, sys.stdin.read().split())
@@ -1440,13 +1440,13 @@ class AtCoder:
         b *= 2
         k -= 1
       print('Yes' if r < g < b else 'No')
-    
+
     @staticmethod
     def c():
       n, k, *a = map(int, sys.stdin.read().split())
       for i in range(k, n):
         print('Yes' if a[i] > a[i-k] else 'No')
-    
+
     @staticmethod
     def d():
       n, *a = map(int, sys.stdin.read().split())
@@ -1454,11 +1454,11 @@ class AtCoder:
       m = 1000
       s = 0
       for i in range(n):
-        if a[i+1] == a[i]: continue 
+        if a[i+1] == a[i]: continue
         elif a[i+1] > a[i]:
           cnt = m//a[i]
-          m -= a[i]*cnt 
-          s += cnt 
+          m -= a[i]*cnt
+          s += cnt
         else:
           m += a[i]*s
           s = 0
@@ -1467,7 +1467,7 @@ class AtCoder:
 
 
 class Codeforces:
-  pass 
+  pass
 
 class ProjectEuler:
   @staticmethod
@@ -1499,7 +1499,7 @@ class ProjectEuler:
     cand = []
     for a in range(100, 1000):
       for b in range(a, 1000):
-        n = a*b 
+        n = a*b
         if is_palindrome(n): cand.append(n)
     print(max(cand))
 
@@ -1563,14 +1563,12 @@ class ProjectEuler:
     #       for d in range(4):
     #         tmp *= grid[i+d, j]
     print(grid)
-  
-  pass 
+
+  pass
 
 class Yukicoder:
-  pass 
+  pass
 
-    
+
 if __name__ == '__main__':
   AtCoder.ABC014.c()
-
-

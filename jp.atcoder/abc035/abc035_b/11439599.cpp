@@ -8,7 +8,7 @@ int main() {
   string s;
   int t;
   cin >> s >> t;
-  
+
   int cnt = 0;
   int x = 0, y = 0;
   for (char &c : s) {

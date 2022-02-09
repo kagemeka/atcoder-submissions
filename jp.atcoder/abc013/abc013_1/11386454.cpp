@@ -7,5 +7,5 @@ int main() {
   int ans = x - 'A' + 1;
   cout << ans << endl;
   return 0;
-  
+
 }

@@ -28,7 +28,7 @@ int main() {
         l++;
         if (l > r) break;
       }
-    } 
+    }
   }
   cout << res << '\n';
   return 0;

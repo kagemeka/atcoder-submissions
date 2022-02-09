@@ -10,7 +10,7 @@ def main():
       print(0); return
   for i in range(1 + (n & 1), n, 2):
     if c.get(i, 0) != 2:
-      print(0); return 
+      print(0); return
   print(pow(2, n // 2, MOD))
 
 if __name__ ==  '__main__':

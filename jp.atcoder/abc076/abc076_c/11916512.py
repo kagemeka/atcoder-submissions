@@ -8,7 +8,7 @@ def main():
     for i in range(n - m, -1, -1):
         for j in range(m):
             if t[j] != s[i+j] != '?':
-                break 
+                break
         else:
             for j in range(m):
                 s[i+j] = t[j]
@@ -17,6 +17,6 @@ def main():
             print(''.join(s))
             return
     print('UNRESTORABLE')
-    
+
 if __name__ ==  '__main__':
     main()

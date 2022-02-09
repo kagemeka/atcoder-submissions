@@ -1,10 +1,10 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def bit_count(n: int) -> int:
   cnt = 0
   while n:
@@ -27,9 +27,9 @@ def solve(a: np.ndarray) -> typing.NoReturn:
   def can_transit(s, i):
     y, x = divmod(i, 5)
     if 1 <= y <= 3 and (s >> (i - 5) & 1) ^ (s >> (i + 5) & 1):
-      return False 
+      return False
     if 1 <= x <= 3 and (s >> (i - 1) & 1) ^ (s >> (i + 1) & 1):
-      return False 
+      return False
     return True
 
   mod = 1_000_000_007

@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-06 22:04:18(JST)
 import sys
 # import collections
@@ -17,7 +17,7 @@ def main():
         ans = 'Yes'
     else:
         ans = 'No'
-    
+
     print(ans)
 
 

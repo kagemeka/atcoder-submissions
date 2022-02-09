@@ -43,7 +43,7 @@ func (
 	bufSize int,
 ) {
 	io.Scanner.Buffer(
-		[]byte{}, 
+		[]byte{},
 		bufSize,
 	)
 }
@@ -97,7 +97,7 @@ func (
 func (
 	io *IO,
 ) ScanInt() Int {
-	s := string(io.Scan())	
+	s := string(io.Scan())
 	v, _ := strconv.Atoi(s)
 	return Int(v)
 }
@@ -159,7 +159,7 @@ func (
 		cnt += n & 1
 		n >>= 1
 	}
-	return 
+	return
 }
 
 
@@ -204,7 +204,7 @@ func (
 	case Int:
 		return Int(res)
 	}
-	return res 
+	return res
 }
 
 
@@ -232,7 +232,7 @@ func (
 	case Int:
 		return Int(res)
 	}
-	return res 
+	return res
 }
 
 
@@ -280,7 +280,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(Int) 
+	return x <= other.(Int)
 }
 
 
@@ -314,7 +314,7 @@ func (
 	if x < 0 {
 		return -x
 	}
-	return x 
+	return x
 }
 
 
@@ -410,7 +410,7 @@ func (
 	Numeric,
 ){
 	if n == 0 {
-		return Float(1) 
+		return Float(1)
 	}
 	a := x.Pow(n >> 1).(Float)
 	a *= a
@@ -453,7 +453,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(Float) 
+	return x <= other.(Float)
 }
 
 
@@ -493,7 +493,7 @@ func (
 ) LE(
 	other Comparable,
 ) Bool {
-	return x <= other.(String) 
+	return x <= other.(String)
 }
 
 
@@ -687,7 +687,7 @@ func (
 	i, j int,
 ) bool {
 	return a[i] < a[j]
-} 
+}
 
 
 func (
@@ -748,7 +748,7 @@ type Numeric interface {
 
 
 func Sum(
-	a ...Numeric,	
+	a ...Numeric,
 ) (
 	s Numeric,
 ) {
@@ -756,7 +756,7 @@ func Sum(
 	for  _, x := range a {
 		s = s.Add(x)
 	}
-	return 
+	return
 }
 
 
@@ -775,7 +775,7 @@ func (
 ) {
 	const dx = 1e-8
 	d = (f(x + dx) - f(x)) / dx
-	return 
+	return
 }
 
 
@@ -788,14 +788,14 @@ func (
 ) {
 	x = x0
 	const maxIter = 1 << 4
-	for 
-	i := 0; 
-	i < maxIter; 
+	for
+	i := 0;
+	i < maxIter;
 	i++ {
-		x -= f(x) / 
+		x -= f(x) /
 			f.Derivative(x)
 	}
-	return 
+	return
 }
 
 
@@ -813,7 +813,7 @@ func Newton(
 type Solver interface{
 	Init()
 	Prepare()
-	Solve()	
+	Solve()
 }
 
 
@@ -827,7 +827,7 @@ func Run(s Solver) {
 
 type Problem struct {
 	io *IO
-	n, k Int 
+	n, k Int
 	r FloatSlice
 }
 
@@ -847,15 +847,15 @@ func (
 	p *Problem,
 ) Prepare() {
 	io := p.io
-	n := io.ScanInt() 
-	k := io.ScanInt() 
+	n := io.ScanInt()
+	k := io.ScanInt()
 	r := make(FloatSlice, n)
 	for i := Int(0); i < n; i++ {
 		r[i] = Float(io.ScanInt())
 	}
-	p.n = n 
-	p.k = k 
-	p.r = r 
+	p.n = n
+	p.k = k
+	p.r = r
 }
 
 
@@ -863,7 +863,7 @@ func (
 	p *Problem,
 ) Solve() {
 	io := p.io
-	n, k, r := p.n, p.k, p.r 
+	n, k, r := p.n, p.k, p.r
 	sort.Sort(r)
 	var rate Float
 	for _, v := range r[n-k:] {

@@ -13,7 +13,7 @@ def main():
             can_right = g + 99
             r = min(-(R // 2), - (R - can_right - 1))
             cnt_r = (abs(r) + 1) * abs(r) // 2 + (R + r) * (R - 1 + r) // 2
-            
+
         if G - 1 + g >= 99:
             b = G + g - 100
             cnt_b = (b + b + B - 1) * B // 2
@@ -24,6 +24,6 @@ def main():
         res.append(cnt_g + cnt_r + cnt_b)
 
     print(min(res))
-    
+
 if __name__ == '__main__':
     main()

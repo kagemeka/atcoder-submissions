@@ -19,7 +19,7 @@ long long cnt(long long n) {
     } else {
       m = to_string(stoi(m.substr(1, k)) - (m[k+1] < m[0]));
       while (m.size() < k) m = '0' + m;
-      tot += (m[0] - '0') * pow(10, (k - 1) / 2); 
+      tot += (m[0] - '0') * pow(10, (k - 1) / 2);
     }
   }
   return tot;

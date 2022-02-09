@@ -5,9 +5,9 @@ import (
 )
 
 func main() {
-  var a, b string 
+  var a, b string
   fmt.Scan(&a, &b)
-  var ans string 
+  var ans string
   if a > b {
     ans = "GREATER"
   } else if a < b {

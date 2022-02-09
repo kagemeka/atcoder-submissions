@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -40,7 +40,7 @@ func (
 	for _, x := range s {
 		if x == c {
 			cnt++
-			continue 
+			continue
 		}
 		res += string(c)
 		res += strconv.Itoa(cnt)

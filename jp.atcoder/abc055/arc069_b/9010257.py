@@ -24,7 +24,7 @@ def contradicting(pattern):
             return True
     else:
         if pattern[-2] ^ pattern[1]:
-            return True   
+            return True
     return False
 
 def main():

@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -11,7 +11,7 @@ import (
 
 type Problem struct {
 	io *IO
-	n int 
+	n int
 	a []int
 }
 
@@ -41,11 +41,11 @@ func (
 	p *Problem,
 ) Solve() {
 	s := make(map[int]bool)
-	a := p.a 
+	a := p.a
 	for _, x := range a {
 		s[x] = true
 	}
-	n := p.n 
+	n := p.n
 	p.io.Write(n - len(s))
 }
 

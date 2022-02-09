@@ -23,10 +23,10 @@ def main():
             break
     else:
         return ng
-    
+
     ans = ''.join(s).replace('?', 'a')
     return ans
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

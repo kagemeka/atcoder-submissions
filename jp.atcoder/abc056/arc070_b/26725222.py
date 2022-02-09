@@ -1,6 +1,6 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 
 
 
@@ -19,7 +19,7 @@ def solve(a: np.ndarray, k: int) -> typing.NoReturn:
     dp_l = compute_dp(a)
     dp_r = compute_dp(a[::-1])[::-1].astype(np.int16)
     np.cumsum(dp_r, axis=1, out=dp_r)
-    
+
     def is_needed(i: int) -> bool:
         r = dp_r[i + 1]
         x = a[i]

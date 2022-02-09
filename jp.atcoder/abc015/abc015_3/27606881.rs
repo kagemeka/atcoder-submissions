@@ -29,12 +29,12 @@ fn main() {
 
     let n: usize = sc.scan();
     let k: usize = sc.scan();
-    
+
     let mut a: Vec<usize> = vec![0];
-    
-    for _ in 0..n { 
+
+    for _ in 0..n {
         let mut b: Vec<usize> = Vec::new();
-        for _ in 0..k { 
+        for _ in 0..k {
             let t: usize = sc.scan();
             for &x in a.iter() {
                 b.push(t ^ x);

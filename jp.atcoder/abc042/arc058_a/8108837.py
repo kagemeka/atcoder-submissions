@@ -13,7 +13,7 @@ for i in range(len(r_digits)):
         res = [min(likes) for i in range(i+1)]
         if i == len(r_digits)-1:
             res.append(min(x for x in likes if x > 0))
-            
+
         else:
             r_digits[i+1] += 1
 

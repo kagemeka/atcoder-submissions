@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def count_toposort(
@@ -27,7 +27,7 @@ def count_toposort(
 
 def main() -> None:
     n, m = map(int, input().split())
-    
+
     graph = [[] for _ in range(n)]
     for _ in range(m):
         x, y = map(int, input().split())

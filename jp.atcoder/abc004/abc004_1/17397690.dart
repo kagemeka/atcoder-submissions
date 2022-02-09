@@ -35,12 +35,12 @@ class ABC002 {
     for (var i = 0; i < s.length; i++) {
       if (vowels.contains(s[i])) continue;
       t += s[i];
-    } 
+    }
     print(t);
   }
 
   static void c() {
-    
+
   }
 
   static void d() {
@@ -82,7 +82,7 @@ class ABC003 {
 
     String s, t;
     s = read(); t = read();
-    
+
     for (int i = 0; i < s.length; i++) {
       if (s[i]==t[i]) continue;
       if (s[i]=='@' && atcoder.contains(t[i])) continue;
@@ -98,13 +98,13 @@ class ABC003 {
 
     List<int> r = readIntList();
     r.sort((a,b) => b-a);
-    
+
     double res = .0;
     for (int i = k-1; i > -1; i--) {
       res = (res+r[i])/2;
     }
     print(res);
-    
+
   }
 
   static void d() {
@@ -123,7 +123,3 @@ class ABC004 {
 void main() {
   ABC004.a();
 }
-
-
-
-

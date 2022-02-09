@@ -21,8 +21,8 @@ def main():
                     if prev[0]:
                         res[i+1][j][k][0] = 1
                         if res[i+1][j][k][1]:
-                            res[i+1][j][k][1] = min(prev[1] + c[i], res[i+1][j][k][1])   
-                        else:    
+                            res[i+1][j][k][1] = min(prev[1] + c[i], res[i+1][j][k][1])
+                        else:
                             res[i+1][j][k][1] = prev[1] + c[i]
 
     for i in range(1, min(sa//ma, sb//mb)+1):

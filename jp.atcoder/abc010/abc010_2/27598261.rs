@@ -28,7 +28,7 @@ fn main() {
 
     let n: usize = sc.scan();
     let mut cnt: usize = 0;
-    for _ in 0..n { 
+    for _ in 0..n {
         let mut a: usize = sc.scan();
         while a % 2 == 0 || a % 3 == 2 {
             cnt += 1;
@@ -37,4 +37,3 @@ fn main() {
     }
     writeln!(out, "{}", cnt).unwrap();
 }
-

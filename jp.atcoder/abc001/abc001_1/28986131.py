@@ -1,5 +1,5 @@
 
-import typing 
+import typing
 
 def main() -> None:
     h1 = int(input())

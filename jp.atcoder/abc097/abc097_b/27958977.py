@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -7,7 +7,7 @@ def main() -> typing.NoReturn:
     ok[1] = True
     for i in range(2, n):
         if i * i > n: break
-        j = i * i 
+        j = i * i
         while j <= n:
             ok[j] = True
             j *= i
@@ -16,6 +16,6 @@ def main() -> typing.NoReturn:
         if not ok[i]: continue
         mx = max(mx, i)
     print(mx)
-    
+
 
 main()

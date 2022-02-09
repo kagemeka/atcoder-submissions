@@ -11,7 +11,7 @@ def main():
         else:
             res.append(c)
     return ''.join(res)
-            
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -12,7 +12,7 @@ import (
 type Problem struct {
 	io *IO
 	k int
-	n int 
+	n int
 	a, b []int
 }
 
@@ -29,7 +29,7 @@ func (
 func (
 	p *Problem,
 ) Input() {
-	io := p.io 
+	io := p.io
 	n := io.ReadInt()
 	a := make([]int, n)
 	b := make([]int, n)
@@ -44,8 +44,8 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	n, a, b := p.n, p.a, p.b 
-	k := p.k 
+	n, a, b := p.n, p.a, p.b
+	k := p.k
 	s := make(Ints, k)
 	for i := 0; i < n; i++ {
 		s[a[i]]++
@@ -55,7 +55,7 @@ func (
 		s[i + 1] += s[i]
 	}
 	p.io.Write(s.Max())
-	
+
 }
 
 
@@ -73,7 +73,7 @@ func (
 	}
 	return v
 }
-	
+
 
 
 

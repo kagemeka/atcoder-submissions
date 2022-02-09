@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-  var w string 
+  var w string
   fmt.Scan(&w)
   res := make(map[rune]int)
   for _, c := range w {

@@ -46,7 +46,7 @@ def main():
                 elif dist[y] != dist[x] + d:
                     return 'No'
     return 'Yes'
-      
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

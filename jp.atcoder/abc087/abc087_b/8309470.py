@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-06 14:53:37(JST)
 import sys
 # import collections
@@ -31,7 +31,7 @@ def main():
                 total = ta + tb + 50 * k
                 if total == x:
                     combination += 1
-    
+
     print(combination)
 
 if __name__ == "__main__":

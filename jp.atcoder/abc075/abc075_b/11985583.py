@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 
 h, w = map(int, sys.stdin.readline().split())
 grid = np.array([list(sys.stdin.readline().rstrip()) for _ in range(h)], dtype='U1')
@@ -18,6 +18,6 @@ def main():
   cnt = cnt[1:-1, 1:-1]
   for i in range(h):
     print(''.join(cnt[i]))
-    
+
 if __name__ == '__main__':
   main()

@@ -1,4 +1,4 @@
-import sys 
+import sys
 
 def A():
   h1, h2 = map(int, sys.stdin.read().split())
@@ -18,7 +18,7 @@ def D():
 
 
 if __name__ == "__main__":
-  A() 
+  A()
   B()
   C()
   D()

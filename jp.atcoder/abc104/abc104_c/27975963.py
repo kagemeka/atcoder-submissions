@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -8,22 +8,22 @@ def main() -> typing.NoReturn:
     for _ in range(n):
         p, c = map(int, input().split())
         pc.append((p, c // 100))
-    
+
 
     mn = 1 << 60
     for s in range(1 << n):
         cnt = 0
-        tot = 0 
+        tot = 0
         j = -1
         for i in range(n):
             if ~s >> i & 1:
-                j = max(j, i) 
+                j = max(j, i)
                 continue
             p, c = pc[i]
             cnt += p
             tot += (i + 1) * p
             tot += c
-        
+
         if tot >= g:
             mn = min(mn, cnt)
             continue
@@ -36,6 +36,3 @@ def main() -> typing.NoReturn:
     print(mn)
 
 main()
-            
-        
-    

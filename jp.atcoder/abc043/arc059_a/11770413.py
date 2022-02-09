@@ -8,6 +8,6 @@ def main():
   for i in range(n):
     s += pow(x - a[i], 2)
   print(s)
-  
+
 if __name__ == '__main__':
   main()

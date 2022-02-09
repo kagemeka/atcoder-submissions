@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 
 d1, d2 = np.array(sys.stdin.read().split(), dtype=np.int64).reshape(-1, 2)
 

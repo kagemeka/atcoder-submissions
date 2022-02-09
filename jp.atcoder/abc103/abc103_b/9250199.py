@@ -9,7 +9,7 @@ def main():
         if s[i:i+n] == t:
             return 'Yes'
     return 'No'
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

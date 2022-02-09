@@ -7,7 +7,7 @@ import itertools
 def main():
     n, *a = map(int, sys.stdin.read().split())
     a.sort()
-    
+
     b = list(itertools.accumulate(a))
 
     count = 1
@@ -16,7 +16,7 @@ def main():
             count += 1
         else:
             break
-    
+
     print(count)
 
 if __name__ == '__main__':

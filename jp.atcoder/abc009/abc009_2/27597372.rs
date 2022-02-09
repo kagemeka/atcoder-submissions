@@ -28,7 +28,7 @@ fn main() {
 
     let n: usize = sc.scan();
     let mut a: Vec<usize> = Vec::with_capacity(n);
-    for _ in 0..n { 
+    for _ in 0..n {
         a.push(sc.scan());
     }
     a.sort();
@@ -38,5 +38,5 @@ fn main() {
         writeln!(out, "{}", x).unwrap();
         return;
     }
-    
+
 }

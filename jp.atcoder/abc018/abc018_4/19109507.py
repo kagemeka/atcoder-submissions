@@ -1,17 +1,17 @@
 def read():
-  import sys 
+  import sys
   return sys.stdin.buffer.read()
 
 
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
 
 def readline_ints():
   *ints, = map(
-    int, 
+    int,
     readline().split(),
   )
   return ints
@@ -20,17 +20,17 @@ def readline_ints():
 def read_ints():
   import numpy as np
   return np.fromstring(
-    string=read().decode(), 
-    dtype=np.int64, 
+    string=read().decode(),
+    dtype=np.int64,
     sep=' ',
   )
 
 
 def solve(n, m, p, q, xyz):
-  import numpy as np 
+  import numpy as np
   from itertools import combinations
   x, y, z = np.transpose(xyz)
-  x -= 1; y -= 1 
+  x -= 1; y -= 1
   g = np.zeros(
     shape=(n, m),
     dtype=np.int32,

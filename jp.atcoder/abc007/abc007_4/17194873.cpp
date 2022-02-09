@@ -64,7 +64,7 @@ vector<int> lv;
 using namespace GeometryTopology;
 
 
-template<typename T> 
+template<typename T>
 vector<T> LIS(vector<T> &a) {
   vector<T> b(a.size(), numeric_limits<T>::max());
   for (T &x : a) *lower_bound(b.begin(), b.end(), x) = x;
@@ -74,7 +74,7 @@ vector<T> LIS(vector<T> &a) {
 
 
 namespace Algebra {
-template<typename T> 
+template<typename T>
 vector<vector<T>> identity(int n) {
   vector<vector<T>> e(n, vector<T>(n));
   for (int i = 0; i < n; i++) e[i][i] = 1;
@@ -159,7 +159,7 @@ PrimeNumber(): prime_nums(0) {
     for (T j = i*2; j < N; j += i) is_prime[j] = 0;
   }
   for (T i = 0; i < N; i++) {
-    if (is_prime[i]) prime_nums.emplace_back(i);  
+    if (is_prime[i]) prime_nums.emplace_back(i);
   }
 }
 T& operator[](int i) {return prime_nums[i];}
@@ -291,7 +291,7 @@ void c() {
   sort(r.begin(), r.end(), greater<int>());
   double res = 0;
   for (int i = k-1; i > -1; i--) {res = (res + r[i])/2;}
-  cout << setprecision(16) << res << '\n';  
+  cout << setprecision(16) << res << '\n';
 }
 
 void d() {
@@ -402,7 +402,7 @@ namespace ABC006 {
 void a() {
   int n; cin >> n;
   if (n%3==0) {cout << "YES";} else {cout << "NO";}
-  cout << '\n'; 
+  cout << '\n';
 }
 
 void b() {
@@ -425,7 +425,7 @@ void c() {
   a = n - c;
   if (a<0 || b<0 || c<0) {a = b = c = -1;}
   cout << a << ' ' << b << ' ' << c << '\n';
-  
+
 }
 
 void d() {
@@ -447,7 +447,7 @@ void b() {
   string a; cin >> a;
   if (a=="a") {cout << -1 << '\n'; return;}
   cout << 'a' << '\n';
-  
+
 }
 
 void c() {
@@ -458,7 +458,7 @@ void c() {
   int tgt = gy*c + gx;
   vector<string> maze(r);
   for (int i = 0; i < r; i++) cin >> maze[i];
-  
+
   vector<pair<int, int>> dyx = {
     make_pair(-1, 0), make_pair(1, 0), make_pair(0, -1), make_pair(0, 1)
   };
@@ -534,5 +534,5 @@ int main() {
   AtCoder::ABC007::d();
 
   return 0;
-  
+
 }

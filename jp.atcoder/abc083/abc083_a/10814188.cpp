@@ -10,7 +10,7 @@ int main() {
   string ans;
   if (l > r) {
     ans = "Left";
-    
+
   } else if (l < r) {
     ans = "Rgith";
   } else {

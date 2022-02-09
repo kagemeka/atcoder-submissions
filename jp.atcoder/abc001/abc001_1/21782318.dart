@@ -37,7 +37,7 @@ mixin Runner {
 
 
 class Problem
-with Runner 
+with Runner
 implements Solver {
   int h0 = 0;
   int h1 = 0;

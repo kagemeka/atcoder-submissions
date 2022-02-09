@@ -12,4 +12,3 @@ for i in s_coords:
             min_dist = man_dist
             destn_index = j
     print(destn_index)
-

@@ -1,8 +1,8 @@
-import typing 
+import typing
 import dataclasses
 
 
-@dataclasses.dataclass 
+@dataclasses.dataclass
 class Node():
   parent: int
   size: int = 1
@@ -19,7 +19,7 @@ class UnionFind():
     self.__a = [
       Node(i) for i in range(n)
     ]
-  
+
 
   def find(
     self,
@@ -31,7 +31,7 @@ class UnionFind():
     pu = self.find(pu)
     a[u].parent = pu
     return pu
-  
+
 
   def unite(
     self,
@@ -40,13 +40,13 @@ class UnionFind():
   ) -> typing.NoReturn:
     u = self.find(u)
     v = self.find(v)
-    if u == v: return 
+    if u == v: return
     a = self.__a
     if a[u].size < a[v].size:
       u, v = v, u
     a[u].size += a[v].size
     a[v].parent = u
-  
+
 
   def same(
     self,
@@ -71,7 +71,7 @@ def main() -> typing.NoReturn:
     sys.stdin.read().split(),
   )
   for t, u, v in zip(*[q] * 3):
-    if t == 0: 
+    if t == 0:
       uf.unite(u, v)
       continue
     print(uf.same(u, v) * 1)
@@ -79,4 +79,4 @@ def main() -> typing.NoReturn:
 
 
 
-main() 
+main()

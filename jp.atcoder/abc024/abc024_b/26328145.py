@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -12,7 +12,7 @@ def solve(a: np.ndarray, t: int) -> typing.NoReturn:
   for i in range(n - 1):
     tot += min(a[i + 1] - a[i], t)
   print(tot + t)
-    
+
 
 def main() -> typing.NoReturn:
   n, t = map(int, input().split())

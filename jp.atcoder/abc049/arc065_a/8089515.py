@@ -14,7 +14,7 @@ for item in ls:
 
 for word_r in ls_r:
   s_r = split_and_join(s_r, word_r)
-  
+
 ans = "YES" if s_r == '' else "NO"
 
 print(ans)

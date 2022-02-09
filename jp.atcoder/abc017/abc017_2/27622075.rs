@@ -28,7 +28,7 @@ fn main() {
 
 
     let s: String = sc.scan();
-    
+
     fn is_choku(s: &str) -> bool {
         let choku_tail = ["ch", "o", "k", "u"];
         let n = s.len();

@@ -1,7 +1,7 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 @nb.njit((nb.i8, nb.i8[:]), cache=True)
@@ -16,14 +16,14 @@ def solve(n: int, d: np.ndarray) -> typing.NoReturn:
     que = [(0, 0)]
     for x, p in que:
       if p == 5: continue
-      if p >= 1 and x == 0: continue      
+      if p >= 1 and x == 0: continue
       for y in like:
-        nx = x * 10 + y 
+        nx = x * 10 + y
         cand[i] = nx
         i += 1
         que.append((nx, p + 1))
     return cand[:i]
-  
+
   cand = enumerate_numbers()
   ans = cand[np.searchsorted(cand, n)]
   print(ans)

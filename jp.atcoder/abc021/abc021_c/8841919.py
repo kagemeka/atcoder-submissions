@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import dijkstra
 
@@ -17,7 +17,7 @@ def main():
     dist_vertices = [[] for _ in range(n)]
     for i in range(n):
         dist_vertices[dist[i]].append(i)
-    
+
     path_cnt = [0] * n
     path_cnt[a] = 1
     for l in range(1, dist[b]+1):

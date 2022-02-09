@@ -1,11 +1,11 @@
-import typing 
+import typing
 import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 
-@nb.njit 
+@nb.njit
 def fw_add(
   a: np.array,
   i: int,
@@ -13,7 +13,7 @@ def fw_add(
 ) -> typing.NoReturn:
   while i < a.size:
     a[i] += x
-    i += i & -i 
+    i += i & -i
 
 
 
@@ -22,7 +22,7 @@ def fw_sum(
   a: np.array,
   i: int,
 ) -> int:
-  s = 0 
+  s = 0
   while i > 0:
     s += a[i]
     i -= i & -i
@@ -39,7 +39,7 @@ def solve(
   q: np.array,
 ) -> typing.NoReturn:
   fw = np.zeros(
-    n + 1, 
+    n + 1,
     dtype=np.int64,
   )
   for i in range(n):
@@ -51,7 +51,7 @@ def solve(
     ]
     if t == 0:
       fw_add(fw, x + 1, y)
-      continue 
+      continue
     s = fw_sum(fw, y)
     s -= fw_sum(fw, x)
     print(s)
@@ -74,4 +74,4 @@ def main() -> typing.NoReturn:
   solve(n, a, q)
 
 
-main() 
+main()

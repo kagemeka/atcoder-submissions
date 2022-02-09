@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include 
+#include
 
 
 template <typename T>
@@ -41,14 +41,14 @@ class Modular {
 public:
   constexpr Modular() : value() {}
   template<typename U> Modular(const U& x) {value = normalize(x);}
- 
+
   const Type& operator()() const {return value;}
   template<typename U> explicit operator U() const {return static_cast<U>(value);}
   constexpr static Type mod() {return T::value;}
   Modular& operator+=(const Modular& rhs) {if ((value += rhs.value) >= mod()) value -= mod(); return *this;}
   Modular operator+(const Modular& rhs) const {return Modular(*this) += rhs;}
   Modular& operator-=(const Modular& rhs) {if ((value -= rhs.value) < 0) value += mod(); return *this;}
-  Modular operator-(const Modular& rhs) const {return Modular(*this) -= rhs;} 
+  Modular operator-(const Modular& rhs) const {return Modular(*this) -= rhs;}
   template<typename U> Modular& operator+=(const U& other) {return *this += Modular(other);}
   template<typename U> Modular& operator-=(const U& other) {return *this -= Modular(other);}
   Modular& operator++() {return *this += 1;}
@@ -57,10 +57,10 @@ public:
   Modular operator--(int) {Modular res(*this); *this -= 1; return res;}
   Modular operator-() const {return Modular(-value);}
   Modular& operator*=(const Modular& rhs) {value *= rhs.value; value %= mod(); return *this;}
-  Modular operator*(const Modular& rhs) const {return Modular(*this) *= rhs;} 
+  Modular operator*(const Modular& rhs) const {return Modular(*this) *= rhs;}
   Modular inverse() const {return pow(*this, mod() - 2);}
   Modular& operator/=(const Modular& rhs) {*this *= rhs.inverse(); return *this;}
-  Modular operator/(const Modular& rhs) const {return Modular(*this) /= rhs;} 
+  Modular operator/(const Modular& rhs) const {return Modular(*this) /= rhs;}
   template<typename U>
   friend std::istream& operator>>(std::istream& is, Modular<U>& number) {return is >> number.value;}
   friend std::ostream& operator<< (std::ostream& os, const Modular& number) {return os << number.value;}
@@ -77,7 +77,7 @@ int main() {
   auto choose = ChoosePascal<Mint>(1 << 10);
 
   int h, w, y, x, d, l;
-  std::cin >> h >> w >> y >> x >> d >> l; 
+  std::cin >> h >> w >> y >> x >> d >> l;
 
   Mint ans = choose(y * x, d + l);
   int n = 4;

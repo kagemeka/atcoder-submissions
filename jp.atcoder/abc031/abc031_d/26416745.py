@@ -1,10 +1,10 @@
-import typing 
-import sys 
-import itertools 
+import typing
+import sys
+import itertools
 
 
 def solve(
-  k: int, 
+  k: int,
   vw: typing.List[typing.Tuple[str, str]],
 ) -> typing.NoReturn:
 
@@ -20,7 +20,7 @@ def solve(
         s[d] = w[i:i + l[d]]
         i += l[d]
         continue
-      if i < len(w): return False        
+      if i < len(w): return False
     print(*s, sep='\n')
     return True
 

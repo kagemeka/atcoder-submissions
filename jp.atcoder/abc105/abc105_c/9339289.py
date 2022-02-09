@@ -26,7 +26,7 @@ def to_neg_base(n, neg_base):
         i += 1
 
     res = ''.join(list(map(str, res)))[::-1]
-    try: 
+    try:
         return int(res[res.index('1'):])
     except:
         return 0

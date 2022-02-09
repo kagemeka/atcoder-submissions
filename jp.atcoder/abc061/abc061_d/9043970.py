@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 from scipy.sparse.csgraph import bellman_ford
 from scipy.sparse import csr_matrix
 

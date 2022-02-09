@@ -48,7 +48,7 @@ int main() {
       res[v] = max(res[v], maximum[y][x]);
     }
   }
-  
+
   for (int x : p) {
     cout << res[x] << endl;
   }

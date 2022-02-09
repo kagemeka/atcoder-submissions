@@ -11,6 +11,6 @@ def main():
     xa, ya, xb, yb, xc, yc = map(int, sys.stdin.readline().split())
 
     print(area(xa, ya, xb, yb, xc, yc))
-    
+
 if __name__ == '__main__':
     main()

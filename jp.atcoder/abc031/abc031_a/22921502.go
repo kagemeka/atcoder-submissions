@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -35,7 +35,7 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	a, d := p.a, p.d 
+	a, d := p.a, p.d
 	if a > d {
 		a, d = d, a
 	}

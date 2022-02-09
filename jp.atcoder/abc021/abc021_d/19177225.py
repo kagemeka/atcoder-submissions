@@ -1,11 +1,11 @@
 def read():
-  import sys 
+  import sys
   return sys.stdin.buffer.read()
 
 
 def read_ints():
   *ints, = map(
-    int, 
+    int,
     read().split(),
   )
   return ints
@@ -17,14 +17,14 @@ class Algebra:
 
 class Modular(Algebra):
   def __init__(
-      self, 
-      mod=10**9+7, 
+      self,
+      mod=10**9+7,
       **kwargs):
     super(Modular, self).__init__(
       **kwargs,
     )
     self.mod = mod
-  
+
 
   def cumprod(self, a):
     import numpy as np
@@ -42,7 +42,7 @@ class Modular(Algebra):
 
     return np.ravel(a)[:l]
 
-  
+
   def factorial(self, n: int):
     import numpy as np
     fact = np.arange(n+1)
@@ -71,10 +71,10 @@ class Modular(Algebra):
     if n == 0: return 1
     y = self.pow(x, n>>1)
     y = y * y % self.mod
-    if n&1: y = y * x % self.mod 
+    if n&1: y = y * x % self.mod
     return y
 
-    
+
   def matrix_pow(self, a, n):
     import numpy as np
     assert a.ndim == 2 and \
@@ -85,16 +85,16 @@ class Modular(Algebra):
       return e
     a %= self.mod
     b = self.matrix_pow(a, n>>1)
-    b = np.dot(b, b) % self.mod 
-    if n&1: 
+    b = np.dot(b, b) % self.mod
+    if n&1:
       b = np.dot(b, a) % self.mod
     return b
 
 
 class ChooseMod(Modular):
   def __init__(
-      self, 
-      n: int=1<<20, 
+      self,
+      n: int=1<<20,
       **kwargs):
     super(ChooseMod, self).__init__(
       **kwargs,
@@ -104,7 +104,7 @@ class ChooseMod(Modular):
       self.inverse_factorial(n)
 
 
-  def __call__(self, n, r): 
+  def __call__(self, n, r):
     return self.choose(n, r)
 
 
@@ -114,7 +114,7 @@ class ChooseMod(Modular):
     return bl * self.fact[n] \
       * self.inv_fact[r] % p \
       * self.inv_fact[n-r] % p
-  
+
 
   def set_nchoose(self, n: int):
     import numpy as np
@@ -126,7 +126,7 @@ class ChooseMod(Modular):
     self.nchoose = self.cumprod(
       self.nchoose,
     ) * self.inv_fact % p
-  
+
 
   def nc(self, r):
     return self.nchoose[r]

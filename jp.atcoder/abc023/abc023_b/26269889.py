@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def make(n: int) -> str:
@@ -16,12 +16,12 @@ def main() -> typing.NoReturn:
   m = len(s)
   if m % 2 == 0:
     print(-1)
-    return 
-  
+    return
+
   m >>= 1
   t = make(m)
   print(m if t == s else -1)
-  
+
 
 
 main()

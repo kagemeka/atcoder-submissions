@@ -1,6 +1,6 @@
 import sys
 from math import floor, sqrt
-from bisect import bisect_right as bi_r 
+from bisect import bisect_right as bi_r
 
 def prime_nums(n):
     sieve = set(range(2, n + 1))
@@ -28,7 +28,7 @@ def main():
             cnt += 1
         else:
             break
-    
+
     # p**3 * q
     for i in range(1, l+1):
         p = ps[i-1]
@@ -39,7 +39,7 @@ def main():
             cnt += j
         else:
             break
-        
+
     # p * q * r
     for i in range(1, l-1):
         p = ps[i-1]

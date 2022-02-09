@@ -15,14 +15,14 @@ void prepare() {
   t = vector<int>(n + 1);
   t[0] = 0;
   t[1] = 0;
-  t[2] = 1;  
+  t[2] = 1;
 }
 
 
 void solve() {
   for (int i = 3; i < n+1; i++)
   {
-    t[i] = t[i-1] + t[i-2] 
+    t[i] = t[i-1] + t[i-2]
       + t[i-3];
     t[i] %= mod;
   }

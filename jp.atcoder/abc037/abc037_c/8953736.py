@@ -14,9 +14,9 @@ def main():
         s += a[r]
         r += 1
         res += s
-        
+
     return res
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

@@ -1,11 +1,11 @@
 from sys import stdin
 
-n, *a = map(int, stdin.read().split()) 
+n, *a = map(int, stdin.read().split())
 
 l_count = {}
 for l in a:
     l_count.update({l: l_count.get(l, 0) + 1})
-  
+
 long_side, short_side = 0, 0
 for l, c in sorted(l_count.items(), reverse=1):
     if c != 1:

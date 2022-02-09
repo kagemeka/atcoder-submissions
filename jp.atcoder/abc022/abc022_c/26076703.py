@@ -1,11 +1,11 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
-@nb.njit 
+@nb.njit
 def shortest_path_floyd_warshall(g: np.ndarray) -> np.ndarray:
   n = len(g)
   assert g.shape == (n, n)
@@ -25,10 +25,10 @@ def solve(n: int, uvl: np.ndarray) -> typing.NoReturn:
   for i in range(m):
     u, v, l = uvl[i]
     g[u, v] = g[v, u] = l
-  
-  
+
+
   g[1:, 1:] = shortest_path_floyd_warshall(g[1:, 1:])
-  
+
   mn = inf
   for i in range(1, n - 1):
     for j in range(i + 1, n):
@@ -38,8 +38,8 @@ def solve(n: int, uvl: np.ndarray) -> typing.NoReturn:
   if mn == inf:
     print(-1)
   else:
-    print(mn) 
-  
+    print(mn)
+
 
 
 def main() -> typing.NoReturn:

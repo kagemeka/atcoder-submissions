@@ -28,12 +28,12 @@ fn main() {
 
     let n: usize = sc.scan();
     let mut c: Vec<usize> = Vec::with_capacity(n);
-    for _ in 0..n { 
+    for _ in 0..n {
         c.push(sc.scan());
     }
 
     let mut cnt = vec![0; n];
-    for i in 0..n { 
+    for i in 0..n {
         for j in 0..n {
             if c[i] % c[j] == 0 { cnt[i] += 1; }
         }

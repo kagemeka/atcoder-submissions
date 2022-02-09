@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 
 n, h, a, b, c, d, e = map(int, sys.stdin.read().split())
 
@@ -9,6 +9,6 @@ def main():
     np.maximum(y, 0, out=y)
     np.minimum(y, n - x, out=y)
     print(np.amin(a * x + c * y))
-    
+
 if __name__ ==  '__main__':
     main()

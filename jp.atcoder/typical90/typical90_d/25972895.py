@@ -1,13 +1,13 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 
 
 def solve(a: np.ndarray) -> typing.NoReturn:
-  h, w = a.shape 
+  h, w = a.shape
   sy = a.sum(axis=0)
   sx = a.sum(axis=1)
-  b = sy[:, None] + sx[None, :] - a 
+  b = sy[:, None] + sx[None, :] - a
   for x in b:
     print(' '.join(map(str, x.tolist())))
 

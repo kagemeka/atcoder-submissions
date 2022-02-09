@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 
 
 def main() -> typing.NoReturn:
@@ -16,7 +16,7 @@ def main() -> typing.NoReturn:
     if n <= 0:
       print('YES')
       return
-    
+
   print('NO')
 
 

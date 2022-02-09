@@ -6,12 +6,12 @@ while only_even:
   for i in range(n):
     if a[i] % 2 != 0:
       only_even = False
-    
+
   if only_even == False:
     break
 
   for i in range(n):
-    a[i] /= 2   
+    a[i] /= 2
   count += 1
 
 print(count)

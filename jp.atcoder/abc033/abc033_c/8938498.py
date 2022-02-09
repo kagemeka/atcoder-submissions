@@ -8,7 +8,7 @@ def main(s):
         s = s.replace(d, '1')
     ans = eval(s)
     return ans
-            
+
 if __name__ == '__main__':
     ans = main(s)
     print(ans)

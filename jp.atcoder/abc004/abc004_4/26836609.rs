@@ -19,16 +19,16 @@ pub struct Scanner {
 /// let a: i32 = sc.scan::<i32>();
 /// ```
 impl Scanner {
-    pub fn scan<T: std::str::FromStr>(&mut self) -> T 
-    where 
+    pub fn scan<T: std::str::FromStr>(&mut self) -> T
+    where
         <T as std::str::FromStr>::Err: std::fmt::Debug,
     {
         loop {
             if let Some(token) = self.buffer.pop() {
                 return token.parse::<T>().unwrap();
             }
-            self.buffer = 
-                readline()   
+            self.buffer =
+                readline()
                 .trim()
                 .split_whitespace().rev()
                 .map(String::from)
@@ -62,7 +62,7 @@ use std::io::Write;
 
 // #[allow(warnings)]
 fn main() {
-    let (r, g, b) = (scan::<usize>(), scan::<usize>(), scan::<usize>()); 
+    let (r, g, b) = (scan::<usize>(), scan::<usize>(), scan::<usize>());
     let k: usize = 1 << 10;
 
     let inf = 1 << 30;
@@ -75,7 +75,7 @@ fn main() {
         for j in 1..k {
             let x = if j <= r { 400 } else if j <= r + g { 500 } else { 600 };
             ndp[j] = std::cmp::min(dp[j], dp[j - 1] + (i as i32 - x).abs());
-        }     
+        }
         std::mem::swap(& mut dp, &mut ndp);
     }
     println!("{}", dp[r + g + b]);

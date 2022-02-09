@@ -10,7 +10,7 @@ def main():
         t = [s[j] for s in res]
         if '#' in t:
             res2.append(t)
-    
+
     for j in range(len(res)):
         yield ''.join([s[j] for s in res2])
 

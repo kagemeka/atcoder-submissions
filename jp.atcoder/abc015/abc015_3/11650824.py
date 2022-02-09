@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 
 n, k, *t = map(int, sys.stdin.read().split())
 t = np.array(t, dtype=np.int8).reshape(n, k)

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -11,7 +11,7 @@ def main() -> typing.NoReturn:
         a[i + 1] += a[i]
     for i in range(n - 1, 0, -1):
         ok[i - 1] &= ok[i]
-    
+
     print(sum(ok))
 
 main()

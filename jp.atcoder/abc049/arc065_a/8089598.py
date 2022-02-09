@@ -7,7 +7,7 @@ ls = ["eraser", "erase", "dreamer", "dream"]
 
 for word in ls:
   s = remove_word_from_string(s, word)
-  
+
 ans = "YES" if s == '' else "NO"
 
 print(ans)

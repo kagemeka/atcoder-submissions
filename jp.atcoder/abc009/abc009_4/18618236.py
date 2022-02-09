@@ -1,5 +1,5 @@
 from typing import Union, Tuple
-import numpy as np 
+import numpy as np
 from numba import njit, i8
 MOD = 10 ** 9 + 7
 
@@ -12,7 +12,7 @@ class Modular(int):
 
   def __str__(self) -> str: return f'{self.value}'
 
-  def __add__(self, other): 
+  def __add__(self, other):
     return self.__class__((self.value + other.value) % self.mod)
   def __sub__(self, x): return self.__class__((self.value - x.value) % self.mod)
   def __mul__(self, x): return self.__class__((self.value * x.value) % self.mod)
@@ -20,19 +20,19 @@ class Modular(int):
 
   def __lt__(self, x): return self.value < x.value
   def __le__(self, x): return self.value <= x.value
-  def __eq__(self, x): return self.value == x.value 
+  def __eq__(self, x): return self.value == x.value
   def __ne__(self, x): return self.value != x.value
   def __gt__(self, x): return self.value > x.value
   def __ge__(self, x): return self.value >= x.value
 
-Mint = Modular 
+Mint = Modular
 
 class SemiGroup:
-  ... 
+  ...
 class Monoid:
   ...
 class Group:
-  ... 
+  ...
 class SemiRing:
   ...
 class Ring:
@@ -47,7 +47,7 @@ def identity(n: Union[int, np.int64]):
 def dot(a: np.ndarray = ..., b: np.ndarray = ...):
   return np.dot(a, b)
 
-    
+
 
 def matrix_pow(cls, a, n, mod=10**9+7):
   m = len(a)
@@ -89,13 +89,13 @@ def bitwise_matrix_power(a: np.ndarray = ..., n: int = ...):
 
 @njit
 def pow(x: int, n: int, mod: int = MOD):
-  assert n >= 0 
+  assert n >= 0
   if n == 0: return 1
-  res = pow(x, n//2, mod) ** 2 % mod  
+  res = pow(x, n//2, mod) ** 2 % mod
   if n&1:
-    res *= x 
-    res %= mod 
-  return res 
+    res *= x
+    res %= mod
+  return res
 
 
 @njit
@@ -103,9 +103,9 @@ def cumprod_mod(a: np.ndarray = ..., mod: int = MOD) -> np.ndarray:
   n = len(a)
   for i in range(n-1):
     a[i+1] *= a[i]
-    a[i+1] %= mod 
+    a[i+1] %= mod
   return a
-  
+
 
 @njit
 def make_factorial_table(max_n: int = 10**6, p: int = MOD) -> np.ndarray:
@@ -128,9 +128,9 @@ def make_inverse_factorial_table(
   inv_fact[-1] = pow(fact[-1], p-2, p)
   inv_fact = cumprod_mod(inv_fact[::-1], mod=p)[n::-1]
   return inv_fact
-  
 
-@njit 
+
+@njit
 def make_fact_and_inv_fact(
     max_n: int = 10**6, p: int = MOD) -> Tuple[np.ndarray, np.ndarray]:
   fact = make_factorial_table(max_n=max_n, p=p)
@@ -138,15 +138,15 @@ def make_fact_and_inv_fact(
   return fact, inv_fact
 
 
-    
-  
-    
-    
+
+
+
+
 class Kitamasa:
   pass
 
 
-import sys 
+import sys
 
 
 def d():
@@ -154,8 +154,8 @@ def d():
   a = np.array([int(x) for x in sys.stdin.readline().split()])
   c = np.array([int(x) for x in sys.stdin.readline().split()])
   mask = (1<<32) - 1
-  d = np.eye(k, k, -1, dtype=np.uint32) * mask; d[0] = c 
-  if m <= k: print(a[m-1]); return 
+  d = np.eye(k, k, -1, dtype=np.uint32) * mask; d[0] = c
+  if m <= k: print(a[m-1]); return
   res = bitwise_dot(bitwise_matrix_power(d, m-k), a[::-1].reshape(-1, 1))[0][0]
   print(res)
 

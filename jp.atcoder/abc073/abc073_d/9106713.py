@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 from scipy.sparse.csgraph import floyd_warshall
 from scipy.sparse import csr_matrix
 from itertools import permutations
@@ -12,7 +12,7 @@ graph = csr_matrix((c, (a-1, b-1)), shape=(n, n))
 
 def main():
     dist = floyd_warshall(graph, directed=False).astype(np.int64)
-    
+
     perms = np.array(list(permutations(r)))
     res = dist[perms[:, :-1], perms[:, 1:]]
     ans = np.amin(np.sum(res, axis=1))

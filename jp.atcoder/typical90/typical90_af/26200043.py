@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -18,14 +18,14 @@ def bit_count(n: int) -> int:
 def solve(a: np.ndarray, xy: np.ndarray) -> typing.NoReturn:
   n = len(a)
   m = len(xy)
-  
+
   inf = 1 << 60
   cost = np.zeros((n, n), np.int64)
   for i in range(m):
     x, y = xy[i]
     cost[x, y] = cost[y, x] = inf
-  
-  
+
+
   dp = np.full((1 << n, n), inf, np.int64)
   for i in range(n):
     dp[1 << i, i] = a[i, 0]
@@ -38,12 +38,12 @@ def solve(a: np.ndarray, xy: np.ndarray) -> typing.NoReturn:
       for u in range(n):
         if ~t >> u & 1: continue
         dp[s, v] = min(
-          dp[s, v], 
+          dp[s, v],
           dp[t, u] + cost[u, v] + a[v, i]
         )
   mn = dp[-1].min()
   print(-1 if mn == inf else mn)
-  
+
 
 
 def main() -> typing.NoReturn:

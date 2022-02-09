@@ -19,7 +19,7 @@ for a in range(n - m + 1):
                 if b == 0:
                     index = dup_a[a].index(dup_b[0])
                 current_index = dup_a[b+a].index(dup_b[b])
-                if current_index != index:                
+                if current_index != index:
                     if current_index > index:
                         for line in dup_a:
                             del line[:current_index]
@@ -35,6 +35,6 @@ for a in range(n - m + 1):
         else: # if not for loop broken.
             ans = "Yes"
             break
-        
+
 
 print(ans)

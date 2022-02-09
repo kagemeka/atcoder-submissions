@@ -1,10 +1,10 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def maximum_flow_edmonds_karp(
   g: np.ndarray,
   src: int,
@@ -28,7 +28,7 @@ def maximum_flow_edmonds_karp(
         level[v] = level[u] + 1
         prev[v] = u
         fifo_que.append(v)
-      
+
   def augment_flow():
     v = sink
     flow = inf
@@ -37,7 +37,7 @@ def maximum_flow_edmonds_karp(
       flow = min(flow, g[u, v])
       v = u
     if flow == inf: return 0
-    v = sink 
+    v = sink
     while prev[v] != -1:
       u = prev[v]
       g[u, v] -= flow
@@ -45,7 +45,7 @@ def maximum_flow_edmonds_karp(
       v = u
     return flow
 
-  flow = 0 
+  flow = 0
   while 1:
     find_path()
     f = augment_flow()
@@ -55,8 +55,8 @@ def maximum_flow_edmonds_karp(
 
 @nb.njit((nb.i8, nb.i8[:], nb.i8[:, :]), cache=True)
 def solve(
-  n: int, 
-  p: np.ndarray, 
+  n: int,
+  p: np.ndarray,
   ab: np.ndarray,
 ) -> typing.NoReturn:
   n += 1
@@ -68,7 +68,7 @@ def solve(
   v = maximum_flow_edmonds_karp(g, 0, n - 1)
   print(v)
 
-  
+
 
 
 def main() -> typing.NoReturn:
@@ -80,7 +80,7 @@ def main() -> typing.NoReturn:
   ab = np.array(
     sys.stdin.read().split(),
     dtype=np.int64,
-  ).reshape(e, 2) 
+  ).reshape(e, 2)
   solve(n, p, ab)
 
 

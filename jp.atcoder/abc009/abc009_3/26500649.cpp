@@ -7,11 +7,11 @@ using namespace std;
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  
+
   int n, k;
   string s;
   cin >> n >> k >> s;
-  
+
   vector<int> swap_cost(n, 1);
   for (int i = 0; i < n; i++) {
     char c = ' ';

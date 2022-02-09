@@ -10,7 +10,7 @@ def main():
     res = s[k:] - s[:n-k]
     ans = np.sum(res) + s[k-1]
     return ans
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

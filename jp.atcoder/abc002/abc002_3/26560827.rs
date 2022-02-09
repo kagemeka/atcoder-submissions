@@ -12,16 +12,16 @@ pub struct Scanner {
 
 
 impl Scanner {
-    pub fn scan<T: std::str::FromStr>(&mut self) -> T 
-    where 
+    pub fn scan<T: std::str::FromStr>(&mut self) -> T
+    where
         <T as std::str::FromStr>::Err: std::fmt::Debug,
     {
         loop {
             if let Some(token) = self.buffer.pop() {
                 return token.parse::<T>().unwrap();
             }
-            self.buffer = 
-                readline()   
+            self.buffer =
+                readline()
                 .trim()
                 .split_whitespace().rev()
                 .map(String::from)
@@ -42,6 +42,6 @@ fn main() {
     x1 -= x0;
     y1 -= y0;
     x2 -= x0;
-    y2 -= y0; 
+    y2 -= y0;
     println!("{}", (x1 * y2 - x2 * y1).abs() as f32 / 2.);
 }

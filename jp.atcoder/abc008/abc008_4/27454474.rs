@@ -30,18 +30,18 @@ fn main() {
     let w: usize = sc.scan();
     let h: usize = sc.scan();
     let n: usize = sc.scan();
-    
+
     let mut points = Vec::with_capacity(n);
-    for _ in 0..n { 
+    for _ in 0..n {
         let x: usize = sc.scan();
         let y: usize = sc.scan();
         points.push(Point { x: x - 1, y: y - 1});
     }
-    
+
     let mut cache = std::collections::HashMap::new();
     fn max_count(
-        cache: &mut std::collections::HashMap<(usize, usize, usize, usize), usize>, 
-        points: &[Point], 
+        cache: &mut std::collections::HashMap<(usize, usize, usize, usize), usize>,
+        points: &[Point],
         l: usize, r: usize, d: usize, u: usize,
     ) -> usize {
         let rect = (l, r, d, u);
@@ -66,4 +66,3 @@ struct Point {
     x: usize,
     y: usize,
 }
-

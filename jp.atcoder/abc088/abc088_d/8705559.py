@@ -12,7 +12,7 @@ def main():
     can_go = False
     i = j = 1 # start
     c = 0     # real cost
-    h = max(H - 1, W - 1) # goalまでの推定cost 
+    h = max(H - 1, W - 1) # goalまでの推定cost
     s = c + h # score
     q = [] # open list
     heappush(q, (s, c, i, j))
@@ -33,7 +33,7 @@ def main():
                 h = max(H - y, W - x)
                 s = h + c + 1
                 heappush(q, (s, c+1, y, x))
- 
+
     if can_go:
         ans = np.sum(grid == '.') - (c + 1)
     else:

@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-  var a, b, c, x int 
+  var a, b, c, x int
   fmt.Scan(&a, &b, &c, &x)
   x /= 50
   cnt := 0

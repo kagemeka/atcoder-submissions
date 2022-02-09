@@ -1,20 +1,20 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
-@nb.njit 
+@nb.njit
 def int_to_digits(n: int) -> np.ndarray:
   digits = np.empty(20, np.int64)
-  i = 0 
+  i = 0
   while n:
     n, r = divmod(n, 10)
-    digits[i] = r 
+    digits[i] = r
     i += 1
   return digits[:i]
-  
+
 
 
 @nb.njit
@@ -25,7 +25,7 @@ def count_ng(n: int) -> int:
   for d in digits:
     dp[1] = dp[1] * 8 + dp[0] * (d - (d > 4))
     if d == 4 or d == 9:
-      dp[0] = 0 
+      dp[0] = 0
   return n - dp.sum()
 
 

@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-09 15:46:24(JST)
 ### modules
 ## from standard library
@@ -13,9 +13,9 @@ import sys
 # import functools
 # import operator
 ## from external libraries
-# import scipy.special   
-# import scipy.misc      
-# import numpy as np 
+# import scipy.special
+# import scipy.misc
+# import numpy as np
 
 def main():
     s = sys.stdin.readline().rstrip()
@@ -30,14 +30,14 @@ def main():
             break
     else:
         last_1 = len(s) - 1
-    
+
     if k <= count:
         ans = '1'
     else:
         ans = s[last_1 + 1]
-    
+
     print(ans)
-    
+
 
 
 

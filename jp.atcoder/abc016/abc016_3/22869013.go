@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -9,7 +9,7 @@ import (
 )
 
 
-type Int int 
+type Int int
 
 
 func (
@@ -28,7 +28,7 @@ func (
 
 type Problem struct {
 	io *IO
-	n, m int 
+	n, m int
 	a, b []int
 	relations []int
 	cnts []int
@@ -39,10 +39,10 @@ type Problem struct {
 func (
 	p *Problem,
 ) countUp() {
-	n := p.n 
+	n := p.n
 	p.cnts = make([]int, n)
 	for i := 0; i < n; i++ {
-		p.i = i 
+		p.i = i
 		p.countUpSupport()
 	}
 }
@@ -51,11 +51,11 @@ func (
 func (
 	p *Problem,
 ) countUpSupport() {
-	i := p.i 
+	i := p.i
 	rel := p.relations
 	s := 0
 	t := rel[i]
-	n := p.n 
+	n := p.n
 	for i := 0; i < n; i++ {
 		if ^t >> i & 1 == 1 {
 			continue
@@ -87,7 +87,7 @@ func (
 		a[i] = io.ReadInt() - 1
 		b[i] = io.ReadInt() - 1
 	}
-	p.m = m 
+	p.m = m
 	p.a, p.b = a, b
 }
 
@@ -95,12 +95,12 @@ func (
 func (
 	p *Problem,
 ) makeRelations() {
-	n := p.n 
+	n := p.n
 	rel := make([]int, n)
 	for i := 0; i < n; i++ {
-		rel[i] |= 1 << i 
+		rel[i] |= 1 << i
 	}
-	m, a, b := p.m, p.a, p.b 
+	m, a, b := p.m, p.a, p.b
 	for i := 0; i < m; i++ {
 		a, b := a[i], b[i]
 		rel[a] |= 1 << b
@@ -113,7 +113,7 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	io := p.io 
+	io := p.io
 	p.makeRelations()
 	p.countUp()
 	for _, c := range p.cnts {

@@ -1,10 +1,10 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def rotate_matrix_90(a: np.ndarray) -> np.ndarray:
   return a.copy().T[::-1]
 
@@ -23,17 +23,17 @@ def solve(grid: np.ndarray, k: int) -> typing.NoReturn:
     for i in range(a.shape[0] - 1):
       for j in range(a.shape[1]):
         a[i + 1, j] = min(a[i + 1, j], a[i, j] + 1)
-    
+
   for _ in range(4):
     cummin(a)
     a = rotate_matrix_90(a)
   print(np.count_nonzero(a >= k))
-  
+
 
 def main() -> typing.NoReturn:
-  readline = sys.stdin.buffer.readline 
-  read = sys.stdin.buffer.read 
-  
+  readline = sys.stdin.buffer.readline
+  read = sys.stdin.buffer.read
+
   h, w, k = map(int, readline().split())
   s = np.frombuffer(
     read(),

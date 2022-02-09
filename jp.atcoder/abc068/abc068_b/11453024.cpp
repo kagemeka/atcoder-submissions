@@ -6,7 +6,7 @@ int pow2(int x, int n) {
   if (n == 1) return x;
   int res = 1;
   for (int i = 0; i < 31; i++) {
-    if (n >> i & 1) res *= pow(x, pow(2, i));    
+    if (n >> i & 1) res *= pow(x, pow(2, i));
   }
   return res;
 }

@@ -1,10 +1,10 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
-# @nb.njit 
+# @nb.njit
 # def bit_count(n: int) -> int:
 #   cnt = 0
 #   while n:
@@ -13,12 +13,12 @@ import numba as nb
 #   return cnt
 
 
-# @nb.njit 
+# @nb.njit
 # def bit_count_table(n) -> int:
   # cnt = np.zeros(n, np.int8)
   # for i in range(1, n): cnt[i] = cnt[i >> 1] + (i & 1)
   # return cnt
-  
+
 
 
 
@@ -54,9 +54,9 @@ def solve(a: np.ndarray) -> typing.NoReturn:
     # y, x = divmod(i, 5)
     y, x = i // 5, i % 5
     if 1 <= y < 4 and (s >> i - 5 & 1) ^ (s >> i + 5 & 1):
-      return False 
+      return False
     if 1 <= x < 4 and (s >> i - 1 & 1) ^ (s >> i + 1 & 1):
-      return False 
+      return False
     return True
 
   def is_impossible(s):
@@ -78,7 +78,7 @@ def solve(a: np.ndarray) -> typing.NoReturn:
     # for i in range(n):
       if ~s >> i & 1: i += 1; continue
       u = s & ~(1 << i)
-      if fixed_idx[v] != -1 and fixed_idx[v] != i: i += 1; continue 
+      if fixed_idx[v] != -1 and fixed_idx[v] != i: i += 1; continue
       if fixed_val[i] != -1 and fixed_val[i] != v: i += 1; continue
       if not can_transit(u, i): i += 1; continue
       # dp[s] = (dp[s] + dp[u]) % mod

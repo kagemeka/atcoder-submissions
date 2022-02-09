@@ -21,12 +21,12 @@ def make_choose_n_table(n=10 ** 9, r=U, p=MOD):
   table = [None] * (r + 1)
   table[0] = 1
   j = 1
-  for i in range(n, n - r, -1): 
+  for i in range(n, n - r, -1):
     table[j] = table[j-1] * i % p
     j += 1
   for i in range(1, r + 1): table[i] = table[i] * ifac[i] % p
   return table
-    
+
 mod_choose_n = make_choose_n_table()
 
 n, m = map(int, sys.stdin.readline().split())
@@ -37,6 +37,6 @@ def main():
   elif d == 1: res = fac[n] * fac[m] % MOD
   else: res = fac[n] * fac[m] % MOD * 2 % MOD
   print(res)
-  
+
 if __name__ == '__main__':
   main()

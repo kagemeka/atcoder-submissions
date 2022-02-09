@@ -5,12 +5,12 @@ import (
 )
 
 func main() {
-  var s string 
+  var s string
   var n int
   fmt.Scan(&s, &n)
   runes := []rune(s)
   for i := 0; i < n; i ++ {
-    var l, r int 
+    var l, r int
     fmt.Scan(&l, &r)
     l--; r--
     d := r - l + 1

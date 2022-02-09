@@ -33,9 +33,9 @@ def main():
     for i in range(1, H+1):
         for j in range(1, W+1):
             white_cnt += (grid[i][j] == '.') & 1
-    
+
     ans = white_cnt - (cost[H][W] + 1) if not cost[H][W] is None else -1
-    return ans 
+    return ans
 
 if __name__ == '__main__':
     ans = main()

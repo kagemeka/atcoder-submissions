@@ -15,7 +15,7 @@ private:
 public:
   Op op;
   Id e;
-  bool commutative; 
+  bool commutative;
 };
 
 
@@ -43,7 +43,7 @@ private:
   std::vector<F> lazy;
 
   void merge(int i) { data[i] = c.s.op(data[i << 1], data[i << 1 | 1]); }
-  
+
   void apply(int i, F f) {
     data[i] = c.map(f, data[i]);
     if (i < n) lazy[i] = c.f.op(f, lazy[i]);
@@ -116,10 +116,10 @@ public:
 int main() {
   std::ios::sync_with_stdio(false);
   std::cin.tie(nullptr);
-  
+
   const int MOD = 998244353;
   auto op_s = [](long long a, long long b) -> long long {
-    long long a1, a0, b1, b0, c1, c0; 
+    long long a1, a0, b1, b0, c1, c0;
     long long mask = (1 << 30) - 1;
     a1 = a >> 30; a0 = a & mask;
     b1 = b >> 30; b0 = b & mask;
@@ -167,5 +167,5 @@ int main() {
       std::cin >> l >> r;
       std::cout << (seg.get(l, r) >> 30) << '\n';
     }
-  } 
+  }
 }

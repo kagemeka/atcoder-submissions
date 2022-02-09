@@ -5,7 +5,7 @@ count = 0
 previous = 0
 
 for i in a:
-    if i + previous > x: 
+    if i + previous > x:
         excess = i + previous - x
         count += excess
         previous = x - previous
@@ -13,4 +13,3 @@ for i in a:
         previous = i
 
 print(count)
-

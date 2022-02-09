@@ -15,7 +15,7 @@ def main():
         for i in comb:
             res *= c.get(i, 0)
         ways += res
-    
+
     return ways
 
 if __name__ == '__main__':

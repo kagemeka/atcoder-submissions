@@ -41,7 +41,7 @@ else:
         while digit < 10:
             for like in likes:
                 if digit == like:
-                    ok = True                   
+                    ok = True
                     break
             if not ok:
                 digit += 1
@@ -54,7 +54,7 @@ else:
             while digit < 10:
                 for like in likes:
                     if digit == like:
-                        ok = True                   
+                        ok = True
                         break
                 if not ok:
                     digit += 1
@@ -68,5 +68,3 @@ if digits[0] == 0:
 
 ans = int(''.join([str(num) for num in digits]))
 print(ans)
-                
-

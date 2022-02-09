@@ -15,7 +15,7 @@ less_than_31 = set([2, 4, 6, 9, 11])
 def main():
     y, m, d = map(int, sys.stdin.readline().rstrip().split('/'))
 
-    
+
     for _ in range(365):
         if y % m == 0:
             r = y // m
@@ -60,6 +60,6 @@ def main():
     d = '0' + str(d) if d < 10 else str(d)
     print('/'.join([y, m, d]))
 
-        
+
 if __name__ == '__main__':
     main()

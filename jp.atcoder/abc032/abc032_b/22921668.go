@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -36,10 +36,10 @@ func (
 func (
 	p *Problem,
 ) Solve() {
-	s, k := p.s, p.k 
+	s, k := p.s, p.k
 	n := len(s)
 	mem := make(map[string]bool)
-	for 
+	for
 	i := 0; i < n - k + 1; i++ {
 		mem[s[i:i + k]] = true
 	}

@@ -14,8 +14,8 @@ func substr(rs []rune, l, r int) string {
 }
 
 func main() {
-  var a, b int 
-  var s string 
+  var a, b int
+  var s string
   fmt.Scan(&a, &b, &s)
   ans := "Yes"
   if s[a] == '-' {

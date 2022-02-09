@@ -9,7 +9,7 @@ def main():
     for c in cand:
         if rate < c:
             rate = (rate + c) / 2
-    
+
     print(rate)
 
 if __name__ == '__main__':

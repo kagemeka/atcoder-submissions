@@ -9,7 +9,7 @@ def main() -> typing.NoReturn:
   y1 -= y0
   x2 -= x0
   y2 -= y0
-  
+
   prod = x1 * y2 - x2 * y1
   print(abs(prod) / 2)
 

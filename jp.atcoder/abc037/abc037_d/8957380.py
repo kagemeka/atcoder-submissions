@@ -13,7 +13,7 @@ def main():
     for i in range(1, h+1):
         for j in range(1, w+1):
             places[grid[i, j]].append((i, j))
-    
+
     return 'TLE?'
 
 
@@ -32,7 +32,7 @@ def main():
     #         ans %= MOD
 
     # return ans
-            
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

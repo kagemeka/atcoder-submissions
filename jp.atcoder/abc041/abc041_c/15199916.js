@@ -9,7 +9,7 @@ def A():
 def B():
   MOD = 10**9+7
   a, b, c = map(int, sys.stdin.readline().split())
-  ans = a * b % MOD * c % MOD 
+  ans = a * b % MOD * c % MOD
   print(ans)
 
 def C():

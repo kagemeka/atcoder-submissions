@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 import numba as nb
 
@@ -15,17 +15,17 @@ def _induce(
 ) -> np.ndarray:
   n, m = a.size, bucket.size
   sa = np.full(n, -1, np.int64)
-  
+
   def _set_lms():
     sa_idx = bucket.cumsum()
     for i in lms[::-1]:
-      x = a[i] 
+      x = a[i]
       sa_idx[x] -= 1
       sa[sa_idx[x]] = i
-  
+
   def _induce_l():
     sa_idx = bucket.copy()
-    s = 0 
+    s = 0
     for i in range(m):
       s, sa_idx[i] = s + sa_idx[i], s
     for i in range(n):
@@ -40,15 +40,15 @@ def _induce(
     for i in range(n - 1, -1, -1):
       i = sa[i] - 1
       if i < 0 or not is_s[i]: continue
-      x = a[i] 
+      x = a[i]
       sa_idx[x] -= 1
       sa[sa_idx[x]] = i
-  
+
   _set_lms()
   _induce_l()
   _induce_s()
   return sa
-  
+
 
 @nb.njit
 def _preprocess(
@@ -66,12 +66,12 @@ def _preprocess(
   lms = np.flatnonzero(is_lms)
   bucket = np.bincount(a)
   return is_s, is_lms, lms, bucket
-  
+
 
 @nb.njit
 def _compute_next_array(
-  a: np.ndarray, 
-  sa: np.ndarray, 
+  a: np.ndarray,
+  sa: np.ndarray,
   is_lms: np.ndarray,
 ) -> np.ndarray:
   n = a.size
@@ -84,7 +84,7 @@ def _compute_next_array(
     for d in range(n):
       j_is_lms = is_lms[j + d]
       k_is_lms = is_lms[k + d]
-      if a[j + d] != a[k + d] or j_is_lms ^ k_is_lms: 
+      if a[j + d] != a[k + d] or j_is_lms ^ k_is_lms:
         i += 1; break
       if d > 0 and j_is_lms | k_is_lms: break
     na[k] = i
@@ -138,7 +138,7 @@ def lcp_kasai(
     if r == n - 1: continue
     j = sa[r + 1]
     while i + l < n and j + l < n:
-      if a[i + l] != a[j + l]: break 
+      if a[i + l] != a[j + l]: break
       l += 1
     h[r] = l
   return h

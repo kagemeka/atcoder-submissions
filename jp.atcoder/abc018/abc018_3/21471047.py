@@ -6,7 +6,7 @@ from dataclasses import (
 )
 
 import numpy as np
-import sys 
+import sys
 
 from typing import (
   List,
@@ -33,26 +33,26 @@ class Reader:
   def read_int(cls) -> int:
     ln = cls.readline()
     return int(ln)
-  
-  
-  @classmethod 
+
+
+  @classmethod
   def read_str(cls) -> str:
     ln = cls.readline()
     return ln.decode()
-  
+
 
   @classmethod
   def readline_ints(
     cls,
   ) -> List[int]:
     *ints, = map(
-      int, 
+      int,
       cls.readline().split(),
     )
     return ints
 
-  
-  @classmethod 
+
+  @classmethod
   def readline_strs(
     cls,
   ) -> List[str]:
@@ -75,13 +75,13 @@ class Reader:
     cls,
   ) -> List[int]:
     *ints, = map(
-      int, 
+      int,
       cls.read().split(),
     )
     return ints
-  
 
-  @classmethod 
+
+  @classmethod
   def read_strs(
     cls,
   ) -> List[str]:
@@ -115,7 +115,7 @@ class NumpyReader(Reader):
   ) -> np.array:
     return np.fromstring(
       string=cls.read_str(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -127,7 +127,7 @@ class NumpyReader(Reader):
     return np.fromstring(
       string=cls.read() \
         .decode(),
-      dtype=np.int64, 
+      dtype=np.int64,
       sep=' ',
     )
 
@@ -153,7 +153,7 @@ class Solver(ABC):
       **kwargs,
     )
 
-  
+
   def run(self):
     self.prepare()
     self.solve()
@@ -164,9 +164,9 @@ class Solver(ABC):
     ...
     self.ready = True
 
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     assert self.ready
     ...
@@ -177,7 +177,7 @@ from \
   scipy \
   .ndimage \
 import (
-  distance_transform_cdt 
+  distance_transform_cdt
   as cdt,
 )
 
@@ -196,10 +196,10 @@ class Problem(
     s = reader.read().split()
     *s, = map(list, s)
     s = np.array(s)
-    self.r = r 
-    self.c = c 
-    self.k = k 
-    self.s = s 
+    self.r = r
+    self.c = c
+    self.k = k
+    self.s = s
     self.ready = True
 
 
@@ -207,14 +207,14 @@ class Problem(
     assert self.ready
     self.preprocess()
     self.compute_dist()
-    s = self.s 
-    k = self.k 
+    s = self.s
+    k = self.k
     cnt = np.count_nonzero(
       s >= k,
     )
     print(cnt)
-  
-  
+
+
   def compute_dist(
     self,
   ):
@@ -224,12 +224,12 @@ class Problem(
       metric='taxicab',
     )
     self.s = s
-    
-    
+
+
   def preprocess(
     self,
   ):
-    s = self.s 
+    s = self.s
     x = ord(b'x')
     o = ord(b'o')
     s = np.pad(
@@ -243,7 +243,7 @@ class Problem(
       np.inf,
       0,
     )
-    self.s = s 
+    self.s = s
 
 
 

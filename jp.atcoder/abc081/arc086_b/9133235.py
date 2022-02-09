@@ -33,7 +33,7 @@ def main():
 
     procedures = [len(procedures)] + procedures
     return procedures
-    
+
 if __name__ == '__main__':
     ans = main()
     print(*ans, sep='\n')

@@ -3,7 +3,7 @@ import numpy as np
 import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def bit_length(n: int) -> int:
     l = 1
     while 1 << l <= n: l += 1
@@ -146,7 +146,7 @@ def seg_update(
     assert 0 <= i < n
     i += n
     h = bit_length(n)
-    for j in range(h, 0, -1): 
+    for j in range(h, 0, -1):
         __seg_propagate(op_f, e_f, map_, seg, lazy, i >> j)
     seg[i] = x
     for j in range(1, h + 1): __seg_merge(op_s, seg, i >> j)
@@ -174,7 +174,7 @@ def update_point_seg(seg: np.ndarray, lazy: np.ndarray, i: int, x: S) -> typing.
     seg_update(seg_op_s, seg_op_f, seg_e_f, seg_map, seg, lazy, i, x)
 
 
-MOD = 998_244_353 
+MOD = 998_244_353
 
 # set range add, get range mininum.
 @nb.njit
@@ -189,7 +189,7 @@ def seg_op_s(a: S, b: S) -> S:
 def seg_e_s() -> S: return 0
 
 @nb.njit
-def seg_op_f(f: F, g: F) -> F: 
+def seg_op_f(f: F, g: F) -> F:
     f1, f0 = divmod(f, 1 << 30)
     g1, g0 = divmod(g, 1 << 30)
     h1 = f1 * g1 % MOD
@@ -203,7 +203,7 @@ def seg_e_f() -> F: return 1 << 30
 def seg_map(f: F, x: S) -> S:
     f1, f0 = divmod(f, 1 << 30)
     x1, x0 = divmod(x, 1 << 30)
-    y0 = x0 
+    y0 = x0
     y1 = (f1 * x1 + f0 * x0) % MOD
     return (y1 << 30) + y0
 

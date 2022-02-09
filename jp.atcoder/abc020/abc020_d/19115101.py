@@ -1,27 +1,27 @@
 def readline():
-  import sys 
+  import sys
   return sys.stdin.buffer \
     .readline().rstrip()
 
 
 def readline_ints():
   *ints, = map(
-    int, 
+    int,
     readline().split(),
   )
   return ints
 
 
-import numba as nb 
+import numba as nb
 
 @nb.njit((nb.i8, ), cache=True)
 def find_divisors(n: int=...):
-  m = int(n**.5) + 1 
+  m = int(n**.5) + 1
   divisors = []
-  for x in range(1, m): 
-    if n%x: continue 
+  for x in range(1, m):
+    if n%x: continue
     divisors.append(x)
-    if n//x != x: 
+    if n//x != x:
       divisors.append(n//x)
   divisors.sort()
   return divisors
@@ -39,14 +39,14 @@ def solve(n, k):
     q = n // d
     s[i] = d*(1 + q)*q//2 % mod
     for j in range(i):
-      if divs[j] % d != 0: continue 
+      if divs[j] % d != 0: continue
       s[i] -= s[j]
       s[i] %= mod
-  
+
   res = 0
   for i in range(l):
     res += k // divs[i] * s[i] % mod
-    res %= mod 
+    res %= mod
   print(res)
 
 

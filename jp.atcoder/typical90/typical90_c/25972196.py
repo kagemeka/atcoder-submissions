@@ -1,20 +1,20 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def csgraph_to_undirected(g: np.ndarray) -> np.ndarray:
   m = len(g)
   g = np.vstack((g, g))
   g[m:, :2] = g[m:, 1::-1]
-  return g 
+  return g
 
 
-@nb.njit 
+@nb.njit
 def sort_csgraph(
-  n: int, 
+  n: int,
   g: np.ndarray,
 ) -> typing.Tuple[np.ndarray, np.ndarray, np.ndarray]:
   sort_idx = np.argsort(g[:, 0], kind='mergesort')
@@ -44,13 +44,13 @@ def tree_bfs(
 
 
 
-@nb.njit 
+@nb.njit
 def tree_diameter(g: np.ndarray, edge_idx: np.ndarray) -> int:
   _, depth = tree_bfs(g, edge_idx, 0)
   root = np.argmax(depth)
   _, depth = tree_bfs(g, edge_idx, root)
   return depth.max()
-  
+
 
 @nb.njit((nb.i8[:, :], ), cache=True)
 def solve(ab: np.ndarray) -> typing.NoReturn:

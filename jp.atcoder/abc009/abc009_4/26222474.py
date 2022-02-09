@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit
@@ -12,7 +12,7 @@ def matrix_identity(n: int) -> np.ndarray:
   return e
 
 
-@nb.njit 
+@nb.njit
 def matrix_dot(a: np.ndarray, b: np.ndarray) -> np.ndarray:
   n, m = a.shape
   h, w = b.shape
@@ -26,7 +26,7 @@ def matrix_dot(a: np.ndarray, b: np.ndarray) -> np.ndarray:
 
 
 
-@nb.njit 
+@nb.njit
 def matrix_power(a: np.ndarray, n: int) -> np.ndarray:
   b = matrix_identity(len(a))
   while n:
@@ -44,15 +44,15 @@ def solve(
   k: int,
 ) -> typing.NoReturn:
   n = len(a)
-  if k <= n: 
+  if k <= n:
     print(a[k - 1])
-    return 
+    return
   b = np.empty((n, 1), np.int64)
   for i in range(n): b[-i - 1, 0] = a[i]
   d = np.eye(n, n, -1, np.int64)
   and_e = (1 << 63) - 1
   d *= and_e
-  d[0] = c 
+  d[0] = c
   d = matrix_power(d, k - n)
   b = matrix_dot(d, b)
   print(b[0, 0])

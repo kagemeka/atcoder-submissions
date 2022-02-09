@@ -18,9 +18,9 @@ def main():
         res2 = np.concatenate((np.arange(1, n)[:, None], np.arange(2, n+1)[:, None]), axis=1)
     else:
         res2 = np.concatenate((np.arange(n, 1)[:, None], np.arange(n-1, 0)[:, None]), axis=1)
-    
+
     return np.concatenate((res1, res2))
-    
+
 if __name__ == '__main__':
     ans = main()
     for op in ans:

@@ -8,5 +8,5 @@ int main() {
   string ans = (a % 4) ? "NO" : "YES";
   cout << ans << endl;
   return 0;
-  
+
 }

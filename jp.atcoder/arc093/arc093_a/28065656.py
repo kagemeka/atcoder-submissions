@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -15,4 +15,3 @@ def main() -> typing.NoReturn:
         print(s - abs(d0) - abs(d1) + abs(a[i + 1] - a[i - 1]))
 
 main()
-        

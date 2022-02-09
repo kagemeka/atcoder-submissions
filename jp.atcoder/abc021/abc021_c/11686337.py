@@ -22,7 +22,7 @@ def main():
             if dist[v] == inf: q.append(v)
             dist[v] = dist[u] + 1
             paths[v] += paths[u]
-            paths[v] %= MOD 
+            paths[v] %= MOD
 
     print(paths[b])
 

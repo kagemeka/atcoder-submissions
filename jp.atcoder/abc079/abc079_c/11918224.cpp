@@ -42,5 +42,5 @@ int main() {
       cout << res + "=7" << '\n';
       return 0;
     }
-  }  
+  }
 }
