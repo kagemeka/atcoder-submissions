@@ -130,7 +130,7 @@ def _save_submission_result(
 async def _fetch_detailed_submissions(
     submissions: typing.List[Submission],
 ) -> None:
-    CHUNK_SIZE = 10
+    CHUNK_SIZE = 4
     n = len(submissions)
     async with aiohttp.ClientSession() as session:
         for i in range(0, n, CHUNK_SIZE):
@@ -147,7 +147,7 @@ async def _fetch_detailed_submissions(
                 fetches.append(task)
                 contest_ids.append(submission.contest_id)
             results = await asyncio.gather(*fetches)
-            await asyncio.sleep(0.2)
+            await asyncio.sleep(0)
             for contest_id, result in zip(contest_ids, results):
                 _save_submission_result(contest_id, result)
 
