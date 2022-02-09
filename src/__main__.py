@@ -153,11 +153,11 @@ async def _fetch_detailed_submissions(
 
 
 async def main() -> None:
-    # submissions = await _fetch_all_submissions()
-    # print(len(submissions))
-    # df = pd.DataFrame(submissions)
+    submissions = await _fetch_all_submissions()
+    print(len(submissions))
+    df = pd.DataFrame(submissions)
     # df.to_csv("data.csv", index=False)
-    df: pd.DataFrame = pd.read_csv("data.csv")
+    # df: pd.DataFrame = pd.read_csv("data.csv")
     submissions = [
         Submission(**submission) for submission in df.to_dict(orient="records")
     ]
