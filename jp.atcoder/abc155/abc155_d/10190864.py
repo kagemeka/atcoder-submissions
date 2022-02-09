@@ -6,7 +6,7 @@ a.sort()
 
 def count(border):
     cnt = 0
-            
+
     for i in range(n-1):
         l = a[i]
         if l == 0:

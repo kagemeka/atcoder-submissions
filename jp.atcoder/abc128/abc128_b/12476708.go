@@ -6,7 +6,7 @@ import (
 )
 
 type data struct {
-  s string 
+  s string
   v, id int
 }
 
@@ -22,7 +22,7 @@ func (d datas) Less(i, j int) bool {
 func (d datas) Swap(i, j int) {d[i], d[j] = d[j], d[i]}
 
 func main() {
-  var n int 
+  var n int
   fmt.Scan(&n)
   d := make(datas, n)
   for i := 0; i < n; i++ {

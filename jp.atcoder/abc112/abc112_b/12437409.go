@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-  var n, t int 
+  var n, t int
   fmt.Scan(&n, &t)
   ct := make([][2]int, n)
   for i := 0; i < n; i++ {
@@ -20,5 +20,5 @@ func main() {
     }
   }
   fmt.Println("TLE")
-  
+
 }

@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -23,7 +23,7 @@ def solve(xy: np.ndarray) -> typing.NoReturn:
     sort_idx = np.argsort(ri, kind='mergesort')
     li = li[sort_idx]
     ri = ri[sort_idx]
-    c = t = 0 
+    c = t = 0
     for i in range(n):
         a, b = li[i], ri[i]
         if a < t: continue

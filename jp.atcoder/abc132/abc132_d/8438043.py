@@ -8,7 +8,7 @@ import sys
 from functools import reduce
 import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def nCr(n, r):
     r = min(r, n - r)
@@ -28,4 +28,4 @@ def main():
             print(0) # i > n - k + 1 となる並べ方は存在しない
 
 if __name__ == "__main__":
-    main() 
+    main()

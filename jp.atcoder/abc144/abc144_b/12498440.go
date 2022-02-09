@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-  var n int 
+  var n int
   fmt.Scan(&n)
   for i := 1; i < 10; i++ {
     j := n / i

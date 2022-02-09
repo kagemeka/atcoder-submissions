@@ -28,6 +28,6 @@ def main():
     cnt = positive_cnt + negative_cnt
 
     print(cnt)
-    
+
 if __name__ == '__main__':
     main()

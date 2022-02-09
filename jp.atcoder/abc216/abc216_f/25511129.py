@@ -1,6 +1,6 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 import numba as nb
 
 
@@ -18,9 +18,9 @@ def solve(
   n = a.size
   idx = np.argsort(a)
   a, b = a[idx], b[idx]
-  
+
   dp = np.zeros(m, dtype=np.int64)
-  s = 0 
+  s = 0
   dp[0] = 1
   for i in range(n):
     x, y = a[i], b[i]
@@ -41,4 +41,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-

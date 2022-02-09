@@ -11,7 +11,7 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-import numpy as np 
+import numpy as np
 
 def main():
     n, k = [int(x) for x in sys.stdin.readline().split()]
@@ -20,7 +20,7 @@ def main():
     # dtype=U1 : Unicode, 1-char string.
 
     happy_count = np.count_nonzero(s[:-1] == s[1:])
-    # s[:-1] と s[1:] の各要素を比較してTrue/False のndarray(n-dimensional array を返す) 
+    # s[:-1] と s[1:] の各要素を比較してTrue/False のndarray(n-dimensional array を返す)
     # np.count_nonzeroでcount(bool(elem) != False)を返す
 
     happy_count += 2 * k
@@ -33,4 +33,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

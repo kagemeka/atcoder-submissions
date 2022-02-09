@@ -1,4 +1,4 @@
-import typing 
+import typing
 import numpy as np
 
 
@@ -28,7 +28,7 @@ def lcs(
       continue
     if l[i][j + 1] == x:
       i -= 1
-      continue 
+      continue
     res.append(a[i])
     i -= 1; j -= 1
   return np.array(res)[::-1]
@@ -54,13 +54,13 @@ import sys
 OJ = 'ONLINE_JUDGE'
 if sys.argv[-1] == OJ:
   from numba import njit, i8
-  from numba.pycc import CC 
+  from numba.pycc import CC
   cc = CC('my_module')
-  
+
   lcs = njit(lcs)
-  fn = solve 
+  fn = solve
   signature = (i8[:], i8[:])
-  
+
   cc.export(
     fn.__name__,
     signature,

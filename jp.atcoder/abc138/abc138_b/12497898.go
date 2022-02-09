@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-  var n int 
+  var n int
   fmt.Scan(&n)
   a := make([]int, n)
   for i := 0; i < n; i++ {
@@ -16,5 +16,5 @@ func main() {
   denom := 0
   for _, x := range a {denom += enum / x}
   fmt.Println(float64(enum) / float64(denom))
-  
+
 }

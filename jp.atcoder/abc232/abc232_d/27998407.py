@@ -1,10 +1,10 @@
-import typing  
+import typing
 
 
 def main() -> typing.NoReturn:
     h, w = map(int, input().split())
     grid = [input() for _ in range(h)]
-    
+
     que = [(0, 0)]
     inf = 1 << 60
     dist = [[inf] * w for _ in range(h)]
@@ -24,14 +24,14 @@ def main() -> typing.NoReturn:
             if dist[ny][nx] <= d: continue
             dist[ny][nx] = d
             que.append((ny, nx))
-    
+
     mx = 0
     for i in range(h):
         for j in range(w):
             if dist[i][j] == inf: continue
             mx = max(mx, dist[i][j])
     print(mx + 1)
-            
+
 
 
 

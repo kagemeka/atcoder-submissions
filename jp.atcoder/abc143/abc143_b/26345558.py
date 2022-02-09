@@ -1,14 +1,14 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 @nb.njit((nb.i8[:], ), cache=True)
 def solve(d: np.ndarray) -> typing.NoReturn:
   n = len(d)
   s = d.cumsum()
-  tot = 0 
+  tot = 0
   for i in range(n - 1):
     tot += d[i] * (s[-1] - s[i])
   print(tot)

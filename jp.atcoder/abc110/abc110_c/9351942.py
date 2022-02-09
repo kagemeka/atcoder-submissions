@@ -15,7 +15,7 @@ def main():
 
     v = correspondence.values()
     return 'Yes' if len(v) == len(set(v)) else 'No'
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

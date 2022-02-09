@@ -1,9 +1,9 @@
-import typing 
+import typing
 
 def find_divisors(n: int) -> typing.List[int]:
     divs = []
     for i in range(1, n + 1):
-        if i * i > n: break 
+        if i * i > n: break
         if n % i != 0: continue
         divs.append(i)
         if n // i != i: divs.append(n // i)

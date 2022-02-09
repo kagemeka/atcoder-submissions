@@ -19,7 +19,7 @@ def main():
         drs = s[rs] - x if rs <= a - 1 else inf
         dlt = t[lt] - x if lt >= 0 else -inf
         drt = t[rt] - x if rt <= b - 1 else inf
-        
+
         res = inf
         for ds in [dls, drs]:
             for dt in [dlt, drt]:

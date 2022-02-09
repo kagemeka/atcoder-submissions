@@ -10,4 +10,3 @@ def main() -> typing.NoReturn:
   print(c)
 
 main()
-

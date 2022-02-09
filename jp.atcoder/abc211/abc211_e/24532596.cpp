@@ -27,7 +27,7 @@ class Solve {
     ) {
       char c; cin >> c;
       a.push_back(c - '#');
-    } 
+    }
   }
 
 
@@ -90,7 +90,7 @@ public:
       if (!a[i]) continue;;
       tot += dfs(1ull << i);
     }
-    cout << tot << '\n';    
+    cout << tot << '\n';
   }
 };
 
@@ -99,5 +99,5 @@ int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
   Solve()();
-  return 0;    
+  return 0;
 }

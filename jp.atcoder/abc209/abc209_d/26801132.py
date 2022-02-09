@@ -80,7 +80,7 @@ def solve(ab: np.ndarray, cd: np.ndarray) -> typing.NoReturn:
             print('Road')
         else:
             print('Town')
-    
+
 
 
 def main() -> typing.NoReturn:

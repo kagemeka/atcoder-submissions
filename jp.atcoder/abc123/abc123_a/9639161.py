@@ -4,7 +4,7 @@ import sys
 
 def main():
     x.sort()
-    return 'Yay!' if x[-1] - x[0] <= k else ':(' 
+    return 'Yay!' if x[-1] - x[0] <= k else ':('
 
 if __name__ == '__main__':
     ans = main()

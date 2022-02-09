@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -22,8 +22,8 @@ def mod_factorial(n: int, mod: int) -> np.ndarray:
 def mod_pow(x: int, n: int, mod: int) -> int:
   y = 1
   while n:
-    if n & 1: y = y * x % mod 
-    x = x * x % mod 
+    if n & 1: y = y * x % mod
+    x = x * x % mod
     n >>= 1
   return y
 
@@ -42,13 +42,13 @@ def mod_factorial_inverse(n: int, mod: int) -> np.ndarray:
   return a
 
 
-@nb.njit 
+@nb.njit
 def solve(n: int, k: int) -> typing.NoReturn:
-  mod = 10 ** 9 + 7 
+  mod = 10 ** 9 + 7
   m = 1 << 20
   fact = mod_factorial(m, mod)
   ifact = mod_factorial_inverse(m, mod)
-  
+
   def mod_choose(n, k):
     nonlocal fact, ifact, mod
     ok = (0 <= k) & (k <= n)
@@ -56,9 +56,9 @@ def solve(n: int, k: int) -> typing.NoReturn:
 
   def nHk(n, k):
     return mod_choose(n + k - 1, k)
-  
 
-  cnt = 0 
+
+  cnt = 0
   for i in range(min(n, k + 1)):
     cnt += mod_choose(n, i) * nHk(n - i, i) % mod
   print(cnt % mod)

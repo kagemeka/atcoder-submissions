@@ -1,6 +1,6 @@
-import typing 
+import typing
 import sys
-import numpy as np 
+import numpy as np
 import numba as nb
 
 
@@ -18,7 +18,7 @@ def gpf(
 ) -> np.array:
   s = np.arange(n)
   s[:2] = -1
-  i = 0 
+  i = 0
   while i * i < n - 1:
     i += 1
     if s[i] == i: s[i::i] = i
@@ -31,7 +31,7 @@ def lpf(
 ) -> np.array:
   s = np.arange(n)
   s[:2] = -1
-  i = 0 
+  i = 0
   while i * i < n - 1:
     i += 1
     if s[i] != i: continue
@@ -65,7 +65,7 @@ def prime_factorize(
     while n % i == 0:
       n //= i
       c[-1] += 1
-  if n > 1: 
+  if n > 1:
     p.append(n)
     c.append(1)
   return np.vstack((
@@ -93,7 +93,7 @@ def prime_factorize_factorial(
   return np.vstack((
     np.array(prime),
     np.array(cnt),
-  )).T 
+  )).T
 
 
 
@@ -113,7 +113,7 @@ def solve(
     x = a[i]
     res = prime_factorize(x, pn)
     for j in res.T[0]: p[j] = True
-  
+
   s = np.ones(1 + m, dtype=np.bool8)
   s[0] = False
   for i in range(1 + m):

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -18,7 +18,7 @@ def factorial(mod: int, n: int) -> typing.List[int]:
     cumprod(mod, a)
     return a
 
-def factorial_inverse(p: int, n: int) -> typing.List[int]:    
+def factorial_inverse(p: int, n: int) -> typing.List[int]:
     a = list(range(1, n + 1))
     a[-1] = inverse(p, factorial(p, n)[-1])
     a.reverse()
@@ -33,7 +33,7 @@ def main() -> typing.NoReturn:
 
     n, m = map(int, input().split())
     mx = 5 * 10 ** 5 + 1
-    
+
     fact = factorial(MOD, mx)
     ifact = factorial_inverse(MOD, mx)
     def permutate(n: int, k: int) -> int:
@@ -51,7 +51,7 @@ def main() -> typing.NoReturn:
     cnt *= permutate(m, n)
     cnt %= MOD
     print(cnt)
-    
+
 
 
 main()

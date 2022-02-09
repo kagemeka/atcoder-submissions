@@ -1,13 +1,13 @@
-import typing  
+import typing
 
 
 def main() -> typing.NoReturn:
     # permutation brute force -> dp (set and last)
-    # dp[s][last]    
+    # dp[s][last]
     n, x, y = map(int, input().split())
     a = list(map(int, input().split()))
     b = list(map(int, input().split()))
-    
+
     inf = 1 << 60
     dp = [[inf] * n for _ in range(1 << n)]
     for i in range(n):
@@ -26,7 +26,7 @@ def main() -> typing.NoReturn:
                 mn = min(mn, dp[t][j])
             cost += abs(b[cnt] - a[i]) * x + mn
             dp[s][i] = min(dp[s][i], cost)
-    
+
     print(min(dp[-1]))
 
 

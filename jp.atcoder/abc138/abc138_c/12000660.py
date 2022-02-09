@@ -8,6 +8,6 @@ def main():
     for i in range(1, n):
         res = (res + v[i]) / 2
     print(res)
-    
+
 if __name__ ==  '__main__':
     main()

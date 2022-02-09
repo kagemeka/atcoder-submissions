@@ -1,4 +1,4 @@
-import typing 
+import typing
 import dataclasses
 
 
@@ -37,7 +37,7 @@ class FenwickTree(typing.Generic[S]):
             v = m.op(v, d[i])
             i -= i & -i
         return v
-    
+
     def max_right(self, is_ok: typing.Callable[[S], bool]) -> int:
         m, d = self.__m, self.__data
         n = len(d)
@@ -62,13 +62,13 @@ def solve(
   for t, x, y in txy:
     x -= 1
     if t == 1:
-      fw[x] = y 
+      fw[x] = y
     else:
       res.append(fw[y] ^ fw[x])
   print(*res, sep='\n')
 
 
-import sys 
+import sys
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())

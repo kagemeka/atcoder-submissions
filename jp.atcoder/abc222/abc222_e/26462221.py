@@ -1,6 +1,6 @@
 import typing
-import sys 
-import numpy as np 
+import sys
+import numpy as np
 import numba as nb
 
 
@@ -32,7 +32,7 @@ def euler_tour_edge(
 
 
 
-@nb.njit 
+@nb.njit
 def dfs_path(
   g: np.ndarray,
   edge_idx: np.ndarray,
@@ -49,9 +49,9 @@ def dfs_path(
   return path
 
 
-@nb.njit 
+@nb.njit
 def sort_csgraph(
-  n: int, 
+  n: int,
   g: np.ndarray,
 ) -> typing.Tuple[(np.ndarray, ) * 3]:
   sort_idx = np.argsort(g[:, 0], kind='mergesort')
@@ -61,15 +61,15 @@ def sort_csgraph(
   return g, edge_idx, original_idx
 
 
-@nb.njit 
+@nb.njit
 def csgraph_to_directed(g: np.ndarray) -> np.ndarray:
   m = len(g)
   g = np.vstack((g, g))
   g[m:, :2] = g[m:, 1::-1]
-  return g 
+  return g
 
 
-@nb.njit 
+@nb.njit
 def mod_pow(x: int, n: int, mod: int) -> int:
   y = 1
   while n:
@@ -81,8 +81,8 @@ def mod_pow(x: int, n: int, mod: int) -> int:
 
 @nb.njit((nb.i8[:], nb.i8[:, :], nb.i8), cache=True)
 def solve(
-  a: np.ndarray, 
-  uv: np.ndarray, 
+  a: np.ndarray,
+  uv: np.ndarray,
   k: int,
 ) -> typing.NoReturn:
   n, m = len(uv) + 1, len(a)
@@ -102,12 +102,12 @@ def solve(
   if total_edge_cnt + k < 0 or (total_edge_cnt + k) & 1:
     print(0)
     return
-  
+
   not_used_cnt = 0
   for i in range(len(g)):
     u, v = g[i]
     not_used_cnt += cnt[u, v] == cnt[v, u] == 0
-  
+
   not_used_cnt //= 2
 
   r = (k + total_edge_cnt) // 2
@@ -118,7 +118,7 @@ def solve(
     for j in range(i + 1, n):
       s = cnt[i, j] + cnt[j, i]
       if s == 0: continue
-      b[ptr] = s 
+      b[ptr] = s
       ptr += 1
   b = b[:ptr]
 

@@ -11,7 +11,7 @@ def main():
         res[i] = res[i-1]
         res[i] += (prev == 'A' and s[i] == 'C') & 1
         prev = s[i]
-    
+
     for l, r in lr:
         yield res[r] - res[l]
 

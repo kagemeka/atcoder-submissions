@@ -51,12 +51,12 @@ def main():
                 break
         else:
             facs[a] = max(facs[a], 1)
-    
+
     lcm = 1
     for f, c in facs.items():
         lcm *= pow(f, c, MOD)
         lcm %= MOD
-    
+
     ans = 0
     for a in A:
         ans += lcm * inv[a] % MOD

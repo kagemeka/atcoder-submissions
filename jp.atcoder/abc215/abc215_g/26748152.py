@@ -1,10 +1,10 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def compress_array(a: np.ndarray) -> typing.Tuple[(np.ndarray, ) * 2]:
     v = np.unique(a)
     return np.searchsorted(v, a), v
@@ -40,7 +40,7 @@ def pow(mod: int, x: int, n: int) -> int:
     y = 1
     while n:
         if n & 1: y = y * x % mod
-        x = x * x % mod 
+        x = x * x % mod
         n >>= 1
     return y
 
@@ -99,7 +99,7 @@ def pow2_inverse_table(p: int, n: int) -> np.ndarray:
     a = np.full(inv_2, np.int64)
     a[0] = 1
     cumprod(p, a)
-    return a 
+    return a
 
 
 
@@ -110,7 +110,7 @@ def solve(c: np.ndarray) -> typing.NoReturn:
     def choose(n, k):
         ok = (0 <= k) & (k <= n)
         return fact[n] * ifact[n - k] % mod * ifact[k] % mod * ok
- 
+
     n = len(c)
     c, _ = compress_array(c)
     c = np.bincount(c)

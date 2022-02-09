@@ -1,6 +1,6 @@
-import typing 
+import typing
 import numpy as np
-import sys 
+import sys
 import numba as nb
 
 
@@ -24,7 +24,7 @@ def unite(
 ) -> typing.NoReturn:
   u = find(a, u)
   v = find(a, v)
-  if u == v: return 
+  if u == v: return
   if a[u] > a[v]: u, v = v, u
   a[u] += a[v]
   a[v] = u
@@ -41,7 +41,7 @@ def solve(
 ) -> typing.NoReturn:
   uvw = uvw[np.argsort(uvw[:, 2])]
   a = np.full(n, -1, dtype=np.int64)
-  tot = 0 
+  tot = 0
   for i in range(n - 1):
     u, v, w = uvw[i]
     u -= 1; v -= 1

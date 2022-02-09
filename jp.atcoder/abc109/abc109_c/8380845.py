@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-10 12:28:14(JST)
 ### modules
 ## from standard library
@@ -13,9 +13,9 @@ import sys
 import functools
 # import operator
 ## from external libraries
-# import scipy.special   
-# import scipy.misc      
-# import numpy as np 
+# import scipy.special
+# import scipy.misc
+# import numpy as np
 
 def gcd(a, b):
     while b != 0:

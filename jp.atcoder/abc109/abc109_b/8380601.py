@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-10 12:28:14(JST)
 import sys
 # import collections
@@ -9,7 +9,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, *w = sys.stdin.read().split()
@@ -20,7 +20,7 @@ def main():
         else:
             print('No')
             exit()
-    
+
     print('Yes')
 
 

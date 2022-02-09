@@ -22,20 +22,20 @@ def center(z1, z2):
 def main():
     cand = []
     for comb in combinations(z, 3):
-        try: 
+        try:
             cand.append(circumcenter(*comb))
         except:
             pass
     for comb in combinations(z, 2):
         cand.append(center(*comb))
-    
+
     res = inf
     for o in cand:
         r = 0
         for i in z:
             r = max(r, abs(o - i))
         res = min(res, r)
-    
+
     return res
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
-import typing 
-# import bisect 
-import numpy as np 
-import numba as nb 
+import typing
+# import bisect
+import numpy as np
+import numba as nb
 import sys
 
 
@@ -14,7 +14,7 @@ def solve(n: int, lr: np.ndarray) -> typing.NoReturn:
         r[i + 1] = min(r[i], r[i + 1])
     res = np.zeros(n, np.int64)
     for i in range(n):
-        if l[i] <= r[i]: continue 
+        if l[i] <= r[i]: continue
         res[i] = (l[i] - r[i] + 1) // 2
     for x in res:
         print(x)

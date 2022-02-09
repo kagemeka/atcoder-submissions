@@ -1,6 +1,6 @@
-import typing 
+import typing
 import heapq
-import collections 
+import collections
 
 
 

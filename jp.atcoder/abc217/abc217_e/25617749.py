@@ -1,7 +1,7 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 import heapq
 
 
@@ -25,14 +25,14 @@ def solve(
   def deque_appendleft(x):
     nonlocal dq, dq_l
     dq_l -= 1
-    dq[dq_l] = x 
+    dq[dq_l] = x
 
   def deque_pop():
-    nonlocal dq, dq_r 
+    nonlocal dq, dq_r
     v = dq[dq_r]
     dq_r -= 1
     return v
-  
+
   def deque_popleft():
     nonlocal dq, dq_l
     v = dq[dq_l]
@@ -40,7 +40,7 @@ def solve(
     return v
 
   def deque_empty():
-    nonlocal dq_l, dq_r 
+    nonlocal dq_l, dq_r
     return dq_l == dq_r + 1
 
   while len(a):

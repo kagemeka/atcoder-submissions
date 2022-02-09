@@ -8,7 +8,7 @@ import itertools
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, k, *A = [int(x) for x in sys.stdin.read().split()]
@@ -29,9 +29,9 @@ def main():
             index = bi_l(s, k)
             count = n - index
             total += count
-    
+
     print(total)
-        
+
 
 if __name__ == "__main__":
     main()

@@ -7,7 +7,7 @@ class ReadStdin:
     self,
   ) -> bytes:
     return next(self.__chunks)
-    
+
 
   def __init__(
     self,
@@ -34,7 +34,7 @@ class ReadStdin:
       l = self.__buf.readline()
       for chunk in l.split():
         yield chunk
-  
+
 
   def str(
     self,
@@ -60,7 +60,7 @@ class Solver(
     self._prepare()
     self._solve()
 
-  
+
   def __init__(
     self,
   ) -> typing.NoReturn:
@@ -73,7 +73,7 @@ class Solver(
   ) -> typing.NoReturn:
     ...
 
-  
+
   @abstractmethod
   def _solve(
     self,
@@ -94,7 +94,7 @@ class Problem(
     self,
   ) -> typing.NoReturn:
     self.__read = ReadStdin()
-    self.__m = 5 
+    self.__m = 5
     self.__k = 3
 
 
@@ -113,9 +113,9 @@ class Problem(
   def _solve(
     self,
   ) -> typing.NoReturn:
-    a = self.__a 
+    a = self.__a
     n = self.__n
-    m = self.__m 
+    m = self.__m
     k = self.__k
     dp = np.zeros(
       (k + 1, 1 << m),

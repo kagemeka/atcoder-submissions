@@ -10,7 +10,7 @@ def main():
             cnt += 1 & (p[i] < p[i+1])
         else:
             cnt += 1 & (p[i] > p[i+1])
-            
+
         big = p[i+1] > p[i]
 
     return cnt

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def floyd_warshall(
@@ -18,14 +18,14 @@ def floyd_warshall(
 
 def main() -> typing.NoReturn:
     n, m, l = map(int, input().split())
-    inf = 1 << 60 
+    inf = 1 << 60
     g = [[inf] * n for _ in range(n)]
     for _ in range(m):
         a, b, c = map(int, input().split())
         a -= 1
         b -= 1
-        g[a][b] = g[b][a] = c 
-    
+        g[a][b] = g[b][a] = c
+
     for i in range(n):
         g[i][i] = 0
     g = floyd_warshall(g)
@@ -43,4 +43,3 @@ def main() -> typing.NoReturn:
         print(-1 if cnt == inf else cnt - 1)
 
 main()
-             

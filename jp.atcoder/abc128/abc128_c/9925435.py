@@ -13,7 +13,7 @@ def main():
                 break
         else:
             combs += 1
-    
+
     return combs
 
 if __name__ == '__main__':

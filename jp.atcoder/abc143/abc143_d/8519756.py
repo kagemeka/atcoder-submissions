@@ -11,7 +11,7 @@ from bisect import bisect_left as bi_l, bisect_right as bi_r
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
@@ -23,7 +23,7 @@ def main():
         for j in range(i+1, n-1):
             b = l[j]
             count += (bi_l(l, a + b) - 1) - j
-    
+
     print(count)
 
 if __name__ == "__main__":

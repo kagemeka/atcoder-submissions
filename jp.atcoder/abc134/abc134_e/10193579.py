@@ -15,7 +15,7 @@ def main():
         if res[i] == inf:
             return i
     return n
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

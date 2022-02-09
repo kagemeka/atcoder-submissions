@@ -17,14 +17,14 @@ def main():
         for x, y in xy[i]:
             bl = (comb >> i & 1) ^ (comb >> x & 1 ^ y)
             res &= bl
-    
+
     cand = np.where(res == 1)[0]
     if not cand:
         return 0
 
     ans = np.amax(np.sum(cand.reshape(-1, 1) >> np.arange(n) & 1, axis=1))
-    return ans    
-                
+    return ans
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

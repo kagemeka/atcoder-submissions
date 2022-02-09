@@ -27,7 +27,7 @@ def main():
                 return 0
 
     l = reduce(lcm, a, a[0])
-    
+
     return m // l - m // (l * 2)
 
 if __name__ == '__main__':

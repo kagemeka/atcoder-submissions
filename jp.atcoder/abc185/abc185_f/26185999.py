@@ -1,9 +1,9 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
-@nb.njit 
+@nb.njit
 def bit_length(n: int) -> int:
   l = 0
   while 1 << l <= n: l += 1
@@ -13,7 +13,7 @@ def bit_length(n: int) -> int:
 S = typing.TypeVar('S')
 F = typing.TypeVar('F')
 
-@nb.njit 
+@nb.njit
 def seg_build(
   op_s: typing.Callable[[S, S], S],
   e_s: typing.Callable[[], S],
@@ -31,7 +31,7 @@ def seg_build(
   return seg, lazy
 
 
-@nb.njit 
+@nb.njit
 def _seg_apply(
   seg: np.ndarray,
   lazy: np.ndarray,
@@ -43,7 +43,7 @@ def _seg_apply(
   seg[i] = map(f, seg[i])
   if i < len(lazy): lazy[i] = op_f(f, lazy[i])
 
-  
+
 @nb.njit
 def _seg_propagate(
   seg: np.ndarray,
@@ -58,7 +58,7 @@ def _seg_propagate(
   lazy[i] = e_f()
 
 
-@nb.njit 
+@nb.njit
 def _seg_merge(
   seg: np.ndarray,
   op_s: typing.Callable[[S, S], S],
@@ -67,7 +67,7 @@ def _seg_merge(
   seg[i] = op_s(seg[i << 1], seg[i << 1 | 1])
 
 
-@nb.njit 
+@nb.njit
 def seg_set(
   seg: np.ndarray,
   lazy: np.ndarray,
@@ -85,12 +85,12 @@ def seg_set(
   h = bit_length(n)
 
   for i in range(h, 0, -1):
-    if (l >> i) << i != l: 
-      _seg_propagate(seg, lazy, op_f, e_f, map_, l >> i)  
+    if (l >> i) << i != l:
+      _seg_propagate(seg, lazy, op_f, e_f, map_, l >> i)
     if (r >> i) << i != r:
       _seg_propagate(seg, lazy, op_f, e_f, map_, (r - 1) >> i)
 
-  l0, r0 = l, r 
+  l0, r0 = l, r
   while l < r:
     if l & 1:
       _seg_apply(seg, lazy, op_f, map_, l, f)
@@ -103,9 +103,9 @@ def seg_set(
   for i in range(1, h + 1):
     if (l >> i) << i != l: _seg_merge(seg, op_s, l >> i)
     if (r >> i) << i != r: _seg_merge(seg, op_s, (r - 1) >> i)
-    
-  
-@nb.njit 
+
+
+@nb.njit
 def seg_get(
   seg: np.ndarray,
   lazy: np.ndarray,
@@ -123,8 +123,8 @@ def seg_get(
   h = bit_length(n)
 
   for i in range(h, 0, -1):
-    if (l >> i) << i != l: 
-      _seg_propagate(seg, lazy, op_f, e_f, map_, l >> i)  
+    if (l >> i) << i != l:
+      _seg_propagate(seg, lazy, op_f, e_f, map_, l >> i)
     if (r >> i) << i != r:
       _seg_propagate(seg, lazy, op_f, e_f, map_, (r - 1) >> i)
 
@@ -140,7 +140,7 @@ def seg_get(
   return op_s(vl, vr)
 
 
-@nb.njit 
+@nb.njit
 def seg_update(
   seg: np.ndarray,
   lazy: np.ndarray,
@@ -155,61 +155,61 @@ def seg_update(
   assert 0 <= i <= n
   i += n
   h = bit_length(n)
-  for j in range(h, 0, -1): 
+  for j in range(h, 0, -1):
     _seg_propagate(seg, lazy, op_f, e_f, map_, i >> j)
   seg[i] = x
   for j in range(1, h + 1): _seg_merge(seg, op_s, i >> j)
 
 
 
-@nb.njit 
+@nb.njit
 def seg_op_s(a: S, b: S) -> S:
   return a ^ b
 
 
-@nb.njit 
+@nb.njit
 def seg_e_s() -> S:
   return 0
 
 
-@nb.njit 
+@nb.njit
 def seg_op_f(f: F, g: F) -> F:
   return g ^ f
 
 
-@nb.njit 
+@nb.njit
 def seg_e_f() -> F:
   return 0
 
 
-@nb.njit 
+@nb.njit
 def seg_map(f: F, x: S) -> S:
-  return x ^ f 
+  return x ^ f
 
 
-@nb.njit 
+@nb.njit
 def build_seg(
   a: np.ndarray,
 ) -> typing.Tuple[np.ndarray, np.ndarray]:
   return seg_build(seg_op_s, seg_e_s, seg_e_f, a)
 
 
-@nb.njit 
+@nb.njit
 def set_range_seg(
-  seg: np.ndarray, 
+  seg: np.ndarray,
   lazy: np.ndarray,
   l: int,
   r: int,
   f: F,
 ) -> typing.NoReturn:
   seg_set(
-    seg, lazy, 
+    seg, lazy,
     seg_op_s, seg_op_f, seg_e_f, seg_map,
     l, r, f,
   )
 
 
-@nb.njit 
+@nb.njit
 def get_range_seg(
   seg: np.ndarray,
   lazy: np.ndarray,
@@ -223,7 +223,7 @@ def get_range_seg(
   )
 
 
-@nb.njit 
+@nb.njit
 def update_point_seg(
   seg: np.ndarray,
   lazy: np.ndarray,
@@ -231,7 +231,7 @@ def update_point_seg(
   x: S,
 ) -> typing.NoReturn:
   seg_update(
-    seg, lazy, 
+    seg, lazy,
     seg_op_s, seg_op_f, seg_e_f, seg_map,
     i, x
   )

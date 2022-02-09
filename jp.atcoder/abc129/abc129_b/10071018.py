@@ -10,7 +10,7 @@ def main():
         s1 += w
         s2 -= w
         res = min(res, abs(s2 - s1))
-    
+
     return res
 
 if __name__ == '__main__':

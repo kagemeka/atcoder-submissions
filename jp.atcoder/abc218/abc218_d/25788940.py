@@ -1,7 +1,7 @@
-import typing 
+import typing
 import sys
-import numpy as np 
-import numba as nb 
+import numpy as np
+import numba as nb
 
 
 
@@ -14,13 +14,13 @@ def compress_array(
 ]:
   v = np.unique(a)
   i = np.searchsorted(v, a)
-  return i, v 
+  return i, v
 
 
 @nb.njit(
   (nb.i8[:, :], ),
   cache=True,
-) 
+)
 def solve(
   xy: np.ndarray,
 ) -> typing.NoReturn:
@@ -33,11 +33,11 @@ def solve(
   c = np.zeros((x_max + 1, y_max + 1), np.int64)
   for i in range(n): c[x[i], y[i]] = 1
 
-  s = 0 
+  s = 0
   for i in range(n):
     for j in range(n):
       if i == j: continue
-      if x[i] >= x[j] or y[i] >= y[j]: continue 
+      if x[i] >= x[j] or y[i] >= y[j]: continue
       s += c[x[i], y[j]] * c[x[j], y[i]]
   print(s)
 
@@ -49,7 +49,7 @@ def main() -> typing.NoReturn:
     dtype=np.int64,
   ).reshape(n, 2)
   solve(xy)
-    
+
 
 
 main()

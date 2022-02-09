@@ -17,13 +17,13 @@ def main():
         for x, y in xy[i]:
             bl = (comb >> i & 1) ^ (comb >> x & 1 ^ y)
             res &= bl
-    
+
     cand = np.where(res == 1)[0]
     ans = 0
     for c in cand:
         ans = max(ans, np.count_nonzero(c >> np.arange(n) & 1))
     return ans
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

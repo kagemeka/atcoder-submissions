@@ -11,5 +11,5 @@ int main() {
   string ans = (s[2] == s[3] && s[4] == s[5]) ? "Yes" : "No";
   cout << ans << endl;
   return 0;
-  
+
 }

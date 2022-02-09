@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -16,7 +16,7 @@ def main() -> typing.NoReturn:
     for i in range(n):
         if not childs[i]:
             que.append(i)
-    
+
     size = [1] * n
     deg = [len(childs[i]) for i in range(n)]
     for u in que:
@@ -26,7 +26,7 @@ def main() -> typing.NoReturn:
         deg[p] -= 1
         if deg[p] == 0:
             que.append(p)
-        
+
     def dfs(u: int) -> typing.Tuple[int, int]:
         # dfs on subtree
         # return first player's score and second player's score (optimal)
@@ -53,10 +53,10 @@ def main() -> typing.NoReturn:
             first += s
             second += f
         return first, second
-    
+
     first, second = dfs(0)
     print(second)
-            
-    
+
+
 
 main()

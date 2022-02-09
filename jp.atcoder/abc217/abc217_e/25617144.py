@@ -1,4 +1,4 @@
-import typing 
+import typing
 import heapq
 
 
@@ -14,7 +14,7 @@ class Deque():
     self.__a = [None] * max_size
     self.__l = 0
     self.__r = -1
-  
+
 
   def append(
     self,
@@ -22,7 +22,7 @@ class Deque():
   ) -> typing.NoReturn:
     self.__r += 1
     self.__a[self.__r] = v
-  
+
 
   def appendleft(
     self,
@@ -30,7 +30,7 @@ class Deque():
   ) -> typing.NoReturn:
     self.__l -= 1
     self.__a[self.__l] = v
-    
+
 
   def empty(self) -> bool:
     return not bool(self)
@@ -39,17 +39,17 @@ class Deque():
   def pop(
     self,
   ) -> typing.Any:
-    if self.empty(): 
-      raise Exception('cannot pop from empty deque.') 
+    if self.empty():
+      raise Exception('cannot pop from empty deque.')
     v = self.__a[self.__r]
     self.__r -= 1
-    return v 
-  
+    return v
+
 
   def popleft(
     self,
   ) -> typing.Any:
-    if self.empty(): 
+    if self.empty():
       raise Exception('cannot pop from empty deque.')
     v = self.__a[self.__l]
     self.__l += 1

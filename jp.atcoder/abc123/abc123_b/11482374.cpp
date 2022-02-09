@@ -12,7 +12,7 @@ int main() {
   for (int i = 0; i < n; i++) {
     cin >> a;
     int tmp = (a + 9) / 10 * 10;
-    d = max(d, tmp - a); 
+    d = max(d, tmp - a);
     s += tmp;
   }
   cout << s - d << '\n';

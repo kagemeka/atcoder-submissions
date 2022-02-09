@@ -7,7 +7,7 @@ class ReadStdin:
     self,
   ) -> bytes:
     return next(self.__chunks)
-    
+
 
   def __init__(
     self,
@@ -34,7 +34,7 @@ class ReadStdin:
       l = self.__buf.readline()
       for chunk in l.split():
         yield chunk
-  
+
 
   def str(
     self,
@@ -60,7 +60,7 @@ class Solver(
     self._prepare()
     self._solve()
 
-  
+
   def __init__(
     self,
   ) -> typing.NoReturn:
@@ -73,7 +73,7 @@ class Solver(
   ) -> typing.NoReturn:
     ...
 
-  
+
   @abstractmethod
   def _solve(
     self,
@@ -128,12 +128,12 @@ class Problem(
     s3 = np.searchsorted(a, s3)
     n = len(a)
     p = permutations(
-      range(m), 
+      range(m),
       n,
     )
     p = np.array((*p,))
     (s1, s2, s3) = (
-      p[:, s] 
+      p[:, s]
       * 10 ** np.arange(
         len(s),
       )[::-1]
@@ -172,12 +172,12 @@ class Problem(
       self.__s3,
     ) = (
       np.array(
-        list(s), 
+        list(s),
         dtype=np.int64,
       ) - ord('a')
       for s in (
-        self.__s1, 
-        self.__s2, 
+        self.__s1,
+        self.__s2,
         self.__s3,
       )
     )

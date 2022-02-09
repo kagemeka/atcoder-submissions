@@ -46,9 +46,9 @@ def main():
         for j in range(w):
             nex[j] %= MOD
         res = nex
-        
+
     return res[k-1]
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

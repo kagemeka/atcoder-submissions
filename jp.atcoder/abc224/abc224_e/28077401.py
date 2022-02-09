@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -9,16 +9,16 @@ def main() -> typing.NoReturn:
         r -= 1
         c -= 1
         rca.append((r, c, a, i))
-    
+
     rca.sort(key=lambda x: -x[2])
 
     r_max0 = [0] * h
     r_max1 = [0] * h
-    c_max0 = [0] * w 
+    c_max0 = [0] * w
     c_max1 = [0] * w
-    
+
     b = 1 << 60
-    
+
     res = [0] * n
     r_st = []
     c_st = []
@@ -40,6 +40,3 @@ def main() -> typing.NoReturn:
     print(*res, sep='\n')
 
 main()
-        
-    
-    

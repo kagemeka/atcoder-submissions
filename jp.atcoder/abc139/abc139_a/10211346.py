@@ -8,7 +8,7 @@ def main():
         if s[i] == t[i]:
             cnt += 1
     return cnt
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

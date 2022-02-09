@@ -43,12 +43,12 @@ def main():
         while True:
             if (1 + i) * i // 2 > m:
                 i -= 1
-                break 
+                break
             i += 1
         ans += i
     print(ans)
 
-    
+
 
 
 if __name__ == '__main__':

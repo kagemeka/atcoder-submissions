@@ -20,7 +20,7 @@ def bfs(sy, sx):
             if maze[i][j] == '.' and not (i, j) in visited:
                 queue.append((d+1, i, j))
     return dist_max
-        
+
 h, w = map(int, sys.stdin.readline().split())
 maze = ['#' * (w + 2)]
 maze += ['#' + sys.stdin.readline().rstrip() + '#' for _ in range(h)]
@@ -33,7 +33,7 @@ def main():
             if maze[sy][sx] == '#':
                 continue
             res = max(res, bfs(sy, sx))
-    
+
     return res
 
 if __name__ == '__main__':

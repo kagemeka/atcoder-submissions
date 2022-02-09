@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -21,11 +21,11 @@ def solve(
     ndp = dp.copy()
     for j in range(x + 1):
       for k in range(y + 1):
-        ndp[min(j + a, x), min(k + b, y)] = min( 
+        ndp[min(j + a, x), min(k + b, y)] = min(
           ndp[min(j + a, x), min(k + b, y)],
           dp[j, k] + 1,
         )
-    dp = ndp 
+    dp = ndp
   print(-1 if dp[x, y] == inf else dp[x, y])
 
 

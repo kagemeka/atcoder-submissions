@@ -54,7 +54,7 @@ def main():
   res = 1
   for p, c in prime_factorize(m).items():
     res *= nHr(n, c)
-    res %= MOD 
+    res %= MOD
   print(res)
 
 if __name__ == '__main__':

@@ -8,12 +8,12 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n = int(sys.stdin.readline().rstrip())
     info = [[int(x) for x in sys.stdin.readline().split()] for _ in range(n)]
-    
+
     # 基準を決める
     for i in range(n):
         if info[i][2] >= 1:
@@ -34,8 +34,8 @@ def main():
                     res[i] = str(res[i])
                 print(' '.join(res))
                 sys.exit() # 中心は一意に決まるので見つかったらそれ以上調べる必要ない
-    
-            
+
+
 
 if __name__ == "__main__":
     main()

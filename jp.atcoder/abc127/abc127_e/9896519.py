@@ -1,6 +1,6 @@
 import sys
 
-MOD = 10 ** 9 + 7 
+MOD = 10 ** 9 + 7
 
 def make_table(size=10**6, p=MOD):
     fac = [None] * (size + 1)
@@ -30,7 +30,7 @@ def main():
     for i in range(1, m):
         horiz[i+1] += horiz[i]
         horiz[i+1] %= MOD
-    
+
     res = 0
     for i in range(1, n):
         res += (vert[n] - vert[i] - i * (n - i)) * m % MOD * m % MOD
@@ -38,7 +38,7 @@ def main():
     for i in range(1, m):
         res += (horiz[m] - horiz[i] - i * (m - i)) * n % MOD * n % MOD
         res %= MOD
-    
+
     res *= comb(n*m-2, k-2)
     res %= MOD
     return res

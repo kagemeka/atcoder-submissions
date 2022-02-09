@@ -1,4 +1,4 @@
-import typing 
+import typing
 import numpy as np
 import sys
 import numba as nb
@@ -17,10 +17,10 @@ def solve(
   for x in cand:
     y = x ^ a
     y.sort()
-    if (y == b).all(): 
+    if (y == b).all():
       res.append(x)
   return res
-    
+
 
 def main() -> typing.NoReturn:
   n = int(input())

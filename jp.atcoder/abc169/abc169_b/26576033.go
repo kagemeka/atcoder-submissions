@@ -21,7 +21,7 @@ func NewStdIO() *StdIO {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Buffer([]byte{}, maxBuffer)
 	scanner.Split(bufio.ScanWords)
-	return &StdIO { 
+	return &StdIO {
 		scanner: scanner,
 		writer: bufio.NewWriter(os.Stdout),
 	}
@@ -48,8 +48,8 @@ func main() {
 	n := io.ScanInt()
 	contain_zero := false
 	a := make([]int, n)
-	for i := 0; i < n; i++ { 
-		a[i] = io.ScanInt() 
+	for i := 0; i < n; i++ {
+		a[i] = io.ScanInt()
 		if a[i] == 0 { contain_zero = true }
 	}
 	if contain_zero {

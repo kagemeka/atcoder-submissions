@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -21,7 +21,7 @@ func NewStdIO() *StdIO {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Buffer([]byte{}, maxBuffer)
 	scanner.Split(bufio.ScanWords)
-	return &StdIO { 
+	return &StdIO {
 		scanner: scanner,
 		writer: bufio.NewWriter(os.Stdout),
 	}
@@ -70,7 +70,7 @@ type SegmentTreeLazy struct {
 }
 
 func NewSegmentTreeLazy(
-	c *SegmentTreeLazyConfig, 
+	c *SegmentTreeLazyConfig,
 	a []interface{},
 ) *SegmentTreeLazy {
 	size := len(a)
@@ -82,7 +82,7 @@ func NewSegmentTreeLazy(
 	lazy := make([]interface{}, n)
 	for i := 0; i < n; i++ { lazy[i] = c.F.E() }
 	seg := &SegmentTreeLazy{ c, size, n, h, data, lazy }
-	for i := n - 1; i > 0; i-- { seg.merge(i) } 
+	for i := n - 1; i > 0; i-- { seg.merge(i) }
 	return seg
 }
 
@@ -148,10 +148,10 @@ func (seg *SegmentTreeLazy) Update(i int, x interface{}) {
 
 
 func Min(a ...int) int {
-	// len(a) > 0 
+	// len(a) > 0
 	mn := a[0]
 	for _, x := range a { if x < mn { mn = x } }
-	return mn 
+	return mn
 }
 
 

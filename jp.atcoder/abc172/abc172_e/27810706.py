@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -18,7 +18,7 @@ def factorial(mod: int, n: int) -> typing.List[int]:
     cumprod(mod, a)
     return a
 
-def factorial_inverse(p: int, n: int) -> typing.List[int]:    
+def factorial_inverse(p: int, n: int) -> typing.List[int]:
     a = list(range(1, n + 1))
     a[-1] = inverse(p, factorial(p, n)[-1])
     a.reverse()
@@ -44,7 +44,7 @@ def main() -> typing.NoReturn:
     cnt *= permutate(m, n)
     cnt %= MOD
     print(cnt)
-    
+
 
 
 
@@ -57,7 +57,7 @@ class Choose():
     def __init__(self, p: int, n: int) -> typing.NoReturn:
         self.__p = p
         self.__fact = factorial(p, n)
-        self.__ifact = factorial_inverse(p, n)    
+        self.__ifact = factorial_inverse(p, n)
 
 
 
@@ -70,7 +70,7 @@ class CountPermutation():
     def __init__(self, p: int, n: int) -> typing.NoReturn:
         self.__p = p
         self.__fact = factorial(p, n)
-        self.__ifact = factorial_inverse(p, n)    
+        self.__ifact = factorial_inverse(p, n)
 
 
 

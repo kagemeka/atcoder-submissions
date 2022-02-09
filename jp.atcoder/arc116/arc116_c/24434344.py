@@ -1,4 +1,4 @@
-import numpy as np 
+import numpy as np
 import numba as nb
 import typing
 
@@ -76,7 +76,7 @@ def lpf(
 ) -> np.array:
   s = np.arange(n)
   s[:2] = -1
-  i = 0 
+  i = 0
   while i * i < n:
     i += 1
     if s[i] != i: continue

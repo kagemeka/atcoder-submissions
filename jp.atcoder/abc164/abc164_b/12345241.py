@@ -7,12 +7,12 @@ def main(a, b, c, d):
         c -= b
         if c <= 0:
             print('Yes')
-            return 
+            return
         a -= d
         if a <= 0:
             print('No')
             return
-    
+
 
 
 if __name__ == '__main__':

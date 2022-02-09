@@ -1,4 +1,4 @@
-import typing 
+import typing
 import numpy as np
 import sys
 
@@ -33,7 +33,7 @@ def main() -> typing.NoReturn:
   )
   l = np.maximum(k - 1, 0)
   k = np.minimum(k, n - 1)
-  
+
 
   cand = np.hstack((
     np.abs(a - b[i]),

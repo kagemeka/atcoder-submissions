@@ -8,7 +8,7 @@ import (
 )
 
 
-type StdIO struct { 
+type StdIO struct {
 	scanner *bufio.Scanner
 	writer *bufio.Writer
 }
@@ -48,7 +48,7 @@ func main() {
 	n, s := io.ScanInt(), io.ScanInt()
 	a := make([]int, n)
 	for i := 0; i < n; i++ { a[i] = io.ScanInt() }
-	
+
 	dp := make([]int, s  + 1)
 	dp[0] = 1
 	for _, x := range a {

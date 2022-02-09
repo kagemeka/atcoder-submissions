@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -20,14 +20,14 @@ def solve(a: np.ndarray) -> typing.NoReturn:
       dp[i + 1, 0, 1:] += dp[i, 0, :-1]
     if a[i + 1, 0] >= 0:
       dp[i + 1, 0] += dp[i, 0]
-  
+
   for j in range(w - 1):
     if a[0, j + 1] <= 0:
       dp[0, j + 1, 1:] += dp[0, j, :-1]
     if a[0, j + 1] >= 0:
       dp[0, j + 1] += dp[0, j]
   dp %= mod
-        
+
   for i in range(h - 1):
     for j in range(w - 1):
       # if a[i, j] == 1:
@@ -37,7 +37,7 @@ def solve(a: np.ndarray) -> typing.NoReturn:
         )
       if a[i + 1, j + 1] >= 0:
         dp[i + 1, j + 1] += dp[i + 1, j] * dp[i, j + 1] % mod
-      dp[i + 1, j + 1] %= mod 
+      dp[i + 1, j + 1] %= mod
 
   print(dp[-1, -1].sum() % mod)
 

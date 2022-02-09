@@ -1,13 +1,13 @@
-import typing 
+import typing
 import sys
-import numpy as np 
-import numba as nb 
+import numpy as np
+import numba as nb
 
 
 @nb.njit(
   (nb.i8[:, :], ),
   cache=True,
-) 
+)
 def solve(
   xy: np.ndarray,
 ) -> typing.NoReturn:
@@ -24,9 +24,9 @@ def solve(
   c = np.zeros((x.max() + 1, y.max() + 1), np.int64)
   for i in range(n):
     c[x[i], y[i]] = 1
-  
 
-  s = 0 
+
+  s = 0
   for i in range(n):
     a = x[i]
     idx = np.searchsorted(x, a, side='right')
@@ -36,9 +36,9 @@ def solve(
       if x[j] > a: break
       for k in range(b, len(c)):
         s += c[k, y[i]] * c[k, y[j]]
-      
+
   print(s)
-        
+
 
 
 
@@ -49,7 +49,7 @@ def main() -> typing.NoReturn:
     dtype=np.int64,
   ).reshape(n, 2)
   solve(xy)
-    
+
 
 
 main()

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -11,7 +11,7 @@ def main() -> typing.NoReturn:
         b -= 1
         g[a].append(b)
         g[b].append(a)
-    
+
 
     parent = [-1] * n
     que = [0]
@@ -21,15 +21,14 @@ def main() -> typing.NoReturn:
             if parent[v] != -1: continue
             parent[v] = u
             que.append(v)
-    
+
     if parent.count(-1) >= 2:
         print('No')
     else:
         print('Yes')
-    
+
     for i in range(1, n):
         print(parent[i] + 1)
 
 
 main()
-            

@@ -13,7 +13,7 @@ import numba as nb
 
 
 
-@nb.njit 
+@nb.njit
 def extgcd(a: int, b: int) -> typing.Tuple[int, int, int]:
     x0, x1, x2, x3 = 1, 0, 0, 1
     """
@@ -87,4 +87,3 @@ def main() -> typing.NoReturn:
     solve(n)
 
 main()
-    

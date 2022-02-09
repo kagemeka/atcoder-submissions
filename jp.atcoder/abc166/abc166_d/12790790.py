@@ -15,8 +15,8 @@ def f(a, b): return pow(a, 5) - pow(b, 5)
 def ternary_search(d):
     lo, hi = -1, 10 ** 18
     while lo + 1 < hi:
-        a = (lo + hi) // 2 
-        b = a - d 
+        a = (lo + hi) // 2
+        b = a - d
         bl = a >= abs(b)
         bl2 = f(a, b) >= x
         if bl ^ bl2: lo = a
@@ -29,7 +29,7 @@ def main():
         a, b = ternary_search(d)
         if f(a, b) == x:
             print(a, b)
-            return 
+            return
 
 if __name__ == '__main__':
     main()

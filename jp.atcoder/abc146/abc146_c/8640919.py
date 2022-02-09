@@ -15,8 +15,8 @@ def main():
         n = (x - b * l) / a
         if 10 ** (l - 1) <= n < 10 ** l :
             cand.append(int(n))
-    
+
     print(max(cand))
-    
+
 if __name__ == '__main__':
     main()

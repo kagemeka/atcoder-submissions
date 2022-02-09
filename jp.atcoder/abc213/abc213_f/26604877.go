@@ -23,7 +23,7 @@ func NewStdIO() *StdIO {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Buffer([]byte{}, maxBuffer)
 	scanner.Split(bufio.ScanWords)
-	return &StdIO { 
+	return &StdIO {
 		scanner: scanner,
 		writer: bufio.NewWriter(os.Stdout),
 	}
@@ -56,10 +56,10 @@ func Max(a ...int) int {
 
 
 func Min(a ...int) int {
-	// len(a) > 0 
+	// len(a) > 0
 	mn := a[0]
 	for _, x := range a { if x < mn { mn = x } }
-	return mn 
+	return mn
 }
 
 
@@ -99,14 +99,14 @@ func SADoubling(a []int) (sa []int) {
 	for {
 		for i := 0; i < n; i++ {
 			key[i] = rank[i] << 30
-			if i + k < n { key[i] |= 1 + rank[i + k] } 
+			if i + k < n { key[i] |= 1 + rank[i + k] }
 		}
 		sa = make([]int, n)
 		for i := 0; i < n; i++ { sa[i] = i }
 		sort.SliceStable(sa, func(i, j int) bool { return key[sa[i]] < key[sa[j]] } )
 		rank[sa[0]] = 0
 		for i := 0; i < n - 1; i++ {
-			rank[sa[i + 1]] = rank[sa[i]] 
+			rank[sa[i + 1]] = rank[sa[i]]
 			if key[sa[i + 1]] > key[sa[i]] { rank[sa[i + 1]]++ }
 		}
 		k <<= 1
@@ -135,7 +135,7 @@ func LCPArrayKasai(a, sa []int) (lcp []int) {
 		}
 		lcp[r] = h
 	}
-	return 
+	return
 }
 
 
@@ -165,13 +165,13 @@ func main() {
 			}
 			s += h * l
 			st = append(st, [2]int{h, l})
-			res[sa[i + 1]] += s			
+			res[sa[i + 1]] += s
 		}
-		for i := 0; i < n >> 1; i++ { 
+		for i := 0; i < n >> 1; i++ {
 			j := n - 1 - i
 			sa[i], sa[j] = sa[j], sa[i]
 		}
-		for i := 0; i < (n - 1) >> 1; i++ { 
+		for i := 0; i < (n - 1) >> 1; i++ {
 			j := n - 2 - i
 			lcp[i], lcp[j] = lcp[j], lcp[i]
 		}

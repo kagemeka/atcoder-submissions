@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -134,7 +134,7 @@ def max_right_seg(
 
 
 @nb.njit
-def seg_op(a: S, b: S) -> S: 
+def seg_op(a: S, b: S) -> S:
     c = a.copy()
     c[1] = min(c[1], c[0] + b[1])
     c[0] += b[0]
@@ -142,7 +142,7 @@ def seg_op(a: S, b: S) -> S:
 
 
 @nb.njit
-def seg_e() -> S: 
+def seg_e() -> S:
     inf = 1 << 60
     return np.array([0, inf])
 
@@ -153,7 +153,7 @@ def solve(a: np.ndarray, q: np.ndarray) -> typing.NoReturn:
     s = np.empty((n, 2), np.int64)
     s[:, 0] = a
     s[:, 1] = a
-    
+
     seg = build_seg(s)
     is_ok = lambda v, x: v >= x
 
@@ -181,4 +181,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-

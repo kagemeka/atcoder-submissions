@@ -1,4 +1,4 @@
-import typing 
+import typing
 import numpy as np
 
 
@@ -10,7 +10,7 @@ def main() -> typing.NoReturn:
     dtype=np.float128,
   )
   dp = np.zeros(
-    n + 1, 
+    n + 1,
     np.float128,
   )
   dp[0] = 1

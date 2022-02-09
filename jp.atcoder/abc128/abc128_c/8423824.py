@@ -8,13 +8,13 @@ import itertools
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, m = [int(x) for x in sys.stdin.readline().split()]
-    
+
     on_off_patterns = [''.join(pattern) for pattern in itertools.product('01', repeat=n)]
-    
+
     bulbs = [[int(x) for x in sys.stdin.readline()[1:].split()] for _ in range(m)]
     p = [int(x) for x in sys.stdin.readline().split()]
 
@@ -33,9 +33,9 @@ def main():
                 break
         else:
             combinations += 1
-    
+
     print(combinations)
-    
+
     # enumerate on/off-patters by using binary number.
 
 

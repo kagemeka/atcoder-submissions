@@ -20,7 +20,7 @@ def solve():
     for _ in range(n)
   ]
   for i in range(n):
-    dp[i][0] = 0 
+    dp[i][0] = 0
   for i in range(n - 1):
     d0 = a[i]
     d1 = a[i + 1]
@@ -35,8 +35,8 @@ def solve():
     if not res[k]: continue
     print(k)
     return
-  print(4) 
-    
+  print(4)
+
 
 
 def main():

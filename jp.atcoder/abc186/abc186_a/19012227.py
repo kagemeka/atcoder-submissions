@@ -1,5 +1,5 @@
 def read_ints():
-  import sys 
+  import sys
   *ints, = map(
     int,
     sys.stdin.readline().split()

@@ -11,7 +11,7 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 table = set()
 for i in range(1, 10):
@@ -20,7 +20,7 @@ for i in range(1, 10):
 
 def main():
     n = int(sys.stdin.readline().rstrip())
-    
+
     print('Yes' if n in table else 'No')
 
 

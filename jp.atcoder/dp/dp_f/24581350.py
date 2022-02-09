@@ -5,8 +5,8 @@ def main() -> typing.NoReturn:
   *s, = map(ord, input())
   *t, = map(ord, input())
   n, m = len(s), len(t)
- 
-  
+
+
   dp0 = [
     [] for _ in range(m + 1)
   ]
@@ -14,7 +14,7 @@ def main() -> typing.NoReturn:
     dp1 = [
       [] for _ in range(m + 1)
     ]
-    x = s[i] 
+    x = s[i]
     for j in range(m):
       y = t[j]
       if y == x:

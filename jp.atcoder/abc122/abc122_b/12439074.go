@@ -16,7 +16,7 @@ var cand = map[rune]bool{
 }
 
 func main() {
-  var s string 
+  var s string
   fmt.Scan(&s)
   s += "$"
 

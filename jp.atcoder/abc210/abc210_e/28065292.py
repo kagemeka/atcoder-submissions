@@ -1,4 +1,4 @@
-import typing 
+import typing
 import math
 
 def main() -> typing.NoReturn:
@@ -7,7 +7,7 @@ def main() -> typing.NoReturn:
     ac = [tuple(map(int, input().split())) for _ in range(m)]
     ac.sort(key=lambda x: x[1])
     g = n
-    cost = 0 
+    cost = 0
     for a, c in ac:
         g2 = math.gcd(g, a)
         if g2 == g: continue
@@ -19,6 +19,3 @@ def main() -> typing.NoReturn:
         print(cost)
 
 main()
-        
-    
-    

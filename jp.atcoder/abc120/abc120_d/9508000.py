@@ -40,7 +40,7 @@ def main():
     all_pairs = n * (n - 1) // 2
     for i in res[::-1]:
         yield all_pairs - i
-    
+
 if __name__ == '__main__':
     ans = main()
     print(*ans, sep='\n')

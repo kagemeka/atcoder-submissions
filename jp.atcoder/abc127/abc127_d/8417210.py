@@ -8,7 +8,7 @@ from bisect import bisect_left as bi_l, bisect_right as bi_r
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, m = [int(x) for x in sys.stdin.readline().split()]
@@ -19,9 +19,9 @@ def main():
     for _ in range(m):
         bi, ci = [int(x) for x in sys.stdin.readline().split()]
         bc.append([bi, ci])
-    
+
     bc.sort(reverse=True, key=lambda x: x[1])
-    
+
     res = []
     for i in range(m):
         if a:

@@ -23,7 +23,7 @@ def main():
         else:
             ans = max(ans, cnt)
     return ans
-                
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

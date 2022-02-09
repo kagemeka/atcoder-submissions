@@ -1,4 +1,4 @@
-import typing 
+import typing
 import bisect
 
 
@@ -8,8 +8,8 @@ def main() -> typing.NoReturn:
     n = len(s)
     a = [int(x == '.') for x in s]
     for i in range(n - 1):
-        a[i + 1] += a[i] 
-    
+        a[i + 1] += a[i]
+
     mx = 0
     for i in range(n):
         r = k

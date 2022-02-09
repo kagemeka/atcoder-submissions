@@ -12,7 +12,7 @@ def main():
             group[p[i]].append(l[i])
         cost = 0
         for i in range(1, 4):
-            if not group[i]: 
+            if not group[i]:
                 break
             cost += 10 * (len(group[i]) - 1)
             group[i] = sum(group[i])
@@ -21,7 +21,7 @@ def main():
             for i in range(3):
                 cost += abs(abc[i] - group[i])
             cand.append(cost)
-        
+
     print(min(cand))
 
 if __name__ ==  '__main__':

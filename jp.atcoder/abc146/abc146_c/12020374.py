@@ -9,7 +9,7 @@ def main():
     elif x < a + b:
         print(0)
         return
-    
+
     ans = 0
     for d in range(1, 10):
         n = (x - b * d) // a

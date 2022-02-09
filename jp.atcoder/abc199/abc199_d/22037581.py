@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -88,9 +88,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -105,7 +105,7 @@ class Problem(
 
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     n = reader.int()
     m = reader.int()
     a = [
@@ -115,38 +115,38 @@ class Problem(
     a = np.array(
       a,
     ).reshape(m, 2) - 1
-    self.n = n 
-    self.m = m 
-    self.a = a 
+    self.n = n
+    self.m = m
+    self.a = a
 
 
   def solve(self):
     self.make_graph()
-    n = self.n 
-    self.cnt = [3] * n 
+    n = self.n
+    self.cnt = [3] * n
     self.cnt[0] = 3
     self.visited = [False] * n
     self.order = [None] * n
     self.o = 0
     self.dfs(0)
-    cnt = self.cnt 
+    cnt = self.cnt
     s = 1
     for i in range(n):
       s *= max(cnt[i], 0)
     print(s)
 
 
-  
+
 
   def make_graph(self):
-    a = self.a 
-    n = self.n 
+    a = self.a
+    n = self.n
     g = [[] for _ in range(n)]
     for x, y in a:
       g[x].append(y)
       g[y].append(x)
-    
-    self.g = g 
+
+    self.g = g
 
   def dfs(
     self,

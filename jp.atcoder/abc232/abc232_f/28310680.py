@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def popcount(n: int) -> int:
@@ -22,12 +22,12 @@ def main() -> typing.NoReturn:
 
     a = list(map(int, input().split()))
     b = list(map(int, input().split()))
-    
-    
+
+
     inf = 1 << 60
     dp = [inf] * (1 << n)
     dp[0] = 0 # nothing
-    
+
     for s in range(1 << n):
         j = popcount(s) - 1
         for i in range(n):
@@ -38,5 +38,3 @@ def main() -> typing.NoReturn:
     print(dp[-1])
 
 main()
-            
-            

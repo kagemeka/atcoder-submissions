@@ -9,7 +9,7 @@ def make(s):
         dp[i+1][0] = max(dp[i][0], dp[i][1])
         if s[i] == 'o':
             if i + 1 - c < 0:
-                dp[i+1][1] = 1 
+                dp[i+1][1] = 1
             else:
                 dp[i+1][1] = dp[i+1-c][0] + 1
     return dp

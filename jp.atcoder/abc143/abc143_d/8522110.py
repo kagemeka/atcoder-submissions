@@ -11,7 +11,7 @@ import collections
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
@@ -21,7 +21,7 @@ def main():
     c = collections.defaultdict(int)
     for i in range(n):
         c[l[i]] += 1
-    
+
     # cumsum: count of {l[j]|l[j] <= l[i]}
     s = [0 for _ in range(l[-3] + l[-2] + 1)] # a+bの最大値以下まで
     for i in range(l[-3] + l[-2]):
@@ -41,7 +41,7 @@ def main():
 
 
 
-    
+
 
 if __name__ == "__main__":
     main()

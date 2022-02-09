@@ -11,7 +11,7 @@ def main():
             if res[s-1] != c:
                 return -1
         else:
-            res[s-1] = c 
+            res[s-1] = c
 
     res = ''.join([str(d) for d in res])
     return res

@@ -1,5 +1,5 @@
-import typing  
-import itertools 
+import typing
+import itertools
 import collections
 
 def main() -> typing.NoReturn:
@@ -15,7 +15,7 @@ def main() -> typing.NoReturn:
             d = perm[d]
             if c > d:
                 c, d = d, c
-            tmp.append((c, d))            
+            tmp.append((c, d))
         tmp.sort()
         if tmp == ab:
             print('Yes')

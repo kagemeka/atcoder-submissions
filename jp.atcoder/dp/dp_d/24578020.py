@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 import numpy as np
 

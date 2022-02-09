@@ -1,6 +1,6 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 import numba as nb
 
 
@@ -9,12 +9,12 @@ def solve(
   a: np.ndarray,
   b: np.ndarray,
 ) -> typing.NoReturn:
-  n, m = a.size, b.size 
-  
+  n, m = a.size, b.size
+
   cost = np.empty((n + 1, m + 1), np.int64)
   cost[0] = np.arange(m + 1)
   cost[:, 0] = np.arange(n + 1)
-  
+
   for i in range(n):
     for j in range(m):
       cost[i + 1][j + 1] = min(
@@ -23,7 +23,7 @@ def solve(
         cost[i][j] + (a[i] != b[j]),
       )
 
-  print(cost[n][m])  
+  print(cost[n][m])
 
 
 def main() -> typing.NoReturn:

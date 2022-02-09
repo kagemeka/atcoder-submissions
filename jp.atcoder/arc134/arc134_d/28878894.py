@@ -34,7 +34,7 @@ def main() -> None:
         return
 
     flg = 0
-    
+
     for j in range(1, i):
         if right[j] < right[j - 1]:
             flg = -1

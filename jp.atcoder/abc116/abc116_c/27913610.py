@@ -1,10 +1,10 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     n = int(input())
     h = list(map(int, input().split()))
-    
+
     cnt = 0
     while any(x > 0 for x in h):
         flag = False
@@ -18,5 +18,4 @@ def main() -> typing.NoReturn:
             flag = True
     print(cnt)
 
-main() 
-            
+main()

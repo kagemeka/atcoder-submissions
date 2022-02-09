@@ -1,18 +1,18 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
-@nb.njit 
+@nb.njit
 def double_tree(g: np.ndarray) -> np.ndarray:
   n = g.max() + 1
   assert len(g) == n - 1
   t = np.empty(((n - 1) * 2, 2), np.int64)
   add_idx = 0
   def add_edge(u, v):
-    nonlocal add_idx 
+    nonlocal add_idx
     t[add_idx] = (u, v)
     add_idx += 1
 
@@ -23,7 +23,7 @@ def double_tree(g: np.ndarray) -> np.ndarray:
   return t
 
 
-@nb.njit 
+@nb.njit
 def csgraph_to_directed(g: np.ndarray) -> np.ndarray:
   m = len(g)
   g = np.vstack((g, g))
@@ -33,7 +33,7 @@ def csgraph_to_directed(g: np.ndarray) -> np.ndarray:
 
 @nb.njit
 def sort_csgraph(
-  n: int, 
+  n: int,
   g: np.ndarray,
 ) -> typing.Tuple[(np.ndarray, ) * 3]:
   sort_idx = np.argsort(g[:, 0], kind='mergesort')
@@ -67,7 +67,7 @@ def euler_tour_edge(
   return tour, parent, depth
 
 
-@nb.njit 
+@nb.njit
 def euler_tour_node(
   g: np.ndarray,
   edge_idx: np.ndarray,
@@ -121,8 +121,8 @@ def solve(uv: np.ndarray) -> typing.NoReturn:
   s -= sum(sub_counts) + 1
   s %= mod
   print(s)
-  
-    
+
+
 
 def main() -> typing.NoReturn:
   n = int(input())

@@ -7,7 +7,7 @@ h, w, k = map(int, sys.stdin.readline().split())
 def main():
     if w == 1:
         return 1
-        
+
     ok = []
     for i in range(2 ** (w - 1)):
         prev = False
@@ -51,7 +51,7 @@ def main():
         res = nex
 
     return res[k-1]
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

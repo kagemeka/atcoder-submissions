@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -14,7 +14,7 @@ def solve(a: np.ndarray) -> typing.NoReturn:
   b = np.bincount(a)
   cnt += np.sum(b * (b - 1) // 2)
   print(cnt)
-  
+
 
 def main() -> typing.NoReturn:
   n = int(input())

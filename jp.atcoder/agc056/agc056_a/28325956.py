@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -8,13 +8,11 @@ def main() -> typing.NoReturn:
         for j in range(i * 3, (i + 1) * 3):
             j %= n
             a[i][j] = '#'
-    
+
     if n % 3:
         a[0], a[n // 3] = a[n // 3], a[0]
         a[n - 1], a[n - 1 - n // 3] = a[n - 1 - n // 3], a[n - 1]
     for s in a:
         print(''.join(s))
-    
+
 main()
-
-

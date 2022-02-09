@@ -6,7 +6,7 @@ import functools
 
 
 def verbal_arithemetic(
-    words: list[str], 
+    words: list[str],
     result: str,
     zero_ok: bool=True,
 ) -> list[dict[str, int]]:
@@ -32,7 +32,7 @@ def verbal_arithemetic(
         sign = (i < n - 1) * 2 - 1
         v = w[~j]
         def no_heading_zero(d: int) -> bool:
-            return d != 0 or j < len(w) - 1 or zero_ok and j == 0        
+            return d != 0 or j < len(w) - 1 or zero_ok and j == 0
         if digit[v] != -1:
             if not no_heading_zero(digit[v]): return
             search(i + 1, j, s + sign * digit[v])
@@ -43,7 +43,7 @@ def verbal_arithemetic(
             digit[v], value[d] = d, v
             search(i + 1, j, s + sign * d)
             digit[v] = value[d] = -1
-    
+
     search(0, 0, 0)
     return patterns
 
@@ -54,17 +54,16 @@ def main() -> typing.NoReturn:
     s = sys.stdin.read().split()
     words, result = s[:-1], s[-1]
     patterns = verbal_arithemetic(words, result, zero_ok=False)
-    
+
     if not patterns:
         print('UNSOLVABLE')
         return
     p = patterns[0]
 
     def convert(l: str) -> str: return str(p[l])
-    
+
     s = [''.join(map(convert, w)) for w in s]
     print(*s, sep='\n')
 
 
 main()
-        

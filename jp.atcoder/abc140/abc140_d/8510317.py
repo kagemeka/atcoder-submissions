@@ -11,7 +11,7 @@ import re
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
@@ -26,7 +26,7 @@ def main():
         unhappy_count += 1
 
     two_unhappy = [c.start() for c in re.finditer('RL', s)]
-    
+
     unhappy_count += 2 * len(two_unhappy)
     if k >= len(two_unhappy):
         if 0 in two_unhappy:

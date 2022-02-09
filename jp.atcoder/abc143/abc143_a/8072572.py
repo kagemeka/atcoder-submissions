@@ -8,6 +8,5 @@ if uncovered_part > 0:
   return
 else:
   uncovered_part = 0
-  
+
 print uncovered_part
-  

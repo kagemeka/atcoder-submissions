@@ -1,6 +1,6 @@
 import sys
 import numpy as np
-from heapq import heappush, heappop 
+from heapq import heappush, heappop
 from bisect import bisect_left as bi_l, bisect_right as bi_r
 from collections import deque, Counter, defaultdict
 from itertools import combinations, product
@@ -12,9 +12,9 @@ MOD = 10**9+7
 class NumberTheory():
   def __init__(self, n=2*10**6, numpy=True):
     self.n = n
-    self.np_flg = numpy 
+    self.np_flg = numpy
     self.is_prime_number, self.prime_numbers = self.sieve_of_eratosthenes(n)
-  
+
   def sieve_of_eratosthenes(self, n):
     if self.np_flg:
       sieve = np.ones(n+1, dtype=np.int64); sieve[:2] = 0
@@ -27,7 +27,7 @@ class NumberTheory():
         if not sieve[i]: continue
         for j in range(i*2, n+1, i): sieve[j] = 0
       prime_numbers = [i for i in range(2, n+1) if sieve[i]]
-    return sieve, prime_numbers 
+    return sieve, prime_numbers
 
   def prime_factorize(self, n):
     res = dict()
@@ -44,7 +44,7 @@ class NumberTheory():
     for i in range(2, n+1):
       for p, c in self.prime_factorize(i).items(): res[p] = res.get(p, 0)+c
     return res
-  
+
   @staticmethod
   def gcd(a, b): return gcd(b, a%b) if b else abs(a)
 
@@ -60,7 +60,7 @@ class NumberTheory():
       j = n // i
       if j != i: divisors.append(j)
     return divisors
-  
+
   @staticmethod
   def base_convert(n, b): # return string
     if not n: return '0'
@@ -75,26 +75,26 @@ class NumberTheory():
 class UnionFind():
   def __init__(self, n=10**6):
     self.root = list(range(n))
-    self.height = [0] * n 
-    self.size = [1] * n 
-  
+    self.height = [0] * n
+    self.size = [1] * n
+
   def find_root(self, u):
     if self.root[u] == u: return u
     self.root[u] = self.find_root(self.root[u])
     return self.root[u]
-  
+
   def unite(self, u, v):
     ru = self.find_root(u)
     rv = self.find_root(v)
-    if ru == rv: return 
+    if ru == rv: return
     hu = self.height[ru]
     hv = self.height[rv]
     if hu >= hv:
-      self.root[rv] = ru 
+      self.root[rv] = ru
       self.size[ru] += self.size[rv]
       self.height[ru] = max(hu, hv+1)
     else:
-      self.root[ru] = rv 
+      self.root[ru] = rv
       self.size[rv] += self.size[ru]
 
 
@@ -115,7 +115,7 @@ class Combinatorics():
     else:
       self.nCr[(n, r)] = (self.choose(n-1, r, mod) + self.choose(n-1, r-1, mod)) % mod
     return self.nCr[(n,r)]
-  
+
   def cumprod(self, a):
     p = self.mod
     l = len(a); sql = int(np.sqrt(l)+1)
@@ -160,8 +160,8 @@ class ABC001():
     print(h1-h2)
 
   def B(): pass
-  def C(): pass 
-  def D(): pass 
+  def C(): pass
+  def D(): pass
 
 
 class ABC002():
@@ -171,11 +171,11 @@ class ABC002():
 
   def B():
     vowels = set('aeiou')
-    s = sys.stdin.readline().rstrip() 
+    s = sys.stdin.readline().rstrip()
     t = ''
     for c in s:
-      if c in vowels: continue 
-      t += c 
+      if c in vowels: continue
+      t += c
     print(t)
 
   def C():
@@ -212,10 +212,10 @@ class ABC003():
     s, t = sys.stdin.read().split()
     for i in range(len(s)):
       if s[i] == t[i]: continue
-      if s[i] == '@' and t[i] in atcoder: continue 
+      if s[i] == '@' and t[i] in atcoder: continue
       if t[i] == '@' and s[i] in atcoder: continue
       print('You will lose')
-      return 
+      return
     print('You can win')
 
   def C():
@@ -225,7 +225,7 @@ class ABC003():
       res = (res+x) / 2
     print(res)
 
-  def D(): pass 
+  def D(): pass
 
 
 class ABC004():
@@ -246,7 +246,7 @@ class ABC004():
       res[i], res[i+1] = res[i+1], res[i]
     print(''.join(map(str, res)))
 
-  def D(): pass 
+  def D(): pass
 
 
 class ABC005():
@@ -266,11 +266,11 @@ class ABC005():
     b = [int(x) for x in sys.stdin.readline().split()]
     i = 0
     for p in b:
-      if i == n: print('no'); return 
+      if i == n: print('no'); return
       while p-a[i] > t:
         i += 1
-        if i == n: print('no'); return 
-      if a[i] > p: print('no'); return 
+        if i == n: print('no'); return
+      if a[i] > p: print('no'); return
       i += 1
     print('yes')
 
@@ -305,23 +305,23 @@ class ABC006():
       t.append(t[-1]+t[-2]+t[-3]); t[-1] %= mod
     n = int(sys.stdin.readline().rstrip())
     print(t[n-1])
-    
+
   def C():
     n, m = map(int, sys.stdin.readline().split())
     cnt = [0, 0, 0]
     if m == 1: cnt = [-1, -1, -1]
     else:
       if m & 1: m -= 3; cnt[1] += 1; n -= 1
-      cnt[2] = m//2 - n 
+      cnt[2] = m//2 - n
       cnt[0] = n - cnt[2]
     if cnt[0]<0 or cnt[1]<0 or cnt[2]<0: print(-1, -1, -1)
     else: print(*cnt, sep=' ')
-      
+
   def D():
     n, *c = map(int, sys.stdin.read().split())
     inf = float('inf')
-    lis = [inf]*n 
-    for x in c: lis[bi_l(lis, x)] = x 
+    lis = [inf]*n
+    for x in c: lis[bi_l(lis, x)] = x
     print(n - bi_l(lis, inf))
 
 
@@ -347,12 +347,12 @@ class ABC007():
       y, x = queue.popleft()
       for i, j in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
         i += y; j += x
-        if maze[i][j] == '#' or dist[i, j] != np.inf: continue 
+        if maze[i][j] == '#' or dist[i, j] != np.inf: continue
         dist[i, j] = dist[y, x] + 1
         queue.append((i, j))
     print(int(dist[gy, gx]))
-  
-  def D(): pass 
+
+  def D(): pass
 
 
 class ABC008():
@@ -371,7 +371,7 @@ class ABC008():
     a = np.array(a)
     c = n - np.count_nonzero(a[:, None]%a, axis=1)
     print(np.sum((c+1)//2/c))
-  
+
   def D(): pass
 
 class ABC009():
@@ -382,7 +382,7 @@ class ABC009():
   def B():
     n, *a = map(int, sys.stdin.read().split())
     print(sorted(set(a))[-2])
-    
+
   def C():
     n, k = map(int, sys.stdin.readline().split())
     s = list(sys.stdin.readline().rstrip())
@@ -394,13 +394,13 @@ class ABC009():
         if s[j] < s[i] and cost[i]+cost[j] <= r:
           heappush(q, (s[j], cost[i]+cost[j], -j))
       if not q: continue
-      _, c, j = heappop(q); j = -j 
+      _, c, j = heappop(q); j = -j
       s[i], s[j] = s[j], s[i]
-      r -= c 
+      r -= c
       cost[i] = cost[j] = 0
     print(''.join(s))
-      
-  def D(): pass 
+
+  def D(): pass
 
 
 class ABC010():
@@ -410,7 +410,7 @@ class ABC010():
     n, *a = map(int, sys.stdin.read().split())
     tot = 0
     for x in a:
-      c = 0 
+      c = 0
       while x%2==0 or x%3==2:
         x -= 1
         c += 1
@@ -425,7 +425,7 @@ class ABC010():
     ans = 'YES' if (dist(sx, sy, x, y)+dist(x, y, gx, gy) <= v*t).any() else 'NO'
     print(ans)
 
-  def D(): pass 
+  def D(): pass
 
 class ABC011():
   def A():
@@ -433,7 +433,7 @@ class ABC011():
     print(n%12+1)
 
   def B():
-    s = sys.stdin.readline().rstrip() 
+    s = sys.stdin.readline().rstrip()
     print(s[0].upper()+s[1:].lower())
 
   def C():
@@ -445,14 +445,14 @@ class ABC011():
       while n > 0:
         if r == 0: print('NO'); return
         for i in range(3, 0, -1):
-          if (n-i) in ng: continue 
+          if (n-i) in ng: continue
           n -= i
           r -= 1
-          break 
-        else: print('NO'); return 
+          break
+        else: print('NO'); return
       print('YES')
 
-  def D(): pass 
+  def D(): pass
 
 
 class ABC170():
@@ -466,7 +466,7 @@ class ABC170():
   def B():
     x, y = map(int, sys.stdin.readline().split())
     print('Yes' if 2*x <= y <= 4*x and y%2 == 0 else 'No')
-      
+
   def C():
     x, n, *p = map(int, sys.stdin.read().split())
     a = list(set(range(102)) - set(p))
@@ -485,7 +485,7 @@ class ABC170():
 
   def E():
     n, q = map(int, sys.stdin.readline().split())
-    queue = [] 
+    queue = []
     num_kindergarten = 2*10**5
     queue_kindergarten = [[] for _ in range(num_kindergarten)]
     highest_kindergarten = [None] * num_kindergarten
@@ -496,14 +496,14 @@ class ABC170():
       where[i] = k
       while queue_kindergarten[k]:
         r, j = heappop(queue_kindergarten[k])
-        if where[j] == k: 
+        if where[j] == k:
           if rate[i] > -r:
             highest_kindergarten[k] = rate[i]
             heappush(queue, (rate[i], k, i))
           heappush(queue_kindergarten[k], (r, j))
           break
         else:
-          continue 
+          continue
         break
       else:
         highest_kindergarten[k] = rate[i]
@@ -530,24 +530,24 @@ class ABC170():
     def inquire():
       while True:
         r, k, i = heappop(queue)
-        if where[i] != k: continue 
-        if r != highest_kindergarten[k]: continue 
+        if where[i] != k: continue
+        if r != highest_kindergarten[k]: continue
         heappush(queue, (r, k, i))
         return r
 
     for i in range(n):
       a, b = map(int, sys.stdin.readline().split())
-      rate[i] = a 
+      rate[i] = a
       entry(i, b-1)
-    
+
     for _ in range(q):
       c, d = map(int, sys.stdin.readline().split())
       transfer(c-1, d-1)
       print(inquire())
-    
 
 
-  def F(): pass 
+
+  def F(): pass
 
 if __name__ == '__main__':
   ABC170.E()

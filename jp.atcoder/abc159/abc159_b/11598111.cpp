@@ -17,7 +17,7 @@ int main() {
   string s;
   cin >> s;
   int n = s.size() / 2;
-  string ans = 
+  string ans =
     (is_palindrome(s) && is_palindrome(s.substr(0, n))) ? "Yes" : "No";
   cout << ans << '\n';
   return 0;

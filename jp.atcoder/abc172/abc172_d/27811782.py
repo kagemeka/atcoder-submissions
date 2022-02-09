@@ -1,11 +1,11 @@
-import typing 
+import typing
 
 
 def sieve_of_eratosthenes(n: int) -> typing.List[bool]:
     assert n > 1
     is_prime = [True] * n
     is_prime[0] = is_prime[1] = False
-    i = 0 
+    i = 0
     while i * i < n - 1:
         i += 1
         if not is_prime[i]: continue
@@ -23,7 +23,7 @@ def least_prime_factor(n: int) -> typing.List[int]:
         if not is_prime[i]: continue
         for j in range(i * i, n, i):
             if lpf[j] == j: lpf[j] = i
-    return lpf 
+    return lpf
 
 def greatest_prime_factor(n: int) -> typing.List[int]:
     lpf = least_prime_factor(n)

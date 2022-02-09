@@ -18,12 +18,12 @@ def main():
     n, *a = map(int, sys.stdin.read().split())
 
     max_cump = np.cumprod(a)[-1]
-    
+
     upper = max_cump
     lower = 0
     for i in range(n):
         lower += max_cump / a[i]
-    ans = upper / lower 
+    ans = upper / lower
     print(ans)
 
 if __name__ == "__main__":

@@ -12,6 +12,6 @@ def main():
         tot += min(b[i], a[i+1])
         a[i+1] = max(0, a[i+1] - b[i])
     print(tot)
-        
+
 if __name__ ==  '__main__':
     main()

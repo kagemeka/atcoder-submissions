@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 
 I = np.array(sys.stdin.read().split(), dtype=np.int32)
 n, k, q = I[:3]; a = I[3:] - 1

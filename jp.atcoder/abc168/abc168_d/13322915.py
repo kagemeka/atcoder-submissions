@@ -10,13 +10,13 @@ for a, b in ab:
     graph[b].append(a)
 
 def main():
-    parent = [None] * n 
+    parent = [None] * n
     parent[0] = 0
     queue = deque([0])
     while queue:
         x = queue.popleft()
         for y in graph[x]:
-            if parent[y] is not None: continue 
+            if parent[y] is not None: continue
             parent[y] = x
             queue.append(y)
 

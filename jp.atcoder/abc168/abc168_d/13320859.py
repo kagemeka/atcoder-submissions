@@ -9,13 +9,13 @@ for a, b in ab:
     graph[b].append(a)
 
 def main():
-    parent = [None] * n 
+    parent = [None] * n
     parent[0] = 0
     stack = [0]
     while stack:
         x = stack.pop()
         for y in graph[x]:
-            if parent[y] is not None: continue 
+            if parent[y] is not None: continue
             parent[y] = x
             stack.append(y)
 

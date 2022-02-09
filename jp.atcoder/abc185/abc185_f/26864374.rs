@@ -19,8 +19,8 @@ pub struct Scanner {
 /// let a: i32 = sc.scan::<i32>();
 /// ```
 impl Scanner {
-    pub fn scan<T>(&mut self) -> T 
-    where 
+    pub fn scan<T>(&mut self) -> T
+    where
         T: std::str::FromStr,
         T::Err: std::fmt::Debug,
     {
@@ -28,8 +28,8 @@ impl Scanner {
             if let Some(token) = self.buffer.pop() {
                 return token.parse::<T>().unwrap();
             }
-            self.buffer = 
-                readline()   
+            self.buffer =
+                readline()
                 .trim()
                 .split_whitespace().rev()
                 .map(String::from)
@@ -145,7 +145,7 @@ impl<'a, S: Copy> FenwickTree<'a, S> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    
+
     #[test]
     fn test_segment_tree() {
         let op = |x: &i32, y: &i32| { x + y };
@@ -192,6 +192,6 @@ fn main() {
             // println!("{}", fw.get(y) ^ fw.get(x));
             // out.write_fmt("{}", fw.get(y) ^ fw.get(x));
             writeln!(out, "{}", (fw.get(y) ^ fw.get(x))).unwrap();
-        }  
+        }
     }
 }

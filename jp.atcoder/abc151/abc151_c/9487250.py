@@ -15,7 +15,7 @@ def main():
     for p, v in pv:
         wa[p] += (ac[p] | v) ^ 1
         ac[p] |= v
-    
+
     for p in range(1, n+1):
         wa[p] *= ac[p]
 

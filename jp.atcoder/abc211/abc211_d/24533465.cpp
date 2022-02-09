@@ -46,6 +46,6 @@ int main() {
       dist[v] = dv;
       q.push(v);
     }
-  } 
+  }
   cout << paths[n - 1] << '\n';
 }

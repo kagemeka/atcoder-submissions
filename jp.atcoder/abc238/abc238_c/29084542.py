@@ -10,7 +10,7 @@ def main() -> None:
         if n >= d * 10:
             c = d * 9
             s += (1 + c) * c // 2
-            s %= MOD 
+            s %= MOD
         else:
             c = n - d + 1
             s += (1 + c) * c // 2

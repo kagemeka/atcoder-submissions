@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -10,7 +10,7 @@ def mod_cumprod(a: np.ndarray, mod: int) -> typing.NoReturn:
   for i in range(len(a) - 1): a[i + 1] = a[i + 1] * a[i] % mod
 
 
-@nb.njit 
+@nb.njit
 def mod_pow(x: int, n: int, mod: int) -> int:
   y = 1
   while n:
@@ -20,20 +20,20 @@ def mod_pow(x: int, n: int, mod: int) -> int:
   return y
 
 
-@nb.njit 
+@nb.njit
 def mod_inverse(n: int, p: int) -> int:
   return mod_pow(n, p - 2, p)
 
 
-@nb.njit 
+@nb.njit
 def mod_factorial(n: int, mod: int) -> np.ndarray:
   a = np.arange(n)
   a[0] = 1
   mod_cumprod(a, mod)
-  return a 
+  return a
 
 
-@nb.njit 
+@nb.njit
 def mod_factorial_inverse(n: int, p: int) -> np.ndarray:
   a = np.arange(1, n + 1)
   a[-1] = mod_inverse(mod_factorial(n, p)[-1], p)
@@ -50,7 +50,7 @@ def solve(a: np.ndarray) -> typing.NoReturn:
   def mod_choose(n, k):
     ok = (0 <= k) & (k <= n)
     return fact[n] * ifact[n - k] % p * ifact[k] % p * ok
-  
+
   b = np.zeros(p, np.int64)
 
   def add_polynomial(i):
@@ -62,8 +62,8 @@ def solve(a: np.ndarray) -> typing.NoReturn:
     for j in range(p):
       b[p - 1 - j] -= pow_neg_i[j] * mod_choose(p - 1, j) % p
     b[0] += 1
-    b %= p 
-      
+    b %= p
+
   for i in range(p):
     if a[i] == 0: continue
     add_polynomial(i)

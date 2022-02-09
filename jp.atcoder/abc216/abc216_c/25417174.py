@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -14,7 +14,7 @@ def main() -> typing.NoReturn:
   res = map(lambda x: chr(ord('A') + x), res)
   res = ''.join(res)[::-1]
   print(res)
-    
+
 
 
 main()

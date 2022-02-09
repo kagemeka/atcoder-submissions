@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 from math import (
   gcd,
@@ -15,13 +15,13 @@ def solve(
     typing.Tuple[int, int],
   ],
 ) -> typing.NoReturn:
-  
+
 
   a, b = [], []
   for x, y in ab:
     a.append(x)
     b.append(y)
-  
+
 
   @lru_cache(maxsize=None)
   def dfs(
@@ -30,7 +30,7 @@ def solve(
     gy: int,
   ) -> int:
     if i == n:
-      return lcm(gx, gy) 
+      return lcm(gx, gy)
 
     lx = dfs(
       i + 1,
@@ -43,7 +43,7 @@ def solve(
       gcd(gy, a[i]),
     )
     return max(lx, ly)
-  
+
   print(dfs(0, 0, 0))
 
 

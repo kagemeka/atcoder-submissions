@@ -18,7 +18,7 @@ func isPalindrome(s string) bool {
 }
 
 func main() {
-  var s string 
+  var s string
   fmt.Scan(&s)
   n := len(s)
   res := "No"

@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -18,7 +18,7 @@ def rps(a: str, b: str) -> int:
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())
   a = sys.stdin.read().split()
-  
+
   score = [0] * (n << 1)
   # rank = list(range(n << 1))
 
@@ -33,7 +33,7 @@ def main() -> typing.NoReturn:
         score[b] += 1
       else:
         score[c] += 1
-  
+
 
   order = sorted(range(n << 1), key=lambda x: -score[x])
   for x in order:

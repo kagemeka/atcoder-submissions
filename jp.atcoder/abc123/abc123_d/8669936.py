@@ -44,7 +44,7 @@ def main():
                 cnt += 1
                 if cnt >= K:
                     break
-                
+
 
     res = sorted(res, reverse=True)[:K]
     print('\n'.join(map(str, res)))

@@ -27,18 +27,18 @@ import sys
 def main():
     A, B, X = map(int, sys.stdin.readline().split())
     # binary search
-    
+
     def cost(n):
         return A * n + B * len(str(n))
-        
+
     l = 1; r = 10 ** 9
     while l <= r:
         mid = (l + r) // 2
         if cost(mid) <= X:
             l = mid + 1
         else:
-            r = mid - 1   
-    
+            r = mid - 1
+
     print(r)
 
 if __name__ == '__main__':

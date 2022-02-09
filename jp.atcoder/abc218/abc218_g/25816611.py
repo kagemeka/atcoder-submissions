@@ -1,7 +1,7 @@
-import typing 
+import typing
 import sys
-import numpy as np 
-import numba as nb 
+import numpy as np
+import numba as nb
 
 
 
@@ -13,7 +13,7 @@ def sort_csgraph(
   np.ndarray,
   np.ndarray,
   np.ndarray,
-]: 
+]:
   sort_idx = np.argsort(csgraph[:, 0], kind='mergesort')
   csgraph = csgraph[sort_idx]
   original_idx = np.arange(len(csgraph))[sort_idx]
@@ -27,7 +27,7 @@ def fw_build(n: int) -> np.ndarray:
   return np.zeros(n + 1, np.int64)
 
 
-@nb.njit 
+@nb.njit
 def fw_build_from_array(a: np.ndarray) -> np.ndarray:
   assert a[0] == 0
   fw = a.copy()
@@ -38,7 +38,7 @@ def fw_build_from_array(a: np.ndarray) -> np.ndarray:
   return fw
 
 
-@nb.njit 
+@nb.njit
 def fw_set(
   fw: np.ndarray,
   i: int,
@@ -49,9 +49,9 @@ def fw_set(
     i += i & -i
 
 
-@nb.njit 
+@nb.njit
 def fw_get(fw: np.ndarray, i: int) -> int:
-  v = 0 
+  v = 0
   while i > 0:
     v += fw[i]
     i -= i & -i
@@ -83,7 +83,7 @@ def compress_array(
 
 
 
-@nb.njit 
+@nb.njit
 def csgraph_to_undirected(csgraph: np.ndarray) -> np.ndarray:
   m = len(csgraph)
   csgraph = np.vstack((csgraph, csgraph))
@@ -94,7 +94,7 @@ def csgraph_to_undirected(csgraph: np.ndarray) -> np.ndarray:
 
 @nb.njit
 def euler_tour(
-  n: int, 
+  n: int,
   csgraph: np.ndarray,
   root: int,
 ) -> typing.Tuple[
@@ -122,8 +122,8 @@ def euler_tour(
       depth[v] = depth[u] + 1
       st.append(v)
   return tour, parent, depth
-  
-  
+
+
 
 @nb.njit((nb.i8[:], nb.i8[:, :]), cache=True)
 def solve(
@@ -156,7 +156,7 @@ def solve(
 
   uv = np.vstack((uv, uv[:, ::-1]))
   uv, edge_idx, _ = sort_csgraph(n, uv)
-  res = np.empty(n, np.int64)  
+  res = np.empty(n, np.int64)
   for u in np.argsort(depth)[::-1]:
     is_taro_turn = depth[u] & 1 == 0
     v = uv[edge_idx[u]:edge_idx[u + 1], 1]
@@ -167,7 +167,7 @@ def solve(
     res[u] = res[v].max() if is_taro_turn else res[v].min()
 
   print(res[0])
-  
+
 
 
 def main() -> typing.NoReturn:

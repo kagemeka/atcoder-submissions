@@ -1,4 +1,4 @@
-import typing 
+import typing
 import numpy as np
 import numba as nb
 
@@ -28,13 +28,13 @@ def solve(
   cnt = np.zeros(l, np.int64)
   for i in range(l):
     d = divs[i]
-    c = n // d 
+    c = n // d
     for j in range(i):
       if divs[j] % d: continue
       c -= cnt[j]
     c %= mod
     cnt[i] = c
-  
+
   s = 1
   for i in range(l):
     d, c = divs[i], cnt[i]

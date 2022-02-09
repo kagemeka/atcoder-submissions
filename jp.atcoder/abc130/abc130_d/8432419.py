@@ -8,11 +8,11 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, k, *a = [int(x) for x in sys.stdin.read().split()]
-    
+
     l = r = 0
     s = a[0]
     total = 0
@@ -28,6 +28,6 @@ def main():
             s -= a[l]
             l += 1
     print(total)
-    
+
 if __name__ == "__main__":
     main()

@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 
 
@@ -18,7 +18,7 @@ def get_mx(
   a: np.array,
   i: int,
 ) -> int:
-  mx = 0 
+  mx = 0
   while i > 0:
     mx = max(mx, a[i])
     i -= i & -i
@@ -35,7 +35,7 @@ def solve(
     n + 1,
     dtype=np.int64,
   )
-  mx = 0 
+  mx = 0
   for i in range(n):
     v = get_mx(seg, h[i] - 1)
     v += a[i]

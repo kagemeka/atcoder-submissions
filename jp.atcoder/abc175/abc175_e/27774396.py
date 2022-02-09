@@ -1,10 +1,10 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     h, w, k = map(int, input().split())
     inf = 1 << 60
-    
+
     grid = [[-inf] * w for _ in range(h)]
     for _ in range(k):
         y, x, v = map(int, input().split())
@@ -16,7 +16,7 @@ def main() -> typing.NoReturn:
         for k in range(4):
             dp[j + 1][k] = dp[j][k]
         if grid[0][j] == -inf: continue
-        for k in range(3, 0, -1):            
+        for k in range(3, 0, -1):
             dp[j + 1][k] = max(dp[j + 1][k], dp[j + 1][k - 1] + grid[0][j])
     for i in range(1, h):
         g = grid[i]
@@ -28,5 +28,5 @@ def main() -> typing.NoReturn:
             for k in range(3, 0, -1):
                 dp[j + 1][k] = max(dp[j + 1][k], dp[j + 1][k - 1] + grid[i][j])
     print(max(dp[-1]))
-             
+
 main()

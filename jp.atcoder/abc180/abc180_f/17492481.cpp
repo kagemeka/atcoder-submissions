@@ -30,7 +30,7 @@ constexpr static Type mod() {return T::value;}
 Modular& operator+=(const Modular& other) {if ((value += other.value) >= mod()) value -= mod(); return *this;}
 Modular operator+(const Modular& other) const {Modular res(*this); return res += other;}
 Modular& operator-=(const Modular& other) {if ((value -= other.value) < 0) value += mod(); return *this;}
-Modular operator-(const Modular& other) const {Modular res(*this); return res -= other;} 
+Modular operator-(const Modular& other) const {Modular res(*this); return res -= other;}
 
 template<typename U> Modular& operator+=(const U& other) {return *this += Modular(other);}
 template<typename U> Modular& operator-=(const U& other) {return *this -= Modular(other);}
@@ -40,7 +40,7 @@ Modular operator++(int) {Modular res(*this); *this += 1; return res;}
 Modular operator--(int) {Modular res(*this); *this -= 1; return res;}
 Modular operator-() const {return Modular(-value);}
 
-Modular& operator*=(const Modular& other) {(value *= other.value) %= mod(); return *this;} 
+Modular& operator*=(const Modular& other) {(value *= other.value) %= mod(); return *this;}
 Modular operator*(const Modular& other) const {Modular res(*this); return res *= other;}
 
 template<typename U>
@@ -150,7 +150,7 @@ using namespace Combinatorics;
 /* Geometry and Topology */
 namespace GeometryTopology {
 
-template<typename ...T> 
+template<typename ...T>
 struct Vector {
 public:
 Vector(T ... args){}
@@ -201,7 +201,7 @@ vector<int> bfs(int src=0) {
 }
 
 /* Dinic maximum flow algorithm. */
-T dinic(int src, int sink) { 
+T dinic(int src, int sink) {
   function<T(int, T)> flow_to_sink;
   flow_to_sink = [&](int u, T flow_in) {
     if (u == sink) return flow_in;
@@ -380,7 +380,7 @@ struct Rectangle {
         return this->x2 < r.x2;
       }
       return this->y1 < r.y1;
-    } 
+    }
     return this->x1 < r.x1;
   }
 };
@@ -391,7 +391,7 @@ using namespace GeometryTopology;
 
 
 
-template<typename T> 
+template<typename T>
 vector<T> LIS(vector<T> &a) {
   vector<T> b(a.size(), numeric_limits<T>::max());
   for (T &x : a) *lower_bound(b.begin(), b.end(), x) = x;
@@ -400,7 +400,7 @@ vector<T> LIS(vector<T> &a) {
 
 
 namespace Algebra {
-template<typename T> 
+template<typename T>
 vector<vector<T>> identity(int n) {
   vector<vector<T>> e(n, vector<T>(n));
   for (int i = 0; i < n; i++) e[i][i] = 1;
@@ -494,7 +494,7 @@ PrimeNumber(): prime_nums(0) {
     for (T j = i*2; j < N; j += i) is_prime[j] = 0;
   }
   for (T i = 0; i < N; i++) {
-    if (is_prime[i]) prime_nums.emplace_back(i);  
+    if (is_prime[i]) prime_nums.emplace_back(i);
   }
 }
 T& operator[](int i) {return prime_nums[i];}
@@ -623,7 +623,7 @@ void c() {
   sort(r.begin(), r.end(), greater<int>());
   double res = 0;
   for (int i = k-1; i > -1; i--) {res = (res + r[i])/2;}
-  cout << setprecision(16) << res << '\n';  
+  cout << setprecision(16) << res << '\n';
 }
 void d() {
 
@@ -733,7 +733,7 @@ namespace ABC006 {
 void a() {
   int n; cin >> n;
   if (n%3==0) {cout << "YES";} else {cout << "NO";}
-  cout << '\n'; 
+  cout << '\n';
 }
 
 void b() {
@@ -756,7 +756,7 @@ void c() {
   a = n - c;
   if (a<0 || b<0 || c<0) {a = b = c = -1;}
   cout << a << ' ' << b << ' ' << c << '\n';
-  
+
 }
 
 void d() {
@@ -778,7 +778,7 @@ void b() {
   string a; cin >> a;
   if (a=="a") {cout << -1 << '\n'; return;}
   cout << 'a' << '\n';
-  
+
 }
 
 void c() {
@@ -789,7 +789,7 @@ void c() {
   int tgt = gy*c + gx;
   vector<string> maze(r);
   for (int i = 0; i < r; i++) cin >> maze[i];
-  
+
   vector<pair<int, int>> dyx = {
     make_pair(-1, 0), make_pair(1, 0), make_pair(0, -1), make_pair(0, 1)
   };
@@ -875,9 +875,9 @@ void d() {
     int y, x; cin >> y >> x;
     yx[i] = make_pair(y,x);
   }
-  
+
   map<Rectangle<int>, long long> cnt;
-  
+
   function<long long(Rectangle<int>)> count;
   count = [&](Rectangle<int> r) {
     if (cnt.count(r)) return cnt[r];
@@ -897,7 +897,7 @@ void d() {
   };
 
   cout << count(Rectangle<int>(1,1,w,h)) << '\n';
-  
+
 }
 }
 
@@ -1067,10 +1067,10 @@ void d_2() {
   x /= d; y /= d;
   int r = n - (x+y);
   if (r<0 || r&1) {cout << 0 << '\n'; return;}
- 
+
   using P = pair<int, int>;
   map<P, double> nCr;
-  
+
   function<double(int, int)> c;
   c = [&](int n, int r) {
     if (r < 0 || r > n) return .0;
@@ -1188,7 +1188,7 @@ void d() {
     return b;
   };
 
-  for (auto &x : binary_method(res, d)) {cout << x+1 << '\n';}  
+  for (auto &x : binary_method(res, d)) {cout << x+1 << '\n';}
 }
 }
 
@@ -1237,7 +1237,7 @@ void d() {
     int a, b; cin >> a >> b; a--; b--;
     cout << g.find_dist(a, b)+1 << '\n';
   }
-} 
+}
 }
 
 namespace ABC015 {
@@ -1257,7 +1257,7 @@ void b() {
 
 void c() {
   int n, k; cin >> n >> k;
-  
+
   vector<vector<int>> t(n, vector<int>(n));
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < k; j++) {
@@ -1320,7 +1320,7 @@ void c() {
 
 void d() {
   // Vector<int> a(1);
-  
+
 }
 }
 
@@ -1342,7 +1342,7 @@ void b() {
   cand.insert("o");
   cand.insert("k");
   cand.insert("u");
-  
+
   is_choku = [&](string s) {
     if (s.empty()) {return true;}
     int l = s.size();
@@ -1513,7 +1513,7 @@ void d() {
   int n; cin >> n;
   int u = 1, dist = 0;
   auto inquire = [](int x, int y) {
-    printf("? %d %d\n", x, y); 
+    printf("? %d %d\n", x, y);
     int d; cin >> d; return d;
   };
   auto find = [&](int x) {
@@ -1568,7 +1568,7 @@ void c() {
     }
     return g.dijkstra(src)[tgt] <= t;
   };
-  
+
   auto binary_search = [&]() {
     int lo = 1, hi = t;
     while (lo+1 < hi) {
@@ -1579,8 +1579,8 @@ void c() {
   };
 
   cout << binary_search() << '\n';
-  
-  
+
+
 }
 
 void d () {
@@ -1597,7 +1597,7 @@ void d () {
   long long tot = 0;
   for (int i = 0; i < l; i++) {tot += s[i]*k/d[i]%MOD; tot %= MOD;}
   cout << tot << '\n';
-  
+
 }
 }
 
@@ -1634,7 +1634,7 @@ void d() {
   int n, k; cin >> n >> k;
   make_fact(n+k);
   cout << choose_mod(n-1+k, k) << '\n';
-  
+
 }
 }
 
@@ -1648,7 +1648,7 @@ void a() {
     int dw; cin >> dw;
     w += dw;
     cnt += (s <= w && w <= t);
-    
+
   }
   cout << cnt << '\n';
 }
@@ -1670,10 +1670,10 @@ void b() {
 void c() {
   int n, m; cin >> n >> m;
   auto g = Graph<int>(n);
-  
+
   int inf = numeric_limits<int>::max();
   vector<int> dist0(n, inf/10);
-  
+
   while (m--) {
     int u, v, l; cin >> u >> v >> l; u--; v--;
     if (u==0) {dist0[v] = l; continue;}
@@ -1733,7 +1733,7 @@ void c() {
   tot += real[k]; tot -= real[k-1];
   cout << tot << '\n';
 
-  
+
 }
 
 void d() {
@@ -1884,7 +1884,7 @@ void b() {
     tot += s[i]-s[i-1];
   }
   cout << setprecision(16) << tot << '\n';
-  
+
 }
 
 void c() {
@@ -2065,8 +2065,8 @@ void d() {
   vector<int> b(n);
   for (int i = 0; i < n; i++) {cin >> b[i]; b[i]--;}
   vector<int> c(n, -1);
-  
-  
+
+
   for (int i = 0; i < n+1; i++) {
     if (to_string(i)==k) {cout << a+1 << '\n'; return;}
     if (c[a]==-1) {c[a] = i; a = b[a]; continue;}
@@ -2107,7 +2107,7 @@ void c() {
     if ((j-i)&1) {x = a[j-1]-a[i-2], y = a[j]-a[i-1];}
     else {x = a[j]-a[i-2], y=a[j-1]-a[i-1];}
   };
-  
+
   int inf = numeric_limits<int>::max();
   int res = -inf;
   for (int i = 0; i < n; i++) {
@@ -2177,7 +2177,7 @@ void c() {
   for (int i = 0; i < n; i++) cin >> s[i];
   if (count(s.begin(), s.end(), 0)) {cout << n << '\n'; return;}
   if (k==0) {cout << 0 << '\n'; return;}
-  
+
   long long res=0, tmp=1;
   for (long long l=0,r=0; r < n; r++) {
     tmp *= s[r];
@@ -2222,7 +2222,7 @@ void c() {
 }
 
 void d() {
-  
+
 }
 }
 
@@ -2247,7 +2247,7 @@ void d() {
   int n, k; cin >> n >> k;
   vector<double> w(n), p(n);
   for (int i = 0; i < n; i++) cin >> w[i] >> p[i];
-  
+
   auto is_ok = [&](double x) {
     vector<double> a(n);
     for (int i = 0; i < n; i++) a[i] = w[i]*(p[i]-x);
@@ -2283,7 +2283,7 @@ void b() {
       case 'D': y--; break;
       case 'L': x--; break;
       case 'R': x++; break;
-      default: z++; 
+      default: z++;
     }
   }
   x = abs(x)+abs(y);
@@ -2318,11 +2318,11 @@ void d() {
   long long res = 0;
   for (int i = 0; i < n; i++) {
     long long r = t-d1[i]-d2[i];
-    if (r<0) continue; 
+    if (r<0) continue;
     res = max(res, r*a[i]);
   }
   cout << res << '\n';
-  
+
 }
 }
 
@@ -2541,7 +2541,7 @@ void d() {
     }
     cout << '\n';
   }
-  
+
 }
 }
 
@@ -2604,7 +2604,7 @@ void b() {
   cout << a*b*c << '\n';
 }
 void c() {
-  int n; cin >> n; 
+  int n; cin >> n;
   using P = pair<int, int>;
   vector<P> a(n);
   for (int i = 0; i < n; i++) {cin >> a[i].first; a[i].second = i+1;}
@@ -2636,7 +2636,7 @@ void a() {
   for (int i = 0; i < n; i++) cin >> a[i];
   sort(a.begin(), a.end());
   cout << ((a[0]==5 && a[1]==5 && a[2]==7) ? "YES" : "NO") << '\n';
-} 
+}
 void b() {
   int n, l; cin >> n >> l;
   vector<string> s(n);
@@ -2769,7 +2769,7 @@ void e() {
       long long c = 0; for (const int& v : loop) c += v;
       s += (n-i)/l*c;
       for (int j = 0; j < (n-i)%l; j++) s += loop[j];
-      cout << s << '\n'; return; 
+      cout << s << '\n'; return;
     }
     res[x] = i, loop[i] = x;
     s += x; x = x*x%m;
@@ -2823,7 +2823,7 @@ void e() {
     }
   }
   cout << dp.back()[0] << '\n';
-  
+
 }
 static void f() {
   int n, m, l; cin >> n >> m >> l;

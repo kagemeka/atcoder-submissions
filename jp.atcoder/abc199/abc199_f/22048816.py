@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -88,9 +88,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -109,8 +109,8 @@ class NumpyModular:
     self,
     mod: int,
   ):
-    self.mod = mod 
-  
+    self.mod = mod
+
 
   def mat_pow(
     self,
@@ -122,13 +122,13 @@ class NumpyModular:
         a.shape[0],
         dtype=np.int64,
       )
-      return e 
+      return e
     x = self.mat_pow(a, n >> 1)
     x = self.mat_dot(x, x)
-    if n & 1: 
+    if n & 1:
       x = self.mat_dot(x, a)
     return x
-  
+
 
   def mat_dot(
     self,
@@ -136,14 +136,14 @@ class NumpyModular:
     b: np.ndarray,
   ):
     mod = self.mod
-    N = 15 
+    N = 15
     MASK = (1 << N) - 1
     a0, a1 = a & MASK, a >> N
-    b0, b1 = b & MASK, b >> N 
+    b0, b1 = b & MASK, b >> N
     c0 = np.dot(a0, b0) % mod
     c2 = np.dot(a1, b1) % mod
     c1 = np.dot(
-      a0 + a1, 
+      a0 + a1,
       b0 + b1,
     ) - c0 - c2
     c1 %= mod
@@ -155,7 +155,7 @@ class NumpyModular:
 
 
   def inv(self, n: int):
-    p = self.mod 
+    p = self.mod
     n = int(n)
     return pow(n, p - 2, p)
 
@@ -172,7 +172,7 @@ class NumpyModular:
       a[i + 1] %= self.mod
     return np.ravel(a)[:l]
 
-  
+
   def factorial(self, n: int):
     fact = np.arange(n)
     fact[0] = 1
@@ -180,13 +180,13 @@ class NumpyModular:
 
 
   def inv_factorial(
-    self, 
+    self,
     n: int,
   ):
     fact = self.factorial(n)
     ifact = np.arange(1, n + 1)
     ifact[-1] = self.inv(
-      fact[-1], 
+      fact[-1],
     )
     return self.cumprod(
       ifact[::-1],
@@ -202,7 +202,7 @@ class Problem(
 
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     n = reader.int()
     m = reader.int()
     k = reader.int()
@@ -218,10 +218,10 @@ class Problem(
     xy = np.array(
       xy,
     ).reshape(m, 2) - 1
-    self.n = n 
-    self.m = m 
-    self.k = k 
-    self.a = a 
+    self.n = n
+    self.m = m
+    self.k = k
+    self.a = a
     self.xy = xy
 
 
@@ -229,7 +229,7 @@ class Problem(
     self.make_graph()
     np_mod = NumpyModular(mod)
     g = self.g
-    k = self.k 
+    k = self.k
     g = np_mod.mat_pow(g, k)
     a = self.a
     a = np_mod.mat_dot(g, a)
@@ -238,7 +238,7 @@ class Problem(
 
 
   def make_graph(self):
-    n = self.n 
+    n = self.n
     g = np.identity(
       n,
       dtype=np.int64,
@@ -258,7 +258,7 @@ class Problem(
     )
     g *= b
     g %= mod
-    self.g = g 
+    self.g = g
 
 
 

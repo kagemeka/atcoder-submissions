@@ -34,7 +34,7 @@ def possible(border):
 
 def main():
     s = [0] + list(accumulate(a[::-1]))
-    
+
     lo = 1; hi = a[-1] * 2 + 1
     while lo + 1 < hi:
         border = (lo + hi) // 2

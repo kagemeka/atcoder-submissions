@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, m = [int(x) for x in sys.stdin.readline().split()]
@@ -18,11 +18,11 @@ def main():
         li, ri = [int(x) for x in sys.stdin.readline().split()]
         l.append(li)
         r.append(ri)
-    
+
     all_mighty_cards = set(range(1,n+1))
     for i in range(m):
         all_mighty_cards &= set(l[i:] + r[:i+1])
-    
+
 
 
     print(len(all_mighty_cards) if all_mighty_cards else 0)

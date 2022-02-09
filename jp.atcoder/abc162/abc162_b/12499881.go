@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-  var n int 
+  var n int
   fmt.Scan(&n)
   s := 0
   for i := 1; i <= n; i++ {

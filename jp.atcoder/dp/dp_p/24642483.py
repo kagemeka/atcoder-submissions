@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 
 
 def solve(
@@ -16,7 +16,7 @@ def solve(
     x -= 1; y -= 1
     g[x].append(y)
     g[y].append(x)
-  
+
 
   st = [0]
   order = []
@@ -25,24 +25,24 @@ def solve(
     u = st.pop()
     order.append(u)
     for v in g[u]:
-      if v == parent[u]: 
-        continue 
+      if v == parent[u]:
+        continue
       parent[v] = u
       st.append(v)
-  
+
   dp = [
     [1] * 2
     for _ in range(n)
   ]
-  
+
   for u in order[:0:-1]:
     v = parent[u]
     w, b = dp[u]
-    dp[v][0] *= w + b 
+    dp[v][0] *= w + b
     dp[v][0] %= mod
-    dp[v][1] *= w 
+    dp[v][1] *= w
     dp[v][1] %= mod
-  
+
   print(sum(dp[0]) % mod)
 
 

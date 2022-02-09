@@ -11,7 +11,7 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 
@@ -37,7 +37,7 @@ def main():
         u, v, d = map(int, sys.stdin.readline().split())
         dist[u][v], dist[v][u] = min(dist[u][v], d), min(dist[v][u], d)
         # 問題の条件より、２点間の直経路が一つだけとは限らないので複数あった場合に最短を選択する処理
-    
+
     q = int(sys.stdin.readline().rstrip())
     st = map(int, sys.stdin.read().split())
     st = zip(st, st)
@@ -54,7 +54,7 @@ def main():
                 filling_times[s][t] = 0
             elif shortest_dist[s][t] <= l:
                 filling_times[s][t] = 1
-    
+
     min_filling_times = warshall_floyd(n, filling_times)
     for s, t in st:
         # 最初は満タンのため-1

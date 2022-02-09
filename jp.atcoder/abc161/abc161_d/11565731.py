@@ -21,7 +21,7 @@ def main():
                 if not r:
                     print(nex[-1])
                     return
-        res = nex.copy()    
+        res = nex.copy()
 
 if __name__ ==  '__main__':
     main()

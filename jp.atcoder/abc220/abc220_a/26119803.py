@@ -1,7 +1,7 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 def solve() -> typing.NoReturn:
@@ -12,9 +12,9 @@ def main() -> typing.NoReturn:
   for i in range(a, b + 1):
     if i % c == 0:
       print(i)
-      return 
+      return
   print(-1)
-  
+
 
 
 

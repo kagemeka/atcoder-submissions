@@ -1,11 +1,11 @@
-import typing 
+import typing
 
 import numpy as np
 
 def main() -> typing.NoReturn:
     n = int(input())
     a = list(map(int, input().split()))
-    
+
     cum_xor = 0
     for x in a:
         cum_xor ^= x
@@ -21,7 +21,7 @@ def main() -> typing.NoReturn:
         print('Win')
         return
     print('Win' if remained & 1 else 'Lose')
-        
+
 
 
 main()

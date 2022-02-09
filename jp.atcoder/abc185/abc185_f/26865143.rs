@@ -19,8 +19,8 @@ pub struct Scanner {
 /// let a: i32 = sc.scan::<i32>();
 /// ```
 impl Scanner {
-    pub fn scan<T>(&mut self) -> T 
-    where 
+    pub fn scan<T>(&mut self) -> T
+    where
         T: std::str::FromStr,
         T::Err: std::fmt::Debug,
     {
@@ -28,8 +28,8 @@ impl Scanner {
             if let Some(token) = self.buffer.pop() {
                 return token.parse::<T>().unwrap();
             }
-            self.buffer = 
-                readline()   
+            self.buffer =
+                readline()
                 .trim()
                 .split_whitespace().rev()
                 .map(String::from)
@@ -98,7 +98,7 @@ impl<'a, S: Copy> SegmentTree<'a, S> {
         for i in 0..size { data[n + i] = a[i]; }
         let mut seg = Self { m, data, size };
         for i in (0..n).rev() { seg.merge(i); }
-        seg        
+        seg
     }
 
     fn merge(&mut self, i: usize) {
@@ -121,7 +121,7 @@ impl<'a, S: Copy> SegmentTree<'a, S> {
         while l < r {
             if l & 1 == 1 { vl = (self.m.op)(&vl, &self.data[l]); l += 1; }
             if r & 1 == 1 { r -= 1; vr = (self.m.op)(&self.data[r], &vr); }
-            l >>= 1; r >>= 1; 
+            l >>= 1; r >>= 1;
         }
         (self.m.op)(&vl, &vr)
     }
@@ -152,8 +152,8 @@ impl<'a, S: Copy> SegmentTree<'a, S> {
 
 
 impl<'a, S: Copy> std::ops::Index<usize> for SegmentTree<'a, S> {
-    type Output = S; 
-    
+    type Output = S;
+
     fn index(&self, i: usize) -> &Self::Output {
         assert!(i < self.size);
         &self.data[i + (self.data.len() >> 1)]
@@ -165,7 +165,7 @@ impl<'a, S: Copy> std::ops::Index<usize> for SegmentTree<'a, S> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    
+
     #[test]
     fn test_segment_tree() {
         let op = |x: &i32, y: &i32| { x + y };
@@ -206,6 +206,6 @@ fn main() {
             seg.set(x, seg[x] ^ y as u32);
         } else {
             writeln!(out, "{}", seg.get(x, y)).unwrap();
-        }  
+        }
     }
 }

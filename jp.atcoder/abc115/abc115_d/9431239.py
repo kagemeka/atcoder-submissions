@@ -11,7 +11,7 @@ def make_burger(n):
         patty[i+1] = patty[i] * 2 + 1
         bun[i+1] = bun[i] * 2 + 2
         burger[i+1] = patty[i+1] + bun[i+1]
-    
+
     return patty, bun, burger
 
 n, x = map(int, sys.stdin.readline().split())
@@ -38,7 +38,7 @@ def main():
             res += patty[l]
             break
     return res
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

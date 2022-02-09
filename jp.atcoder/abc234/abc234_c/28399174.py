@@ -1,9 +1,9 @@
-import typing 
+import typing
 
 
 def main() -> None:
     k = int(input())
-    
+
     a = []
     while k:
         if k & 1:
@@ -11,7 +11,7 @@ def main() -> None:
         else:
             a.append(0)
         k >>= 1
-    
+
     print(''.join(map(str, a))[::-1])
 
 

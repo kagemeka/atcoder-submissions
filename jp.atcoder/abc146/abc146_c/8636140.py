@@ -6,7 +6,7 @@ import sys
 def main():
     A, B, X = map(int, sys.stdin.readline().split())
 
-    
+
     def cost(n):
         return A * n + B * len(str(n))
     l = 1; r = 10 ** 9
@@ -19,10 +19,10 @@ def main():
             r = mid - 1
         else:
             l = mid + 1
-        
+
     else:
         ans = r
-    
+
     print(ans)
 
 if __name__ == '__main__':

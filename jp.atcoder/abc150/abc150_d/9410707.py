@@ -18,9 +18,9 @@ def main():
     for i in range(n):
         if a[i] & 1 != oe:
             return 0
-            
+
     l = reduce(lcm, a)
-    
+
     return m // l - m // (l * 2)
 
 if __name__ == '__main__':

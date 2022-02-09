@@ -20,7 +20,7 @@ def main():
         res += l // i % MOD
         res %= MOD
     return res
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

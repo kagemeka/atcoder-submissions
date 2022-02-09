@@ -41,7 +41,7 @@ def main():
     for m in range(k-2, n-2+1):
         res += (s2[n-(m+1)-1] - s1[n-(m+1)-1]) % MOD * comb(m, k-2) % MOD
         res %= MOD
-    
+
     return res
 
 if __name__ == '__main__':

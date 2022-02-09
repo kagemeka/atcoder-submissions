@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -7,7 +7,7 @@ def main() -> typing.NoReturn:
     a = [x - y for x, y in xy]
     b = [x + y for x, y in xy]
     c = [y - x for x, y in xy]
-    mx = max(max(a) - min(a), max(b) - min(b), max(c) - min(c))    
+    mx = max(max(a) - min(a), max(b) - min(b), max(c) - min(c))
     print(mx)
 
 main()

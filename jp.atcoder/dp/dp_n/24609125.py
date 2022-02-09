@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 
 
@@ -26,7 +26,7 @@ def solve(
         )
       v += s[r] - s[l]
       dp[l, r] = v
-    
+
   print(dp[0][n])
 
 

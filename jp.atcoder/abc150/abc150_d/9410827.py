@@ -27,7 +27,7 @@ def main():
             break
 
     l = reduce(lcm, a, a[0]) * res
-    
+
     return m // l - m // (l * 2)
 
 if __name__ == '__main__':

@@ -41,7 +41,7 @@ def main():
         for y in g2[x]:
             if dist[y] == inf:
                 heappush(hq, (d+1, y))
-    
+
     return dist[t] if dist[t] != inf else -1
 
 if __name__ == '__main__':

@@ -19,33 +19,33 @@ height = [1] * (n + 1)
 def find_root(u):
     v = root[u]
     if v == u:
-        return u 
+        return u
     w = find_root(v)
-    root[u] = w 
-    return w 
+    root[u] = w
+    return w
 
 def unite(u, v):
     ru = find_root(u)
     rv = find_root(v)
     if ru != rv:
         if height[ru] >= height[rv]:
-            root[rv] = ru 
+            root[rv] = ru
             height[ru] = max(height[ru], height[rv] + 1)
             size[ru] += size[rv]
         else:
-            root[ru] = rv 
+            root[ru] = rv
             size[rv] += size[ru]
 
 def main():
     for u in range(1, n+1):
         for v in friend[u]:
             unite(u, v)
-    
+
     g = [set() for _ in range(n+1)]
     for i in range(1, n+1):
         find_root(i)
         g[root[i]].add(i)
-    
+
     for i in range(1, n+1):
         yield len(g[root[i]] - friend[i] - block[i]) - 1
 

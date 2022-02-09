@@ -1,9 +1,9 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     n = int(input())
-    
+
     # r = 0, 1, 2
     # if r == 0, it's not needed to delete any digit.
     # if r == 1, if there is at least one element r == 1, answer is 1 other wise 2

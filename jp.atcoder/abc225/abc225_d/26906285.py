@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -15,8 +15,8 @@ def solve(n: int, q: np.ndarray) -> typing.NoReturn:
         if t == 0:
             x, y = q[1:3]
             q = q[3:]
-            parent[y] = x 
-            child[x] = y 
+            parent[y] = x
+            child[x] = y
         elif t == 1:
             x, y = q[1:3]
             q = q[3:]
@@ -25,22 +25,22 @@ def solve(n: int, q: np.ndarray) -> typing.NoReturn:
             res = [0] * 0
             x = q[1]
             q = q[2:]
-            st = [0] * 0 
+            st = [0] * 0
             y = x
             while y != -1:
                 st.append(y)
                 y = parent[y]
             while st:
                 res.append(st.pop() + 1)
-            y = x 
+            y = x
             while child[y] != -1:
                 y = child[y]
                 res.append(y + 1)
             result.append(res)
-    return result 
-            
+    return result
 
-    
+
+
 
 def main() -> typing.NoReturn:
     n, q = map(int, input().split())

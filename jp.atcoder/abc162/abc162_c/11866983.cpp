@@ -6,7 +6,7 @@ long long gcd(long long a, long long b) {return b ? gcd(b, a % b) : abs(a);}
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
-  
+
   int k;
   cin >> k;
   vector<int> cnt(k + 1);

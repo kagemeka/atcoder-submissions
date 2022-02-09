@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 import math
 
@@ -9,8 +9,8 @@ def dist(x0: int, y0: int, x1: int, y1: int) -> float:
 def main() -> None:
     n = int(input())
     xy = [tuple(map(int, input().split())) for _ in range(n)]
-    
-    mx = 0 
+
+    mx = 0
     for i in range(n):
         for j in range(n):
             x0, y0 = xy[i]

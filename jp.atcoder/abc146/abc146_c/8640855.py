@@ -17,12 +17,12 @@ def main():
         n = (x - b * l) // a
         if 10 ** (l - 1) <= n < 10 ** l:
             cand.append(n)
-    
+
     ans = max(cand)
     print(ans)
 
 
-    
+
 
 if __name__ == '__main__':
     main()

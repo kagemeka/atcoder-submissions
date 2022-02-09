@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -11,7 +11,7 @@ def main() -> typing.NoReturn:
         _t, k, *_a, = map(int, input().split())
         t.append(_t)
         a.append(_a)
-    
+
     tot = 0
     ok = [False] * n
     que = [n - 1]
@@ -28,5 +28,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-        
-    

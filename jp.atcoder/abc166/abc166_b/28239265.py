@@ -1,10 +1,10 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     n, k = map(int, input().split())
 
-    cnt = [0] * n 
+    cnt = [0] * n
     for _ in range(k):
         d = int(input())
         a = list(map(int, input().split()))

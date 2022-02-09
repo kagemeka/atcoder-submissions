@@ -1,13 +1,13 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
 @nb.njit
 def sort_csgraph(
-  n: int, 
+  n: int,
   g: np.ndarray,
 ) -> typing.Tuple[np.ndarray, np.ndarray, np.ndarray]:
   sort_idx = np.argsort(g[:, 0], kind='mergesort')
@@ -31,7 +31,7 @@ def connected_components_bfs(n: int, g: np.ndarray):
   g = csgraph_to_undirected(g)
   g, edge_idx, _ = sort_csgraph(n, g)
   label = np.full(n, -1, np.int64)
-  l = 0 
+  l = 0
   for i in range(n):
     if label[i] != -1: continue
     label[i] = l
@@ -43,8 +43,8 @@ def connected_components_bfs(n: int, g: np.ndarray):
         que.append(v)
     l += 1
   return label
-  
-  
+
+
 
 
 @nb.njit((nb.i8[:], ), cache=True)
@@ -53,7 +53,7 @@ def solve(a: np.ndarray) -> typing.NoReturn:
   a = np.searchsorted(np.unique(a), a)
   m = a.max() + 1
   g = np.empty((n, 2), np.int64)
-  idx_to_add = 0 
+  idx_to_add = 0
   def add_edge(u, v):
     nonlocal idx_to_add
     g[idx_to_add] = (u, v)
@@ -63,13 +63,13 @@ def solve(a: np.ndarray) -> typing.NoReturn:
     x, y = a[i], a[n - 1 - i]
     add_edge(x, y)
     add_edge(y, x)
-  
+
   g = g[:idx_to_add]
   label = connected_components_bfs(m, g)
   print(m - label.max() - 1)
 
-    
-  
+
+
 
 
 def main() -> typing.NoReturn:

@@ -1,5 +1,5 @@
 import typing
-import numpy as np 
+import numpy as np
 import sys
 import numba as nb
 
@@ -12,7 +12,7 @@ def solve(
   a: int,
 ) -> typing.NoReturn:
   mod = 998244353
-  
+
   b = np.zeros(n, np.int64)
   for i in range(k):
     x = a[i]
@@ -39,5 +39,5 @@ def main() -> typing.NoReturn:
   c = np.where(c == 'L', 0, 1)
   solve(n, k, c, a)
 
-  
+
 main()

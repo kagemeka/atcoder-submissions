@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -6,23 +6,23 @@ def main() -> typing.NoReturn:
     y -= 1
     x -= 1
     s = [input() for _ in range(h)]
-    
+
     cnt = 0
     for i in range(y, -1, -1):
         if s[i][x] == '.':
             cnt += 1
             continue
-        break 
+        break
 
     for i in range(y, h):
         if s[i][x] == '.':
             cnt += 1
             continue
-        break 
+        break
 
     for j in range(x, -1, -1):
         if s[y][j] == '.':
-            cnt += 1 
+            cnt += 1
             continue
         break
 

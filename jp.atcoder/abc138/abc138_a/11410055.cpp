@@ -8,5 +8,5 @@ int main() {
   string ans = (a < 3200) ? "red" : s;
   cout << ans << endl;
   return 0;
-  
+
 }

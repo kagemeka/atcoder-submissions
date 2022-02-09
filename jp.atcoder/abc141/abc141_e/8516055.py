@@ -11,22 +11,22 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 
 def main():
     n, s = sys.stdin.read().split()
     n = int(n)
-    
+
     # a = [0 for _ in range(n)]
     # i = j = 0
     # while i < n:
-    #     while i+j < n and s[j] == s[i+j]: 
+    #     while i+j < n and s[j] == s[i+j]:
     #         j += 1
     #     a[i] = j
     #     if j == 0:
-    #         i += 1 
+    #         i += 1
     #         continue
     #     k = 1
     #     while i+k < n and k+a[k] < j:
@@ -37,7 +37,7 @@ def main():
 
     # print(max(l for l in a if l <= n // 2))
     # print(a)
-    
+
     ma = 0
     for k in range(n):
         sub = s[k:]
@@ -62,7 +62,7 @@ def main():
     print(ma)
 
     # a = [0 for _ in range(n)]
-    # a[0] = n 
+    # a[0] = n
     # c = 0
     # for i in range(1, n):
     #     if i+a[i-c] < c+a[c]:
@@ -72,7 +72,7 @@ def main():
     #         while i+j < n and s[s] == s[i+j]:
     #             j += 1
     #         a[i] = j
-    
+
     # print(a)
 
     # zz = [[0 for _ in range(n)] for _ in range(n)]

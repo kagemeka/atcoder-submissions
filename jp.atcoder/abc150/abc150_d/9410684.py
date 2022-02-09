@@ -18,7 +18,7 @@ def main():
 
     if not l % 2:
         return 0
-    
+
     return m // l - m // (l * 2)
 
 if __name__ == '__main__':

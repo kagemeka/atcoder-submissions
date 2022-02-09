@@ -8,7 +8,7 @@ def main():
     d = 642
     for i in range(len(s) - 2):
         d = min(d, abs(target - int(s[i:i+3])))
-    
+
     return d
 
 if __name__ == '__main__':

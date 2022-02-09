@@ -6,7 +6,7 @@ long long lcm(long long a, long long b) {return abs(a / gcd(a, b) * b);}
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
-  
+
   int k;
   cin >> k;
   long long res = 0;

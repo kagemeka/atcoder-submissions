@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -7,11 +7,11 @@ def main() -> typing.NoReturn:
     p = list(map(int, input().split()))
     ex = [(1 + x) / 2 for x in p]
     s = sum(ex[:k])
-    mx = s 
+    mx = s
     for i in range(k, n):
         s = s - ex[i - k] + ex[i]
         mx = max(mx, s)
-        
+
     print(mx)
 
 main()

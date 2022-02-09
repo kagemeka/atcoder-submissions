@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 
 
@@ -6,13 +6,13 @@ class UnionFind():
   def __init__(
     self,
     n: int,
-  ) -> typing.NoReturn: 
+  ) -> typing.NoReturn:
     self.__p = list(range(n))
     self.__s = [1] * n
-  
+
 
   def find(
-    self, 
+    self,
     u: int,
   ) -> int:
     p = self.__p
@@ -33,7 +33,7 @@ class UnionFind():
     if s[u] < s[v]: u, v = v, u
     s[u] += s[v]
     p[v] = u
-  
+
 
   def size(
     self,
@@ -46,7 +46,7 @@ class UnionFind():
 def main() -> typing.NoReturn:
   n = int(input())
   uvw = map(
-    int, 
+    int,
     sys.stdin.read().split(),
   )
   uf = UnionFind(n)

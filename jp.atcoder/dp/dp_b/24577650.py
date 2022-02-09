@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -15,7 +15,7 @@ def main() -> typing.NoReturn:
   for i in range(2, n + 1):
     x = inf
     for j in range(i - k, i):
-      if j < 0: continue     
+      if j < 0: continue
       x = min(
         x,
         c[j] + abs(h[i] - h[j])
@@ -24,4 +24,3 @@ def main() -> typing.NoReturn:
   print(c[n])
 
 main()
-       

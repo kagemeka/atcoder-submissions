@@ -229,4 +229,3 @@ def main() -> None:
     print(*res, sep='\n')
 
 main()
-        

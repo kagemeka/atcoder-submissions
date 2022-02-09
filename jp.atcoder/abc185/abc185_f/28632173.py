@@ -1,4 +1,4 @@
-import typing 
+import typing
 # import dataclasses
 
 S = typing.TypeVar("S")
@@ -8,9 +8,9 @@ S = typing.TypeVar("S")
 class Monoid(typing.Generic[S]):
     op: typing.Callable[[S, S], S]
     e: typing.Callable[[], S]
-    
+
     def __init__(self, op, e) -> None:
-        self.op = op 
+        self.op = op
         self.e = e
 
 
@@ -40,10 +40,10 @@ class SqrtDecomposition(typing.Generic[S]):
         self.__sqrt = sqrt
         self.__original_size = n
         self.__monoid = monoid
-    
+
     def __len__(self) -> int:
         return self.__original_size
-    
+
     def __setitem__(self, i: int, x: S) -> None:
         assert 0 <= i < len(self)
         self.__data[i] = x
@@ -54,7 +54,7 @@ class SqrtDecomposition(typing.Generic[S]):
                 self.__buckets[idx],
                 self.__data[j],
             )
-            
+
     def __getitem__(self, i: int) -> S:
         assert 0 <= i < len(self)
         return self.__data[i]
@@ -93,7 +93,7 @@ def main() -> None:
             sd[x] ^= y
         else:
             res.append(sd.get(x, y))
-    
+
     print(*res, sep='\n')
 
 main()

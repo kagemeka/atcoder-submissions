@@ -13,7 +13,7 @@ for _ in range(n):
 def main():
     ans = inf
     for i in range(1 << n):
-        res = [0] * m 
+        res = [0] * m
         cost = 0
         for j in range(n):
             if i >> j & 1:
@@ -30,8 +30,8 @@ def main():
         print(ans)
 
 
-                
-    
+
+
 
 if __name__ == '__main__':
     main()

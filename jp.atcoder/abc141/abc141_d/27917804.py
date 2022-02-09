@@ -1,4 +1,4 @@
-import typing 
+import typing
 import heapq
 
 def main() -> typing.NoReturn:
@@ -7,13 +7,13 @@ def main() -> typing.NoReturn:
     hq = []
     for x in a:
         heapq.heappush(hq, -x)
-    
+
     for _ in range(m):
         x = -heapq.heappop(hq)
         heapq.heappush(hq, -(x >> 1))
-    
-    
+
+
     print(-sum(hq))
-    
+
 
 main()

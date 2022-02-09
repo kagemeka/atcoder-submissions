@@ -17,7 +17,7 @@ private:
 public:
   Op op;
   Id e;
-  bool commutative; 
+  bool commutative;
 };
 
 
@@ -43,7 +43,7 @@ public:
     data = std::vector<S>(n << 1, m.e());
     for (int i = 0; i < size; i++) data[n + i] = a[i];
     for (int i = n - 1; i > 0; --i) merge(i);
-  } 
+  }
   SegmentTree(M m, int n) : SegmentTree(m, std::vector<S>(n, m.e())) {}
 
   void set(int i, S x) {
@@ -53,8 +53,8 @@ public:
     while (i > 1) { i >>= 1; merge(i); }
   }
 
-  const S& operator[](int i) const { 
-    assert(0 <= i && i < size); 
+  const S& operator[](int i) const {
+    assert(0 <= i && i < size);
     return data[n + i];
   }
 
@@ -97,7 +97,7 @@ public:
 int main() {
   std::ios::sync_with_stdio(false);
   std::cin.tie(nullptr);
-  
+
   int n, q;
   std::string s;
   std::cin >> n >> q >> s;
@@ -111,7 +111,7 @@ int main() {
   Monoid<P> m{op, e, false};
 
   std::vector<P> b(n);
-  for (int i = 0; i < n; i++) b[i] = std::make_pair(a[i], a[i]); 
+  for (int i = 0; i < n; i++) b[i] = std::make_pair(a[i], a[i]);
   auto seg = SegmentTree<P>(m, b);
 
   while (q--) {

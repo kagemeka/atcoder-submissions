@@ -8,7 +8,7 @@ import math
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 from copy import deepcopy
 
 def main():
@@ -25,7 +25,7 @@ def main():
         x += 1
         id_i = '0' * (6 - (math.floor(math.log10(p)) + 1)) + str(p) + '0' * (6 - (math.floor(math.log10(x)) + 1)) + str(x)
         ids[p][y] = id_i
-    
+
     for i in range(m):
         p, y = PY[i][0], PY[i][1]
         print(ids[p][y])

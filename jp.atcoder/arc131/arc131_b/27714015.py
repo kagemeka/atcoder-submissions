@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -22,11 +22,9 @@ def main() -> typing.NoReturn:
                 if not on_board(y, x): continue
                 s |= 1 << board[y][x]
             for k in range(1, 6):
-                if ~s >> k & 1: break 
+                if ~s >> k & 1: break
             board[i][j] = k
     for row in board:
         print(''.join(map(str, row)))
 
-main() 
-
-                
+main()

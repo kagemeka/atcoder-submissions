@@ -18,7 +18,7 @@ def main():
                     break
             else:
                 ans = 'No'
-        
+
     print(ans)
 
 if __name__ == '__main__':

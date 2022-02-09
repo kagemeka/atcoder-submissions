@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 mod = 998244353
@@ -10,19 +10,19 @@ def main() -> typing.NoReturn:
 
   if k > n:
     print(0)
-    return 
-  
+    return
+
   cs = []
   xs = []
   for _ in range(k):
     c, x = input().split()
     cs.append(c)
     xs.append(int(x) - 1)
-  
+
   if len(set(xs)) < k:
     print(0)
-    return 
-  
+    return
+
 
 
   a = [0] * (n + 1)
@@ -39,14 +39,14 @@ def main() -> typing.NoReturn:
 
   for i in range(n):
     a[i] += k
-    
+
   for x in xs:
     a[x] = 1
-  
-  p = 1 
+
+  p = 1
   for x in a[:n]:
     p *= x
-    p %= mod 
+    p %= mod
   print(p)
 
 

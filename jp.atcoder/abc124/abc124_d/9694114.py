@@ -28,7 +28,7 @@ def main():
     for i in range(m-k):
         res = max(res, r[i+k]-l[i]+1)
     return res
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

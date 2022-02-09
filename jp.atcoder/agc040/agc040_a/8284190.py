@@ -9,7 +9,7 @@ while s[0] != None:
     while s[0] == '<':
         l_c += 1
         s.popleft()
-    
+
     r_c = 0
     while s[0] == '>':
         r_c += 1

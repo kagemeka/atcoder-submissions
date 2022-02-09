@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -9,15 +9,14 @@ def main() -> typing.NoReturn:
         a[i + 1] += a[i]
     for i in range(m):
         b[i + 1] += b[i]
-    
+
     ptr = m
     mx = 0
     for i in range(n + 1):
         while ptr >= 0 and a[i] + b[ptr] > k:
             ptr -= 1
-        if ptr == -1: break 
+        if ptr == -1: break
         mx = max(mx, i + ptr)
     print(mx)
 
 main()
-        

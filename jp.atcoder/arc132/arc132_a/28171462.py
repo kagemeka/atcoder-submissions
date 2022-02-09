@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -9,7 +9,7 @@ def main() -> typing.NoReturn:
     rc = [tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(q)]
 
 
-    res = [''] * q  
+    res = [''] * q
     for i, (y, x) in sorted(enumerate(rc), key=lambda x: -max(r[x[1][0]], c[x[1][1]])):
         if r[y] > 0 and c[x] > 0:
             res[i] = '#'

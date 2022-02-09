@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def longest_non_decreasing_sequence(
@@ -11,19 +11,19 @@ def longest_non_decreasing_sequence(
     for x in a:
         lis[bisect.bisect_right(lis, x)] = x
     return lis[:bisect.bisect_left(lis, inf)]
-    
+
 
 def main() -> typing.NoReturn:
     n = int(input())
     a = [int(input()) for _ in range(n)]
-    
+
     # if A_i < A_j, they can be painted with the same color,
     # <-> if A_i >= A_j, they should be pained with different colors.
-    # longest non increasing sequence 
-    
+    # longest non increasing sequence
+
     # if LIS_k is replaced from A_j to A_i, A_i < A_j is satisfied.
     # so i and j can be paineted with the same color,
-    
+
     print(len(longest_non_decreasing_sequence(a[::-1])))
 
 main()

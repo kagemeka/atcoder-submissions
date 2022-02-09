@@ -1,4 +1,4 @@
-import typing 
+import typing
 import numpy as np
 import numba as nb
 
@@ -17,7 +17,7 @@ def lcs(
         l[i + 1][j],
         l[i][j] + (a[i] == b[j]),
       )
-  
+
 
   k = l[-1][-1]
   s = np.empty(k, np.int64)

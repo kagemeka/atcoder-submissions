@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit
@@ -30,7 +30,7 @@ def solve(a: np.ndarray) -> typing.NoReturn:
         coeff = coeff * inv2 % mod
         d = d * 10 % mod
     print(tot)
-    
+
 
 def main() -> typing.NoReturn:
     a = np.array(list(input()), dtype=np.int64)

@@ -9,7 +9,7 @@ def main():
     S = sum(a)
     dp = [[0 for _ in range(S+1)] for _ in range(n+1)]
     dp[0][0] = 1
-    
+
     for i in range(n):
         for r in range(S+1):
             dp[i+1][r] += dp[i][r] * 2
@@ -27,7 +27,7 @@ def main():
     # Sが奇数だったらこれでいい 偶数だったらさらに、(dp[n][S//2]を３倍して、そこから(R = G = S/2, B = 0) となる場合の数を２倍して引いた通り数) を引けばいい
     if S % 2 == 0:
         ans = (ans - (dp[n][S//2] * 3 - (dp[n][S//2] - dp[n][0]) * 3)) % MOD
-        
+
     print(ans)
 
 

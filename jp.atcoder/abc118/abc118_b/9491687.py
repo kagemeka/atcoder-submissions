@@ -7,7 +7,7 @@ def main():
     res = set(range(1, m+1))
     for a in g:
         res &= set(a)
-    
+
     return len(res)
 
 if __name__ == '__main__':

@@ -8,7 +8,7 @@ def main():
     d = [0] + sorted([x[i+1] - x[i] for i in range(m-1)], reverse=True)
     for i in range(m-1):
         d[i+1] += d[i]
-    
+
     return s - d[min(n, m)-1]
 
 if __name__ == '__main__':

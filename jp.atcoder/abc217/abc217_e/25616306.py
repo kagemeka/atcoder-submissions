@@ -1,5 +1,5 @@
-from __future__ import annotations 
-import typing 
+from __future__ import annotations
+import typing
 import heapq
 import dataclasses
 
@@ -15,7 +15,7 @@ class DoublyLinkedListNode():
 
 @dataclasses.dataclass
 class DoublyLinkedList():
-  first: typing.Optional[DoublyLinkedListNode] = None 
+  first: typing.Optional[DoublyLinkedListNode] = None
   last: typing.Optional[DoublyLinkedListNode] = None
 
 
@@ -24,7 +24,7 @@ class Deque():
   def __init__(
     self,
   ) -> typing.NoReturn:
-    self.__first: typing.Optional[DoublyLinkedListNode] = None 
+    self.__first: typing.Optional[DoublyLinkedListNode] = None
     self.__last: typing.Optional[DoublyLinkedListNode] = None
 
 
@@ -34,11 +34,11 @@ class Deque():
   ) -> typing.NoReturn:
     x = DoublyLinkedListNode(value=v, left=self.__last)
     if x.left is None:
-      self.__first = x 
+      self.__first = x
     else:
-      self.__last.right = x 
-    self.__last = x 
-  
+      self.__last.right = x
+    self.__last = x
+
 
   def appendleft(
     self,
@@ -46,11 +46,11 @@ class Deque():
   ) -> typing.NoReturn:
     x = DoublyLinkedListNode(value=v, right=self.__first)
     if self.__right is None:
-      self.__last = x 
+      self.__last = x
     else:
       self.__first.left = x
-    self.__first = x 
-  
+    self.__first = x
+
 
   def pop(
     self,
@@ -60,12 +60,12 @@ class Deque():
     v = self.__last.value
     self.__last = self.__last.left
     if self.__last is None:
-      self.__first = None 
+      self.__first = None
     else:
-      self.__last.right = None 
+      self.__last.right = None
     self.__last.right = None
-    return v 
-    
+    return v
+
 
   def popleft(
     self,

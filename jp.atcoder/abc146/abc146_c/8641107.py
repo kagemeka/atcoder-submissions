@@ -17,8 +17,8 @@ def main():
             cand.append(n)
         elif n >= 10 ** l:
             cand.append(10 ** l - 1)
-    
+
     print(max(cand))
-    
+
 if __name__ == '__main__':
     main()

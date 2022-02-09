@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -10,7 +10,7 @@ def main() -> typing.NoReturn:
     # otherwise if gcd(a_0, a_1, ..., a_{n-1}) = 1, each coprime factor included in at most (n - 1) values.
 
     k = 1 << 20
-    cnt = [0] * k 
+    cnt = [0] * k
     for x in a:
         for i in range(2, x + 1):
             if i * i > x: break

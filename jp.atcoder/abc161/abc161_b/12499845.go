@@ -8,7 +8,7 @@ import (
 func sumInt(a ...int) int {s := 0; for _, v := range a {s += v}; return s}
 
 func main() {
-  var n, m int 
+  var n, m int
   fmt.Scan(&n, &m)
   a := make([]int, n)
   for i := 0; i < n; i++ {
@@ -21,6 +21,6 @@ func main() {
     ans = "Yes"
   }
   fmt.Println(ans)
-  
+
 
 }

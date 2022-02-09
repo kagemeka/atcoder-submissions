@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 from functools import (
   lru_cache,
@@ -15,7 +15,7 @@ def solve(
   ]
   for x, y in xy:
     edges[x - 1].append(y - 1)
-    
+
   dist = [0] * n
 
   @lru_cache(maxsize=None)
@@ -27,13 +27,13 @@ def solve(
       mx = max(mx, dfs(v) + 1)
     dist[u] = mx
     return mx
-    
+
   for i in range(n):
     dist[i] = dfs(i)
-  
+
   print(max(dist))
-    
-  
+
+
 
 def main() -> typing.NoReturn:
   n, m = map(
@@ -45,6 +45,6 @@ def main() -> typing.NoReturn:
   )
   xy = zip(*[xy] * 2)
   solve(n, xy)
-  
+
 
 main()

@@ -1,4 +1,4 @@
-import typing 
+import typing
 from collections import (
   deque,
 )
@@ -13,16 +13,16 @@ def main() -> typing.NoReturn:
     for _ in range(h)
   ]
 
-  inf = 1 << 20  
+  inf = 1 << 20
   dist = [
-    [inf] * w 
+    [inf] * w
     for _ in range(h)
   ]
   dist[0][0] = 0
-  
+
   q = deque()
   q.append((0, 0))
-  
+
 
   dij = (
     (-1, 0),
@@ -54,7 +54,7 @@ def main() -> typing.NoReturn:
         continue
       dist[ni][nj] = d
       q.appendleft((ni, nj))
-    
+
     for di in range(-2, 3):
       for dj in range(-2, 3):
         md = abs(di) + abs(dj)
@@ -69,10 +69,10 @@ def main() -> typing.NoReturn:
           continue
         dist[ni][nj] = d
         q.append((ni, nj))
-        
+
 
   print(dist[-1][-1])
-  
+
 
 
 

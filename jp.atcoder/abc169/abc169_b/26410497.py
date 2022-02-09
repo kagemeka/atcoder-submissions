@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -7,13 +7,13 @@ def main() -> typing.NoReturn:
   *a, = map(int, input().split())
   if 0 in a:
     print(0)
-    return 
+    return
   mx = 10 ** 18
   p = 1
   for x in a:
-    if x > mx // p: 
+    if x > mx // p:
       print(-1)
-      return 
+      return
     p *= x
     if p == 0:
       print(0)

@@ -19,9 +19,9 @@ def main():
         k = s.find(c[2], j+1)
         if k == -1:
             continue
-        
+
         res.add(c)
-        
+
     ans = len(res)
     print(ans)
 

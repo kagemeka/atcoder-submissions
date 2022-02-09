@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, k, *v = [int(x) for x in sys.stdin.read().split()]
@@ -18,7 +18,7 @@ def main():
         for b in range(min(n, k)-a+1):
             take = v[:a] + v[-b:] if b != 0 else v[:a]
             take.sort()
-            
+
             if a + b == 0:
                 optimum_sum = 0
             else:
@@ -30,9 +30,9 @@ def main():
                         break
                 else:
                     optimum_sum = sum(take)
-        
+
             ma = max(ma, optimum_sum)
-    
+
     print(ma)
 
 if __name__ == "__main__":

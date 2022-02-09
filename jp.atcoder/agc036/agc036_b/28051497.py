@@ -1,4 +1,4 @@
-import typing 
+import typing
 import bisect
 
 def main() -> typing.NoReturn:
@@ -26,14 +26,14 @@ def main() -> typing.NoReturn:
         order.append(b[order[-1]])
         if order[-1] == 0: break
 
-    
+
     s = [0] * len(order)
     for i in range(len(order) - 1):
         d = order[i + 1] - order[i]
         if d <= 1:
             d += n
         s[i + 1] = s[i] + d
-    
+
     assert s[-1] % n == 0
     cycle = s[-1] // n
     k %= cycle
@@ -54,8 +54,7 @@ def main() -> typing.NoReturn:
         while True:
             y = st.pop()
             added.remove(y)
-            if y == x: break 
+            if y == x: break
     print(*st)
 
 main()
-        

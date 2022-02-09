@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -24,7 +24,7 @@ def solve(
   for i in range(m - 1):
     a[i + 1] = min(a[i + 1] + a[i], n)
   print('Yes' if np.all(a > 0) else 'No')
-  
+
 
 def main() -> typing.NoReturn:
   n, m, t = map(int, input().split())

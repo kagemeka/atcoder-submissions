@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -15,5 +15,3 @@ def main() -> typing.NoReturn:
     print(exp)
 
 main()
-                
-    

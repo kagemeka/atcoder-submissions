@@ -9,9 +9,9 @@ def main():
     letters = set(s) - set(c)
     for l in letters:
         s = s.replace(l, '*')
-    
+
     print(s)
-    
+
 
 if __name__ == '__main__':
     main()

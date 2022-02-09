@@ -15,7 +15,7 @@ def main():
                     prev_0 = False
             else:
                 prev_0 = True
-    
+
     return cnt
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -8,7 +8,7 @@ def main() -> typing.NoReturn:
   )
   if k > n:
     print(0)
-    return 
+    return
 
   cs = []
   xs = []
@@ -16,10 +16,10 @@ def main() -> typing.NoReturn:
     c, x = input().split()
     cs.append(c)
     xs.append(int(x) - 1)
-  
+
   if len(set(xs)) < k:
     print(0)
-    return 
+    return
 
   a = [0] * (n + 1)
   for c, x in zip(cs, xs):
@@ -33,8 +33,8 @@ def main() -> typing.NoReturn:
     a[i + 1] += a[i]
 
   for i in range(n): a[i] += k
-  for x in xs: a[x] = 1 
-  p = 1 
+  for x in xs: a[x] = 1
+  p = 1
   for x in a[:n]:
     p *= x
     p %= mod

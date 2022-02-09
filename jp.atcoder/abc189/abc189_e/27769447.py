@@ -1,4 +1,4 @@
-import typing 
+import typing
 import numpy as np
 import sys
 
@@ -18,8 +18,8 @@ def main() -> typing.NoReturn:
             a[i + 1] = np.array([[-1, 0, 2 * op[1]], [0, 1, 0], [0, 0, 1]])
         elif op[0] == 4:
             a[i + 1] = np.array([[1, 0, 0], [0, -1, 2 * op[1]], [0, 0, 1]])
-    
-    
+
+
     for i in range(m):
         a[i + 1] = a[i + 1].dot(a[i])
 
@@ -30,8 +30,7 @@ def main() -> typing.NoReturn:
         arr = np.array([x, y, 1])
         arr = a[b].dot(arr)
         print(arr[0], arr[1])
-    
-    
-            
-main()
 
+
+
+main()

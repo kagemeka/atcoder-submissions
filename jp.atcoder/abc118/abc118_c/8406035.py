@@ -8,7 +8,7 @@ import sys
 from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def gcd(a, b):
     while b != 0:
@@ -17,7 +17,7 @@ def gcd(a, b):
 
 def main():
     n, *a = (int(x) for x in sys.stdin.read().split())
-    
+
     ans = reduce(gcd, a)
     print(ans)
 

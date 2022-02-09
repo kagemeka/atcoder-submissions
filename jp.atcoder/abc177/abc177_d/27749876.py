@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 class UnionFind():
     def __init__(self, n: int) -> typing.NoReturn:
@@ -31,7 +31,7 @@ def main() -> typing.NoReturn:
         a -= 1
         b -= 1
         uf.unite(a, b)
-    
+
     print(max(uf.size(i) for i in range(n)))
 
 main()

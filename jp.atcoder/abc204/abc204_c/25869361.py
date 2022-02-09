@@ -1,13 +1,13 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
 @nb.njit
 def sort_csgraph(
-  n: int, 
+  n: int,
   g: np.ndarray,
 ) -> typing.Tuple[np.ndarray, np.ndarray, np.ndarray]:
   sort_idx = np.argsort(g[:, 0], kind='mergesort')
@@ -23,10 +23,10 @@ def csgraph_is_sorted(g: np.ndarray) -> bool:
   return np.all(g[1:, 0] >= g[:-1, 0])
 
 
-# csgraph 
+# csgraph
 @nb.njit
 def graph_bfs(
-  n: int, 
+  n: int,
   g: np.ndarray,
   edge_idx: np.ndarray,
   src: int,
@@ -40,7 +40,7 @@ def graph_bfs(
       if level[v] != -1: continue
       level[v] = level[u] + 1
       que.append(v)
-  return level   
+  return level
 
 
 
@@ -48,7 +48,7 @@ def graph_bfs(
 def solve(n: int, ab: np.ndarray) -> typing.NoReturn:
   g, edge_idx, _ = sort_csgraph(n, ab)
 
-  cnt = 0 
+  cnt = 0
   for i in range(n):
     level = graph_bfs(n, g, edge_idx, i)
     cnt += np.count_nonzero(level != -1)

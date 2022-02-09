@@ -1,4 +1,4 @@
-import sys 
+import sys
 
 
 def main():
@@ -15,7 +15,7 @@ def main():
     ]
     for _ in range(h)
   ]
-  inf = 1 << 30 
+  inf = 1 << 30
   dp = [
     [-inf] * w
     for _ in range(h)
@@ -41,6 +41,6 @@ def main():
     else 'Draw'
   )
 
-  
+
 
 main()

@@ -10,7 +10,7 @@ def main() -> typing.NoReturn:
         n = 0
         for d in digits:
             n += a * d
-            a *= base 
+            a *= base
         return n
 
 
@@ -19,4 +19,4 @@ def main() -> typing.NoReturn:
     b = to_decimal(k, list(map(int, b))[::-1])
     print(a * b)
 
-main()    
+main()

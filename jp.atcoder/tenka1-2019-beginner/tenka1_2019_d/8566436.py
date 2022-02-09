@@ -12,7 +12,7 @@ def main():
     dp[0] = 1
     for a in A:
         dp[a:] = (dp[a:] + dp.copy()[:-a] % 2) % MOD
-    
+
     ans = pow(3, n, MOD) - dp.sum() * 3
 
     if S % 2 == 0:

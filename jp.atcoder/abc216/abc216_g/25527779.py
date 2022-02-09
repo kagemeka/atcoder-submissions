@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -12,7 +12,7 @@ def fw_build(
   e: typing.Callable[[], T],
 ) -> np.ndarray:
   fw = np.zeros(n + 1, np.int64)
-  for i in range(n + 1): 
+  for i in range(n + 1):
     fw[i] = e()
   return fw
 
@@ -54,7 +54,7 @@ def solve(
   lrx: np.ndarray,
 ) -> typing.NoReturn:
   e = lambda : 0
-  fn = lambda x, y: x + y 
+  fn = lambda x, y: x + y
   fw = fw_build(1 << 18, e)
   sort_idx = np.argsort(lrx[:, 1], kind='mergesort')
   lrx = lrx[sort_idx]
@@ -71,8 +71,8 @@ def solve(
       j = st.pop()
       fw_set(fw, j + 1, 1, fn)
       a[j] = 1
-  return a 
-      
+  return a
+
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())

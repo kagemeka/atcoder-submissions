@@ -11,9 +11,9 @@ def main():
             dist = np.sqrt(((x[i] - x[j]) ** 2).sum())
             if dist == int(dist):
                 cnt += 1
-    
+
     return cnt
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

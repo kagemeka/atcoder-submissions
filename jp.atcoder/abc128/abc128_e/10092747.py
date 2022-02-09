@@ -10,16 +10,16 @@ def main():
     for s, t, x in stx:
         queue.append((s-x, 1, x))
         queue.append((t-x, 0, x))
-    
+
     for i in range(q):
         queue.append((d[i], 2, i))
-    
+
     queue.sort()
 
     res = [None] * q
     hq = []
     running = set()
-    
+
     for t, f, x in queue:
         if f == 1:
             heappush(hq, x)

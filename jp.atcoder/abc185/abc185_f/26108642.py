@@ -9,7 +9,7 @@ T = typing.TypeVar('T')
 class Monoid(typing.Generic[T]):
   op: typing.Callable[[T, T], T]
   e: typing.Callable[[], T]
-  commutative: bool = False 
+  commutative: bool = False
 
 
 
@@ -26,21 +26,21 @@ class SegmentTree(typing.Generic[T]):
     for i in range(n + len(a), n << 1): seg[i] = monoid.e()
     self.__a = seg
     for i in range(n - 1, 0, -1): self.__update(i)
- 
+
 
   def __len__(self) -> int: return len(self.__a) >> 1
   def __repr__(self) -> str: return str(self.__a)
 
 
   def __getitem__(
-    self, 
+    self,
     i: typing.Union[typing.Tuple[int, int], int],
   ) -> T:
     if type(i) == int:
       return self.__a[i + len(self)]
     l, r = i
     return self.__get(l, r, 0, len(self), 1)
-  
+
 
   def __get(self, l: int, r: int, s: int, t: int, i: int) -> T:
     m = self.__monoid
@@ -63,11 +63,11 @@ class SegmentTree(typing.Generic[T]):
 
   def __update(self, i: int) -> typing.NoReturn:
     a = self.__a
-    a[i] = self.__monoid.op(a[i << 1], a[i << 1 | 1]) 
+    a[i] = self.__monoid.op(a[i << 1], a[i << 1 | 1])
 
 
 
-import typing 
+import typing
 
 
 
@@ -84,13 +84,13 @@ def solve(
   res = []
   for t, x, y in txy:
     if t == 1:
-      seg[x - 1] ^= y 
+      seg[x - 1] ^= y
     else:
       res.append(seg[x - 1, y])
   print(*res, sep='\n')
 
 
-import sys 
+import sys
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())

@@ -11,12 +11,12 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
     n, *h = [int(x) for x in sys.stdin.read().split()]
-    
+
     step = 0
     prev_height = 0
     max_step = 0

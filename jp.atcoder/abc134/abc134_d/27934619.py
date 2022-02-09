@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -10,7 +10,7 @@ def main() -> typing.NoReturn:
         for j in range(i * 2, n + 1, i):
             s ^= b[j - 1]
         b[i - 1] = s ^ a[i - 1]
-    
+
     s = sum(b)
     print(s)
     if not s: return

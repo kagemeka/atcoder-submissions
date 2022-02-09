@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 import numpy as np
 
@@ -14,7 +14,7 @@ def main() -> typing.NoReturn:
         [0, 0, 1],
         [1, 0, 1],
     ])
-    
+
     MOD = 10 ** 9 + 7
     k = s - 2
     b = np.identity(3, np.int64)
@@ -27,5 +27,3 @@ def main() -> typing.NoReturn:
     print(c[-1])
 
 main()
-    
-            

@@ -87,7 +87,7 @@ def solve(
   p: int,
 ) -> typing.NoReturn:
   n = p - 1
-  divs = find_divisors(n)  
+  divs = find_divisors(n)
   pn = prime_numbers(1 << 20)
   mod = 998244353
   c = 1
@@ -95,7 +95,7 @@ def solve(
     e = euler_totient(d, pn)
     e %= mod
     d %= mod
-    c += e * d % mod 
+    c += e * d % mod
     c %= mod
   print(c)
 

@@ -17,7 +17,7 @@ def main():
                 else:
                     t += c
         S[i] = t
-    
+
     res = deque(S[0])
     for s in S[1:]:
         if not s: continue
@@ -38,7 +38,7 @@ def main():
                     for j in range(i, -1, -1):
                         res.appendleft(s[j])
                     break
-    print('Yes' if not res else 'No')            
-        
+    print('Yes' if not res else 'No')
+
 if __name__ == '__main__':
     main()

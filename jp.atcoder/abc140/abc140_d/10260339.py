@@ -8,7 +8,7 @@ def main():
     for i in range(n-1):
         if s[i] != s[i+1]:
             cnt_seq += 1
-    
+
     res = n - cnt_seq
     r = k
     the_other = dict([('L', 'R'), ('R', 'L')])

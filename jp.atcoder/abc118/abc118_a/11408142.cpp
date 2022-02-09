@@ -6,5 +6,5 @@ int main() {
   cin >> a >> b;
   int res = (b % a) ? b - a : a + b;
   cout << res << endl;
-  return 0;  
+  return 0;
 }

@@ -1,5 +1,5 @@
-from __future__ import annotations 
-import typing 
+from __future__ import annotations
+import typing
 import heapq
 import dataclasses
 
@@ -20,7 +20,7 @@ class FIFOQueue():
   def __init__(
     self,
   ) -> typing.NoReturn:
-    self.__first: typing.Optional[SinglyLinkedListNode] = None 
+    self.__first: typing.Optional[SinglyLinkedListNode] = None
     self.__last: typing.Optional[SinglyLinkedListNode] = None
 
 
@@ -32,9 +32,9 @@ class FIFOQueue():
     if self.__last is None:
       self.__first = x
     else:
-      self.__last.next = x 
-    self.__last = x 
-  
+      self.__last.next = x
+    self.__last = x
+
 
   def pop(
     self,

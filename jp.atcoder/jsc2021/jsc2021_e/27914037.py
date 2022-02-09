@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -11,11 +11,11 @@ def main() -> typing.NoReturn:
             print('impossible')
             return
         n >>= 1
-    
+
     if n == 1:
         print('impossible')
         return
-    
+
     # n is initial length
     print(n)
 

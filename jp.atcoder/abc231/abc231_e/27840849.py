@@ -1,9 +1,9 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     n, x = map(int, input().split())
-    # dp 
+    # dp
 
     a = list(map(int, input().split()))
     dp = [0] * n
@@ -20,4 +20,3 @@ def main() -> typing.NoReturn:
     print(mn)
 
 main()
-    

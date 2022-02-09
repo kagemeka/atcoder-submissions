@@ -1,31 +1,31 @@
-import typing 
+import typing
 
 
 class UnionFind():
     def __init__(self, n: int) -> typing.NoReturn:
         self.__data = [-1] * n
-    
+
     def find(self, u: int) -> int:
-        d = self.__data 
+        d = self.__data
         if d[u] < 0: return u
         d[u] = self.find(d[u])
         return d[u]
-    
+
     def size(self, u: int) -> int:
         return -self.__data[self.find(u)]
-    
+
     def unite(self, u: int, v: int) -> bool:
         u, v = self.find(u), self.find(v)
         if u == v: return False
         d = self.__data
-        if d[u] > d[v]: u, v = v, u 
+        if d[u] > d[v]: u, v = v, u
         d[u] += d[v]
         d[v] = u
         return True
-    
+
 
 import itertools
-import math 
+import math
 import random
 # random.seed = 0
 
@@ -46,7 +46,7 @@ def main() -> typing.NoReturn:
             d = int(round(math.sqrt((xj - xi) ** 2 + (yj - yi) ** 2)))
             # r = sum(random.randint(1, 3) for _ in range(5)) / 5
             d *= R
-            dist[i][j] = dist[j][i] = d 
+            dist[i][j] = dist[j][i] = d
 
     uv = [tuple(map(int, input().split())) for _ in range(M)]
 
@@ -58,7 +58,7 @@ def main() -> typing.NoReturn:
         if not uf.unite(u, v):
             continue
         to_use.add(i)
-    
+
     for i in range(M):
         d = int(input())
         print(1 if i in to_use else 0, flush=True)

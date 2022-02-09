@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:, :], ), cache=True)
@@ -13,9 +13,9 @@ def solve(a: np.ndarray) -> typing.NoReturn:
                 for j2 in range(j1 + 1, w):
                     if a[i1, j1] + a[i2, j2] <= a[i2, j1] + a[i1, j2]: continue
                     print('No')
-                    return 
+                    return
     print('Yes')
-    
+
 
 def main() -> typing.NoReturn:
     h, w = map(int, input().split())

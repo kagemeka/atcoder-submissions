@@ -8,7 +8,7 @@ def solve(
   mod = 10 ** 9 + 7
   h, w = g.shape
   p = np.zeros(
-    w, 
+    w,
     np.int64,
   )
   p[0] = 1
@@ -19,8 +19,8 @@ def solve(
     )
     p *= g[i]
     p %= mod
-  print(p[-1]) 
-    
+  print(p[-1])
+
 
 def main() -> typing.NoReturn:
   h, w = map(
@@ -28,7 +28,7 @@ def main() -> typing.NoReturn:
   )
   g = [
     [
-      x == '.' 
+      x == '.'
       for x in list(input())
     ]
     for _ in range(h)

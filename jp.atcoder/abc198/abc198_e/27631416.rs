@@ -31,7 +31,7 @@ fn main() {
     for i in 0..n { c[i] = sc.scan::<usize>() - 1; }
 
     let mut g: Vec<(usize, usize)> = Vec::with_capacity(n - 1);
-    for _ in 0..n - 1 { 
+    for _ in 0..n - 1 {
         let a: usize = sc.scan();
         let b: usize = sc.scan();
         g.push((a - 1, b - 1));
@@ -48,9 +48,9 @@ fn main() {
         if cnt[c[u as usize]] == 0 {
             res.push(u as usize + 1);
         }
-        cnt[c[u as usize]] += 1; 
+        cnt[c[u as usize]] += 1;
     }
-    res.sort(); 
+    res.sort();
     for x in res.iter() {
         writeln!(out, "{}", x).unwrap();
     }
@@ -98,9 +98,9 @@ pub fn euler_tour_node(g: &Vec<(usize, usize)>, root: usize) -> (Vec<isize>, Vec
     let mut last_idx = vec![n; n];
     for i in 0..tour.len() {
         let mut u = tour[i];
-        if u < 0 { 
+        if u < 0 {
             u = parent[!u as usize] as isize;
-            tour[i] = u; 
+            tour[i] = u;
         } else {
             first_idx[u as usize] = i;
         }

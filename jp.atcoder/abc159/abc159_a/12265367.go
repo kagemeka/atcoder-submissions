@@ -16,7 +16,7 @@ func choose(n, r int) int {
 
 
 func main() {
-  var n, m int 
+  var n, m int
   fmt.Scan(&n, &m)
   fmt.Println(choose(n, 2) + choose(m, 2))
 }

@@ -7,7 +7,7 @@ import (
 func sumInt(a ...int) int {s := 0; for _, v := range a {s += v}; return s}
 
 func main() {
-  var n, k, m int 
+  var n, k, m int
   fmt.Scan(&n, &k, &m)
   border := m * n
   a := make([]int, n-1)

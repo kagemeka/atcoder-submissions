@@ -9,6 +9,5 @@ while i < n - 1:
     k += 1
     sum += deliciousness[i] * deliciousness[k]
   i += 1
-  
-print(sum)
 
+print(sum)

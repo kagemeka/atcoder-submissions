@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 sys.setrecursionlimit(1 << 20)
 
 
@@ -17,7 +17,7 @@ def solve(
     x -= 1; y -= 1
     g[x].append(y)
     g[y].append(x)
-  
+
 
   parent = [-1] * n
   def dfs(
@@ -27,9 +27,9 @@ def solve(
     for v in g[u]:
       if v == parent[u]:
         continue
-      parent[v] = u 
+      parent[v] = u
       b, w = dfs(v)
-      black *= w 
+      black *= w
       black %= mod
       white *= b + w
       white %= mod

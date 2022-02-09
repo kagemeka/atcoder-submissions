@@ -1,16 +1,16 @@
-import typing 
+import typing
 
 
 class UnionFind():
     def __init__(self, n: int) -> typing.NoReturn:
         self.__data = [-1] * n
-    
+
 
     def find(self, u: int) -> typing.NoReturn:
         if self.__data[u] < 0: return u
         self.__data[u] = self.find(self.__data[u])
         return self.__data[u]
-    
+
 
     def unite(self, u: int, v: int) -> typing.NoReturn:
         u, v = self.find(u), self.find(v)
@@ -21,7 +21,7 @@ class UnionFind():
 
 
 
-import itertools 
+import itertools
 import collections
 
 def main() -> typing.NoReturn:
@@ -32,7 +32,7 @@ def main() -> typing.NoReturn:
         y, x = divmod(i, w - 1)
         i = y * w + x
         edges.append((i, i + 1))
-    
+
     for i in range(w * (h - 1)):
         edges.append((i, i + w))
     m = len(edges)
@@ -50,7 +50,7 @@ def main() -> typing.NoReturn:
             if c >= 3: return False
         return True
 
-    cnt = 0 
+    cnt = 0
     for s in itertools.combinations(range(m), a):
         cnt += is_ok(s)
     print(cnt)

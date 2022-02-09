@@ -13,6 +13,6 @@ def main():
             return
         res += a * b
         cnt += b
-    
+
 if __name__ ==  '__main__':
     main()

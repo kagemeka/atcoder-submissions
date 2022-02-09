@@ -28,7 +28,7 @@ def main() -> typing.NoReturn:
   )
   g = [
     [
-      x == '.' 
+      x == '.'
       for x in list(input())
     ]
     for _ in range(h)

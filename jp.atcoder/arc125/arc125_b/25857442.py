@@ -1,5 +1,5 @@
 import typing
-import numba as nb 
+import numba as nb
 
 
 
@@ -7,10 +7,10 @@ import numba as nb
 def solve(n: int) -> typing.NoReturn:
   mod = 998_244_353
   q = 1
-  cnt = 0 
+  cnt = 0
   while q * q <= n:
     cnt += (n // q - q) // 2 + 1
-    cnt %= mod 
+    cnt %= mod
     q += 1
   print(cnt)
 

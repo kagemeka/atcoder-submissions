@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def solve(
@@ -14,7 +14,7 @@ def solve(
     'First' if win[k]
     else 'Second',
   )
-  
+
 
 def main() -> typing.NoReturn:
   n, k = map(

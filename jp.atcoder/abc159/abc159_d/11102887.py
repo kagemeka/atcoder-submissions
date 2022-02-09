@@ -32,7 +32,7 @@ def main():
 
     for i in a:
         yield res - comb(c[i], 2) + comb(c[i]-1, 2)
-        
+
 if __name__ == "__main__":
     ans = main()
     print(*ans, sep='\n')

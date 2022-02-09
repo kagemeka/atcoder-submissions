@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -7,8 +7,8 @@ def main() -> typing.NoReturn:
     for i in range(k):
         if x % k == 0:
             print(i + 1)
-            return 
+            return
         x = (x * 10 + 7) % k
     print(-1)
 
-main() 
+main()

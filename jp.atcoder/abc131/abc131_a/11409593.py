@@ -8,7 +8,7 @@ def main():
         if s[i] == s[i+1]:
             ans = 'Bad'
             break
-    print(ans) 
+    print(ans)
 
 if __name__ ==  '__main__':
     main()

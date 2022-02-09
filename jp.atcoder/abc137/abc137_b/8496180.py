@@ -8,7 +8,7 @@ from bisect import bisect_left as bi_l, bisect_right as bi_r
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     k, x = [int(x) for x in sys.stdin.readline().split()]

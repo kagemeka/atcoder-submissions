@@ -1,7 +1,7 @@
 import typing
-import sys 
-import numpy as np 
-import numba as nb 
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.b1[:], ), cache=True)

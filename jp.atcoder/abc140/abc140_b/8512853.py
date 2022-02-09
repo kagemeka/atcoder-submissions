@@ -11,12 +11,12 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
     n = int(sys.stdin.readline().rstrip())
-    
+
     eating_order = [int(x) for x in sys.stdin.readline().split()]
     base_point = sum([int(x) for x in sys.stdin.readline().split()])
     bonus_points = [0] + [int(x) for x in sys.stdin.readline().split()]

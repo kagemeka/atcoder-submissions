@@ -10,7 +10,7 @@ def main():
         dp_l[i+1][0] = max(dp_l[i][0], dp_l[i][1])
         if s[i] == 'o':
             if i + 1 - c < 0:
-                dp_l[i+1][1] = 1 
+                dp_l[i+1][1] = 1
             else:
                 dp_l[i+1][1] = dp_l[i+1-c][0] + 1
     dp_r = [[0] * 2 for _ in range(n + 2)]

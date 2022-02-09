@@ -1,7 +1,7 @@
-import typing 
-import  sys 
-import numpy as np 
-import numba as nb 
+import typing
+import  sys
+import numpy as np
+import numba as nb
 
 
 
@@ -21,8 +21,8 @@ def solve(a: np.ndarray) -> typing.NoReturn:
     lo, hi = 0, n // k + 1
     while hi - lo > 1:
       t = (lo + hi) >> 1
-      if possible(t): lo = t 
-      else: hi = t 
+      if possible(t): lo = t
+      else: hi = t
     return lo
 
   for k in range(1, n + 1):

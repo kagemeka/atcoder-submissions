@@ -12,7 +12,7 @@ def main():
         cur = s[i]
         res[i] += (prev == 'A' and cur == 'C') & 1
         prev = cur
-    
+
     for l, r in lr:
         yield res[r] - res[l]
 

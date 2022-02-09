@@ -1,6 +1,6 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 
 
 
@@ -12,7 +12,7 @@ def main() -> typing.NoReturn:
     sys.stdin.read().split(),
     dtype=np.int64,
   ).reshape(n, 2)
-  
+
   inf = 1 << 40
   dp = np.full(
     1 << 17,
@@ -31,12 +31,12 @@ def main() -> typing.NoReturn:
     out=dp[::-1],
   )
   v = np.searchsorted(
-    dp, 
+    dp,
     w,
     side='right',
   ) - 1
   print(v)
-  
+
 
 
 main()

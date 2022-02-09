@@ -1,10 +1,10 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     h, w, k = map(int, input().split())
     x0, y0, x1, y1 = map(int, input().split())
-    
+
     MOD = 998_244_353
     dp = [0] * 4
     i = 0
@@ -13,7 +13,7 @@ def main() -> typing.NoReturn:
     if y0 == y1:
         i |= 1 << 1
     dp[i] = 1
-    
+
     for _ in range(k):
         ndp = [0] * 4
         ndp[0] = dp[0] * (h + w - 4) + dp[1] * (h - 1) + dp[2] * (w - 1)

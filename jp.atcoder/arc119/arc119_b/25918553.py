@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -11,7 +11,7 @@ def solve(s: np.ndarray, t: np.ndarray) -> typing.NoReturn:
   ti = np.flatnonzero(t == 0)
   if si.size != ti.size:
     print(-1)
-    return 
+    return
   print(np.sum(si != ti))
 
 

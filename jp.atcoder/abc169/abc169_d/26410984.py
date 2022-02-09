@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8, ), cache=True)
@@ -21,8 +21,8 @@ def solve(n: int) -> typing.NoReturn:
   while p * p <= n:
     p += 1
     if n % p: continue
-    cnt = 0 
-    while n % p == 0: 
+    cnt = 0
+    while n % p == 0:
       cnt += 1
       n //= p
     s += find_k(cnt)

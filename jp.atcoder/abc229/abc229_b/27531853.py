@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -10,7 +10,7 @@ def main() -> typing.NoReturn:
         y = int(b[-i - 1])
         if x + y >= 10:
             print('Hard')
-            return 
+            return
     print('Easy')
 
 

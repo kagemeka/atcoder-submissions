@@ -11,7 +11,7 @@ def main():
     for i in range(1, h+1):
         for a, b in ab:
             dp[i] = min(dp[i], dp[max(i-a, 0)] + b)
-        
+
     return dp[h]
 
 if __name__ == '__main__':

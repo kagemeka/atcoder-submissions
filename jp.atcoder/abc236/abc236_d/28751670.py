@@ -38,7 +38,7 @@ def main() -> None:
             else:
                 mx = max(mx, tot)
     print(mx)
-                
+
 
 if __name__ == "__main__":
     main()

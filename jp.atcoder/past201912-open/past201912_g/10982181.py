@@ -15,12 +15,12 @@ def main():
         group = [[] for _ in range(3)]
         for i in range(n):
             group[p[i]].append(i)
-        
+
         for g in group:
             for x, y in combinations(g, 2):
                 tot += happiness[x][y]
         res = max(res, tot)
-    
+
     return res
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-import typing 
+import typing
 import itertools
 
 
@@ -27,14 +27,14 @@ class RepeatedPermutations():
       p[i] = j
       for _p in self.__dfs(p, i + 1):
         yield _p
-    
-    
+
+
 
 
 def solve(s: str) -> typing.NoReturn:
   n = 10
   cand = []
-  must = 0 
+  must = 0
   for i in range(n):
     if s[i] == 'o':
       cand.append(i)
@@ -42,10 +42,10 @@ def solve(s: str) -> typing.NoReturn:
     if s[i] == '?':
       cand.append(i)
 
-    
+
   cnt = 0
   for prod in RepeatedPermutations()(cand, 4):
-    res = 0 
+    res = 0
     for i in prod:
       res |= 1 << i
     cnt += must & ~res == 0

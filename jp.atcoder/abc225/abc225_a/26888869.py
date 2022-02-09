@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -10,12 +10,12 @@ def solve() -> typing.NoReturn:
     ...
 
 
-import itertools 
+import itertools
 def main() -> typing.NoReturn:
     s = list(input())
     # a = set()
     print(len(set(itertools.permutations(s))))
-    
+
 
 
 main()

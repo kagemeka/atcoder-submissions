@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, *a = [int(x) for x in sys.stdin.read().split()]
@@ -20,7 +20,7 @@ def main():
         pass
     else:
         second_largest = b[-2]
-    
+
     if not second_largest:
         for i in range(n):
             print(largest)

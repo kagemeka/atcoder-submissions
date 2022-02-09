@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     nm, *lines = sys.stdin.readlines()
@@ -20,7 +20,7 @@ def main():
     for i in range(n):
         res &= set(likes[i][1:])
         print(res)
-    
+
     print(len(res))
 
 if __name__ == "__main__":

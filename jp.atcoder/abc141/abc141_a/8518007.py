@@ -11,16 +11,16 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 weather = ['Sunny', 'Cloudy', 'Rainy']
 mod = 3
 
 def main():
     today = sys.stdin.readline().rstrip()
-    
+
     tomorrow = weather[(weather.index(today)+1)%mod]
     print(tomorrow)
-        
+
 if __name__ == "__main__":
     main()

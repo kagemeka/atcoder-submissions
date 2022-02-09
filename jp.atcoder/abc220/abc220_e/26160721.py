@@ -1,7 +1,7 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 sys.setrecursionlimit(1 << 20)
 
 def solve(n: int, d: int) -> typing.NoReturn:
@@ -14,7 +14,7 @@ def solve(n: int, d: int) -> typing.NoReturn:
 
   cnt = [0] * n
   for i in range(n):
-    j = d - i 
+    j = d - i
     if j < 0 or j > n - 1: continue
     cnt[i] = b[i] * b[j] % mod
     # cnt[i] = 1
@@ -22,11 +22,11 @@ def solve(n: int, d: int) -> typing.NoReturn:
   for i in range(n - 1):
     s[i + 1] += s[i]
     s[i + 1] %= mod
-  
+
   res = [0] * n
   for depth in range(n - 2, -1, -1):
     r = d
-    l = d - n + 1 + depth 
+    l = d - n + 1 + depth
     r = min(d, n - 1 - depth)
     l = max(l, 0)
     if r < l:

@@ -1,29 +1,29 @@
-																				import typing 
+																				import typing
 import sys
-import numpy as np 
-import numba as nb 
+import numpy as np
+import numba as nb
 
 @nb.njit
 def sort_csgraph(
-  n: int, 
+  n: int,
   g: np.ndarray,
 ) -> typing.Tuple[np.ndarray, np.ndarray, np.ndarray]:
   sort_idx = np.argsort(g[:, 0], kind='mergesort')
   g = g[sort_idx]
   edge_idx = np.searchsorted(g[:, 0], np.arange(n + 1))
   original_idx = np.arange(len(g))[sort_idx]
-  return g, edge_idx, original_idx 
+  return g, edge_idx, original_idx
 
 
 @nb.njit
 def strongly_connected_components(
-  n: int, 
+  n: int,
   g: np.ndarray,
 ) -> np.ndarray:
-  def scc_dfs(n, g): 
+  def scc_dfs(n, g):
     g, edge_idx, _ = sort_csgraph(n, g)
     que = np.empty(n, np.int64)
-    ptr = -1 
+    ptr = -1
     visited = np.zeros(n, np.bool8)
     for i in range(n):
       if visited[i]: continue
@@ -58,7 +58,7 @@ def strongly_connected_components(
           st.append(v)
       l += 1
     return label
-  
+
   g = g.copy()
   que = scc_dfs(n, g)
   return scc_reverse_dfs(n, g, que)
@@ -85,7 +85,7 @@ def shortest_path_bellman_ford(
       predecessor[v] = u
   for i in range(m):
     u, v, w = g[i]
-    if dist[u] + w < dist[v]: 
+    if dist[u] + w < dist[v]:
       raise Exception('Negative cycle found.')
   return dist, predecessor
 
@@ -110,7 +110,7 @@ def solve(n: int, abc: np.ndarray, p: int) -> typing.NoReturn:
     dist, _ = shortest_path_bellman_ford(n, g, 0)
   except:
     print(-1)
-    return 
+    return
   print(max(0, -dist[-1]))
 
 

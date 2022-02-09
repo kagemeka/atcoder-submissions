@@ -44,7 +44,7 @@ def main():
         score = max(score, base + x * x)
 
     return score
-        
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

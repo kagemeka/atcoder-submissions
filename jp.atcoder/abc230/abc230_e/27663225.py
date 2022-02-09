@@ -1,11 +1,11 @@
-import typing 
-import sys 
+import typing
+import sys
 import bisect
 
 
 def main() -> typing.NoReturn:
     n = int(input())
-    
+
     # v = n
     i = 1
     def binary_search(i: int) -> int:
@@ -18,15 +18,15 @@ def main() -> typing.NoReturn:
             else:
                 lo = j
         return hi
-    
+
     s = 0
     while i <= n:
         j = binary_search(i)
         s += n // i * (j - i)
         i = j
     print(s)
-    
-    
+
+
 
 
 main()

@@ -1,11 +1,11 @@
-import typing 
-import sys 
+import typing
+import sys
 sys.setrecursionlimit(1 << 20)
 
 def main() -> typing.NoReturn:
     n = int(input())
     ab = [tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(n - 1)]
-    
+
     g = [[] for _ in range(n)]
     for i, (a, b) in enumerate(ab):
         g[a].append((b, i))
@@ -28,4 +28,3 @@ def main() -> typing.NoReturn:
     print(*color, sep='\n')
 
 main()
-            

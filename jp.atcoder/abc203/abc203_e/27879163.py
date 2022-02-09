@@ -1,5 +1,5 @@
-import typing 
-import bisect 
+import typing
+import bisect
 def main() -> typing.NoReturn:
     n, m = map(int, input().split())
     xy = [tuple(map(int, input().split())) for _ in range(m)]

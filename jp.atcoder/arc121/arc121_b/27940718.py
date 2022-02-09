@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -15,17 +15,17 @@ def main() -> typing.NoReturn:
             green.append(a)
         else:
             blue.append(a)
-    
+
     if len(red) % 2 == 0 and len(blue) % 2 == 0:
         print(0)
-        return 
-    
+        return
+
     if len(red) % 2 == 1:
         if len(blue) % 2 == 0:
             red, blue = blue, red
         else:
             red, green = green, red
-    
+
     # red: even, blue: odd, green: odd
     # red-blue, red-green or blue-green
     red.sort()
@@ -43,7 +43,7 @@ def main() -> typing.NoReturn:
     if len(red) == 0:
         print(res)
         return
-    
+
     blue_min = [inf] * len(red)
     green_min = [inf] * len(red)
     i = 0
@@ -64,7 +64,7 @@ def main() -> typing.NoReturn:
     arg_green = sorted(range(len(red)), key=lambda i: green_min[i])
 
 
-    # print(blue_min)  
+    # print(blue_min)
     if arg_green[0] != arg_blue[0]:
         res = min(res, blue_min[arg_blue[0]] + green_min[arg_green[0]])
     else:

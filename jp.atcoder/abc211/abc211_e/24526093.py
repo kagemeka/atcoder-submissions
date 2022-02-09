@@ -1,11 +1,11 @@
-import typing 
+import typing
 
 
 def bit_count(
   n: int,
 ) -> int:
-  c = 0 
-  while n > 0: 
+  c = 0
+  while n > 0:
     c += n & 1
     n >>= 1
   return c
@@ -20,8 +20,8 @@ def solve(
     ord(x) - ord('#')
     for x in ''.join(s)
   ]
-  
-  
+
+
   def get_nexts(
     i: int,
   ) -> typing.List[int]:
@@ -34,13 +34,13 @@ def solve(
     if x < n - 1:
       a.append(i + 1)
     return a
-      
-      
+
+
   searched = set()
   def dfs(
     bits: int,
   ) -> int:
-    if bits in searched: 
+    if bits in searched:
       return 0
     if bit_count(bits) == k:
       return 1
@@ -59,7 +59,7 @@ def solve(
         searched.add(nbits)
     return tot
 
-    
+
   tot = 0
   for i in range(n * n):
     if not s[i]: continue

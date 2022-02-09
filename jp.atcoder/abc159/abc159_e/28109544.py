@@ -1,11 +1,11 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     h, w, k = map(int, input().split())
-    
+
     a = [list(map(int, input())) for _ in range(h)]
-    
+
     inf = 1 << 60
     mn = inf
     for s in range(1 << (h - 1)):
@@ -51,4 +51,3 @@ def main() -> typing.NoReturn:
     print(mn)
 
 main()
-        

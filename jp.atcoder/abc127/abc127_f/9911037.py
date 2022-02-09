@@ -1,5 +1,5 @@
 import sys
-from heapq import heappush, heappop, heappushpop 
+from heapq import heappush, heappop, heappushpop
 
 n = int(sys.stdin.readline().rstrip())
 Q = [[int(x) for x in sys.stdin.readline().split()] for _ in range(n)]

@@ -1,7 +1,7 @@
-from __future__ import annotations 
-import typing 
+from __future__ import annotations
+import typing
 import heapq
-import collections 
+import collections
 
 
 import dataclasses
@@ -18,7 +18,7 @@ class Node():
 
 @dataclasses.dataclass
 class DoublyLinkedList():
-  first: typing.Optional[Node] = None 
+  first: typing.Optional[Node] = None
   last: typing.Optional[Node] = None
 
 
@@ -37,11 +37,11 @@ class Deque():
     a = self.__a
     x = Node(value=v, left=a.last)
     if x.left is None:
-      a.first = x 
+      a.first = x
     else:
-      a.last.right = x 
-    a.last = x 
-  
+      a.last.right = x
+    a.last = x
+
 
   def appendleft(
     self,
@@ -50,11 +50,11 @@ class Deque():
     a = self.__a
     x = Node(value=v, right=a.first)
     if x.right is None:
-      a.last = x 
+      a.last = x
     else:
       a.first.left = x
-    a.first = x 
-  
+    a.first = x
+
 
   def pop(
     self,
@@ -65,12 +65,12 @@ class Deque():
     v = a.last.value
     a.last = a.last.left
     if a.last is None:
-      a.first = None 
+      a.first = None
     else:
-      a.last.right = None 
+      a.last.right = None
     a.last.right = None
-    return v 
-    
+    return v
+
 
   def popleft(
     self,
@@ -88,7 +88,7 @@ class Deque():
 
 
   def __bool__(self) -> bool:
-    a = self.__a 
+    a = self.__a
     return a.first is not None
 
 

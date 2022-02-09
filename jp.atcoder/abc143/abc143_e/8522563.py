@@ -13,7 +13,7 @@ import sys
 # from scipy.misc import comb # (default: exact=False)
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import floyd_warshall
-import numpy as np 
+import numpy as np
 
 
 def main():

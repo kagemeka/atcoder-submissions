@@ -8,7 +8,7 @@ func stringIndex(ss []string, s string) int {
   i := -1
   for j := 0; j < len(ss); j++ {
     if ss[j] == s {
-      i = j 
+      i = j
       break
     }
   }

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -8,7 +8,7 @@ def main() -> typing.NoReturn:
     q = int(input())
     rc = [tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(q)]
 
-    res = [''] * q  
+    res = [''] * q
     for i, (y, x) in enumerate(rc):
         y, x = r[y], c[x]
         if x >= n - y + 1 and y >= n - x + 1:

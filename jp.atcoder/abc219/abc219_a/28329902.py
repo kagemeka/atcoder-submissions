@@ -1,9 +1,9 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     x = int(input())
-    
+
     if x < 40:
         print(40 - x)
     elif x < 70:

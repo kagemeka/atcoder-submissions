@@ -1,5 +1,5 @@
 import typing
-import sys 
+import sys
 sys.setrecursionlimit(1 << 25)
 import numpy as np
 import numba as nb
@@ -17,33 +17,33 @@ def dfs(
     i < 0 or j < 0 or k < 0
   ): return 0
   e = cache[i, j, k]
-  if e != -1: return e 
-  s = i + j + k 
+  if e != -1: return e
+  s = i + j + k
   if s == 0: return 0
   e = n
   e += i * dfs(
-    i - 1, 
+    i - 1,
     j + 1,
     k,
     n,
     cache,
-  ) 
+  )
   e += j * dfs(
-    i, 
+    i,
     j - 1,
     k + 1,
     n,
     cache,
-  ) 
+  )
   e += k * dfs(
-    i, 
+    i,
     j,
     k - 1,
     n,
     cache,
   )
   e /= s
-  cache[i, j, k] = e    
+  cache[i, j, k] = e
   return e
 
 
@@ -73,7 +73,7 @@ def main() -> typing.NoReturn:
     .split(),
     dtype=np.int64,
   )
-  solve(n, a) 
+  solve(n, a)
 
 
 main()

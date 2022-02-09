@@ -1,8 +1,8 @@
-import typing 
-import heapq 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import heapq
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -17,7 +17,7 @@ def shortest_path_dijkstra(
 ) -> np.ndarray:
   inf = 1 << 60
   edges = edges[np.argsort(edges[:, 0], kind='mergesort')]
-  idx = np.searchsorted(edges[:, 0], np.arange(n + 1)) 
+  idx = np.searchsorted(edges[:, 0], np.arange(n + 1))
   dist = np.full(n, inf, np.int64)
   dist[src] = 0
   hq = [(0, src)]
@@ -28,14 +28,14 @@ def shortest_path_dijkstra(
       _, v, w = edges[edge_idx]
       dv = du + w
       if dv >= dist[v]: continue
-      dist[v] = dv 
+      dist[v] = dv
       heapq.heappush(hq, (dv, v))
   return dist
-      
+
 
 
 @nb.njit(
-  (nb.i8, nb.i8[:, :]), 
+  (nb.i8, nb.i8[:, :]),
   cache=True,
 )
 def solve(
@@ -57,7 +57,7 @@ def solve(
   edges = edges[sort_idx]
   b = shortest_path_dijkstra(n + 1, edges, 0)
   a = b[1:] - b[:-1] ^ 1
-  return a 
+  return a
 
 
 def main() -> typing.NoReturn:
@@ -68,6 +68,6 @@ def main() -> typing.NoReturn:
   ).reshape(m, 3)
   a = solve(n, lrx)
   print(*a)
-  
+
 
 main()

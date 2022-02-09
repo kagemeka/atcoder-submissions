@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 # dfs
 
@@ -15,12 +15,12 @@ def main():
     b -= 1
     g[a].append(b)
     g[b].append(a)
-    
-  
+
+
   for i in range(n):
     g[i].sort(reverse=1)
   res = []
-  parent = [-1] * n  
+  parent = [-1] * n
   st = [0]
   visited = [False] * n
   while st:
@@ -34,15 +34,15 @@ def main():
       parent[v] = u
       st.append(u)
       st.append(v)
-  
-  print(*res, sep=' ')  
 
-      
-      
-      
-    
-    
-  
+  print(*res, sep=' ')
+
+
+
+
+
+
+
 
 
 main()

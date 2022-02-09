@@ -8,7 +8,7 @@ import sys
 from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 mod = 10 ** 9 + 7
 def main():
@@ -31,7 +31,7 @@ def main():
             else: # countが0だったら一つ前も壊れている
                 print(0)
                 sys.exit()
-    
+
     if count >= 1:    # if the last is not broken.
         sections.append(p[count])
 

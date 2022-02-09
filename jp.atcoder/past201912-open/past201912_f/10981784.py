@@ -16,7 +16,7 @@ def main():
                 r = i
                 words.append(s[l:r+1])
                 l = None
-    
+
     res = ''.join(sorted(words, key=lambda x: x.lower()))
     return res
 

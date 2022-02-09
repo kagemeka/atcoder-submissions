@@ -1,9 +1,9 @@
-import typing 
+import typing
 import dataclasses
 
 
 T = typing.TypeVar('T')
-@dataclasses.dataclass 
+@dataclasses.dataclass
 class Monoid(
   typing.Generic[T],
 ):
@@ -22,17 +22,17 @@ class Fenwick(
     x: T,
   ) -> typing.NoReturn:
     m = self.__monoid
-    a = self.__a 
+    a = self.__a
     while i < len(a):
       a[i] = m.f(a[i], x)
       i += i & -i
-  
+
 
   def __getitem__(
     self,
     i: int,
   ) -> T:
-    m = self.__monoid 
+    m = self.__monoid
     v = m.e()
     while i > 0:
       v = m.f(v, self.__a[i])
@@ -51,7 +51,7 @@ class Fenwick(
       for _ in range(n + 1)
     ]
     self.__monoid = monoid
-  
+
 
 
 def solve(

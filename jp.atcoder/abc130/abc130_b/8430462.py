@@ -8,11 +8,11 @@ import itertools
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, x, *l = [int(i) for i in sys.stdin.read().split()]
-    
+
     culmative_sum = list(itertools.accumulate(l))
     ans = 1 + bi_r(culmative_sum, x)
     print(ans)

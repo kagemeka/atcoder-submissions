@@ -10,7 +10,7 @@ def main():
     for c, t in ct:
         if t <= T:
             res = min(res, c)
-    
+
     return res if res != inf else 'TLE'
 
 if __name__ == '__main__':

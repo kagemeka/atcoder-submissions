@@ -1,10 +1,10 @@
 # fast zeta transform
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     n = int(input())
-    
+
     s = 0
     for i in range(1, n + 1):
         if i * i > n: break
@@ -12,4 +12,3 @@ def main() -> typing.NoReturn:
     print(s)
 
 main()
-        

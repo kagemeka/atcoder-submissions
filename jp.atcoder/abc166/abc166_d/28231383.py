@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -8,7 +8,7 @@ def main() -> typing.NoReturn:
     # brute force
 
     x = int(input())
-    
+
     k = 1
     while pow(k, 5) - pow(k - 1, 5) <= x: k += 1
 
@@ -16,8 +16,7 @@ def main() -> typing.NoReturn:
         for b in range(-k, a):
             if pow(a, 5) - pow(b, 5) != x: continue
             print(a, b)
-            return 
+            return
 
 
 main()
-    

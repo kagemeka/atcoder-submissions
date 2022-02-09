@@ -8,7 +8,7 @@ from bisect import bisect_left as bi_l, bisect_right as bi_r
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, m, *x = (int(i) for i in sys.stdin.read().split())
@@ -28,7 +28,7 @@ def main():
             continue
         count = max(current) - min(current)
         total_count += count
-    
+
     total_count += remainder
     print(total_count)
 

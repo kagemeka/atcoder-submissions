@@ -55,7 +55,7 @@ def lpf(
 ) -> np.array:
   s = np.arange(n)
   s[:2] = -1
-  i = 0 
+  i = 0
   while i * i < n:
     i += 1
     if s[i] != i: continue
@@ -115,7 +115,7 @@ import sys
 
 
 if (
-  sys.argv[-1] 
+  sys.argv[-1]
   == 'ONLINE_JUDGE'
 ):
   '''TODO'''
@@ -127,14 +127,14 @@ if (
     inv_factorial,
   )
   lpf = njit(lpf)
-  fn = solve 
+  fn = solve
   signature = (i8, i8)
   ''''''
 
   from numba.pycc import CC
   cc = CC('my_module')
   cc.export(
-    fn.__name__, 
+    fn.__name__,
     signature,
   )(fn)
   cc.compile()

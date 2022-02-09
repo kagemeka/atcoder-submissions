@@ -11,7 +11,7 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
@@ -25,11 +25,11 @@ def main():
     for _ in range(q):
         p, x = [int(x) for x in sys.stdin.readline().split()]
         ans[p] += x
-    
+
     for a in range(1, n+1):
         for b in AB[a]:
             ans[b] += ans[a]
-    
+
     for i in range(1, n+1):
         print(ans[i], end=' ')
 

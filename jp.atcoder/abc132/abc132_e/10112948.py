@@ -26,7 +26,7 @@ def after_cand(u):
             g2[u].append(x)
             continue
         for y in g[x]:
-            heappush(hq, (d+1, y)) 
+            heappush(hq, (d+1, y))
 
 def main():
     for u in range(1, n+1):
@@ -42,7 +42,7 @@ def main():
         for y in g2[x]:
             if dist[y] == inf:
                 heappush(hq, (d+1, y))
-    
+
     return dist[t] if dist[t] != inf else -1
 
 if __name__ == '__main__':

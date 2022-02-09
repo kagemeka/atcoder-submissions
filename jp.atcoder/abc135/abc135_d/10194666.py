@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 
 MOD = 10 ** 9 + 7
 
@@ -18,7 +18,7 @@ def main():
             np.add.at(dp, (np.arange(13)*10+np.arange(10)[:, None])%13, prev)
         dp %= MOD
     return dp[5]
-                
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

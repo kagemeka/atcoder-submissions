@@ -10,11 +10,11 @@ def main():
     if BA1 == 0:
         print(0)
         sys.exit()
-    
+
     if BA1 < 0:
         BA1 = -BA1
         BA2 = -BA2
-    
+
     d = BA1 * T1 + BA2 * T2
 
     if d > 0:
@@ -25,7 +25,7 @@ def main():
         sys.exit()
 
     # dは負なので
-    n = ceil((- BA1 * T1) / d) 
+    n = ceil((- BA1 * T1) / d)
     if n * d + BA1 * T1 == 0:
         ans = n * 2
     else:

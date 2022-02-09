@@ -12,7 +12,7 @@ int main() {
   bool a = 1 <= y && y <= 12;
   bool b = 1 <= m && m <= 12;
   string ans;
-  if (a) ans = b ? "AMBIGUOUS" : "MMYY"; 
+  if (a) ans = b ? "AMBIGUOUS" : "MMYY";
   else ans = b ? "YYMM" : "NA";
   cout << ans << '\n';
   return 0;

@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 import numpy as np
 
@@ -19,7 +19,7 @@ def solve(
         if i + j + k > n:
           continue
         s = i + j + k
-        if s == 0: continue 
+        if s == 0: continue
         e = n
         if i > 0:
           e += i * dp[i - 1][j + 1][k]
@@ -27,13 +27,13 @@ def solve(
           e += j * dp[i][j - 1][k + 1]
         if k > 0:
           e += k * dp[i][j][k - 1]
-        dp[i][j][k] = e / s 
+        dp[i][j][k] = e / s
 
   i = (a == 3).sum()
   j = (a == 2).sum()
   k = (a == 1).sum()
   print(dp[i][j][k])
-  
+
 
 
 def main() -> typing.NoReturn:
@@ -43,17 +43,17 @@ def main() -> typing.NoReturn:
     .split(),
     dtype=np.int64,
   )
-  solve(n, a) 
+  solve(n, a)
 
 
 OJ = 'ONLINE_JUDGE'
 if sys.argv[-1] == OJ:
   from numba import njit, i8
-  
+
   fn = solve
   signature = (i8, i8[:])
-  
-  from numba.pycc import CC 
+
+  from numba.pycc import CC
   cc = CC('my_module')
   cc.export(
     fn.__name__,

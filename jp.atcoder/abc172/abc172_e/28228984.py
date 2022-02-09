@@ -1,11 +1,11 @@
-import typing 
+import typing
 
 
 def cumprod(mod: int, a: typing.List[int]) -> typing.List[int]:
     a = a.copy()
     for i in range(len(a) - 1):
         a[i + 1] = a[i + 1] * a[i] % mod
-    return a 
+    return a
 
 
 def factorial(mod: int, n: int) -> typing.List[int]:
@@ -27,28 +27,28 @@ def make_choose(p: int, n: int) -> typing.Callable[[int, int], int]:
         nonlocal fact, ifact
         if k < 0 or n < k: return 0
         return fact[n] * ifact[n - k] % p * ifact[k] % p
-    
+
     return choose
 
 
 
 def main() -> typing.NoReturn:
     n, m = map(int, input().split())
-    
-    # inclusion exclusion principle 
-    
+
+    # inclusion exclusion principle
+
     MOD = 10 ** 9 + 7
 
     choose = make_choose(MOD, 1 << 20)
     fact = factorial(MOD, 1 << 20)
 
     def p(n: int, k: int) -> int:
-        return choose(n, k) * fact[k] % MOD 
+        return choose(n, k) * fact[k] % MOD
 
     s = 0
     sign = 1
     # \sum_{k=0}^{n}{mPn * nCk * (m - k)P(n - k)}
-    # = mPn * \sum_{k=0}^{n}{nCk * (m - k)P(n - k)} 
+    # = mPn * \sum_{k=0}^{n}{nCk * (m - k)P(n - k)}
     # mPn := patterns of A
     # nCk := there are k indices out of n such that A_i = B_i.
     # (m - k)P(n - k) := patterns of B (A_i \neq B_i)

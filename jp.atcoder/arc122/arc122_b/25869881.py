@@ -1,6 +1,6 @@
-import typing 
-import numpy as np 
-import sys 
+import typing
+import numpy as np
+import sys
 
 
 
@@ -15,8 +15,8 @@ def solve(a: np.ndarray) -> typing.NoReturn:
   m = (a[l] + a[r]) / 2
   x = m / 2
   print(f(x))
-  
-  
+
+
 
 def main() -> typing.NoReturn:
   n = int(input())

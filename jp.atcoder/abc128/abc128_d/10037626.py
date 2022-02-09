@@ -29,7 +29,7 @@ def main():
             neg = sorted(neg_l[i] + neg_r[j])[:m-(i+j)]
             s -= 0 if not neg else sum(neg)
             res = max(res, s)
-    
+
     return res
 
 if __name__ == '__main__':

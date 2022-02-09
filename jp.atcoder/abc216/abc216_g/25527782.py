@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -49,7 +49,7 @@ def solve(
   lrx: np.ndarray,
 ) -> typing.NoReturn:
   e = 0
-  fn = lambda x, y: x + y 
+  fn = lambda x, y: x + y
   fw = fw_build(1 << 18, e)
   sort_idx = np.argsort(lrx[:, 1], kind='mergesort')
   lrx = lrx[sort_idx]
@@ -66,8 +66,8 @@ def solve(
       j = st.pop()
       fw_set(fw, j + 1, 1, fn)
       a[j] = 1
-  return a 
-      
+  return a
+
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())

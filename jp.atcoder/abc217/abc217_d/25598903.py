@@ -1,6 +1,6 @@
-import typing 
-import sys 
-import bisect 
+import typing
+import sys
+import bisect
 
 
 
@@ -11,15 +11,15 @@ class UnionFind():
     length: typing.List[int],
   ) -> typing.NoReturn:
     self.__a = [-1] * n
-    self.__l = length 
+    self.__l = length
     assert len(length) == n
-  
-  
+
+
   def find(
     self,
     u: int,
   ) -> int:
-    a = self.__a 
+    a = self.__a
     if a[u] < 0: return u
     a[u] = self.find(a[u])
     return a[u]
@@ -34,12 +34,12 @@ class UnionFind():
     v = self.find(v)
     if u == v: return
     a = self.__a
-    l = self.__l  
+    l = self.__l
     if a[u] > a[v]: u, v = v, u
     a[u] += a[v]
     l[u] += l[v]
     a[v] = u
-    
+
 
   def length(
     self,
@@ -71,14 +71,14 @@ def main() -> typing.NoReturn:
       uf.unite(i, i + 1)
       continue
     res.append(uf.length(i))
-  
+
   print(*res[::-1], sep='\n')
-        
-  
-    
-    
-  
-  
+
+
+
+
+
+
 
 
 

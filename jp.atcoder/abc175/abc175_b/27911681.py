@@ -1,6 +1,6 @@
-import typing 
+import typing
 import bisect
-import itertools 
+import itertools
 
 def main() -> typing.NoReturn:
     n = int(input())
@@ -12,5 +12,5 @@ def main() -> typing.NoReturn:
         if k >= i + j: continue
         cnt += 1
     print(cnt)
-    
-main() 
+
+main()

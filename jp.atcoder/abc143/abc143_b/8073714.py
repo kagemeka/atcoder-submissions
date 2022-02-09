@@ -9,4 +9,3 @@ while i < n - 1:
     sum += d[i] * d[k]
   i += 1
 print(sum)
-

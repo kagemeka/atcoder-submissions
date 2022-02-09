@@ -27,7 +27,7 @@ def main() -> typing.NoReturn:
   i, j = n - 1, m - 1
   while i >= 0 and j >= 0:
     x = dp[i + 1][j + 1]
-    if x > dp[i][j]: 
+    if x > dp[i][j]:
       rev.append(s[i])
       i -= 1
       j -= 1

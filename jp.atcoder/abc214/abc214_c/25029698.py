@@ -15,7 +15,7 @@ def main():
       t[i],
     )
   print(*dp[1:], sep='\n')
-  
+
 
 
 main()

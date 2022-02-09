@@ -1,4 +1,4 @@
-import typing 
+import typing
 import numpy as np
 import numba as nb
 
@@ -15,7 +15,7 @@ def solve(
 ) -> typing.NoReturn:
   inf = 1 << 30
   c = np.full(
-    n + 1, 
+    n + 1,
     inf,
     dtype=np.int64,
   )
@@ -23,7 +23,7 @@ def solve(
   for i in range(2, n + 1):
     x = inf
     for j in range(i - k, i):
-      if j < 0: continue     
+      if j < 0: continue
       x = min(
         x,
         c[j] + abs(h[i] - h[j])
@@ -43,8 +43,7 @@ def main() -> typing.NoReturn:
   h = [h[0]] + h
   h = np.array(h)
   solve(n, k, h)
-  
+
 
 
 main()
-       

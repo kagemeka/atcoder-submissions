@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -19,7 +19,7 @@ def main() -> typing.NoReturn:
             y = i * n + y if i < y else y * n + i
             g[x].append(y)
             in_deg[y] += 1
-    
+
     que = [i for i in range(k) if in_deg[i] == 0]
     dist = [0] * k
     for u in que:
@@ -30,10 +30,8 @@ def main() -> typing.NoReturn:
                 que.append(v)
     if any(d > 0 for d in in_deg):
         print(-1)
-        return 
+        return
     print(max(dist) + 1)
 
 
 main()
-            
-            

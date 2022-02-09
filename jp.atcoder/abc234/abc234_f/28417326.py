@@ -1,5 +1,5 @@
-import typing 
-import collections 
+import typing
+import collections
 
 
 
@@ -68,8 +68,8 @@ def main() -> None:
                 dp[i] %= MOD
 
     print((sum(dp) - 1) % MOD)
-                
-    
+
+
 
 
 main()

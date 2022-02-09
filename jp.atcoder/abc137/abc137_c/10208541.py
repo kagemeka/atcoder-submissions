@@ -14,9 +14,9 @@ def main():
     pairs_cnt = 0
     for v in c.values():
         pairs_cnt += comb_2(v)
-    
+
     return pairs_cnt
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

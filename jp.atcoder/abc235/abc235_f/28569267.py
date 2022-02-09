@@ -1,19 +1,19 @@
-import typing 
+import typing
 
 
 def main() -> None:
     n = input()
     digits = list(map(int, n))
     m = int(input())
-    
-    # inclusion exclusion principle 
-    # dp 
+
+    # inclusion exclusion principle
+    # dp
     # O(10^4 * 2^m)
-    
+
     a = list(map(int, input().split()))
 
     MOD = 998_244_353
-    
+
     def count(ng_digits: typing.List[int]) -> int:
         k = len(ng_digits)
         tot = 45 - sum(ng_digits)
@@ -21,7 +21,7 @@ def main() -> None:
         dp1 = [0, 0]
         dp1[0] = 1
         dp2 = [0, 0]
-        flg = True 
+        flg = True
         for d in digits:
             m = d
             s = (d) * (d - 1) // 2
@@ -40,18 +40,18 @@ def main() -> None:
             # print(dp1, dp2, ng_digits)
         # print(sum(dp2) % MOD)
         return sum(dp2) % MOD
-    
+
     total = 0
     for s in range(1 << m):
         ng_digits = []
         for i in range(m):
-            if ~s >> i & 1: 
+            if ~s >> i & 1:
                 continue
             ng_digits.append(a[i])
         k = len(ng_digits)
         total += count(ng_digits) * pow(-1, k)
         total %= MOD
     print(total)
-    
+
 
 main()

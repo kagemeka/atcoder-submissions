@@ -12,7 +12,7 @@ def find_divisors(n: int) -> typing.List[int]:
         i += 1
     return sorted(divs)
 
-            
+
 def main() -> typing.NoReturn:
     n, k = map(int, input().split())
     a = list(map(int, input().split()))
@@ -52,8 +52,8 @@ def main() -> typing.NoReturn:
                     sp = sn
         if max(sp, sn) <= k:
             mx = max(mx, d)
-                
+
     print(mx)
-    
+
 
 main()

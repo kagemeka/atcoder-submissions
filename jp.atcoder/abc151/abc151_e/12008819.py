@@ -33,6 +33,6 @@ def main():
     res -= choose(n - i - 1, k - 1) * a[i] % MOD
     res %= MOD
   print(res)
-    
+
 if __name__ == '__main__':
   main()

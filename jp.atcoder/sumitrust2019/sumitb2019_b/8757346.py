@@ -12,6 +12,6 @@ def main():
         print(res[0])
     else:
         print(':(')
-        
+
 if __name__ == '__main__':
     main()

@@ -31,7 +31,7 @@ def solve(x, y, mode):
             res += 'U'
     if mode == 0:
         res += 'R'
-    
+
     return [res]
 
 def main():

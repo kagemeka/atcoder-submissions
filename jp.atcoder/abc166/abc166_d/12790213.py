@@ -16,15 +16,15 @@ def f(a, b):
 def binary(d):
     lo, hi = -1, 10 ** 18
     while lo + 1 < hi:
-        a = (lo + hi) // 2 
-        b = a - d 
+        a = (lo + hi) // 2
+        b = a - d
         bl = a >= abs(b)
         bl2 = f(a, b) >= x
         if bl ^ bl2: lo = a
         else: hi = a
 
         # if f(a, b) >= x:
-        #     hi = a 
+        #     hi = a
         # else:
         #     lo = a
     return hi, hi - d
@@ -35,7 +35,7 @@ def main():
         a, b = binary(d)
         if f(a, b) == x:
             print(a, b)
-            return 
+            return
 
 if __name__ == '__main__':
     main()

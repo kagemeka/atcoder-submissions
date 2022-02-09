@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, m = [int(x) for x in sys.stdin.readline().split()]
@@ -31,7 +31,7 @@ def main():
                 continue
         if count == m:
             break
-    
+
     print(sum(rewards))
 
 

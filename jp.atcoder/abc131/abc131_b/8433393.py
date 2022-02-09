@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, l = [int(x) for x in sys.stdin.readline().split()]
@@ -18,6 +18,6 @@ def main():
     # key=function  要素にfunctionを適用した戻り値でsortする
     flavors.sort(key=abs)
     print(sum(flavors[1:]))
-    
+
 if __name__ == "__main__":
     main()

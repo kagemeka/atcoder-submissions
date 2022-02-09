@@ -8,7 +8,7 @@ def main():
     if len(s) == 1:
         print(k // 2)
         sys.exit()
-    
+
     if s.count(s[0]) == len(s):
         if len(s) % 2 == 0:
             ans = len(s) // 2 * k
@@ -27,13 +27,13 @@ def main():
         if s[i] == s[i+1]:
             same += 1
         else:
-            if not flag: 
+            if not flag:
                 first_same = same
-                flag = True 
+                flag = True
                 # 最初に何文字連続するかだけ記録しておく
             count += same // 2
             same = 1
-    
+
     bl = False
     if s[-1] == s[0]:
         if same % 2 == 1 and first_same % 2 == 1:

@@ -10,6 +10,6 @@ def count(n):
 
 def main():
     print(count(b) - count(a-1))
-    
+
 if __name__ ==  '__main__':
     main()

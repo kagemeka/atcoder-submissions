@@ -1,6 +1,6 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 
 def main() -> typing.NoReturn:
     n, x = map(int, input().split())
@@ -12,6 +12,6 @@ def main() -> typing.NoReturn:
     x *= 100
     i = np.searchsorted(a, x)
     print(i + 1 if i < n else -1)
-    
+
 
 main()

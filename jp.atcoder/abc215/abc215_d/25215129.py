@@ -1,9 +1,9 @@
-import typing 
+import typing
 
 
 
 from typing import (
-  DefaultDict, 
+  DefaultDict,
 )
 from collections import (
   defaultdict,
@@ -59,17 +59,17 @@ class PrimeNumbers():
     self,
     i: int,
   ) -> int:
-    return self.__a[i] 
+    return self.__a[i]
 
 
   def __init__(
-    self, 
+    self,
     n: int = 1 << 20,
   ) -> typing.NoReturn:
     fn = SieveOfEratosthenes()
     a = fn(n)
     self.__a = tuple(
-      i for i in range(n) 
+      i for i in range(n)
       if a[i]
     )
 
@@ -97,7 +97,7 @@ class PrimeFactorize:
         f[p] += 1
         n //= p
     f[n] = 1; return f
-  
+
 
   def __init__(
     self,
@@ -106,9 +106,9 @@ class PrimeFactorize:
     pn = PrimeNumbers(n)
     self.__pn = tuple(pn)
 
-    
+
   def factorial(
-    self, 
+    self,
     n: int,
   ) -> DefaultDict[int, int]:
     f = defaultdict(int)
@@ -124,7 +124,7 @@ class PrimeFactorize:
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())
   *a, = map(int, input().split())
-  
+
   fn = PrimeFactorize(1 << 20)
   s = set()
 
@@ -133,7 +133,7 @@ def main() -> typing.NoReturn:
       s.add(p)
 
   cnt = 0
-  res = []  
+  res = []
   for i in range(1, m + 1):
     primes = fn(i)
     for p in primes:
@@ -143,8 +143,8 @@ def main() -> typing.NoReturn:
       res.append(i)
 
   print(cnt)
-  print(*res, sep='\n')  
-      
+  print(*res, sep='\n')
+
 
 
 main()

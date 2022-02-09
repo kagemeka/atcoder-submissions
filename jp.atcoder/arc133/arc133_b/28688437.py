@@ -46,8 +46,8 @@ def main() -> None:
     # # (count, last index)
     # for i, x in enumerate(q):
     #     # y = q[i]
-        
-        
+
+
     # print(divisor_indices)
     fw = FenwickTree([0] * (n + 1))
     # dp = [0] * (n + 1)

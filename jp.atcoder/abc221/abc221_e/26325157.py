@@ -1,14 +1,14 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
-MOD = 998_244_353  
+MOD = 998_244_353
 
 
 
 S = typing.TypeVar('S')
-@nb.njit 
+@nb.njit
 def fw_build(
   op: typing.Callable[[S, S], S],
   a: np.ndarray,
@@ -19,10 +19,10 @@ def fw_build(
   for i in range(1, n + 1):
     j = i + (i & -i)
     if j < n + 1: fw[j] = op(fw[j], fw[i])
-  return fw  
+  return fw
 
 
-@nb.njit 
+@nb.njit
 def fw_set(
   op: typing.Callable[[S, S], S],
   fw: np.ndarray,
@@ -33,10 +33,10 @@ def fw_set(
   i += 1
   while i < len(fw):
     fw[i] = op(fw[i], x)
-    i += i & -i 
+    i += i & -i
 
 
-@nb.njit 
+@nb.njit
 def fw_get(
   op: typing.Callable[[S, S], S],
   e: typing.Callable[[], S],
@@ -47,8 +47,8 @@ def fw_get(
   v = e()
   while i > 0:
     v = op(v, fw[i])
-    i -= i & -i 
-  return v 
+    i -= i & -i
+  return v
 
 
 S = typing.TypeVar('S')
@@ -57,12 +57,12 @@ def get_fw(fw: np.ndarray, i: int) -> S:
   return fw_get(fw_op, fw_e, fw, i)
 
 
-@nb.njit 
+@nb.njit
 def set_fw(fw: np.ndarray, i: int, x: S) -> typing.NoReturn:
   fw_set(fw_op, fw, i, x)
 
 
-@nb.njit 
+@nb.njit
 def get_range_fw(fw: np.ndarray, l: int, r: int) -> S:
   return fw_op(
     fw_inverse(fw_get(fw_op, fw_e, fw, l)),
@@ -70,19 +70,19 @@ def get_range_fw(fw: np.ndarray, l: int, r: int) -> S:
   )
 
 
-@nb.njit 
+@nb.njit
 def fw_inverse(a: S) -> S: return -a % MOD
 
 
-@nb.njit 
+@nb.njit
 def fw_op(a: S, b: S) -> S: return (a + b) % MOD
 
 
-@nb.njit 
+@nb.njit
 def fw_e() -> S: return 0
 
 
-@nb.njit 
+@nb.njit
 def mod_pow2_inverse(n: int, p: int) -> np.ndarray:
   inv_2 = (p + 1) // 2
   a = np.empty(n, np.int64)
@@ -92,7 +92,7 @@ def mod_pow2_inverse(n: int, p: int) -> np.ndarray:
 
 
 
-@nb.njit 
+@nb.njit
 def compress_array(
   a: np.ndarray,
 ) -> typing.Tuple[(np.ndarray, ) * 2]:
@@ -111,13 +111,13 @@ def solve(a: np.ndarray) -> typing.NoReturn:
   pow2_inv = mod_pow2_inverse(1 << 20, MOD)
   a, _ = compress_array(a)
   fw = fw_build(fw_op, np.zeros(1 << 20, np.int64))
-  cnt = 0 
+  cnt = 0
   for i in range(n):
     x = a[i]
     cnt += get_fw(fw, x + 1) * pow2[i - 1] % MOD
     set_fw(fw, x, pow2_inv[i])
   print(cnt % MOD)
-  
+
 
 
 

@@ -19,7 +19,7 @@ def main():
     ~comb[:, i]:= (i番目がUnkindと仮定したとき、)i番目をUnkind(False)としている組み合わせを残す
     (comb[:, x] == np.bool(y)):= (i番目がHonestと仮定したとき、)i番目の証言が矛盾しない組み合わせを残す
     '''
-    
+
     ans = np.amax(np.sum(comb, axis=1))
     return ans
 

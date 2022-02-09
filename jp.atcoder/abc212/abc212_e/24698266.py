@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 import numpy as np
 
@@ -9,19 +9,19 @@ def solve(
   g: np.array,
 ) -> typing.NoReturn:
   mod = 998244353
-  
+
   m = g.shape[0]
   dp = np.zeros(n, np.int64)
   dp[0] = 1
-  
+
   for _ in range(k):
-    s = 0 
+    s = 0
     for x in dp:
       s += x
       s %= mod
     ndp = np.full(
       n,
-      s, 
+      s,
       np.int64,
     ) - dp
     ndp %= mod
@@ -64,5 +64,5 @@ if sys.argv[-1] == OJ:
   exit(0)
 
 
-from my_module import solve 
+from my_module import solve
 main()

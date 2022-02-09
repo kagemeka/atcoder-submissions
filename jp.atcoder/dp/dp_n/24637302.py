@@ -24,8 +24,8 @@ def solve(
       axis=1,
     )
     x += s[i+1:] - s[:-i-1]
-    dpl[: -i, i] = x 
-    dpr[i:, i] = x  
+    dpl[: -i, i] = x
+    dpr[i:, i] = x
 
   print(dpl[0, -1])
 
@@ -41,4 +41,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-

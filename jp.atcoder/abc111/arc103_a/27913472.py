@@ -1,5 +1,5 @@
-import typing 
-import collections 
+import typing
+import collections
 
 def main() -> typing.NoReturn:
     n = int(input())
@@ -10,11 +10,11 @@ def main() -> typing.NoReturn:
     b = sorted(b, key=lambda x: -x[1])
     if a[0][0] != b[0][0]:
         print(n - a[0][1] - b[0][1])
-        return 
+        return
     if len(a) == 1 and len(b) == 1:
         print(n // 2)
         return
-    
+
     if len(a) == 1:
         print(n - a[0][1] - b[1][1])
     elif len(b) == 1:
@@ -23,4 +23,3 @@ def main() -> typing.NoReturn:
         print(n - max(a[0][1] + b[1][1], a[1][1] + b[0][1]))
 
 main()
-    

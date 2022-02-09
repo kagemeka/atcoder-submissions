@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -29,15 +29,15 @@ def euler_totient(
   p = 2
   while p * p <= n:
     if m % p:
-      p += 1 
+      p += 1
       continue
     c = c // p * (p - 1)
     while not m % p: m //= p
     p += 1
-  if m > 1: 
+  if m > 1:
     c = c // m * (m - 1)
   return c
-  
+
 
 
 def main() -> typing.NoReturn:
@@ -50,6 +50,6 @@ def main() -> typing.NoReturn:
     s += euler_totient(d) * d
     s %= mod
   print(s)
-    
+
 
 main()

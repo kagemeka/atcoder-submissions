@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -39,13 +39,13 @@ def main() -> typing.NoReturn:
                 else: lo = i
             r = hi
             if r <= l: l = r - 1
-    
+
     assert l < r
     for i in range(q):
         if i <= l: x[i] = l_val
         elif i < r: x[i] += add
-        else: x[i] = r_val 
-    
+        else: x[i] = r_val
+
     # assert all(x[i] <= x[i + 1] for i in range(q - 1))
     res = [0] * q
     for i in range(q):

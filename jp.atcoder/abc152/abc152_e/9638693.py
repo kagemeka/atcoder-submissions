@@ -20,7 +20,7 @@ def main():
     for a in A:
         res += l * pow(a, MOD-2, MOD) % MOD
         res %= MOD
-    
+
     return res
 
 if __name__ == '__main__':

@@ -11,7 +11,7 @@ import sys
 import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
@@ -22,8 +22,8 @@ def main():
     for _ in range(m):
         highest = - heapq.heappop(a)
         heapq.heappush(a, -(highest // 2))
-    
+
     print(-sum(a))
-    
+
 if __name__ == "__main__":
     main()

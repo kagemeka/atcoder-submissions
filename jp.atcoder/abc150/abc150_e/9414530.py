@@ -30,7 +30,7 @@ def main():
         for d in range(1, n+1):
             for j in range(d):
                 cnt += comb(i, j) * comb(n-i-1, d-j-1) * (d - j) % MOD
-        
+
         res += c[i] * cnt
         res %= MOD
     return res * 2 ** n % MOD

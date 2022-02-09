@@ -10,7 +10,7 @@ func minInt(a ...int) int {m := a[0]; for _, x := range a {if x < m {m = x}}; re
 func sumInt(a ...int) int {s := 0; for _, v := range a {s += v}; return s}
 
 func main() {
-  var n int 
+  var n int
   fmt.Scan(&n)
   p := make([]int, n)
   for i := 0; i < n; i++ {

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 class UnionFind:
@@ -27,8 +27,8 @@ class UnionFind:
 
     def size(self, u: int) -> int:
         return -self.__data[self.find(u)]
-    
-    
+
+
 def main() -> None:
     n, m, q = map(int, input().split())
     abc = []
@@ -39,7 +39,7 @@ def main() -> None:
         abc.append((a, b, c))
     # for each node, memolize max weighted edge in advance.
     abc.sort(key=lambda e: e[2])
-    
+
     uf = UnionFind(n)
     inf = 1 << 30
     max_weight = [inf] * n
@@ -49,7 +49,7 @@ def main() -> None:
         uf.unite(a, b)
         max_weight[a] = min(max_weight[a], c)
         max_weight[b] = min(max_weight[b], c)
-    
+
     res = []
     for _ in range(q):
         u, v, w = map(int, input().split())
@@ -62,11 +62,11 @@ def main() -> None:
             res.append('Yes')
         else:
             res.append('No')
-    
+
     print(*res, sep='\n')
-        
-    
-    
-    
+
+
+
+
 
 main()

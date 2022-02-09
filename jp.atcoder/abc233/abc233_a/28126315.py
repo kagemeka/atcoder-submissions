@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 def main() -> typing.NoReturn:
     x, y = map(int, input().split())

@@ -33,7 +33,7 @@ def main():
         res -= comb(n, i) * nHr(n-i, i) % MOD
         res %= MOD
     return res
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

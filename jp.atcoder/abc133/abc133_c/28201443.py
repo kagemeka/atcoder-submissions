@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -6,8 +6,8 @@ def main() -> typing.NoReturn:
     K = 2019
     if r // K * K >= l:
         print(0)
-        return 
-    
+        return
+
 
     mn = K - 1
     for i in range(l, r):

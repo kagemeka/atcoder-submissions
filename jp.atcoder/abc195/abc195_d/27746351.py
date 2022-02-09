@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -12,7 +12,7 @@ def main() -> typing.NoReturn:
         b.sort()
         k = len(b)
         used = [False] * k
-        s = 0 
+        s = 0
         for w, v in wv:
             for i, cap in enumerate(b):
                 if used[i] or cap < w: continue

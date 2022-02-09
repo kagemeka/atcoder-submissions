@@ -7,7 +7,7 @@ import (
 func main() {
   res := "Yes"
   var n int
-  var s string 
+  var s string
   fmt.Scan(&n, &s)
   if n & 1 == 1 {
     res = "No"
@@ -18,5 +18,5 @@ func main() {
     }
   }
   fmt.Println(res)
-  
+
 }

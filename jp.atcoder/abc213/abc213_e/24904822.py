@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 import numpy as np
 import numba as nb
@@ -29,15 +29,15 @@ def solve(
     (0, -1),
     (0, 1),
     (1, 0),
-  )  
+  )
 
   def on_grid(u):
     i, j = u
     return (
-      0 <= i < h and 
-      0 <= j < w 
+      0 <= i < h and
+      0 <= j < w
     )
-  
+
   q = np.empty(
     (1 << 20, 2),
     dtype=np.int64,
@@ -45,8 +45,8 @@ def solve(
   qn = 0
   def swap(i, j):
     q[i], q[j] = q[j], q[i]
-  
-  
+
+
   def push(x):
     q[qn] = x
     i = qn
@@ -59,7 +59,7 @@ def solve(
       if di >= dj: break
       swap(i, j)
       i = j
-  
+
 
   def pop():
     swap(0, qn - 1)
@@ -73,7 +73,7 @@ def solve(
       di = dist[(ix, iy)]
       dj = dist[(jx, jy)]
       if (
-        j < n - 1 and 
+        j < n - 1 and
         di < dj
       ): j += 1
       (ix, iy) = q[i]
@@ -83,7 +83,7 @@ def solve(
       i = j
     return q[qn - 1]
     # TODO qn -= 1
-  
+
   push((0, 0))
   qn += 1
 
@@ -104,7 +104,7 @@ def solve(
       dist[v] = dv
       push(v)
       qn += 1
-    
+
     for di in range(-2, 3):
       for dj in range(-2, 3):
         md = abs(di) + abs(dj)
@@ -113,7 +113,7 @@ def solve(
         v = (i + di, j + dj)
         if not on_grid(v):
           continue
-        dv = du + 1 
+        dv = du + 1
         if dv >= dist[v]:
           continue
         dist[v] = dv

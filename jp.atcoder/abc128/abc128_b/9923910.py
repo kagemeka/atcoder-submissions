@@ -9,7 +9,7 @@ def main():
     for i in range(n):
         s, p = sp[i]
         res[s].append((int(p), i+1))
-    
+
     for s, l in sorted(res.items()):
         for p, i in sorted(l, reverse=True):
             yield i

@@ -6,4 +6,4 @@ def main():
   s = a * x + (n - a) * y
   print(s)
 
-main()	
+main()

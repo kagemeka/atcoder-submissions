@@ -1,10 +1,10 @@
-import typing 
+import typing
 import sys
 import numpy as np
 
 
 def rotate_right(grid: np.ndarray) -> np.ndarray:
-  return grid[::-1].T 
+  return grid[::-1].T
 
 
 def trim(g: np.ndarray) -> np.ndarray:
@@ -12,7 +12,7 @@ def trim(g: np.ndarray) -> np.ndarray:
     while not np.any(g[0]):
       g = g[1:]
     g = rotate_right(g)
-  return g 
+  return g
 
 
 def solve(
@@ -28,7 +28,7 @@ def solve(
     print('Yes')
     return
   print('No')
-  
+
 
 def main() -> typing.NoReturn:
   n = int(sys.stdin.buffer.readline().rstrip())

@@ -27,9 +27,9 @@ def main():
   for _ in range(m):
     x, y, z = map(int, sys.stdin.readline().split())
     unite(x-1, y-1)
-  
+
   for i in range(n): find_root(i)
   print(len(set(root)))
-  
+
 if __name__ == '__main__':
   main()

@@ -32,7 +32,7 @@ class LCS(
         continue
       if l[i][j + 1] == x:
         i -= 1
-        continue 
+        continue
       res.append(a[i])
       i -= 1; j -= 1
     return res[::-1]

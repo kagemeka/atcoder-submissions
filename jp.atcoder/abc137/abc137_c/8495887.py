@@ -17,7 +17,7 @@ def main():
     n = int(sys.stdin.readline().rstrip())
 
     sorted_letters = [''.join(sorted(sys.stdin.readline().rstrip())) for _ in range(n)]
-  
+
     count = 0
     for c in collections.Counter(sorted_letters).values():
         if c >= 2:

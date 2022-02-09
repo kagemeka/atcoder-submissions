@@ -1,7 +1,7 @@
 import typing
-import sys 
-import numpy as np 
-import numba as nb 
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.b1[:], ), cache=True)
@@ -12,7 +12,7 @@ def solve(c: np.ndarray) -> typing.NoReturn:
   for i in range(n):
     s += a[i] != c[i]
   print(s // 2)
-  
+
 
 def main() -> typing.NoReturn:
   n = int(sys.stdin.buffer.readline().rstrip())

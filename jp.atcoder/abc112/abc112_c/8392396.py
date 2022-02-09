@@ -8,12 +8,12 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n = int(sys.stdin.readline().rstrip())
     info = [[int(x) for x in sys.stdin.readline().split()] for _ in range(n)]
-    
+
     # 基準を決める
     for i in range(n):
         if info[i][2] >= 1:
@@ -31,12 +31,12 @@ def main():
             else:  # 全ての座標に対して条件を満たしていたなら
                 res = [x, y, H]
                 break # 中心は一意に決まるので見つかったらそれ以上調べる必要ない
-    
+
     for i in range(3):
         res[i] = str(res[i])
-    
+
     print(' '.join(res))
-            
+
 
 if __name__ == "__main__":
     main()

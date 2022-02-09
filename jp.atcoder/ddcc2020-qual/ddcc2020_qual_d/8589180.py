@@ -10,14 +10,14 @@ def main():
     for _ in range(m):
         d, c = map(int, sys.stdin.readline().split())
         a[d] += c
-    
+
 
     b = 0
     for i in range(10):
         b += (i + 9) * a[i]
-    
+
     ans = math.ceil((b - 9)/ 9) - 1
     print(ans)
-    
+
 if __name__ == '__main__':
     main()

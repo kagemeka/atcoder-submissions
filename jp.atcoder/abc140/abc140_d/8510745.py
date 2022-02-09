@@ -11,7 +11,7 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, k = [int(x) for x in sys.stdin.readline().split()]
@@ -19,11 +19,10 @@ def main():
 
     happy_count = 0
     happy_count += sum(1 for i in range(n-1) if s[i] == s[i+1])
-    
+
     happy_count += 2 * k
     ans = min(happy_count, n - 1)
     print(ans)
-    
+
 if __name__ == "__main__":
     main()
-

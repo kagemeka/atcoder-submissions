@@ -14,33 +14,33 @@ def dfs(
     i < 0 or j < 0 or k < 0
   ): return 0
   e = cache[i, j, k]
-  if e != -1: return e 
-  s = i + j + k 
+  if e != -1: return e
+  s = i + j + k
   if s == 0: return 0
   e = n
   e += i * dfs(
-    i - 1, 
+    i - 1,
     j + 1,
     k,
     n,
     cache,
-  ) 
+  )
   e += j * dfs(
-    i, 
+    i,
     j - 1,
     k + 1,
     n,
     cache,
-  ) 
+  )
   e += k * dfs(
-    i, 
+    i,
     j,
     k - 1,
     n,
     cache,
   )
   e /= s
-  cache[i, j, k] = e    
+  cache[i, j, k] = e
   return e
 
 
@@ -66,18 +66,18 @@ def main() -> typing.NoReturn:
     .split(),
     dtype=np.int64,
   )
-  solve(n, a) 
+  solve(n, a)
 
 
 OJ = 'ONLINE_JUDGE'
 if sys.argv[-1] == OJ:
   from numba import njit, i8
-  
+
   dfs = njit(dfs)
   fn = solve
   signature = (i8, i8[:])
-  
-  from numba.pycc import CC 
+
+  from numba.pycc import CC
   cc = CC('my_module')
   cc.export(
     fn.__name__,
@@ -86,5 +86,5 @@ if sys.argv[-1] == OJ:
 
   cc.compile()
 
-  
+
 main()

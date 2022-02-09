@@ -8,7 +8,7 @@ def main():
     for i in range(n):
         if p[i] != i + 1:
             cnt += 1
-    
+
     if not cnt or cnt == 2:
         return 'YES'
     return 'NO'

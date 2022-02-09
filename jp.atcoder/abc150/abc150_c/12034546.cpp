@@ -14,7 +14,7 @@ int main() {
   for (int i = 1; i < n + 1; i++) {
     factorial[i] = factorial[i-1] * i;
   }
-  
+
   bitset<100> a(0), b(0);
   long long d = 0;
   for (int i = 0; i < n - 1; i++) {

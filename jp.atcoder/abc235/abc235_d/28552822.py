@@ -1,9 +1,9 @@
-import typing 
+import typing
 
 
 def main() -> None:
     a, n = map(int, input().split())
-    
+
     k = 1 << 20
     g = [[] for _ in range(k)]
     for i in range(1, k):
@@ -14,7 +14,7 @@ def main() -> None:
         j = int(j[-1] + j[:-1])
         if j < k:
             g[i].append(j)
-    
+
     que = [1]
     inf = 1 << 20
     dist = [inf] * k
@@ -25,7 +25,7 @@ def main() -> None:
             if dv >= dist[v]: continue
             dist[v] = dv
             que.append(v)
-    
+
     d = dist[n]
     print(-1 if d == inf else d)
 

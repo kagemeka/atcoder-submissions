@@ -12,6 +12,6 @@ def main():
     else:
         ans = 'bon'
     print(ans)
-    
+
 if __name__ == '__main__':
     main()

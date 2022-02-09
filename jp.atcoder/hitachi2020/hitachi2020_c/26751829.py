@@ -1,8 +1,8 @@
 # bipartite graph on tree
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit
@@ -41,7 +41,7 @@ def solve(ab: np.ndarray) -> typing.NoReturn:
             que.append(v)
     b = np.bincount(dist)
     if b[0] < b[1]:
-        b[0], b[1] = b[1], b[0] 
+        b[0], b[1] = b[1], b[0]
         dist ^= 1
     k, r = divmod(n, 3)
     a, c = k + (r >= 1), k + (r >= 2)
@@ -50,7 +50,7 @@ def solve(ab: np.ndarray) -> typing.NoReturn:
     x = 1
     for i in range(n):
         if x > n: break
-        if dist[i] == 1: continue                
+        if dist[i] == 1: continue
         p[i] = x
         x += 3
     x = 2
@@ -69,7 +69,7 @@ def solve(ab: np.ndarray) -> typing.NoReturn:
         x += 3
     for x in p:
         print(x)
-        
+
 
 def main() -> typing.NoReturn:
     n = int(input())

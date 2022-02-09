@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 def main() -> typing.NoReturn:
     n = int(input())
@@ -15,7 +15,7 @@ def main() -> typing.NoReturn:
     elif max(f) < n:
         print('setwise coprime')
     else:
-        print('not coprime') 
+        print('not coprime')
 
 
 main()

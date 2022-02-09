@@ -12,9 +12,9 @@ def main():
         res += b[j]
         if a[i-1] == j - 1:
             res += c[j-1]
-    
+
     return res
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

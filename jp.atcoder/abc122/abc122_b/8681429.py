@@ -2,7 +2,7 @@ import sys
 
 def main():
     s = sys.stdin.readline().rstrip()
-    
+
     ATCG = set('ATCG')
     res = 0
     cnt = 0
@@ -15,6 +15,6 @@ def main():
     res = max(res, cnt)
 
     print(res)
-    
+
 if __name__ == "__main__":
     main()

@@ -1,4 +1,4 @@
-import typing 
+import typing
 import numpy as np
 import sys
 
@@ -43,7 +43,7 @@ def solve(xy: np.ndarray, m: int, op: np.ndarray, query: np.ndarray) -> typing.N
         y = np.sum(a[b, 1] * arr)
         print(x, y)
 
-    
+
 def main() -> typing.NoReturn:
     I = np.array(sys.stdin.read().split(), dtype=np.int64)
     n = I[0]
@@ -59,14 +59,13 @@ def main() -> typing.NoReturn:
             i += 1
         elif I[i] == 3 or I[i] == 4:
             i += 2
-        cnt += 1       
+        cnt += 1
     op = I[:i]
     I = I[i:]
     q = I[0]
     I = I[1:]
     query = I[:q * 2].reshape(q, 2)
     solve(xy, m, op, query)
-    
-            
-main()
 
+
+main()

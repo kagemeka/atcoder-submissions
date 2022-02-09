@@ -19,9 +19,9 @@ def main():
         if not hq:
             continue
         res[-j] = -heappop(hq)
-    
+
     return sum(res)
-        
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

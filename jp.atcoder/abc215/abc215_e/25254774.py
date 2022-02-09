@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 mod = 998244353
@@ -7,7 +7,7 @@ mod = 998244353
 def main() -> typing.NoReturn:
   n = int(input())
   a = [ord(x) - ord('A') for x in input()]
-  
+
   m = 10
   dp = [[0] * m for _ in range(1 << m)]
   for x in a:
@@ -20,7 +20,7 @@ def main() -> typing.NoReturn:
         dp[s][x] += dp[u][i]
       dp[s][x] %= mod
     dp[1 << x][x] += 1
-  
+
   ans = sum(
     sum(x) % mod
     for x in dp

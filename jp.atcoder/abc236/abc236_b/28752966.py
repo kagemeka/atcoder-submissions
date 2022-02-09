@@ -11,7 +11,7 @@ def main() -> None:
         if cnt[i] == 4:
             continue
         print(i + 1)
-        return 
+        return
 
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:], ), cache=True)
@@ -28,4 +28,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-    

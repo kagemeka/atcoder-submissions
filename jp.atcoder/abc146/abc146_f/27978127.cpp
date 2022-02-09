@@ -32,5 +32,5 @@ int main() {
     cout << res[i] << ' ';
   }
   cout << res[0] << '\n';
-  
+
 }

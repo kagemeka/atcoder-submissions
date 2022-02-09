@@ -30,7 +30,7 @@ def main():
             if neg:
                 s -= sum(neg)
             res = max(res, s)
-    
+
     return res
 
 if __name__ == '__main__':

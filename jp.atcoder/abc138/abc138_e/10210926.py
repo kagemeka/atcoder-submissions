@@ -12,14 +12,14 @@ def main():
             s.index(c)
         except:
             return -1
-    
+
     d = defaultdict(list)
     for i in range(l*2):
         d[s[i]].append(i)
-    
+
     for c in d:
         d[c].sort()
-    
+
     j = 0
     cnt = 0
     for c in t:
@@ -32,7 +32,7 @@ def main():
     ans = l * cnt + j
 
     return ans
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

@@ -9,34 +9,34 @@ def main():
     for i in range(3):
         for j in range(3):
             if a[i][j] in b:
-                res[i][j] = True 
-    
+                res[i][j] = True
+
     for i in range(3):
         for j in range(3):
             if not res[i][j]:
                 break
         else:
             return 'Yes'
-    
+
     for j in range(3):
         for i in range(3):
             if not res[i][j]:
                 break
         else:
             return 'Yes'
-    
+
     for i, j in zip(range(3), range(3)):
         if not res[i][j]:
             break
         else:
             return 'Yes'
-    
+
     for i, j in zip(range(3), range(2, -1, -1)):
         if not res[i][j]:
             break
         else:
             return 'Yes'
-    
+
     return 'No'
 
 if __name__ == '__main__':

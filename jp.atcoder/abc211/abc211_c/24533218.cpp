@@ -12,7 +12,7 @@ int main() {
   string t = "$chokudai";
   map<char, int> ind;
   for (
-    int i = 0; 
+    int i = 0;
     i < (int)t.size();
     i++
   ) {
@@ -27,5 +27,5 @@ int main() {
     cnt[x] %= mod;
   }
   cout << cnt['i'] << '\n';
-  
+
 }

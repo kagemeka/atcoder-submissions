@@ -1,12 +1,12 @@
-import typing 
-import numpy as np 
-import numba as nb 
+import typing
+import numpy as np
+import numba as nb
 
 
 
 @nb.njit((nb.i8, nb.i8), cache=True)
 def ext_gcd(a: int, b: int) -> typing.Tuple[int, int, int]:
-  if not b: return a, 1, 0 
+  if not b: return a, 1, 0
   g, s, t = ext_gcd(b, a % b)
   return g, t, s - a // b * t
 
@@ -20,8 +20,8 @@ def mod_inv(a: int, mod: int) -> int:
       'modular multiplicative inverse does not exist.'
     )
   return p % mod
-  
-  
+
+
 
 # @nb.njit((nb.i8[:], nb.i8[:], nb.i8), cache=True)
 # def garner(
@@ -29,7 +29,7 @@ def mod_inv(a: int, mod: int) -> int:
 #   m: np.ndarray,
 #   mod: int,
 # ) -> int:
-#   n = r.size 
+#   n = r.size
 #   assert m.size == n
 #   m = np.hstack((m, np.array([mod])))
 #   s = np.zeros(n + 1, np.int64)
@@ -37,10 +37,10 @@ def mod_inv(a: int, mod: int) -> int:
 #   for i in range(n):
 #     t = (r[i] - s[i]) % m[i] * mod_inv(m_prod[i], m[i]) % m[i]
 #     s[i + 1:] += t * m_prod[i + 1:] % m[i + 1:]
-#     s %= m 
-#     m_prod = m_prod * m[i] % m 
+#     s %= m
+#     m_prod = m_prod * m[i] % m
 #   return s[-1], m_prod[-1]
-    
+
 
 
 @nb.njit((nb.i8[:], nb.i8[:]), cache=True)
@@ -48,7 +48,7 @@ def garner(
   r: np.ndarray,
   m: np.ndarray,
 ) -> int:
-  n = r.size 
+  n = r.size
   assert m.size == n
   x = 0
   m_prod = 1
@@ -57,7 +57,7 @@ def garner(
     x += t * m_prod
     m_prod *= m[i]
   return x
-    
+
 
 
 @nb.njit((nb.i8, ) * 3, cache=True)
@@ -65,17 +65,17 @@ def solve(n: int, s: int, k: int) -> typing.NoReturn:
   d, _, _ = ext_gcd(n, k)
   if s % d:
     print(-1)
-    return 
+    return
   n //= d
   k //= d
-  s //= d 
+  s //= d
   r = np.array([0, s])
   m = np.array([n, k])
   y = garner(r, m)
   lcm = n * k * d
   if y < s: y += lcm
   print((y - s) // k)
-    
+
 
 def main() -> typing.NoReturn:
   t = int(input())

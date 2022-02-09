@@ -6,8 +6,8 @@ import (
 )
 
 func main() {
-  var n int 
-  var s string 
+  var n int
+  var s string
   fmt.Scan(&n, &s)
-  fmt.Println(strings.Count(s, "ABC")) 
+  fmt.Println(strings.Count(s, "ABC"))
 }

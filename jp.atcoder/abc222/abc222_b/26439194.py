@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:], nb.i8), cache=True)
@@ -10,7 +10,7 @@ def solve(a: np.ndarray, p: int) -> typing.NoReturn:
   for x in a:
     cnt += x < p
   print(cnt)
-  
+
 
 def main() -> typing.NoReturn:
   n, p = map(int, input().split())

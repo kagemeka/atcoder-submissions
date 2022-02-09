@@ -14,7 +14,7 @@ def main():
 
     for i in a:
         yield res - comb(c[i]) + comb(c[i]-1)
-        
+
 if __name__ == "__main__":
     ans = main()
     print(*ans, sep='\n')

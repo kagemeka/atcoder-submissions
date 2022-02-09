@@ -6,7 +6,7 @@ from collections import Counter
 def main():
     n, s = sys.stdin.read().split()
     n = int(n)
-    
+
     # t = [None] * (n+1)
     # c = Counter(s)
     # t[0] = set(s)
@@ -19,12 +19,12 @@ def main():
     # # print(t)
 
 
-    
+
     cand = list(''.join(p) for p in product(digits, repeat=3))
     # print(cand)
     # for comb in combinations(s, 3):
     #     res.add(comb)
-    
+
     # ans = len(res)
     # print(ans)
 
@@ -39,9 +39,9 @@ def main():
         k = s.find(c[2], j+1)
         if k == -1:
             continue
-        
+
         res.add(c)
-        
+
     ans = len(res)
     print(ans)
 

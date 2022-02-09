@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:], nb.i8), cache=True)
@@ -10,7 +10,7 @@ def solve(
   k: int,
 ) -> typing.NoReturn:
   n = len(a)
-  
+
 
   def possible(x):
     cnt = 0
@@ -26,11 +26,11 @@ def solve(
       if possible(x):
         hi = x
       else:
-        lo = x 
+        lo = x
     return hi
-  
+
   print(binary_search())
-    
+
 
 
 def main() -> typing.NoReturn:

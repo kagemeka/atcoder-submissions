@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, m = [int(x) for x in sys.stdin.readline().split()]
@@ -18,7 +18,7 @@ def main():
         li, ri = [int(x) for x in sys.stdin.readline().split()]
         l.append(li)
         r.append(ri)
-    
+
     print(min(r) - max(l) + 1 if min(r) >= max(l) else 0)
 
 

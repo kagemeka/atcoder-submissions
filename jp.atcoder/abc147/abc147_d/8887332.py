@@ -16,11 +16,11 @@ def main():
     b = a >> np.arange(61).reshape(-1, 1) & 1
     x = np.count_nonzero(b, axis=1)
     y = n - x
-    x *= y 
+    x *= y
     x %= MOD
     x *= powmod
     x %= MOD
-    
+
     ans = np.sum(x) % MOD
     return ans
 

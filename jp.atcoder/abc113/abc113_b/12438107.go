@@ -7,7 +7,7 @@ import (
 func absInt(x int) int {if x < 0 {x *= -1}; return x}
 
 func main() {
-  var n, t, a int 
+  var n, t, a int
   fmt.Scan(&n, &t, &a)
   a *= 1000
   t *= 1000

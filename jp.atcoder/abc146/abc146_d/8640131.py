@@ -24,7 +24,7 @@ def main():
         x = to_check.pop()
         # stackから要素を取り除き、xにset
         for y in graph[x]: # xから直接つながっているverticesについて
-            if y == parent[x]: 
+            if y == parent[x]:
                 continue
             # yがxの親でなければ
             parent[y] = x # xを親にして

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -12,7 +12,7 @@ def main() -> typing.NoReturn:
     for x, y in xy:
         g[x].append(y)
         in_deg[y] += 1
-    
+
     que = [i for i in range(n) if in_deg[i] == 0]
     inf = 1 << 60
     value = [0] * n
@@ -27,4 +27,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-    

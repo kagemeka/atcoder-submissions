@@ -1,7 +1,7 @@
-import typing 
+import typing
 import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 
@@ -17,7 +17,7 @@ def solve(
   k = 1 << 20
   s = np.ones(k, dtype=np.bool8)
   s[a] = False
-  
+
   a = np.ones(m + 1, dtype=np.bool8)
   a[0] = False
   for i in range(2, m + 1):

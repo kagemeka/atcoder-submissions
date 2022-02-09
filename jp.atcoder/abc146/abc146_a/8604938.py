@@ -7,6 +7,6 @@ def main():
     s = sys.stdin.readline().rstrip()
     ans = 7 - days.index(s)
     print(ans)
-    
+
 if __name__ == '__main__':
     main()

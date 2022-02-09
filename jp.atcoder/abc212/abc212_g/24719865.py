@@ -3,11 +3,11 @@ from __future__ import (
 )
 
 import typing
-import abc 
+import abc
 
 
 class Modular(abc.ABC):
-  
+
   mod: int
 
   def __init__(
@@ -20,8 +20,8 @@ class Modular(abc.ABC):
 
   def __repr__(self) -> str:
     return f'{self.__value}'
-  
-  
+
+
   def __clone(self) -> Modular:
     return self.__class__(
       self.__value,
@@ -30,7 +30,7 @@ class Modular(abc.ABC):
 
   @classmethod
   def __to_mod(
-    cls, 
+    cls,
     rhs: T,
   ) -> Modular:
     if type(rhs) != int:
@@ -39,7 +39,7 @@ class Modular(abc.ABC):
 
 
   def __add__(
-    self, 
+    self,
     rhs: T,
   ) -> Modular:
     x = self.__clone()
@@ -47,21 +47,21 @@ class Modular(abc.ABC):
     x.__value += rhs.__value
     x.__value %= self.mod
     return x
-  
+
 
   def __iadd__(
-    self, 
+    self,
     rhs: T,
   ) -> Modular:
     return self + rhs
 
 
   def __radd__(
-    self, 
+    self,
     lhs: T,
   ) -> Modular:
     return self + lhs
-  
+
 
   def __neg__(self) -> Modular:
     return self.__class__(
@@ -70,28 +70,28 @@ class Modular(abc.ABC):
 
 
   def __sub__(
-    self, 
+    self,
     rhs: T,
   ) -> Modular:
     return self + -rhs
-  
+
 
   def __isub__(
-    self, 
+    self,
     rhs: T,
   ) -> Modular:
     return self - rhs
 
-  
+
   def __rsub__(
-    self, 
+    self,
     lhs: T,
   ) -> Modular:
     return -self + lhs
 
 
   def __mul__(
-    self, 
+    self,
     rhs: T,
   ) -> Modular:
     x = self.__clone()
@@ -102,26 +102,26 @@ class Modular(abc.ABC):
 
 
   def __imul__(
-    self, 
+    self,
     rhs: T,
   ) -> Modular:
     return self * rhs
 
 
   def __rmul__(
-    self, 
+    self,
     lhs: T,
   ) -> Modular:
     return self * lhs
-  
+
 
   def __truediv__(
-    self, 
+    self,
     rhs: T,
   ) -> Modular:
     rhs = self.__to_mod(rhs)
     return self * rhs.inv()
-  
+
 
   def __itruediv__(
     self,
@@ -131,14 +131,14 @@ class Modular(abc.ABC):
 
 
   def __rtruediv__(
-    self,   
+    self,
     lhs: T,
   ) -> Modular:
     return self.inv() * lhs
 
 
   def __floordiv__(
-    self, 
+    self,
     rhs: T,
   ) -> Modular:
     return self / rhs
@@ -152,14 +152,14 @@ class Modular(abc.ABC):
 
 
   def __rfloordiv__(
-    self,   
+    self,
     lhs: T,
   ) -> Modular:
     return lhs / self
 
 
   def __pow__(
-    self, 
+    self,
     n: int,
   ) -> Modular:
     return pow(
@@ -167,17 +167,17 @@ class Modular(abc.ABC):
       n,
       self.mod,
     )
-  
+
 
   def __ipow__(
-    self, 
+    self,
     n: int,
   ) -> Modular:
     return self ** n
 
 
   def __rpow__(
-    self, 
+    self,
     rhs: T,
   ) -> Modular:
     rhs = self.__to_mod(rhs)
@@ -189,33 +189,33 @@ class Modular(abc.ABC):
     cls,
   ) -> Modular:
     return cls(1)
-  
-  
+
+
   @classmethod
   def add_identity(
     cls,
   ) -> Modular:
     return cls(0)
-  
-    
+
+
   def inv(self) -> Modular:
     i = self ** (self.mod - 2)
     return i
-  
+
 
   def __eq__(
-    self, 
+    self,
     rhs: T,
   ) -> bool:
     rhs = self.__to_mod(rhs)
     return (
-      self.__value 
+      self.__value
       == rhs.__value
     )
 
 
   def congruent(
-    self, 
+    self,
     rhs: T,
   ) -> bool:
     return self == rhs
@@ -243,7 +243,7 @@ class ModFactory():
       mod: typing.Final[
         int
       ] = modulo
-    return Mint 
+    return Mint
 
 
 
@@ -279,8 +279,8 @@ def main() -> typing.NoReturn:
       if divs[j] % d: continue
       c -= cnt[j]
     cnt[i] = c
-  
-  s = 1 
+
+  s = 1
   for i in range(l):
     s += n // divs[i] * cnt[i]
   print(s)

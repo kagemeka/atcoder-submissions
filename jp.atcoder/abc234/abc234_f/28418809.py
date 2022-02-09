@@ -12,7 +12,7 @@ def main() -> None:
         fact[i + 1] = fact[i] * fact[i + 1] % MOD
     ifact = [pow(fact[i], MOD - 2, MOD) for i in range(k)]
     choose = lambda n, k: fact[n] * ifact[n - k] % MOD * ifact[k] % MOD
-    
+
     dp = [0] * (n + 1)
     dp[0] = 1
     cnt = [0] * 26
@@ -26,8 +26,8 @@ def main() -> None:
                 dp[i] %= MOD
 
     print((sum(dp) - 1) % MOD)
-                
-    
+
+
 
 
 main()

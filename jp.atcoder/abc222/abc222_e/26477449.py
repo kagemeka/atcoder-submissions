@@ -1,6 +1,6 @@
 import typing
-import sys 
-import numpy as np 
+import sys
+import numpy as np
 import numba as nb
 
 
@@ -29,9 +29,9 @@ def euler_tour_edge(
   return tour, parent, depth
 
 
-@nb.njit 
+@nb.njit
 def sort_csgraph(
-  n: int, 
+  n: int,
   g: np.ndarray,
 ) -> typing.Tuple[(np.ndarray, ) * 3]:
   idx = g[:, 0] << 32 | g[:, 1]
@@ -42,15 +42,15 @@ def sort_csgraph(
   return g, edge_idx, original_idx
 
 
-@nb.njit 
+@nb.njit
 def csgraph_to_directed(g: np.ndarray) -> np.ndarray:
   m = len(g)
   g = np.vstack((g, g))
   g[m:, :2] = g[m:, 1::-1]
-  return g 
+  return g
 
 
-@nb.njit 
+@nb.njit
 def mod_pow(x: int, n: int, mod: int) -> int:
   y = 1
   while n:
@@ -62,8 +62,8 @@ def mod_pow(x: int, n: int, mod: int) -> int:
 
 @nb.njit((nb.i8[:], nb.i8[:, :], nb.i8), cache=True)
 def solve(
-  a: np.ndarray, 
-  uv: np.ndarray, 
+  a: np.ndarray,
+  uv: np.ndarray,
   k: int,
 ) -> typing.NoReturn:
   mod = 998_244_353
@@ -88,7 +88,7 @@ def solve(
   if total_edge_cnt + k < 0 or (total_edge_cnt + k) & 1:
     print(0)
     return
-  
+
   r = (k + total_edge_cnt) // 2
   assert r >= 0
   b = cnt[cnt > 0]

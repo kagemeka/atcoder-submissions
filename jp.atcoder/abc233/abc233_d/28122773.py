@@ -1,4 +1,4 @@
-import typing 
+import typing
 import collections
 
 
@@ -15,6 +15,6 @@ def main() -> typing.NoReturn:
         tot += cnt[s[i] - k]
         cnt[s[i]] += 1
     print(tot)
-            
+
 
 main()

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -9,26 +9,26 @@ def main() -> typing.NoReturn:
     for x in a:
         if x > 0: pos.append(x)
         if x < 0: neg.append(x)
-    
+
 
     positive_possible = False
     if k & 1 and len(pos) >= 1 and len(pos) + len(neg) // 2 * 2 >= k:
         positive_possible = True
     elif ~k & 1 and len(pos) // 2 * 2 + len(neg) // 2 * 2 >= k:
         positive_possible = True
-    
+
     MOD = 10 ** 9 + 7
     if not positive_possible:
         if 0 in a:
             print(0)
-            return 
+            return
         p = 1
         for x in sorted(a, key=lambda x: abs(x))[:k]:
             p *= x
             p %= MOD
         print(p)
         return
-    
+
     pos.sort(reverse=True)
     neg.sort()
     cand = []
@@ -47,7 +47,7 @@ def main() -> typing.NoReturn:
     for x in cand[:k // 2]:
         p *= x
         p %= MOD
-    print(p)  
+    print(p)
 
 
 

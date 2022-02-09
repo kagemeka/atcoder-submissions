@@ -9,7 +9,7 @@ def main():
     while x * 27 // 25 == n:
         res.append(x)
         x += 1
-    
+
     if res:
         print(res[0])
     else:

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def bfs_sparse(
@@ -32,18 +32,18 @@ def main() -> typing.NoReturn:
         b -= 1
         g[a].append(b)
         g[b].append(a)
-    
+
     k = int(input())
     c = list(map(lambda x: int(x) - 1, input().split()))
-    
+
     inf = 1 << 60
     dist = [[inf] * k for _ in range(k)]
     for i in range(k):
         d = bfs_sparse(g, c[i])
         for j in range(k):
             dist[i][j] = d[c[j]]
-        
-    
+
+
     dp = [[inf] * k for _ in range(1 << k)]
     for i in range(k):
         dp[1 << i][i] = 1
@@ -54,11 +54,9 @@ def main() -> typing.NoReturn:
             for j in range(k):
                 if ~t >> j & 1: continue
                 dp[s][i] = min(dp[s][i], dp[t][j] + dist[j][i])
-    
+
     mn = min(dp[-1])
     print(-1 if mn == inf else mn)
 
 
 main()
-    
-    

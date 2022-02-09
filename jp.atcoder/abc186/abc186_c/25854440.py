@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -12,6 +12,6 @@ def solve(n: int) -> typing.NoReturn:
   for i in range(1, n + 1):
     cnt -= '7' in str(i) or '7' in oct(i)
   print(cnt)
-    
+
 
 main()

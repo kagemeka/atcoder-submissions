@@ -12,7 +12,7 @@ for i in range(n):
 
 # xy = np.array(xy)
 # x, y = xy[:, :].T
-# x = x.T 
+# x = x.T
 # y = y.T
 
 def main():
@@ -34,7 +34,7 @@ def main():
         else:
             ans = max(ans, cnt)
     return ans
-                
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def bfs_sparse(g: typing.List[typing.List[int]], src: int) -> typing.List[int]:
@@ -10,7 +10,7 @@ def bfs_sparse(g: typing.List[typing.List[int]], src: int) -> typing.List[int]:
         for v in g[u]:
             dv = dist[u] + 1
             if dv >= dist[v]: continue
-            dist[v] = dv 
+            dist[v] = dv
             que.append(v)
     return dist
 
@@ -23,7 +23,7 @@ def main() -> typing.NoReturn:
         a -= 1
         b -= 1
         g[a].append(b)
-    
+
     inf = 1 << 60
     cnt = 0
     for i in range(n):
@@ -32,5 +32,3 @@ def main() -> typing.NoReturn:
     print(cnt)
 
 main()
-    
-    

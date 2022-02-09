@@ -20,7 +20,7 @@ def main():
                 res.append(c)
             else:
                 res.appendleft(c)
-    
+
     res = ''.join(list(res))
     if cnt & 1:
         res = res[::-1]

@@ -16,7 +16,7 @@ def main():
     )
   dp[1] = min(dp[-1] + s[-1], dp[1])
   print(*dp[1:], sep='\n')
-  
+
 
 
 main()

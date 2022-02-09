@@ -1,17 +1,17 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def mod_cumprod(a: np.ndarray, mod: int) -> typing.NoReturn:
   for i in range(a.size - 1): a[i + 1] = a[i + 1] * a[i] % mod
 
 
 @nb.njit((nb.i8[:], ), cache=True)
 def solve(a: np.ndarray) -> typing.NoReturn:
-  n = a.size 
+  n = a.size
   a = np.hstack((np.array([0]), a))
   a = np.unique(a)
   d = a[1:] - a[:-1] + 1

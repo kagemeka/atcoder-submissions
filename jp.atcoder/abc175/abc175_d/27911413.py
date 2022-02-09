@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -8,9 +8,9 @@ def main() -> typing.NoReturn:
     inf = 1 << 60
     mx = -inf
     for i in range(n):
-        # visiting order 
+        # visiting order
         # loop size
-        # first visiting score 
+        # first visiting score
         # loop score
         score = [-inf] * n
         score[i] = 0
@@ -38,8 +38,6 @@ def main() -> typing.NoReturn:
                 continue
             mx = max(mx, s)
     print(mx)
-            
+
 
 main()
-             
-            

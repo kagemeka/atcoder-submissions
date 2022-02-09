@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:], ), cache=True)
@@ -12,12 +12,12 @@ def solve(a: np.ndarray) -> typing.NoReturn:
     cnt = 0
     for i in range(n - 1):
         s += a[i] * cnt
-        cnt = 0 
+        cnt = 0
         if a[i + 1] <= a[i]: continue
         cnt, s = divmod(s, a[i])
     s += a[-1] * cnt
     print(s)
-            
+
 
 def main() -> typing.NoReturn:
     n = int(input())

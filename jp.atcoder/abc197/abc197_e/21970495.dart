@@ -4,7 +4,7 @@ import 'dart:math';
 
 
 
-class IO 
+class IO
 {
 
   // IO() {readLines();}
@@ -29,7 +29,7 @@ class IO
 
   void readLines()
   {
-    while (true) 
+    while (true)
     {
       var line = (
         stdin.readLineSync()
@@ -38,7 +38,7 @@ class IO
       line = line.toString().trim();
       buf.addAll(
         line.split(' '),
-      ); 
+      );
       // print(buf);
     }
   }
@@ -48,7 +48,7 @@ class IO
   {
     z++;
     return buf[z];
-    // if (i < buf.length) 
+    // if (i < buf.length)
     // {
     //   return buf[i];
     // }
@@ -62,26 +62,26 @@ class IO
 
 
 
-  // String read() 
+  // String read()
   // {
   //   List<int> bytes = [];
   //   // const int maxWait = 1 << 8;
   //   // int wait = 0;
-  //   while (true) 
+  //   while (true)
   //   {
   //     var b = readByte();
   //     // if (
   //     //   wait == maxWait
   //     // ) break;
-  //     // if (b == -1) 
+  //     // if (b == -1)
   //     // {
   //     //   wait++;
   //     //   continue;
   //     // }
   //     // wait = 0;
   //     if (
-  //       b == 10 || 
-  //       b == 32 
+  //       b == 10 ||
+  //       b == 32
   //     ) {
   //       break;
   //     }
@@ -118,7 +118,7 @@ class IO
 
 
 
-abstract class Solver 
+abstract class Solver
 {
 
 
@@ -149,17 +149,17 @@ mixin Runner<
 
 
 
-class Item 
+class Item
 implements Comparable<Item> {
 
   int x = 0;
   int c = 0;
-  
+
 
   Item(this.x, this.c);
 
 
-  @override 
+  @override
   int compareTo(
     Item other,
   ) {
@@ -182,10 +182,10 @@ implements Comparable<Item> {
 
 
 class Problem
-with 
-Runner<Problem>, 
+with
+Runner<Problem>,
 IO
-implements Solver 
+implements Solver
 {
 
 
@@ -302,14 +302,14 @@ extension Bisect<E> on List<E> {
   ) {
     int lo = 0, hi = length;
     var compare = (
-      Comparable.compare 
+      Comparable.compare
       as Function(E, E)
     );
     while (lo < hi) {
       var x = (lo + hi) ~/ 2;
       if (
         compare(
-          element, 
+          element,
           this[x],
         ) > 0
       ) {
@@ -327,14 +327,14 @@ extension Bisect<E> on List<E> {
   ) {
     int lo = 0, hi = length;
     var compare = (
-      Comparable.compare 
+      Comparable.compare
       as Function(E, E)
     );
     while (lo < hi) {
       var x = (lo + hi) ~/ 2;
       if (
         compare(
-          element, 
+          element,
           this[x],
         ) < 0
       ) {

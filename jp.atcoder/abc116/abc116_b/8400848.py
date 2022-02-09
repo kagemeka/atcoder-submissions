@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def f(n):
     if n % 2 == 0:
@@ -26,11 +26,11 @@ def main():
     while True:
         a.append(n)
         n = f(n)
-        m +=1 
+        m +=1
         if n in a:
             print(m)
             break
-        
+
 
 if __name__ == "__main__":
     main()

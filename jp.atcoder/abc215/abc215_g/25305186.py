@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -7,9 +7,9 @@ class CompressArray():
     self,
     a: typing.List[int],
   ) -> typing.NoReturn:
-    from bisect import bisect_left 
+    from bisect import bisect_left
     v = sorted(set(a))
-    self.__v = v 
+    self.__v = v
     return [bisect_left(v, x) for x in a]
 
 
@@ -45,7 +45,7 @@ class FlatNonzero():
   ) -> typing.List[int]:
     return [i for i, x in enumerate(a) if x]
 
- 
+
 
 class ModCumprod():
   def __call__(
@@ -55,7 +55,7 @@ class ModCumprod():
     for i in range(len(a) - 1):
       a[i + 1] *= a[i]
       a[i + 1] %= self.__mod
-  
+
 
   def __init__(
     self,
@@ -64,7 +64,7 @@ class ModCumprod():
     self.__mod = mod
 
 
- 
+
 class ModFactorial():
   def __call__(
     self,
@@ -80,8 +80,8 @@ class ModFactorial():
     self,
     mod: int,
   ) -> typing.NoReturn:
-    self.__mod = mod 
-  
+    self.__mod = mod
+
 
   def inv(
     self,
@@ -107,7 +107,7 @@ class ModChoose():
     f, i = self.__fact, self.__ifact
     c = f[n] * i[k] % m * i[n - k] % m
     return c * ok
-  
+
 
   def __init__(
     self,
@@ -143,19 +143,19 @@ def solve(
   c = bincount(bincount(c))
   idx = FlatNonzero()(c)
 
-  mod = 998244353  
+  mod = 998244353
   choose = ModChoose(mod)
 
   def count_up(k: int) -> int:
     s = 0
     for i in idx:
       s -= choose(n - i, k) * c[i] % mod
-    s %= mod 
+    s %= mod
     s *= choose.inv(n, k)
     return (s + m) % mod
 
   for k in range(1, n + 1):
-    print(count_up(k)) 
+    print(count_up(k))
 
 
 def main() -> typing.NoReturn:

@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -212,7 +212,7 @@ def solve(a: np.ndarray, q: np.ndarray) -> typing.NoReturn:
     n = len(a)
     s = np.zeros(n + 1, np.int64)
     s[1:] = a.cumsum()
-    
+
     seg, lazy = build_seg(s)
     for i in range(len(q)):
         t, l, r = q[i]

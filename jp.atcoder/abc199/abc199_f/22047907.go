@@ -36,7 +36,7 @@ func (
 	bufSize int,
 ) {
 	io.Scanner.Buffer(
-		[]byte{}, 
+		[]byte{},
 		bufSize,
 	)
 }
@@ -113,7 +113,7 @@ func Run(
 type Problem struct {
 	io *IO
 	mod int
-	n, m, k int 
+	n, m, k int
 	a []int
 	x, y []int
 	g [][]int
@@ -134,7 +134,7 @@ func (
 func (
 	p *Problem,
 ) Prepare() {
-	io := p.io 
+	io := p.io
 	n := io.Int()
 	m := io.Int()
 	k := io.Int()
@@ -148,11 +148,11 @@ func (
 		x[i] = io.Int() - 1
 		y[i] = io.Int() - 1
 	}
-	p.n = n 
-	p.m = m 
-	p.k = k 
-	p.a = a 
-	p.x = x 
+	p.n = n
+	p.m = m
+	p.k = k
+	p.a = a
+	p.x = x
 	p.y = y
 }
 
@@ -162,11 +162,11 @@ func (
 ) Solve() {
 	p.makeGraph()
 	p.doubling()
-	g := p.g 
-	a := p.toMatrix(p.a) 
+	g := p.g
+	a := p.toMatrix(p.a)
 	a = p.dot(g, a)
-	n := p.n 
-	io := p.io 
+	n := p.n
+	io := p.io
 	for i := 0; i < n; i++ {
 		io.Write(a[i][0])
 	}
@@ -190,8 +190,8 @@ func (
 func (
 	p *Problem,
 ) doubling() {
-	g := p.g 
-	k := p.k 
+	g := p.g
+	k := p.k
 	g = p.matPow(g, k)
 	p.g = g
 }
@@ -262,7 +262,7 @@ func (
 ) identity() (
 	[][]int,
 ) {
-	n := p.n 
+	n := p.n
 	e := make([][]int, n)
 	for i := 0; i < n; i++ {
 		e[i] = make([]int, n)
@@ -275,7 +275,7 @@ func (
 func (
 	p *Problem,
 ) makeGraph() {
-	n := p.n 
+	n := p.n
 	g := make([][]int, n)
 	for i := 0; i < n; i++ {
 		g[i] = make([]int, n)
@@ -290,15 +290,15 @@ func (
 func (
 	p *Problem,
 ) toProbability() {
-	g := p.g 
-	m := p.m 
+	g := p.g
+	m := p.m
 	a := p.inv(2 * m)
-	n := p.n 
+	n := p.n
 	for i := 0; i < n; i++ {
 		for j := 0; j < n; j++ {
 			g[i][j] *= a
 		}
-	}	
+	}
 }
 
 
@@ -316,7 +316,7 @@ func (
 	if n & 1 == 1 {
 		y = y * x % mod
 	}
-	y = (y + mod) % mod 
+	y = (y + mod) % mod
 	return y
 }
 
@@ -335,7 +335,7 @@ func (
 ) smooth() {
 	g := p.g
 	x, y := p.x, p.y
-	m := p.m 
+	m := p.m
 	for i := 0; i < m; i++ {
 		x, y := x[i], y[i]
 		g[x][x]--
@@ -349,9 +349,9 @@ func (
 func (
 	p *Problem,
 ) fillDiagonal() {
-	g := p.g 
-	n := p.n 
-	m := p.m 
+	g := p.g
+	n := p.n
+	m := p.m
 	for i := 0; i < n; i++ {
 		g[i][i] = 2 * m
 	}

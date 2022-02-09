@@ -1,10 +1,10 @@
 # multiset with segment tree
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
-@nb.njit 
+@nb.njit
 def bit_length(n: int) -> int:
   l = 0
   while 1 << l <= n: l += 1
@@ -12,7 +12,7 @@ def bit_length(n: int) -> int:
 
 
 S = typing.TypeVar('S')
-@nb.njit 
+@nb.njit
 def seg_build(
   op: typing.Callable[[S, S], S],
   e: typing.Callable[[], S],
@@ -24,33 +24,33 @@ def seg_build(
   seg[n:n + len(a)] = a.copy()
   for i in range(n - 1, 0, -1):
     seg[i] = op(seg[i << 1], seg[i << 1 | 1])
-  return seg 
+  return seg
 
 
-@nb.njit 
+@nb.njit
 def seg_set(
   seg: np.ndarray,
   op: typing.Callable[[S, S], S],
-  i: int, 
+  i: int,
   x: S,
 ) -> typing.NoReturn:
-  i += len(seg) >> 1 
+  i += len(seg) >> 1
   seg[i] = x
   while i > 1:
     i >>= 1
     seg[i] = op(seg[i << 1], seg[i << 1 | 1])
 
 
-@nb.njit 
+@nb.njit
 def seg_get(
   seg: np.ndarray,
   op: typing.Callable[[S, S], S],
   e: typing.Callable[[], S],
-  l: int, 
+  l: int,
   r: int,
 ) -> int:
   n = len(seg) >> 1
-  l, r = l + n, r + n 
+  l, r = l + n, r + n
   vl, vr = e(), e()
   while l < r:
     if l & 1:
@@ -73,7 +73,7 @@ def seg_max_right(
   l: int,
   size: int,
 ) -> int:
-  n = len(seg) >> 1 
+  n = len(seg) >> 1
   assert 0 <= l < size
   i = l + n
   v = e()
@@ -95,31 +95,31 @@ def seg_max_right(
 
 
 S = typing.TypeVar('S')
-@nb.njit 
+@nb.njit
 def build_seg(a: np.ndarray) -> np.ndarray:
   return seg_build(seg_op, seg_e, a)
-  
 
-@nb.njit 
+
+@nb.njit
 def set_seg(seg: np.ndarray, i: int, x: S) -> typing.NoReturn:
   seg_set(seg, seg_op, i, x)
 
 
-@nb.njit 
+@nb.njit
 def get_seg(seg: np.ndarray, l: int, r: int) -> S:
   return seg_get(seg, seg_op, seg_e, l, r)
 
 
-@nb.njit 
+@nb.njit
 def operate_seg(
-  seg: np.ndarray, 
-  i: int, 
+  seg: np.ndarray,
+  i: int,
   x: S,
 ) -> typing.NoReturn:
   set_seg(seg, i, seg_op(get_seg(seg, i, i + 1), x))
-  
 
-@nb.njit 
+
+@nb.njit
 def max_right_seg(
   seg: np.ndarray,
   is_ok: typing.Callable[[S], bool],
@@ -135,29 +135,29 @@ def max_right_seg(
 # use with coordinates compression.
 
 
-@nb.njit 
+@nb.njit
 def seg_op(a: S, b: S) -> S: return a + b
 
 
-@nb.njit 
+@nb.njit
 def seg_e() -> S: return 0
 
 
-@nb.njit 
+@nb.njit
 def ms_build(n: int) -> np.ndarray:
   return build_seg(np.zeros(n, np.int64))
 
 
-@nb.njit 
+@nb.njit
 def ms_size(ms: np.ndarray) -> int:
   return get_seg(ms, 0, len(ms) - 1)
 
-@nb.njit 
+@nb.njit
 def ms_add(ms: np.ndarray, x: int) -> typing.NoReturn:
   operate_seg(ms, x, 1)
 
 
-@nb.njit 
+@nb.njit
 def ms_pop(ms: np.ndarray, x: int) -> typing.NoReturn:
   assert get_seg(ms, x, x + 1) > 0
   operate_seg(ms, x, -1)
@@ -170,22 +170,22 @@ def ms_get(ms: np.ndarray, ms_len: int, i: int) -> int:
   return max_right_seg(ms, is_ok, i + 1, 0, ms_len)
 
 
-@nb.njit 
-def ms_max(ms: np.ndarray, ms_len: int) -> int: 
+@nb.njit
+def ms_max(ms: np.ndarray, ms_len: int) -> int:
   return ms_get(ms, ms_len, ms_size(ms) - 1)
 
 
-@nb.njit 
-def ms_min(ms: np.ndarray, ms_len: int) -> int: 
+@nb.njit
+def ms_min(ms: np.ndarray, ms_len: int) -> int:
   return ms_get(ms, ms_len, 0)
 
 
-@nb.njit 
+@nb.njit
 def ms_lower_bound(ms: np.ndarray, x: int) -> int:
   return get_seg(ms, 0, x)
 
 
-@nb.njit 
+@nb.njit
 def ms_upper_bound(ms: np.ndarray, x: int) -> int:
   return get_seg(ms, 0, x + 1)
 

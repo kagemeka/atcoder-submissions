@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -51,7 +51,7 @@ def solve(n: int, uv: np.ndarray) -> typing.NoReturn:
     m = len(uv)
     if n != m:
         print(0)
-        return 
+        return
     mod = 998_244_353
     edge_cnt = np.zeros(n, np.int64)
     for i in range(m):
@@ -60,20 +60,20 @@ def solve(n: int, uv: np.ndarray) -> typing.NoReturn:
         edge_cnt[v] += 1
     label = connected_components_dfs(n, uv)
 
-    k = label.max() + 1    
+    k = label.max() + 1
     edge_cnt2 = np.zeros(k, np.int64)
     for i in range(n):
         edge_cnt2[label[i]] += edge_cnt[i]
-    
+
     b = np.bincount(label)
     if not np.all(b * 2 == edge_cnt2):
         print(0)
-        return 
-    res = 1 
+        return
+    res = 1
     for _ in range(label.max() + 1):
         res = res * 2 % mod
     print(res)
-    
+
 
 def main() -> typing.NoReturn:
     n, m = map(int, input().split())

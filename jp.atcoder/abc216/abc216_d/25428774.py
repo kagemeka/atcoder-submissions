@@ -1,4 +1,4 @@
-import typing 
+import typing
 import heapq
 import sys
 
@@ -11,11 +11,11 @@ def main() -> typing.NoReturn:
   for i in range(m):
     k = int(input())
     a[i] = [
-      int(x) - 1 
+      int(x) - 1
       for x in sys.stdin.readline().split()
     ][::-1]
- 
-  idx = [[] for _ in range(n)] 
+
+  idx = [[] for _ in range(n)]
   q = []
   for i in range(m):
     j = a[i][-1]
@@ -28,14 +28,14 @@ def main() -> typing.NoReturn:
     for i in idx[j]:
       a[i].pop()
       if not a[i]: continue
-      k = a[i][-1] 
+      k = a[i][-1]
       idx[k].append(i)
       if len(idx[k]) == 2: q.append(k)
   print('Yes' if not r else 'No')
 
-    
 
-    
+
+
 
 
 

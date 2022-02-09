@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 
 
@@ -15,7 +15,7 @@ def solve(
     x -= 1; y -= 1
     edges[x].append(y)
     indeg[y] += 1
-  
+
   q = [
     v for v in range(n)
     if not indeg[v]
@@ -26,11 +26,11 @@ def solve(
       dv = dist[u] + 1
       if dv <= dist[v]:
         continue
-      dist[v] = dv 
+      dist[v] = dv
       q.append(v)
-      
+
   print(max(dist))
-    
+
 
 
 def main() -> typing.NoReturn:

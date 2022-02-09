@@ -8,7 +8,7 @@ import math
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     a, b = [int(x) for x in sys.stdin.readline().split()]
@@ -16,7 +16,7 @@ def main():
         ans = 0
     else:
         ans = (a + b) / 2
-    
+
     print(int(ans) if ans == math.floor(ans) else 'IMPOSSIBLE')
 
 

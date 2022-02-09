@@ -7,7 +7,7 @@ class ReadStdin:
     self,
   ) -> bytes:
     return next(self.__chunks)
-    
+
 
   def __init__(
     self,
@@ -34,7 +34,7 @@ class ReadStdin:
       l = self.__buf.readline()
       for chunk in l.split():
         yield chunk
-  
+
 
   def str(
     self,
@@ -60,7 +60,7 @@ class Solver(
     self._prepare()
     self._solve()
 
-  
+
   def __init__(
     self,
   ) -> typing.NoReturn:
@@ -73,7 +73,7 @@ class Solver(
   ) -> typing.NoReturn:
     ...
 
-  
+
   @abstractmethod
   def _solve(
     self,
@@ -81,8 +81,8 @@ class Solver(
     ...
 
 
-    
-import typing 
+
+import typing
 import numpy as np
 import sys
 
@@ -93,7 +93,7 @@ class CompressArray():
     i: int,
   ) -> int:
     return self.__v[i]
-  
+
   def __call__(
     self,
     a: np.array,
@@ -131,7 +131,7 @@ class Problem(
     self,
   ) -> typing.NoReturn:
     self.__preprocess()
-    s = self.__s 
+    s = self.__s
     a = self.__a
     ls = []
     while 1:
@@ -142,7 +142,7 @@ class Problem(
       ls.append(a + s)
       break
     print(len(ls))
-    for a in ls: 
+    for a in ls:
       print(*a)
 
 
@@ -159,12 +159,12 @@ class Problem(
     a = self.__compress(a)
     s = self.__s
     return (a == s).all()
-  
+
 
   def __preprocess(
     self,
   ) -> typing.NoReturn:
-    s = self.__s 
+    s = self.__s
     s = np.array(
       list(s),
       dtype=np.int64,
@@ -174,14 +174,14 @@ class Problem(
     np.cumsum(s, out=s)
     s = self.__compress(s)
     self.__s = s
-  
+
 
   def __compress(
     self,
     a: np.array,
   ) -> np.array:
     return CompressArray()(a)
-    
+
 
 
 def main():

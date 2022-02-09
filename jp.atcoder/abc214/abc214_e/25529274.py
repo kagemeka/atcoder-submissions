@@ -1,7 +1,7 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 T = typing.TypeVar('T')
@@ -14,7 +14,7 @@ def heappush(
   hq.append(x)
   while i > 0:
     j = (i - 1) >> 1
-    if hq[i] >= hq[j]: break 
+    if hq[i] >= hq[j]: break
     hq[i], hq[j] = hq[j], hq[i]
     i = j
 
@@ -33,7 +33,7 @@ def heappop(
     j += j < n - 1 and hq[j + 1] < hq[j]
     if hq[i] <= hq[j]: break
     hq[i], hq[j] = hq[j], hq[i]
-    i = j 
+    i = j
   return x
 
 
@@ -60,20 +60,20 @@ def solve(
         heappush(h, r[i])
         i += 1
     elif not h:
-      j = l[i] 
+      j = l[i]
       while i < n and l[i] == j:
         heappush(h, r[i])
         i += 1
     if heappop(h) < j:
       print('No')
-      return 
+      return
     j += 1
   print('Yes')
-    
+
 
 def main() -> typing.NoReturn:
   t = int(input())
-  
+
   for _ in range(t):
     n = int(input())
     lr = [

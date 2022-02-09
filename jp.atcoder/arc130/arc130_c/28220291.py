@@ -1,19 +1,19 @@
-import typing 
+import typing
 import collections
 
 def main() -> typing.NoReturn:
     a = list(map(int, input()))
     b = list(map(int, input()))
     swapped = False
-    if len(a) < len(b): 
+    if len(a) < len(b):
         a, b = b, a
         swapped = True
-    
+
     ca = collections.Counter(a)
     cb = collections.Counter(b)
 
     # for a, as small as possible
-    
+
     res_a = []
     res_b = []
     tot = 0
@@ -33,16 +33,16 @@ def main() -> typing.NoReturn:
             tot += s % 10
             break
         if flg: break
-    
+
     if not flg:
         # there is no pair such that i + j >= 10
-        # so no digit cannot be carried up. 
+        # so no digit cannot be carried up.
         if swapped: a, b = b, a
         print(''.join(map(str, a)))
         print(''.join(map(str, b)))
         return
 
-    
+
     for i in range(1, 10):
         for s in range(9, 19):
             j = s - i
@@ -52,8 +52,8 @@ def main() -> typing.NoReturn:
                 cb[j] -= 1
                 res_a.append(i)
                 res_b.append(j)
-                tot += (s + 1) % 10 
-    
+                tot += (s + 1) % 10
+
     res_a += [9] * ca[9]
     ca[9] = 0
     for i in range(1, 10):
@@ -64,9 +64,9 @@ def main() -> typing.NoReturn:
     tot += 1
     # print(tot)
     a = ''.join(map(str, res_a))[::-1]
-    b = ''.join(map(str, res_b))[::-1]    
+    b = ''.join(map(str, res_b))[::-1]
     if swapped:
-        a, b = b, a 
+        a, b = b, a
     print(a)
     print(b)
 

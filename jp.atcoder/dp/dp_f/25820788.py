@@ -1,4 +1,4 @@
-import typing 
+import typing
 import numpy as np
 import numba as nb
 
@@ -35,7 +35,7 @@ def lcs(
         i -= 1
         j -= 1
     return lcs
-  
+
   l = _compute_length()
   return _retrieve_lcs(l)
 

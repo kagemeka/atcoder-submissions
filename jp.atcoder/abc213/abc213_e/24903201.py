@@ -1,7 +1,7 @@
-import typing 
+import typing
 import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 from numba import njit, i8, b1
 
 @njit(
@@ -27,15 +27,15 @@ def solve(
     (0, -1),
     (0, 1),
     (1, 0),
-  )  
+  )
 
   def on_grid(u):
     i, j = u
     return (
-      0 <= i < h and 
-      0 <= j < w 
+      0 <= i < h and
+      0 <= j < w
     )
-  
+
   q = np.empty(
     (1 << 30, 2),
     dtype=np.int64,
@@ -57,10 +57,10 @@ def solve(
       dv = du
       if dv >= dist[v]:
         continue
-      dist[v] = dv 
+      dist[v] = dv
       l -= 1
       q[l] = v
-    
+
     for di in range(-2, 3):
       for dj in range(-2, 3):
         md = abs(di) + abs(dj)
@@ -69,7 +69,7 @@ def solve(
         v = (i + di, j + dj)
         if not on_grid(v):
           continue
-        dv = du + 1 
+        dv = du + 1
         if dv >= dist[v]:
           continue
         dist[v] = dv

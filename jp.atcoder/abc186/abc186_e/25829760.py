@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -27,8 +27,8 @@ def gcd(a: int, b: int) -> int:
 def mod_pow(x: int, n: int, mod: int) -> int:
   y = 1
   while n:
-    if n & 1: y = y * x % mod 
-    x = x * x % mod 
+    if n & 1: y = y * x % mod
+    x = x * x % mod
     n >>= 1
   return y
 
@@ -38,10 +38,10 @@ def solve(n: int, s: int, k: int) -> typing.NoReturn:
   g = gcd(k, n)
   if s % g:
     print(-1)
-    return 
-  s //= g 
-  k //= g 
-  n //= g 
+    return
+  s //= g
+  k //= g
+  n //= g
   phi = euler_totient(n)
   k_inv = mod_pow(k, phi - 1, n)
   print(-s * k_inv % n)
