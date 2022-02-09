@@ -1,7 +1,7 @@
 import typing
-import sys 
-import numpy as np 
-import numba as nb 
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.b1[:], ), cache=True)
@@ -15,8 +15,8 @@ def solve(c: np.ndarray) -> typing.NoReturn:
     if i >= len(w) or i >= len(r): break
     if w[i] > r[i]: break
   print(i)
-    
-      
+
+
 
 
 def main() -> typing.NoReturn:

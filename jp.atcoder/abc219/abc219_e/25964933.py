@@ -1,8 +1,8 @@
-import typing 
-import sys 
+import typing
+import sys
 sys.setrecursionlimit(1 << 20)
-import numpy as np 
-import numba as nb 
+import numpy as np
+import numba as nb
 
 
 
@@ -15,13 +15,13 @@ def uf_find(uf: np.ndarray, u: int) -> int:
 
 @nb.njit((nb.i8[:], nb.i8, nb.i8), cache=True)
 def uf_unite(
-  uf: np.ndarray, 
-  u: int, 
+  uf: np.ndarray,
+  u: int,
   v: int,
 ) -> typing.NoReturn:
   u, v = uf_find(uf, u), uf_find(uf, v)
-  if u == v: return 
-  if uf[u] > uf[v]: u, v = v, u 
+  if u == v: return
+  if uf[u] > uf[v]: u, v = v, u
   uf[u] += uf[v]
   uf[v] = u
 
@@ -30,17 +30,17 @@ def uf_unite(
 def solve(a: np.ndarray) -> typing.NoReturn:
   n = len(a)
   assert a.shape == (n, n)
-  
+
   g = np.empty((64, 2), np.int64)
-  idx_to_add = 0 
+  idx_to_add = 0
   def add_edge(u, v):
     nonlocal idx_to_add
     g[idx_to_add] = (u, v)
     idx_to_add += 1
-  
+
   def to_1d(y, x):
     return y * n + x
-  
+
   dyx = [(0, -1), (-1, 0), (1, 0), (0, 1)]
   for i in range(n):
     for j in range(n):
@@ -49,19 +49,19 @@ def solve(a: np.ndarray) -> typing.NoReturn:
         dy, dx = dyx[k]
         ni, nj = i + dy, j + dx
         if ni < 0 or ni > n - 1 or nj < 0 or nj > n - 1:
-          continue     
+          continue
         add_edge(u, to_1d(ni, nj))
 
   g = g[:idx_to_add]
 
- 
+
   t = 0
   for i in range(n):
     for j in range(n):
       if a[i, j] == 0: continue
       t |= 1 << to_1d(i, j)
 
-  
+
   def check_ok(s):
     def contain_all_target():
       return t & ~s == 0
@@ -80,12 +80,12 @@ def solve(a: np.ndarray) -> typing.NoReturn:
         selected[i] = s >> i & 1
       root = root[selected]
       return np.all(root[:-1] == root[1:])
-    
+
 
     def all_open():
       open_ = np.ones(n * n, np.bool8)
       b = np.array([5, 6, 9, 10])
-      open_[b] = False 
+      open_[b] = False
       for i in b:
         if s >> i & 1:
           open_[i] = True
@@ -110,13 +110,13 @@ def solve(a: np.ndarray) -> typing.NoReturn:
       return np.all(open_[b])
 
     return contain_all_target() and connected() and all_open()
-    
-     
-  cnt = 0 
+
+
+  cnt = 0
   for s in range(1 << (n * n)):
     cnt += check_ok(s)
-  print(cnt) 
-    
+  print(cnt)
+
 
 def main() -> typing.NoReturn:
   a = np.array(

@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 
 
@@ -7,8 +7,8 @@ def main() -> typing.NoReturn:
     ab = map(int, sys.stdin.read().split())
     ab = list(zip(*[ab] * 2))
     ab.sort(reverse=True)
-    
-    tot = 0 
+
+    tot = 0
     for a, b in ab:
         if b <= w:
             tot += a * b

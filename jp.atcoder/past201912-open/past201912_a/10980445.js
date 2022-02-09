@@ -7,7 +7,7 @@ def main():
         n = int(s)
     except:
         return 'error'
-    
+
     return n * 2
 
 if __name__ == "__main__":

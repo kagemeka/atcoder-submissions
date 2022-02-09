@@ -1,8 +1,8 @@
 # binary search on Fenwick Tree
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -21,7 +21,7 @@ def fw_build(
   return fw
 
 
-@nb.njit 
+@nb.njit
 def fw_set(
   op: typing.Callable[[S, S], S],
   fw: np.ndarray,
@@ -32,10 +32,10 @@ def fw_set(
   i += 1
   while i < len(fw):
     fw[i] = op(fw[i], x)
-    i += i & -i 
+    i += i & -i
 
 
-@nb.njit 
+@nb.njit
 def fw_get(
   op: typing.Callable[[S, S], S],
   e: typing.Callable[[], S],
@@ -46,8 +46,8 @@ def fw_get(
   v = e()
   while i > 0:
     v = op(v, fw[i])
-    i -= i & -i 
-  return v 
+    i -= i & -i
+  return v
 
 
 @nb.njit
@@ -71,12 +71,12 @@ def fw_max_right(
 
 
 S = typing.TypeVar('S')
-@nb.njit 
+@nb.njit
 def build_fw(a: np.ndarray) -> np.ndarray:
   return fw_build(fw_op, a)
 
 
-@nb.njit 
+@nb.njit
 def set_fw(fw: np.ndarray, i: int, x: S) -> typing.NoReturn:
   fw_set(fw_op, fw, i, x)
 
@@ -86,7 +86,7 @@ def get_fw(fw: np.ndarray, i: int) -> S:
   return fw_get(fw_op, fw_e, fw, i)
 
 
-@nb.njit 
+@nb.njit
 def get_range_fw(fw: np.ndarray, l: int, r: int) -> S:
   return fw_op(
     fw_inverse(fw_get(fw_op, fw_e, fw, l)),
@@ -94,7 +94,7 @@ def get_range_fw(fw: np.ndarray, l: int, r: int) -> S:
   )
 
 
-@nb.njit 
+@nb.njit
 def max_right_fw(
   fw: np.ndarray,
   is_ok: typing.Callable[[S], bool], # fn(v) -> bool
@@ -102,13 +102,13 @@ def max_right_fw(
 ) -> int:
   return fw_max_right(fw_op, fw_e, fw, is_ok, x)
 
-@nb.njit 
+@nb.njit
 def fw_op(a: S, b: S) -> S: return a + b
 
-@nb.njit 
+@nb.njit
 def fw_e() -> S: return 0
 
-@nb.njit 
+@nb.njit
 def fw_inverse(a: S) -> S: return -a
 
 
@@ -116,19 +116,19 @@ def fw_inverse(a: S) -> S: return -a
 
 # use with coordinates compression.
 
-@nb.njit 
+@nb.njit
 def ms_build(n: int) -> np.ndarray:
   return build_fw(np.zeros(n, np.int64))
 
-@nb.njit 
+@nb.njit
 def ms_size(ms: np.ndarray) -> int:
   return get_fw(ms, len(ms) - 1)
 
-@nb.njit 
+@nb.njit
 def ms_add(ms: np.ndarray, x: int) -> typing.NoReturn:
   set_fw(ms, x, 1)
 
-@nb.njit 
+@nb.njit
 def ms_pop(ms: np.ndarray, x: int) -> typing.NoReturn:
   set_fw(ms, x, -1)
 
@@ -138,18 +138,18 @@ def ms_get(ms: np.ndarray, i: int) -> int:
   is_ok = lambda v, x: v < x
   return max_right_fw(ms, is_ok, i + 1)
 
-@nb.njit 
-def ms_max(ms: np.ndarray) -> int: 
+@nb.njit
+def ms_max(ms: np.ndarray) -> int:
   return ms_get(ms, ms_size(ms) - 1)
 
-@nb.njit 
+@nb.njit
 def ms_min(ms: np.ndarray) -> int: return ms_get(ms, 0)
 
-@nb.njit 
+@nb.njit
 def ms_lower_bound(ms: np.ndarray, x: int) -> int:
   return get_fw(ms, x)
 
-@nb.njit 
+@nb.njit
 def ms_upper_bound(ms: np.ndarray, x: int) -> int:
   return get_fw(ms, x + 1)
 

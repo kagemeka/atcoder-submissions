@@ -1,14 +1,14 @@
-import typing 
+import typing
 
 
 
 def main() -> typing.NoReturn:
-  
+
   n = input()
   m = len(n)
-  
 
-  mx = 0 
+
+  mx = 0
   for s in range(1 << m):
     a = []
     b = []
@@ -23,10 +23,7 @@ def main() -> typing.NoReturn:
     a = int(''.join(a)[::-1])
     b = int(''.join(b)[::-1])
     mx = max(mx, a * b)
-  
+
   print(mx)
 
 main()
-    
-    
-  

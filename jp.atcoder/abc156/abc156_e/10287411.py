@@ -35,7 +35,7 @@ def main():
             res %=MOD
 
         return res % MOD
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

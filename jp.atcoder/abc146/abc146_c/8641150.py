@@ -19,9 +19,9 @@ def main():
         elif n >= 10 ** d:
             n = 10 ** d - 1
             cand.append(n)
-        # if n < 10 ** (l - 1), it's impossible d(n) == d. 
+        # if n < 10 ** (l - 1), it's impossible d(n) == d.
 
     print(cand[-1])
-    
+
 if __name__ == '__main__':
     main()

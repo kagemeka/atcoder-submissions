@@ -1,7 +1,7 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 
@@ -22,7 +22,7 @@ def euler_tour(
   for i in range(2 * n):
     u = st.pop()
     tour[i] = u
-    if u < 0: 
+    if u < 0:
       u = -u - 1
       p = parent[u]
       if p == -1: continue
@@ -35,7 +35,7 @@ def euler_tour(
       parent[v] = u
       depth[v] = depth[u] + 1
       st.append(v)
-  return tour, parent, depth, size, dist_sum 
+  return tour, parent, depth, size, dist_sum
 
 
 
@@ -53,10 +53,10 @@ def solve(uv: np.ndarray) -> typing.NoReturn:
     p = parent[u]
     if p == -1: continue
     dist_sum[u] = dist_sum[p] + size[p] - 2 * size[u]
-  
+
   for d in dist_sum:
     print(d)
- 
+
 
 
 

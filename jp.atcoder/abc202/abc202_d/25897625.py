@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -11,12 +11,12 @@ def solve(a: int, b: int, k: int) -> typing.NoReturn:
 
   dp = np.zeros((a + 1, b + 1), np.int64)
   dp[0] = 1
-  dp[:, 0] = 1 
+  dp[:, 0] = 1
   for i in range(a):
     for j in range(b):
       dp[i + 1, j + 1] = dp[i + 1, j] + dp[i, j + 1]
-  
-  
+
+
   res = np.empty(a + b, np.int64)
   i = 0
   while k:
@@ -32,7 +32,7 @@ def solve(a: int, b: int, k: int) -> typing.NoReturn:
       a -= 1
       res[i] = 0
     i += 1
-  return res 
+  return res
 
 
 def main() -> typing.NoReturn:

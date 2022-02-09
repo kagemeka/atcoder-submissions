@@ -15,7 +15,7 @@ def main():
         for x, y in xy[i]:
             bl = ~comb[:, i] | (comb[:, x] == np.bool(y))
             comb = comb[bl]
-    
+
     ans = np.amax(np.sum(comb, axis=1))
     return ans
 

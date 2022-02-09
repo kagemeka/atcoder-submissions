@@ -18,7 +18,7 @@ def main() -> None:
             j *= -1
             if i < j < mn_right:
                 break
-            
+
         else:
             continue
         if c >= s[i]:

@@ -8,7 +8,7 @@ def main() -> typing.NoReturn:
     for _ in range(n):
         s = input()
         cnt[s] += 1
-    
+
     res = sorted(cnt.items(), key=lambda x: -x[1])
     print(res[0][0])
 

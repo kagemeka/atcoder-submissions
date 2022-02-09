@@ -1,4 +1,4 @@
-import typing 
+import typing
 from functools import (
   lru_cache,
 )
@@ -11,7 +11,7 @@ def solve(
 
   s = [0] * (n + 1)
   for i in range(n):
-    s[i + 1] = s[i] + a[i]  
+    s[i + 1] = s[i] + a[i]
 
   @lru_cache(maxsize=None)
   def dfs(
@@ -35,7 +35,7 @@ def main() -> typing.NoReturn:
     int, input().split(),
   )
   solve(n, a)
-  
+
 
 
 

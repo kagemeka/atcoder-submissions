@@ -17,7 +17,7 @@ def main():
             if s[0] == 2:
                 for f in followed[a]:
                     follows[a].add(f)
-                    followed[f].add(a) 
+                    followed[f].add(a)
             else:
                 nex = follows[a].copy()
                 for f in follows[a]:
@@ -31,10 +31,10 @@ def main():
         for j in range(n):
             if j+1 in follows[i+1]:
                 res[i][j] = 'Y'
-    
+
     for s in res:
         yield ''.join(s)
-                       
+
 if __name__ == "__main__":
     ans = main()
     print(*ans, sep='\n')

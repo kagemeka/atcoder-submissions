@@ -27,7 +27,7 @@ def bfs(i):
                 continue
             q.append((y, d+1))
     return dist
-        
+
 
 def main():
     res = [0] * (n + 1)

@@ -7,7 +7,7 @@ def main():
     res = set()
     for comb in combinations(s, 3):
         res.add(comb)
-    
+
     ans = len(res)
     print(ans)
 

@@ -1,15 +1,15 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 
-@nb.njit 
+@nb.njit
 def fw_build_from_array(
   a: np.ndarray,
 ) -> np.ndarray:
-  assert a[0] == 0 
+  assert a[0] == 0
   fw = a.copy()
   n = len(fw)
   for i in range(n):
@@ -30,16 +30,16 @@ def fw_set(
     i += i & -i
 
 
-@nb.njit 
+@nb.njit
 def fw_get(
   fw: np.ndarray,
   i: int,
 ) -> int:
-  v = 0 
+  v = 0
   while i > 0:
     v += fw[i]
     i -= i & -i
-  return v 
+  return v
 
 
 
@@ -59,8 +59,8 @@ def solve(
   x, h = x[sort_idx], h[sort_idx]
   for i in range(n, 0, -1):
     h[i] -= h[i - 1]
-  fw = fw_build_from_array(h)    
-  cnt = 0 
+  fw = fw_build_from_array(h)
+  cnt = 0
   r = 1
   for l in range(1, n + 1):
     v = fw_get(fw, l)
@@ -68,11 +68,11 @@ def solve(
     while r <= n and x[r] - x[l] <= 2 * d:
       r += 1
     c = (v + a - 1) // a
-    cnt += c 
+    cnt += c
     v = c * a
     fw_set(fw, l, -v)
     fw_set(fw, r, v)
-  print(cnt)  
+  print(cnt)
 
 
 def main() -> typing.NoReturn:

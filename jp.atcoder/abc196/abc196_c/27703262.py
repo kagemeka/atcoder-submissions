@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -8,5 +8,4 @@ def main() -> typing.NoReturn:
     while int(str(x + 1) * 2) <= n: x += 1
     print(x)
 
-main() 
-        
+main()

@@ -8,13 +8,13 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     S, T = sys.stdin.read().split()
 
     convert = dict()
-    
+
     flag = True
     for s, t in zip(S, T):
         if s in convert and convert[s] != t:
@@ -27,7 +27,7 @@ def main():
     after = convert.values()
     if len(after) != len(set(after)):
         flag = False
-    
+
 
     print('Yes' if flag else 'No')
 

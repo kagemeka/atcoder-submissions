@@ -11,12 +11,12 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
     s, t = [s.rstrip() for s in sys.stdin.read().split()]
-   
+
     if set(t) - set(s):
         print(-1)
         sys.exit()

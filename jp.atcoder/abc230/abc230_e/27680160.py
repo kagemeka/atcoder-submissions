@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -12,7 +12,7 @@ def main() -> typing.NoReturn:
     while i * i < n:
         s += n // i
         i += 1
-    
+
     x = 1
     while x * x <= n:
         s += x * (n // x - n // (x + 1))

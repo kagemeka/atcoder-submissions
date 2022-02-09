@@ -12,7 +12,7 @@ def divisors(
   i = np.arange(1, x + 1)
   i = i[n % i == 0]
   d = np.concatenate((
-    i, 
+    i,
     n // i,
   ))
   return np.unique(d)
@@ -36,7 +36,7 @@ def solve(
       | (b % d == 0)
     ).all(): tmp.append(d)
   d1 = np.array(tmp)
-      
+
   tmp = []
   for d in d2:
     if (
@@ -45,7 +45,7 @@ def solve(
     ).all(): tmp.append(d)
   d2 = np.array(tmp)
 
-  
+
   def ok(x, y):
     for i in range(n):
       if (
@@ -56,13 +56,13 @@ def solve(
         a[i] % y == 0
         and b[i] % x == 0
       ): continue
-      return False 
+      return False
     return True
-  
+
   mx = 0
   for x in d1:
     for y in d2:
-      if ok(x, y): 
+      if ok(x, y):
         mx = max(mx, x * y)
 
   g = 0
@@ -80,14 +80,14 @@ def main() -> typing.NoReturn:
   ).reshape(n, 2).T
   print(solve(n, a, b))
 
-  
+
 
 if (
   sys.argv[-1]
   == 'ONLINE_JUDGE'
 ):
   from numba import njit, i8
-  
+
   divisors = njit(divisors)
   signature = (
     i8,

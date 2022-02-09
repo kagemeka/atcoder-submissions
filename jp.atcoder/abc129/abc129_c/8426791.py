@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 mod = 10 ** 9 + 7
 def main():
@@ -42,7 +42,7 @@ def main():
             if continuous_broken_count == 2:
                 print(0)
                 sys.exit()
-            p_pre_pre = 1    
+            p_pre_pre = 1
             p_pre = 0
 
     if count != 0:      # if n-th tread is not broken.

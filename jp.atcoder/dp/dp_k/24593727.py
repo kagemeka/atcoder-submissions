@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 sys.setrecursionlimit(1 << 20)
 from functools import (
@@ -17,16 +17,16 @@ def solve(
   ) -> bool:
     win = 0
     for d in a:
-      if x - d < 0: continue 
+      if x - d < 0: continue
       win |= ~dfs(x - d)
     return win
-    
+
   win = dfs(k)
   print(
-    'First' if win 
+    'First' if win
     else 'Second',
   )
-  
+
 
 
 def main() -> typing.NoReturn:
@@ -35,8 +35,8 @@ def main() -> typing.NoReturn:
   )
   *a, = map(
     int, input().split(),
-  ) 
+  )
   solve(k, a)
 
 
-main() 
+main()

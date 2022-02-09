@@ -1,14 +1,14 @@
-import typing 
-import sys 
+import typing
+import sys
 sys.setrecursionlimit(1 << 20)
 
 def tree_bfs(
-    g: typing.List[typing.Tuple[int, int]], 
+    g: typing.List[typing.Tuple[int, int]],
     root: int,
 ) -> typing.Tuple[(typing.List[int], ) * 2]:
     n = len(g) + 1
     t = [[] for _ in range(n)]
-    for u, v in g: 
+    for u, v in g:
         t[u].append(v)
         t[v].append(u)
     parent = [-1] * n
@@ -37,7 +37,7 @@ def main() -> typing.NoReturn:
         t -= 1
         a, b = ab[e - 1]
         flg = parent[a] == b
-        if flg: 
+        if flg:
             a, b = b, a
             t ^= 1
         if t == 1:
@@ -49,7 +49,7 @@ def main() -> typing.NoReturn:
 
 
     t = [[] for _ in range(n)]
-    for u, x in ab: 
+    for u, x in ab:
         t[u].append(x)
         t[x].append(u)
     que = [0]
@@ -66,7 +66,7 @@ def main() -> typing.NoReturn:
     #     if u == 0: return v[0]
     #     v[u] += v[parent[u]]
     #     return v[u]
-    
+
     # for i in range(n):
     #     dfs(i)
     print(*v, sep='\n')

@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     H, W = [int(x) for x in sys.stdin.readline().split()]
@@ -17,7 +17,7 @@ def main():
         s = f'#{sys.stdin.readline().rstrip()}#'
         grid.append(s)
     grid.append('#' * (W + 2))
-    
+
     lighted_squares = []
     for h in range(1, H+1):
         for w in range(1, W+1):
@@ -50,7 +50,7 @@ def main():
                     else:
                         break
                 lighted_squares.append(count)
-    
+
     print(max(lighted_squares))
 
 

@@ -2,7 +2,7 @@ import sys
 import numpy as np
 def main():
     x = int(sys.stdin.readline().rstrip())
-    
+
     if x < 100:
         print(0)
         sys.exit()

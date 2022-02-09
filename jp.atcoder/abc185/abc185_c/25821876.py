@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 
 
@@ -10,7 +10,7 @@ def solve(l: int) -> typing.NoReturn:
   for i in range(N - 1):
     choose[i + 1, 1:] = choose[i, 1:] + choose[i, :-1]
   print(choose[l - 1, 11])
-  
+
 
 def main() -> typing.NoReturn:
   l = int(input())

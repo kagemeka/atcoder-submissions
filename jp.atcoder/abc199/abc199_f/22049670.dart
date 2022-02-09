@@ -4,7 +4,7 @@ import 'dart:math';
 
 
 
-class IO 
+class IO
 {
 
 
@@ -19,26 +19,26 @@ class IO
   );
 
 
-  String read() 
+  String read()
   {
     List<int> bytes = [];
     const int maxWait = 1 << 8;
     int wait = 0;
-    while (true) 
+    while (true)
     {
       var b = readByte();
       if (
         wait == maxWait
       ) break;
-      if (b == -1) 
+      if (b == -1)
       {
         wait++;
         continue;
       }
       wait = 0;
       if (
-        b == 10 || 
-        b == 32 
+        b == 10 ||
+        b == 32
       ) {
         break;
       }
@@ -75,7 +75,7 @@ class IO
 
 
 
-abstract class Solver 
+abstract class Solver
 {
 
 
@@ -106,7 +106,7 @@ mixin Runner<
 
 
 
-abstract class AddSemiGroup<T> 
+abstract class AddSemiGroup<T>
 {
   T operator +(
     T other,
@@ -147,7 +147,7 @@ mixin Subtraction<
 
 
 
-abstract class MulSemiGroup<T> 
+abstract class MulSemiGroup<T>
 {
   T operator *(
     T other,
@@ -227,10 +227,10 @@ MulGroup<T>
 
 
 
-extension 
+extension
 CumProd<
   T extends MulSemiGroup<T>
-> 
+>
 on List<T> {
 
 
@@ -251,10 +251,10 @@ on List<T> {
 
 
 
-extension 
+extension
 CumSum<
   T extends AddSemiGroup<T>
-> 
+>
 on List<T> {
 
 
@@ -276,21 +276,21 @@ on List<T> {
 
 
 class Modular
-with 
+with
 Power<Modular>,
 Division<Modular>,
 Subtraction<Modular>
-implements 
+implements
 Field<Modular>
 {
 
-  
+
   int value = 0;
   final int mod;
 
 
   Modular(
-    this.value, 
+    this.value,
     this.mod,
   ) {
     value %= mod;
@@ -306,7 +306,7 @@ Field<Modular>
     return Modular(value, mod);
   }
 
-  
+
   Modular operator +(
     final Modular other,
   ) {
@@ -369,7 +369,7 @@ Field<Modular>
     return a;
   }
 
-  
+
   List<Modular> invFactorial()
   {
     int n = value;
@@ -391,10 +391,10 @@ Field<Modular>
 
 
 class Problem
-with 
-Runner<Problem>, 
+with
+Runner<Problem>,
 IO
-implements Solver 
+implements Solver
 {
 
   final int mod = 1000000007;
@@ -407,7 +407,7 @@ implements Solver
   n = 0,
   m = 0,
   k = 0;
-  
+
   List<Modular> a = [];
   List<int> x = [], y = [];
 
@@ -464,7 +464,7 @@ implements Solver
   List<List<Modular>> g = [];
 
 
-  void makeGraph() 
+  void makeGraph()
   {
     g = List.filled(n, []);
 
@@ -494,7 +494,7 @@ implements Solver
 
   void toProbability() {
     var v = mint(m * 2).inv();
-    for ( 
+    for (
       int i = 0; i < n; i++
     ) {
       for (
@@ -549,11 +549,11 @@ implements Solver
     int n = a.length;
     int m = b[0].length;
     c = List.filled(n, []);
-    for ( 
+    for (
       int i = 0; i < n; i++
     ) {
       c[i] = List.filled(
-        m, 
+        m,
         mint(0),
       );
     }
@@ -571,7 +571,7 @@ implements Solver
     return c;
   }
 
-  
+
   void dotSuppot(
     List<List<Modular>> c,
     List<List<Modular>> a,
@@ -593,7 +593,7 @@ implements Solver
 
 
 
-void main() 
+void main()
 {
   var p = new Problem();
   p();

@@ -11,7 +11,7 @@ def main():
         if h >= 1:
             xt, yt, ht = x, y, h
             break
-    
+
     for cx in range(101):
         for cy in range(101):
             ch = ht + abs(cx - xt) + abs(cy - yt)

@@ -7,7 +7,7 @@ class ReadStdin:
     self,
   ) -> bytes:
     return next(self.__chunks)
-    
+
 
   def __init__(
     self,
@@ -34,7 +34,7 @@ class ReadStdin:
       l = self.__buf.readline()
       for chunk in l.split():
         yield chunk
-  
+
 
   def str(
     self,
@@ -42,7 +42,7 @@ class ReadStdin:
     b = self()
     return b.decode()
 
-  
+
 from abc import (
   ABC,
   abstractmethod,
@@ -60,7 +60,7 @@ class Solver(
     self._prepare()
     self._solve()
 
-  
+
   def __init__(
     self,
   ) -> typing.NoReturn:
@@ -73,7 +73,7 @@ class Solver(
   ) -> typing.NoReturn:
     ...
 
-  
+
   @abstractmethod
   def _solve(
     self,
@@ -111,22 +111,22 @@ class Problem(
   def _prepare(
     self,
   ) -> typing.NoReturn:
-    read = self.__read 
+    read = self.__read
     n = read.int()
     a = np.array(
       sys.stdin.readline()
       .split(),
       dtype=np.int64,
     )
-    self.__n = n 
-    self.__a = a 
+    self.__n = n
+    self.__a = a
 
 
   def _solve(
     self,
   ) -> typing.NoReturn:
     self.__calc_dp()
-    msg = self.__msg 
+    msg = self.__msg
     if self.__dp is None:
       print(msg.ng)
       return
@@ -139,7 +139,7 @@ class Problem(
     print(msg.ok)
     print(len(b), *b)
     print(len(c), *c)
-  
+
 
   def __recover(
     self,
@@ -153,7 +153,7 @@ class Problem(
     while i > 0:
       i -= 1
       if (
-        dp[i, j] 
+        dp[i, j]
         == dp[i + 1, j]
       ): continue
       res.append(i + 1)
@@ -165,7 +165,7 @@ class Problem(
     self,
   ) -> typing.NoReturn:
     n = self.__n
-    k = self.__k 
+    k = self.__k
     dp = np.zeros(
       (n + 1, k),
       dtype=np.int8,
@@ -193,11 +193,11 @@ class Problem(
       break
     else:
       self.__dp = None
-      return 
-    self.__dp = dp 
+      return
+    self.__dp = dp
     self.__to_0 = to_0
     self.__to_1 = to_1
-    
+
 
 
 def main():

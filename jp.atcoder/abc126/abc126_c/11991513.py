@@ -12,7 +12,7 @@ def main():
             denom *= 2
         res += 1 / denom
     res /= n
-    print(res)   
+    print(res)
 
 if __name__ ==  '__main__':
     main()

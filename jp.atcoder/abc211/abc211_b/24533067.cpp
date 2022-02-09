@@ -21,7 +21,7 @@ int main() {
   for (auto x: t) {
     ok &= a.count(x);
   }
-  cout << 
+  cout <<
   (ok ? "Yes" : "No")
   << '\n';
 }

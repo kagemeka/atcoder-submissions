@@ -22,7 +22,7 @@ def sa_doubling(a: np.array) -> np.array:
     while True:
         second = np.zeros(n, dtype=np.int64)
         second[:-k] = 1 + rank[k:]
-        # for i in range(n - k): second[i] = 1 + rank[i + k] 
+        # for i in range(n - k): second[i] = 1 + rank[i + k]
         rank_second = counting_sort(second)
         first = rank[rank_second]
         rank_first = counting_sort(first)
@@ -51,7 +51,7 @@ def lcp_array_kasai(a: np.array, sa: np.array) -> np.array:
         j = sa[r + 1]
         while i + h < n and j + h < n and a[i + h] == a[j + h]: h += 1
         lcp[r] = h
-    return lcp 
+    return lcp
 
 
 @nb.njit((nb.i8[:], ), cache=True)

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -17,6 +17,6 @@ def main() -> typing.NoReturn:
 
     for x, y in zip(a, b):
         print(x, y)
-    
+
 
 main()

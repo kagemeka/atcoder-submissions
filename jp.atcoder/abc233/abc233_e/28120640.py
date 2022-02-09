@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 def main() -> typing.NoReturn:
     x = list(map(int, input()))
@@ -15,6 +15,6 @@ def main() -> typing.NoReturn:
         a = [a[0] // 10] + a
         a[1] %= 10
     print(''.join(map(str, a)))
-    
+
 
 main()

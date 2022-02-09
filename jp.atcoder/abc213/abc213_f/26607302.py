@@ -80,7 +80,7 @@ def sa_is(a: np.ndarray) -> np.ndarray:
 
 @nb.njit
 def sa_doubling(a: np.array) -> np.array:
-    n = a.size    
+    n = a.size
     rank, k = np.searchsorted(np.unique(a), a), 1
     while True:
         key = rank << 30
@@ -93,7 +93,7 @@ def sa_doubling(a: np.array) -> np.array:
         if k >= n: break
     return sa
 
-    
+
 @nb.njit
 def sa_doubling_countsort(a: np.array) -> np.array:
     n = a.size
@@ -138,7 +138,7 @@ def lcp_array_kasai(a: np.array, sa: np.array) -> np.array:
         j = sa[r + 1]
         while i + h < n and j + h < n and a[i + h] == a[j + h]: h += 1
         lcp[r] = h
-    return lcp 
+    return lcp
 
 
 @nb.njit((nb.i8[:], ), cache=True)

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def solve(
@@ -10,10 +10,10 @@ def solve(
     for _ in range(n + 1)
   ]
   s = [0] * (n + 1)
-  s[1:] = a 
+  s[1:] = a
   for i in range(n):
     s[i + 1] += s[i]
-  
+
   for w in range(2, n + 1):
     for l in range(n - w + 1):
       r = l + w

@@ -10,7 +10,7 @@ def main():
     for a, b in ab:
         G[a].append(b)
         G[b].append(a)
-    
+
     q = deque([1]) # root = 1
     parent = [None] * (n + 1)
     color = [None] * (n + 1) # color of the edge(parent[y], y)
@@ -28,7 +28,7 @@ def main():
             color[y] = c
             q.append(y)
             c += 1
-            
+
     print(max(color[2:]))
 
     for a, b in ab:

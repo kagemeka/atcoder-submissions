@@ -7,16 +7,16 @@ def solve(key, h, w, grid):
     if key == 1:
         grid = [[grid[i][j] for i in range(h)] for j in range(w)]
         h, w = w, h
-    
+
     res = 0
-    
+
     for i in range(h):
         if '.' in grid[i]:
             yu = i
             break
     else:
         return 0
-    
+
     yb = min(yu + h // 2, h)
 
     x = set()

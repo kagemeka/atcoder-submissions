@@ -11,7 +11,7 @@ def find_divisors(
   i = np.hstack((i, n // i))
   return np.unique(i)
 
-  
+
 def euler_totient(
   n: int,
 ) -> int:
@@ -22,7 +22,7 @@ def euler_totient(
       p += 1
       continue
     c = c // p * (p - 1)
-    while not n % p: n //= p 
+    while not n % p: n //= p
   if n > 1:
     c = c // n * (n - 1)
   return c
@@ -41,34 +41,34 @@ def solve(
     ) % mod * (d % mod) % mod
     s %= mod
   print(s)
- 
+
 
 def main() -> typing.NoReturn:
   p = int(input())
   solve(p)
-   
+
 
 import sys
 OJ = 'ONLINE_JUDGE'
 if sys.argv[-1] == OJ:
   from numba import njit, i8
-  from numba.pycc import CC 
+  from numba.pycc import CC
   cc = CC('my_module')
   fn = solve
   signature = (i8, )
-  
+
   find_divisors = njit(
     find_divisors,
   )
   euler_totient = njit(
     euler_totient,
   )
-  
+
   cc.export(
     fn.__name__,
     signature,
   )(fn)
-  
+
   cc.compile()
   exit(0)
 

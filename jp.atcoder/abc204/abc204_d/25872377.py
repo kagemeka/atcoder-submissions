@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -10,7 +10,7 @@ def solve(t: np.ndarray) -> typing.NoReturn:
   n = len(t)
   m = 1 << 17
   dp = np.zeros(m, np.bool8)
-  dp[0] = True 
+  dp[0] = True
   for x in t:
     dp[x:] |= dp[:-x]
   a = np.flatnonzero(dp)

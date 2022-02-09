@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 class UnionFind():
     def __init__(self, n: int) -> typing.NoReturn:
@@ -32,7 +32,7 @@ def main() -> typing.NoReturn:
         b -= 1
         if uf.find(a) == uf.find(b):
             print('No')
-            return 
+            return
         uf.unite(a, b)
         deg[a] += 1
         deg[b] += 1
@@ -42,4 +42,3 @@ def main() -> typing.NoReturn:
     print('Yes')
 
 main()
-    

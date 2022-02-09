@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -25,7 +25,7 @@ def traveling_salesperson(
                 d = dist[t][j] + graph[j][i]
                 if dist[s][i] is None or d < dist[s][i]:
                     dist[s][i] = d
-    
+
     mn: typing.Optional[int] = None
     for i in range(n):
         if i == src or dist[-1][i] is None or graph[i][src] is None:
@@ -39,7 +39,7 @@ def traveling_salesperson(
 def main() -> None:
     n = int(input())
     xyz = [tuple(map(int, input().split())) for _ in range(n)]
-    
+
     graph: typing.List[typing.List[typing.Optional[int]]] = [
         [None] * n for _ in range(n)
     ]
@@ -48,9 +48,8 @@ def main() -> None:
             xi, yi, zi = xyz[i]
             xj, yj, zj = xyz[j]
             graph[i][j] = abs(xj - xi) + abs(yj - yi) + max(0, zj - zi)
-    
+
     res = traveling_salesperson(graph, 0)
     print(res)
 
 main()
-    

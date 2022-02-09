@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -13,7 +13,7 @@ def main() -> typing.NoReturn:
     int, input().split(),
   ))
   i = j = 0
-  mn = 1 << 40 
+  mn = 1 << 40
   while i < n and j < m:
     mn = min(
       mn,

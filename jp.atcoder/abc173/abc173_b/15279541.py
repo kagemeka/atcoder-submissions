@@ -1,4 +1,4 @@
-import sys 
+import sys
 
 def A():
   n = int(sys.stdin.readline().rstrip())
@@ -8,7 +8,7 @@ def A():
 
 from collections import Counter
 def B():
-  n, *s = sys.stdin.read().split() 
+  n, *s = sys.stdin.read().split()
   c = Counter(s)
   for v in 'AC, WA, TLE, RE'.split(', '):
     print(f'{v} x {c[v]}')
@@ -31,7 +31,7 @@ def F():
   pass
 
 if __name__ == "__main__":
-  # A() 
+  # A()
   B()
   C()
   D()

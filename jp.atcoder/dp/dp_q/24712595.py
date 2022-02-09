@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -32,15 +32,15 @@ def solve(
     range(n),
     key=lambda i: h[i],
   )
-  inf = 1 << 50 
+  inf = 1 << 50
   bit = [-inf] * (n + 1)
   for i in indices:
     v = get_mx(bit, i + 1)
     a[i] = max(a[i], a[i] + v)
     set_val(bit, i + 1, a[i])
   print(max(a))
-    
-    
+
+
 
 
 def main() -> typing.NoReturn:

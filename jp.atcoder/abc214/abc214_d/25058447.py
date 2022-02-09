@@ -1,43 +1,43 @@
-import typing 
+import typing
 import sys
 
 
 
 class UnionFind:
   def __init__(
-    self, 
+    self,
     n: int,
   ):
     self.__p = list(range(n))
-    self.__r = [0] * n 
-    self.__s = [1] * n 
+    self.__r = [0] * n
+    self.__s = [1] * n
 
 
   def find(
-    self, 
+    self,
     u: int,
   ) -> int:
     p = self.__p
     if p[u] == u: return u
     p[u] = self.find(p[u])
     return p[u]
-  
+
 
   def unite(
-    self, 
+    self,
     u: int,
     v: int,
   ) -> typing.NoReturn:
     u = self.find(u)
     v = self.find(v)
-    if u == v: return 
+    if u == v: return
     p, s, r = self.__p, self.__s, self.__r
     if r[u] < r[v]: u, v = v, u
     p[v] = u
     s[u] += s[v]
     r[u] = max(r[u], r[v] + 1)
 
-  
+
   def same(
     self,
     u: int,
@@ -59,7 +59,7 @@ class UnionFind:
   ]:
     n = len(self.__r)
     g = [[] for _ in range(n)]
-    for u in range(n): 
+    for u in range(n):
       g[self.find(u)].append(u)
     return [x for x in g if x]
 
@@ -68,7 +68,7 @@ class UnionFind:
 def main() -> typing.NoReturn:
   n = int(input())
   uvw = map(
-    int, 
+    int,
     sys.stdin.read().split(),
   )
   uf = UnionFind(n)

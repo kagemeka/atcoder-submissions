@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -11,7 +11,7 @@ def solve(
   idx.sort(key=lambda i: (r[i], l[i]))
   l = [l[i] for i in idx]
   r = [r[i] for i in idx]
-  
+
   j = -1
   for i in range(n):
     j = max(l[i], j)
@@ -21,14 +21,14 @@ def solve(
     print('No')
     return
   print('Yes')
-  
+
 
 
 def main() -> typing.NoReturn:
   t = int(input())
   for _ in range(t):
     n = int(input())
-    l = [-1] * n 
+    l = [-1] * n
     r = [-1] * n
     for i in range(n):
       l[i], r[i] = map(int, input().split())

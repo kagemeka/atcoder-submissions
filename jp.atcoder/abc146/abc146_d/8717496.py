@@ -10,7 +10,7 @@ def main():
     for a, b in ab:
         G[a].append(b)
         G[b].append(a)
-    
+
     parent = np.zeros(n + 1, dtype=np.int64)
     color = np.zeros(n + 1, dtype=np.int64) # color of the edge(parent[y], y)
 
@@ -36,6 +36,6 @@ def main():
             print(color[b])
         else:
             print(color[a])
-            
+
 if __name__ == '__main__':
     main()

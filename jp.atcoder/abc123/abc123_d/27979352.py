@@ -1,5 +1,5 @@
-import typing 
-import bisect 
+import typing
+import bisect
 
 def main() -> typing.NoReturn:
     x, y, z, k = map(int, input().split())
@@ -9,10 +9,10 @@ def main() -> typing.NoReturn:
     a.sort()
     b.sort()
     c.sort()
-    
+
 
     def possible(s: int) -> bool:
-        cnt = 0 
+        cnt = 0
         for i in range(x):
             for j in range(y):
                 cnt += z - bisect.bisect_left(c, s - a[i] - b[j])
@@ -34,7 +34,7 @@ def main() -> typing.NoReturn:
         for j in range(y):
             for l in range(bisect.bisect_left(c, s - a[i] - b[j]), z):
                 res.append(a[i] + b[j] + c[l])
-                
+
     res.sort(reverse=True)
     print(*res[:k], sep='\n')
 

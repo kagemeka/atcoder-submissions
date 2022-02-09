@@ -1,10 +1,10 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 
 def main() -> typing.NoReturn:
     # compute sum per digit
-    
+
     n = int(input())
     a = np.array(
         sys.stdin.readline().split(),

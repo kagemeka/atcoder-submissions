@@ -1,20 +1,20 @@
-import typing 
+import typing
 
 
 
 class UnionFind():
     def __init__(self, n: int) -> typing.NoReturn:
         self.__data = [-1] * n
-    
+
 
     def find(self, u: int) -> int:
         if self.__data[u] < 0: return u
         self.__data[u] = self.find(self.__data[u])
         return self.__data[u]
-    
+
     def unite(self, u: int, v: int) -> typing.NoReturn:
         u, v = self.find(u), self.find(v)
-        if u == v: return 
+        if u == v: return
         if self.__data[u] > self.__data[v]: u, v = v, u
         self.__data[u] += self.__data[v]
         self.__data[v] = u

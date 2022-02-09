@@ -26,12 +26,12 @@ def main():
                 coloring[v] = r
                 r -= 1
                 stack.append(v)
-    
+
     res = 1
     for i in range(1, n+1):
         res *= coloring[i]
         res %= MOD
-    
+
     return res
 
 if __name__ == '__main__':

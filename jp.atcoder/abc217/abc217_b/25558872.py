@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 
 
@@ -10,7 +10,7 @@ def main() -> typing.NoReturn:
     'AHC',
   }
   s = set(sys.stdin.read().split())
-  cand -= s 
+  cand -= s
   print(cand.pop())
 
 

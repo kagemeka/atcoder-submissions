@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 
 
@@ -20,7 +20,7 @@ class ModCumprod():
       a[i + 1] *= a[i, -1]
       a[i + 1] %= mod
     return a.ravel()[:n]
- 
+
 
   def __init__(
     self,
@@ -39,7 +39,7 @@ class ModFactorial():
     a = np.arange(n)
     a[0] = 1
     return cumprod(a)
-  
+
 
   def __init__(
     self,
@@ -70,7 +70,7 @@ class ModChoose():
     f, i = self.__fact, self.__ifact
     c = f[n] * i[k] % m * i[n - k] % m
     return c * ok
-  
+
 
   def __init__(
     self,
@@ -93,7 +93,7 @@ class ModChoose():
     f, i = self.__fact, self.__ifact
     c = i[n] * f[k] % m * f[n - k] % m
     return c * ok
-  
+
 
 
 def solve(
@@ -107,9 +107,9 @@ def solve(
   c = np.searchsorted(a, c)
   c = np.bincount(np.bincount(c))
   i = np.flatnonzero(c)
-  k = np.arange(1, n + 1)[:, None]  
+  k = np.arange(1, n + 1)[:, None]
   choose = ModChoose(mod)
-  
+
   upper = choose(n, k) * m - np.sum(
     choose(n - i, k) * c[i],
     axis=1,
@@ -119,7 +119,7 @@ def solve(
 
   res = upper * lower % mod
   print(*res.ravel(), sep='\n')
-   
+
 
 def main() -> typing.NoReturn:
   n = int(input())
@@ -131,4 +131,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-  

@@ -15,14 +15,14 @@ def main():
         n = (x - b * l) // a
         if 10 ** (l - 1) <= n < 10 ** l:
             cand.append(n)
-    
+
     if cand:
         print(max(cand))
     else:
         print(0)
-    
 
-    
+
+
 
 if __name__ == '__main__':
     main()

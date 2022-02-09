@@ -8,14 +8,14 @@ import numba as nb
 def calc_min(
   a: np.array,
   c: int,
-) -> int:  
+) -> int:
   h, w = a.shape
   mn = 1 << 40
   a = a.copy()
   for j in range(w - 1):
     x = a[0, j] + c
     mn = min(
-      mn, 
+      mn,
       x + a[0, j + 1],
     )
     a[0, j + 1] = min(
@@ -23,9 +23,9 @@ def calc_min(
       x,
     )
   for i in range(h - 1):
-    x = a[i, 0] + c 
+    x = a[i, 0] + c
     mn = min(
-      mn, 
+      mn,
       x + a[i + 1, 0],
     )
     a[i + 1, 0] = min(
@@ -40,9 +40,9 @@ def calc_min(
       ) + c
       mn = min(mn, x + a[i, j])
       a[i, j] = min(a[i, j], x)
-  
-  return mn 
-        
+
+  return mn
+
 
 @nb.njit
 def solve(
@@ -54,7 +54,7 @@ def solve(
     calc_min(a[::-1], c),
   )
   print(mn)
-  
+
 
 
 def main() -> typing.NoReturn:

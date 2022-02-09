@@ -1,39 +1,39 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 import heapq
 
 
 
-@nb.njit 
+@nb.njit
 def csgraph_to_directed(g: np.ndarray) -> np.ndarray:
   m = len(g)
   g = np.vstack((g, g))
   g[m:, :2] = g[m:, 1::-1]
-  return g 
+  return g
 
 
 
 @nb.njit((nb.i8, nb.i8, nb.i8[:, :], nb.i8[:, :]), cache=True)
 def solve(
   n: int,
-  l: int, 
-  abc: np.ndarray, 
+  l: int,
+  abc: np.ndarray,
   st: np.ndarray,
 ) -> typing.NoReturn:
   inf = 1 << 60
   g = csgraph_to_directed(abc)
   g = g[np.argsort(g[:, 0], kind='mergesort')]
   edge_idx = np.searchsorted(g[:, 0], np.arange(n + 1))
-  
+
   def dijkstra(src):
     cnt = np.full(n, inf, np.int64)
     rem = np.zeros(n, np.int64)
-    cnt[src] = 0 
+    cnt[src] = 0
     rem[src] = l
     hq = [(0, -l, src)]
-  
+
     while hq:
       cu, ru, u = heapq.heappop(hq)
       ru = -ru
@@ -49,14 +49,14 @@ def solve(
         rv -= d
         if cv > cnt[v]: continue
         if cv == cnt[v] and rv < rem[v]: continue
-        cnt[v], rem[v] = cv, rv 
+        cnt[v], rem[v] = cv, rv
         heapq.heappush(hq, (cv, -rv, v))
     return cnt
-  
+
   cnt = np.empty((n, n), np.int64)
   for i in range(n):
     cnt[i] = dijkstra(i)
-  
+
   for i in range(len(st)):
     s, t = st[i]
     print(-1 if cnt[s, t] == inf else cnt[s, t])

@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 import numpy as np
 import numba as nb
@@ -22,13 +22,13 @@ def dfs(
       x + a[l],
       y + a[-1 - r],
     )
-  else: 
+  else:
     v = min(
       x - a[l],
       y - a[-1 - r],
     )
   cache[l, r] = v
-  return v 
+  return v
 
 
 @nb.njit(

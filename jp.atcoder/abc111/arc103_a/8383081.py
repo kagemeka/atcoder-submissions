@@ -12,7 +12,7 @@ import operator as op
 # import statistics
 
 def main():
-    
+
     n, *v = (int(x) for x in sys.stdin.read().split())
 
     odds, evens = [], []
@@ -25,7 +25,7 @@ def main():
 
     o_c = collections.Counter(odds)
     e_c = collections.Counter(evens)
-    
+
     o_c = sorted(list((k, v) for k, v in o_c.items()), key=op.itemgetter(1), reverse=True)
     e_c = sorted(list((k, v) for k, v in e_c.items()), key=op.itemgetter(1), reverse=True)
 
@@ -41,7 +41,7 @@ def main():
             ans = n - o_c[1][1]
         else:
             ans = n - max(o_c[0][1] + e_c[1][1], o_c[1][1] + e_c[0][1])
-    
+
     print(ans)
 
 if __name__ == "__main__":

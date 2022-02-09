@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     dishes = [int(x) for x in sys.stdin.read().split()]
@@ -20,7 +20,7 @@ def main():
             total += (dishes[i] // 10 + 1) * 10
         else:
             total += dishes[i]
-    
+
     ans = total - (10 - min_first_digit)
     print(ans)
 

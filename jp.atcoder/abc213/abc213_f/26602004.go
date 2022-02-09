@@ -22,7 +22,7 @@ func NewStdIO() *StdIO {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Buffer([]byte{}, maxBuffer)
 	scanner.Split(bufio.ScanWords)
-	return &StdIO { 
+	return &StdIO {
 		scanner: scanner,
 		writer: bufio.NewWriter(os.Stdout),
 	}
@@ -55,10 +55,10 @@ func Max(a ...int) int {
 
 
 func Min(a ...int) int {
-	// len(a) > 0 
+	// len(a) > 0
 	mn := a[0]
 	for _, x := range a { if x < mn { mn = x } }
-	return mn 
+	return mn
 }
 
 
@@ -82,7 +82,7 @@ func SAIS(a []int) (sa []int) {
 	for i := n - 2; i > -1; i-- {
 		if a[i] == a[i + 1] {
 			isS[i] = isS[i + 1]
-		} else { 
+		} else {
 			isS[i] = a[i] < a[i + 1]
 		}
 	}
@@ -104,7 +104,7 @@ func SAIS(a []int) (sa []int) {
 			saIdx[x]--
 			sa[saIdx[x]] = i
 		}
-		
+
 		copy(saIdx, bucket)
 		s := 0
 		for i := 0; i < m; i++ { s, saIdx[i] = s + saIdx[i], s }
@@ -181,7 +181,7 @@ func LCPArrayKasai(a, sa []int) (lcp []int) {
 		}
 		lcp[r] = h
 	}
-	return 
+	return
 }
 
 
@@ -211,7 +211,7 @@ func main() {
 			}
 			s += h * l
 			st = append(st, [2]int{h, l})
-			res[sa[i + 1]] += s			
+			res[sa[i + 1]] += s
 		}
 		for i, j := 0, n - 1; i < j; i, j = i + 1, j - 1 {
 			sa[i], sa[j] = sa[j], sa[i]

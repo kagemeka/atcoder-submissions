@@ -17,7 +17,7 @@ def main():
         else:
             (A1 - B1) // d * 2 + 1
 
-    
+
     elif A1 < B1:
         if A1 + A2 < B1 + B2:
             ans = 0
@@ -27,6 +27,6 @@ def main():
             ans = (B1 - A1) // d * 2 + 1
 
     print(ans)
-    
+
 if __name__ == '__main__':
     main()

@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:], ) * 3, cache=True)
@@ -15,7 +15,7 @@ def solve(
   for i in range(1, n):
     s += b[i]
     if a[i] == a[i - 1] + 1: s += c[a[i - 1]]
-  print(s) 
+  print(s)
 
 
 def main() -> typing.NoReturn:

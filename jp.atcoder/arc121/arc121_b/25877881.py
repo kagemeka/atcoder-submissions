@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -13,7 +13,7 @@ def solve(a: np.ndarray, c: np.ndarray) -> typing.NoReturn:
   b = a[c == 2]
   if len(r) & 1 ^ 1 and len(g) & 1 ^ 1:
     print(0)
-    return 
+    return
 
   inf = 1 << 60
 
@@ -23,10 +23,10 @@ def solve(a: np.ndarray, c: np.ndarray) -> typing.NoReturn:
   if len(r) & 1 ^ 1:
     pass
   elif len(g) & 1 ^ 1:
-    r, g = g, r 
+    r, g = g, r
   else:
-    r, b = b, r 
-  
+    r, b = b, r
+
   # odd <-> odd
   def min_odd_odd():
     a = np.hstack((np.array([-inf]), b, np.array([inf])))
@@ -34,8 +34,8 @@ def solve(a: np.ndarray, c: np.ndarray) -> typing.NoReturn:
     v1 = np.abs(g - a[np.searchsorted(a, g, side='right') - 1])
     v0[v1 < v0] = v1
     return v0.min()
-  
-  # odd <-> even <-> odd 
+
+  # odd <-> even <-> odd
   def min_odd_even_odd():
     a = np.hstack((np.array([-inf]), g, np.array([inf])))
     v0 = np.abs(r - a[np.searchsorted(a, r)])
@@ -55,12 +55,12 @@ def solve(a: np.ndarray, c: np.ndarray) -> typing.NoReturn:
       v0[idx0[0]] + v2[idx1[1]],
       v0[idx0[1]] + v1[idx1[0]],
     )
-  
+
   res = min_odd_odd()
   if len(r) == 0:
     print(res)
-    return 
-  
+    return
+
   res = min(res, min_odd_even_odd())
   print(res)
 

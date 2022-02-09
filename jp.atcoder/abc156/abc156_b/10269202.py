@@ -5,7 +5,7 @@ def base_convert(n, b):
     q = n
     while q:
         q, r = divmod(q, b)
-        if r < 0: 
+        if r < 0:
             q += 1
             r -= b
         res = str(r) + res

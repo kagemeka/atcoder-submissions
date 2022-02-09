@@ -28,7 +28,7 @@ def dijkstra(i):
                 continue
             heappush(q, (d+1, y))
     return dist
-    
+
 def main():
     res = [0] * (n + 1)
     for i in range(n):

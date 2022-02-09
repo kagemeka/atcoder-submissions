@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 
 
@@ -8,7 +8,7 @@ def fw_f(
   a: int,
   b: int,
 ) -> int:
-  if a >= b: return a 
+  if a >= b: return a
   return b
 
 
@@ -26,7 +26,7 @@ def get_mx(
   a: np.array,
   i: int,
 ) -> int:
-  mx = 0 
+  mx = 0
   while i > 0:
     mx = fw_f(mx, a[i])
     i -= i & -i
@@ -43,7 +43,7 @@ def solve(
     n + 1,
     dtype=np.int64,
   )
-  mx = 0 
+  mx = 0
   for i in range(n):
     v = get_mx(fw, h[i] - 1)
     set_val(fw, h[i], v + a[i])

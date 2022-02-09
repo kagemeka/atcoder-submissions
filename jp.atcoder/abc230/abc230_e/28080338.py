@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -11,11 +11,10 @@ def floor_sum(n: int) -> int:
         j = n // x + 1
         s += x * (j - i)
         i = j
-    return s 
+    return s
 
 def main() -> typing.NoReturn:
     n = int(input())
     print(floor_sum(n))
 
 main()
-    

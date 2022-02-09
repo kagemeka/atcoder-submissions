@@ -25,5 +25,5 @@ func main() {
       return
     }
   }
-  fmt.Println("TLE") 
+  fmt.Println("TLE")
 }

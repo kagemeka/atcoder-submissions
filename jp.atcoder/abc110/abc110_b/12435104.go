@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-  var n, m, X, Y int 
+  var n, m, X, Y int
   fmt.Scan(&n, &m, &X, &Y)
   x := make([]int, n)
   y := make([]int, m)

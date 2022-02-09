@@ -15,7 +15,7 @@ int main() {
     cnt += q * a;
     r = n % c;
     cnt += min(a, r);
-  } 
+  }
   cout << cnt << '\n';
   return 0;
 }

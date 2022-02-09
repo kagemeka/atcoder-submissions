@@ -16,7 +16,7 @@ def main():
                 ans = 'Yes'
             else:
                 ans = 'Yes'
-        
+
     print(ans)
 
 if __name__ == '__main__':

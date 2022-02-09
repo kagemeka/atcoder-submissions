@@ -7,7 +7,7 @@ class ReadStdin:
     self,
   ) -> bytes:
     return next(self.__chunks)
-    
+
 
   def __init__(
     self,
@@ -34,7 +34,7 @@ class ReadStdin:
       l = self.__buf.readline()
       for chunk in l.split():
         yield chunk
-  
+
 
   def str(
     self,
@@ -61,7 +61,7 @@ class Solver(
     self._prepare()
     self._solve()
 
-  
+
   def __init__(
     self,
   ) -> typing.NoReturn:
@@ -74,7 +74,7 @@ class Solver(
   ) -> typing.NoReturn:
     ...
 
-  
+
   @abstractmethod
   def _solve(
     self,
@@ -98,7 +98,7 @@ class Problem(
     self,
   ) -> typing.NoReturn:
     self.__read = ReadStdin()
-    self.__m = 5 
+    self.__m = 5
     self.__k = 3
 
 
@@ -112,7 +112,7 @@ class Problem(
       dtype=np.int64,
     ).reshape(n, -1)
     self.__n = n
-    self.__a = a 
+    self.__a = a
 
 
   def _solve(
@@ -121,7 +121,7 @@ class Problem(
     self.__preprocess()
     self.__binary_search()
     print(self.__res)
-    
+
 
   def __possible(
     self,
@@ -135,7 +135,7 @@ class Problem(
       self.__combs,
       np.unique(a),
     ).all(axis=1).any()
-  
+
 
   def __binary_search(
     self,
@@ -144,11 +144,11 @@ class Problem(
     while hi - lo > 1:
       x = (lo + hi) // 2
       if self.__possible(x):
-        lo = x 
+        lo = x
       else:
         hi = x
     self.__res = lo
-  
+
 
   def __make_combs(
     self,
@@ -164,7 +164,7 @@ class Problem(
       axis=-1,
     ) == (1 << m) - 1
     self.__combs = a[ok]
-  
+
 
   def __preprocess(
     self,
@@ -173,7 +173,7 @@ class Problem(
     i = 1 << np.arange(m)
     self.__i = i
     self.__make_combs()
-    
+
 
 def main():
   p = Problem()

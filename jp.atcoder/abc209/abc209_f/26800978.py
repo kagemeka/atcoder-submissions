@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -12,7 +12,7 @@ def solve(h: np.ndarray) -> typing.NoReturn:
     a = np.zeros(n - 1, np.bool8)
     for i in range(n - 1):
         a[i] = 1 if h[i + 1] > h[i] else -1 if h[i + 1] < h[i] else 0
-    
+
     mod = 10 ** 9 + 7
     dp = np.zeros(n, np.int64)
     dp[0] = 1
@@ -25,7 +25,7 @@ def solve(h: np.ndarray) -> typing.NoReturn:
                 s %= mod
                 ndp[j + 1] += s
         if h[i - 1] >= h[i]:
-            s = 0 
+            s = 0
             for j in range(i - 1, -1, -1):
                 s += dp[j]
                 s %= mod

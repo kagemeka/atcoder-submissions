@@ -1,7 +1,7 @@
-import typing 
+import typing
 import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 @nb.njit
@@ -20,12 +20,12 @@ def fw_build_from_array(
 ) -> np.ndarray:
   fw = a.copy()
   assert fw[0] == e
-  n = fw.size  
+  n = fw.size
   for i in range(n):
     j = i + (i & -i)
-    if j < n: 
+    if j < n:
       fw[j] = fn(fw[j], fw[i])
-  return fw 
+  return fw
 
 
 @nb.njit
@@ -47,14 +47,14 @@ def fw_get(
   fn: typing.Callable[[int, int], int],
   e: int,
 ) -> int:
-  v = e 
+  v = e
   while i > 0:
     v = fn(v, fw[i])
     i -= i & -i
-  return v 
-  
+  return v
 
-@nb.njit 
+
+@nb.njit
 def fw_get_range(
   fw: np.ndarray,
   l: int,
@@ -79,7 +79,7 @@ def solve(
 ) -> typing.NoReturn:
   n, m = len(a), len(txy)
   fn = lambda x, y: x ^ y
-  e = 0 
+  e = 0
   inv = lambda x: x
   fw = np.full(n + 1, e, np.int64)
   fw[1:] = a
@@ -91,7 +91,7 @@ def solve(
       fw_set(fw, x, y, fn)
     else:
       print(fw_get_range(fw, x, y, fn, e, inv))
-  
+
 
 def main() -> typing.NoReturn:
   n, q = map(int, input().split())

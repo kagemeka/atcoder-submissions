@@ -35,7 +35,7 @@ def main():
     rb = i
     cnt += 1
   print(cnt)
-    
+
 
 
 

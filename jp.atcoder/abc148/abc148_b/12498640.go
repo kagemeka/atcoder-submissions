@@ -5,8 +5,8 @@ import (
 )
 
 func main() {
-  var n int 
-  var s, t string 
+  var n int
+  var s, t string
   fmt.Scan(&n, &s, &t)
   res := ""
   for i := 0; i < n; i++ {

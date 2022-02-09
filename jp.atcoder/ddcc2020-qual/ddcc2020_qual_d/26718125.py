@@ -1,13 +1,13 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
 @nb.njit((nb.i8[:, :], ), cache=True)
 def solve(dc: np.ndarray) -> typing.NoReturn:
-    m = len(dc) 
+    m = len(dc)
     d, c = dc[:, 0], dc[:, 1]
     s = np.sum(d * c)
     l = c.sum()
@@ -16,9 +16,9 @@ def solve(dc: np.ndarray) -> typing.NoReturn:
     q -= 1
     if r == 0: q -= 1
     print(q)
-    
 
-    
+
+
 def main() -> typing.NoReturn:
     m = int(input())
     dc = np.array(

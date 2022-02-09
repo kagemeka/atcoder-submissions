@@ -1,6 +1,6 @@
-import typing 
+import typing
 import numpy as np
-import sys 
+import sys
 import numba as nb
 
 @nb.njit(

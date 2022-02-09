@@ -4,7 +4,7 @@ import 'dart:math';
 
 
 
-class IO 
+class IO
 {
 
 
@@ -19,26 +19,26 @@ class IO
   );
 
 
-  String read() 
+  String read()
   {
     List<int> bytes = [];
     const int maxWait = 1 << 8;
     int wait = 0;
-    while (true) 
+    while (true)
     {
       var b = readByte();
       if (
         wait == maxWait
       ) break;
-      if (b == -1) 
+      if (b == -1)
       {
         wait++;
         continue;
       }
       wait = 0;
       if (
-        b == 10 || 
-        b == 32 
+        b == 10 ||
+        b == 32
       ) {
         break;
       }
@@ -75,7 +75,7 @@ class IO
 
 
 
-abstract class Solver 
+abstract class Solver
 {
 
 
@@ -106,17 +106,17 @@ mixin Runner<
 
 
 
-class Item 
+class Item
 implements Comparable<Item> {
 
   int x = 0;
   int c = 0;
-  
+
 
   Item(this.x, this.c);
 
 
-  @override 
+  @override
   int compareTo(
     Item other,
   ) {
@@ -139,10 +139,10 @@ implements Comparable<Item> {
 
 
 class Problem
-with 
-Runner<Problem>, 
+with
+Runner<Problem>,
 IO
-implements Solver 
+implements Solver
 {
 
 
@@ -156,7 +156,7 @@ implements Solver
       int i = 0; i < n; i++
     ) {
       int x, c;
-  
+
       x = readInt();
       c = readInt() - 1;
       var item = Item(x, c);
@@ -261,13 +261,13 @@ extension Bisect<E> on List<E> {
   ) {
     int lo = 0, hi = length;
     var compare = (
-      Comparable.compare 
+      Comparable.compare
       as Function(E, E)
     );
     while (lo < hi) {
       var x = (lo + hi) ~/ 2;
       if (
-        compare( 
+        compare(
           this[x],
           element,
         ) < 0
@@ -286,14 +286,14 @@ extension Bisect<E> on List<E> {
   ) {
     int lo = 0, hi = length;
     var compare = (
-      Comparable.compare 
+      Comparable.compare
       as Function(E, E)
     );
     while (lo < hi) {
       var x = (lo + hi) ~/ 2;
       if (
         compare(
-          element, 
+          element,
           this[x],
         ) < 0
       ) {

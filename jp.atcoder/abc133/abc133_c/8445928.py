@@ -8,7 +8,7 @@ import math
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 
 
@@ -22,12 +22,12 @@ def main():
         m = l + 2018
     else:
         m = r
-    
+
     minimum = 2018
     for i in range(l, m):
         for j in range(i+1, m+1):
             minimum = min(minimum, i * j % mod)
-    
+
     print(minimum)
 
 if __name__ == "__main__":

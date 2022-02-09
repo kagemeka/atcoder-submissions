@@ -1,7 +1,7 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 @nb.njit((nb.i8[:], nb.i8), cache=True)
@@ -9,12 +9,12 @@ def solve(a: np.ndarray, x: int) -> typing.NoReturn:
   s = a.cumsum()
   n = len(a)
   q, r = divmod(x, s[-1])
-  
+
   c = q * n
   c += np.searchsorted(s, r) + 1
   print(c)
 
-   
+
 
 def main() -> typing.NoReturn:
   n = int(input())

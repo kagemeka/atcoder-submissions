@@ -1,11 +1,11 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     n = int(input())
     a = list(map(lambda x: int(x) - 1, input().split()))
     b = list(map(lambda x: int(x) - 1, input().split()))
-    
+
     cnt = [0] * n
     for x in a:
         cnt[x] += 1
@@ -25,10 +25,10 @@ def main() -> typing.NoReturn:
                 loop += 1
         if ptr == x:
             print('No')
-            return 
+            return
         res.append(ptr)
         cnt[ptr] -= 1
-    
+
     ptrs = [n] * n
     for i in range(n):
         if ptrs[a[i]] == n:
@@ -41,7 +41,6 @@ def main() -> typing.NoReturn:
     assert all(x == 0 for x in cnt)
     print('Yes')
     print(*ans)
-    
+
 
 main()
-    

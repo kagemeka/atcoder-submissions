@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 sys.setrecursionlimit(1 << 25)
 
@@ -25,13 +25,13 @@ def solve(
         x + a[l],
         y + a[-1 - r],
       )
-    else: 
+    else:
       v = min(
         x - a[l],
         y - a[-1 - r],
       )
     cache[l][r] = v
-    return v 
+    return v
 
   print(dfs(0, 0))
 

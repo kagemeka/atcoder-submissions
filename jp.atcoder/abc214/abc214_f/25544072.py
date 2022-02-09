@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -9,11 +9,11 @@ import numba as nb
   (nb.i8[:], ),
   cache=True,
 )
-def solve(      
+def solve(
   s: np.ndarray,
 ) -> typing.NoReturn:
   mod = 10 ** 9 + 7
-  n = s.size 
+  n = s.size
   dp = np.zeros(n, np.int64)
   for i in range(n):
     for j in range(i - 2, -1, -1):

@@ -1,5 +1,5 @@
 import typing
-import numpy as np 
+import numpy as np
 import sys
 
 
@@ -11,11 +11,11 @@ def solve(
   a: int,
 ) -> typing.NoReturn:
   mod = 998244353
-  
+
   if np.unique(a).size != k:
     print(0)
-    return 
-  
+    return
+
   i = c == 0
   l = a[i]
   r = a[~i]
@@ -28,14 +28,14 @@ def solve(
   a[r + 1] -= 1
   a[-1] += r.size
   a = a.cumsum()[:-1]
-  a += k 
+  a += k
   a[l] = 1
   a[r] = 1
   b = list(a)
   p = 1
-  
+
   for x in b:
-    p *= x 
+    p *= x
     p %= mod
   print(p)
 
@@ -52,5 +52,5 @@ def main() -> typing.NoReturn:
   c = np.where(c == 'L', 0, 1)
   solve(n, k, c, a)
 
-  
+
 main()

@@ -1,6 +1,6 @@
-import typing 
+import typing
 import numpy as np
-import sys 
+import sys
 
 
 def solve(
@@ -44,7 +44,7 @@ def main() -> typing.NoReturn:
 OJ = 'ONLINE_JUDGE'
 if sys.argv[-1] == OJ:
   from numba import i8
-  from numba.pycc import CC 
+  from numba.pycc import CC
   cc = CC('my_module')
   fn = solve
   signature = (i8, i8[:])
@@ -57,5 +57,5 @@ if sys.argv[-1] == OJ:
   exit(0)
 
 
-from my_module import solve 
+from my_module import solve
 main()

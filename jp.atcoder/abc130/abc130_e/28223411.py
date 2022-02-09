@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -7,7 +7,7 @@ def main() -> typing.NoReturn:
     s = list(map(int, input().split()))
     t = list(map(int, input().split()))
     MOD = 10 ** 9 + 7
-    
+
     dp = [[0] * (m + 1) for _ in range(n + 1)]
     for i in range(n + 1):
         dp[i][0] = 1
@@ -21,6 +21,4 @@ def main() -> typing.NoReturn:
             dp[i + 1][j + 1] %= MOD
     print(dp[-1][-1])
 
-main() 
-            
-    
+main()

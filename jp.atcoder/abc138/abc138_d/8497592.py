@@ -11,7 +11,7 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
@@ -27,7 +27,7 @@ def main():
     for _ in range(q):
         p, x = [int(x) for x in sys.stdin.readline().split()]
         ans[p] += x
-    
+
     stack = [1]
     parent = [0 for _ in range(n+1)]
     while stack:
@@ -37,10 +37,9 @@ def main():
                 parent[y] = x # xがyの親
                 stack.append(y)
                 ans[y] += ans[x]
- 
-    
+
+
     print(' '.join(map(str, ans[1:])))
 
 if __name__ == "__main__":
     main()
-

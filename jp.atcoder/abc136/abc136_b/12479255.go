@@ -26,7 +26,7 @@ func pow(args ...int) int {
 }
 
 func main() {
-  var n int 
+  var n int
   fmt.Scan(&n)
   l := len(strconv.Itoa(n))
   cnt := 0
@@ -36,7 +36,7 @@ func main() {
     } else {
       cnt += pow(10, i + 1) - pow(10, i)
     }
-    
+
   }
   fmt.Println(cnt)
 }

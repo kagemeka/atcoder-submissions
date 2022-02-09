@@ -1,7 +1,7 @@
-import typing 
-import numpy as np 
-import sys 
-import numba as nb 
+import typing
+import numpy as np
+import sys
+import numba as nb
 
 
 @nb.njit
@@ -14,7 +14,7 @@ def sa_doubling(
     a,
   )
   cnt = np.zeros(n + 2, dtype=np.int32)
-  
+
   def count_sort(a):
     for x in a: cnt[x + 1] += 1
     for i in range(n): cnt[i + 1] += cnt[i]
@@ -24,11 +24,11 @@ def sa_doubling(
       idx[cnt[x]] = i
       cnt[x] += 1
     cnt[:] = 0
-    return idx 
-  
+    return idx
+
 
   k = 1
-  rank = a 
+  rank = a
   while 1:
     b = np.zeros(n, dtype=np.int64)
     for i in range(n - k):
@@ -39,7 +39,7 @@ def sa_doubling(
     sa = ord_b[ord_a]
     c = a[ord_a] << 32 | b[sa]
     rank = np.empty(n, np.int64)
-    rank[sa[0]] = 0 
+    rank[sa[0]] = 0
     for i in range(n - 1):
       rank[sa[i + 1]] = rank[sa[i]] + (c[i + 1] > c[i])
     k *= 2
@@ -55,7 +55,7 @@ def kasai(
 ) -> np.array:
   n = a.size
   assert n > 0 and sa.size == n
-  
+
   rank = np.empty(n, np.int32)
   for i in range(n): rank[sa[i]] = i
   h, l = np.empty(n - 1, np.int64), 0
@@ -65,12 +65,12 @@ def kasai(
     if r == n - 1: continue
     j = sa[r + 1]
     while i + l < n and j + l < n:
-      if a[i + l] != a[j + l]: break 
+      if a[i + l] != a[j + l]: break
       l += 1
     h[r] = l
   return h
-  
-  
+
+
 
 @nb.njit(
   (nb.i8[:], ),
@@ -86,7 +86,7 @@ def solve(
   a = np.arange(n, 0, -1)
   for _ in range(2):
     st = []
-    s = 0 
+    s = 0
     for i in range(n - 1):
       h = lcp[i]
       l = 1
@@ -99,7 +99,7 @@ def solve(
       a[sa[i + 1]] += s
     sa = sa[::-1]
     lcp = lcp[::-1]
-  
+
   for x in a: print(x)
 
 

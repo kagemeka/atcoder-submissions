@@ -1,5 +1,5 @@
-import typing 
-import collections 
+import typing
+import collections
 
 
 
@@ -67,7 +67,7 @@ def main() -> None:
                 if j > i: continue
                 ndp[i] += dp[i - j] * choose(i, j) % MOD
 
-    
+
         dp = ndp
         # print(dp)
 
@@ -76,8 +76,8 @@ def main() -> None:
                 # if j > i: break
                 # if j + c < i: continue
                 # i - j
-                
-    
+
+
 
 
 main()

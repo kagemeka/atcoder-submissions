@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 class UnionFind:
@@ -27,8 +27,8 @@ class UnionFind:
 
     def size(self, u: int) -> int:
         return -self.__data[self.find(u)]
-    
-    
+
+
 def main() -> None:
     n, m, q = map(int, input().split())
     edges = []
@@ -44,8 +44,8 @@ def main() -> None:
         edges.append((u, v, w, 2, i))
     edges.sort(key=lambda e: e[2])
     res = ['Yes'] * q
-    # simulate 
-    
+    # simulate
+
     uf = UnionFind(n)
     for u, v, w, t, i in edges:
         if uf.find(u) == uf.find(v) and t == 2:
@@ -53,11 +53,11 @@ def main() -> None:
         if t == 2:
             continue
         uf.unite(u, v)
-        
+
     print(*res, sep='\n')
-        
-    
-    
-    
+
+
+
+
 
 main()

@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 import numba as nb
 
@@ -15,17 +15,17 @@ def solve(
   n = x.size
   ord = np.argsort(x, kind='mergesort')
   x, y = x[ord], y[ord]
-  
+
   mn, mx = y.copy(), y.copy()
   for i in range(1, n):
     mn[i] = min(mn[i], mn[i - 1])
     mx[i] = max(mx[i], mx[i - 1])
-  
+
   def possible(d):
     j = n - 1
     for i in range(n - 1, 0, -1):
       while j >= 0 and x[j] > x[i] - d: j -= 1
-      if j < 0: break 
+      if j < 0: break
       if abs(mx[j] - y[i]) >= d or abs(mn[j] - y[i]) >= d:
         return True
     return False
@@ -35,14 +35,14 @@ def solve(
     while hi - lo > 1:
       d = (lo + hi) // 2
       if possible(d):
-        lo = d 
+        lo = d
       else:
         hi = d
     return lo
-  
+
   print(binary_search())
-  
-  
+
+
 def main() -> typing.NoReturn:
   n = int(input())
   x, y = np.array(

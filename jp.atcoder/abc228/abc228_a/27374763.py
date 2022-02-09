@@ -1,11 +1,11 @@
-import typing 
+import typing
 
 def main() -> typing.NoReturn:
     s, t, x = map(int, input().split())
     ans = 'No'
     if s <= x < t:
         ans = 'Yes'
-    if t < s <= x: 
+    if t < s <= x:
         ans = 'Yes'
     if x < t < s:
         ans = 'Yes'

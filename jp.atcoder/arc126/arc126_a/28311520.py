@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def solve() -> typing.NoReturn:
@@ -31,7 +31,7 @@ def solve() -> typing.NoReturn:
         c -= tmp
     cnt += a // 5
     print(cnt)
-    
+
 
 def main() -> typing.NoReturn:
     t = int(input())

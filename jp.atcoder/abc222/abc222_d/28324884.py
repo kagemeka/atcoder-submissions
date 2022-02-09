@@ -1,5 +1,5 @@
-import typing 
-import numpy as np 
+import typing
+import numpy as np
 import sys
 
 def main() -> typing.NoReturn:
@@ -15,10 +15,8 @@ def main() -> typing.NoReturn:
     dp[0] = 1
     for i in range(n):
         dp = dp.cumsum() % MOD
-        dp[:a[i]] = 0 
+        dp[:a[i]] = 0
         dp[b[i] + 1:] = 0
     print(dp.sum() % MOD)
 
 main()
-
-       

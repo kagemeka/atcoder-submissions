@@ -1,6 +1,6 @@
-from __future__ import annotations 
-import typing 
-import dataclasses 
+from __future__ import annotations
+import typing
+import dataclasses
 
 
 
@@ -11,14 +11,14 @@ T = typing.TypeVar('T')
 class Monoid(typing.Generic[T]):
   fn: typing.Callable[[T, T], T]
   e: typing.Callable[[], T]
-  commutative: bool = False 
+  commutative: bool = False
 
 
 
 
 T = typing.TypeVar('T')
 class FenwickTree(typing.Generic[T]):
-  @classmethod 
+  @classmethod
   def from_array(
     cls,
     monoid: Monoid[T],
@@ -40,7 +40,7 @@ class FenwickTree(typing.Generic[T]):
     self,
     i: int,
   ) -> T:
-    m = self.__monoid 
+    m = self.__monoid
     v = m.e()
     while i > 0:
       v = m.fn(v, self.__a[i])
@@ -53,10 +53,10 @@ class FenwickTree(typing.Generic[T]):
     monoid: Monoid[T],
     n: int,
   ) -> typing.NoReturn:
-    assert monoid.commutative 
+    assert monoid.commutative
     self.__a = [monoid.e() for _ in range(n + 1)]
-    self.__monoid = monoid 
-  
+    self.__monoid = monoid
+
 
   def __setitem__(
     self,
@@ -83,13 +83,13 @@ def solve(
   res = []
   for t, x, y in txy:
     if t == 1:
-      fw[x] = y 
+      fw[x] = y
     else:
       res.append(fw[y] ^ fw[x - 1])
   print(*res, sep='\n')
 
 
-import sys 
+import sys
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())

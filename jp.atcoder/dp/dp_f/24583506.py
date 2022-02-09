@@ -1,10 +1,10 @@
-import typing 
+import typing
 import numpy as np
 
 
 
 class LCS():
-  
+
   def __call__(
     self,
     a: np.array,
@@ -17,7 +17,7 @@ class LCS():
     )
     for i in range(n):
       np.maximum(
-        l[i, :-1] 
+        l[i, :-1]
         + (a[i] == b),
         l[i, 1:],
         out=l[i + 1, 1:],
@@ -35,11 +35,11 @@ class LCS():
         continue
       if l[i, j + 1] == x:
         i -= 1
-        continue 
+        continue
       res.append(a[i])
       i -= 1; j -= 1
     return np.array(res)[::-1]
-      
+
 
 
 def solve(

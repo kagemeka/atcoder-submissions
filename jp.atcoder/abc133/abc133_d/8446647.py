@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     # x1 を求めると、連鎖的にxnまで求められる
@@ -26,7 +26,7 @@ def main():
     for i in range(1, n):
         xi = a[i-1] - x[i-1]
         x.append(xi)
-    
+
     # xは半分の量のlistなので2倍して出力する
     for i in range(n):
         print(x[i] * 2, end=' ')

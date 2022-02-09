@@ -1,5 +1,5 @@
-import typing 
-import bisect 
+import typing
+import bisect
 import heapq
 
 
@@ -26,9 +26,9 @@ def main() -> typing.NoReturn:
             cache.add((i, j + 1, k))
         if k + 1 < z and not (i, j, k + 1) in cache:
             heapq.heappush(hq, (-(s - c[k] + c[k + 1]), i, j, k + 1))
-            cache.add((i, j, k + 1))  
+            cache.add((i, j, k + 1))
     print(*res, sep='\n')
-        
-    
+
+
 
 main()

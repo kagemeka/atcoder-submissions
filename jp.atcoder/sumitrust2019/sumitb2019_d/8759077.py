@@ -13,7 +13,7 @@ def main():
     l[0] = set()
     for i in range(1, n):
         l[i] = l[i-1] | set([s[i-1]])
-    
+
     r = [None] * n
     r[n-1] = set()
     for i in range(n-2, -1, -1):
@@ -27,7 +27,7 @@ def main():
                     for k in digits:
                         if k in r[c]:
                             res.add((i, j, k))
-    
+
     print(len(res))
 
 

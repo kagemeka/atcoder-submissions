@@ -1,6 +1,6 @@
-import typing 
+import typing
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 
@@ -31,7 +31,7 @@ def lcs(
       continue
     if l[i][j + 1] == x:
       i -= 1
-      continue 
+      continue
     res.append(a[i])
     i -= 1; j -= 1
   return np.array(res)[::-1]

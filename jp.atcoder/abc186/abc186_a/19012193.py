@@ -1,4 +1,4 @@
-import sys 
+import sys
 
 def read_ints():
   ints = map(
@@ -13,5 +13,3 @@ def solve():
 
 if __name__ == "__main__":
   solve()
-
-

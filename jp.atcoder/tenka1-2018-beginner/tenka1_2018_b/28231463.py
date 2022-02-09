@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -8,7 +8,7 @@ def main() -> typing.NoReturn:
         i &= 1
         c = cnt[i] // 2
         cnt[i] = c
-        cnt[i ^ 1] += c 
+        cnt[i ^ 1] += c
     print(*cnt)
 
 main()

@@ -11,7 +11,7 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
@@ -28,6 +28,6 @@ def main():
         else:
             i += 1
     print(ans)
-    
+
 if __name__ == "__main__":
     main()

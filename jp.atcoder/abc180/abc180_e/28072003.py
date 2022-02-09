@@ -1,10 +1,10 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     n = int(input())
     xyz = [tuple(map(int, input().split())) for _ in range(n)]
-    
+
     inf = 1 << 60
     dist = [[inf] * n for _ in range(n)]
     for i in range(n):
@@ -25,7 +25,7 @@ def main() -> typing.NoReturn:
             for j in range(n):
                 if ~t >> j & 1: continue
                 dp[s][i] = min(dp[s][i], dp[t][j] + dist[j][i])
-    
+
     mn = min(dp[-1][i] + dist[i][0] for i in range(1, n))
     print(mn)
 

@@ -33,7 +33,7 @@ def main():
                 if hi - a[i] - b[j] - c[k] > 0:
                     break
                 res.append(a[i] + b[j] + c[k])
-    
+
     return sorted(res, reverse=True)
 
 if __name__ == '__main__':

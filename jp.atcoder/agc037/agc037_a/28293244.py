@@ -1,9 +1,9 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     s = input()
-    
+
     prev = ''
     t = ''
     cnt = 0
@@ -11,8 +11,8 @@ def main() -> typing.NoReturn:
         t += c
         if t == prev: continue
         cnt += 1
-        prev = t 
-        t = '' 
+        prev = t
+        t = ''
     print(cnt)
 
 main()

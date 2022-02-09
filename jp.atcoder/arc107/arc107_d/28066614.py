@@ -1,12 +1,12 @@
-import typing 
+import typing
 import functools
-import sys 
+import sys
 sys.setrecursionlimit(1 << 20)
 
 
 def main() -> typing.NoReturn:
     n, k = map(int, input().split())
-    
+
     MOD = 998_244_353
     dp = [[0] * (2 * k + 1) for _ in range(n + 1)]
     dp[0][0] = 1
@@ -16,4 +16,3 @@ def main() -> typing.NoReturn:
     print(dp[n][k])
 
 main()
-        

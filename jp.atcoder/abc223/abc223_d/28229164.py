@@ -1,4 +1,4 @@
-import typing 
+import typing
 import heapq
 
 def main() -> typing.NoReturn:
@@ -16,14 +16,14 @@ def main() -> typing.NoReturn:
         b -= 1
         g[a].append(b)
         in_deg[b] += 1
-    
-    
+
+
     hq = []
     for i in range(n):
         if in_deg[i] == 0:
             heapq.heappush(hq, i)
 
-    
+
     res = []
     while hq:
         u = heapq.heappop(hq)
@@ -32,7 +32,7 @@ def main() -> typing.NoReturn:
             in_deg[v] -= 1
             if in_deg[v] == 0:
                 heapq.heappush(hq, v)
-    assert len(res) <= n    
+    assert len(res) <= n
     if len(res) < n:
         print(-1)
     else:

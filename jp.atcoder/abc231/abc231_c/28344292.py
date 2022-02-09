@@ -1,5 +1,5 @@
-import typing 
-import bisect 
+import typing
+import bisect
 
 def main() -> typing.NoReturn:
     n, q = map(int, input().split())
@@ -10,4 +10,3 @@ def main() -> typing.NoReturn:
         print(n - bisect.bisect_left(a, x))
 
 main()
-    

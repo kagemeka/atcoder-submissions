@@ -1,5 +1,5 @@
 import typing
-import sys 
+import sys
 import numpy as np
 
 
@@ -33,9 +33,9 @@ def solve(
     ok &= a[c]
     k = s | j[ok]
     dp[k] += dp[s]
-    dp[k] %= mod  
+    dp[k] %= mod
   print(dp[-1])
-    
+
 
 
 def main() -> typing.NoReturn:
@@ -51,9 +51,9 @@ def main() -> typing.NoReturn:
 OJ = 'ONLINE_JUDGE'
 if sys.argv[-1] == OJ:
   from numba import njit, i8
-  from numba.pycc import CC 
+  from numba.pycc import CC
   cc = CC('my_module')
-  fn = solve 
+  fn = solve
   signature = (i8, i8[:, :])
   bit_count = njit(bit_count)
   cc.export(

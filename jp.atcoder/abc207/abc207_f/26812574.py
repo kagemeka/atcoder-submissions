@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -36,7 +36,7 @@ def euler_tour_edge(
     st = [root]
     for i in range(n << 1):
         u = st.pop()
-        tour[i] = u 
+        tour[i] = u
         if u < 0: continue
         st.append(~u)
         for v in g[edge_idx[u]:edge_idx[u + 1], 1][::-1]:
@@ -83,7 +83,7 @@ def solve(uv: np.ndarray) -> typing.NoReturn:
                         dp[ui, 2] += dp_u[ui - vi, 2] * dp_v[vi, 1:].sum() % mod
                     if ui - vi - 1 >= 0:
                         dp[ui, 1] += dp_u[ui - vi - 1, 0] * dp_v[vi, 2] % mod
-                        dp[ui, 2] += dp_u[ui - vi - 1, 2] * dp_v[vi, 0] % mod 
+                        dp[ui, 2] += dp_u[ui - vi - 1, 2] * dp_v[vi, 0] % mod
                     dp[ui] %= mod
                     print(u, ui, vi, dp)
         cache[u] = dp
@@ -97,10 +97,10 @@ def main() -> typing.NoReturn:
     uv = np.array(sys.stdin.read().split(), dtype=np.int64).reshape(n - 1, 2) - 1
     solve(uv)
 
-main()import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+main()import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -135,7 +135,7 @@ def euler_tour_edge(
     st = [root]
     for i in range(n << 1):
         u = st.pop()
-        tour[i] = u 
+        tour[i] = u
         if u < 0: continue
         st.append(~u)
         for v in g[edge_idx[u]:edge_idx[u + 1], 1][::-1]:
@@ -182,7 +182,7 @@ def solve(uv: np.ndarray) -> typing.NoReturn:
                         dp[ui, 2] += dp_u[ui - vi, 2] * dp_v[vi, 1:].sum() % mod
                     if ui - vi - 1 >= 0:
                         dp[ui, 1] += dp_u[ui - vi - 1, 0] * dp_v[vi, 2] % mod
-                        dp[ui, 2] += dp_u[ui - vi - 1, 2] * dp_v[vi, 0] % mod 
+                        dp[ui, 2] += dp_u[ui - vi - 1, 2] * dp_v[vi, 0] % mod
                     dp[ui] %= mod
                     print(u, ui, vi, dp)
         cache[u] = dp

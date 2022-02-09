@@ -13,7 +13,7 @@ def main():
     value = [0] * (n + 1)
     for p, x in px:
         value[p] += x
-    
+
     stack = [1]
     par = [None] * (n + 1)
     while stack:
@@ -23,9 +23,9 @@ def main():
                 par[v] = u
                 value[v] += value[u]
                 stack.append(v)
-    
+
     return value[1:]
-    
+
 if __name__ == '__main__':
     ans = main()
     print(*ans, sep=' ')

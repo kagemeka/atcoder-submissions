@@ -8,14 +8,14 @@ import itertools
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 shichigosan = '357'
 
 def main():
 
     n = int(sys.stdin.readline().rstrip())
-    
+
     count = 0
     for i in range(3, len(str(n)) + 1):
         sub_shichigosan = list(''.join(s) for s in itertools.product(shichigosan, repeat=i))
@@ -28,7 +28,7 @@ def main():
             else:
                 if 357 <= int(sub) <= n:
                     count += 1
-    
+
     print(count)
 
 if __name__ == "__main__":

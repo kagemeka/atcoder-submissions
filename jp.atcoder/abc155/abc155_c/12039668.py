@@ -8,7 +8,7 @@ def main():
     m = cnt[0][1]
     ans = [s for s, c in cnt if c == m]
     print(*sorted(ans), sep='\n')
-         
+
 
 if __name__ ==  '__main__':
     main()

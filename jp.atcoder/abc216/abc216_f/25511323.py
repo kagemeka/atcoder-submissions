@@ -1,6 +1,6 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 
 
 
@@ -25,7 +25,7 @@ def solve(
   m = 1 << 13
   dp = np.zeros(m, dtype=np.int64)
   dp[0] = 1
-  s = 0 
+  s = 0
   for a, b in ab:
     s += dp[:max(a - b + 1, 0)].sum()
     s %= mod
@@ -35,6 +35,3 @@ def solve(
 
 
 main()
-    
-  
-  

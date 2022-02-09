@@ -1,6 +1,6 @@
-import typing 
-import sys 
-import math 
+import typing
+import sys
+import math
 
 
 def solve(n: int, s: int, k: int) -> typing.NoReturn:
@@ -8,8 +8,8 @@ def solve(n: int, s: int, k: int) -> typing.NoReturn:
   if s % g:
     print(-1)
     return
-  s //= g 
-  k //= g 
+  s //= g
+  k //= g
   n //= g
   x = pow(k, -1, n)
   c = -s * x % n

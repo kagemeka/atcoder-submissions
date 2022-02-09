@@ -2,7 +2,7 @@ import sys
 from math import ceil, floor
 def main():
     n = int(sys.stdin.readline().rstrip())
-    x = ceil(n * 100 / 108) 
+    x = ceil(n * 100 / 108)
     if floor(x * 1.08) == n:
         print(x)
     else:

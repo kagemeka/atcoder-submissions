@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
   vector<string> weather = {"Sunny", "Cloudy", "Rainy"};
-  
+
   string s;
   cin >> s;
   int i = find(weather.begin(), weather.end(), s) - weather.begin();

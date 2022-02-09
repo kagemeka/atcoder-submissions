@@ -20,7 +20,7 @@ def crt(r: np.ndarray, m: np.ndarray) -> typing.Tuple[int, int]:
         r1, m1 = r[i], m[i]
         assert m1 >= 1
         r1 %= m1
-        if m0 < m1: 
+        if m0 < m1:
             r0, r1 = r1, r0
             m0, m1 = m1, m0
         # if m0 % m1 == 0:
@@ -68,4 +68,3 @@ def main() -> typing.NoReturn:
     solve(n)
 
 main()
-    

@@ -16,7 +16,7 @@ def main():
             loop = i - cnt[now]
             break
         cnt[now] = i
-    r %= loop 
+    r %= loop
     for _ in range(r):
         now = a[now]
     print(now + 1)

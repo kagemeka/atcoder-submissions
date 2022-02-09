@@ -17,7 +17,7 @@ def main():
       return
     trail.append(nxt)
     cur = nxt
-  
+
   res = [trail[i+1] - trail[i] for i in range(len(trail) - 1)]
   print(*res, sep=' ')
 

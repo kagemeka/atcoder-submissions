@@ -1,5 +1,5 @@
-import typing 
-import itertools 
+import typing
+import itertools
 import math
 
 def main() -> typing.NoReturn:

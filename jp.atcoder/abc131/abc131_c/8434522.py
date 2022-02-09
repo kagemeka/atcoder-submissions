@@ -8,7 +8,7 @@ import math
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 
 def gcd(a, b):
@@ -24,7 +24,7 @@ def main():
     res1 = b - (b // c + b // d - b // lcm(c, d))
     res2 = (a - 1) - ((a - 1) // c + (a - 1) // d - (a - 1) // lcm(c, d))
     ans = res1 - res2
-    print(ans) 
+    print(ans)
 
 if __name__ == "__main__":
     main()

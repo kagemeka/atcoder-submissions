@@ -1,23 +1,23 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 import numba as nb
 
-@nb.njit 
+@nb.njit
 def uf_build(n: int) -> np.ndarray: return np.full(n, -1, np.int64)
 
 
-@nb.njit 
+@nb.njit
 def uf_find(uf: np.ndarray, u: int) -> int:
-    if uf[u] < 0: return u 
+    if uf[u] < 0: return u
     uf[u] = uf_find(uf, uf[u])
     return uf[u]
 
 
-@nb.njit 
+@nb.njit
 def uf_unite(uf: np.ndarray, u: int, v: int) -> typing.NoReturn:
     u, v = uf_find(uf, u), uf_find(uf, v)
-    if u == v: return 
+    if u == v: return
     if uf[u] > uf[v]: u, v = v, u
     uf[u] += uf[v]
     uf[v] = u
@@ -26,7 +26,7 @@ def uf_unite(uf: np.ndarray, u: int, v: int) -> typing.NoReturn:
 @nb.njit((nb.i8[:, :], ), cache=True)
 def solve(xy: np.ndarray) -> typing.NoReturn:
     n = len(xy)
-    
+
     dist = np.zeros((n + 2, n + 2), np.float64)
     for i in range(n):
         for j in range(i):
@@ -47,7 +47,7 @@ def solve(xy: np.ndarray) -> typing.NoReturn:
                 if dist[i, j] >= d: continue
                 uf_unite(uf, i, j)
         return uf_find(uf, n) != uf_find(uf, n + 1)
- 
+
     def binary_search():
         lo, hi = 0, 200.1
         for _ in range(100):
@@ -57,7 +57,7 @@ def solve(xy: np.ndarray) -> typing.NoReturn:
             else:
                 hi = r
         return lo
-    
+
     print(binary_search())
 
 def main() -> typing.NoReturn:

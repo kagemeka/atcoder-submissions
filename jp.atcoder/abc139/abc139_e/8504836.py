@@ -11,13 +11,13 @@ import collections
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
     n = int(sys.stdin.readline().rstrip())
     table = [None] + [collections.deque(int(x) for x in sys.stdin.readline().split()) for _ in range(n)]
-    
+
     for day in range(1, n * (n - 1) // 2 + 2):
         already_played = []
         finished_count = 0
@@ -42,7 +42,7 @@ def main():
                 sys.exit()
             print(-1)
             sys.exit()
-        
+
 
 
 

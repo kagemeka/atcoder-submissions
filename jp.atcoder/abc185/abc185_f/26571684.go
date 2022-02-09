@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -19,7 +19,7 @@ func NewStdIO() *StdIO {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Buffer([]byte{}, maxBuffer)
 	scanner.Split(bufio.ScanWords)
-	return &StdIO { 
+	return &StdIO {
 		scanner: scanner,
 		writer: bufio.NewWriter(os.Stdout),
 	}
@@ -66,7 +66,7 @@ func NewSegmentTree(m Monoid, a []interface{}) *SegmentTree {
 	data := make([]interface{}, n << 1)
 	for i := 0; i < n << 1; i++ { data[i] = m.E() }
 	for i := 0; i < size; i++ { data[n + i] = a[i] }
-	for i := n - 1; i > 0; i-- { 
+	for i := n - 1; i > 0; i-- {
 		data[i] = m.Op(data[i << 1], data[i << 1 | 1])
 	}
 	seg := new(SegmentTree)
@@ -119,14 +119,14 @@ func (q *PointSetRangeGetXor) Get(l, r int) int {
 	return q.seg.Get(l, r).(int)
 }
 
-func (q *PointSetRangeGetXor) Set(i int, x int) { 
+func (q *PointSetRangeGetXor) Set(i int, x int) {
 	q.seg.Set(i, x)
 }
 
 
 type PointOperateXorRangeGetXor struct { PointSetRangeGetXor }
 
-func (q *PointOperateXorRangeGetXor) Set(i int, x int) { 
+func (q *PointOperateXorRangeGetXor) Set(i int, x int) {
 	q.seg.Set(i, q.op(q.Get(i, i + 1), x))
 }
 

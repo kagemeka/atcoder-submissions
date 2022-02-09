@@ -6,7 +6,7 @@ n, *v = map(int, sys.stdin.read().split())
 def main():
     c1 = sorted(Counter(v[::2]).items(), reverse=True, key=lambda x: x[1])
     c2 = sorted(Counter(v[1::2]).items(), reverse=True, key=lambda x: x[1])
-    
+
     if c1[0][0] != c2[0][0]:
         return n // 2 - c1[0][1] + n // 2 - c2[0][1]
     else:

@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -36,7 +36,7 @@ def euler_tour_edge(
     st = [root]
     for i in range(n << 1):
         u = st.pop()
-        tour[i] = u 
+        tour[i] = u
         if u < 0: continue
         st.append(~u)
         for v in g[edge_idx[u]:edge_idx[u + 1], 1][::-1]:
@@ -72,8 +72,8 @@ def solve(uv: np.ndarray) -> typing.NoReturn:
                     for vi in range(sv + 1):
                         for vj in range(3):
                             x = dp[u, ui, uj] * dp[v, vi, vj] % mod
-                            if x == 0: continue  
-                            i = ui + vi 
+                            if x == 0: continue
+                            i = ui + vi
                             if uj == 0 and vj != 2:
                                 j = 0
                             elif uj == 2:
@@ -82,7 +82,7 @@ def solve(uv: np.ndarray) -> typing.NoReturn:
                                 j = 1
                             if uj == 0 and vj == 2 or uj == 2 and vj == 0: i += 1
                             ndp[i, j] += x
-                            ndp[i, j] %= mod 
+                            ndp[i, j] %= mod
             size[u] = su + sv
             dp[u] = ndp
 

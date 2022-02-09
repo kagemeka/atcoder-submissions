@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -16,8 +16,8 @@ def solve(l: np.ndarray) -> typing.NoReturn:
       while k < n and l[k] < l[i] + l[j]: k += 1
       cnt += k - j - 1
   print(cnt)
-  
-  
+
+
 
 def main() -> typing.NoReturn:
   n = int(input())

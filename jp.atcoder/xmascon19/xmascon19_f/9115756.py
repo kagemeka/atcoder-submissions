@@ -12,7 +12,7 @@ def main():
             break
     else:
         return 0
-    
+
     yb = min(yu + h // 2, h)
 
     x = set()

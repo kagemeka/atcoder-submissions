@@ -7,7 +7,7 @@ int main() {
   int n, m; cin >> n >> m;
   vector<int> a(n);
   bitset<10> confirmed(0);
-  
+
   for (int i = 0; i < m; i++) {
     int s, c; cin >> s >> c; s--;
     if (confirmed[s] && a[s] != c) {

@@ -7,4 +7,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-    

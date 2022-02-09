@@ -7,7 +7,7 @@ class ReadStdin:
     self,
   ) -> bytes:
     return next(self.__chunks)
-    
+
 
   def __init__(
     self,
@@ -34,7 +34,7 @@ class ReadStdin:
       l = self.__buf.readline()
       for chunk in l.split():
         yield chunk
-  
+
 
   def str(
     self,
@@ -61,7 +61,7 @@ class Solver(
     self._prepare()
     self._solve()
 
-  
+
   def __init__(
     self,
   ) -> typing.NoReturn:
@@ -74,17 +74,17 @@ class Solver(
   ) -> typing.NoReturn:
     ...
 
-  
+
   @abstractmethod
   def _solve(
     self,
-  ) -> typing.NoReturn:  
+  ) -> typing.NoReturn:
     ...
 
 
 
 
-import typing 
+import typing
 
 
 
@@ -94,7 +94,7 @@ class CompressArray():
     i: int,
   ) -> int:
     return self.__v[i]
-  
+
 
   def __call__(
     self,
@@ -109,7 +109,7 @@ class CompressArray():
     v = [None] * n
     i, mn = -1, -float('inf')
     for j, x in a:
-      if x > mn: 
+      if x > mn:
         i += 1
         v[i] = x
         mn = x
@@ -128,7 +128,7 @@ class FenwickTree():
     n: int,
   ) -> typing.NoReturn:
     self.__buf = [0] * (n + 1)
-  
+
 
   def add(
     self,
@@ -140,20 +140,20 @@ class FenwickTree():
     while i < n:
       b[i] += x
       i += i & -i
-  
+
 
   def sum(
     self,
     i: int,
   ) -> int:
     b = self.__buf
-    s = 0 
+    s = 0
     while i > 0:
       s += b[i]
       i -= i & -i
     return s
 
-  
+
 
 import typing
 
@@ -217,10 +217,10 @@ class Problem(
       sys.stdin.read().split(),
       dtype=np.int64,
     ).reshape(2, n)
-    self.__n = n 
-    self.__a = a 
+    self.__n = n
+    self.__a = a
     self.__b = b
-    
+
 
 
   def _solve(
@@ -232,7 +232,7 @@ class Problem(
       print(-1); return
     self.__count_inversion()
     print(self.__res)
-  
+
 
   def __count_inversion(
     self,
@@ -244,7 +244,7 @@ class Problem(
     c[a[:, 0]] = b[:, 0]
     fn = InversionCount()
     self.__res = fn(c)
-  
+
 
   def __enumerate_sort(
     self,
@@ -259,7 +259,7 @@ class Problem(
       enumerate(self.__b),
       key=lambda x: x[1],
     ))
-  
+
 
   def __achievable(
     self,
@@ -268,7 +268,7 @@ class Problem(
       self.__a[:, 1]
       == self.__b[:, 1]
     ).all())
-    
+
 
 
   def __preprocess(
@@ -276,7 +276,7 @@ class Problem(
   ) -> typing.NoReturn:
     n = self.__n
     i = np.arange(n)
-    self.__a += i 
+    self.__a += i
     self.__b += i
 
 

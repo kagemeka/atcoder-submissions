@@ -16,7 +16,7 @@ def main():
                 dp1[i+1][j] += dp2[i][j]
             if j >= 1:
                 dp1[i+1][j] += dp1[i][j-1] * 9 + dp2[i][j-1] * max(d - 1, 0)
-            
+
             if d == 0:
                 dp2[i+1][j] += dp2[i][j]
             elif j >= 1:

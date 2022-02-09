@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-  var n, m, c int 
+  var n, m, c int
   fmt.Scan(&n, &m, &c)
   b := make([]int, m)
   for i := 0; i < m; i++ {

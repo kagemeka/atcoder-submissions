@@ -1,7 +1,7 @@
-import typing 
+import typing
 import sys
-import numpy as np 
-import numba as nb 
+import numpy as np
+import numba as nb
 
 
 
@@ -31,7 +31,7 @@ def uf_unite(
 ) -> typing.NoReturn:
   u = uf_find(uf, u)
   v = uf_find(uf, v)
-  if u == v: return 
+  if u == v: return
   if uf[u] > uf[v]: u, v = v, u
   uf[u] += uf[v]
   uf[v] = u

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -9,4 +9,4 @@ def main() -> typing.NoReturn:
   print(a * (100 * b1 + b0) // 100)
 
 
-main()      
+main()

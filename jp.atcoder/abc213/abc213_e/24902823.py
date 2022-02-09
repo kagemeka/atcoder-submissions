@@ -1,4 +1,4 @@
-import typing 
+import typing
 from heapq import (
   heappush,
   heappop,
@@ -14,13 +14,13 @@ def main() -> typing.NoReturn:
     for _ in range(h)
   ]
 
-  inf = 1 << 20  
+  inf = 1 << 20
   dist = [
-    [inf] * w 
+    [inf] * w
     for _ in range(h)
   ]
   dist[0][0] = 0
-  
+
 
   dij = (
     (-1, 0),
@@ -41,7 +41,7 @@ def main() -> typing.NoReturn:
 
   while q:
     d, i, j = heappop(q)
-    if d > dist[i][j]: 
+    if d > dist[i][j]:
       continue
     for di, dj in dij:
       ni = i + di
@@ -54,7 +54,7 @@ def main() -> typing.NoReturn:
         continue
       dist[ni][nj] = d
       heappush(q, (d, ni, nj))
-    
+
     for di in range(-2, 3):
       for dj in range(-2, 3):
         md = abs(di) + abs(dj)
@@ -69,12 +69,12 @@ def main() -> typing.NoReturn:
           continue
         dist[ni][nj] = nd
         heappush(
-          q, 
+          q,
           (nd, ni, nj),
         )
-        
+
 
   print(dist[-1][-1])
-  
-  
+
+
 main()

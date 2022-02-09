@@ -9,7 +9,7 @@ T = typing.TypeVar('T')
 class Monoid(typing.Generic[T]):
   op: typing.Callable[[T, T], T]
   e: typing.Callable[[], T]
-  commutative: bool = False 
+  commutative: bool = False
 
 
 
@@ -25,7 +25,7 @@ class SegmentTree(typing.Generic[T]):
     seg[n:] = a.copy()
     self.__a = seg
     for i in range(n - 1, 0, -1): self.__update(i)
- 
+
 
   def __len__(self) -> int: return len(self.__a) >> 1
   def __repr__(self) -> str: return str(self.__a)
@@ -47,7 +47,7 @@ class SegmentTree(typing.Generic[T]):
         vr = m.op(a[r], vr)
       l, r = l >> 1, r >> 1
     return m.op(vl, vr)
-    
+
 
   def __setitem__(self, i: int, x: T) -> typing.NoReturn:
     i += len(self)
@@ -59,11 +59,11 @@ class SegmentTree(typing.Generic[T]):
 
   def __update(self, i: int) -> typing.NoReturn:
     a = self.__a
-    a[i] = self.__monoid.op(a[i << 1], a[i << 1 | 1]) 
+    a[i] = self.__monoid.op(a[i << 1], a[i << 1 | 1])
 
 
 
-import typing 
+import typing
 
 
 
@@ -81,13 +81,13 @@ def solve(
   for t, x, y in txy:
     x -= 1
     if t == 1:
-      seg[x] = seg[x, x + 1] ^ y 
+      seg[x] = seg[x, x + 1] ^ y
     else:
       res.append(seg[x, y])
   print(*res, sep='\n')
 
 
-import sys 
+import sys
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())

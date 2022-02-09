@@ -1,6 +1,6 @@
 import typing
-import sys 
-import numpy as np 
+import sys
+import numpy as np
 import numba as nb
 
 
@@ -13,7 +13,7 @@ def dfs(
 ) -> int:
   if r - l == 1: return 0
   v = cache[l, r]
-  if v != 0: return v 
+  if v != 0: return v
   v = 1 << 50
   for m in range(l + 1, r):
     v = min(
@@ -22,9 +22,9 @@ def dfs(
       + dfs(m, r, s, cache),
     )
   v += s[r] - s[l]
-  cache[l, r] = v 
+  cache[l, r] = v
   return v
-  
+
 
 @nb.njit(
   (nb.i8, nb.i8[:]),

@@ -1,13 +1,13 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     h, w, k = map(int, input().split())
-    
+
     board = [input() for _ in range(h)]
 
     def satisfy(s: int, t: int) -> bool:
-        cnt = 0 
+        cnt = 0
         for i in range(h):
             if s >> i & 1: continue
             for j in range(w):

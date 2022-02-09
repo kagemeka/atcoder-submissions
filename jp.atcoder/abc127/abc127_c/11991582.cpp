@@ -11,7 +11,7 @@ int main() {
     cin >> l >> r;
     l0 = max(l, l0);
     r0 = min(r0, r);
-  } 
+  }
   cout << max(0, r0 - l0 + 1) << '\n';
   return 0;
 }

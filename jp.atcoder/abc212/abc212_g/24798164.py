@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 class FindDivisors():
@@ -17,7 +17,7 @@ class FindDivisors():
       i += 1
     if i * i == n: a.append(i)
     a.sort()
-    return a 
+    return a
 
 
 
@@ -57,13 +57,13 @@ def solve(
       if d % p: continue
       dp[d // p] -= dp[d]
       dp[d // p] %= mod
-  
+
   c = 1
   for d in divs:
     c += dp[d] * n // d % mod
-    c %= mod 
+    c %= mod
   print(c)
-  
+
 
 
 def main() -> typing.NoReturn:

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -19,15 +19,15 @@ def main() -> typing.NoReturn:
       if count(x) <= k:
         hi = x
       else:
-        lo = x 
+        lo = x
     return hi
-  
+
   x = binary_search()
   c = count(x)
   s = (k - c) * (x - 1)
   for h in a:
     s += max(0, (x + h) * (h - x + 1) // 2)
   print(s)
-  
+
 
 main()

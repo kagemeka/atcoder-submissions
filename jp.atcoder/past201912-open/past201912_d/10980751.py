@@ -12,7 +12,7 @@ def main():
         if a in occured:
             return a, b
         occured.add(a)
-        
+
 if __name__ == "__main__":
     ans = main()
     print(*ans, sep=' ')

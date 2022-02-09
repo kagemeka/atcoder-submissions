@@ -9,13 +9,13 @@ def main():
     for i in range(x):
         for j in range(y):
             heappush(res, -(a[i] + b[j]))
-    
+
     res2 = []
     for i in range(min(k, x * y)):
         ab = -heappop(res)
         for j in range(z):
             heappush(res2, -(ab + c[j]))
-    
+
     for i in range(k):
         yield -heappop(res2)
 

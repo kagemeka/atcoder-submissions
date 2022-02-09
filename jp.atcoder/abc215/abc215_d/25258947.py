@@ -15,8 +15,8 @@ class SieveOfEratosthenes():
     for i in range(n):
       s[i] = s[i] == i
     return s
-    
-  
+
+
   def gpf(
     self,
     n: int = 1 << 20,
@@ -31,7 +31,7 @@ class SieveOfEratosthenes():
       for j in range(i, n, i):
         s[j] = i
     return s
-  
+
 
   def lpf(
     self,
@@ -40,7 +40,7 @@ class SieveOfEratosthenes():
     assert n > 1
     s = list(range(n))
     s[0] = s[1] = -1
-    i = 0 
+    i = 0
     while i * i < n - 1:
       i += 1
       if s[i] != i: continue
@@ -69,11 +69,11 @@ class PrimeFactorize():
     for p in self.__pn:
       if p * p > n: break
       while n % p == 0:
-        n //= p 
+        n //= p
         f[p] += 1
     if n > 1: f[n] = 1
     return f
-  
+
 
   def __init__(
     self,
@@ -83,7 +83,7 @@ class PrimeFactorize():
     while n * n <= max_n:
       n <<= 1
     self.__pn = PrimeNumbers()(n)
-  
+
 
   def factorial(
     self,
@@ -102,21 +102,20 @@ def main() -> typing.NoReturn:
   *a, = map(int, input().split())
 
   fn = PrimeFactorize(max_n=1 << 20)
-  
+
   p = [False] * (1 << 20)
   for x in a:
     for i in fn(x): p[i] = True
-  
+
   s = [True] * (m + 1)
   s[0] = False
   for i in range(m + 1):
     if not p[i] or not s[i]: continue
     for j in range(i, m + 1, i):
-      s[j] = False 
+      s[j] = False
   print(sum(s))
   for i in range(m + 1):
     if s[i]: print(i)
 
 
 main()
-      

@@ -1,36 +1,36 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def seg_build(a: np.ndarray) -> np.ndarray:
   n = len(a)
   seg = np.empty(n << 1, np.int64)
-  seg[n:] = a 
+  seg[n:] = a
   for i in range(n - 1, 0, -1):
     seg[i] = seg[i << 1] ^ seg[i << 1 | 1]
-  return seg 
+  return seg
 
 
-@nb.njit 
+@nb.njit
 def seg_set(
-  seg: np.ndarray, 
-  i: int, 
+  seg: np.ndarray,
+  i: int,
   x: int,
 ) -> typing.NoReturn:
-  i += len(seg) >> 1 
+  i += len(seg) >> 1
   seg[i] = x
   while i > 1:
     i >>= 1
     seg[i] = seg[i << 1] ^ seg[i << 1 | 1]
 
 
-@nb.njit 
+@nb.njit
 def seg_get_range(seg: np.ndarray, l: int, r: int) -> int:
   n = len(seg) >> 1
-  l, r = l + n, r + n 
+  l, r = l + n, r + n
   v = 0
   while l < r:
     if l & 1:

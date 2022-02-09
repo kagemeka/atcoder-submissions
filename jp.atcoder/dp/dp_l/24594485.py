@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 sys.setrecursionlimit(1 << 25)
 from functools import (
@@ -28,10 +28,10 @@ def solve(
       x - a[l],
       y - a[r],
     )
-  
+
   print(-dfs(0, 0))
 
-   
+
 
 
 def main() -> typing.NoReturn:

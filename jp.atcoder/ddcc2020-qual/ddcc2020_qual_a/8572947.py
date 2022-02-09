@@ -11,10 +11,10 @@ def main():
             ans += 2 * 10 ** 5
         elif i == 3:
             ans += 1 * 10 ** 5
-    
+
     if ans == 6 * 10 ** 5:
         ans = 1 * 10 ** 6
-    
+
     print(ans)
 
 if __name__ == '__main__':

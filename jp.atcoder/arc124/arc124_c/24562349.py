@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 
 
@@ -22,7 +22,7 @@ def solve(
   ab: int,
 ) -> typing.NoReturn:
   s = {(0, 0)}
-  g = 0 
+  g = 0
   for a, b in ab:
     ns = set()
     for gx, gy in s:
@@ -37,7 +37,7 @@ def solve(
     s = ns
     g = gcd(g, a, b)
 
-  mx = 0 
+  mx = 0
   for gx, gy in s:
     mx = max(mx, gx * gy)
   print(mx // g)

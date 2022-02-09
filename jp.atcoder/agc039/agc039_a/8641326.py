@@ -13,7 +13,7 @@ def main():
         else:
             count += same // 2
             same = 1
-    
+
     bl = False
     if s[-1] == s[0]:
         if same % 2 == 1:

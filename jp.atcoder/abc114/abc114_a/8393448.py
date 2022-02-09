@@ -8,13 +8,13 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 celebratable = [7, 5, 3]
 def main():
     x = int(sys.stdin.readline().rstrip())
     print('YES' if x in celebratable else 'NO')
-    
+
 
 
 

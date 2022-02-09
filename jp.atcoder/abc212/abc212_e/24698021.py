@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 import numpy as np
 import numba as nb
@@ -14,18 +14,18 @@ def solve(
   g: np.array,
 ) -> typing.NoReturn:
   mod = 998244353
-  
+
   dp = np.zeros(n, np.int64)
   dp[0] = 1
-  
+
   for _ in range(k):
-    s = 0 
+    s = 0
     for x in dp:
       s += x
       s %= mod
     ndp = np.full(
-      n, 
-      s, 
+      n,
+      s,
       np.int64,
     )
     for u in range(n):

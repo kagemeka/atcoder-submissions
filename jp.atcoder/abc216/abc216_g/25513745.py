@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 class Node(): ...
@@ -15,7 +15,7 @@ class Edge():
   ) -> typing.NoReturn:
     self.from_ = from_
     self.to = to
-    self.weight = weight 
+    self.weight = weight
     self.capacity = capacity
 
 
@@ -27,11 +27,11 @@ class Graph():
     nodes: typing.List[Node],
     edges: typing.List[typing.List[Edge]],
   ) -> typing.NoReturn:
-    self.nodes = nodes 
-    self.edges = edges 
+    self.nodes = nodes
+    self.edges = edges
 
 
-  @classmethod  
+  @classmethod
   def from_size(
     cls,
     n: int,
@@ -46,7 +46,7 @@ class Graph():
     e: Edge,
   ) -> typing.NoReturn:
     self.edges[e.from_].append(e)
-    
+
 
   def add_edges(
     self,
@@ -54,13 +54,13 @@ class Graph():
   ) -> typing.NoReturn:
     for e in edges:
       self.add_edge(e)
-  
+
 
   @property
   def size(self) -> int:
     return len(self.nodes)
-    
-    
+
+
 
 
 class Config():
@@ -78,7 +78,7 @@ class ShortestDistDijkstra():
     g: Graph,
     src: int,
   ) -> typing.List[int]:
-    import heapq 
+    import heapq
     n = g.size
     dist = [self.__cfg.inf] * n
     dist[src] = 0
@@ -89,7 +89,7 @@ class ShortestDistDijkstra():
       for e in g.edges[u]:
         v, dv = e.to, du + e.weight
         if dv >= dist[v]: continue
-        dist[v] = dv 
+        dist[v] = dv
         heapq.heappush(hq, (dv, v))
     return dist
 
@@ -99,7 +99,7 @@ class ShortestDistDijkstra():
     cfg: Config,
   ) -> typing.NoReturn:
     self.__cfg = cfg
-    
+
 
 
 import sys
@@ -119,7 +119,7 @@ def solve(
   lrx: typing.Iterator[
     typing.Tuple[int],
   ],
-) -> typing.NoReturn: 
+) -> typing.NoReturn:
   g = Graph.from_size(n + 1)
   for l, r, x in lrx:
     e = Edge(l - 1, r, r - l + 1 - x)
@@ -133,6 +133,6 @@ def solve(
   b = dijkstra(g, 0)
   a = [(b[i + 1] - b[i]) ^ 1 for i in range(n)]
   print(*a)
-  
-  
+
+
 main()

@@ -28,7 +28,7 @@ def solve(n, k):
 
     if k == 1:
         return 9 * (l - 1) + p
-    
+
     elif k == 2:
         if l <= 1:
             return 0
@@ -38,7 +38,7 @@ def solve(n, k):
         res += comb(l-1, 1) * 9 * (p - 1)
         res += solve(int(str(n)[1:]), 1)
         return res
-    
+
     elif k == 3:
         if l <= 2:
             return 0

@@ -18,7 +18,7 @@ def solve(x, y, mode):
     r = s & t & mask
     d = (~s) & t & mask
     u = s & (~t) & mask
-    
+
     res = ''
     for i in range(30, -1, -1):
         if l >> i & 1:
@@ -31,7 +31,7 @@ def solve(x, y, mode):
             res += 'U'
     if mode == 0:
         res += 'R'
-    
+
     return [res]
 
 def main():

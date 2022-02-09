@@ -1,19 +1,19 @@
 def readline():
-  import sys 
+  import sys
   return \
     sys.stdin.buffer.readline()
 
 
 def read():
-  import sys 
+  import sys
   return sys.stdin.buffer.read()
 
 
 def readline_ints():
   import numpy as np
   return np.fromstring(
-    readline().decode(), 
-    dtype=np.int64, 
+    readline().decode(),
+    dtype=np.int64,
     sep=' ',
   )
 
@@ -21,8 +21,8 @@ def readline_ints():
 def read_ints():
   import numpy as np
   return np.fromstring(
-    read().decode(), 
-    dtype=np.int64, 
+    read().decode(),
+    dtype=np.int64,
     sep=' ',
   )
 

@@ -7,6 +7,6 @@ def main():
     else:
         ans = 1
     print(ans)
-    
+
 if __name__ == '__main__':
     main()

@@ -16,7 +16,7 @@ def main():
             for k in digits:
                 if k in s[y+1:]:
                     res.append((i, j, k))
-                    
+
     print(len(res))
 
 if __name__ == '__main__':

@@ -11,17 +11,17 @@ from math import pi, atan2
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
     a, b, v = map(int, sys.stdin.readline().split())
 
     if v / a >= a * b / 2:
-        ans = atan2(2 * (b - v / a ** 2), a) * 180 / pi 
+        ans = atan2(2 * (b - v / a ** 2), a) * 180 / pi
     else:
         ans = atan2(a * b ** 2, 2 * v) * 180 / pi
-    
+
     print(ans)
 
 if __name__ == "__main__":

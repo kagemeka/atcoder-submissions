@@ -5,20 +5,20 @@ import (
 )
 
 func main() {
-  var n int 
+  var n int
   var m uint
   fmt.Scan(&n, &m)
   res := 1 << m - 1
   for i := 0; i < n; i++ {
-    var k int 
+    var k int
     fmt.Scan(&k)
     like := 0
     for j := 0; j < k; j++ {
-      var a uint 
+      var a uint
       fmt.Scan(&a); a--
       like |= 1 << a
     }
-    res &= like 
+    res &= like
   }
   cnt := 0
   for i := uint(0); i < m; i++ {

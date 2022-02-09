@@ -19,7 +19,7 @@ vector<int> Zalgo(const string &S) {
     return res;
 }
 
-int main() { 
+int main() {
     int N;
     string S;
     cin >> N >> S;
@@ -34,6 +34,6 @@ int main() {
             res = max(res, l);
         }
     }
-        
+
     cout << res << endl;
 }

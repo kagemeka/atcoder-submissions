@@ -9,7 +9,7 @@ def main():
     input().split(),
   )
   *c, = map(
-    int, 
+    int,
     input().split(),
   )
   cnt = Counter(c[:k])
@@ -21,6 +21,6 @@ def main():
     if cnt[x] == 0: cnt.pop(x)
     mx = max(mx, len(cnt))
   print(mx)
-  
+
 
 main()

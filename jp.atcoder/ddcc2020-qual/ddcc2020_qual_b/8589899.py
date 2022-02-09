@@ -10,7 +10,7 @@ def main():
         l += a[i]
         r -= a[i]
         m = min(m, abs(l - r))
-    
+
     print(m)
 
 

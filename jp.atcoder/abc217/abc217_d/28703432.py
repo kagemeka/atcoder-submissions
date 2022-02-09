@@ -197,7 +197,7 @@ def main() -> None:
         if c == 1:
             a.append(x)
     a.sort()
-    
+
     s = PivotTreeArraySet(18)
     s.insert(0)
     s.insert(len(a) - 1)

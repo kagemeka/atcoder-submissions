@@ -23,7 +23,7 @@ def main():
             ans = 'Yes'
         else:
             ans = 'No'
-    
+
     print(ans)
 
 

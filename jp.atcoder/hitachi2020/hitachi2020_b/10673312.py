@@ -11,7 +11,7 @@ def main():
     for x, y, c in xyc:
         res = min(res, a[x-1] + b[y-1] - c)
     return res
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

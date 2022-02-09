@@ -10,7 +10,7 @@ def cumprod(
 ) -> typing.NoReturn:
   n = a.size
   for i in range(n - 1):
-    a[i + 1] *= a[i] 
+    a[i + 1] *= a[i]
     a[i + 1] %= mod
 
 
@@ -60,9 +60,9 @@ def solve(
   ifact = inv_factorial(N, mod)
 
   def choose(n, r):
-    nonlocal mod, fact, ifact 
+    nonlocal mod, fact, ifact
     ok = (0 <= r) & (r <= n)
-    c = fact[n] * ok 
+    c = fact[n] * ok
     c = c * ifact[n - r] % mod
     return c * ifact[r] % mod
 
@@ -85,7 +85,7 @@ def solve(
   s *= choose(n, np.arange(N))
   s %= mod
   print((s.sum() + 1) % mod)
-  
+
 
 
 def main() -> typing.NoReturn:
@@ -126,7 +126,7 @@ import sys
 # if (
 #   sys.argv[-1]
 #   == 'ONLINE_JUDGE'
-# ): 
+# ):
 #   aot_compile()
 #   exit(0)
 

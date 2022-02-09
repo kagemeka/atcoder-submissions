@@ -1,7 +1,7 @@
-import typing 
-import sys 
+import typing
+import sys
 # import numpy as np
-# import numba as nb 
+# import numba as nb
 
 
 def main() -> typing.NoReturn:
@@ -10,13 +10,13 @@ def main() -> typing.NoReturn:
     if k >= n or m == k == 1:
         print(-1)
         return
-    
+
     if m == 1:
         print(0, 0, 1, 1)
         return
-    
+
     a = [-1] * (n << 1)
-    ptr = 0 
+    ptr = 0
     for i in range(n):
         if i == k: continue
         a[ptr] = i

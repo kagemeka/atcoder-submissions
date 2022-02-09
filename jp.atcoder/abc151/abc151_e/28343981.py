@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -6,7 +6,7 @@ def cumprod(mod: int, a: typing.List[int]) -> typing.List[int]:
     a = a.copy()
     for i in range(len(a) - 1):
         a[i + 1] = a[i + 1] * a[i] % mod
-    return a 
+    return a
 
 
 def factorial(mod: int, n: int) -> typing.List[int]:
@@ -22,15 +22,15 @@ def factorial_inverse(p: int, n: int) -> typing.List[int]:
 
 
 def make_choose(
-    p: int, 
+    p: int,
     n: int,
 ) -> typing.Callable[[int, int], int]:
     fact = factorial(p, n)
     ifact = factorial_inverse(p, n)
-    
+
     def choose(n: int, k: int) -> int:
-        nonlocal fact, ifact 
-        if k < 0 or n < k: return 0 
+        nonlocal fact, ifact
+        if k < 0 or n < k: return 0
         return fact[n] * ifact[n - k] % p * ifact[k] % p
 
     return choose
@@ -40,12 +40,12 @@ def make_choose(
 def main() -> typing.NoReturn:
     n, k = map(int, input().split())
     a = list(map(int, input().split()))
-    
+
     MOD = 10 ** 9 + 7
     choose = make_choose(MOD, 1 << 17)
-    
+
     a.sort()
-    
+
     s = 0
     for i, x in enumerate(a):
         ...
@@ -55,5 +55,3 @@ def main() -> typing.NoReturn:
     print(s)
 
 main()
-    
-    

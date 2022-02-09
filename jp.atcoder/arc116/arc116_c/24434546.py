@@ -1,4 +1,4 @@
-import numpy as np 
+import numpy as np
 import numba as nb
 import typing
 
@@ -76,7 +76,7 @@ def lpf(
 ) -> np.array:
   s = np.arange(n)
   s[:2] = -1
-  i = 0 
+  i = 0
   while i * i < n:
     i += 1
     if s[i] != i: continue
@@ -123,14 +123,14 @@ def main():
 
 def cc_export(f, signature):
   cc.export(
-    f.__name__, 
+    f.__name__,
     signature
   )(f)
   return nb.njit(f)
 
 import sys
 if (
-  sys.argv[-1] 
+  sys.argv[-1]
   == 'ONLINE_JUDGE'
 ):
   from numba import njit, b1, i4, i8, f8

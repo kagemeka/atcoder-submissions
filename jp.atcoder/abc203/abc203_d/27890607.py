@@ -1,11 +1,11 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     n, k = map(int, input().split())
     a = [list(map(int, input().split())) for _ in range(n)]
 
-    border = (k ** 2 + 1) // 2    
+    border = (k ** 2 + 1) // 2
 
     def possible(med: int) -> bool:
         s = [[0] * (n + 1) for _ in range(n + 1)]
@@ -30,9 +30,9 @@ def main() -> typing.NoReturn:
         while hi - lo > 1:
             med = (lo + hi) >> 1
             if possible(med):
-                hi = med 
+                hi = med
             else:
-                lo = med 
+                lo = med
         return hi
     print(binary_search())
 

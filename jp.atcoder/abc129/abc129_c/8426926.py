@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 mod = 10 ** 9 + 7
 def main():
@@ -31,10 +31,10 @@ def main():
             else:
                 print(0)
                 sys.exit()
-    
+
     if continuous_broken_count == 0:
         pattern_for_each_section.append(p[-1])
-    
+
 
     for c in pattern_for_each_section:
         ans = ans * c % mod

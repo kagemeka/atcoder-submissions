@@ -1,7 +1,7 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 
@@ -16,11 +16,11 @@ def solve(
 ) -> typing.NoReturn:
   n = len(xh)
   x = xh[:, 0]
-  h = xh[:, 1] 
+  h = xh[:, 1]
   sort_idx = np.argsort(x, kind='mergesort')
   x, h = x[sort_idx], h[sort_idx]
-  dh = np.zeros(n + 2, np.int64)  
-  cnt = 0 
+  dh = np.zeros(n + 2, np.int64)
+  cnt = 0
   r = 1
   for l in range(1, n + 1):
     dh[l] += dh[l - 1]
@@ -29,11 +29,11 @@ def solve(
     while r - 1 < n and x[r - 1] - x[l - 1] <= 2 * d:
       r += 1
     c = (h[l - 1] + a - 1) // a
-    cnt += c 
-    v = c * a 
+    cnt += c
+    v = c * a
     dh[l] -= v
     dh[r] += v
-  print(cnt)  
+  print(cnt)
 
 
 def main() -> typing.NoReturn:

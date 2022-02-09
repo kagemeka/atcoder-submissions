@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -6,14 +6,14 @@ def main() -> typing.NoReturn:
     # dist[r][i] := shortest dist to i such that d % 3 == r
     # bfs
     n, m = map(int, input().split())
-    
+
     g = [[] for _ in range(n)]
     for _ in range(m):
         u, v = map(int, input().split())
         u -= 1
         v -= 1
         g[u].append(v)
-    
+
     s, t = map(int, input().split())
     s -= 1
     t -= 1
@@ -33,5 +33,3 @@ def main() -> typing.NoReturn:
     print(-1 if d == inf else d // 3)
 
 main()
-            
-    

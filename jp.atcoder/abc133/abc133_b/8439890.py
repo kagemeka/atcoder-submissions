@@ -8,7 +8,7 @@ import math
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, d = [int(x) for x in sys.stdin.readline().split()]
@@ -22,6 +22,6 @@ def main():
                 count += 1
 
     print(count)
-    
+
 if __name__ == "__main__":
     main()

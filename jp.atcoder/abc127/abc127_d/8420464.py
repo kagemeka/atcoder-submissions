@@ -8,7 +8,7 @@ import collections
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, m = [int(x) for x in sys.stdin.readline().split()]
@@ -19,9 +19,9 @@ def main():
     for _ in range(m):
         b, c = [int(x) for x in sys.stdin.readline().split()]
         a.append((c,b))
-    
+
     a.sort(reverse=True)
-    
+
     total = 0
     count = 0
     for i in range(n+m): # max
@@ -35,7 +35,7 @@ def main():
                 break
         if count == n:
             break
-    
+
     print(total)
 
 if __name__ == "__main__":

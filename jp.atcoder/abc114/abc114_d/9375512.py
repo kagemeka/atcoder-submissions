@@ -40,12 +40,12 @@ def main():
             cnt_pcnt_atleast[c] += 1
         else:
             cnt_pcnt_atleast[74] += 1
-    
+
     for i in range(74, 0, -1):
         cnt_pcnt_atleast[i-1] += cnt_pcnt_atleast[i]
-    
+
     res = 0
-    
+
     # 75
     res += cnt_pcnt_atleast[74]
     # 25 * 3

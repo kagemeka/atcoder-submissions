@@ -15,7 +15,7 @@ def main():
     for i in range(n):
         a[i] //= 2
     l = reduce(lcm, a)
-    
+
     return m // l - m // (l * 2)
 
 if __name__ == '__main__':

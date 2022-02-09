@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 import string
 import functools
@@ -8,7 +8,7 @@ sys.setrecursionlimit(1 << 20)
 def main() -> typing.NoReturn:
     n = int(input())
     s = sys.stdin.read().split()
-    alp = string.ascii_letters 
+    alp = string.ascii_letters
     m = len(alp)
     to_int = dict(zip(alp, range(m)))
 
@@ -42,12 +42,10 @@ def main() -> typing.NoReturn:
         for v in g[tail[u]]:
             res = max(res, dfs(v))
         return 2 - res
-    
+
     for i in range(n):
         res = dfs(i)
         print('Takahashi' if res == 0 else 'Draw' if res == 1 else 'Aoki')
-        
+
 
 main()
-            
-     

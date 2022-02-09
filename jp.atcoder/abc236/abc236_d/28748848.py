@@ -7,7 +7,7 @@ def main() -> None:
     a = [[0] * m for _ in range(m)]
     for i in range(2 * n - 1):
         a[i][i + 1:] = list(map(int, input().split()))
-    
+
     mx = 0
     for comb in itertools.combinations(range(m - 1), n):
         comb = tuple(comb)
@@ -24,8 +24,8 @@ def main() -> None:
             else:
                 mx = max(mx, tot)
     print(mx)
-                
-        
+
+
 
 
 if __name__ == "__main__":

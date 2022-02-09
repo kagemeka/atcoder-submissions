@@ -1,11 +1,11 @@
-import typing 
+import typing
 
 
 def floor_sum(n: int) -> int:
     r"""Floor Sum.
 
     1 <= n <= 10 ^ 16
-    return \sum_{i=1}^{n} n // i 
+    return \sum_{i=1}^{n} n // i
     """
     s = 0
     i = 1
@@ -21,7 +21,7 @@ def floor_sum_v2(n: int) -> int:
     r"""Floor Sum.
 
     1 <= n <= 10 ^ 16
-    return \sum_{i=1}^{n} n // i 
+    return \sum_{i=1}^{n} n // i
     """
     s = 0
     k = floor_sqrt(n)

@@ -1,7 +1,7 @@
 
 import sys
 import numpy as np
-import typing 
+import typing
 import numba as nb
 
 
@@ -11,7 +11,7 @@ def gcd(
   b: int,
 ) -> int:
   if not b: return abs(a)
-  return gcd(b, a % b)  
+  return gcd(b, a % b)
 
 
 @nb.njit
@@ -22,9 +22,9 @@ def solve(
 ) -> typing.NoReturn:
   i = np.argsort(c)
   a, c = a[i], c[i]
-  g = n 
-  s = 0 
-  for i in range(a.size): 
+  g = n
+  s = 0
+  for i in range(a.size):
     g = gcd(g, a[i])
     s += g * c[i]
   print(

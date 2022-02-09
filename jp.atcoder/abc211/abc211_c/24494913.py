@@ -1,4 +1,4 @@
-import sys 
+import sys
 from collections import (
   defaultdict,
 )
@@ -15,18 +15,18 @@ def main():
     for i, c in enumerate(t)
   )
   c = defaultdict(int)
-  c['$'] = 1 
+  c['$'] = 1
   for x in s:
-    if not x in ind: continue 
+    if not x in ind: continue
     c[x] += c[t[ind[x] - 1]]
     c[x] %= mod
-  
+
   print(c['i'])
-    
-    
-    
-    
-  
+
+
+
+
+
 
 
 main()

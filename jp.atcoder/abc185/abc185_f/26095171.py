@@ -1,23 +1,23 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def bit_length(n: int) -> int:
-  l = 0 
+  l = 0
   while n:
     l += 1
     n >>= 1
-  return l 
+  return l
 
 
 
 
 S = typing.TypeVar('S')
 
-@nb.njit 
+@nb.njit
 def seg_build(
   op: typing.Callable[[S, S], S],
   a: np.ndarray,
@@ -27,17 +27,17 @@ def seg_build(
   seg[n:n + len(a)] = a.copy()
   for i in range(n - 1, 0, -1):
     seg[i] = op(seg[i << 1], seg[i << 1 | 1])
-  return seg 
+  return seg
 
 
-@nb.njit 
+@nb.njit
 def seg_set(
   seg: np.ndarray,
   op: typing.Callable[[S, S], S],
-  i: int, 
+  i: int,
   x: int,
 ) -> typing.NoReturn:
-  i += len(seg) >> 1 
+  i += len(seg) >> 1
   seg[i] = x
   while i > 1:
     i >>= 1
@@ -45,33 +45,33 @@ def seg_set(
 
 
 
-@nb.njit 
+@nb.njit
 def seg_get(
   seg: np.ndarray,
   op: typing.Callable[[S, S], S],
-  l: int, 
+  l: int,
   r: int,
 ) -> int:
   return _seg_get(seg, op, l, r, 0, len(seg) >> 1, 1)
 
 
-@nb.njit 
+@nb.njit
 def _seg_get(
-  seg: np.ndarray, 
+  seg: np.ndarray,
   op: typing.Callable[[S, S], S],
   l: int,
   r: int,
   s: int,
-  t: int, 
+  t: int,
   i: int,
 ) -> int:
   if t <= l or r <= s: return 0
   if l <= s and t <= r:
     return seg[i]
-  c = (s + t) // 2 
+  c = (s + t) // 2
   vl = _seg_get(seg, op, l, r, s, c, i << 1)
   vr = _seg_get(seg, op, l, r, c, t, i << 1 | 1)
-  return op(vl, vr) 
+  return op(vl, vr)
 
 
 
@@ -80,7 +80,7 @@ def solve(a: np.ndarray, txy: np.ndarray) -> typing.NoReturn:
   n, q = len(a), len(txy)
 
   def seg_op(a, b):
-    return a ^ b 
+    return a ^ b
 
   def seg_e():
     return 0

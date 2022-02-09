@@ -1,9 +1,9 @@
-import typing 
+import typing
 
 
 class CompressArray():
     def __call__(self, a: typing.List[int]) -> typing.NoReturn:
-        import bisect 
+        import bisect
         v = sorted(set(a))
         self.__v = v
         return [bisect.bisect_left(v, x) for x in a]
@@ -26,7 +26,7 @@ def sa_is(a: typing.List[int]) -> typing.List[int]:
     bucket = [0] * m
     for x in a:
         bucket[x] += 1
-    
+
     def induce() -> typing.List[int]:
         sa = [-1] * n
         sa_idx = bucket.copy()
@@ -34,7 +34,7 @@ def sa_is(a: typing.List[int]) -> typing.List[int]:
         for i in lms[::-1]:
             sa_idx[a[i]] -= 1
             sa[sa_idx[a[i]]] = i
-        
+
         sa_idx = bucket.copy()
         s = 0
         for i in range(m): s, sa_idx[i] = s + sa_idx[i], s
@@ -43,7 +43,7 @@ def sa_is(a: typing.List[int]) -> typing.List[int]:
             if i < 0 or is_s[i]: continue
             sa[sa_idx[a[i]]] = i
             sa_idx[a[i]] += 1
-        
+
         sa_idx = bucket.copy()
         for i in range(m - 1): sa_idx[i + 1] += sa_idx[i]
         for i in range(n - 1, -1, -1):
@@ -52,7 +52,7 @@ def sa_is(a: typing.List[int]) -> typing.List[int]:
             sa_idx[a[i]] -= 1
             sa[sa_idx[a[i]]] = i
         return sa
-    
+
     sa = induce()
     lms_idx = [i for i in sa if is_lms[i]]
     l = len(lms_idx)

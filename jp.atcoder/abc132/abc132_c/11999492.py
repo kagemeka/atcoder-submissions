@@ -7,6 +7,6 @@ def main():
     m = n // 2
     l, r = a[m-1], a[m]
     print(r - l)
-    
+
 if __name__ ==  '__main__':
     main()

@@ -1,4 +1,4 @@
-import typing 
+import typing
 import collections
 
 
@@ -27,4 +27,3 @@ def main() -> typing.NoReturn:
     print(res)
 
 main()
-        

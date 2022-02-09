@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n = list(sys.stdin.readline().rstrip())
@@ -18,7 +18,7 @@ def main():
         else:
             n[i] ='9'
 
-    
+
     print(''.join(n))
 
 if __name__ == "__main__":

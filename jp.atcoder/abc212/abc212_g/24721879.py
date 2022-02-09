@@ -1,4 +1,4 @@
-import typing 
+import typing
 import numpy as np
 
 
@@ -23,13 +23,13 @@ def solve(
   cnt = np.zeros(l, np.int64)
   for i in range(l):
     d = divs[i]
-    c = n // d 
+    c = n // d
     for j in range(i):
       if divs[j] % d: continue
       c -= cnt[j]
     c %= mod
     cnt[i] = c
-  
+
   s = 1
   for i in range(l):
     d, c = divs[i], cnt[i]
@@ -45,7 +45,7 @@ def main() -> typing.NoReturn:
 
 
 
-import sys 
+import sys
 OJ = 'ONLINE_JUDGE'
 if sys.argv[-1] == OJ:
   from numba import i8, njit
@@ -54,7 +54,7 @@ if sys.argv[-1] == OJ:
   )
   fn = solve
   signature = (i8, )
-  
+
   from numba.pycc import CC
   cc = CC('my_module')
   cc.export(

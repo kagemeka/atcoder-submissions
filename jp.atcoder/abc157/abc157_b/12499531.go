@@ -11,11 +11,11 @@ func main() {
       fmt.Scan(&a[i][j])
     }
   }
-  var n int 
+  var n int
   fmt.Scan(&n)
   announced := make(map[int]bool)
   for i := 0; i < n; i++ {
-    var b int 
+    var b int
     fmt.Scan(&b)
     announced[b] = true
   }
@@ -39,7 +39,7 @@ func main() {
     if flag {
       fmt.Println("Yes")
       return
-    } 
+    }
   }
   for j := 0; j < 3; j++ {
     flag = true

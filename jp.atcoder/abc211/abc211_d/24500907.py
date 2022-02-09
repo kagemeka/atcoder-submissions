@@ -27,12 +27,12 @@ def main():
     a -= 1; b -= 1
     edges[a].append(b)
     edges[b].append(a)
-  
+
 
   inf = float('inf')
   dist = [inf] * n
   dist[0] = 0
-  paths = [0] * n 
+  paths = [0] * n
   paths[0] = 1
   q = [(0, 0)]
   while q:

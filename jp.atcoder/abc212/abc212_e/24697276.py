@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 
 
@@ -14,18 +14,18 @@ def solve(
 ) -> typing.NoReturn:
   mod = 998244353
   g = [
-    [i] for i in range(n) 
+    [i] for i in range(n)
   ]
   for u, v in uv:
     u -= 1
     v -= 1
     g[u].append(v)
     g[v].append(u)
-  
-  
+
+
   dp = [0] * n
   dp[0] = 1
-  
+
   for _ in range(k):
     s = sum(dp) % mod
     ndp = [s] * n
@@ -34,7 +34,7 @@ def solve(
         ndp[u] -= dp[v]
       ndp[u] %= mod
     dp = ndp
-  
+
   print(dp[0])
   ...
 
@@ -44,7 +44,7 @@ def main() -> typing.NoReturn:
     int, input().split(),
   )
   uv = map(
-    int, 
+    int,
     sys.stdin.read().split(),
   )
   uv = zip(*[uv] * 2)

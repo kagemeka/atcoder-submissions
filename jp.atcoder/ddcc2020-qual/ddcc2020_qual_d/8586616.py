@@ -18,11 +18,11 @@ def main():
         total += count
         S += s
 
-    
+
     while len(S) >= 2:
         S = str(int(S[0]) + int(S[1])) + S[2:]
         total += 1
-    
+
     print(total)
 
 

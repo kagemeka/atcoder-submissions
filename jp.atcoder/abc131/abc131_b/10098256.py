@@ -8,7 +8,7 @@ def main():
     for i in range(1, n+1):
         f = l + i - 1
         res.append((abs(f), s - f))
-    
+
     res.sort()
     return res[0][1]
 

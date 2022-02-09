@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-  var s string 
+  var s string
   fmt.Scan(&s)
   n := len(s)
   cnt := 0

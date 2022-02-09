@@ -10,7 +10,7 @@ def main():
     for a, b in ab:
         G[a].append(b)
         G[b].append(a)
-    
+
     root = 1
     q = deque()
     q.append(root)

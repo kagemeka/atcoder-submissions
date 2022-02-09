@@ -23,7 +23,7 @@ def main():
         break
     else:
         ans = l
-    
+
     print(ans)
 
 if __name__ == '__main__':

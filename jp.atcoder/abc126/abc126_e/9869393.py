@@ -29,7 +29,7 @@ def unite(u, v):
 def main():
     for x, y, z in xyz:
         unite(x, y)
-    
+
     for i in range(1, n+1):
         find_root(i)
 

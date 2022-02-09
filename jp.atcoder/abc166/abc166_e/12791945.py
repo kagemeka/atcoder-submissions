@@ -12,6 +12,6 @@ def main():
     for v, c in cb.items():
         tot += c * cc[v]
     print(tot)
-    
+
 if __name__ == '__main__':
     main()

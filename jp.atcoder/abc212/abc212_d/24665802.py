@@ -1,15 +1,15 @@
-import typing 
+import typing
 from heapq import (
   heappush, heappop,
 )
 
 
 def main() -> typing.NoReturn:
-  
+
   a = []
   n = int(input())
 
-  c = 0 
+  c = 0
   for _ in range(n):
     q = [
       int(x)
@@ -17,14 +17,14 @@ def main() -> typing.NoReturn:
     ]
     if q[0] == 1:
       heappush(a, q[1] - c)
-      continue 
+      continue
     if q[0] == 2:
       c += q[1]
-      continue 
+      continue
     x = heappop(a)
     print(x + c)
 
-    
+
 
 
 

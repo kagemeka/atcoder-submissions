@@ -9,7 +9,7 @@ int main() {
     if (s[i] == s[i+1]) {
       ans = "Bad";
       break;
-    } 
+    }
   }
   cout << ans << endl;
   return 0;

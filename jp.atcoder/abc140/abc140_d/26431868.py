@@ -1,7 +1,7 @@
 import typing
-import sys 
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 @nb.njit((nb.i8[:], nb.i8), cache=True)

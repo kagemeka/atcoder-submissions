@@ -14,7 +14,7 @@ def main():
     #     if '##' in s[a+1:c-1] or '##' in s[b+1:d-1]:
     #         print('No')
     #         sys.exit()
-    
+
     # if c < d:
     #     ans = 'Yes'
     # elif c > d:
@@ -31,7 +31,7 @@ def main():
         if '##' in s[a:c-2] or '##' in s[b:d-2]:
             print('No')
             sys.exit()
-    
+
     if c < d:
         ans = 'Yes'
     elif c > d:
@@ -39,7 +39,7 @@ def main():
             ans = 'Yes'
         else:
             ans = 'No'
-    
+
     print(ans)
 
 if __name__ == '__main__':

@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 import numba as nb
 
@@ -44,7 +44,7 @@ def mod_factorial(
 def inv_mod_factorial(
   n: int,
   mod: int,
-) -> np.array: 
+) -> np.array:
   x = mod_factorial(n, mod)[-1]
   a = np.arange(1, n + 1)
   a[-1] = mod_pow(x, mod - 2, mod)
@@ -83,7 +83,7 @@ def inv_mod_choose(
 @nb.njit(
   (nb.i8[:], ),
   cache=True,
-) 
+)
 def solve(
   c: np.array,
 ) -> typing.NoReturn:
@@ -93,11 +93,11 @@ def solve(
   c = np.searchsorted(a, c)
   c = np.bincount(np.bincount(c))
   idx = np.flatnonzero(c)
-  
+
   mod = 998244353
   fact = mod_factorial(1 << 20, mod)
   ifact = inv_mod_factorial(1 << 20, mod)
-  
+
   def mod_choose(n, k):
     ok = (0 <= k) & (k <= n)
     c = fact[n] * ifact[n - k] % mod * ifact[k] % mod
@@ -112,7 +112,7 @@ def solve(
     s = 0
     for i in idx:
       s -= mod_choose(n - i, k) * c[i] % mod
-    s %= mod 
+    s %= mod
     s *= inv_mod_choose(n, k)
     return (s + m) % mod
 

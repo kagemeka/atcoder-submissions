@@ -54,4 +54,3 @@ def main() -> typing.NoReturn:
     solve(n)
 
 main()
-    

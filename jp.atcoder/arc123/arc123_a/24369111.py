@@ -13,6 +13,6 @@ def main():
     return
   q, r = divmod(d, 2)
   print(-q + r)
-  
+
 
 main()

@@ -1,14 +1,14 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     k = int(input())
-    
+
     que = [[i] for i in range(1, 10)]
     if k <= 9:
         print(que[k - 1][0])
         return
-    
+
 
     k -= 9
     for a in que:

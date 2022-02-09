@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 sys.setrecursionlimit(1 << 20)
 import functools

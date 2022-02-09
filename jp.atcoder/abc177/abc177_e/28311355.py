@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -18,14 +18,14 @@ def main() -> typing.NoReturn:
             if lpf[j] == j: lpf[j] = i
 
 
-    cnt = [0] * k 
+    cnt = [0] * k
     for x in a:
         while x > 1:
             p = lpf[x]
             cnt[p] += 1
             while x % p == 0: x //= p
 
-    
+
     if max(cnt) <= 1:
         print('pairwise coprime')
     elif max(cnt) <= n - 1:

@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 import numpy as np
 import numba as nb
@@ -12,7 +12,7 @@ def solve(
   g: np.array,
 ) -> typing.NoReturn:
   indeg = np.zeros(
-    n, 
+    n,
     dtype=np.int64,
   )
   for v in g[:, 1]:
@@ -21,13 +21,13 @@ def solve(
   i = np.searchsorted(
     g[:, 0],
     np.arange(n + 1)
-  )    
+  )
   q = [
     v for v in range(n)
     if not indeg[v]
   ]
   dist = np.zeros(
-    n, 
+    n,
     dtype=np.int64,
   )
   for u in q:
@@ -35,16 +35,16 @@ def solve(
       i[u], i[u + 1],
     ):
       v = g[j, 1]
-      indeg[v] -= 1    
+      indeg[v] -= 1
       dist[v] = max(
         dist[v],
         dist[u] + 1,
       )
       if indeg[v]: continue
       q.append(v)
-      
+
   print(dist.max())
-    
+
 
 
 def main() -> typing.NoReturn:

@@ -1,5 +1,5 @@
-import typing 
-import dataclasses 
+import typing
+import dataclasses
 
 
 
@@ -8,7 +8,7 @@ T = typing.TypeVar('T')
 class Monoid(typing.Generic[T]):
   fn: typing.Callable[[T, T], T]
   e: typing.Callable[[], T]
-  commutative: bool = False 
+  commutative: bool = False
 
 
 
@@ -18,7 +18,7 @@ class FenwickTree(typing.Generic[T]):
     self,
     i: int,
   ) -> T:
-    m = self.__monoid 
+    m = self.__monoid
     v = m.e()
     while i > 0:
       v = m.fn(v, self.__a[i])
@@ -31,17 +31,17 @@ class FenwickTree(typing.Generic[T]):
     monoid: Monoid[T],
     n: int,
   ) -> typing.NoReturn:
-    assert monoid.commutative 
+    assert monoid.commutative
     self.__a = [monoid.e() for _ in range(n + 1)]
-    self.__monoid = monoid 
-  
+    self.__monoid = monoid
+
 
   def __setitem__(
     self,
     i: int,
     x: T,
   ) -> typing.NoReturn:
-    m = self.__monoid 
+    m = self.__monoid
     a = self.__a
     while i < len(a):
       a[i] = m.fn(a[i], x)
@@ -64,7 +64,7 @@ def solve(
   fw = FenwickTree(monoid, 1 << 18)
   a = [0] * n
   st = []
-  i = 0 
+  i = 0
   for l, r, x in lrx:
     while i < r:
       st.append(i)
@@ -73,7 +73,7 @@ def solve(
     for _ in range(x - c):
       j = st.pop()
       fw[j + 1] = a[j] = 1
-  print(*a)    
+  print(*a)
 
 
 

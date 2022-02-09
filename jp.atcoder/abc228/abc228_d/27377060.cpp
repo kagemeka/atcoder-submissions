@@ -3,7 +3,7 @@
 
 int main() {
   using namespace std;
-  
+
   int n = 1 << 20;
   int q;
   cin >> q;
@@ -33,7 +33,7 @@ int main() {
 
 // int main() {
 //   using namespace std;
-  
+
 //   int n = 1 << 20;
 //   set<int> idx;
 //   idx.insert(0);

@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -9,12 +9,12 @@ import numba as nb
 def solve(
   a: np.ndarray,
 ) -> typing.NoReturn:
-  n = a.size 
+  n = a.size
   a.sort()
   s = a.cumsum()
   s = a[1:] * np.arange(1, n) - s[:-1]
-  print(s.sum()) 
-  
+  print(s.sum())
+
 
 
 def main() -> typing.NoReturn:

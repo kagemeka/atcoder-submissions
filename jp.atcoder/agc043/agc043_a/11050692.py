@@ -11,13 +11,13 @@ def main():
         if grid[0][j] == '#':
             if grid[0][j-1] == '.':
                 cost[0][j] += 1
-    
+
     for i in range(1, h):
         cost[i][0] = cost[i-1][0]
         if grid[i][0] == '#':
             if grid[i-1][0] == '.':
                 cost[i][0] += 1
-    
+
     for i in range(1, h):
         for j in range(1, w):
             c1 = cost[i][j-1]
@@ -28,7 +28,7 @@ def main():
             if grid[i][j] == '#':
                 if grid[i-1][j] == '.':
                     c2 += 1
-            
+
             cost[i][j] = min(c1, c2)
     return cost[h-1][w-1]
 

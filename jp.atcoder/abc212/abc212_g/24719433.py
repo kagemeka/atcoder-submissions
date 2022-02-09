@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def find_divisors(
@@ -31,8 +31,8 @@ def main() -> typing.NoReturn:
       if divs[j] % d: continue
       c -= cnt[j]
     cnt[i] = c % mod
-  
-  s = 1 
+
+  s = 1
   for i in range(l):
     s += n // divs[i] * cnt[i]
     s %= mod

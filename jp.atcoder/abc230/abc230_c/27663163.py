@@ -1,12 +1,12 @@
-import typing 
-import sys 
+import typing
+import sys
 
 
 
 def main() -> typing.NoReturn:
     n, a, b = map(int, input().split())
     p, q, r, s = map(int, input().split())
-    
+
 
     lo_0 = max(1 - a, 1 - b)
     hi_0 = min(n - a, n - b)
@@ -20,10 +20,9 @@ def main() -> typing.NoReturn:
 
 
     for i in range(p, q + 1):
-        row = ''.join(('#' if is_black(i, j) else '.' for j in range(r, s + 1))) 
+        row = ''.join(('#' if is_black(i, j) else '.' for j in range(r, s + 1)))
         # for j in range(r, s + 1):
         print(row)
 
 
 main()
-            

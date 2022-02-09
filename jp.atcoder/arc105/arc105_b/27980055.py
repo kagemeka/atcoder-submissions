@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def gcd(a: int, b: int) -> int: return gcd(b, a % b) if b else a
@@ -12,4 +12,3 @@ def main() -> typing.NoReturn:
     print(g)
 
 main()
-    

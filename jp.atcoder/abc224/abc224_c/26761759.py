@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:, :], ), cache=True)
@@ -17,10 +17,10 @@ def solve(xy: np.ndarray) -> typing.NoReturn:
                 if k == j: continue
                 x3, y3 = xy[k]
                 cnt += (y2 - y1) * (x3 - x2) != (y3 - y2) * (x2 - x1)
-    print(cnt) 
+    print(cnt)
 
-                
-    
+
+
 
 def main() -> typing.NoReturn:
     n = int(input())

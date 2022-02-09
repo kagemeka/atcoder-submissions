@@ -1,13 +1,13 @@
-import typing 
-import sys 
-# import numpy as np 
-# import numba as nb 
-import heapq 
+import typing
+import sys
+# import numpy as np
+# import numba as nb
+import heapq
 
 # @nb.njit((nb.i8, nb.i8[:, :]), cache=True)
 # def solve(n: int, ab:np.ndarray) -> typing.NoReturn:
 def solve(n: int, g: typing.List[typing.Set[int]]) -> typing.NoReturn:
-    
+
     for i in range(n):
         for j in g[i]:
             if not i in g[j]: continue
@@ -27,7 +27,7 @@ def solve(n: int, g: typing.List[typing.Set[int]]) -> typing.NoReturn:
     for i in range(n):
         if not parents[i]: heapq.heappush(hq, i)
 
-    used = [False] * n  
+    used = [False] * n
     while hq:
         i = heapq.heappop(hq)
         if used[i]: continue
@@ -37,7 +37,7 @@ def solve(n: int, g: typing.List[typing.Set[int]]) -> typing.NoReturn:
             if used[j]: continue
             heapq.heappush(hq, j)
     print(*[x + 1 for x in a])
-          
+
 
 def main() -> typing.NoReturn:
     n, m = map(int, input().split())

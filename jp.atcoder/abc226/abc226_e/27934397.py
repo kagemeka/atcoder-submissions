@@ -1,27 +1,27 @@
-import typing 
+import typing
 
 
 class UnionFind():
     def __init__(self, n: int) -> typing.NoReturn:
-        self.__data = [-1] * n 
-    
+        self.__data = [-1] * n
+
     def __len__(self) -> int: return len(self.__data)
 
     def find(self, u: int) -> int:
-        d = self.__data 
+        d = self.__data
         if d[u] < 0: return u
         d[u] = self.find(d[u])
         return d[u]
-    
+
     def unite(self, u: int, v: int) -> bool:
         u, v = self.find(u), self.find(v)
-        if u == v: return False 
-        d = self.__data 
+        if u == v: return False
+        d = self.__data
         if d[u] > d[v]: u, v = v, u
         d[u] += d[v]
         d[v] = u
         return True
-    
+
     def size(self, u: int) -> int:
         return -self.__data[self.find(u)]
 
@@ -48,7 +48,7 @@ def main() -> typing.NoReturn:
         uf.unite(u, v)
         deg[u] += 1
         deg[v] += 1
-    
+
     label = get_labels(uf)
     k = max(label) + 1
     size = [0] * k
@@ -56,7 +56,7 @@ def main() -> typing.NoReturn:
     for i in range(n):
         size[label[i]] += 1
         deg_sum[label[i]] += deg[i]
-    
+
     MOD = 998_244_353
     p = 1
     for i in range(k):
@@ -65,4 +65,3 @@ def main() -> typing.NoReturn:
     print(p)
 
 main()
-    

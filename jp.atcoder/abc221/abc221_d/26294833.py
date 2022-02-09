@@ -1,8 +1,8 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
-import heapq 
+import typing
+import sys
+import numpy as np
+import numba as nb
+import heapq
 
 
 @nb.njit((nb.i8[:, :], ), cache=True)
@@ -19,7 +19,7 @@ def solve(ab: np.ndarray) -> typing.NoReturn:
     s[a[i]] += 1
     s[b[i]] -= 1
   s = s.cumsum()
-  
+
 
   res = np.zeros(n + 1, np.int64)
   for i in range(1 << 19):
@@ -27,11 +27,11 @@ def solve(ab: np.ndarray) -> typing.NoReturn:
     if not x: continue
     l, r = c[i], c[i + 1]
     res[x] += r - l
-  
+
   for x in res[1:]:
     print(x)
-  
-  
+
+
 
 def main() -> typing.NoReturn:
   n = int(input())

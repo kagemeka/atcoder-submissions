@@ -8,6 +8,6 @@ def main():
     xg.sort(key=lambda x: x[1], reverse=True)
     for x, g in xg:
         print(x)
-    
+
 if __name__ == '__main__':
     main()

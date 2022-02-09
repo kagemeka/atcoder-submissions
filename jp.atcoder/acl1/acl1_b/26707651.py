@@ -57,7 +57,7 @@ def solve(n: int) -> typing.NoReturn:
         # r, l = crt(rs, ms)
         # assert l >= r >= 0
         # if l == 0 or r == 0: continue
-        # assert r * (r + 1) % n == 0 
+        # assert r * (r + 1) % n == 0
         # k = min(k, r)
     print(mn)
 
@@ -68,4 +68,3 @@ def main() -> typing.NoReturn:
     solve(n)
 
 main()
-    

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -11,7 +11,7 @@ def main() -> typing.NoReturn:
         if d0 == d1:
             cnt += 1
         else:
-            cnt = 0 
+            cnt = 0
         flg |= cnt >= 3
     print('Yes' if flg else 'No')
 

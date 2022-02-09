@@ -14,7 +14,7 @@ def main():
     if len(graph[i]) + 1 > k:
       print(0)
       return
-  
+
   cnt = [None] * n; cnt[0] = k
   parent = [None] * n
   stack = [0]
@@ -22,7 +22,7 @@ def main():
     u = stack.pop()
     c = k - 2 if not parent[u] is None else k - 1
     for v in graph[u]:
-      if v == parent[u]: continue 
+      if v == parent[u]: continue
       parent[v] = u
       cnt[v] = c
       c -= 1

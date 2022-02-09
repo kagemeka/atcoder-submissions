@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit(
@@ -13,7 +13,7 @@ def solve(
   lrx: np.ndarray,
 ) -> typing.NoReturn:
   fw_e = 0
-  fw_fn = lambda x, y: x + y 
+  fw_fn = lambda x, y: x + y
   fw = np.full(n + 1, fw_e, np.int64)
 
   def fw_get(i):
@@ -45,8 +45,8 @@ def solve(
       j = st.pop()
       fw_set(j + 1, 1)
       a[j] = 1
-  return a 
-      
+  return a
+
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())

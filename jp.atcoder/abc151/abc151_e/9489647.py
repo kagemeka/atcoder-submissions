@@ -34,7 +34,7 @@ def main():
         ma %= MOD
         mi += a[i] * comb(n-1-i, k-1) % MOD
         mi %= MOD
-    
+
     return (ma - mi) % MOD
 
 if __name__ == '__main__':

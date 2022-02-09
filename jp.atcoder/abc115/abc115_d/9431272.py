@@ -30,12 +30,12 @@ def patty_cnt(l, r, res):
         return patty_cnt(l-1, r-half_burger, res+half_patty)
     elif r == burger[l]:
         return res + patty[l]
-    
+
 n, x = map(int, sys.stdin.readline().split())
 
 def main():
     return patty_cnt(n, x, 0)
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

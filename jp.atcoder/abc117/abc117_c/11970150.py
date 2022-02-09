@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 
 n, m = map(int, sys.stdin.readline().split())
 x = np.array(sys.stdin.readline().split(), dtype=np.int64)

@@ -1,4 +1,4 @@
-import numpy as np 
+import numpy as np
 import numba as nb
 import typing
 
@@ -76,7 +76,7 @@ def lpf(
 ) -> np.array:
   s = np.arange(n)
   s[:2] = -1
-  i = 0 
+  i = 0
   while i * i < n:
     i += 1
     if s[i] != i: continue
@@ -123,7 +123,7 @@ def main():
 
 def cc_export(f, signature):
   cc.export(
-    f.__name__, 
+    f.__name__,
     signature,
   )(f)
 
@@ -132,7 +132,7 @@ from numba import i8
 from numba.pycc import CC
 cc = CC('my_module')
 cc_export(
-  solve, 
+  solve,
   (i8, i8),
 )
 cc.compile()

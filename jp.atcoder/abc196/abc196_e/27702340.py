@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -7,8 +7,8 @@ def main() -> typing.NoReturn:
     q = int(input())
     x = list(map(int, input().split()))
 
-    inf = 1 << 60 
-    add = 0 
+    inf = 1 << 60
+    add = 0
     low = -inf
     high = inf
 
@@ -16,7 +16,7 @@ def main() -> typing.NoReturn:
         if t == 1:
             add += a
             low += a
-            high += a 
+            high += a
         elif t == 2:
             low = max(low, a)
             high = max(high, low)

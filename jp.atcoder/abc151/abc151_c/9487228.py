@@ -14,7 +14,7 @@ def main():
     for p, v in pv:
         wa[p] += (ac[p] | v) ^ 1
         ac[p] |= v
-    
+
     return sum(ac), sum(wa)
 
 if __name__ == '__main__':

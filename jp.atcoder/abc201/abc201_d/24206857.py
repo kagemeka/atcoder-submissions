@@ -7,7 +7,7 @@ class ReadStdin:
     self,
   ) -> bytes:
     return next(self.__chunks)
-    
+
 
   def __init__(
     self,
@@ -34,7 +34,7 @@ class ReadStdin:
       l = self.__buf.readline()
       for chunk in l.split():
         yield chunk
-  
+
 
   def str(
     self,
@@ -60,7 +60,7 @@ class Solver(
     self._prepare()
     self._solve()
 
-  
+
   def __init__(
     self,
   ) -> typing.NoReturn:
@@ -73,7 +73,7 @@ class Solver(
   ) -> typing.NoReturn:
     ...
 
-  
+
   @abstractmethod
   def _solve(
     self,
@@ -97,11 +97,11 @@ class Node:
 
 
 
-@dataclasses.dataclass 
+@dataclasses.dataclass
 class Edge:
   id_: Optional[int] = None
-  from_ : int = ... 
-  to: int = ... 
+  from_ : int = ...
+  to: int = ...
   weight: int = 1
   capacity: int = 0
 
@@ -124,17 +124,17 @@ class Graph:
     edges = [
       [] for _ in range(n)
     ]
-    self.nodes = nodes 
+    self.nodes = nodes
     self.edges = edges
-  
+
 
   def add_edge(
     self,
     e: Edge,
   ) -> typing.NoReturn:
-    i = e.from_ 
+    i = e.from_
     self.edges[i].append(e)
-  
+
 
   def add_edges(
     self,
@@ -142,9 +142,9 @@ class Graph:
   ) -> typing.NoReturn:
     for e in edges:
       self.add_edge(e)
-  
 
-  @property 
+
+  @property
   def size(
     self,
   ) -> int:
@@ -157,7 +157,7 @@ import sys
 sys.setrecursionlimit(1 << 22)
 
 
-@dataclasses.dataclass 
+@dataclasses.dataclass
 class Player():
   first: str
   second: str
@@ -179,16 +179,16 @@ class Problem(
   def _prepare(
     self,
   ) -> typing.NoReturn:
-    read = self.__read 
+    read = self.__read
     h = read.int()
     w = read.int()
     a = b''.join((
       read()
       for _ in range(h)
     )).decode()
-    self.__h = h 
-    self.__w = w 
-    self.__a = a 
+    self.__h = h
+    self.__w = w
+    self.__a = a
 
 
   def _solve(
@@ -204,7 +204,7 @@ class Problem(
       else p.second if s[0] < 0
       else 'Draw'
     )
-     
+
 
   def __dfs(
     self,
@@ -233,7 +233,7 @@ class Problem(
   def __make_graph(
     self,
   ) -> typing.NoReturn:
-    n = self.__n 
+    n = self.__n
     h = self.__h
     w = self.__w
     self.__g = Graph(n)
@@ -245,14 +245,14 @@ class Problem(
         self.__add_edge(i + 1)
       if q < h - 1:
         self.__add_edge(i + w)
-    
+
 
   def __add_edge(
     self,
     j: int,
   ) -> typing.NoReturn:
     c = (
-      1 if self.__a[j] == '+' 
+      1 if self.__a[j] == '+'
       else -1
     )
     if self.__rev: c *= -1
@@ -269,7 +269,7 @@ class Problem(
   ) -> typing.NoReturn:
     n = self.__h * self.__w
     score = [None] * n
-    self.__n = n 
+    self.__n = n
     self.__cache = score
 
 

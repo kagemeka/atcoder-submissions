@@ -3,7 +3,7 @@
 
 int main() {
   using namespace std;
-  
+
   int n = 1 << 20;
   int q;
   cin >> q;

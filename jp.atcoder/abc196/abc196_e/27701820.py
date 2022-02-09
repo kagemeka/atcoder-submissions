@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -26,12 +26,12 @@ def main() -> typing.NoReturn:
             r_val = min(r_val, a)
             while r - 1 >= 0 and x[r - 1] + add >= r_val: r -= 1
             if l > r: l = r
-    
+
     for i in range(q):
         if i <= l: x[i] = l_val
         elif i < r: x[i] += add
-        else: x[i] = r_val 
-    
+        else: x[i] = r_val
+
     res = [0] * q
     for i in range(q):
         res[sort_idx[i]] = x[i]

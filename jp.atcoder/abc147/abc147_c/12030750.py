@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 
 n = int(sys.stdin.readline().rstrip())
 graph = [None] * n
@@ -15,7 +15,7 @@ def main():
         if graph[i] is None: continue
         x, y = graph[i]
         bl = (comb[:, i] ^ 1) | np.all(comb[:, x-1] == y, axis=1)
-        ok &= bl   
+        ok &= bl
     print(np.amax(comb[ok].sum(axis=1)))
 
 if __name__ ==  '__main__':

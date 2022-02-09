@@ -2,7 +2,7 @@
 import sys
 def main():
     digits = sorted(sys.stdin.readline().split())
-    
+
     if digits == list('1479'):
         print('YES')
     else:

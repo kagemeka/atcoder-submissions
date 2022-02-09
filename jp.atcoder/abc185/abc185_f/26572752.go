@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -20,7 +20,7 @@ func NewStdIO() *StdIO {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Buffer([]byte{}, maxBuffer)
 	scanner.Split(bufio.ScanWords)
-	return &StdIO { 
+	return &StdIO {
 		scanner: scanner,
 		writer: bufio.NewWriter(os.Stdout),
 	}
@@ -99,7 +99,7 @@ func (fw *FenwickTree) Get(i int) interface{} {
 
 // query := new(PointOperateXorRangeGetXor)
 // query.Init(a []int)
-type PointOperateXorRangeGetXor struct { 
+type PointOperateXorRangeGetXor struct {
 	fw *FenwickTree
 }
 
@@ -109,7 +109,7 @@ func (q *PointOperateXorRangeGetXor) op(a, b interface{}) interface{} {
 
 func (q *PointOperateXorRangeGetXor) e() interface{} { return 0 }
 
-func (q *PointOperateXorRangeGetXor) inverse(a interface{}) interface{} { 
+func (q *PointOperateXorRangeGetXor) inverse(a interface{}) interface{} {
 	return a
 }
 
@@ -124,7 +124,7 @@ func (q *PointOperateXorRangeGetXor) Get(i int) int {
 	return q.fw.Get(i).(int)
 }
 
-func (q *PointOperateXorRangeGetXor) Set(i int, x int) { 
+func (q *PointOperateXorRangeGetXor) Set(i int, x int) {
 	q.fw.Set(i, x)
 }
 

@@ -1,14 +1,14 @@
-import typing 
-import sys 
+import typing
+import sys
 sys.setrecursionlimit(1 << 20)
 
 def tree_bfs(
-    g: typing.List[typing.Tuple[int, int]], 
+    g: typing.List[typing.Tuple[int, int]],
     root: int,
 ) -> typing.Tuple[(typing.List[int], ) * 2]:
     n = len(g) + 1
     t = [[] for _ in range(n)]
-    for u, v in g: 
+    for u, v in g:
         t[u].append(v)
         t[v].append(u)
     parent = [-1] * n
@@ -25,7 +25,7 @@ def tree_bfs(
 
 
 def euler_tour(
-    g: typing.List[typing.Tuple[int, int]], 
+    g: typing.List[typing.Tuple[int, int]],
     root: int,
 ) -> typing.Tuple[(typing.List[int], ) * 3]:
     n = len(g) + 1
@@ -45,7 +45,7 @@ def euler_tour(
             depth[v] = depth[u] + 1
             dfs(v)
         tour.append(~u)
-    
+
     dfs(root)
     return tour, parent, depth
 
@@ -66,7 +66,7 @@ def main() -> typing.NoReturn:
         t, e, x = map(int, input().split())
         t -= 1
         a, b = ab[e - 1]
-        if parent[a] == b: 
+        if parent[a] == b:
             a, b = b, a
             t ^= 1
         if t == 1:
@@ -78,7 +78,7 @@ def main() -> typing.NoReturn:
     for u in tour:
         if u < 0 or parent[u] < 0: continue
         v[u] += v[parent[u]]
-    
+
     print(*v, sep='\n')
 
 main()

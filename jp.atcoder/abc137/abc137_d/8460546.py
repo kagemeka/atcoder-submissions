@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 import heapq
 
 def main():
@@ -20,12 +20,12 @@ def main():
         a, b = [int(x) for x in sys.stdin.readline().split()]
         if a <= m:
             job_list[a].append(b)
-    
+
     schedule = [0 for _ in range(m+1)] # 当日は報酬0
     q = []
     for i in range(1, m+1):
         for reward in job_list[i]: # 期限i日前にできる仕事の報酬一覧をheqp queueに入れる
-            heapq.heappush(q, -reward) 
+            heapq.heappush(q, -reward)
             # あとで最大値を取り出すために-1かける(heappop()で取り出せるのは最小値)
 
         if q: # その日できる仕事が一つでもあれば

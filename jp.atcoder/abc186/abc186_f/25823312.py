@@ -1,7 +1,7 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 
@@ -12,19 +12,19 @@ def fw_set(
   x: int,
 ) -> typing.NoReturn:
   while i < len(fw):
-    fw[i] += x 
+    fw[i] += x
     i += i & -i
 
-@nb.njit 
+@nb.njit
 def fw_get(
   fw: np.ndarray,
   i: int,
 ) -> int:
-  v = 0 
+  v = 0
   while i > 0:
     v += fw[i]
     i -= i & -i
-  return v 
+  return v
 
 
 @nb.njit((nb.i8, nb.i8, nb.i8[:, :]), cache=True)
@@ -41,8 +41,8 @@ def solve(
     y, x = yx[i]
     min_y[x] = min(min_y[x], y)
     min_x[y] = min(min_x[y], x)
-    
-  cnt = 0   
+
+  cnt = 0
   cnt += min_y[:min_x[0]].sum()
   cnt += min_x[:min_y[0]].sum()
 
@@ -59,11 +59,11 @@ def solve(
       if x < min_x[0]:
         fw_set(fw, x + 1, -1)
       k += 1
-    cnt -= fw_get(fw, min_x[i]) 
+    cnt -= fw_get(fw, min_x[i])
 
   print(cnt)
-  
-  
+
+
 
 
 def main() -> typing.NoReturn:

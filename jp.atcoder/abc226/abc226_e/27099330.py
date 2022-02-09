@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -51,14 +51,14 @@ def solve(n: int, uv: np.ndarray) -> typing.NoReturn:
     m = len(uv)
     if n != m:
         print(0)
-        return 
+        return
     mod = 998_244_353
     label = connected_components_dfs(n, uv)
-    res = 1 
+    res = 1
     for _ in range(label.max() + 1):
         res = res * 2 % mod
     print(res)
-    
+
 
 def main() -> typing.NoReturn:
     n, m = map(int, input().split())

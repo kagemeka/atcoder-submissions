@@ -11,7 +11,7 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 odd_position = 'RUD'
 even_position = 'LUD'
@@ -33,9 +33,9 @@ def main():
                 break
     else:
         ans = 'Yes'
-    
+
     print(ans)
-     
+
 
 
 if __name__ == "__main__":

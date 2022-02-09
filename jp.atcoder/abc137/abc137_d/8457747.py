@@ -8,7 +8,7 @@ import collections
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     # 10**5連勤とか超人すぎる
@@ -38,7 +38,7 @@ def main():
                 job_list[i].remove(max(job_list[i]))
             else:
                 break
-                
+
     print(sum(day_rewards))
     # 間に合うかな?
 

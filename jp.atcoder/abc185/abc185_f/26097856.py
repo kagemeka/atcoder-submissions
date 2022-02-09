@@ -1,14 +1,14 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 S = typing.TypeVar('S')
 
-@nb.njit 
+@nb.njit
 def fw_build(
-  op: typing.Callable[[S, S], S], 
+  op: typing.Callable[[S, S], S],
   a: np.ndarray,
 ) -> np.ndarray:
   n = len(a)
@@ -17,10 +17,10 @@ def fw_build(
   for i in range(1, n + 1):
     j = i + (i & -i)
     if j < n + 1: fw[j] = op(fw[j], fw[i])
-  return fw 
-      
+  return fw
 
-@nb.njit 
+
+@nb.njit
 def fw_set(
   fw: np.ndarray,
   op: typing.Callable[[S, S], S],
@@ -33,7 +33,7 @@ def fw_set(
     i += i & -i
 
 
-@nb.njit 
+@nb.njit
 def fw_get(
   fw: np.ndarray,
   op: typing.Callable[[S, S], S],
@@ -50,30 +50,30 @@ def fw_get(
 
 
 
-@nb.njit 
+@nb.njit
 def build_xor_fenwick(a: np.ndarray) -> np.ndarray:
-  op = lambda a, b: a ^ b 
+  op = lambda a, b: a ^ b
   return fw_build(op, a)
 
 
-@nb.njit 
+@nb.njit
 def set_point_xor(
-  fw: np.ndarray, 
-  i: int, 
+  fw: np.ndarray,
+  i: int,
   x: int,
 ) -> typing.NoReturn:
   op = lambda a, b: a ^ b
   fw_set(fw, op, i, x)
 
 
-@nb.njit 
+@nb.njit
 def get_range_xor(fw: np.ndarray, l: int, r: int) -> int:
   op = lambda a, b: a ^ b
   e = lambda: 0
   return fw_get(fw, op, e, r - 1) ^ fw_get(fw, op, e, l - 1)
 
 
-  
+
 
 @nb.njit((nb.i8[:], nb.i8[:, :]), cache=False)
 def solve(a: np.ndarray, txy: np.ndarray) -> typing.NoReturn:

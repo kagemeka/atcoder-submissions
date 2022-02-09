@@ -7,7 +7,7 @@ def main():
     for i in range(n):
         if a[i] == x:
             x += 1
-    
+
     ans = n - (x - 1)
     return -1 if ans == n else ans
 

@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 import numba as nb
 
@@ -22,7 +22,7 @@ def solve(
     'First' if win[k]
     else 'Second',
   )
-  
+
 
 def main() -> typing.NoReturn:
   n, k = map(
@@ -32,7 +32,7 @@ def main() -> typing.NoReturn:
     sys.stdin.readline()
     .split(),
     dtype=np.int64,
-  )  
+  )
   solve(k, a)
 
 

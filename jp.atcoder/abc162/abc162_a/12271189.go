@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-  var n string 
+  var n string
   fmt.Scan(&n)
   ans := "Yes"
   if strings.Index(n, "7") == -1 {

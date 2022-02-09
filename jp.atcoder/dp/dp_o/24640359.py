@@ -1,5 +1,5 @@
 import typing
-import sys 
+import sys
 import numpy as np
 import numba as nb
 
@@ -18,7 +18,7 @@ def bit_count(
 @nb.njit(
   (nb.i8, nb.i8[:, :]),
   cache=True,
-)  
+)
 def solve(
   n: int,
   a: np.array,
@@ -40,9 +40,9 @@ def solve(
     ok &= a[c]
     k = s | j[ok]
     dp[k] += dp[s]
-    dp[k] %= mod  
+    dp[k] %= mod
   print(dp[-1])
-    
+
 
 
 def main() -> typing.NoReturn:

@@ -47,7 +47,7 @@ def main():
                     res = sorted(res, reverse=True)
                     print('\n'.join(map(str, res)))
                     sys.exit()
-                
+
 
 if __name__ == '__main__':
     main()

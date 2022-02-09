@@ -1,13 +1,13 @@
-import typing 
+import typing
 
 
 
 def compress_array(a: typing.List[int]) -> typing.Tuple[(typing.List[int], ) * 2]:
     r"""Compress array.
 
-    return 
+    return
         compressed_array
-        retrieve_array 
+        retrieve_array
     """
     import bisect
     v = sorted(set(a))
@@ -44,7 +44,7 @@ class FenwickTree():
             v += d[i]
             i -= i & -i
         return v
-    
+
     # def max_right(self, is_ok: typing.Callable[[S], bool]) -> int:
     #     m, d = self.__m, self.__data
     #     n = len(d)
@@ -91,11 +91,9 @@ def main() -> typing.NoReturn:
     for x in ab:
         tmp[x] += 1
     for x in tmp.values():
-        
+
         cnt += x * (x - 1) // 2
-    
+
     print(cnt + n)
 
 main()
-
-

@@ -1,7 +1,7 @@
-import typing 
+import typing
 import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 
@@ -69,7 +69,7 @@ def fw_max_right(
     return maximum index i such that is_ok(\prod_{j=0}^{j=i-1}{a_i}, x).
         here, interface is is_ok(v, x) but is_ok(v)
         so that you should pass x explicitly as an argument,
-        because closure is not supported on numba v0.53.1 (on AtCoder). 
+        because closure is not supported on numba v0.53.1 (on AtCoder).
     """
     n = len(fw)
     l = 1
@@ -103,7 +103,7 @@ def get_fw(fw: np.ndarray, i: int) -> S:
 @nb.njit
 def get_range_fw(fw: np.ndarray, l: int, r: int) -> S:
     r"""Get Range interface.
-    
+
     target is needed to be Abelian Group but Monoid, that is (S, op, e, inv).
     """
     return fw_op(
@@ -137,7 +137,7 @@ def solve(a: np.ndarray, txy: np.ndarray) -> typing.NoReturn:
       set_fw(fw, x - 1, y)
     else:
       print(get_range_fw(fw, x - 1, y))
-  
+
 
 def main() -> typing.NoReturn:
   n, q = map(int, input().split())

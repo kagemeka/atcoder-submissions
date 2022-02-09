@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n = int(sys.stdin.readline().rstrip())
@@ -18,14 +18,14 @@ def main():
         x, u = sys.stdin.readline().split()
         x = float(x)
         otoshidamas.append([x, u])
-    
+
     total = 0
     for i in range(n):
         if otoshidamas[i][1] == 'JPY':
             total += otoshidamas[i][0]
         else:
             total += otoshidamas[i][0] * 38e4
-    
+
     print(total)
 
 

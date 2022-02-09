@@ -1,12 +1,12 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
-MOD = 998_244_353  
+MOD = 998_244_353
 
 
-@nb.njit 
+@nb.njit
 def bit_length(n: int) -> int:
   l = 0
   while 1 << l <= n: l += 1
@@ -15,7 +15,7 @@ def bit_length(n: int) -> int:
 
 S = typing.TypeVar('S')
 
-@nb.njit 
+@nb.njit
 def seg_build(
   op: typing.Callable[[S, S], S],
   e: typing.Callable[[], S],
@@ -27,33 +27,33 @@ def seg_build(
   seg[n:n + len(a)] = a.copy()
   for i in range(n - 1, 0, -1):
     seg[i] = op(seg[i << 1], seg[i << 1 | 1])
-  return seg 
+  return seg
 
 
-@nb.njit 
+@nb.njit
 def seg_set(
   seg: np.ndarray,
   op: typing.Callable[[S, S], S],
-  i: int, 
+  i: int,
   x: S,
 ) -> typing.NoReturn:
-  i += len(seg) >> 1 
+  i += len(seg) >> 1
   seg[i] = x
   while i > 1:
     i >>= 1
     seg[i] = op(seg[i << 1], seg[i << 1 | 1])
 
 
-@nb.njit 
+@nb.njit
 def seg_get(
   seg: np.ndarray,
   op: typing.Callable[[S, S], S],
   e: typing.Callable[[], S],
-  l: int, 
+  l: int,
   r: int,
 ) -> int:
   n = len(seg) >> 1
-  l, r = l + n, r + n 
+  l, r = l + n, r + n
   vl, vr = e(), e()
   while l < r:
     if l & 1:
@@ -76,7 +76,7 @@ def seg_max_right(
   l: int,
   size: int,
 ) -> int:
-  n = len(seg) >> 1 
+  n = len(seg) >> 1
   assert 0 <= l < size
   i = l + n
   v = e()
@@ -96,31 +96,31 @@ def seg_max_right(
 
 
 S = typing.TypeVar('S')
-@nb.njit 
+@nb.njit
 def build_seg(a: np.ndarray) -> np.ndarray:
   return seg_build(seg_op, seg_e, a)
-  
 
-@nb.njit 
+
+@nb.njit
 def set_seg(seg: np.ndarray, i: int, x: S) -> typing.NoReturn:
   seg_set(seg, seg_op, i, x)
 
 
-@nb.njit 
+@nb.njit
 def get_seg(seg: np.ndarray, l: int, r: int) -> S:
   return seg_get(seg, seg_op, seg_e, l, r)
 
 
-@nb.njit 
+@nb.njit
 def seg_op(a: S, b: S) -> S: return (a + b) % MOD
 
 
-@nb.njit 
+@nb.njit
 def seg_e() -> S: return 0
 
 
 
-@nb.njit 
+@nb.njit
 def mod_pow2_inverse(n: int, p: int) -> np.ndarray:
   inv_2 = (p + 1) // 2
   a = np.ones(n, np.int64)
@@ -128,14 +128,14 @@ def mod_pow2_inverse(n: int, p: int) -> np.ndarray:
   return a
 
 
-@nb.njit 
+@nb.njit
 def mod_pow2(n: int, p: int) -> np.ndarray:
   a = np.ones(n, np.int64)
   for i in range(n - 1): a[i + 1] = a[i] * 2 % p
   return a
 
 
-@nb.njit 
+@nb.njit
 def compress_array(
   a: np.ndarray,
 ) -> typing.Tuple[(np.ndarray, ) * 2]:
@@ -153,13 +153,13 @@ def solve(a: np.ndarray) -> typing.NoReturn:
   pow2_inv = mod_pow2_inverse(m, MOD)
   a, _ = compress_array(a)
   seg = build_seg(np.zeros(m, np.int64))
-  cnt = 0 
+  cnt = 0
   for i in range(n):
     x = a[i]
     cnt += get_seg(seg, 0, x + 1) * pow2[i - 1] % MOD
     set_seg(seg, x, pow2_inv[i])
   print(cnt % MOD)
-  
+
 
 
 

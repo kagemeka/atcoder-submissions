@@ -1,9 +1,9 @@
-import typing 
-import math 
+import typing
+import math
 
 def main() -> typing.NoReturn:
     a, b = map(int, input().split())
-    
+
     # count of prime factors of gcd(a, b) + 1
 
     n = math.gcd(a, b)
@@ -20,4 +20,3 @@ def main() -> typing.NoReturn:
     print(cnt)
 
 main()
-        

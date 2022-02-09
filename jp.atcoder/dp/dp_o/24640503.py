@@ -1,5 +1,5 @@
 import typing
-import sys 
+import sys
 import numpy as np
 import numba as nb
 
@@ -18,7 +18,7 @@ def bit_count(
 @nb.njit(
   (nb.i8, nb.i8[:, :]),
   cache=True,
-)  
+)
 def solve(
   n: int,
   a: np.array,
@@ -31,7 +31,7 @@ def solve(
   )
   dp[0] = 1
   bitcnt = bit_count(1 << 22)
-    
+
   for s in range(1 << n):
     c = bitcnt[s]
     for i in range(n):

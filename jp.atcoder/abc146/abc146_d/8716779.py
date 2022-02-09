@@ -10,13 +10,13 @@ def main():
     for a, b in ab:
         G[a].append(b)
         G[b].append(a)
-    
+
     root = 1
     q = deque()
     q.append(root)
     parent = [None] * (n + 1)
     color = [0] * (n + 1) # color[y]はx = parent[y]としてcolor[x] に依存する。
-    
+
     while q:
         x = q.popleft()
         c = 1

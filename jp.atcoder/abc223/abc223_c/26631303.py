@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -12,7 +12,7 @@ def solve(ab: np.ndarray) -> typing.NoReturn:
     b = ab[:, 1]
     t0 = np.sum(a / b) / 2
     x = 0
-    t = 0 
+    t = 0
     for i in range(n):
         if t + a[i] / b[i] <= t0:
             t += a[i] / b[i]
@@ -21,8 +21,8 @@ def solve(ab: np.ndarray) -> typing.NoReturn:
         x += b[i] * (t0 - t)
         break
     print(x)
-        
-        
+
+
 
 def main() -> typing.NoReturn:
     n = int(input())

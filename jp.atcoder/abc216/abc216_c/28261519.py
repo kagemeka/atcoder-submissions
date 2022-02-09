@@ -1,9 +1,9 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     n = int(input())
-    
+
     s = ''
     while n:
         if n & 1:

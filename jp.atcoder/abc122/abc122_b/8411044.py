@@ -8,11 +8,11 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     s = sys.stdin.readline().rstrip()
-    
+
     permitted = 'ACGT'
     continuous_count = []
     count = 0
@@ -26,7 +26,7 @@ def main():
             count = 0
         if i == len(s) - 1:
             continuous_count.append(count)
-    
+
     if not continuous_count:
         print(len(s))
     else:

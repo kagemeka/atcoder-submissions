@@ -1,4 +1,4 @@
-#                         author:  kagemeka 
+#                         author:  kagemeka
 #                         created: 2019-11-09 21:20:16(JST)
 ### modules
 ## from standard library
@@ -13,15 +13,15 @@ import collections
 # import functools
 # import operator
 ## from external libraries
-# import scipy.special   
-# import scipy.misc      
-# import numpy as np 
+# import scipy.special
+# import scipy.misc
+# import numpy as np
 
 mod = 998244353
 
 def main():
     n, *d = (int(x) for x in sys.stdin.read().split())
-    
+
     if d[0] != 0:
         print(0)
         exit()
@@ -33,7 +33,7 @@ def main():
         exit()
 
     d.sort()
-    
+
     maximum = d[-1]
     for i in range(1, maximum + 1):
         if not i in d:
@@ -42,7 +42,7 @@ def main():
 
 
     c = collections.Counter(d)
-    
+
     total =  1
     for b, e in sorted(c.items()):
         if b != maximum:

@@ -12,7 +12,7 @@ def main():
     a = np.sort(a)[::-1]
     b = np.sort(b)[::-1]
     c = np.sort(c)[::-1]
- 
+
     res = []
     for i in range(1, min(K, x) + 1):
         for j in range(1, min(y, K // i) + 1):

@@ -33,9 +33,9 @@ def main():
                 res[j] = 0
                 break
         res[i] = H(i + 1, n - k - (i - 1)) * H(i, k - i) % MOD
-    
+
     return res[1:]
-    
+
 if __name__ == '__main__':
     ans = main()
     print(*ans, sep='\n')

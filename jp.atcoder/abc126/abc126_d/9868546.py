@@ -24,7 +24,7 @@ def coloring_tree(g, size):
 
 def main():
     return coloring_tree(graph, n)
-    
+
 if __name__ == '__main__':
     ans = main()
     print(*ans, sep='\n')

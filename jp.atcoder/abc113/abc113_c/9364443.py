@@ -8,10 +8,10 @@ def main():
     ids = defaultdict(list)
     for p, y in py:
         ids[p].append(y)
-    
+
     for p, ys in ids.items():
         ids[p] = dict([(y, i) for i, y in enumerate(sorted(ys), 1)])
-    
+
     for p, y in py:
         x = ids[p][y]
         first = str(p)
@@ -19,7 +19,7 @@ def main():
         first = '0' * (6 - len(first)) + first
         last = '0' * (6 - len(last)) + last
         yield first + last
-    
+
 if __name__ == '__main__':
     ans = main()
     print(*ans, sep='\n')

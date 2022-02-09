@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:], ) * 3, cache=True)
@@ -24,7 +24,7 @@ def solve(a: np.ndarray, b: np.ndarray, p: np.ndarray) -> typing.NoReturn:
     print(k)
     for i, j in res:
         print(i + 1, j + 1)
-    
+
 
 
 def main() -> typing.NoReturn:

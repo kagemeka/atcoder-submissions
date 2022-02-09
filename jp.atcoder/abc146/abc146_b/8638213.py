@@ -12,7 +12,7 @@ def main():
     t = ''
     for char in s:
         t += alphabet[(alpha_ind[char] + n) % 26]
-    
+
     print(t)
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 
 
@@ -12,7 +12,7 @@ def solve(
   mod = 998244353
   dp = [0] * n
   dp[0] = 1
-  
+
   for _ in range(k):
     s = sum(dp) % mod
     ndp = [s] * n
@@ -33,7 +33,7 @@ def main() -> typing.NoReturn:
     int, input().split(),
   )
   uv = map(
-    lambda x: int(x) - 1, 
+    lambda x: int(x) - 1,
     sys.stdin.read().split(),
   )
   *uv, = zip(*[uv] * 2)

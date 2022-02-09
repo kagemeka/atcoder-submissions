@@ -21,7 +21,7 @@ func NewStdIO() *StdIO {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Buffer([]byte{}, maxBuffer)
 	scanner.Split(bufio.ScanWords)
-	return &StdIO { 
+	return &StdIO {
 		scanner: scanner,
 		writer: bufio.NewWriter(os.Stdout),
 	}
@@ -44,7 +44,7 @@ func (io *StdIO) Write(a ...interface{}) {
 
 
 func find_cnt(s int) int {
-	cnt := 1 
+	cnt := 1
 	for cnt * (cnt + 1) / 2 <= s {cnt ++}
 	return cnt - 1
 }
@@ -53,7 +53,7 @@ func find_cnt(s int) int {
 func main() {
 	io := NewStdIO()
 	n := io.ScanInt()
-	
+
 
 	cnt := 0
 	i := 1

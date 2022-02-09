@@ -10,7 +10,7 @@ def main():
     for a, b in ab:
         G[a].append(b)
         G[b].append(a)
-    
+
     parent = np.zeros(n + 1, dtype=np.int64)
     color = np.zeros((n + 1, n + 1), dtype=np.int64)
     root = 1
@@ -35,6 +35,6 @@ def main():
     print(np.amax(color))
     for a, b in ab:
         print(color[a][b])
-            
+
 if __name__ == '__main__':
     main()

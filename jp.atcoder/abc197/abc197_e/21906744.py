@@ -36,7 +36,7 @@ class StdReader:
     ln = self.buf.readline()
     for chunk in ln.split():
       yield chunk
-  
+
 
   def __call__(
     self,
@@ -49,7 +49,7 @@ class StdReader:
       )
       chunk = self()
     return chunk
-    
+
 
   def str(
     self,
@@ -57,7 +57,7 @@ class StdReader:
     b = self()
     return b.decode()
 
-  
+
   def int(
     self,
   ) -> int:
@@ -88,9 +88,9 @@ class Solver(ABC):
   @abstractmethod
   def prepare(self):
     ...
-      
 
-  @abstractmethod 
+
+  @abstractmethod
   def solve(self):
     ...
 
@@ -105,7 +105,7 @@ class Problem(
 
 
   def prepare(self):
-    reader = self.reader 
+    reader = self.reader
     n = reader.int()
     a = [
       reader.int()
@@ -116,8 +116,8 @@ class Problem(
     #   a,
     # ).reshape(n, 2)
     # a[:, 1] -= 1
-    self.n = n 
-    self.a = a 
+    self.n = n
+    self.a = a
 
 
   def solve(self):
@@ -140,12 +140,12 @@ class Problem(
       dist[i + 1] = d[::-1]
     print(dist[-1, 0])
 
-  
+
   def preprocess(
     self,
   ):
-    a = self.a 
-    n = self.n 
+    a = self.a
+    n = self.n
     a = sorted(
       a,
       key=(
@@ -172,7 +172,7 @@ class Problem(
     ).T[i]
     a = a[:, 0][i]
     a = np.pad(
-      a, 
+      a,
       ((1, 1), (0, 0)),
     )
     self.a = a

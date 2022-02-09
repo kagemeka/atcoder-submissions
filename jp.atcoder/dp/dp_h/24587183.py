@@ -19,7 +19,7 @@ def solve(
   for i in range(h):
     for j in range(w):
       p[i + 1][j + 1] += (
-        p[i][j + 1] 
+        p[i][j + 1]
         * g[i][j + 1]
         + p[i + 1][j]
         * g[i + 1][j]

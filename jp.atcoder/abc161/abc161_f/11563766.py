@@ -12,7 +12,7 @@ def divisors(n):
 n = int(sys.stdin.readline().rstrip())
 
 def main():
-    res = divisors(n - 1) 
+    res = divisors(n - 1)
     cnt = len(res)
     for i in divisors(n):
         if i in res: continue

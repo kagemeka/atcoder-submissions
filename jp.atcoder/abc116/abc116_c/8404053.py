@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, *h = [int(x) for x in sys.stdin.read().split()]
@@ -47,7 +47,7 @@ def main():
         else:
             mountain.append(h[-1])
             break
-        
+
     for i in range(1, n-1):
         if flat == 0:
             if h[i-1] < h[i] > h[i+1]:
@@ -76,10 +76,10 @@ def main():
                 else:
                     continue
 
-    
+
     ans = sum(mountain) - sum(valley)
     print(ans)
-    
+
 
 if __name__ == "__main__":
     main()

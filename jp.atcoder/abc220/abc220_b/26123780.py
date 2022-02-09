@@ -1,7 +1,7 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 def solve() -> typing.NoReturn:
   ...
@@ -15,8 +15,8 @@ def convert(n, k) -> int:
     s += r * d
     d *= k
   return s
-    
-    
+
+
 
 def main() -> typing.NoReturn:
   k = int(input())

@@ -8,7 +8,7 @@ import collections
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     # 10**5連勤とか超人すぎる
@@ -39,7 +39,7 @@ def main():
                     break
             else:
                 break
-                
+
     print(sum(day_rewards))
 
 

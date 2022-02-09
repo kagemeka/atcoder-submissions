@@ -15,7 +15,7 @@ func dist(a, b []float64, d int) float64 {
 }
 
 func main() {
-  var n, d int 
+  var n, d int
   fmt.Scan(&n, &d)
   x := make([][]float64, n)
   for i := 0; i < n; i++ {
@@ -27,7 +27,7 @@ func main() {
   cnt := 0
   for i := 0; i < n - 1; i++ {
     for j := i + 1; j < n; j++ {
-      d := dist(x[i], x[j], d) 
+      d := dist(x[i], x[j], d)
       if d == math.Floor(d) {cnt++}
     }
   }

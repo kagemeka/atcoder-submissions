@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -15,7 +15,7 @@ def main() -> typing.NoReturn:
     for x in range(n):
         if n - prev[x] > m:
             cand.append(x)
-    
+
     print(min(cand) if cand else n)
 
 main()

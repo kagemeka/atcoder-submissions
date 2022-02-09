@@ -20,7 +20,7 @@ def main():
       lo = border
     else:
       hi = border
-  
+
   s = a.copy() + [0]
   *s, = accumulate(s[::-1])
   tot = 0
@@ -28,7 +28,7 @@ def main():
     b = lo - x
     c = n - bi_l(a, b)
     tot += x * c + s[c]
-  
+
   tot -= lo * (count(lo) - m)
   print(tot)
 

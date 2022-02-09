@@ -15,7 +15,7 @@ def main():
             b[i] -= a[i]
             cnt += a[i]
             a[i] = 0
-        
+
         if b[i] >= a[i+1]:
             cnt += a[i+1]
             b[i] -= a[i+1]

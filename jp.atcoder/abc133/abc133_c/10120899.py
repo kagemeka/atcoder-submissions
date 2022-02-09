@@ -17,7 +17,7 @@ def main():
             for j in range(i+1, r+1):
                 res = min(res, i % MOD * j % MOD)
         return res
-        
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

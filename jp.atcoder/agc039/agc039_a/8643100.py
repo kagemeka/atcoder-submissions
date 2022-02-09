@@ -8,7 +8,7 @@ def main():
     if len(s) == 1:
         print(k // 2)
         sys.exit()
-    
+
     if s.count(s[0]) == len(s):
         if len(s) % 2 == 0:
             ans = len(s) // 2 * k
@@ -30,7 +30,7 @@ def main():
                 first_same = same
             count += same // 2
             same = 1
-    
+
     bl = False
     if s[-1] == s[0]:
         if same % 2 == 1 and first_same % 2 == 1:

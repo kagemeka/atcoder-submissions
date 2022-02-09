@@ -1,4 +1,4 @@
-import typing 
+import typing
 import heapq
 
 def main() -> None:
@@ -8,12 +8,12 @@ def main() -> None:
     hq = []
     for i in range(k):
         heapq.heappush(hq, p[i])
-    
+
     for i in range(k, n):
         print(hq[0])
         heapq.heappushpop(hq, p[i])
     print(hq[0])
-    
+
 
 
 main()

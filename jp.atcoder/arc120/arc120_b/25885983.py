@@ -1,13 +1,13 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
 @nb.njit((nb.i8[:, :], ), cache=True)
 def solve(a: np.ndarray) -> typing.NoReturn:
-  mod = 998244353 
+  mod = 998244353
   h, w = a.shape
 
   cnt = 1
@@ -21,7 +21,7 @@ def solve(a: np.ndarray) -> typing.NoReturn:
       cnt *= 2
     elif buf[1] >=1 and buf[2] >=1:
       cnt *= 0
-    cnt %= mod 
+    cnt %= mod
   print(cnt)
 
 

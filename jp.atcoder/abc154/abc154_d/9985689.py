@@ -16,7 +16,7 @@ def main():
         r += 1
         res.append(s)
     return max(res)
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 
 
@@ -19,7 +19,7 @@ def solve(
     'First' if win[k]
     else 'Second',
   )
-  
+
 
 def main() -> typing.NoReturn:
   n, k = map(
@@ -29,7 +29,7 @@ def main() -> typing.NoReturn:
     sys.stdin.readline()
     .split(),
     dtype=np.int64,
-  )  
+  )
   solve(k, a)
 
 
@@ -37,9 +37,9 @@ def main() -> typing.NoReturn:
 OJ = 'ONLINE_JUDGE'
 if sys.argv[-1] == OJ:
   from numba import i8
-  from numba.pycc import CC 
+  from numba.pycc import CC
   cc = CC('my_module')
-  
+
   fn = solve
   signature = (i8, i8[:])
 

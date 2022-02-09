@@ -6,7 +6,7 @@ def main():
     n, a, b, c, d = [int(x) for x in sys.stdin.readline().split()]
     s = '#' + sys.stdin.readline().rstrip()
 
-    
+
     if c == d:
         ans = 'No'
     elif c < d:
@@ -25,7 +25,7 @@ def main():
             ans = 'Yes'
         else:
             ans = 'No'
-    
+
     print(ans)
 
 

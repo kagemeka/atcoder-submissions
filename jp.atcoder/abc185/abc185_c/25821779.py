@@ -1,5 +1,5 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 
 
@@ -16,7 +16,7 @@ def solve(l: int) -> typing.NoReturn:
     a //= g
     b //= g
   print(a // b)
-  
+
 
 def main() -> typing.NoReturn:
   l = int(input())

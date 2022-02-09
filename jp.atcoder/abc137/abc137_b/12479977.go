@@ -8,7 +8,7 @@ func maxInt(a ...int) int {m := a[0]; for _, x := range a {if x > m {m = x}}; re
 func minInt(a ...int) int {m := a[0]; for _, x := range a {if x < m {m = x}}; return m}
 
 func main() {
-  var k, x int 
+  var k, x int
   fmt.Scan(&k, &x)
   l := maxInt(-1e6, x - (k - 1))
   r := minInt(1e6, x + (k - 1))

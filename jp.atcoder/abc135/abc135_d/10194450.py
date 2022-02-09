@@ -18,12 +18,12 @@ def main():
             for k in range(10):
                 for j in range(13):
                     dp[i+1][(j*10+k)%13] += dp[i][j]
-        
+
         for j in range(13):
             dp[i+1][j] %= MOD
-    
+
     return dp[l][5]
-                
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

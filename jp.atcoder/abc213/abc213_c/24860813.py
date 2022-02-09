@@ -1,11 +1,11 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
 
 
 
 import numpy as np
-import typing 
+import typing
 
 
 
@@ -15,8 +15,8 @@ class CompressArray():
     i: int,
   ) -> int:
     return self.__v[i]
-  
-  
+
+
   def __call__(
     self,
     a: np.array,
@@ -34,8 +34,8 @@ def main():
   a, b = np.array(
     sys.stdin.read().split(),
     dtype=np.int64,
-  ).reshape(n, 2).T 
-  
+  ).reshape(n, 2).T
+
   compress = CompressArray()
   a = compress(a) + 1
   b = compress(b) + 1

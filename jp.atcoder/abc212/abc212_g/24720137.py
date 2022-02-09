@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 class FindDivisors():
@@ -9,7 +9,7 @@ class FindDivisors():
     a = []
     i = 1
     while i * i < n:
-      if n % i: 
+      if n % i:
         i += 1
         continue
       a.append(i)
@@ -24,7 +24,7 @@ def main() -> typing.NoReturn:
   mod = 998244353
   p = int(input())
   n = p - 1
-  
+
   divs = FindDivisors()(n)
   divs = divs[::-1]
   l = len(divs)
@@ -36,8 +36,8 @@ def main() -> typing.NoReturn:
       if divs[j] % d: continue
       c -= cnt[j]
     cnt[i] = c % mod
-  
-  s = 1 
+
+  s = 1
   for i in range(l):
     s += n // divs[i] * cnt[i]
     s %= mod

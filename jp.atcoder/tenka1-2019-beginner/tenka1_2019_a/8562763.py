@@ -8,7 +8,7 @@ def main():
         ans = 'Yes'
     else:
         ans = 'No'
-    
+
     print(ans)
 
 if __name__ == '__main__':

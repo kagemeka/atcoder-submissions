@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n = int(sys.stdin.readline().rstrip())
@@ -18,7 +18,7 @@ def main():
     total = 0
     for i in range(n):
         total += max(0, v[i] - c[i])
-    
+
     print(total)
 
 

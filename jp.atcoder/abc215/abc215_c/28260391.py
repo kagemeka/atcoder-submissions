@@ -1,4 +1,4 @@
-import typing 
+import typing
 import itertools
 
 def main() -> typing.NoReturn:
@@ -8,4 +8,3 @@ def main() -> typing.NoReturn:
     print(''.join(cand[k - 1]))
 
 main()
-    

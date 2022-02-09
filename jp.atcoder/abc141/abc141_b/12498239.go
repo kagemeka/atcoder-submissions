@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-  var s string 
+  var s string
   fmt.Scan(&s)
   res := "Yes"
   for i, c := range s {

@@ -1,13 +1,13 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:], nb.i8), cache=True)
 def solve(a: np.ndarray, s: int) -> typing.NoReturn:
   n = len(a)
-  
+
   mod = 998_244_353
 
   dp = np.zeros(s + 1, np.int64)

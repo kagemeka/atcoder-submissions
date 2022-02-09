@@ -13,7 +13,7 @@ def main():
         d = int(n[i])
         dp0[i+1] = min(dp0[i]+d, dp1[i]+10-d)
         dp1[i+1] = min(dp0[i]+d+1, dp1[i]+10-d-1)
-    
+
     return dp0[l]
 
 if __name__ == '__main__':

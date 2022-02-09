@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -13,6 +13,6 @@ def main() -> typing.NoReturn:
     if a[a_idx[1]] > b[b_idx[1]]:
         a, b = b, a
         a_idx, b_idx = b_idx, a_idx
-    print(min(a[a_idx[0]] + b[b_idx[0]], max(a[a_idx[1]], b[b_idx[0]])))  
+    print(min(a[a_idx[0]] + b[b_idx[0]], max(a[a_idx[1]], b[b_idx[0]])))
 
 main()

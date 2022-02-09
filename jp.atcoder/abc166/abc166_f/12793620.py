@@ -44,7 +44,7 @@ def main(a, b, c):
                 else:
                     a -= 1
                     c += 1
-                    res.append('C')  
+                    res.append('C')
         elif x == 'BC':
             if b == c == 0: break
             if b > c:
@@ -67,8 +67,8 @@ def main(a, b, c):
     else:
         print('Yes')
         print(*res, sep='\n')
-        return 
+        return
     print('No')
-                
+
 if __name__ == '__main__':
     main(a, b, c)

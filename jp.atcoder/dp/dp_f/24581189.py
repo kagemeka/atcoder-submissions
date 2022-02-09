@@ -5,11 +5,11 @@ def main() -> typing.NoReturn:
   s = input()
   t = input()
   n, m = len(s), len(t)
-  
+
   dp0 = [''] * (m + 1)
   for i in range(n):
     dp1 = [''] * (m + 1)
-    x = s[i] 
+    x = s[i]
     for j in range(m):
       y = t[j]
       if y == x:
@@ -27,4 +27,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-    

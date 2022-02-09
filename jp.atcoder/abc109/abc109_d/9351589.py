@@ -14,18 +14,18 @@ def main():
                 grid[i][j+1] += 1
                 move.append((i+1, j+1, i+1, j+2))
                 n += 1
-    
+
     for i in range(h-1):
         if grid[i][-1] & 1:
             grid[i][-1] -= 1
             grid[i+1][-1] += 1
             move.append((i+1, w, i+2, w))
             n += 1
-    
+
     yield [n]
     for m in move:
         yield m
-    
+
 if __name__ == '__main__':
     ans = main()
     for i in ans:

@@ -54,6 +54,6 @@ def main() -> typing.NoReturn:
     dtype=np.int64,
   ).reshape(n, 2).T
   solve(n, a, b)
-  
+
 
 main()

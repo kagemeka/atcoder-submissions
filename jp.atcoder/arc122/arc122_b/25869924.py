@@ -1,6 +1,6 @@
-import typing 
-import numpy as np 
-import sys 
+import typing
+import numpy as np
+import sys
 
 
 
@@ -9,8 +9,8 @@ def solve(a: np.ndarray) -> typing.NoReturn:
   a.sort()
   def f(x: float) -> float:
     return (n * x + a.sum() - np.minimum(2 * x, a).sum()) / n
-  
-  
+
+
   def ternary_search() -> float:
     lo, hi = 0, a.max()
     for _ in range(100):
@@ -21,12 +21,12 @@ def solve(a: np.ndarray) -> typing.NoReturn:
       else:
         lo = x0
     return x1
-  
+
   x = ternary_search()
   print(f(x))
-      
-    
-  
+
+
+
 
 def main() -> typing.NoReturn:
   n = int(input())

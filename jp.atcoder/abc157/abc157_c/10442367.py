@@ -5,7 +5,7 @@ sc = zip(*[iter(sc)] * 2)
 
 def main():
     res = [0] * n
-    determined = set() 
+    determined = set()
 
     for s, c in sc:
         if s in determined:

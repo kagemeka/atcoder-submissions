@@ -13,7 +13,7 @@ def main():
     for i in range(n):
         x[i] -= x[i+1]
     x[-1] -= X
-    
+
     return reduce(gcd, x)
 
 if __name__ == '__main__':

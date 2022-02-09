@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -36,7 +36,7 @@ def solve(h: int, w: int, rca: np.ndarray) -> typing.NoReturn:
 
     dist = np.zeros(n, np.int64)
     qrmax = np.full(h, -1, np.int64)
-    qcmax = np.full(w, -1, np.int64)    
+    qcmax = np.full(w, -1, np.int64)
     prev = -1
     for i in np.argsort(rca[:, 2], kind='mergesort')[::-1]:
         r, c, a = rca[i]

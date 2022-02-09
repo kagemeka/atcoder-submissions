@@ -7,7 +7,7 @@ class ReadStdin:
     self,
   ) -> bytes:
     return next(self.__chunks)
-    
+
 
   def __init__(
     self,
@@ -34,7 +34,7 @@ class ReadStdin:
       l = self.__buf.readline()
       for chunk in l.split():
         yield chunk
-  
+
 
   def str(
     self,
@@ -60,7 +60,7 @@ class Solver(
     self._prepare()
     self._solve()
 
-  
+
   def __init__(
     self,
   ) -> typing.NoReturn:
@@ -73,7 +73,7 @@ class Solver(
   ) -> typing.NoReturn:
     ...
 
-  
+
   @abstractmethod
   def _solve(
     self,
@@ -114,12 +114,12 @@ class Problem(
   def _solve(
     self,
   ) -> typing.NoReturn:
-    a = self.__a 
+    a = self.__a
     b = np.sort(a, axis=0)
-    n = self.__n 
+    n = self.__n
     combs = np.array((
       *combinations(
-        range(n), 
+        range(n),
         2,
       ),
     ))
@@ -127,7 +127,7 @@ class Problem(
     j = np.argsort(mx, axis=1)
     res = np.minimum(
       mx[
-        np.arange(j.shape[0]), 
+        np.arange(j.shape[0]),
         j[:, 1],
       ],
       b[-1, j[:, 0]],

@@ -1,7 +1,7 @@
-import typing 
-import numpy as np 
-import sys 
-import numba as nb 
+import typing
+import numpy as np
+import sys
+import numba as nb
 
 
 
@@ -14,16 +14,16 @@ def solve(n: int, abc: np.ndarray) -> typing.NoReturn:
     a, b, c = abc[i]
     g[a, b] = c
   for i in range(n):
-    g[i, i] = 0 
+    g[i, i] = 0
 
-  s = 0 
+  s = 0
   for k in range(n):
     for i in range(n):
       for j in range(n):
         g[i, j] = min(g[i, j], g[i, k] + g[k, j])
     s += np.sum(g * (g != inf))
   print(s)
-        
+
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())

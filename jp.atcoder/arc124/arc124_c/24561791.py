@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 from functools import (
   lru_cache,
@@ -32,7 +32,7 @@ def solve(
     gy: int,
   ) -> int:
     if i == n:
-      return lcm(gx, gy) 
+      return lcm(gx, gy)
     a, b = ab[i]
     lx = dfs(
       i + 1,
@@ -45,7 +45,7 @@ def solve(
       gcd(gy, a),
     )
     return max(lx, ly)
-  
+
   print(dfs(0, 0, 0))
 
 

@@ -8,7 +8,7 @@ import itertools
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, k = [int(x) for x in sys.stdin.readline().split()]
@@ -18,7 +18,7 @@ def main():
     if k > (n - 1) * (n - 2) // 2:
         print(-1)
         sys.exit()
-        
+
     all_uv = list(itertools.combinations(range(1, n+1), 2))
 
     m = n * (n - 1) // 2 - k

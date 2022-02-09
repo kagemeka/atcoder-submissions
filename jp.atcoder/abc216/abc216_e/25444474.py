@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -28,6 +28,6 @@ def main() -> typing.NoReturn:
     if x < h: break
     s += (h + x) * (x - h + 1) // 2
   print(s)
-    
+
 
 main()

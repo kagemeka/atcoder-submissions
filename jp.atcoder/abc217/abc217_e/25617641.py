@@ -1,7 +1,7 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 import heapq
 
 
@@ -28,7 +28,7 @@ def solve(
     return v
 
   def fifo_empty():
-    nonlocal ffq, fifo_idx 
+    nonlocal ffq, fifo_idx
     return fifo_idx == len(ffq)
 
   while len(a):

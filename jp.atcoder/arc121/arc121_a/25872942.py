@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:, :], ), cache=True)
@@ -16,14 +16,14 @@ def solve(xy: np.ndarray) -> typing.NoReturn:
   xy = xy[np.flatnonzero(cand)]
   n = len(xy)
   res = np.empty(n * (n - 1) // 2, np.int64)
-  add_idx = 0 
+  add_idx = 0
   for i in range(n - 1):
     for j in range(i + 1, n):
       res[add_idx] = np.max(np.abs(xy[i] - xy[j]))
       add_idx += 1
   res.sort()
   print(res[-2])
-      
+
 
 def main() -> typing.NoReturn:
   n = int(input())

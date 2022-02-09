@@ -14,6 +14,6 @@ def main():
         res[i] = create_id(p, j)
         prev = p
     print(*res, sep='\n')
-    
+
 if __name__ ==  '__main__':
     main()

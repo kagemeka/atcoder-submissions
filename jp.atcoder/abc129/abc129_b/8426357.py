@@ -8,11 +8,11 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, *w = [int(x) for x in sys.stdin.read().split()]
-    
+
     min_diff = sum(w)
     for i in range(0, n-1):
         diff = abs(sum(w[:i+1]) - sum(w[i+1:]))

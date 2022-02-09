@@ -16,7 +16,7 @@ def main():
     t = ''
     for c in s:
         t += alphabet[(alpha_num[c] + n) % 26]
-    
+
     print(t)
 
 

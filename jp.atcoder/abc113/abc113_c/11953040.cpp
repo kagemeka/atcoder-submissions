@@ -25,7 +25,7 @@ int main() {
   int prev = 0, j;
   for (auto &t : db) {
     (t[0] == prev) ? j++ : j = 1;
-    res[t[2]] = create_id(t[0], j); 
+    res[t[2]] = create_id(t[0], j);
     prev = t[0];
   }
   for (string &id : res) {

@@ -1,4 +1,4 @@
-import sys 
+import sys
 
 def A():
   n = int(sys.stdin.readline().rstrip())
@@ -27,7 +27,7 @@ def F():
   pass
 
 if __name__ == "__main__":
-  A() 
+  A()
   B()
   C()
   D()

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -28,31 +28,31 @@ def main() -> typing.NoReturn:
     n, m, k = map(int, input().split())
     a = list(map(lambda x: int(x) - 1, input().split()))
     uv = [tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(n - 1)]
-    
+
     MOD = 998_244_353
-    
+
     idx = {}
     for i, (u, v) in enumerate(uv):
         if u > v: u, v = v, u
         idx[(u, v)] = i
-    
+
     cnt = [0] * (n - 1)
     for i in range(m - 1):
         root, u = a[i], a[i + 1]
-        
+
         parent, _ = tree_bfs(uv, root)
         while u != root:
             p = parent[u]
             v = p
             if u > v:
-                u, v = v, u        
+                u, v = v, u
             cnt[idx[(u, v)]] += 1
             u = p
     sc = sum(cnt)
     cand = [c for c in cnt if c > 0]
     if (k + sc) % 2 == 1:
         print(0)
-        return 
+        return
     r = (k + sc) // 2
     if r < k:
         print(0)
@@ -68,8 +68,3 @@ def main() -> typing.NoReturn:
     print(ans)
 
 main()
-    
-    
-    
-    
-    

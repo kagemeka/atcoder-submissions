@@ -11,9 +11,9 @@ def main():
     for l in alphabet:
         if l != c:
             s = s.replace(l, '*')
-    
+
     print(s)
-    
+
 
 if __name__ == '__main__':
     main()

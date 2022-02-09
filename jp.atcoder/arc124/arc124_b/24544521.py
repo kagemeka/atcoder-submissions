@@ -1,4 +1,4 @@
-import typing 
+import typing
 import numpy as np
 import sys
 
@@ -15,11 +15,11 @@ def main() -> typing.NoReturn:
   b = b[:, None] >> i & 1
   a = a.sum(axis=0)
   b = b.sum(axis=0)
-  c = a + b   
+  c = a + b
   d = a - b
   x = np.array((*cand, ))
   x.sort()
-  y = x[:, None] >> i & 1  
+  y = x[:, None] >> i & 1
   ok = (d * (y ^ 1) == 0).all(
     axis=1,
   )

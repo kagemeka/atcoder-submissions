@@ -1,4 +1,4 @@
-import sys 
+import sys
 
 def A():
   n = int(sys.stdin.readline().rstrip())
@@ -8,7 +8,7 @@ def A():
 
 from collections import Counter
 def B():
-  n, *s = sys.stdin.read().split() 
+  n, *s = sys.stdin.read().split()
   c = Counter(s)
   for v in 'AC, WA, TLE, RE'.split(', '):
     print(f'{v} x {c[v]}')
@@ -24,7 +24,7 @@ def C():
       for y in range(h):
         for x in range(w):
           if i>>y & 1 or j>>x & 1:
-            continue 
+            continue
           cnt += c[y][x] ==  '#'
       tot += cnt == k
   print(tot)
@@ -42,7 +42,7 @@ def F():
   pass
 
 if __name__ == "__main__":
-  # A() 
+  # A()
   # B()
   C()
   D()

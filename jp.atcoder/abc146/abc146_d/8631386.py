@@ -36,7 +36,7 @@ def main():
                         number = 1
 
     print(needed_colors)
-    
+
     for a, b in A:
         print(res[a][b])
 

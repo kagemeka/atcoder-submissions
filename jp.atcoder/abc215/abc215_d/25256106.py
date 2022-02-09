@@ -1,7 +1,7 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 
@@ -19,7 +19,7 @@ def prime_factorize(
     while n % i == 0:
       n //= i
       cnt[-1] += 1
-  if n > 1: 
+  if n > 1:
     prime.append(n)
     cnt.append(1)
   return np.vstack((
@@ -37,13 +37,13 @@ def solve(
   m: int,
 ) -> typing.NoReturn:
   n = a.size
-  
+
   p = np.zeros(1 << 20, dtype=np.bool8)
   for i in range(n):
     x = a[i]
     res = prime_factorize(x)
     for j in res.T[0]: p[j] = True
-  
+
   s = np.ones(1 + m, dtype=np.bool8)
   s[0] = False
   for i in range(1 + m):

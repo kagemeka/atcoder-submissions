@@ -8,7 +8,7 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     s = sys.stdin.readline().rstrip()
@@ -18,7 +18,7 @@ def main():
             break
     else:
         ans = 'Good'
-    
+
     print(ans)
 
 

@@ -14,7 +14,7 @@ def main():
     for i in range(2, 10**6+1):
         a = f(a)
         if a in res:
-            return i 
+            return i
         res.add(a)
 
 if __name__ == '__main__':

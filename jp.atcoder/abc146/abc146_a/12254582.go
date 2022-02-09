@@ -9,7 +9,7 @@ func stringIndex(ss []string, s string) int {
   i := -1
   for j := 0; j < len(ss); j++ {
     if ss[j] == s {
-      i = j 
+      i = j
       break
     }
   }
@@ -18,7 +18,7 @@ func stringIndex(ss []string, s string) int {
 
 func main() {
   day := strings.Split("SUN, MON, TUE, WED, THU, FRI, SAT", ", ")
-  var s string 
+  var s string
   fmt.Scan(&s)
   fmt.Println(7 - stringIndex(day, s))
 }

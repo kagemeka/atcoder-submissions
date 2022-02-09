@@ -8,14 +8,14 @@ import sys
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, *h = [int(x) for x in sys.stdin.read().split()]
     if n == 1:
         print(h[0])
         sys.exit()
-        
+
     mountain = [0]
     valley = [0]
     flat = 0
@@ -71,10 +71,10 @@ def main():
                 else:
                     continue
 
-    
+
     ans = sum(mountain) - sum(valley)
     print(ans)
-    
+
 
 if __name__ == "__main__":
     main()

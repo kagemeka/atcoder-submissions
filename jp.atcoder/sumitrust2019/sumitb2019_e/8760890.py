@@ -16,7 +16,7 @@ def main():
             rgb[1] += 1
         elif rgb[2] == cur:
             rgb[2] += 1
-    
+
     print(res)
 
 if __name__ == '__main__':

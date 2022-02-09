@@ -1,7 +1,7 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 import heapq
 
 
@@ -28,14 +28,14 @@ def solve(
       i += 1
     if heapq.heappop(h) < j:
       print('No')
-      return 
+      return
     j += 1
   print('Yes')
-    
+
 
 def main() -> typing.NoReturn:
   t = int(input())
-  
+
   for _ in range(t):
     n = int(input())
     lr = [

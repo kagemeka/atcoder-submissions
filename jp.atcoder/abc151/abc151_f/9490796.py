@@ -28,13 +28,13 @@ def center(z1, z2):
 def main():
     cand = []
     for comb in combinations(z, 3):
-        try: 
+        try:
             cand.append(circumcenter(*comb))
         except:
             pass
     for comb in combinations(z, 2):
         cand.append(center(*comb))
-    
+
     res = inf
     for o, r in cand:
         r += r * 10 ** -6
@@ -43,7 +43,7 @@ def main():
                 break
         else:
             res = min(res, r)
-    
+
     return res
 
 if __name__ == '__main__':

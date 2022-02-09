@@ -1,11 +1,11 @@
-import typing 
+import typing
 
 
 def cumprod(mod: int, a: typing.List[int]) -> typing.List[int]:
     a = a.copy()
     for i in range(len(a) - 1):
         a[i + 1] = a[i + 1] * a[i] % mod
-    return a 
+    return a
 
 
 def factorial(mod: int, n: int) -> typing.List[int]:
@@ -26,26 +26,26 @@ def make_choose(p: int, n: int) -> typing.Callable[[int, int], int]:
         nonlocal fact, ifact
         if k < 0 or n < k: return 0
         return fact[n] * ifact[n - k] % p * ifact[k] % p
-    
+
     return choose
 
 
 
 def main() -> typing.NoReturn:
     n, m = map(int, input().split())
-    
-    # inclusion exclusion principle 
-    
+
+    # inclusion exclusion principle
+
     MOD = 10 ** 9 + 7
 
     choose = make_choose(MOD, 1 << 20)
     fact = factorial(MOD, 1 << 20)
 
     def p(n: int, k: int) -> int:
-        return choose(n, k) * fact[k] % MOD 
+        return choose(n, k) * fact[k] % MOD
 
     s = 0
-    sign = 1 
+    sign = 1
     for k in range(n + 1):
         s += choose(m, k) * p(n, k) % MOD * (p(m - k, n - k) ** 2 % MOD) % MOD * sign
         s %= MOD

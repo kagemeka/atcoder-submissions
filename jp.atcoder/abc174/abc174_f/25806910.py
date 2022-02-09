@@ -1,22 +1,22 @@
-import typing 
-import sys 
-import numpy as np 
+import typing
+import sys
+import numpy as np
 import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def fw_set(fw: np.ndarray, i: int, x: int) -> typing.NoReturn:
   while i < len(fw):
     fw[i] += x
     i += i & -i
-  
-@nb.njit 
+
+@nb.njit
 def fw_get(fw: np.ndarray, i: int) -> int:
   v = 0
   while i > 0:
     v += fw[i]
     i -= i & -i
-  return v 
+  return v
 
 
 @nb.njit((nb.i8[:], nb.i8[:, :]), cache=True)
@@ -25,7 +25,7 @@ def solve(
   lr: np.ndarray,
 ) -> typing.NoReturn:
   n, q = len(c), len(lr)
-  
+
   buf = np.full(n + 1, -1, np.int64)
   prev = np.empty(n, np.int64)
   for i in range(n):
@@ -48,7 +48,7 @@ def solve(
     res[original_idx[i]] = (r - l + 1) - fw_get(fw, r)
   for x in res:
     print(x)
-    
+
 
 
 def main() -> typing.NoReturn:

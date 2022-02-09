@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8, nb.i8), cache=True)
@@ -20,8 +20,8 @@ def solve(n: int, s: int, k: int) -> typing.NoReturn:
   if s % g:
     print(-1)
     return
-  s //= g 
-  k //= g 
+  s //= g
+  k //= g
   n //= g
   c = -s * x % n
   print(c)

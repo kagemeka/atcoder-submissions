@@ -1,10 +1,10 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
-@nb.njit 
+@nb.njit
 def bit_length(n: int) -> int:
   l = 1
   while 1 << l <= n: l += 1
@@ -37,7 +37,7 @@ def seg_set(
     x: S,
 ) -> typing.NoReturn:
     r"""Set.
-    
+
     a_i := x
     """
     i += len(seg) >> 1
@@ -86,7 +86,7 @@ def seg_max_right(
     return maximum index i such that is_ok(\prod_{j=l}^{j=i-1}{a_j}, x).
         here, interface is is_ok(v, x) but is_ok(v)
         so that you should pass x explicitly as an argument,
-        because closure is not supported on numba v0.53.1 (on AtCoder). 
+        because closure is not supported on numba v0.53.1 (on AtCoder).
     """
     n = len(seg) >> 1
     assert 0 <= l < size
@@ -125,7 +125,7 @@ def get_seg(seg: np.ndarray, l: int, r: int) -> S:
 @nb.njit
 def operate_seg(seg: np.ndarray, i: int, x: S) -> typing.NoReturn:
     r"""Operate interface.
-    
+
     a_i := op(a_i, x)
     """
     set_seg(seg, i, seg_op(get_seg(seg, i, i + 1), x))

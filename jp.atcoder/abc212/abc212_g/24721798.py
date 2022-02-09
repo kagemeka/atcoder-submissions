@@ -1,4 +1,4 @@
-import typing 
+import typing
 import numpy as np
 import numba as nb
 
@@ -34,7 +34,7 @@ def solve(
       c -= cnt[j]
       c %= mod
     cnt[i] = c
-  
+
   s = 1
   for i in range(l):
     s += n // divs[i] * cnt[i]

@@ -6,7 +6,7 @@ import (
 
 func main() {
   var n rune
-  var s string 
+  var s string
   fmt.Scan(&n, &s)
   rs := []rune(s)
   for i := 0; i < len(s); i++ {

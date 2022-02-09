@@ -1,8 +1,8 @@
-import typing 
+import typing
 import sys
-import numpy as np 
-import numba as nb 
-import heapq 
+import numpy as np
+import numba as nb
+import heapq
 
 
 
@@ -13,7 +13,7 @@ def csgraph_is_sorted(csgraph: np.ndarray) -> bool:
 
 @nb.njit((nb.i8, nb.i8[:, :], ), cache=True)
 def sort_csgraph(
-  n: int, 
+  n: int,
   csgraph: np.ndarray,
 ) -> typing.Tuple[
   np.ndarray,
@@ -27,7 +27,7 @@ def sort_csgraph(
   return csgraph, edge_idx, original_idx
 
 
-@nb.njit((nb.i8, nb.i8[:, :], nb.i8[:], nb.i8), cache=True) 
+@nb.njit((nb.i8, nb.i8[:, :], nb.i8[:], nb.i8), cache=True)
 def shortest_path_bfs(
   n: int,
   csgraph: np.ndarray,
@@ -50,10 +50,10 @@ def shortest_path_bfs(
       predecessor[v] = u
       fifo_q.append(v)
   return predecessor
-    
 
 
-@nb.njit((nb.i8, nb.i8[:, :], nb.i8[:], nb.i8), cache=True) 
+
+@nb.njit((nb.i8, nb.i8[:, :], nb.i8[:], nb.i8), cache=True)
 def shortest_dist_bfs(
   n: int,
   csgraph: np.ndarray,
@@ -74,7 +74,7 @@ def shortest_dist_bfs(
       dist[v] = dv
       fifo_q.append(v)
   return dist
-    
+
 
 
 @nb.njit((nb.i8, nb.i8[:, :]), cache=True)
@@ -103,19 +103,19 @@ def solve(
         add_edge(i)
         break
     return used_edges[:idx_to_add]
-      
+
   used_edges = retrieve_used_edges()
-  
+
   dist = shortest_dist_bfs(n, st, edge_idx, 0)
   res = np.full(m, dist[-1], np.int64)
-  
+
   for i in used_edges:
     g = st[np.arange(m) != i]
     u = st[i, 0]
-    edge_idx[u + 1:] -= 1    
+    edge_idx[u + 1:] -= 1
     res[i] = shortest_dist_bfs(n, g, edge_idx, 0)[-1]
-    edge_idx[u + 1:] += 1    
-  
+    edge_idx[u + 1:] += 1
+
   inf = 1 << 60
   res[res == inf] = -1
   ans = np.empty(m, np.int64)
@@ -123,7 +123,7 @@ def solve(
   for d in ans:
     print(d)
 
-  
+
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())
@@ -133,7 +133,7 @@ def main() -> typing.NoReturn:
   ).reshape(m, 2) - 1
   solve(n, st)
 
-  
+
 
 
 main()

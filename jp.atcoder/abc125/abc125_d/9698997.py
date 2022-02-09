@@ -1,5 +1,5 @@
 import sys
-import numpy as np 
+import numpy as np
 
 n = int(sys.stdin.readline().rstrip())
 a = np.array(sys.stdin.readline().split(), dtype=np.int64)

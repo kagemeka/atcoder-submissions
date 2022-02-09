@@ -15,13 +15,13 @@ class SAIS():
     self.__induce()
     return self.__sa[1:]
 
-  
+
   def __correct_lms_order(
     self,
   ) -> typing.NoReturn:
     is_lms = self.__is_lms
     lms_idx = [i for i in self.__sa if is_lms[i]]
-    a = self.__a 
+    a = self.__a
     n = len(a)
     m = len(lms_idx)
     na = [-1] * n
@@ -31,7 +31,7 @@ class SAIS():
       for d in range(n):
         j_is_lms = is_lms[j + d]
         k_is_lms = is_lms[k + d]
-        if a[j + d] != a[k + d] or j_is_lms ^ k_is_lms: 
+        if a[j + d] != a[k + d] or j_is_lms ^ k_is_lms:
           i += 1; break
         if d > 0 and j_is_lms | k_is_lms: break
       na[k] = i
@@ -43,7 +43,7 @@ class SAIS():
     else:
       lms_order = SAIS()(na)
     self.__lms = [self.__lms[i] for i in lms_order]
-     
+
 
   def __induce(
     self,
@@ -52,7 +52,7 @@ class SAIS():
     self.__set_lms()
     self.__induce_l()
     self.__induce_s()
-   
+
 
   def __induce_l(
     self,
@@ -94,7 +94,7 @@ class SAIS():
     for x in a: b[x] += 1
     self.__b = b
 
-  
+
   def __preprocess(
     self,
   ) -> typing.NoReturn:
@@ -110,7 +110,7 @@ class SAIS():
     is_s = [True] * n
     for i in range(n - 2, -1, -1):
       is_s[i] = (
-        is_s[i + 1] if a[i] == a[i + 1] else 
+        is_s[i + 1] if a[i] == a[i + 1] else
         a[i] < a[i + 1]
       )
 
@@ -118,7 +118,7 @@ class SAIS():
     lms = [i for i in range(n) if is_lms[i]]
 
     self.__is_s = is_s
-    self.__is_lms = is_lms 
+    self.__is_lms = is_lms
     self.__lms = lms
     self.__make_bucket()
 
@@ -146,7 +146,7 @@ class Kasai():
     assert len(sa) == n
     rank = [-1] * n
     for i, x in enumerate(sa): rank[x] = i
-    h, l = [0] * n, 0 
+    h, l = [0] * n, 0
     for i in range(n):
       if l > 0: l -= 1
       r = rank[i]
@@ -160,7 +160,7 @@ class Kasai():
 
 
 
-@dataclasses.dataclass 
+@dataclasses.dataclass
 class Node():
   height: int
   length: int
@@ -174,7 +174,7 @@ def solve(
   s = [ord(x) - ord('a') + 1 for x in s]
   sa = SAIS()(s)
   lcp = Kasai()(s, sa)[1:]
-  
+
   a = list(range(n, 0, -1))
   for i in range(2):
     s = 0

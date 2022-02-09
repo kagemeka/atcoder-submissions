@@ -1,12 +1,12 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 @nb.njit((nb.i8[:, :], ), cache=True)
 def solve(xy: np.ndarray) -> typing.NoReturn:
-  x, y = xy.T 
+  x, y = xy.T
   x.sort()
   y.sort()
   cand = np.array([
@@ -19,7 +19,7 @@ def solve(xy: np.ndarray) -> typing.NoReturn:
   ])
   cand.sort()
   print(cand[-2])
-  
+
 
 def main() -> typing.NoReturn:
   n = int(input())

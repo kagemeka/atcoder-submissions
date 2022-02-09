@@ -8,14 +8,14 @@ def main():
     for l, r in lr:
         cnt[l-1] += 1
         cnt[r] -= 1
-    
+
     for i in range(n):
         cnt[i+1] += cnt[i]
-    
+
     res = 0
     for i in range(n):
         res += (cnt[i] == m) & 1
-    
+
     return res
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -8,7 +8,7 @@ def main() -> typing.NoReturn:
     for i in range(n):
         if i - prev[a[i]] > m:
             print(a[i])
-            return 
+            return
         prev[a[i]] = i
     print(n)
 

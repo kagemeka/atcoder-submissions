@@ -31,6 +31,6 @@ def main():
   res -= (a[:n-(k-1)] * choose(np.arange(n-1, k-2, -1), k-1) % MOD).sum() % MOD
   res %= MOD
   print(res)
-    
+
 if __name__ == '__main__':
   main()

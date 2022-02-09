@@ -1,5 +1,5 @@
-import typing 
-import bisect 
+import typing
+import bisect
 
 def main() -> typing.NoReturn:
     n, k = map(int, input().split())
@@ -21,20 +21,20 @@ def main() -> typing.NoReturn:
         # answer is negative.
 
         def possible(x: int) -> bool:
-            cnt = 0 
+            cnt = 0
             # cnt >= k -> ok
-            i = 0 
+            i = 0
             for y in pos:
                 # y * z <= x
                 # z <= x // y
                 while i < len(neg) and neg[i] <= x // y: i += 1
-                cnt += i 
+                cnt += i
             return cnt >= k
 
 
         def binary_search() -> int:
             lo, hi = -inf, -1 # ng, ok
-            
+
             while hi - lo > 1:
                 x = (lo + hi) // 2
                 if possible(x): hi = x
@@ -42,23 +42,23 @@ def main() -> typing.NoReturn:
             return hi
 
         print(binary_search())
-        return 
-    
+        return
+
     s += zero_cnt * (len(neg) + len(pos)) + zero_cnt * (zero_cnt - 1) // 2
     if s >= k:
         # answer is 0
         print(0)
-        return 
-    
+        return
+
     # answer is positive
     k -= s
-    
+
     neg.reverse()
     neg = [-x for x in neg]
 
     def count(a: typing.List[int], x: int) -> int:
         n = len(a)
-        cnt = 0 
+        cnt = 0
         i = -1
         for j in range(1, n):
             if i == j - 2: i += 1
@@ -66,10 +66,10 @@ def main() -> typing.NoReturn:
             # y * z <= x
             while i >= 0 and a[i] > x // y: i -= 1
             cnt += i + 1
-        return cnt 
-    
+        return cnt
+
     def possible(x: int) -> bool:
-        return count(pos, x) + count(neg, x) >= k 
+        return count(pos, x) + count(neg, x) >= k
 
 
     def binary_search():
@@ -81,6 +81,6 @@ def main() -> typing.NoReturn:
         return hi
     print(binary_search())
 
-    
-    
+
+
 main()

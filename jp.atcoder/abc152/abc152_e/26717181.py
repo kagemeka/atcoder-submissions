@@ -1,7 +1,7 @@
-import typing 
-import sys 
+import typing
+import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 
@@ -12,7 +12,7 @@ def gpf(n: int) -> np.ndarray:
     i = 0
     while i * i < n - 1:
         i += 1
-        if a[i] == i: a[i::i] = i 
+        if a[i] == i: a[i::i] = i
     return a
 
 
@@ -21,7 +21,7 @@ def prime_factorize_gpf(n: int, gpf: np.ndarray) -> np.ndarray:
     prime, cnt = [-1], [-1]
     while n > 1:
         p = gpf[n]
-        n //= p 
+        n //= p
         if prime[-1] == p:
             cnt[-1] += 1
             continue
@@ -30,7 +30,7 @@ def prime_factorize_gpf(n: int, gpf: np.ndarray) -> np.ndarray:
     return np.vstack((np.array(prime), np.array(cnt))).T[1:]
 
 
-@nb.njit 
+@nb.njit
 def pow_recurse(mod: int, x: int, n: int) -> int:
     if n == 0: return 1
     y = pow_recurse(mod, x, n >> 1)
@@ -50,11 +50,11 @@ def factorial(mod: int, n: int) -> np.ndarray:
     cumprod(mod, a)
     return a
 
-@nb.njit 
+@nb.njit
 def inverse_fermat(p: int, n: int) -> int:
     return pow_recurse(p, n, p - 2)
 
-@nb.njit 
+@nb.njit
 def factorial_inverse(p: int, n: int) -> np.ndarray:
     a = np.arange(1, n + 1)
     a[-1] = inverse_fermat(p, factorial(p, n)[-1])
@@ -62,7 +62,7 @@ def factorial_inverse(p: int, n: int) -> np.ndarray:
     return a
 
 
-@nb.njit 
+@nb.njit
 def inverse_table(mod: int, n: int) -> np.ndarray:
     a = factorial_inverse(mod, n)
     a[1:] *= factorial(mod, n - 1)
@@ -81,11 +81,11 @@ def solve(a: np.ndarray) -> typing.NoReturn:
         for i in range(len(f)):
             p, c = f[i]
             b[p] = max(b[p], c)
-    
+
     l = 1
     for i in np.flatnonzero(b):
         l = l * pow_recurse(mod, i, b[i]) % mod
-    
+
     inv = inverse_table(mod, m)
     s = inv[a].sum() % mod
     print(l * s % mod)

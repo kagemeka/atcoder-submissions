@@ -11,12 +11,12 @@ import re
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
     n = int(sys.stdin.readline().rstrip())
     print(n ** 3)
-    
+
 if __name__ == "__main__":
     main()

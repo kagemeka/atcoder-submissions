@@ -1,6 +1,6 @@
-import typing 
+import typing
 import bisect
-import sys 
+import sys
 
 sys.setrecursionlimit(1 << 20)
 
@@ -15,7 +15,7 @@ def main() -> typing.NoReturn:
         v -= 1
         g[u].append(v)
         g[v].append(u)
-    
+
 
     # DFS
     # share LIS array globally for memory saving.
@@ -34,11 +34,8 @@ def main() -> typing.NoReturn:
             if v == p: continue
             dfs(v, u)
         lis[i] = x
-    
+
     dfs(0, -1)
     print(*res, sep='\n')
 
 main()
-
-            
-

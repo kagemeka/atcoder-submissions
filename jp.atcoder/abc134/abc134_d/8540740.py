@@ -9,7 +9,7 @@ import sys
 # import operator as op
 # import re
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n, *a = [int(x) for x in sys.stdin.read().split()]
@@ -26,7 +26,7 @@ def main():
         else:
             if count % 2 == 1:
                 in_or_not[i] = 1
-    
+
 
     print(in_or_not.count(1))
     for i in range(1, n+1):

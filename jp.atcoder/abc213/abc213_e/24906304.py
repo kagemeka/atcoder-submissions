@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 import numpy as np
 
@@ -23,15 +23,15 @@ def solve(
     (0, -1),
     (0, 1),
     (1, 0),
-  )  
+  )
 
   def on_grid(u):
     i, j = u
     return (
-      0 <= i < h and 
-      0 <= j < w 
+      0 <= i < h and
+      0 <= j < w
     )
-  
+
   q = np.empty(
     (1 << 20, 3),
     dtype=np.int64,
@@ -41,8 +41,8 @@ def solve(
     tmp = q[i].copy()
     q[i] = q[j]
     q[j] = tmp
-  
-  
+
+
   def push(x):
     i = qn
     q[i] = x
@@ -52,7 +52,7 @@ def solve(
         break
       swap(i, j)
       i = j
-  
+
 
   def pop():
     n = qn - 1
@@ -91,7 +91,7 @@ def solve(
       dist[v] = dv
       push((dv, *v))
       qn += 1
-    
+
     for di in range(-2, 3):
       for dj in range(-2, 3):
         md = abs(di) + abs(dj)
@@ -132,7 +132,7 @@ if sys.argv[-1] == OJ:
   from numba import i8, b1
   from numba.pycc import CC
   cc = CC('my_module')
-  fn = solve 
+  fn = solve
   sig = (i8, i8, b1[:, :])
   cc.export(
     fn.__name__,

@@ -1,6 +1,6 @@
 # mathematical induction
 
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -14,11 +14,11 @@ def main() -> typing.NoReturn:
     # let this as i.
     # s ^ A_i is also not zero, and there is no j such that s ^ A_i ^ A_j = 0.
     # finally, first player will win if N is odd.
-    # similarly, if s does not appear in A, second player can win even if first player do optimally. 
-    
+    # similarly, if s does not appear in A, second player can win even if first player do optimally.
+
     n = int(input())
     a = list(map(int, input().split()))
-    s = 0 
+    s = 0
     for x in a:
         s ^= x
     if s in a or n & 1:

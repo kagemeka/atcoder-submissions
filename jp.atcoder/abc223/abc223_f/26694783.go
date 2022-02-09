@@ -1,4 +1,4 @@
-package main 
+package main
 
 
 import (
@@ -21,7 +21,7 @@ func NewStdIO() *StdIO {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Buffer([]byte{}, maxBuffer)
 	scanner.Split(bufio.ScanWords)
-	return &StdIO { 
+	return &StdIO {
 		scanner: scanner,
 		writer: bufio.NewWriter(os.Stdout),
 	}
@@ -71,7 +71,7 @@ func NewSegmentTree(m Monoid, a []interface{}) *SegmentTree {
 	for i := 0; i < n << 1; i++ { data[i] = m.E() }
 	for i := 0; i < size; i++ { data[n + i] = a[i] }
 	seg := &SegmentTree{m, size, n, data}
-	for i := n - 1; i > 0; i-- { seg.merge(i) } 
+	for i := n - 1; i > 0; i-- { seg.merge(i) }
 	return seg
 }
 
@@ -80,9 +80,9 @@ func (seg *SegmentTree) merge(i int) {
 }
 
 func (seg *SegmentTree) Set(i int, x interface{}) {
-	// 0 <= i < size  
+	// 0 <= i < size
 	i += seg.n
-	seg.data[i] = x	
+	seg.data[i] = x
 	for i > 1 { i >>= 1; seg.merge(i) }
 }
 
@@ -107,7 +107,7 @@ func (seg *SegmentTree) MaxRight(is_ok func(interface{}) bool, l int) int {
 			v = seg.m.Op(v, seg.data[i])
 			i++
 			if i & -i == i { return seg.size }
-			continue 
+			continue
 		}
 		for i < seg.n {
 			i <<= 1
@@ -116,15 +116,15 @@ func (seg *SegmentTree) MaxRight(is_ok func(interface{}) bool, l int) int {
 			v = seg.m.Op(v, seg.data[i])
 		}
 		return i - seg.n
-	}	
+	}
 }
 
 
 func Min(a ...int) int {
-	// len(a) > 0 
+	// len(a) > 0
 	mn := a[0]
 	for _, x := range a { if x < mn { mn = x } }
-	return mn 
+	return mn
 }
 
 

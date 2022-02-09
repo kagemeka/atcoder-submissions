@@ -1,6 +1,6 @@
-import typing 
+import typing
 import numpy as np
-import sys 
+import sys
 
 
 def main() -> typing.NoReturn:
@@ -18,4 +18,3 @@ def main() -> typing.NoReturn:
 
 
 main()
-    

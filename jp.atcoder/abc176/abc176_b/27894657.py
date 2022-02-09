@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
@@ -6,4 +6,3 @@ def main() -> typing.NoReturn:
     print('Yes' if sum(n) % 9 == 0 else 'No')
 
 main()
-    

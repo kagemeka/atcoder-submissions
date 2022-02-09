@@ -1,4 +1,4 @@
-import typing 
+import typing
 from collections import (
   Counter,
 )
@@ -22,7 +22,7 @@ def solve(
         if i + j + k > n:
           continue
         s = i + j + k
-        if s == 0: continue 
+        if s == 0: continue
         e = n
         if i > 0:
           e += i * dp[i - 1][j + 1][k]
@@ -30,11 +30,11 @@ def solve(
           e += j * dp[i][j - 1][k + 1]
         if k > 0:
           e += k * dp[i][j][k - 1]
-        dp[i][j][k] = e / s 
-  
+        dp[i][j][k] = e / s
+
   c = Counter(a)
   print(dp[c[3]][c[2]][c[1]])
-  
+
 
 
 def main() -> typing.NoReturn:

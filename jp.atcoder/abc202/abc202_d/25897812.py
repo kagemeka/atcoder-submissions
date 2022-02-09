@@ -1,7 +1,7 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
 
 
@@ -35,7 +35,7 @@ def solve(a: int, b: int, k: int) -> typing.NoReturn:
       a -= 1
       res[i] = 0
     i += 1
-  return res 
+  return res
 
 
 def main() -> typing.NoReturn:

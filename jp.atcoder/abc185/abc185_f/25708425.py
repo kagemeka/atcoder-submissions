@@ -1,10 +1,10 @@
-from __future__ import annotations 
-import typing 
+from __future__ import annotations
+import typing
 
 
 
 class FenwickTree():
-  @classmethod 
+  @classmethod
   def from_array(
     cls,
     a: typing.List[int],
@@ -25,7 +25,7 @@ class FenwickTree():
     n: int,
   ) -> typing.NoReturn:
     self.__a = [0] * (n + 1)
-  
+
 
   def __setitem__(
     self,
@@ -34,15 +34,15 @@ class FenwickTree():
   ) -> typing.NoReturn:
     a = self.__a
     while i < len(a):
-      a[i] ^= x 
+      a[i] ^= x
       i += i & -i
-  
+
 
   def __getitem__(
     self,
     i: int,
   ) -> int:
-    v = 0 
+    v = 0
     while i > 0:
       v ^= self.__a[i]
       i -= i & -i
@@ -59,13 +59,13 @@ def solve(
   res = []
   for t, x, y in txy:
     if t == 1:
-      fw[x] = y 
+      fw[x] = y
     else:
       res.append(fw[y] ^ fw[x - 1])
   print(*res, sep='\n')
 
 
-import sys 
+import sys
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())

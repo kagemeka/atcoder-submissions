@@ -24,7 +24,7 @@ def count(border):
                 b = floor(border / l)
                 j = bi_r(a, b)
                 cnt += max(j - i - 1, 0)
-    
+
     return cnt
 
 def main():

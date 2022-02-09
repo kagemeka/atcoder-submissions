@@ -1,4 +1,4 @@
-import typing 
+import typing
 import sys
 
 def main() -> typing.NoReturn:
@@ -15,6 +15,6 @@ def main() -> typing.NoReturn:
             dp[i + 1][1] = 2 * dp[i][1] + dp[i][0]
             dp[i + 1][0] = dp[i][0]
     print(dp[-1][1])
-            
+
 
 main()

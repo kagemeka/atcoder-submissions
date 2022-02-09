@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 
@@ -10,7 +10,7 @@ class FindDivisors():
     a = []
     i = 1
     while i * i < n:
-      if n % i: 
+      if n % i:
         i += 1
         continue
       a.append(i)
@@ -61,7 +61,7 @@ class SieveOfEratorthenes():
       for j in range(i, n, i):
         if s[j] == j: s[j] = i
     return s
-    
+
 
 
 class PrimeNumbers():
@@ -70,7 +70,7 @@ class PrimeNumbers():
     i: int,
   ) -> int:
     return self.__a[i]
-  
+
 
   def __init__(
     self,
@@ -83,12 +83,12 @@ class PrimeNumbers():
       if a[i]
     )
 
-  
+
   def __iter__(
     self,
   ) -> typing.Iterator[int]:
     return iter(self.__a)
-  
+
 
   def __repr__(self) -> str:
     return f'{self.__a}'
@@ -109,7 +109,7 @@ class EulerTotient():
     if n > 1:
       c = c // n * (n - 1)
     return c
-    
+
 
   def __init__(
     self,
@@ -123,7 +123,7 @@ def solve(
   p: int,
 ) -> typing.NoReturn:
   n = p - 1
-  divs = FindDivisors()(n)  
+  divs = FindDivisors()(n)
   euler = EulerTotient(1 << 20)
   mod = 998244353
   c = 1

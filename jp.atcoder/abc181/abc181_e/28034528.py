@@ -1,9 +1,9 @@
-import typing 
+import typing
 
 
 def main() -> typing.NoReturn:
     n, m = map(int, input().split())
-    
+
     h = list(map(int, input().split()))
     w = list(map(int, input().split()))
     h.sort()
@@ -17,7 +17,7 @@ def main() -> typing.NoReturn:
         left_sum[i] = h[i] - h[i - 1]
     for i in range(1, n - 2, 2):
         left_sum[i + 2] += left_sum[i]
-    
+
     right_sum = [inf] * n
     for i in range(n - 2, -1, -2):
         right_sum[i] = h[i + 1] - h[i]
@@ -26,7 +26,7 @@ def main() -> typing.NoReturn:
     j = 0
     for i in range(n):
         # pairing with i-th child.
-        # teacher's height is w_j 
+        # teacher's height is w_j
         d = abs(w[j] - h[i])
         while w[j] < h[i] and j + 1 < n:
             j += 1
@@ -47,4 +47,3 @@ def main() -> typing.NoReturn:
     print(mn)
 
 main()
-            

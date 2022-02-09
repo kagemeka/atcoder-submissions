@@ -1,7 +1,7 @@
-import typing 
+import typing
 
-    
-    
+
+
 def main() -> typing.NoReturn:
     n = int(input())
     a = list(map(int, input()))
@@ -15,7 +15,7 @@ def main() -> typing.NoReturn:
         cnt2[i * 2] = cnt2[i] + 1
 
     for i in range(k - 1):
-        cnt2[i + 1] += cnt2[i] 
+        cnt2[i + 1] += cnt2[i]
 
     def is_odd(a: typing.List[int]) -> bool:
         n = len(a)
@@ -29,14 +29,14 @@ def main() -> typing.NoReturn:
 
     if is_odd(a):
         print(1)
-        return 
+        return
     if 1 in a:
         print(0)
-        return 
+        return
     a = [x // 2 for x in a]
     if is_odd(a):
         print(2)
     else:
-        print(0)    
+        print(0)
 
 main()

@@ -10,7 +10,7 @@ powmod = [None] * 100
 powmod[0] = 1
 for i in range(60):
     powmod[i+1] = powmod[i] * 2 % MOD
-    
+
 def main():
     b = a >> np.arange(60).reshape(-1, 1) & 1
     x = np.count_nonzero(b, axis=1)

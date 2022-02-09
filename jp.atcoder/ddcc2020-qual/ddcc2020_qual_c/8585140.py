@@ -27,21 +27,21 @@ def main():
         if res[i][1] == 1:
             count = i
             break
-    
+
     for i in range(1, count):
         res[i] = res[count]
 
     for i in range(1, H):
         if res[i+1][1] == 0:
             res[i+1] = res[i]
-    
+
     for i in range(1, H+1):
         print(' '.join(map(str, res[i][1:W+1])))
-    
 
 
 
-        
+
+
 
 if __name__ == '__main__':
     main()

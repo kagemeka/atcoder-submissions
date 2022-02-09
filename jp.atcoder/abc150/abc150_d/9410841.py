@@ -29,9 +29,9 @@ def main():
                 if a[i] & 1 == 0:
                     return 0
             break
-        
+
     l = reduce(lcm, a, a[0]) * res
-    
+
     return m // l - m // (l * 2)
 
 if __name__ == '__main__':

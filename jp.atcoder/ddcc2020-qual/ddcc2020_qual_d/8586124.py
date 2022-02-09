@@ -14,7 +14,7 @@ def main():
     while len(s) >= 2:
         s = str(int(s[0]) + int(s[1])) + s[2:]
         count += 1
-    
+
     print(count)
 
 

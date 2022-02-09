@@ -1,4 +1,4 @@
-import typing 
+import typing
 import heapq
 
 
@@ -12,21 +12,21 @@ class FIFOQueue():
   ) -> typing.NoReturn:
     self.__a = []
     self.__i = 0
-  
+
 
   def append(
     self,
     v: typing.Any,
   ) -> typing.NoReturn:
     self.__a.append(v)
-  
+
 
   def pop(
     self,
   ) -> typing.Any:
     v = self.__a[self.__i]
     self.__i += 1
-    return v 
+    return v
 
 
 def main() -> typing.NoReturn:

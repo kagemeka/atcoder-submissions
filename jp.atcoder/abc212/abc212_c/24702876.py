@@ -1,4 +1,4 @@
-import typing 
+import typing
 import numpy as np
 import sys
 
@@ -18,8 +18,8 @@ def main() -> typing.NoReturn:
     dtype=np.int64,
   )
   b = np.pad(
-    b, 
-    1, 
+    b,
+    1,
     constant_values=(
       -inf, inf,
     ),

@@ -4,7 +4,7 @@ def main():
     input().split(),
   )
   c = min(n, a)
-  s = c * x + (n - c) * y 
+  s = c * x + (n - c) * y
   print(s)
 
 main()

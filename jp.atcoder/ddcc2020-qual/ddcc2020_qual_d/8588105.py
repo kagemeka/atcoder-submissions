@@ -19,7 +19,7 @@ def main():
                 count += 1
         total += count
         res.append(s)
-    
+
 
     s = res[0]
     for i in range(1, m):
@@ -29,7 +29,7 @@ def main():
             s = str(int(s[0]) + int(s[1]))
             total += 1
     print(total)
-    
+
 
 if __name__ == '__main__':
     main()

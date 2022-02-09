@@ -1,4 +1,4 @@
-import typing 
+import typing
 
 
 def f(x: int) -> int:
@@ -7,7 +7,7 @@ def f(x: int) -> int:
 def main() -> None:
     t = int(input())
     print(f(f(f(t) + t) + f(f(t))))
-    
+
 
 
 main()

@@ -1,9 +1,9 @@
-import typing 
-import sys 
-import numpy as np 
-import numba as nb 
+import typing
+import sys
+import numpy as np
+import numba as nb
 
-@nb.njit 
+@nb.njit
 def bit_length(n: int) -> int:
   l = 0
   while 1 << l <= n: l += 1
@@ -155,7 +155,7 @@ def seg_update(
     assert 0 <= i < n # 0 <= i < size actually
     i += n
     h = bit_length(n)
-    for j in range(h, 0, -1): 
+    for j in range(h, 0, -1):
         __seg_propagate(op_f, e_f, map_, seg, lazy, i >> j)
     seg[i] = x
     for j in range(1, h + 1): __seg_merge(op_s, seg, i >> j)

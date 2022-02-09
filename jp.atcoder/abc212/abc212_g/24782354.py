@@ -4,7 +4,7 @@ import numba as nb
 
 
 
-@nb.njit 
+@nb.njit
 def find_divisors(
   n: int,
 ) -> np.array:
@@ -14,7 +14,7 @@ def find_divisors(
   i = np.hstack((i, n // i))
   return np.unique(i)
 
-  
+
 
 @nb.njit
 def euler_totient(
@@ -27,7 +27,7 @@ def euler_totient(
       p += 1
       continue
     c = c // p * (p - 1)
-    while not n % p: n //= p 
+    while not n % p: n //= p
   if n > 1:
     c = c // n * (n - 1)
   return c
@@ -50,11 +50,11 @@ def solve(
     ) % mod * d % mod
     s %= mod
   print(s)
- 
+
 
 def main() -> typing.NoReturn:
   p = int(input())
   solve(p)
-   
+
 
 main()

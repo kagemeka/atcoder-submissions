@@ -11,5 +11,5 @@ int main() {
   for (int i = 0; i < n - 1; i++) h[i+1] += h[i];
   cout << h[n-1] - h[0] << '\n';
   return 0;
-  
+
 }

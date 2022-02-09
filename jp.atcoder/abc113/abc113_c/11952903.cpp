@@ -27,7 +27,7 @@ int main() {
     int p = get<0>(t);
     int i = get<2>(t);
     (p == prev) ? j++ : j = 1;
-    res[i] = create_id(p, j); 
+    res[i] = create_id(p, j);
     prev = p;
   }
   for (string &id : res) {

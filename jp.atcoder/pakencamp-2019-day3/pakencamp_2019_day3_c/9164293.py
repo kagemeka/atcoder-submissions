@@ -12,7 +12,7 @@ def main():
             total_score = np.maximum(a[:, i], a[:, j]).sum()
             res = max(res, total_score)
     return res
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

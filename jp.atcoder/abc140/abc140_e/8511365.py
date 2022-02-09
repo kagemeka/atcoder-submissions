@@ -11,12 +11,12 @@ import sys
 # import heapq
 # import array
 # from scipy.misc import comb # (default: exact=False)
-# import numpy as np 
+# import numpy as np
 
 
 def main():
     n, *p = [int(x) for x in sys.stdin.read().split()]
-    
+
     ans = 0
     for l in range(n-1):
         if p[l] < p[l+1]:

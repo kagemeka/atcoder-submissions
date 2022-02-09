@@ -26,12 +26,12 @@ def main():
                 res1 += 2 ** j * (n - bits[j])
             else:
                 res1 += 2 ** j * bits[j]
-            
+
             if x_bit[j] & bl[j]:
                 res2 += 2 ** j * (n - bits[j])
             else:
                 res2 += 2 ** j * bits[j]
-            
+
         if res2 > res1:
             for j in range(i):
                 k_bit[j] |= 1
@@ -51,7 +51,7 @@ def main():
             res += 2 ** i * (n - bits[i])
         else:
             res += 2 ** i * bits[i]
-    
+
     return res
 
 if __name__ == '__main__':

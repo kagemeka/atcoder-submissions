@@ -10,7 +10,7 @@ def main():
     for a, b in ab:
         G[a].append(b)
         G[b].append(a)
-    
+
     root = 1
     q = deque()
     q.append(root)
@@ -36,7 +36,7 @@ def main():
             res.append(color[b])
         else:
             res.append(color[a])
-    
+
     k = max(color)
     print(k)
     print('\n'.join(map(str, res)))

@@ -1,9 +1,9 @@
 import typing
-import sys 
+import sys
 
 
 class BitCnt():
-  
+
   def __call__(
     self,
     n: int,
@@ -14,14 +14,14 @@ class BitCnt():
     c = self(n // 2) + n % 2
     a[n] = c
     return c
-  
+
 
   def __init__(
     self,
   ) -> typing.NoReturn:
     self.__a = dict()
 
-  
+
 def solve(
   n: int,
   a: typing.List[int],
@@ -38,9 +38,9 @@ def solve(
         continue
       dp[s] += dp[s - (1 << i)]
       dp[s] %= mod
-  
+
   print(dp[-1])
-    
+
 
 
 def main() -> typing.NoReturn:

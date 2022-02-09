@@ -9,7 +9,7 @@ def main():
     res = defaultdict(int)
     for a in A:
         res[a] += 1
-    
+
     for b, c in BC:
         res[c] += b
 
@@ -22,7 +22,7 @@ def main():
         else:
             ans += v * r
             break
-    
+
     return ans
 
 if __name__ == '__main__':

@@ -10,7 +10,7 @@ def main():
     dp = np.zeros(h+1, dtype=np.int64)
     for i in range(1, h+1):
         dp[i] = np.amin(dp[np.maximum(i-a, 0)] + b)
-        
+
     return dp[h]
 
 if __name__ == '__main__':

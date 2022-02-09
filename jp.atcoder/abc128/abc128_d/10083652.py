@@ -16,7 +16,7 @@ def main():
             s -= sum(neg[:(k-(i+j))])
             res = max(res, s)
     return res
-    
+
 if __name__ == '__main__':
     ans = main()
     print(ans)

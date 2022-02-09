@@ -18,9 +18,9 @@ def main():
             u += 1
             v = u + 1
 
-    res = [[m]] + edges 
+    res = [[m]] + edges
     return res
-    
+
 if __name__ == '__main__':
     ans = main()
     for a in ans:

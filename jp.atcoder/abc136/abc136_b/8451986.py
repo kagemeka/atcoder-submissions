@@ -8,7 +8,7 @@ import math
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float
-# import numpy as np 
+# import numpy as np
 
 def main():
     n = int(sys.stdin.readline().rstrip())
@@ -18,10 +18,10 @@ def main():
         ans = n
     else:
         ans = 10 ** digits - 1
-        
+
     for i in range(1, digits, 2):
         ans -= 10 ** (i+1) - 1 - 10 ** i + 1
-    
+
     print(ans)
 
 if __name__ == "__main__":

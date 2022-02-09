@@ -1,7 +1,7 @@
-import typing 
+import typing
 import sys
 import numpy as np
-import numba as nb 
+import numba as nb
 
 
 @nb.njit
@@ -16,7 +16,7 @@ def fw_set(
   x: int,
 ) -> typing.NoReturn:
   while i < len(fw):
-    fw[i] ^= x 
+    fw[i] ^= x
     i += i & -i
 
 
@@ -25,14 +25,14 @@ def fw_get(
   fw: np.ndarray,
   i: int,
 ) -> int:
-  v = 0 
+  v = 0
   while i > 0:
     v ^= fw[i]
     i -= i & -i
-  return v 
-  
+  return v
 
-@nb.njit 
+
+@nb.njit
 def fw_get_range(
   fw: np.ndarray,
   l: int,
@@ -60,7 +60,7 @@ def solve(
       fw_set(fw, x, y)
     else:
       print(fw_get_range(fw, x, y))
-  
+
 
 
 def main() -> typing.NoReturn:

@@ -15,7 +15,7 @@ private:
 public:
   Op op;
   Id e;
-  bool commutative; 
+  bool commutative;
 };
 
 
@@ -43,7 +43,7 @@ private:
   std::vector<F> lazy;
 
   void merge(int i) { data[i] = c.s.op(data[i << 1], data[i << 1 | 1]); }
-  
+
   void apply(int i, F f) {
     data[i] = c.map(f, data[i]);
     if (i < n) lazy[i] = c.f.op(f, lazy[i]);
@@ -54,7 +54,7 @@ private:
     apply(i << 1 | 1, lazy[i]);
     lazy[i] = c.f.e();
   }
-  
+
 
 public:
   SegmentTreeLazy(C c, const std::vector<S> &a) : c(c), size((int)a.size()) {
@@ -118,7 +118,7 @@ public:
 int main() {
   std::ios::sync_with_stdio(false);
   std::cin.tie(nullptr);
-  
+
   int n, q;
   std::string s;
   std::cin >> n >> q >> s;

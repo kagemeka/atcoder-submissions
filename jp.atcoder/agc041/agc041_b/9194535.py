@@ -8,7 +8,7 @@ def possible(i):
     if i < p:
         return True
     else:
-        every_ok = p - 1 + n - i 
+        every_ok = p - 1 + n - i
         if every_ok >= v:
             if score >= a[p-1]:
                 return True
@@ -34,7 +34,7 @@ def main():
             lo = i
         else:
             hi = i
-        
+
     return lo + 1
 
 if __name__ == '__main__':

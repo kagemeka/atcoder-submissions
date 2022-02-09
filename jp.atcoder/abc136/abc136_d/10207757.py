@@ -13,7 +13,7 @@ def main():
             if s[i+1] == 'R':
                 lg = i
                 l.append((ls, lg))
-    
+
     res = [0] * n
     j = 0
     ls, lg = l[j]
@@ -28,7 +28,7 @@ def main():
             res[ls] += 1
 
     return res
-    
+
 if __name__ == '__main__':
     ans = main()
     print(*ans, sep=' ')
