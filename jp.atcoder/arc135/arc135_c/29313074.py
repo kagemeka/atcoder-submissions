@@ -19,7 +19,7 @@ def main() -> None:
                 continue
             delta += (n - 2 * bit_count[i]) * (1 << i)
         mx = max(delta, mx)
-    
+
     s = sum(a)
     if mx >= 0:
         s += mx
