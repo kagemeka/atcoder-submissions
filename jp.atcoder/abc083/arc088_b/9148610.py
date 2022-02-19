@@ -3,13 +3,14 @@ import sys
 s = sys.stdin.readline().rstrip()
 n = len(s)
 
+
 def main():
     m = n // 2
     if n & 1:
         l = s[m::-1]
         r = s[m:]
     else:
-        l = s[m-1::-1]
+        l = s[m - 1 :: -1]
         r = s[m:]
     base = l[0]
 
@@ -23,6 +24,7 @@ def main():
             break
     return cnt
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

@@ -1,7 +1,5 @@
-import typing
 import sys
-
-
+import typing
 
 
 def solve(

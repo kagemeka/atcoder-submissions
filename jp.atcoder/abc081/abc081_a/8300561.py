@@ -1,4 +1,5 @@
 import sys
+
 # read = sys.stdin.read
 # readline = sys.stdin.readline
 # readlines = sys.stdin.readlines
@@ -10,10 +11,10 @@ import sys
 # import itertools
 # import statistics
 
+
 def main():
     s = sys.stdin.readline().rstrip()
-    print(s.count('1'))
-
+    print(s.count("1"))
 
 
 if __name__ == "__main__":

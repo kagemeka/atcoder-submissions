@@ -1,8 +1,9 @@
 import sys
-from itertools import accumulate
 from collections import defaultdict
+from itertools import accumulate
 
 n, m, *a = map(int, sys.stdin.read().split())
+
 
 def main():
     cumsum = list(accumulate(a))
@@ -17,6 +18,7 @@ def main():
 
     return res
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

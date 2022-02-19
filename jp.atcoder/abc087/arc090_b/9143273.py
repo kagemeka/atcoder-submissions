@@ -1,10 +1,11 @@
 import sys
 
 n, m = map(int, sys.stdin.readline().split())
-graph = [[] for _ in range(n+1)]
+graph = [[] for _ in range(n + 1)]
 for l, r, d in zip(*[map(int, sys.stdin.read().split())] * 3):
     graph[l].append((r, d))
     graph[r].append((l, -d))
+
 
 def main():
     dist = [None] * (n + 1)
@@ -22,9 +23,10 @@ def main():
                     dist[y] = dist[x] + d
                     stack.append(y)
                 elif dist[y] != dist[x] + d:
-                    return 'No'
-    return 'Yes'
+                    return "No"
+    return "Yes"
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

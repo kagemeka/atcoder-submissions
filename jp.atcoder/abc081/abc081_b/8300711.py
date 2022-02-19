@@ -1,4 +1,5 @@
 import sys
+
 # import collections
 # import math
 # import string
@@ -6,6 +7,7 @@ import sys
 # import re
 # import itertools
 # import statistics
+
 
 def main():
     n, *numbers = (int(x) for x in sys.stdin.read().split())
@@ -21,6 +23,7 @@ def main():
             count += 1
 
     print(count)
+
 
 if __name__ == "__main__":
     # execute only if run as a script

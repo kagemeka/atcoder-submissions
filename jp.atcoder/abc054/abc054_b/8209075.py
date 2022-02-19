@@ -15,10 +15,10 @@ for a in range(n - m + 1):
     flag = True
     while flag:
         for b in range(m):
-            if dup_b[b] in dup_a[b+a]:
+            if dup_b[b] in dup_a[b + a]:
                 if b == 0:
                     index = dup_a[a].index(dup_b[0])
-                current_index = dup_a[b+a].index(dup_b[b])
+                current_index = dup_a[b + a].index(dup_b[b])
                 if current_index == index:
                     continue
                 elif current_index > index:
@@ -29,11 +29,11 @@ for a in range(n - m + 1):
                     for line in dup_a:
                         del line[:index]
                     break
-            else:   # if not substring in string.
+            else:  # if not substring in string.
                 flag = False
                 break
 
-        else: # if not loop broken.
+        else:  # if not loop broken.
             ans = "Yes"
             break
 

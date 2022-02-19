@@ -1,5 +1,6 @@
-import typing
 import collections
+import typing
+
 
 def main() -> typing.NoReturn:
     n = int(input())

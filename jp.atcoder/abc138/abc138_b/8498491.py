@@ -1,11 +1,13 @@
 # 2019-11-17 10:52:21(JST)
 import sys
+
 # import collections
 # import math
 # from string import ascii_lowercase, ascii_uppercase, digits
 # from bisect import bisect_left as bi_l, bisect_right as bi_r
 # import itertools
 from functools import reduce
+
 # import operator as op
 # import re
 # import heapq

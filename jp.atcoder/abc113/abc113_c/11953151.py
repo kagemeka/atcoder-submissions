@@ -1,5 +1,6 @@
 import sys
 
+
 def fill(s): while len(s) < 6: s = '0' + s; return s
 def create_id(p, o): return fill(str(p)) + fill(str(o))
 

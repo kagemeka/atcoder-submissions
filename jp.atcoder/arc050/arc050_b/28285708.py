@@ -1,7 +1,6 @@
 import typing
 
 
-
 def main() -> typing.NoReturn:
     # binary search maximum
     r, b = map(int, input().split())

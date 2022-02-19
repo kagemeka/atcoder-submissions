@@ -9,7 +9,7 @@ for i in a:
         excess = i + previous - x
         count += excess
         previous = x - previous
-    else: # if not exceeding x.
+    else:  # if not exceeding x.
         previous = i
 
 print(count)

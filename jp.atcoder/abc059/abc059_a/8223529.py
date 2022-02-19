@@ -1,6 +1,6 @@
 strings = input().split()
 
-acronym = ''
+acronym = ""
 for s in strings:
     acronym += s[0].upper()
 

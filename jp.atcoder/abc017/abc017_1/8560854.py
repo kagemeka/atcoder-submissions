@@ -1,6 +1,7 @@
 # 2019-11-22 22:30:40(JST)
 import sys
 
+
 def main():
     l = map(int, sys.stdin.read().split())
 
@@ -11,5 +12,6 @@ def main():
 
     print(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

@@ -1,7 +1,8 @@
-import typing
-import sys
-import string
 import functools
+import string
+import sys
+import typing
+
 sys.setrecursionlimit(1 << 20)
 
 

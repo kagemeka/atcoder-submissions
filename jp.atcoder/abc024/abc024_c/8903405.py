@@ -1,11 +1,13 @@
 import sys
+
 import numpy as np
 
 I = np.array(sys.stdin.read().split(), dtype=np.int64)
 n, d, k = I[:3]
 I -= 1
-lr = I[3:3+d*2].reshape(d, 2)
-s, t = I[3+d*2:].reshape(k, 2).T
+lr = I[3 : 3 + d * 2].reshape(d, 2)
+s, t = I[3 + d * 2 :].reshape(k, 2).T
+
 
 def main():
 
@@ -24,6 +26,7 @@ def main():
 
     return arrival.astype(np.int64)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
-    print(*ans, sep='\n')
+    print(*ans, sep="\n")

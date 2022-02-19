@@ -1,5 +1,6 @@
 import sys
 
+
 def choose2(x):
     return x * (n - 1) // 2
 

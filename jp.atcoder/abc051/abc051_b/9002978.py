@@ -2,6 +2,7 @@ import sys
 
 k, s = map(int, sys.stdin.readline().split())
 
+
 def main():
     cnt = 0
     for x in range(min(s, k) + 1):
@@ -12,6 +13,7 @@ def main():
             cnt += k + 1 - (t - k)
     return cnt
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

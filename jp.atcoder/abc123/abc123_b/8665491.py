@@ -1,6 +1,8 @@
-import sys
 import math
+import sys
+
 import numpy as np
+
 
 def main():
     dish = np.array(sys.stdin.read().split())

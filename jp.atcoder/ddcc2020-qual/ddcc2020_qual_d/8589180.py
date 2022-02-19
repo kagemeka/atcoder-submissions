@@ -1,7 +1,8 @@
 # 2019-11-23 21:00:35(JST)
-import sys
 import collections
 import math
+import sys
+
 
 def main():
     m = int(sys.stdin.readline().rstrip())

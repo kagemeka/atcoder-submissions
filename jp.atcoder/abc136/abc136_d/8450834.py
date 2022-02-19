@@ -1,5 +1,4 @@
 # 2019-11-16 10:55:08(JST)
-import sys
 # import collections
 # import math
 # from string import ascii_lowercase, ascii_uppercase, digits
@@ -10,6 +9,8 @@ import sys
 # from scipy.misc import comb # float
 # import numpy as np
 import re
+import sys
+
 
 def main():
     # 左がRで右がLとなっている箇所でそれぞれどちらかにあつまる。10^100 は実質無限なので距離が奇数か偶数かで場合わけ

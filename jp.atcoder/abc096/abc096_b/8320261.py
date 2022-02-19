@@ -1,6 +1,7 @@
 #                         author:  kagemeka
 #                         created: 2019-11-07 13:09:56(JST)
 import sys
+
 # import collections
 # import math
 # import string
@@ -11,10 +12,11 @@ import sys
 # import functools
 # import operator
 
+
 def main():
     *n, k = (int(x) for x in sys.stdin.read().split())
     n.sort()
-    total = n[0] + n[1] + n[2] * 2 ** k
+    total = n[0] + n[1] + n[2] * 2**k
     print(total)
 
 

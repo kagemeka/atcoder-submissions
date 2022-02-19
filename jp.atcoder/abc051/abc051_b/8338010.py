@@ -3,6 +3,7 @@
 ### modules
 ## from standard library
 import sys
+
 # import collections
 # import math
 # import string
@@ -17,6 +18,7 @@ import sys
 # import scipy.misc
 # import numpy as np
 
+
 def main():
 
     k, s = (int(i) for i in sys.stdin.readline().split())
@@ -24,10 +26,9 @@ def main():
     count = 0
     for x in range(k + 1):
         if 0 <= s - x <= k:
-            count += s - x  + 1
+            count += s - x + 1
         elif k < s - x <= 2 * k:
             count += k - (s - x - k) + 1
-
 
     print(count)
 

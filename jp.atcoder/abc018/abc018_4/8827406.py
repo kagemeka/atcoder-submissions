@@ -8,6 +8,7 @@ graph = [[0] * (m + 1) for _ in range(n + 1)]
 for x, y, z in xyz:
     graph[x][y] = z
 
+
 def main():
     ans = 0
     for comb in combinations(range(1, n + 1), p):
@@ -20,6 +21,7 @@ def main():
 
     return ans
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

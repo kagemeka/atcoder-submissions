@@ -8,14 +8,14 @@ def main():
     aoki_p = d / c
 
     if takahashi_p == aoki_p:
-        ans = 'DRAW'
+        ans = "DRAW"
     elif takahashi_p > aoki_p:
-        ans = 'TAKAHASHI'
+        ans = "TAKAHASHI"
     elif takahashi_p < aoki_p:
-        ans = 'AOKI'
+        ans = "AOKI"
 
     print(ans)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

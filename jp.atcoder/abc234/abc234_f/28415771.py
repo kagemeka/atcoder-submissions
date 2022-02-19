@@ -1,6 +1,5 @@
-import typing
 import collections
-
+import typing
 
 
 def cumprod(mod: int, a: typing.List[int]) -> typing.List[int]:

@@ -2,6 +2,7 @@ import sys
 
 n, *petals = map(int, sys.stdin.read().split())
 
+
 def main():
 
     cnt = 0
@@ -12,5 +13,6 @@ def main():
 
     print(cnt)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

@@ -1,24 +1,25 @@
 import sys
 
+
 def A():
-  n = int(sys.stdin.readline().rstrip())
-  print(n-1)
+    n = int(sys.stdin.readline().rstrip())
+    print(n - 1)
 
 
 def B():
-  pass
+    pass
 
 
 def C():
-  pass
+    pass
 
 
 def D():
-  pass
+    pass
 
 
 if __name__ == "__main__":
-  A()
-  B()
-  C()
-  D()
+    A()
+    B()
+    C()
+    D()

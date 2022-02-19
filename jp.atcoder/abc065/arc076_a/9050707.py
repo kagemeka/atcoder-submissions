@@ -1,19 +1,22 @@
 import sys
 
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
+
 
 def make_factorial_mod(n, mod):
     fac = [None] * (n + 1)
     fac[0] = 1
     for i in range(n):
-        fac[i+1] = fac[i] * (i + 1) % mod
+        fac[i + 1] = fac[i] * (i + 1) % mod
     return fac
+
 
 fac = make_factorial_mod(10**5, MOD)
 
 n, m = map(int, sys.stdin.readline().split())
 if n < m:
     n, m = m, n
+
 
 def main():
 
@@ -24,6 +27,7 @@ def main():
     else:
         return 0
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

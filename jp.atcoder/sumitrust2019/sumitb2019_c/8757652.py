@@ -1,5 +1,8 @@
 import sys
+
 import numpy as np
+
+
 def main():
     x = int(sys.stdin.readline().rstrip())
 

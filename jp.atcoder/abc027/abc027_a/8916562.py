@@ -2,6 +2,7 @@ import sys
 
 a, b, c = map(int, sys.stdin.readline().split())
 
+
 def main():
     if a == b:
         return c
@@ -10,6 +11,7 @@ def main():
     else:
         return b
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

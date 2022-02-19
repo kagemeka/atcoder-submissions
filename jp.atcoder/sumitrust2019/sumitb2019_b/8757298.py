@@ -1,5 +1,7 @@
 import sys
 from math import ceil, floor
+
+
 def main():
     n = int(sys.stdin.readline().rstrip())
     x = ceil(n * 1.08)

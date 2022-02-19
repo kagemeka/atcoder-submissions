@@ -1,7 +1,7 @@
-import typing
 import sys
-import numpy as np
+import typing
 
+import numpy as np
 
 
 def solve(
@@ -57,7 +57,7 @@ def main() -> typing.NoReturn:
 
 OJ = 'ONLINE_JUDGE'
 if sys.argv[-1] == OJ:
-  from numba import njit, i8
+  from numba import i8, njit
   from numba.pycc import CC
   cc = CC('my_module')
 
@@ -74,4 +74,5 @@ if sys.argv[-1] == OJ:
 
 
 from my_module import solve
+
 main()

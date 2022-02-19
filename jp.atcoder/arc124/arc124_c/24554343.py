@@ -1,5 +1,7 @@
 import typing
+
 import numpy as np
+
 # import numba as nb
 
 
@@ -72,6 +74,8 @@ def solve(
 
 
 import sys
+
+
 def main() -> typing.NoReturn:
   n = int(input())
   a, b = np.array(
@@ -86,7 +90,7 @@ if (
   sys.argv[-1]
   == 'ONLINE_JUDGE'
 ):
-  from numba import njit, i8
+  from numba import i8, njit
 
   divisors = njit(divisors)
   signature = (
@@ -108,4 +112,5 @@ if (
 
 
 from my_module import solve
+
 main()

@@ -1,5 +1,6 @@
 # 2019-11-11 16:07:35(JST)
 import sys
+
 # import collections
 # import math
 # from string import ascii_lowercase, ascii_uppercase, digits

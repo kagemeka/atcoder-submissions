@@ -6,7 +6,7 @@ players = {}
 for i in range(3):
     players[alphabets[i]] = [letter for letter in input()]
 
-first_player = 'A'
+first_player = "A"
 
 next_player = first_player
 while True:

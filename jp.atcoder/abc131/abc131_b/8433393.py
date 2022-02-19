@@ -1,5 +1,4 @@
 # 2019-11-14 20:54:46(JST)
-import sys
 # import collections
 # import math
 # from string import ascii_lowercase, ascii_uppercase, digits
@@ -7,6 +6,8 @@ import sys
 # import itertools
 # from functools import reduce
 import operator as op
+import sys
+
 # from scipy.misc import comb # float
 # import numpy as np
 

@@ -6,6 +6,7 @@ def dijkstra_sparse(
     src: int,
 ) -> typing.List[int]:
     import heapq
+
     n = len(g)
     inf = 1 << 60
     dist = [inf] * n
@@ -13,10 +14,12 @@ def dijkstra_sparse(
     hq = [(0, src)]
     while hq:
         du, u = heapq.heappop(hq)
-        if du > dist[u]: continue
+        if du > dist[u]:
+            continue
         for v, w in g[u]:
             dv = du + w
-            if dv >= dist[v]: continue
+            if dv >= dist[v]:
+                continue
             dist[v] = dv
             heapq.heappush(hq, (dv, v))
     return dist
@@ -37,11 +40,10 @@ def main() -> typing.NoReturn:
         g2[u].append((v, b))
         g2[v].append((u, b))
 
-
     cost1 = dijkstra_sparse(g1, s)
     cost2 = dijkstra_sparse(g2, t)
 
-    K = 10 ** 15
+    K = 10**15
 
     cost = [cost1[i] + cost2[i] for i in range(n)]
     for i in range(n - 1, 0, -1):
@@ -49,5 +51,6 @@ def main() -> typing.NoReturn:
 
     for i in range(n):
         print(K - cost[i])
+
 
 main()

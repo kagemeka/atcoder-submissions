@@ -1,5 +1,6 @@
 # 2019-11-23 01:28:44(JST)
 import sys
+
 import numpy as np
 
 MOD = 998244353

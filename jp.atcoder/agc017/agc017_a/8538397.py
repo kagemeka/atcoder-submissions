@@ -1,5 +1,8 @@
 # 2019-11-20 21:35:12(JST)
 import sys
+
+import numpy as np
+
 # import collections
 # import math
 # from string import ascii_lowercase, ascii_uppercase, digits
@@ -10,8 +13,7 @@ import sys
 # import re
 # import heapq
 # import array
-from scipy.misc import comb # (default: exact=False)
-import numpy as np
+from scipy.misc import comb  # (default: exact=False)
 
 
 def main():

@@ -1,4 +1,5 @@
 import sys
+
 # import collections
 # import math
 # import string
@@ -6,6 +7,7 @@ import sys
 # import re
 # import itertools
 # import statistics
+
 
 def main():
     n, *d = (int(x) for x in sys.stdin.read().split())

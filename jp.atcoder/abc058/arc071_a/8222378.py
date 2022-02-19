@@ -14,7 +14,7 @@ for a in alphabets:
     counts.append((a, m))
 print(counts)
 
-ans = ''
+ans = ""
 for count in counts:
     ans += count[0] * count[1]
 

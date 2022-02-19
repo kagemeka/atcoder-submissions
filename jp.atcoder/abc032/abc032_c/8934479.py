@@ -3,6 +3,7 @@ from bisect import bisect_right as bi_r
 
 n, k, *s = map(int, sys.stdin.read().split())
 
+
 def main():
     if 0 in s:
         return n
@@ -27,7 +28,7 @@ def main():
         if cumprod <= k:
             res[l] = r - l + 1
             r += 1
-            if r == n :
+            if r == n:
                 break
             cumprod *= s[r]
         else:
@@ -43,6 +44,7 @@ def main():
     ans = max(res)
     return ans
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

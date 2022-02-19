@@ -1,6 +1,7 @@
 import sys
 from datetime import date, timedelta
 
+
 def main():
     y, m, d = map(int, sys.stdin.readline().rstrip().split('/'))
     d = date(y, m, d)

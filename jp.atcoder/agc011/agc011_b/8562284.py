@@ -1,7 +1,6 @@
 # 2019-11-23 01:09:31(JST)
-import sys
 import itertools
-
+import sys
 
 
 def main():

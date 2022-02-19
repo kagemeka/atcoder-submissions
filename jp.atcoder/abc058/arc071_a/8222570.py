@@ -11,7 +11,7 @@ for c in set(chars):
         used_in_all.append(c)
 
 if not used_in_all:
-    print('')
+    print("")
     exit()
 
 used_in_all.sort()
@@ -27,7 +27,7 @@ for c in used_in_all:
         m = min(m, count)
     counts[c] = m
 
-ans = ''
+ans = ""
 for c, m in counts.items():
     ans += c * m
 

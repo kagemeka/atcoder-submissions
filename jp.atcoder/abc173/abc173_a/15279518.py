@@ -1,5 +1,6 @@
 import sys
 
+
 def A():
   n = int(sys.stdin.readline().rstrip())
   charge = (n+999)//1000 * 1000 - n

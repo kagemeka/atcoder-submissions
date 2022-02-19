@@ -1,5 +1,6 @@
 import sys
 from string import digits
+
 MOD = 10 ** 9 + 7
 
 def main():

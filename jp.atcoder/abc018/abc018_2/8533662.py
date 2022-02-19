@@ -1,5 +1,6 @@
 # 2019-11-20 14:30:57(JST)
 import sys
+
 # import collections
 # import math
 # from string import ascii_lowercase, ascii_uppercase, digits
@@ -15,13 +16,15 @@ import sys
 
 
 def main():
-    s = '0' + sys.stdin.readline().rstrip() # s[r-1:l-1:-1]でのバグを防ぐため
+    s = "0" + sys.stdin.readline().rstrip()  # s[r-1:l-1:-1]でのバグを防ぐため
     n = int(sys.stdin.readline().rstrip())
-    lr = [tuple(int(x) for x in sys.stdin.readline().split()) for _ in range(n)]
+    lr = [
+        tuple(int(x) for x in sys.stdin.readline().split()) for _ in range(n)
+    ]
 
     for i in range(n):
-        l, r = lr[i][0], lr[i][1]+1
-        s = s[:l] + s[r-1:l-1:-1] + s[r:]
+        l, r = lr[i][0], lr[i][1] + 1
+        s = s[:l] + s[r - 1 : l - 1 : -1] + s[r:]
 
     print(s[1:])
 

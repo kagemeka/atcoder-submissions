@@ -1,5 +1,7 @@
 import sys
-from bisect import bisect_right as bi_r, bisect_left as bi_l
+from bisect import bisect_left as bi_l
+from bisect import bisect_right as bi_r
+
 inf = float('inf')
 
 n, *a = map(int, sys.stdin.read().split())

@@ -2,6 +2,7 @@ import sys
 
 n = int(sys.stdin.readline().rstrip())
 
+
 def main():
     if n == 12:
         ans = 1
@@ -10,5 +11,6 @@ def main():
 
     print(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

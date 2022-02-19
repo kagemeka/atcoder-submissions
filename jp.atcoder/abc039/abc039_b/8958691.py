@@ -2,10 +2,12 @@ import sys
 
 a, b, c = map(int, sys.stdin.readline().split())
 
+
 def main():
-    ans = (a*b + b*c + c*a) * 2
+    ans = (a * b + b * c + c * a) * 2
     return int(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

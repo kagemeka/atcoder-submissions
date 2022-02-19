@@ -8,24 +8,24 @@ a = [int(i) for i in input().split()]
 b = a.copy()
 
 count1 = 0
-for i in range(n-1):
-    if a[i] + a[i+1] > x:
-        d = a[i] + a[i+1] - x
+for i in range(n - 1):
+    if a[i] + a[i + 1] > x:
+        d = a[i] + a[i + 1] - x
         if a[i] >= d:
             a[i] -= d
         else:
             a[i] = 0
-            a[i+1] -= d - a[i]
+            a[i + 1] -= d - a[i]
         count1 += d
 
 count2 = 0
-for i in range(n-1):
-    if b[i] + b[i+1] > x:
-        d = b[i] + b[i+1] - x
-        if b[i+1] >= d:
-            b[i+1] -= d
+for i in range(n - 1):
+    if b[i] + b[i + 1] > x:
+        d = b[i] + b[i + 1] - x
+        if b[i + 1] >= d:
+            b[i + 1] -= d
         else:
-            b[i+1] = 0
+            b[i + 1] = 0
             b[i] -= d - b[i]
         count2 += d
 

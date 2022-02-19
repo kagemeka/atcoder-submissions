@@ -3,6 +3,7 @@
 ### modules
 ## from standard library
 import sys
+
 # import collections
 # import math
 # import string
@@ -17,13 +18,14 @@ import sys
 # import scipy.misc
 # import numpy as np
 
+
 def main():
     s = sys.stdin.readline().rstrip()
     k = int(sys.stdin.readline().rstrip())
 
     count = 0
     for i in range(len(s)):
-        if s[i] == '1':
+        if s[i] == "1":
             count += 1
         else:
             last_1 = i - 1
@@ -32,13 +34,11 @@ def main():
         last_1 = len(s) - 1
 
     if k <= count:
-        ans = '1'
+        ans = "1"
     else:
         ans = s[last_1 + 1]
 
     print(ans)
-
-
 
 
 if __name__ == "__main__":

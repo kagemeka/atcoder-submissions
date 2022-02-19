@@ -1,9 +1,11 @@
 import sys
 from math import floor, sqrt
+
+
 def main():
     n = int(sys.stdin.readline().rstrip())
     h = floor(sqrt(n))
-    res1 = n - h ** 2
+    res1 = n - h**2
 
     h, w = h - 1, h + 2
     while True:
@@ -17,5 +19,6 @@ def main():
     ans = min(res1, res2)
     print(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

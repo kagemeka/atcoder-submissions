@@ -1,7 +1,9 @@
 import sys
+
 import numpy as np
 
-MOD = 10 ** 4 + 7
+MOD = 10**4 + 7
+
 
 def matrix_power_mod(x, n, modulus):
     x = np.asanyarray(x)
@@ -32,7 +34,9 @@ def matrix_mul_mod(a, b, modulus):
     if len(b.shape) != 2:
         raise ValueError("input b must be a matrix")
     if a.shape[1] != a.shape[0]:
-        raise ValueError("input a and b must have compatible shape for multiplication")
+        raise ValueError(
+            "input a and b must have compatible shape for multiplication"
+        )
     return _matrix_mul_mod(a, b, modulus=modulus)
 
 
@@ -51,16 +55,20 @@ def _matrix_mul_mod(a, b, modulus):
         r[rowindex, :] = x
     return r
 
+
 def tribonacci(n):
     A = np.array([[1, 1, 1], [1, 0, 0], [0, 1, 0]])
-    A = matrix_power_mod(A, n-2, MOD)
+    A = matrix_power_mod(A, n - 2, MOD)
     res = np.dot(A, np.array([1, 0, 0])) % MOD
     return res[0]
 
+
 n = int(sys.stdin.readline().rstrip())
 
-def main():
-    print(tribonacci(n-1))
 
-if __name__ == '__main__':
+def main():
+    print(tribonacci(n - 1))
+
+
+if __name__ == "__main__":
     main()

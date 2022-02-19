@@ -1,7 +1,6 @@
 import typing
 
 
-
 def main() -> typing.NoReturn:
     # ternary search ?
     r, b = map(int, input().split())

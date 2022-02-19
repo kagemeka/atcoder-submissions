@@ -6,8 +6,9 @@ def main() -> typing.NoReturn:
     c = int(a + b)
     for x in range(1, 102):
         if c == x * x:
-            print('Yes')
+            print("Yes")
             return
-    print('No')
+    print("No")
+
 
 main()

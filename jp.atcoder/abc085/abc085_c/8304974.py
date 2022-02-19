@@ -1,4 +1,5 @@
 import sys
+
 # import collections
 # import math
 # import string
@@ -7,13 +8,16 @@ import sys
 # import itertools
 # import statistics
 
+
 def main():
     n, y = (int(i) for i in sys.stdin.readline().split())
     y //= 1000
-    if y > 10 * n or y < n: print('-1 -1 -1'); exit()
+    if y > 10 * n or y < n:
+        print("-1 -1 -1")
+        exit()
 
-    for i in range(n+1):
-        for j in range(n+1-i):
+    for i in range(n + 1):
+        for j in range(n + 1 - i):
             k = n - i - j
             t = 10 * i + 5 * j + k
             if t == y:

@@ -5,7 +5,7 @@ xy = map(int, sys.stdin.read().split())
 xy = zip(xy, xy)
 graph = [set() for _ in range(n)]
 for x, y in xy:
-    graph[x-1].add(y-1)
+    graph[x - 1].add(y - 1)
 
 
 def main():
@@ -22,6 +22,7 @@ def main():
 
     return res[-1]
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

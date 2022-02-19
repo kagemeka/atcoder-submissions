@@ -1,15 +1,6 @@
 import typing
-
-
-
-from typing import (
-  DefaultDict,
-)
-from collections import (
-  defaultdict,
-)
-
-
+from collections import defaultdict
+from typing import DefaultDict
 
 
 class SieveOfEratosthenes():

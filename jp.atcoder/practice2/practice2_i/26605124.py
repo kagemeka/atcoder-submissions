@@ -1,5 +1,5 @@
-import typing
 import sys
+import typing
 
 
 def sa_is(a: typing.List[int]) -> typing.List[int]:

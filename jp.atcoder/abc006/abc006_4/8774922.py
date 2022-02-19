@@ -2,6 +2,7 @@ import sys
 
 n, *c = map(int, sys.stdin.read().split())
 
+
 def main():
     maximum = c[0]
     cnt1 = 0
@@ -19,8 +20,8 @@ def main():
         else:
             minimum = c[i]
 
-
     print(min(cnt1, cnt2))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

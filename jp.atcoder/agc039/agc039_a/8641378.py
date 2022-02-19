@@ -1,6 +1,7 @@
 # 2019-11-25 06:26:24(JST)
 import sys
 
+
 def main():
     s, k = sys.stdin.read().split()
     k = int(k)

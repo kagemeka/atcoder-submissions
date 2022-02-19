@@ -1,7 +1,6 @@
 import typing
 
 
-
 def get_mx(
   bit: typing.List[int],
   i: int,

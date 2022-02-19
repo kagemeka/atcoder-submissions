@@ -1,7 +1,6 @@
 import typing
 
 
-
 class _Induce():
   def __call__(
     self,

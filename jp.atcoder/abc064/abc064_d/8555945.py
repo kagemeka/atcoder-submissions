@@ -6,28 +6,28 @@ def main():
     n = int(n)
 
     for i in range(n):
-        if s[i] == ')':
+        if s[i] == ")":
             continue
         else:
             i_l = i
             break
     for i in range(n, 0, -1):
-        if s[i-1] == '(':
+        if s[i - 1] == "(":
             continue
         else:
             i_r = i
             break
-    res_l = '(' * len(s[:i_l]) + s[:i_l]
-    res_r = s[i_r:] + ')' * len(s[i_r:])
+    res_l = "(" * len(s[:i_l]) + s[:i_l]
+    res_r = s[i_r:] + ")" * len(s[i_r:])
 
     c = s[i_l:i_r]
-    count = c.count('(') - c.count(')')
+    count = c.count("(") - c.count(")")
     if count == 0:
         ans = res_l + c + res_r
     elif count < 0:
-        ans = '(' * abs(count) + res_l + c + res_r
+        ans = "(" * abs(count) + res_l + c + res_r
     else:
-        ans = res_l + c + res_r + ')' * count
+        ans = res_l + c + res_r + ")" * count
     print(ans)
     # s = '.' + s
 
@@ -56,7 +56,6 @@ def main():
     # if count >= 1:
     #     s = '(' * count + s
 
-
     # count = 0
     # flag = False
     # for i in range(len(s)-2, -1, -1):
@@ -82,7 +81,6 @@ def main():
     #     s = s + ')' * count
 
     # print(s)
-
 
 
 if __name__ == "__main__":

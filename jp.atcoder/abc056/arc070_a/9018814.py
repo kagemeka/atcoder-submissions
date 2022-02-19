@@ -2,6 +2,7 @@ import sys
 
 x = int(sys.stdin.readline().rstrip())
 
+
 def main():
     l = 0
     r = x + 1
@@ -13,6 +14,7 @@ def main():
             l = m
     return r
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

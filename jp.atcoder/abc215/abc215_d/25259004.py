@@ -1,6 +1,5 @@
-import typing
 import collections
-
+import typing
 
 
 class SieveOfEratosthenes():

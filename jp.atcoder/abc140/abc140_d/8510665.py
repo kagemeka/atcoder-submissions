@@ -1,5 +1,6 @@
 # 2019-11-18 00:38:19(JST)
 import sys
+
 # import collections
 # import math
 # from string import ascii_lowercase, ascii_uppercase, digits
@@ -12,6 +13,7 @@ import sys
 # import array
 # from scipy.misc import comb # (default: exact=False)
 import numpy as np
+
 
 def main():
     n, k = [int(x) for x in sys.stdin.readline().split()]

@@ -1,4 +1,5 @@
 import sys
+
 import numpy as np
 
 n, d, *x = map(int, sys.stdin.read().split())

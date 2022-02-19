@@ -1,6 +1,7 @@
 import sys
 from collections import defaultdict
 
+
 def create_id(p, o):
     p = str(p)
     o = str(o)

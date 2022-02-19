@@ -1,4 +1,5 @@
 import sys
+
 # import collections
 # import math
 # import string
@@ -7,12 +8,16 @@ import sys
 # import itertools
 # import statistics
 
+
 def main():
     xy = sys.stdin.read().split()
-    if xy[0] == xy[1]: print('=')
+    if xy[0] == xy[1]:
+        print("=")
     else:
-        if xy == sorted(xy): print('<')
-        else: print('>')
+        if xy == sorted(xy):
+            print("<")
+        else:
+            print(">")
 
 
 if __name__ == "__main__":

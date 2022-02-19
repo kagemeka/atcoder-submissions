@@ -1,4 +1,5 @@
 import sys
+
 import numpy as np
 
 x, y, z, k = map(int, sys.stdin.readline().split())

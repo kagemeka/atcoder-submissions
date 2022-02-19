@@ -3,6 +3,7 @@ import sys
 n, m, *ab = map(int, sys.stdin.read().split())
 ab = sorted(zip(*[iter(ab)] * 2))
 
+
 def main():
     r = -1
     cnt = 0
@@ -16,6 +17,7 @@ def main():
             r = b
     return cnt
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

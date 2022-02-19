@@ -2,6 +2,7 @@
 #                         created: 2019-11-07 23:33:56(JST)
 ## internal modules
 import sys
+
 # import collections
 # import math
 # import string
@@ -15,11 +16,11 @@ import sys
 # import scipy.special   # if use comb function on AtCoder,
 # import scipy.misc      # select scipy.misc.comb (old version)
 
+
 def main():
     a, b = (int(x) for x in sys.stdin.readline().split())
     ans = max(a + b, a - b, a * b)
     print(ans)
-
 
 
 if __name__ == "__main__":

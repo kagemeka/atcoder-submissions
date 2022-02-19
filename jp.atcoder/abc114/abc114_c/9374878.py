@@ -1,6 +1,6 @@
 import sys
-from itertools import product
 from bisect import bisect_right as bi_r
+from itertools import product
 
 shichigosan = set('357')
 

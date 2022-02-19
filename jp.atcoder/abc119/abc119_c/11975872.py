@@ -1,4 +1,5 @@
 import sys
+
 inf = float('inf')
 
 n, A, B, C, *l = map(int, sys.stdin.read().split())

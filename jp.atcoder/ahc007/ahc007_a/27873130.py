@@ -27,6 +27,7 @@ class UnionFind():
 import itertools
 import math
 import random
+
 # random.seed = 0
 
 def main() -> typing.NoReturn:

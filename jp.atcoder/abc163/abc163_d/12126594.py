@@ -1,5 +1,6 @@
 import sys
 from itertools import accumulate
+
 MOD = 10 ** 9 + 7
 
 

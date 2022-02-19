@@ -1,4 +1,4 @@
-mod = 10 ** 9 + 7
+mod = 10**9 + 7
 N = int(input())
 A = [int(a) for a in input().split()]
 

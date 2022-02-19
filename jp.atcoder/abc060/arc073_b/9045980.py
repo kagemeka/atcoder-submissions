@@ -4,6 +4,7 @@ from itertools import accumulate
 n, W, *wv = map(int, sys.stdin.read().split())
 wv = list(zip(*[iter(wv)] * 2))
 
+
 def main():
     wv.sort(key=lambda x: x[0])
     min_w = wv[0][0]
@@ -11,7 +12,7 @@ def main():
     items = [[] for _ in range(4)]
 
     for w, v in wv:
-        items[w-min_w].append(v)
+        items[w - min_w].append(v)
 
     for i in range(4):
         items[i].sort(reverse=True)
@@ -31,11 +32,12 @@ def main():
                 v2 = s2[k]
                 for l in range(len(s3)):
                     v3 = s3[l]
-                    if (j + 2*k + 3*l) + min_w * (i+j+k+l) <= W:
-                        res = max(res, v0+v1+v2+v3)
+                    if (j + 2 * k + 3 * l) + min_w * (i + j + k + l) <= W:
+                        res = max(res, v0 + v1 + v2 + v3)
 
     return res
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

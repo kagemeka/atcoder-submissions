@@ -4,6 +4,7 @@ n, k = map(int, sys.stdin.readline().split())
 a = map(int, sys.stdin.read().split())
 a = list(zip(*([a] * k)))
 
+
 def main():
     stack = []
     for y in a[0]:
@@ -18,8 +19,9 @@ def main():
         for y in a[rank]:
             stack.append((rank + 1, x ^ y))
 
-    return 'Found' if 0 in res else 'Nothing'
+    return "Found" if 0 in res else "Nothing"
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

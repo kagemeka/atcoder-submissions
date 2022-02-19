@@ -1,5 +1,5 @@
-import sys
 import random
+import sys
 
 n = int(sys.stdin.readline().rstrip())
 *s, = map(int, list(sys.stdin.readline().rstrip()))

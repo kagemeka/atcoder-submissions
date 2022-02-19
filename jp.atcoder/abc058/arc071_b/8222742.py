@@ -1,5 +1,6 @@
 from itertools import combinations
-mod = int(1e9+7)
+
+mod = int(1e9 + 7)
 n, m = [int(num) for num in input().split()]
 
 x = [int(x) for x in input().split()]

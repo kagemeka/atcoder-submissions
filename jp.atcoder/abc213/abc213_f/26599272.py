@@ -1,8 +1,8 @@
-import typing
-import numpy as np
 import sys
-import numba as nb
+import typing
 
+import numba as nb
+import numpy as np
 
 # @nb.njit
 # def sa_is(a: np.ndarray) -> np.ndarray:

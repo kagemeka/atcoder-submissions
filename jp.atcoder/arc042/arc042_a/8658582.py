@@ -1,6 +1,7 @@
 # 2019-11-26 14:51:37(JST)
 import sys
-from collections import defaultdict, OrderedDict
+from collections import OrderedDict, defaultdict
+
 
 def main():
     n, m, *a = sys.stdin.read().split()

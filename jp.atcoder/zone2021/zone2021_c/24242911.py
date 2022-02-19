@@ -1,7 +1,6 @@
 import typing
 
 
-
 class ReadStdin:
   def __call__(
     self,
@@ -44,12 +43,8 @@ class ReadStdin:
 
 
 
-from abc import (
-  ABC,
-  abstractmethod,
-)
 import typing
-
+from abc import ABC, abstractmethod
 
 
 class Solver(
@@ -82,12 +77,11 @@ class Solver(
     ...
 
 
-import typing
 import sys
+import typing
+from itertools import product
+
 import numpy as np
-from itertools import (
-  product,
-)
 
 
 class Problem(

@@ -1,6 +1,7 @@
-import numpy as np
-import numba as nb
 import sys
+
+import numba as nb
+import numpy as np
 
 try:
     from numba.experimental import jitclass

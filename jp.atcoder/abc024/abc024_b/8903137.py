@@ -2,6 +2,7 @@ import sys
 
 n, T, *t = map(int, sys.stdin.read().split())
 
+
 def main():
     total = 0
     opened = t[0]
@@ -14,6 +15,7 @@ def main():
     total += will_close - opened
     return total
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

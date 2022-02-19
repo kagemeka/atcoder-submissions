@@ -1,5 +1,4 @@
 # 2019-11-16 14:51:41(JST)
-import sys
 # import collections
 # import math
 # from string import ascii_lowercase, ascii_uppercase, digits
@@ -10,6 +9,8 @@ import sys
 # from scipy.misc import comb # float
 # import numpy as np
 import heapq
+import sys
+
 
 def main():
     # 10**5連勤とか超人すぎる

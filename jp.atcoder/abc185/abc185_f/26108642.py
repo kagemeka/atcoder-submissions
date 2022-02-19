@@ -1,8 +1,7 @@
 from __future__ import annotations
-import typing
+
 import dataclasses
-
-
+import typing
 
 T = typing.TypeVar('T')
 @dataclasses.dataclass
@@ -70,7 +69,6 @@ class SegmentTree(typing.Generic[T]):
 import typing
 
 
-
 def solve(
   a: typing.List[int],
   txy: typing.Iterator[typing.Tuple[int]],
@@ -91,6 +89,7 @@ def solve(
 
 
 import sys
+
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())

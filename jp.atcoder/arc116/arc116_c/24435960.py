@@ -1,5 +1,7 @@
 import typing
+
 import numpy as np
+
 # import numba as nb
 
 
@@ -113,13 +115,12 @@ def main():
 
 import sys
 
-
 if (
   sys.argv[-1]
   == 'ONLINE_JUDGE'
 ):
   '''TODO'''
-  from numba import njit, i8
+  from numba import i8, njit
   cumprod = njit(cumprod)
   mpow = njit(mpow)
   factorial = njit(factorial)
@@ -142,4 +143,5 @@ if (
 
 
 from my_module import solve
+
 main()

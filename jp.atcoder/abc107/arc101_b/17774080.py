@@ -1,7 +1,7 @@
-import sys
 import itertools
-
+import sys
 from functools import lru_cache, reduce
+
 sys.setrecursionlimit(10**7)
 inf = float('inf')
 # MOD = 10**9+7

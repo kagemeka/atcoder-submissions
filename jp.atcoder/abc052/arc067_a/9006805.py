@@ -1,12 +1,13 @@
 import sys
-from math import floor, sqrt
 from collections import defaultdict
+from math import floor, sqrt
 
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 
 n = int(sys.stdin.readline().rstrip())
 
 res = defaultdict(int)
+
 
 def primeFactorize(n):
     while n % 2 == 0:
@@ -14,7 +15,7 @@ def primeFactorize(n):
         n //= 2
     if n == 1:
         return
-    for i in range(3, floor(sqrt(n))+1, 2):
+    for i in range(3, floor(sqrt(n)) + 1, 2):
         while n % i == 0:
             res[i] += 1
             n //= i
@@ -22,8 +23,9 @@ def primeFactorize(n):
             return
     res[n] += 1
 
+
 def main():
-    for i in range(1, n+1):
+    for i in range(1, n + 1):
         primeFactorize(i)
 
     ans = 1
@@ -33,6 +35,7 @@ def main():
 
     return ans
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

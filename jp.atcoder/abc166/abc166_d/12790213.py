@@ -1,5 +1,6 @@
 import sys
 
+
 def divisors(n):
   res = set()
   for i in range(1, int(n ** 0.5) + 1):

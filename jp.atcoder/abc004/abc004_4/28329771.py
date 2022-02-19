@@ -9,7 +9,6 @@ def main() -> typing.NoReturn:
     # 0 < x < 1024 (enough)
     k = 1 << 10
 
-
     inf = 1 << 60
     dp = [inf] * k
     dp[0] = 0
@@ -23,5 +22,6 @@ def main() -> typing.NoReturn:
         dp = ndp
 
     print(dp[r + g + b])
+
 
 main()

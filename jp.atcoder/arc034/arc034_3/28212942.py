@@ -1,5 +1,5 @@
-import typing
 import collections
+import typing
 
 
 def prime_factorize(

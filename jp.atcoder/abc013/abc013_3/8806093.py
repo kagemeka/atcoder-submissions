@@ -2,13 +2,16 @@ import sys
 
 n, h, a, b, c, d, e = map(int, sys.stdin.read().split())
 
+
 def can_survive(x, y):
     if (b + e) * x + (d + e) * y + h - n * e > 0:
         return True
     return False
 
+
 def cost(x, y):
     return a * x + c * y
+
 
 def main():
     costs = []
@@ -18,6 +21,7 @@ def main():
 
     return int(min(costs))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

@@ -7,17 +7,17 @@ def main():
     n, m = [int(x) for x in sys.stdin.readline().split()]
     X, Y = [int(x) for x in sys.stdin.readline().split()]
 
-    a = [int(x) for x in sys.stdin.readline().split()] # n
-    b = [int(x) for x in sys.stdin.readline().split()] # m
+    a = [int(x) for x in sys.stdin.readline().split()]  # n
+    b = [int(x) for x in sys.stdin.readline().split()]  # m
 
     t = 0
-    count = 0 # if count % 2 == 0, a
+    count = 0  # if count % 2 == 0, a
     while True:
         if count % 2 == 0:
             i = bi_l(a, t)
-            if i == n: # no plane
+            if i == n:  # no plane
                 break
-            else: # take plane
+            else:  # take plane
                 count += 1
                 t = a[i] + X
         else:
@@ -31,5 +31,6 @@ def main():
     ans = count // 2
     print(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

@@ -1,7 +1,7 @@
-import typing
 import sys
-import numpy as np
+import typing
 
+import numpy as np
 
 
 def solve(a: np.ndarray, k: int) -> typing.NoReturn:
@@ -13,8 +13,9 @@ def solve(a: np.ndarray, k: int) -> typing.NoReturn:
         dp[0, 0] = True
         for i in range(n):
             dp[i + 1] |= dp[i]
-            dp[i + 1, a[i]:] |= dp[i, :-a[i]]
+            dp[i + 1, a[i] :] |= dp[i, : -a[i]]
         return dp
+
     dp_l = compute_dp(a)
     dp_r = compute_dp(a[::-1])[::-1]
     dp_r = dp_r.astype(np.int64).cumsum(axis=1)
@@ -24,7 +25,8 @@ def solve(a: np.ndarray, k: int) -> typing.NoReturn:
         x = a[i]
         for j in np.flatnonzero(dp_l[i]).tolist():
             j = k - j - 1
-            if not r[j] - (0 if j - x < 0 else r[j - x]) >= 1: continue
+            if not r[j] - (0 if j - x < 0 else r[j - x]) >= 1:
+                continue
             return True
         return False
 

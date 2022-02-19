@@ -1,6 +1,8 @@
-import typing
 import sys
+import typing
+
 import numpy as np
+
 # import numba as nb
 
 
@@ -78,10 +80,7 @@ if (
   sys.argv[-1]
   == 'ONLINE_JUDGE'
 ):
-  from numba import (
-    njit,
-    i8,
-  )
+  from numba import i8, njit
 
   fw_add = njit(fw_add)
   fw_sum = njit(fw_sum)

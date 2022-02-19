@@ -1,6 +1,6 @@
 import sys
 
-inf = float('inf')
+inf = float("inf")
 
 n, m = map(int, sys.stdin.readline().split())
 a = []
@@ -13,24 +13,26 @@ for _ in range(m):
     c.append(-ci)
 abc = list(zip(a, b, c))
 
+
 def main():
     dist = [inf] * n
     dist[0] = 0
-    for _ in range(n-1):
+    for _ in range(n - 1):
         for a, b, c in abc:
             dist[b] = min(dist[b], dist[a] + c)
 
-    res = dist[n-1]
+    res = dist[n - 1]
 
     for _ in range(n):
         for a, b, c in abc:
             dist[b] = min(dist[b], dist[a] + c)
 
-    if dist[n-1] == res:
+    if dist[n - 1] == res:
         return -res
     else:
-        return 'inf'
+        return "inf"
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

@@ -1,8 +1,10 @@
-import typing
 import sys
-import numpy as np
+import typing
+
 import numba as nb
-from numba import njit, i8, b1
+import numpy as np
+from numba import b1, i8, njit
+
 
 @njit(
   (i8, i8, b1[:, :]),

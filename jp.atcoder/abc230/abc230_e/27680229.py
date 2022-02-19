@@ -1,7 +1,6 @@
 import typing
 
 
-
 def floor_sum(n: int) -> int:
     s = 0
     k = floor_sqrt(n)

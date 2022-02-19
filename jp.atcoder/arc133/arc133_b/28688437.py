@@ -1,5 +1,5 @@
-import typing
 import bisect
+import typing
 
 
 class FenwickTree:  # version not using dataclass for performance.

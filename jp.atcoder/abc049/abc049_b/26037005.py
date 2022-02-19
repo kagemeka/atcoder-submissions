@@ -1,18 +1,16 @@
 import typing
 
 
-
 def main() -> typing.NoReturn:
-  h, w = map(int, input().split())
-  s = [input() for _ in range(h)]
+    h, w = map(int, input().split())
+    s = [input() for _ in range(h)]
 
-  t = []
-  for row in s:
-    t.append(row)
-    t.append(row)
+    t = []
+    for row in s:
+        t.append(row)
+        t.append(row)
 
-
-  print('\n'.join(t))
+    print("\n".join(t))
 
 
 main()

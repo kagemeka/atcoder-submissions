@@ -1,5 +1,6 @@
 import sys
 
+
 def o(c): return ord(c) - ord('a')
 
 s, t = sys.stdin.read().split()

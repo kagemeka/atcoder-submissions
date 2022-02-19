@@ -1,4 +1,5 @@
 import sys
+
 # import collections
 # import math
 # import string
@@ -7,13 +8,16 @@ import sys
 # import itertools
 # import statistics
 
+
 def main():
     n, a, b = (int(x) for x in sys.stdin.read().split())
     total = 0
-    for i in range(1, n+1):
+    for i in range(1, n + 1):
         s = sum(list(int(x) for x in str(i)))
-        if a <= s <= b: total += i
+        if a <= s <= b:
+            total += i
     print(total)
+
 
 if __name__ == "__main__":
     # execute only if run as a script

@@ -1,6 +1,6 @@
-import typing
-import sys
 import collections
+import sys
+import typing
 
 
 def main() -> typing.NoReturn:

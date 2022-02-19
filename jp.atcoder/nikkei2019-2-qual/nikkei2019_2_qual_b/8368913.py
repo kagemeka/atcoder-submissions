@@ -2,8 +2,9 @@
 #                         created: 2019-11-09 21:20:16(JST)
 ### modules
 ## from standard library
-import sys
 import collections
+import sys
+
 # import math
 # import string
 # import bisect

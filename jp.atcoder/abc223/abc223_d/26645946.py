@@ -1,8 +1,9 @@
-import typing
-import sys
 # import numpy as np
 # import numba as nb
 import heapq
+import sys
+import typing
+
 
 # @nb.njit((nb.i8, nb.i8[:, :]), cache=True)
 # def solve(n: int, ab:np.ndarray) -> typing.NoReturn:

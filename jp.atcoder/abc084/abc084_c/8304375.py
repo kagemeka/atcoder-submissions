@@ -1,4 +1,5 @@
 import sys
+
 # import collections
 # import math
 # import string
@@ -7,17 +8,20 @@ import sys
 # import itertools
 # import statistics
 
+
 def main():
     n = int(sys.stdin.readline().rstrip())
     c, s, f = [], [], []
-    for i in range(n-1):
+    for i in range(n - 1):
         ci, si, fi = (int(x) for x in sys.stdin.readline().split())
-        c.append(ci); s.append(si); f.append(fi)
+        c.append(ci)
+        s.append(si)
+        f.append(fi)
 
     x = []
-    for i in range(n-1):
+    for i in range(n - 1):
         xi = 0
-        for j in range(i, n-1):
+        for j in range(i, n - 1):
             if s[j] >= xi:
                 xi = s[j]
                 xi += c[j]
@@ -30,6 +34,7 @@ def main():
     x.append(0)
     for xi in x:
         print(xi)
+
 
 if __name__ == "__main__":
     # execute only if run as a script

@@ -1,7 +1,9 @@
 import sys
 
+
 def s(x1, y1, x2, y2):
     return abs(x1 * y2 - y1 * x2) / 2
+
 
 def main():
     xa, ya, xb, yb, xc, yc = map(int, sys.stdin.readline().split())
@@ -12,5 +14,6 @@ def main():
 
     print(s(x1, y1, x2, y2))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

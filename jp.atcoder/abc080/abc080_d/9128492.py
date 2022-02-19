@@ -1,12 +1,13 @@
 import sys
 
-inf = float('inf')
+inf = float("inf")
 
 n, C, *stc = map(int, sys.stdin.read().split())
 stc = list(zip(*[iter(stc)] * 3))
 
+
 def main():
-    res = [(-0.5, None) for _ in range(C)] # C台あれば確実に足りる
+    res = [(-0.5, None) for _ in range(C)]  # C台あれば確実に足りる
     stc.sort()
 
     for s, t, c in stc:
@@ -29,6 +30,7 @@ def main():
             ans += 1
     return ans
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

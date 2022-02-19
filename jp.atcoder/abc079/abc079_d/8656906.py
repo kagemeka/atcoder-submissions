@@ -1,7 +1,9 @@
 import sys
+
 import numpy as np
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import floyd_warshall
+
 
 def main():
     H, W = map(int, sys.stdin.readline().split())
@@ -13,6 +15,7 @@ def main():
 
     total_cost = min_cost[np.absolute(A)].T[1].astype(np.int64).sum()
     print(total_cost)
+
 
 if __name__ == "__main__":
     main()

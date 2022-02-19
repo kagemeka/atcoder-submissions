@@ -1,10 +1,8 @@
-import typing
 import sys
-sys.setrecursionlimit(1 << 20)
-from functools import (
-  lru_cache,
-)
+import typing
 
+sys.setrecursionlimit(1 << 20)
+from functools import lru_cache
 
 
 def solve(

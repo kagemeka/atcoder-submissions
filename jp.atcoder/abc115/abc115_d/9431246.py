@@ -1,5 +1,6 @@
 import sys
 
+
 def make_burger(n):
     patty = [None] * (n + 1)
     bun = [None] * (n + 1)

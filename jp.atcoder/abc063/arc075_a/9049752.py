@@ -2,6 +2,7 @@ import sys
 
 n, *s = map(int, sys.stdin.read().split())
 
+
 def main():
     res = sum(s)
     if res % 10:
@@ -13,6 +14,7 @@ def main():
         else:
             return 0
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

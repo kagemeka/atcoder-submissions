@@ -1,4 +1,5 @@
 import sys
+
 import numpy as np
 
 a = np.array([sys.stdin.readline().split() for _ in range(3)], dtype=np.int64)

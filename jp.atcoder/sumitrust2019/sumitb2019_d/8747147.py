@@ -2,6 +2,7 @@ import sys
 from itertools import product
 from string import digits
 
+
 def main():
     n, s = sys.stdin.read().split()
     n = int(n)

@@ -1,11 +1,5 @@
 import sys
-from heapq import (
-  heappop,
-  heappush,
-)
-
-
-
+from heapq import heappop, heappush
 
 mod = 10 ** 9 + 7
 

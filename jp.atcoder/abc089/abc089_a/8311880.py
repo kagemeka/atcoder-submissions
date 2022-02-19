@@ -1,6 +1,7 @@
 #                         author:  kagemeka
 #                         created: 2019-11-06 16:52:04(JST)
 import sys
+
 # import collections
 # import math
 # import string
@@ -8,6 +9,7 @@ import sys
 # import re
 # import itertools
 # import statistics
+
 
 def main():
     n = int(sys.stdin.readline().rstrip())

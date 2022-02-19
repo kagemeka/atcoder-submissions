@@ -1,5 +1,5 @@
 import sys
-from heapq import heappush, heappop
+from heapq import heappop, heappush
 
 x, y, z, K = map(int, sys.stdin.readline().split())
 a, b, c = (sorted(map(int, sys.stdin.readline().split()), reverse=True) for _ in range(3))

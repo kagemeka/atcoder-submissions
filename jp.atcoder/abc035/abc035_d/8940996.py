@@ -1,18 +1,20 @@
 import sys
-from heapq import heappush, heappop
+from heapq import heappop, heappush
 
 n, m, T = map(int, sys.stdin.readline().split())
-*point, = map(int, sys.stdin.readline().split())
+(*point,) = map(int, sys.stdin.readline().split())
 abc = map(int, sys.stdin.read().split())
 abc = list(zip(abc, abc, abc))
 
 g_a2x = [[] for _ in range(n)]
 g_x2a = [[] for _ in range(n)]
 for a, b, c in abc:
-    g_a2x[a-1].append((b-1, c))
-    g_x2a[b-1].append((a-1, c))
+    g_a2x[a - 1].append((b - 1, c))
+    g_x2a[b - 1].append((a - 1, c))
 
-INF = 10 ** 10
+INF = 10**10
+
+
 def dijkstra(g):
     visited = set()
     hq = []
@@ -30,6 +32,7 @@ def dijkstra(g):
             heappush(hq, (j, shortest + t))
     return time
 
+
 def main():
     t_a2x = dijkstra(g_a2x)
     t_x2a = dijkstra(g_x2a)
@@ -44,6 +47,7 @@ def main():
     ans = max(money)
     return ans
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

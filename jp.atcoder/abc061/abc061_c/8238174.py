@@ -7,4 +7,4 @@ for i in range(n):
 
 arr.sort()
 
-print(arr[k-1])
+print(arr[k - 1])

@@ -1,5 +1,7 @@
 import sys
+
 import numpy as np
+
 
 def comb(n):
     return n * (n - 1) // 2

@@ -1,5 +1,6 @@
 import sys
 
+
 def main():
     m1, d1, m2, d2 = map(int, sys.stdin.read().split())
     if m1 == m2:

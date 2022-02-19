@@ -3,10 +3,11 @@ import sys
 m, *ng = map(int, sys.stdin.read().split())
 ng = set(ng)
 
+
 def main():
     n = m
     if n in ng:
-        ans = 'NO'
+        ans = "NO"
     else:
         for _ in range(100):
             if not n - 3 in ng:
@@ -16,16 +17,17 @@ def main():
             elif not n - 1 in ng:
                 n -= 1
             else:
-                ans = 'NO'
+                ans = "NO"
                 break
 
             if n <= 0:
-                ans = 'YES'
+                ans = "YES"
                 break
         else:
-            ans = 'NO'
+            ans = "NO"
 
     print(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

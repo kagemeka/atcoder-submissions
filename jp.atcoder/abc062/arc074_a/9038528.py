@@ -2,6 +2,7 @@ import sys
 
 H, W = map(int, sys.stdin.readline().split())
 
+
 def minimize(H, W):
     if H % 3 == 0:
         return 0
@@ -13,9 +14,11 @@ def minimize(H, W):
     res2 = block[-1] - block[0]
     return min(res1, res2)
 
+
 def main():
     return min(minimize(H, W), minimize(W, H))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

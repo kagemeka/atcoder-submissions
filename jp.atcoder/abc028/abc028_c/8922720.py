@@ -1,7 +1,8 @@
 import sys
 from itertools import combinations
 
-*a, = map(int, sys.stdin.readline().split())
+(*a,) = map(int, sys.stdin.readline().split())
+
 
 def main():
     res = set()
@@ -11,6 +12,7 @@ def main():
     ans = sorted(res)[-3]
     return ans
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

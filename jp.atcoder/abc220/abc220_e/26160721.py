@@ -1,7 +1,9 @@
-import typing
 import sys
-import numpy as np
+import typing
+
 import numba as nb
+import numpy as np
+
 sys.setrecursionlimit(1 << 20)
 
 def solve(n: int, d: int) -> typing.NoReturn:

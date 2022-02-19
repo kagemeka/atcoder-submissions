@@ -1,5 +1,6 @@
-import typing
 import collections
+import typing
+
 
 def main() -> None:
     n, q = map(int, input().split())

@@ -1,6 +1,7 @@
 n = int(input())
 a = [int(a) for a in input().split()]
 
+
 def f(times, prefix_sum):
     for i in range(1, n):
         if prefix_sum < 0:
@@ -17,6 +18,7 @@ def f(times, prefix_sum):
                 prefix_sum = -1
 
     return times
+
 
 t1 = 0
 p1 = a[0]

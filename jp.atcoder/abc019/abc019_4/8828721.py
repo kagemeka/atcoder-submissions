@@ -2,9 +2,11 @@ import sys
 
 n = int(sys.stdin.readline().rstrip())
 
+
 def ask(u, v):
-    print('? {0} {1}'.format(u, v), flush=True)
+    print("? {0} {1}".format(u, v), flush=True)
     return int(sys.stdin.readline().rstrip())
+
 
 def main():
     dist = 0
@@ -17,8 +19,9 @@ def main():
         if v != u:
             dist = max(dist, ask(u, v))
 
-    return '! {0}'.format(dist)
+    return "! {0}".format(dist)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

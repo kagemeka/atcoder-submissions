@@ -1,11 +1,6 @@
-from __future__ import (
-  annotations,
-)
+from __future__ import annotations
 
-from typing import (
-  Generator,
-  NoReturn
-)
+from typing import Generator, NoReturn
 
 
 class StdReader:
@@ -65,10 +60,7 @@ class StdReader:
 
 
 
-from abc import (
-  ABC,
-  abstractmethod,
-)
+from abc import ABC, abstractmethod
 
 
 class Solver(ABC):

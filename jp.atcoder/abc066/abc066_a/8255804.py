@@ -1,4 +1,5 @@
 import sys
+
 input = sys.stdin.readline
 
 price = [int(p) for p in input().split()]

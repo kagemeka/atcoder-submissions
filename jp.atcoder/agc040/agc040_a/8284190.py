@@ -1,5 +1,6 @@
 import sys
 from collections import deque
+
 s = deque(s for s in sys.stdin.readline().rstrip())
 
 s.append(None)

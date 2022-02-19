@@ -1,6 +1,5 @@
-import typing
 import dataclasses
-
+import typing
 
 S = typing.TypeVar('S')
 @dataclasses.dataclass
@@ -69,6 +68,7 @@ def solve(
 
 
 import sys
+
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())

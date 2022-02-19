@@ -1,7 +1,6 @@
 import typing
 
 
-
 def solve(
   g: typing.List[
     typing.List[bool],

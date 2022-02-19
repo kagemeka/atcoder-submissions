@@ -1,7 +1,8 @@
-import typing
 import sys
-import numpy as np
+import typing
+
 import numba as nb
+import numpy as np
 
 
 def solve(a: np.ndarray) -> typing.NoReturn:

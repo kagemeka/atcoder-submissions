@@ -1,7 +1,9 @@
-import typing
 import sys
-import numpy as np
+import typing
+
 import numba as nb
+import numpy as np
+
 
 @nb.njit
 def uf_build(n: int) -> np.ndarray: return np.full(n, -1, np.int64)

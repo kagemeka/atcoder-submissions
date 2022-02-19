@@ -1,6 +1,7 @@
 #                         author:  kagemeka
 #                         created: 2019-11-07 02:35:07(JST)
 import sys
+
 # import collections
 # import math
 # import string
@@ -11,9 +12,10 @@ import sys
 # import functools
 # import operator
 
+
 def main():
     s = sys.stdin.readline().rstrip()
-    print('Yes' if len(set(s)) == 3 else 'No')
+    print("Yes" if len(set(s)) == 3 else "No")
 
 
 if __name__ == "__main__":

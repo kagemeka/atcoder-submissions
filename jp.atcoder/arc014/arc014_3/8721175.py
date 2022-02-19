@@ -1,6 +1,7 @@
 import sys
 from collections import Counter
 
+
 def main():
     n, s = sys.stdin.read().split()
     n = int(n)

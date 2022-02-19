@@ -1,7 +1,8 @@
 import sys
+from collections import Counter
 from itertools import combinations, product
 from string import digits
-from collections import Counter
+
 
 def main():
     n, s = sys.stdin.read().split()

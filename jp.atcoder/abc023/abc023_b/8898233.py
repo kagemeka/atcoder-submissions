@@ -3,8 +3,9 @@ import sys
 n, s = sys.stdin.read().split()
 n = int(n)
 
+
 def main():
-    return set('c')
+    return set("c")
     if n & 1 ^ 1:
         return -1
 
@@ -21,11 +22,11 @@ def main():
         a = s[1::3]
         b = s[2::3]
 
-    if set(a) - set('a') or set(b) - set('b') or set(c) - set('c'):
+    if set(a) - set("a") or set(b) - set("b") or set(c) - set("c"):
         return -1
     return n // 2
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     ans = main()
     print(ans)

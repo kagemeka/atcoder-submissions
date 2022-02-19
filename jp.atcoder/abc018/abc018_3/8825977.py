@@ -1,10 +1,12 @@
 import sys
+
 import numpy as np
 
 I = np.array(sys.stdin.read().split())
 R, C, K = I[:3].astype(np.int64)
 grid = np.array([list(w) for w in I[3:]])
-grid = np.pad(grid, 1, mode='constant')
+grid = np.pad(grid, 1, mode="constant")
+
 
 def main():
     if R + 1 < 2 * K or C + 1 < 2 * K:
@@ -12,7 +14,7 @@ def main():
 
     res = np.zeros((R + 2, C + 2))
     res -= 1
-    res[grid == 'o'] = np.inf
+    res[grid == "o"] = np.inf
 
     # 対象領域内の上下方向の連続'O'数の最小値に対して左右方向の最小値をとり、
     # 各領域の中心(x, y)に対してそれがK - 1以上であれば、
@@ -28,6 +30,7 @@ def main():
 
     return np.count_nonzero(res >= K - 1)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

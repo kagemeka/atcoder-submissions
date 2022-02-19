@@ -1,7 +1,6 @@
 import typing
 
 
-
 def main() -> typing.NoReturn:
     h, w = map(int, input().split())
     board = [

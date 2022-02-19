@@ -1,7 +1,6 @@
 import typing
 
 
-
 def traveling_salesperson(
     graph: typing.List[typing.List[typing.Optional[int]]],
     src: int,

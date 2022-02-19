@@ -1,5 +1,6 @@
 import sys
-from math import sqrt, floor
+from math import floor, sqrt
+
 
 def divisors(n):
     res = set()

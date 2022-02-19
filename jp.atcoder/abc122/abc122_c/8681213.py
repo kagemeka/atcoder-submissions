@@ -1,4 +1,6 @@
 import sys
+
+
 def main():
     n, q = map(int, sys.stdin.readline().split())
     s = sys.stdin.readline().rstrip()

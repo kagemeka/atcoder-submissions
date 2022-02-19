@@ -194,4 +194,5 @@ def main() -> None:
     f = maxflow_dinic(graph, 0, n)
     print(f)
 
+
 main()

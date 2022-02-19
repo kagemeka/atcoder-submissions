@@ -3,6 +3,7 @@
 ### modules
 ## from standard library
 import sys
+
 # import collections
 # import math
 # import string
@@ -26,14 +27,13 @@ def main():
     s, t = sys.stdin.read().split()
     for _ in range(len(s)):
         if s == t:
-            ans = 'Yes'
+            ans = "Yes"
             break
         s = stringRotation(s)
     else:
-        ans = 'No'
+        ans = "No"
 
     print(ans)
-
 
 
 if __name__ == "__main__":

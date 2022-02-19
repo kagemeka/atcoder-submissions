@@ -1,15 +1,16 @@
 import sys
-from math import log, floor
+from math import floor, log
 
 n = int(sys.stdin.readline().rstrip())
+
 
 def main():
     cand = set()
     for i in range(floor(log(n, 6)) + 1):
-        if 6 ** i <= n:
-            cand.add(6 ** i)
-        if 9 ** i <= n:
-            cand.add(9 ** i)
+        if 6**i <= n:
+            cand.add(6**i)
+        if 9**i <= n:
+            cand.add(9**i)
     cand = sorted(cand)
 
     res = set([0])
@@ -27,6 +28,7 @@ def main():
             return cnt
         res = nex
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

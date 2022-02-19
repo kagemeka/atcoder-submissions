@@ -3,6 +3,7 @@
 ### modules
 ## from standard library
 import sys
+
 # import collections
 # import math
 # import string
@@ -16,6 +17,7 @@ import sys
 # import scipy.special
 # import scipy.misc
 # import numpy as np
+
 
 def main():
     n, i = (int(x) for x in sys.stdin.readline().split())

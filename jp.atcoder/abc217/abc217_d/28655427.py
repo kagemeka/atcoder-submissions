@@ -1,5 +1,5 @@
-import typing
 import bisect
+import typing
 
 
 class UnionFind():

@@ -1,23 +1,28 @@
-import typing
 import collections
+import typing
 
-class UnionFind():
+
+class UnionFind:
     def __init__(self, n: int) -> typing.NoReturn:
         self.__data = [-1] * n
 
-    def __len__(self) -> int: return len(self.__data)
+    def __len__(self) -> int:
+        return len(self.__data)
 
     def find(self, u: int) -> int:
         d = self.__data
-        if d[u] < 0: return u
+        if d[u] < 0:
+            return u
         d[u] = self.find(d[u])
         return d[u]
 
     def unite(self, u: int, v: int) -> typing.NoReturn:
         u, v = self.find(u), self.find(v)
-        if u == v: return
+        if u == v:
+            return
         d = self.__data
-        if d[u] > d[v]: u, v = v, u
+        if d[u] > d[v]:
+            u, v = v, u
         d[u] += d[v]
         d[v] = u
 
@@ -59,7 +64,6 @@ def main() -> typing.NoReturn:
     label1 = get_labels(uf1)
     label2 = get_labels(uf2)
 
-
     cnt = collections.Counter()
     for i in range(n):
         cnt[(label1[i], label2[i])] += 1
@@ -67,5 +71,6 @@ def main() -> typing.NoReturn:
     res = []
     res = [cnt[(label1[i], label2[i])] for i in range(n)]
     print(*res)
+
 
 main()

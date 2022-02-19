@@ -1,6 +1,7 @@
 import sys
-from math import floor, sqrt
 from bisect import bisect_left as bi_l
+from math import floor, sqrt
+
 
 def prime_nums(n):
     sieve = set(range(2, n + 1))

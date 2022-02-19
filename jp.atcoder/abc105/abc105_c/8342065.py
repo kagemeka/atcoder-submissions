@@ -3,9 +3,10 @@
 #                         created: 2019-11-09 11:51:37(JST)
 ### modules
 ## from standard library
-import sys
 # import collections
 import math
+import sys
+
 # import string
 # import bisect
 # import re
@@ -21,26 +22,22 @@ import math
 
 def f(n):
     if n == 0:
-        return ''
+        return ""
     else:
         if n % 2 == 0:
-            return f(n // (-2)) + '0'
+            return f(n // (-2)) + "0"
         else:
-            return f((n - 1) // (-2)) + '1'
+            return f((n - 1) // (-2)) + "1"
 
 
 def main():
     n = int(sys.stdin.readline().rstrip())
 
     if n == 0:
-        ans = '0'
+        ans = "0"
     else:
         ans = f(n)
     print(ans)
-
-
-
-
 
 
 if __name__ == "__main__":

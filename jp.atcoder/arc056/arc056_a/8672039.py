@@ -2,6 +2,7 @@
 import sys
 from math import ceil
 
+
 def main():
     a, b, k, l = map(int, sys.stdin.readline().split())
 

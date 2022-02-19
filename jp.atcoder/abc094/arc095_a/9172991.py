@@ -2,6 +2,7 @@ import sys
 
 n, *x = map(int, sys.stdin.read().split())
 
+
 def main():
     y = sorted(x)
     r = y[n // 2]
@@ -13,6 +14,7 @@ def main():
         else:
             yield l
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
-    print(*ans, sep='\n')
+    print(*ans, sep="\n")

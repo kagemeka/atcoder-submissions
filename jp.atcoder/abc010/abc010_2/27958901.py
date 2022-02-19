@@ -1,5 +1,6 @@
 import typing
 
+
 def main() -> typing.NoReturn:
     n = int(input())
     cnt = 0
@@ -8,5 +9,6 @@ def main() -> typing.NoReturn:
             cnt += 1
             a -= 1
     print(cnt)
+
 
 main()

@@ -1,6 +1,7 @@
 import sys
+from heapq import heappop, heappush
+
 import numpy as np
-from heapq import heappush, heappop
 
 
 def main():

@@ -13,8 +13,9 @@ def main() -> typing.NoReturn:
         d = abs(xj - xi) + abs(yj - yi)
         if d <= dt and (dt - d) % 2 == 0:
             continue
-        print('No')
+        print("No")
         return
-    print('Yes')
+    print("Yes")
+
 
 main()

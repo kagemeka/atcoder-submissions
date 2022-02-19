@@ -1,6 +1,8 @@
 import sys
+from math import ceil, log
+
 import numpy as np
-from math import log, ceil
+
 MOD = 10 ** 9 + 7
 
 def main():

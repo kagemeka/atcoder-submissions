@@ -1,14 +1,14 @@
 import sys
 
-*I, = map(int, sys.stdin.read().split())
+(*I,) = map(int, sys.stdin.read().split())
 n, m = I[:2]
-aby = I[2:2+m*3]
+aby = I[2 : 2 + m * 3]
 a = aby[::3]
 b = aby[1::3]
 y = aby[2::3]
 yab = list(zip(y, a, b))
-q = I[2+m*3]
-vw = I[(m+1)*3:]
+q = I[2 + m * 3]
+vw = I[(m + 1) * 3 :]
 wv = list(zip(vw[1::2], vw[::2]))
 
 yab.sort(reverse=True)
@@ -17,6 +17,7 @@ jwv = sorted(list(enumerate(wv)), reverse=True, key=lambda x: x[1])
 
 parent = [None] * (n + 1)
 num_of_memb = [1] * (n + 1)
+
 
 def union(v, u):
     while parent[v]:
@@ -29,11 +30,13 @@ def union(v, u):
         parent[root_v] = root_u
         num_of_memb[u] += num_of_memb[v]
 
+
 def find(v):
     while parent[v]:
         v = parent[v]
     root = v
     return root
+
 
 def main():
     i = 0
@@ -50,6 +53,7 @@ def main():
         res[j] = num_of_memb[find(v)]
     return res
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
-    print(*ans, sep='\n')
+    print(*ans, sep="\n")

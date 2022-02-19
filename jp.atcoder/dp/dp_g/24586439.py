@@ -1,9 +1,6 @@
-import typing
 import sys
-from functools import (
-  lru_cache,
-)
-
+import typing
+from functools import lru_cache
 
 
 def solve(

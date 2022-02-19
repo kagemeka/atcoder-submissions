@@ -1,7 +1,8 @@
 import sys
 
-s = sys.stdin.readline().rstrip() + '+'
+s = sys.stdin.readline().rstrip() + "+"
 l = len(s)
+
 
 def main():
     cnt = 0
@@ -11,10 +12,10 @@ def main():
             if flag:
                 continue
             else:
-                if s[i] == '0':
+                if s[i] == "0":
                     flag = True
         else:
-            if s[i] == '+':
+            if s[i] == "+":
                 if not flag:
                     cnt += 1
                 else:
@@ -22,6 +23,7 @@ def main():
 
     return cnt
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

@@ -10,6 +10,7 @@ for n in a:
 
 count = 0
 for v in each_count.values():
-    if v % 2 == 1: count += 1
+    if v % 2 == 1:
+        count += 1
 
 print(count)

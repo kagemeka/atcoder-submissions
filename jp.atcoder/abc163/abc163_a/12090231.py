@@ -1,4 +1,5 @@
 import sys
+
 # from math import pi
 r = int(sys.stdin.readline().rstrip())
 def main():

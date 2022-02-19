@@ -1,9 +1,10 @@
 import sys
 from collections import Counter
 
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 
 n, *a = map(int, sys.stdin.read().split())
+
 
 def main():
     c = Counter(a)
@@ -20,6 +21,7 @@ def main():
 
     return pow(2, n // 2, MOD)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

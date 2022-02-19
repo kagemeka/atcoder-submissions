@@ -1,7 +1,6 @@
 import typing
 
 
-
 def popcount(n: int) -> int:
     """Popcount.
 

@@ -1,5 +1,6 @@
 import typing
 
+
 class UnionFind():
     def __init__(self, n: int) -> typing.NoReturn:
         self.__data = [-1] * n

@@ -1,6 +1,6 @@
 import sys
-from bisect import bisect_left as bi_l, bisect_right as bi_r
-
+from bisect import bisect_left as bi_l
+from bisect import bisect_right as bi_r
 
 x, y, z, k = map(int, sys.stdin.readline().split())
 a, b, c = (sorted(map(int, sys.stdin.readline().split())) for _ in range(3))

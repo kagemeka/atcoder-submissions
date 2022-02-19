@@ -1,9 +1,9 @@
-import typing
 import sys
-import numpy as np
-import numba as nb
-from numba import i8, b1
+import typing
 
+import numba as nb
+import numpy as np
+from numba import b1, i8
 
 
 @nb.njit(

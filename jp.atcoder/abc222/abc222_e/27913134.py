@@ -1,7 +1,6 @@
 import typing
 
 
-
 def tree_bfs(
     g: typing.List[typing.Tuple[int, int]],
     root: int,

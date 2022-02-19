@@ -1,6 +1,5 @@
 import typing
 
-
 mod = 998244353
 
 def main() -> typing.NoReturn:

@@ -1,10 +1,12 @@
 import sys
+
 import numpy as np
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import minimum_spanning_tree
 
 n = int(sys.stdin.readline().rstrip())
 xy = np.array(sys.stdin.read().split(), dtype=np.int64).reshape(-1, 2).T
+
 
 def main():
     indices1, indices2 = np.argsort(xy)
@@ -19,12 +21,13 @@ def main():
     a = np.concatenate((indices1[:-1], indices2[:-1]))
     b = np.concatenate((indices1[1:], indices2[1:]))
 
-    return 'error'
+    return "error"
     graph = csr_matrix((d, (a, b)), shape=(n, n))
     res = minimum_spanning_tree(graph, overwrite=True)
     ans = np.sum(res)
     return int(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

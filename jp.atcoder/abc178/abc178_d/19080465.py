@@ -12,9 +12,8 @@ def solve(s):
   print(f(s))
 
 
-from functools import (
-  lru_cache,
-)
+from functools import lru_cache
+
 
 @lru_cache(maxsize=None)
 def f(n):

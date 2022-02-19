@@ -1,5 +1,5 @@
-import typing
 import itertools
+import typing
 
 
 class RepeatedPermutations():

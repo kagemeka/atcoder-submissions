@@ -5,6 +5,7 @@ a = [[int(x) for x in sys.stdin.readline().split()] for _ in range(h)]
 q = int(sys.stdin.readline().rstrip())
 lr = zip(*[map(int, sys.stdin.read().split())] * 2)
 
+
 def main():
     place = [None] * (h * w + 1)
     for i in range(h):
@@ -13,7 +14,7 @@ def main():
 
     cost = [0] * (h * w + 1)
     cost[0] = None
-    for x in range(1, 1+d):
+    for x in range(1, 1 + d):
         i, j = place[x]
         while x + d <= h * w:
             nex = x + d
@@ -25,6 +26,7 @@ def main():
     for l, r in lr:
         yield cost[r] - cost[l]
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
-    print(*ans, sep='\n')
+    print(*ans, sep="\n")

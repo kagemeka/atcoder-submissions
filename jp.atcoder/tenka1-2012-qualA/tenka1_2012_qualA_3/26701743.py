@@ -1,7 +1,6 @@
-import typing
-import sys
 import re
-
+import sys
+import typing
 
 
 def main() -> typing.NoReturn:

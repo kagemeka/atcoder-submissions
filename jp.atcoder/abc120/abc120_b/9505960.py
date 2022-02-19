@@ -1,5 +1,6 @@
 import sys
-from math import sqrt, floor
+from math import floor, sqrt
+
 
 def gcd(a, b):
     while b:

@@ -2,6 +2,7 @@ import sys
 
 n = int(sys.stdin.readline().rstrip())
 
+
 def main():
     flag = False
     r = n
@@ -13,7 +14,7 @@ def main():
             flag = True
             break
 
-        if cnt & 1: # opponent's turn
+        if cnt & 1:  # opponent's turn
             r = min(l - 1, r // 2)
             l //= 2
         else:
@@ -29,8 +30,9 @@ def main():
 
         cnt += 1
 
-    return 'Takahashi' if flag else 'Aoki'
+    return "Takahashi" if flag else "Aoki"
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

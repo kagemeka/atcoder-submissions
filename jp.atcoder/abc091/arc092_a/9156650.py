@@ -6,6 +6,7 @@ I = list(zip(*[map(int, sys.stdin.read().split())] * 2))
 red = I[:n]
 blue = I[n:]
 
+
 def main():
     red.sort(key=lambda x: x[0])
     blue.sort(key=lambda x: x[0])
@@ -30,6 +31,7 @@ def main():
 
     return cnt
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

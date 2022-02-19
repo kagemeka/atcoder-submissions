@@ -1,4 +1,6 @@
 import sys
+
+
 def main():
     n, l = map(int, sys.stdin.readline().split())
     amidakuji = [' ' + sys.stdin.readline().rstrip() + ' ' for _ in range(l)]

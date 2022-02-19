@@ -1,5 +1,5 @@
 import sys
-from math import log2, ceil
+from math import ceil, log2
 
 n, k = map(int, sys.stdin.readline().split())
 

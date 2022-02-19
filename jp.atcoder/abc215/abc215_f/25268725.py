@@ -1,9 +1,6 @@
-import typing
 import sys
-from bisect import (
-  bisect_right,
-)
-
+import typing
+from bisect import bisect_right
 
 
 def solve(

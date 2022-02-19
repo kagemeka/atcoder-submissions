@@ -1,4 +1,5 @@
 import sys
+
 import numpy as np
 
 INF = 10 ** 18

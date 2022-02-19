@@ -1,7 +1,6 @@
 import typing
 
 
-
 class SAIS():
   def __call__(
     self,

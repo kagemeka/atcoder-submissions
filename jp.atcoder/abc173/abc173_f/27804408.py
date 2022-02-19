@@ -1,7 +1,6 @@
 import typing
 
 
-
 def main() -> typing.NoReturn:
     '''
     (1 * n + 2 * (n - 1) + ... + (n - 1) * 2 + n * 1) - \sum_{edge} {disconnect count}

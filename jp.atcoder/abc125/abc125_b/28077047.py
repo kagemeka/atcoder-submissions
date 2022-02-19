@@ -1,5 +1,6 @@
 import typing
 
+
 def main() -> typing.NoReturn:
     n = int(input())
     v = list(map(int, input().split()))

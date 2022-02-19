@@ -1,7 +1,6 @@
 import typing
 
 
-
 def solve(
   n: int,
   a: typing.List[int],

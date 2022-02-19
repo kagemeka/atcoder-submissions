@@ -1,4 +1,5 @@
 from bisect import bisect_left
+
 n = int(input())
 ls = list(map(int, input().split()))
 ls.sort()

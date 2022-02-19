@@ -1,7 +1,7 @@
-import typing
-import numpy as np
 import sys
+import typing
 
+import numpy as np
 
 
 def sa_doubling(
@@ -125,4 +125,5 @@ if sys.argv[-1] == 'ONLINE_JUDGE':
 
 
 from my_module import solve
+
 main()

@@ -2,6 +2,7 @@ import sys
 from collections import defaultdict
 from math import ceil
 
+
 def main():
     n, *p = map(int, sys.stdin.read().split())
     p = [None] + p
@@ -21,5 +22,6 @@ def main():
         ans += v * ceil(k / 2)
     print(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

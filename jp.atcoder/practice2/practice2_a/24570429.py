@@ -1,7 +1,6 @@
 import typing
 
 
-
 class UnionFind():
 
   def __init__(
@@ -51,6 +50,7 @@ class UnionFind():
 
 
 import sys
+
 
 def main() -> typing.NoReturn:
   n, q = map(

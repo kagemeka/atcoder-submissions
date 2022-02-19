@@ -16,4 +16,4 @@ while True:
         res.append(e[i])
         i += 1
 
-print(''.join(res))
+print("".join(res))

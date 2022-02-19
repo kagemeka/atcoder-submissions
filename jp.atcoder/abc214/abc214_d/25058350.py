@@ -1,6 +1,5 @@
-import typing
 import sys
-
+import typing
 
 
 class UnionFind:

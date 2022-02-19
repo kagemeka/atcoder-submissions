@@ -1,8 +1,9 @@
 import sys
-from math import floor, sqrt, ceil
+from math import ceil, floor, sqrt
 
 q, *ab = map(int, sys.stdin.read().split())
 ab = zip(*[iter(ab)] * 2)
+
 
 def main():
     for a, b in ab:
@@ -25,7 +26,6 @@ def main():
         yield res
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     ans = main()
-    print(*ans, sep='\n')
+    print(*ans, sep="\n")

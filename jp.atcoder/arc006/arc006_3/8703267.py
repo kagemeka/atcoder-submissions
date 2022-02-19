@@ -1,5 +1,6 @@
 import sys
 
+
 def main():
     n, *w = map(int, sys.stdin.read().split())
 

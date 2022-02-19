@@ -1,10 +1,12 @@
 import sys
-from bisect import bisect_left as bi_l, bisect_right as bi_r
+from bisect import bisect_left as bi_l
+from bisect import bisect_right as bi_r
 
 n = int(sys.stdin.readline().rstrip())
-*a, = map(int, sys.stdin.readline().split())
-*b, = map(int, sys.stdin.readline().split())
-*c, = map(int, sys.stdin.readline().split())
+(*a,) = map(int, sys.stdin.readline().split())
+(*b,) = map(int, sys.stdin.readline().split())
+(*c,) = map(int, sys.stdin.readline().split())
+
 
 def main():
     a.sort()
@@ -18,6 +20,7 @@ def main():
 
     return res
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

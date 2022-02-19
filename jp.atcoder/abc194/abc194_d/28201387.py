@@ -1,6 +1,7 @@
-import typing
 import functools
 import sys
+import typing
+
 sys.setrecursionlimit(1 << 20)
 
 def main() ->  typing.NoReturn:

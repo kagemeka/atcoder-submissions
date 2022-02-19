@@ -1,5 +1,6 @@
 import sys
 from functools import lru_cache
+
 inf = float('inf')
 
 n, A, B, C, *l = map(int, sys.stdin.read().split())

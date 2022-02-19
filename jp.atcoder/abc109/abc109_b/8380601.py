@@ -1,6 +1,7 @@
 #                         author:  kagemeka
 #                         created: 2019-11-10 12:28:14(JST)
 import sys
+
 # import collections
 # import math
 # from string import ascii_lowercase, ascii_uppercase, digits

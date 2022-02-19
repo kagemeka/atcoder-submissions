@@ -2,13 +2,14 @@ import sys
 
 H, W, N, *cnt_color = map(int, sys.stdin.read().split())
 
+
 def main():
     canvas = [[None] * W for _ in range(H)]
 
     h = w = 0
     for i in range(N):
         c = cnt_color[i]
-        i = str(i+1)
+        i = str(i + 1)
         for _ in range(c):
             canvas[h][w] = i
             if h & 1:
@@ -23,8 +24,9 @@ def main():
                     w = W - 1
 
     for i in range(H):
-        yield' '.join(canvas[i])
+        yield " ".join(canvas[i])
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
-    print(*ans, sep='\n')
+    print(*ans, sep="\n")

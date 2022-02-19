@@ -1,11 +1,12 @@
-import sys
 import math
+import sys
+
 
 def main():
     a, b, k = [int(x) for x in sys.stdin.readline().split()]
 
     query_range = list(range(a, b + 1))
-    print('aaa')
+    print("aaa")
     sys.exit()
     if a == b:
         res = query_range
@@ -16,6 +17,7 @@ def main():
 
     for i in res:
         print(i)
+
 
 if __name__ == "__main__":
     main()

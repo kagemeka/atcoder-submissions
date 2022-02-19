@@ -1,8 +1,8 @@
 from __future__ import annotations
-import typing
-import heapq
-import dataclasses
 
+import dataclasses
+import heapq
+import typing
 
 
 @dataclasses.dataclass

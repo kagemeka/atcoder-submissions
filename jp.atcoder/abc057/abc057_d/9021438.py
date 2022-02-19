@@ -1,16 +1,21 @@
 import sys
-from bisect import bisect_left as bi_l, bisect_right as bi_r
+from bisect import bisect_left as bi_l
+from bisect import bisect_right as bi_r
+
 import scipy.special
+
 
 def comb(n, r):
     return scipy.special.comb(n, r, exact=True)
 
+
 n, a, b, *v = map(int, sys.stdin.read().split())
+
 
 def main():
     v.sort()
 
-    ma = v[n-a:n]
+    ma = v[n - a : n]
     yield sum(ma) / a
 
     lo = ma[0]
@@ -27,6 +32,7 @@ def main():
 
     yield res
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
-    print(*ans, sep='\n')
+    print(*ans, sep="\n")

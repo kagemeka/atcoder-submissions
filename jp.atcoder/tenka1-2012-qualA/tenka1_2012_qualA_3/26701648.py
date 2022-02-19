@@ -1,8 +1,9 @@
-import typing
-import sys
-import numpy as np
-import numba as nb
 import re
+import sys
+import typing
+
+import numba as nb
+import numpy as np
 
 
 @nb.njit

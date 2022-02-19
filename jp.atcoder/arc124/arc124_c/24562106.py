@@ -1,6 +1,5 @@
-import typing
 import sys
-
+import typing
 
 
 def gcd(a: int, b: int) -> int:

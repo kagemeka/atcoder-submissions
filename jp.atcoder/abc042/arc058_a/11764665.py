@@ -5,8 +5,9 @@ n, k, *d = sys.stdin.read().split()
 d = set(digits) - set(d)
 l = len(n)
 
+
 def main(d):
-    res = ''
+    res = ""
     flag = True
     for i in range(l):
         if flag:
@@ -27,8 +28,9 @@ def main(d):
         print(res)
         return
     d = sorted(d)
-    res = d[0] * (l + 1) if d[0] != '0' else d[1] + '0' * l
+    res = d[0] * (l + 1) if d[0] != "0" else d[1] + "0" * l
     print(res)
 
-if __name__ ==  '__main__':
+
+if __name__ == "__main__":
     main(d)

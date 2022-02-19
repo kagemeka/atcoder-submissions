@@ -1,6 +1,9 @@
 # 2019-11-28 00:36:19(JST)
 import sys
+
 import numpy as np
+
+
 def main():
     n = int(sys.stdin.readline().rstrip())
     ab = np.array(sys.stdin.read().split(), dtype=np.int64)

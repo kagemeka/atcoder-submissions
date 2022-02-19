@@ -1,7 +1,6 @@
 import typing
 
 
-
 def main() -> typing.NoReturn:
   n, k = map(int, input().split())
   *a, = map(int, input().split())

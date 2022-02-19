@@ -2,6 +2,7 @@ import sys
 from bisect import bisect_left as bi_l
 from collections import defaultdict
 
+
 def main():
     s, t = sys.stdin.read().split()
     if set(t) - set(s):

@@ -2,6 +2,7 @@ import sys
 
 n, *a = map(int, sys.stdin.read().split())
 
+
 def main():
     res = 0
     for x in a:
@@ -10,5 +11,6 @@ def main():
             x //= 2
     print(res)
 
-if __name__ ==  '__main__':
+
+if __name__ == "__main__":
     main()

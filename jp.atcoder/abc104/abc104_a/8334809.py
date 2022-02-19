@@ -3,6 +3,7 @@
 ### modules
 ## from standard library
 import sys
+
 # import collections
 # import math
 # import string
@@ -17,14 +18,15 @@ import sys
 # import scipy.misc      # select scipy.misc.comb (old version)
 # imort numpy as np
 
+
 def main():
     r = int(sys.stdin.readline().rstrip())
     if r < 1200:
-        ans = 'ABC'
+        ans = "ABC"
     elif r < 2800:
-        ans = 'ARC'
+        ans = "ARC"
     else:
-        ans = 'AGC'
+        ans = "AGC"
 
     print(ans)
 

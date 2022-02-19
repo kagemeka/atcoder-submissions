@@ -1,24 +1,31 @@
-import sys
-import numpy as np
-from scipy.sparse.csgraph import (
-  shortest_path, csgraph_to_dense, maximum_flow, minimum_spanning_tree
-)
-from scipy.sparse import csr_matrix
-from scipy.spatial import ConvexHull
-from scipy import optimize
-from scipy.special import comb
-from scipy.ndimage import distance_transform_cdt
-from numba import jit
-import networkx as nx
-from heapq import heappush, heappop
-from bisect import bisect_left as bi_l, bisect_right as bi_r
-from collections import deque, Counter, defaultdict
 import itertools
-import string
 import math
-from operator import xor, or_
+import string
+import sys
+from bisect import bisect_left as bi_l
+from bisect import bisect_right as bi_r
+from collections import Counter, defaultdict, deque
+from heapq import heappop, heappush
+from operator import or_, xor
+
+import networkx as nx
+import numpy as np
+from numba import jit
+from scipy import optimize
+from scipy.ndimage import distance_transform_cdt
+from scipy.sparse import csr_matrix
+from scipy.sparse.csgraph import (
+    csgraph_to_dense,
+    maximum_flow,
+    minimum_spanning_tree,
+    shortest_path,
+)
+from scipy.spatial import ConvexHull
+from scipy.special import comb
+
 inf = float('inf')
 from functools import lru_cache, reduce
+
 sys.setrecursionlimit(10**6)
 MOD = 10**9+7
 # MOD = 998244353
@@ -2211,6 +2218,7 @@ class Yukicoder:
 
 
 import array
+
 if __name__ == '__main__':
   AtCoder.ABC023.a()
   pass

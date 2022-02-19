@@ -1,10 +1,10 @@
 c = input()
 
-vowels = ['a', 'e', 'i', 'o', 'u']
+vowels = ["a", "e", "i", "o", "u"]
 
 if c in vowels:
-    ans = 'vowel'
+    ans = "vowel"
 else:
-    ans = 'consonant'
+    ans = "consonant"
 
 print(ans)

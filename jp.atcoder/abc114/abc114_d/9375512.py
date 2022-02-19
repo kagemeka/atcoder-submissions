@@ -1,8 +1,9 @@
 import sys
-from collections import defaultdict, Counter
-from math import floor, sqrt
+from collections import Counter, defaultdict
 from functools import reduce
+from math import floor, sqrt
 from operator import mul
+
 
 def prime_factorize_factorial(n):
     res = defaultdict(int)
@@ -12,7 +13,7 @@ def prime_factorize_factorial(n):
             i //= 2
         if i == 1:
             continue
-        for j in range(3, floor(sqrt(n))+1, 2):
+        for j in range(3, floor(sqrt(n)) + 1, 2):
             while i % j == 0:
                 res[j] += 1
                 i //= j
@@ -22,15 +23,18 @@ def prime_factorize_factorial(n):
             res[i] += 1
     return res
 
+
 def comb(n, r):
     if r < 0 or r > n:
         return 0
-    r = min(r, n-r)
-    upper = reduce(mul, range(n, n-r, -1), 1)
+    r = min(r, n - r)
+    upper = reduce(mul, range(n, n - r, -1), 1)
     lower = reduce(mul, range(r, 0, -1), 1)
     return upper // lower
 
+
 n = int(sys.stdin.readline().rstrip())
+
 
 def main():
     pcnt = prime_factorize_factorial(n)
@@ -42,7 +46,7 @@ def main():
             cnt_pcnt_atleast[74] += 1
 
     for i in range(74, 0, -1):
-        cnt_pcnt_atleast[i-1] += cnt_pcnt_atleast[i]
+        cnt_pcnt_atleast[i - 1] += cnt_pcnt_atleast[i]
 
     res = 0
 
@@ -57,6 +61,7 @@ def main():
 
     return res
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

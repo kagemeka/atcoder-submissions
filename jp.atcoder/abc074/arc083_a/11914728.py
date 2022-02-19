@@ -2,6 +2,7 @@ import sys
 
 a, b, c, d, e, f = map(int, sys.stdin.readline().split())
 
+
 def main():
     w = set()
     s = set()
@@ -16,12 +17,15 @@ def main():
     y = x = 0
     for i in w:
         for j in s:
-            if i + j > f: break
-            if j * (100 + e) > e * (i + j): break
-            if (j * y >= x * (i + j)):
+            if i + j > f:
+                break
+            if j * (100 + e) > e * (i + j):
+                break
+            if j * y >= x * (i + j):
                 y = i + j
                 x = j
     print(y, x)
 
-if __name__ ==  '__main__':
+
+if __name__ == "__main__":
     main()

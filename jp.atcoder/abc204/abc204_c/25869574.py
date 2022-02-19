@@ -1,8 +1,8 @@
-import typing
 import sys
+import typing
+
 import numpy as np
 import scipy.sparse
-
 
 
 def solve(n: int, ab: np.ndarray) -> typing.NoReturn:

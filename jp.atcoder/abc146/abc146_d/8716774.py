@@ -1,6 +1,7 @@
 import sys
 from collections import deque
 
+
 def main():
     n = int(sys.stdin.readline().rstrip())
     ab = map(int, sys.stdin.read().split())

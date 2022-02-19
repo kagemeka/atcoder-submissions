@@ -1,5 +1,6 @@
 import sys
 
+
 def main():
   n, *S = sys.stdin.read().split()
   a = b = ba = 0

@@ -1,5 +1,6 @@
 import typing
 
+
 def main() -> typing.NoReturn:
     n = int(input())
     ab = [tuple(map(int, input().split())) for _ in range(n)]

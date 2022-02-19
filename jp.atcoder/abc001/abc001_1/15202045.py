@@ -1,24 +1,25 @@
 import sys
 
+
 def A():
-  h1, h2 = map(int, sys.stdin.read().split())
-  print(h1-h2)
+    h1, h2 = map(int, sys.stdin.read().split())
+    print(h1 - h2)
 
 
 def B():
-  pass
+    pass
 
 
 def C():
-  pass
+    pass
 
 
 def D():
-  pass
+    pass
 
 
 if __name__ == "__main__":
-  A()
-  B()
-  C()
-  D()
+    A()
+    B()
+    C()
+    D()

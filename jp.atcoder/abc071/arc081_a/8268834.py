@@ -10,7 +10,7 @@ for l in lengths:
     if c != 1:
         if not long_side:
             if c >= 4:
-                print(l ** 2)
+                print(l**2)
                 exit()
             else:
                 long_side = l

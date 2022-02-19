@@ -1,5 +1,6 @@
-import sys
 import bisect
+import sys
+
 bi_l = bisect.bisect_left
 import collections
 

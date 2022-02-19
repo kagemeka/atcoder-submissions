@@ -1,35 +1,35 @@
-import typing
 import sys
-import numpy as np
+import typing
+
 import numba as nb
+import numpy as np
 
 
-
-@nb.njit((nb.i8, ), cache=True)
+@nb.njit((nb.i8,), cache=True)
 def solve(n: int) -> typing.NoReturn:
-  mod = 10 ** 9 + 7
+    mod = 10**9 + 7
 
-  dp = np.zeros(3, np.int64)
-  dp[0] = 1
-  for i in range(60, -1, -1):
-    flg = n >> i & 1
-    ndp = np.zeros(3, np.int64)
-    if flg:
-      ndp[0] += dp[0]
-      ndp[1] += dp[0] + dp[1]
-      ndp[2] += dp[2] * 3 + dp[1] * 2
-    else:
-      ndp[0] += dp[0] + dp[1]
-      ndp[1] += dp[1]
-      ndp[2] += dp[2] * 3 + dp[1]
-    dp = ndp % mod
+    dp = np.zeros(3, np.int64)
+    dp[0] = 1
+    for i in range(60, -1, -1):
+        flg = n >> i & 1
+        ndp = np.zeros(3, np.int64)
+        if flg:
+            ndp[0] += dp[0]
+            ndp[1] += dp[0] + dp[1]
+            ndp[2] += dp[2] * 3 + dp[1] * 2
+        else:
+            ndp[0] += dp[0] + dp[1]
+            ndp[1] += dp[1]
+            ndp[2] += dp[2] * 3 + dp[1]
+        dp = ndp % mod
 
-  print(dp.sum() % mod)
+    print(dp.sum() % mod)
 
 
 def main() -> typing.NoReturn:
-  n = int(input())
-  solve(n)
+    n = int(input())
+    solve(n)
 
 
 main()

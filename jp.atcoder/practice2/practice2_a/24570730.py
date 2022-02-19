@@ -1,7 +1,7 @@
 import typing
-import numpy as np
-import numba as nb
 
+import numba as nb
+import numpy as np
 
 
 @nb.njit
@@ -47,6 +47,7 @@ def solve(
 
 
 import sys
+
 
 def main() -> typing.NoReturn:
   n, q = map(

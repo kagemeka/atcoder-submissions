@@ -1,6 +1,7 @@
 import sys
 from collections import defaultdict
 
+
 def fill(s):
     while len(s) < 6: s = '0' + s
     return s

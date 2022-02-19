@@ -1,7 +1,6 @@
 import typing
 
 
-
 def is_bipartite(g: typing.List[typing.List[int]]) -> bool:
     n = len(g)
     assert n >= 1

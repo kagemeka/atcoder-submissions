@@ -1,7 +1,6 @@
 import typing
 
 
-
 def floor_sum(n: int) -> int:
     ...
 

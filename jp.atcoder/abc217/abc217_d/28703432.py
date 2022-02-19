@@ -1,5 +1,5 @@
-import typing
 import bisect
+import typing
 
 
 def _left_pivot(pivot: int) -> int:

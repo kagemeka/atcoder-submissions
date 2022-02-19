@@ -5,9 +5,11 @@ if x > y:
     a, b = b, a
     x, y = y, x
 
+
 def main():
     res = min(c * 2, a + b) * x + min(c * 2, b) * (y - x)
     print(res)
 
-if __name__ ==  '__main__':
+
+if __name__ == "__main__":
     main()

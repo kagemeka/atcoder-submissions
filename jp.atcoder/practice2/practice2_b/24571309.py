@@ -35,6 +35,7 @@ class Fenwick():
 
 import sys
 
+
 def main() -> typing.NoReturn:
   n, q = map(
     int, input().split(),

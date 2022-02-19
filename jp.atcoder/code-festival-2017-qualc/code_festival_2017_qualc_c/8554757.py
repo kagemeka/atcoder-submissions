@@ -1,6 +1,7 @@
 # 2019-11-21 01:26:03(JST)
-import sys
 import collections
+import sys
+
 # import math
 # from string import ascii_lowercase, ascii_uppercase, digits
 # from bisect import bisect_left as bi_l, bisect_right as bi_r, insort_left as in_l

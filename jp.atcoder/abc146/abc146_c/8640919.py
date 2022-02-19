@@ -1,5 +1,6 @@
 import sys
 
+
 def main():
     a, b, x = map(int, sys.stdin.readline().split())
 

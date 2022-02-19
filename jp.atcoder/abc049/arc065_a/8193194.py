@@ -1,5 +1,5 @@
 s = input()
-words = ['dream', 'dreamer', 'erase', 'eraser']
+words = ["dream", "dreamer", "erase", "eraser"]
 words = sorted(words, reverse=True)
 print()
 for word in words:

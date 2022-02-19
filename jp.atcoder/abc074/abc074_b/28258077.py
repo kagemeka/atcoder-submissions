@@ -11,4 +11,5 @@ def main() -> typing.NoReturn:
         s += 2 * min(x, k - x)
     print(s)
 
+
 main()

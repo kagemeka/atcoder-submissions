@@ -1,4 +1,5 @@
 import sys
+
 import numpy as np
 
 n, k = map(int, sys.stdin.readline().split())

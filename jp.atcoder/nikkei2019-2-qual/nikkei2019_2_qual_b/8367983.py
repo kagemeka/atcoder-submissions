@@ -2,11 +2,12 @@
 #                         created: 2019-11-09 21:20:16(JST)
 ### modules
 ## from standard library
-import sys
 # import collections
 # import math
 # import string
 import bisect
+import sys
+
 # import re
 # import itertools
 # import statistics

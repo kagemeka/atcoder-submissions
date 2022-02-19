@@ -1,5 +1,7 @@
 # 2019-11-28 00:55:58(JST)
 import sys
+
+
 def main():
     s = sys.stdin.readline().rstrip()
 

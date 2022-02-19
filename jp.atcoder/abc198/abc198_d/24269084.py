@@ -1,7 +1,6 @@
 import typing
 
 
-
 class ReadStdin:
   def __call__(
     self,
@@ -44,12 +43,8 @@ class ReadStdin:
 
 
 
-from abc import (
-  ABC,
-  abstractmethod,
-)
 import typing
-
+from abc import ABC, abstractmethod
 
 
 class Solver(
@@ -83,14 +78,8 @@ class Solver(
 
 
 import typing
-from itertools import (
-  permutations,
-  chain,
-)
-from bisect import (
-  bisect_left,
-)
-
+from bisect import bisect_left
+from itertools import chain, permutations
 
 
 class Problem(

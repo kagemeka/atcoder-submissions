@@ -2,6 +2,7 @@
 #                         created: 2019-11-07 23:33:56(JST)
 ## internal modules
 import sys
+
 # import collections
 # import math
 # import string
@@ -14,6 +15,7 @@ import sys
 ## external modules
 # import scipy.special   # if use comb function on AtCoder,
 # import scipy.misc      # select scipy.misc.comb (old version)
+
 
 def main():
     n = int(sys.stdin.readline().rstrip())
@@ -29,9 +31,6 @@ def main():
         max_count = max(count, max_count)
 
     print(max_count)
-
-
-
 
 
 if __name__ == "__main__":

@@ -1,6 +1,7 @@
-import numpy as np
-import numba as nb
 import typing
+
+import numba as nb
+import numpy as np
 
 
 @nb.njit
@@ -129,11 +130,12 @@ def cc_export(f, signature):
   return nb.njit(f)
 
 import sys
+
 if (
   sys.argv[-1]
   == 'ONLINE_JUDGE'
 ):
-  from numba import njit, b1, i4, i8, f8
+  from numba import b1, f8, i4, i8, njit
   from numba.pycc import CC
   cc = CC('my_module')
   solve = cc_export(

@@ -1,6 +1,5 @@
 import typing
 
-
 # def longest_increasing_sequence(
 #     a: typing.List[int],
 # ) -> typing.List[int]:

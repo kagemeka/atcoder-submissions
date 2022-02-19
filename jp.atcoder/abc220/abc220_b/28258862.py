@@ -1,7 +1,6 @@
 import typing
 
 
-
 def main() -> typing.NoReturn:
     k = int(input())
 

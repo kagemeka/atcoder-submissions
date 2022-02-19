@@ -3,15 +3,17 @@ import sys
 n, k = map(int, sys.stdin.readline().split())
 s = [ord(c) - 97 for c in sys.stdin.readline().rstrip()]
 
+
 def swap(i, j):
     s[i], s[j] = s[j], s[i]
+
 
 def main():
     r = k
     changed = [False] * n
 
-    for i in range(n-1):
-        cand = sorted(x for x in set(s[i+1:]) if x < s[i])
+    for i in range(n - 1):
+        cand = sorted(x for x in set(s[i + 1 :]) if x < s[i])
         if not cand:
             continue
         swapped = False
@@ -42,8 +44,9 @@ def main():
             if swapped:
                 break
 
-    ans = ''.join([chr(o + 97) for o in s])
+    ans = "".join([chr(o + 97) for o in s])
     print(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

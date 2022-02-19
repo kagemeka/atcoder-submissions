@@ -1,6 +1,7 @@
 from __future__ import annotations
-import typing
+
 import dataclasses
+import typing
 
 
 @dataclasses.dataclass
@@ -91,6 +92,7 @@ class ShortestDistDijkstra():
 
 
 import sys
+
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())

@@ -1,6 +1,7 @@
-import typing
-import itertools
 import collections
+import itertools
+import typing
+
 
 def main() -> typing.NoReturn:
     n, m = map(int, input().split())

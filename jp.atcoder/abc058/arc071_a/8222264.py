@@ -11,12 +11,15 @@ for char in set(chars):
         chars_used_in_all.append(char)
 
 if not chars_used_in_all:
-    print('')
+    print("")
     exit()
 
 chars_used_in_all.sort()
 
-accepted_chars_of_each_string = [[char for char in chars if char in chars_used_in_all] for chars in                                 chars_of_each_string]
+accepted_chars_of_each_string = [
+    [char for char in chars if char in chars_used_in_all]
+    for chars in chars_of_each_string
+]
 print(accepted_chars_of_each_string)
 each_count = dict([(char, 0) for char in chars_used_in_all])
 
@@ -37,5 +40,5 @@ res = []
 for char, count in each_count.items():
     res.append(char * count)
 
-ans = ''.join(res)
+ans = "".join(res)
 print(ans)

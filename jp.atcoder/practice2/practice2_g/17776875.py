@@ -1,4 +1,5 @@
 import sys
+
 # from heapq import heappush, heappop, heapify
 # from bisect import bisect_left as bi_l, bisect_right as bi_r
 # from collections import deque, Counter, defaultdict
@@ -7,6 +8,7 @@ import sys
 # import math
 # from operator import xor, or_
 from functools import lru_cache, reduce
+
 sys.setrecursionlimit(10**8)
 inf = float('inf')
 MOD = 10**9+7

@@ -1,5 +1,6 @@
 import typing
 
+
 def main() -> typing.NoReturn:
     s, t, x = map(int, input().split())
     ans = 'No'

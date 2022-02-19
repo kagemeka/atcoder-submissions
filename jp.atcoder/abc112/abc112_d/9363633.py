@@ -1,6 +1,6 @@
 import sys
-from math import sqrt, floor
 from bisect import bisect_right as bi_r
+from math import floor, sqrt
 
 n, m = map(int, sys.stdin.readline().split())
 

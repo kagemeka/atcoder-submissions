@@ -1,5 +1,6 @@
 import sys
 
+
 def verse_gcd(a, b, k):
     cnt = 0
     while cnt <= k:

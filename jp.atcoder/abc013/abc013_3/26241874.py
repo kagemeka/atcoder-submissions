@@ -1,32 +1,33 @@
 import typing
-import numpy as np
+
 import numba as nb
+import numpy as np
 
 
-@nb.njit((nb.i8, ) * 7, cache=True)
+@nb.njit((nb.i8,) * 7, cache=True)
 def solve(
-  n: int,
-  h: int,
-  a: int,
-  b: int,
-  c: int,
-  d: int,
-  e: int,
+    n: int,
+    h: int,
+    a: int,
+    b: int,
+    c: int,
+    d: int,
+    e: int,
 ) -> typing.NoReturn:
-  inf = 1 << 60
-  mn = inf
-  for x in range(n + 1):
-    y = (n * e - h - (b + e) * x) // (d + e) + 1
-    if not 0 <= x + y <= n: continue
-    mn = min(mn, a * x + c * y)
-  print(mn)
-
+    inf = 1 << 60
+    mn = inf
+    for x in range(n + 1):
+        y = (n * e - h - (b + e) * x) // (d + e) + 1
+        if not 0 <= x + y <= n:
+            continue
+        mn = min(mn, a * x + c * y)
+    print(mn)
 
 
 def main() -> typing.NoReturn:
-  n, h = map(int, input().split())
-  a, b, c, d, e = map(int, input().split())
-  solve(n, h, a, b, c, d, e)
+    n, h = map(int, input().split())
+    a, b, c, d, e = map(int, input().split())
+    solve(n, h, a, b, c, d, e)
 
 
 main()

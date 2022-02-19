@@ -1,8 +1,8 @@
 import sys
 
-
 s = sys.stdin.readline().rstrip()
 x, y = map(int, sys.stdin.readline().split())
+
 
 def reachable(deltas, goal):
     if not deltas:
@@ -25,25 +25,27 @@ def reachable(deltas, goal):
     for d in deltas:
         for i in range(a, -1, -1):
             if res[i] and i + d <= a:
-                res[i+d] = True
+                res[i + d] = True
     return res[a]
 
+
 def main():
-    gx = x; gy = y
+    gx = x
+    gy = y
     dx = []
     dy = []
     direction = 0
 
     origin_x = 0
     for i in s:
-        if i == 'T':
+        if i == "T":
             break
         origin_x += 1
     gx -= origin_x
 
     tmp = 0
-    for i in s[origin_x:] + 'T':
-        if i == 'T':
+    for i in s[origin_x:] + "T":
+        if i == "T":
             if direction == 0:
                 if tmp != 0:
                     dx.append(tmp)
@@ -56,8 +58,9 @@ def main():
         else:
             tmp += 1
 
-    return 'Yes' if reachable(dx, gx) & reachable(dy, gy) else 'No'
+    return "Yes" if reachable(dx, gx) & reachable(dy, gy) else "No"
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

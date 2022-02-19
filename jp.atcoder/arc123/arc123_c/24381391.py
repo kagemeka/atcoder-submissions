@@ -1,5 +1,5 @@
-import sys
 import functools
+import sys
 
 
 @functools.lru_cache(None)

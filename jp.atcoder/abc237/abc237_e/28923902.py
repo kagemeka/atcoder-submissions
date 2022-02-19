@@ -1,5 +1,5 @@
-import typing
 import heapq
+import typing
 
 INF = 1 << 60
 

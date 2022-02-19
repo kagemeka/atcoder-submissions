@@ -1,9 +1,9 @@
-import typing
 import sys
-sys.setrecursionlimit(1 << 20)
-import numpy as np
-import numba as nb
+import typing
 
+sys.setrecursionlimit(1 << 20)
+import numba as nb
+import numpy as np
 
 
 @nb.njit((nb.i8[:], nb.i8), cache=True)

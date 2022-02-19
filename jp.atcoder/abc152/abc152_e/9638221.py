@@ -2,9 +2,10 @@ import sys
 
 MOD = 10 ** 9 + 7
 
-from math import floor, sqrt
 from bisect import bisect_right as bi_r
 from collections import defaultdict
+from math import floor, sqrt
+
 
 def prime_nums(n=10**6):
     sieve = set(range(2, n + 1))

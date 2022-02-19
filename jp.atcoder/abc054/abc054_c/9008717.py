@@ -5,8 +5,9 @@ ab = map(int, sys.stdin.read().split())
 ab = zip(*[ab] * 2)
 graph = [[] for _ in range(n)]
 for a, b in ab:
-    graph[a-1].append(b-1)
-    graph[b-1].append(a-1)
+    graph[a - 1].append(b - 1)
+    graph[b - 1].append(a - 1)
+
 
 def main():
 
@@ -25,6 +26,7 @@ def main():
 
     return cnt
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

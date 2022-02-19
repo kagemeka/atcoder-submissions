@@ -9,9 +9,11 @@ for a, b in zip(*[iter(ab)] * 2):
     elif a == n or b == n:
         g_n.add(a)
 
-def main():
-    return 'POSSIBLE' if g_1 & g_n else 'IMPOSSIBLE'
 
-if __name__ == '__main__':
+def main():
+    return "POSSIBLE" if g_1 & g_n else "IMPOSSIBLE"
+
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

@@ -2,6 +2,7 @@ import typing
 
 import numpy as np
 
+
 def main() -> typing.NoReturn:
     n = int(input())
     a = list(map(int, input().split()))

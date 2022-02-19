@@ -1,5 +1,6 @@
 import sys
 
+
 def to_jpy(x, u):
     x = float(x)
     if u == 'BTC':

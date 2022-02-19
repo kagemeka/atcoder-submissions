@@ -1,4 +1,6 @@
 import sys
+
+
 def main():
     n, *log = sys.stdin.read().split()
 

@@ -2,14 +2,17 @@ import sys
 
 a, b = map(int, sys.stdin.readline().split())
 
-canvas = [['#'] * 100 for _ in range(50)] + [['.'] * 100 for _ in range(50)]
-a -= 1; b -= 1
+canvas = [["#"] * 100 for _ in range(50)] + [["."] * 100 for _ in range(50)]
+a -= 1
+b -= 1
+
 
 def paint(color, cnt):
-    if color == '.':
+    if color == ".":
         i = j = 0
     else:
-        i = 51; j = 0
+        i = 51
+        j = 0
 
     while cnt:
         canvas[i][j] = color
@@ -19,15 +22,17 @@ def paint(color, cnt):
             j = 0
             i += 2
 
-def main(a, b):
-    yield '100 100'
 
-    paint('.', a)
-    paint('#', b)
+def main(a, b):
+    yield "100 100"
+
+    paint(".", a)
+    paint("#", b)
 
     for i in range(100):
-        yield ''.join(canvas[i])
+        yield "".join(canvas[i])
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main(a, b)
-    print(*ans, sep='\n')
+    print(*ans, sep="\n")

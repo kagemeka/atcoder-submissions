@@ -1,9 +1,8 @@
 import typing
 
 
-
 def main() -> typing.NoReturn:
-  print(input() + 'pp')
+    print(input() + "pp")
 
 
 main()

@@ -1,76 +1,105 @@
-from typing import Union, Tuple
-import numpy as np
-# from numba import njit, i8
-MOD = 10 ** 9 + 7
+from typing import Tuple, Union
 
+import numpy as np
+
+# from numba import njit, i8
+MOD = 10**9 + 7
 
 
 class Modular(int):
-  def __init__(self, n: int, mod: int=MOD):
-    self.value = n
-    self.mod = mod
+    def __init__(self, n: int, mod: int = MOD):
+        self.value = n
+        self.mod = mod
 
-  def __str__(self) -> str: return f'{self.value}'
+    def __str__(self) -> str:
+        return f"{self.value}"
 
-  def __add__(self, other):
-    return self.__class__((self.value + other.value) % self.mod)
-  def __sub__(self, x): return self.__class__((self.value - x.value) % self.mod)
-  def __mul__(self, x): return self.__class__((self.value * x.value) % self.mod)
-  def __pow__(self, x): return self.__class__(pow(self.value, x.value, self.mod))
+    def __add__(self, other):
+        return self.__class__((self.value + other.value) % self.mod)
 
-  def __lt__(self, x): return self.value < x.value
-  def __le__(self, x): return self.value <= x.value
-  def __eq__(self, x): return self.value == x.value
-  def __ne__(self, x): return self.value != x.value
-  def __gt__(self, x): return self.value > x.value
-  def __ge__(self, x): return self.value >= x.value
+    def __sub__(self, x):
+        return self.__class__((self.value - x.value) % self.mod)
+
+    def __mul__(self, x):
+        return self.__class__((self.value * x.value) % self.mod)
+
+    def __pow__(self, x):
+        return self.__class__(pow(self.value, x.value, self.mod))
+
+    def __lt__(self, x):
+        return self.value < x.value
+
+    def __le__(self, x):
+        return self.value <= x.value
+
+    def __eq__(self, x):
+        return self.value == x.value
+
+    def __ne__(self, x):
+        return self.value != x.value
+
+    def __gt__(self, x):
+        return self.value > x.value
+
+    def __ge__(self, x):
+        return self.value >= x.value
+
 
 Mint = Modular
 
-class SemiGroup:
-  ...
-class Monoid:
-  ...
-class Group:
-  ...
-class SemiRing:
-  ...
-class Ring:
-  ...
 
+class SemiGroup:
+    ...
+
+
+class Monoid:
+    ...
+
+
+class Group:
+    ...
+
+
+class SemiRing:
+    ...
+
+
+class Ring:
+    ...
 
 
 def identity(n: Union[int, np.int64]):
-  return np.identity(n, dtype=np.int64)
+    return np.identity(n, dtype=np.int64)
 
 
 def dot(a: np.ndarray = ..., b: np.ndarray = ...):
-  return np.dot(a, b)
+    return np.dot(a, b)
 
 
+def matrix_pow(cls, a, n, mod=10**9 + 7):
+    m = len(a)
+    b = identity(m)
+    while n:
+        if n & 1:
+            b = dot(b, a)
+        n >>= 1
+        a = dot(a, a)
+        a %= mod
+        b %= mod
 
-def matrix_pow(cls, a, n, mod=10**9+7):
-  m = len(a)
-  b = identity(m)
-  while n:
-    if n&1: b = dot(b, a)
-    n >>= 1; a = dot(a, a)
-    a %= mod; b %= mod
-
-  return b
+    return b
 
 
 def bitwise_dot(a: np.ndarray, b: np.ndarray) -> np.ndarray:
-  return np.bitwise_xor.reduce(a[:,None,:] & b.T[None,...], axis=-1)
+    return np.bitwise_xor.reduce(a[:, None, :] & b.T[None, ...], axis=-1)
 
 
 def bitwise_matrix_power(a: np.ndarray = ..., n: int = ...):
-  if n==0:
-    return np.eye(len(a), dtype=np.uint32) * ((1<<32) - 1)
-  res = bitwise_matrix_power(a, n//2)
-  res = bitwise_dot(res, res)
-  return bitwise_dot(res, a) if n&1 else res
-
+    if n == 0:
+        return np.eye(len(a), dtype=np.uint32) * ((1 << 32) - 1)
+    res = bitwise_matrix_power(a, n // 2)
+    res = bitwise_dot(res, res)
+    return bitwise_dot(res, a) if n & 1 else res
 
 
 # def cumprod_mod(a: np.ndarray = ..., mod: int = MOD) -> np.ndarray:
@@ -84,7 +113,6 @@ def bitwise_matrix_power(a: np.ndarray = ..., n: int = ...):
 #     a[i+1] *= a[i, -1]
 #     a[i+1] %= mod
 #   return np.ravel(a)[:l]
-
 
 
 # @njit
@@ -138,29 +166,29 @@ def bitwise_matrix_power(a: np.ndarray = ..., n: int = ...):
 #   return fact, inv_fact
 
 
-
-
-
-
 class Kitamasa:
-  pass
+    pass
 
 
 import sys
 
 
 def d():
-  k, m = map(int, sys.stdin.readline().split())
-  a = np.array([int(x) for x in sys.stdin.readline().split()])
-  c = np.array([int(x) for x in sys.stdin.readline().split()])
-  mask = (1<<32) - 1
-  d = np.eye(k, k, -1, dtype=np.uint32) * mask; d[0] = c
-  if m <= k: print(a[m-1]); return
-  res = bitwise_dot(bitwise_matrix_power(d, m-k), a[::-1].reshape(-1, 1))[0][0]
-  print(res)
+    k, m = map(int, sys.stdin.readline().split())
+    a = np.array([int(x) for x in sys.stdin.readline().split()])
+    c = np.array([int(x) for x in sys.stdin.readline().split()])
+    mask = (1 << 32) - 1
+    d = np.eye(k, k, -1, dtype=np.uint32) * mask
+    d[0] = c
+    if m <= k:
+        print(a[m - 1])
+        return
+    res = bitwise_dot(bitwise_matrix_power(d, m - k), a[::-1].reshape(-1, 1))[
+        0
+    ][0]
+    print(res)
 
 
-
-if __name__ == '__main__':
-  d()
-  ...
+if __name__ == "__main__":
+    d()
+    ...

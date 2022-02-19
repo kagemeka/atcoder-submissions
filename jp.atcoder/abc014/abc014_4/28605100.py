@@ -1,6 +1,7 @@
-import typing
-import sys
 import dataclasses
+import sys
+import typing
+
 sys.setrecursionlimit(1 << 20)
 
 
@@ -96,7 +97,8 @@ def lca_tarjan_offline(
     dfs(root)
     return lca
 
-class UnionFind():
+
+class UnionFind:
     def __init__(self, n: int) -> None:
         self.__data = [-1] * n
 
@@ -350,7 +352,9 @@ def compute_first_index(tour_nodes: typing.List[int]) -> typing.List[int]:
 
 def main() -> None:
     n = int(input())
-    edges = [tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(n - 1)]
+    edges = [
+        tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(n - 1)
+    ]
     q = int(input())
     res = []
 
@@ -373,7 +377,7 @@ def main() -> None:
     #     u, v = queries[i]
     #     res.append(depth[u] + depth[v] - 2 * depth[lca[i]] + 1)
 
+    print(*res, sep="\n")
 
-    print(*res, sep='\n')
 
 main()

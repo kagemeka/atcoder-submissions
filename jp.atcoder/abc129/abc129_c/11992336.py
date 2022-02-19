@@ -1,4 +1,5 @@
 import sys
+
 MOD = 10 ** 9 + 7
 
 n, m, *broken = map(int, sys.stdin.read().split())

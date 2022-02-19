@@ -1,8 +1,9 @@
-from copyreg import add_extension
-import typing
 import sys
-import numpy as np
+import typing
+from copyreg import add_extension
+
 import numba as nb
+import numpy as np
 
 
 @nb.njit((nb.i8, nb.i8), cache=True)

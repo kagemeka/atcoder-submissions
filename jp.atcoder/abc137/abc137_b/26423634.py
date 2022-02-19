@@ -1,7 +1,6 @@
 import typing
 
 
-
 def main() -> typing.NoReturn:
   k, x = map(int, input().split())
   m = 10 ** 6

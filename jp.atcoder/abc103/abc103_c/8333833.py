@@ -3,6 +3,7 @@
 ### modules
 ## from standard library
 import sys
+
 # import collections
 # import math
 # import string
@@ -23,6 +24,7 @@ def main():
     # editorial より
     f = sum(a) - n
     print(f)
+
 
 if __name__ == "__main__":
     # execute only if run as a script

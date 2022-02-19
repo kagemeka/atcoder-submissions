@@ -1,6 +1,7 @@
 # assign random tasks to team member 1.
-import sys
 import random
+import sys
+
 # Prior information
 n, m, d, r = list(map(int, input().split()))
 task_difficulty = []

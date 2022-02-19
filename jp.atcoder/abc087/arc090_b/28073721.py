@@ -1,5 +1,6 @@
-import typing
 import sys
+import typing
+
 sys.setrecursionlimit(1 << 20)
 
 
@@ -15,10 +16,12 @@ def main() -> typing.NoReturn:
 
     inf = 1 << 60
     x = [inf] * n
+
     def dfs(i: int) -> bool:
         for j, d in g[i]:
             if x[j] != inf:
-                if x[i] + d != x[j]: return False
+                if x[i] + d != x[j]:
+                    return False
                 continue
             x[j] = x[i] + d
             dfs(j)
@@ -26,9 +29,11 @@ def main() -> typing.NoReturn:
 
     ok = True
     for i in range(n):
-        if x[i] != inf: continue
+        if x[i] != inf:
+            continue
         x[i] = 0
         ok &= dfs(i)
-    print('Yes' if ok else 'No')
+    print("Yes" if ok else "No")
+
 
 main()
