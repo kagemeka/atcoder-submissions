@@ -49,7 +49,7 @@ async def _fetch_contest_submissions(
         params,
     ):
         # await asyncio.sleep(0.03)
-        await asyncio.sleep(0.2)
+#         await asyncio.sleep(0.2)
         save_path = _get_save_path(contest_id, submission)
         # print(save_path)
         if os.path.exists(save_path):
@@ -111,4 +111,7 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    raise SystemExit(asyncio.run(main()))
+    try:
+        asyncio.run(main())
+    finally:
+        exit(0)
