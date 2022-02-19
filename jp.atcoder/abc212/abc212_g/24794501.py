@@ -1,7 +1,6 @@
 import typing
+
 import numpy as np
-
-
 
 
 def find_divisors(
@@ -96,9 +95,10 @@ def main() -> typing.NoReturn:
 
 
 import sys
+
 OJ = 'ONLINE_JUDGE'
 if sys.argv[-1] == OJ:
-  from numba import njit, i8
+  from numba import i8, njit
   find_divisors = njit(
     find_divisors,
   )
@@ -126,4 +126,5 @@ if sys.argv[-1] == OJ:
 
 
 from my_module import solve
+
 main()

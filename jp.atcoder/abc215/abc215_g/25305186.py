@@ -1,7 +1,6 @@
 import typing
 
 
-
 class CompressArray():
   def __call__(
     self,

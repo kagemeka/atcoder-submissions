@@ -1,6 +1,7 @@
 # 2019-11-28 02:28:10(JST)
 import sys
 
+
 def gcd(a, b):
     while b:
         a, b = b, a % b

@@ -1,5 +1,5 @@
 import sys
-from math import log2, floor
+from math import floor, log2
 
 n, k, *A = map(int, sys.stdin.read().split())
 

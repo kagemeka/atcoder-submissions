@@ -1,8 +1,7 @@
-import typing
 import sys
-from functools import (
-  lru_cache,
-)
+import typing
+from functools import lru_cache
+
 sys.setrecursionlimit(1 << 20)
 
 

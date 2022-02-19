@@ -2,6 +2,7 @@ import sys
 
 n, *a = map(int, sys.stdin.read().split())
 
+
 def main():
     c1 = c2 = s1 = s2 = 0
     for i in range(n):
@@ -23,5 +24,6 @@ def main():
                 s2 = -1
     print(min(c1, c2))
 
-if __name__ ==  '__main__':
+
+if __name__ == "__main__":
     main()

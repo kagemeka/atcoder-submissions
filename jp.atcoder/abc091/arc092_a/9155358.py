@@ -5,6 +5,7 @@ abcd = list(zip(*[map(int, sys.stdin.read().split())] * 2))
 ab = abcd[:n]
 cd = abcd[n:]
 
+
 def main():
     abcd.sort(key=lambda x: x[0])
     blue = list(map(lambda x: x[1], abcd))
@@ -17,7 +18,7 @@ def main():
         if i == len(blue) - 1:
             blue.remove(b)
             continue
-        cand = [x for x in blue[i+1:] if x > b]
+        cand = [x for x in blue[i + 1 :] if x > b]
         if not cand:
             blue.remove(b)
             continue
@@ -27,6 +28,7 @@ def main():
 
     return cnt
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

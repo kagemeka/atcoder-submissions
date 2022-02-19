@@ -1,5 +1,5 @@
 import sys
-from heapq import heappush, heappop
+from heapq import heappop, heappush
 
 n, k, *td = map(int, sys.stdin.read().split())
 td = list(zip(*[iter(td)] * 2))

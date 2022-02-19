@@ -1,6 +1,5 @@
-import typing
 import dataclasses
-
+import typing
 
 T = typing.TypeVar('T')
 @dataclasses.dataclass

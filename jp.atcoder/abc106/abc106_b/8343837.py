@@ -2,9 +2,11 @@
 #                         created: 2019-11-09 15:46:24(JST)
 ### modules
 ## from standard library
-import sys
 # import collections
 import math
+import sys
+
+
 # import string
 # import bisect
 # import re
@@ -33,8 +35,6 @@ def main():
             count += 1
 
     print(count)
-
-
 
 
 if __name__ == "__main__":

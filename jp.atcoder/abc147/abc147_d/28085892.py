@@ -1,6 +1,8 @@
-import typing
 import sys
+import typing
+
 import numpy as np
+
 
 def main() -> typing.NoReturn:
     # compute sum per digit

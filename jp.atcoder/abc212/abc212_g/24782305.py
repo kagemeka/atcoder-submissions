@@ -1,7 +1,6 @@
 import typing
 
 
-
 class FindDivisors():
   def __call__(
     self,

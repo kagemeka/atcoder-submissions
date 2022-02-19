@@ -1,9 +1,7 @@
-from __future__ import (
-  annotations,
-)
+from __future__ import annotations
 
-import typing
 import abc
+import typing
 
 
 class Modular(abc.ABC):
@@ -231,7 +229,6 @@ T: typing.Type = typing.Union[
 
 
 import typing
-
 
 
 class ModFactory():

@@ -5,5 +5,5 @@ M = int(input())
 for i in range(M):
     t = T.copy()
     p, x = [int(x) for x in input().split()]
-    t[p-1] = x
+    t[p - 1] = x
     print(sum(t))

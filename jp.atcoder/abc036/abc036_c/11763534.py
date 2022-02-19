@@ -3,6 +3,7 @@ from collections import defaultdict
 
 n, *a = map(int, sys.stdin.read().split())
 
+
 def main():
     res = defaultdict(list)
     for i in range(n):
@@ -14,7 +15,8 @@ def main():
         for i in q:
             b[i] = v
         v += 1
-    print(*b, sep='\n')
+    print(*b, sep="\n")
 
-if __name__ ==  '__main__':
+
+if __name__ == "__main__":
     main()

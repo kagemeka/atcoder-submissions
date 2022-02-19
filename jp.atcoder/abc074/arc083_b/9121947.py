@@ -1,12 +1,13 @@
 import sys
-import numpy as np
-from scipy.sparse.csgraph import floyd_warshall
-from scipy.sparse import csr_matrix
 from itertools import combinations
 
+import numpy as np
+from scipy.sparse import csr_matrix
+from scipy.sparse.csgraph import floyd_warshall
 
 n = int(sys.stdin.readline().rstrip())
 A = np.array(sys.stdin.read().split(), dtype=np.int64).reshape(n, n)
+
 
 def main():
     B = floyd_warshall(A, directed=False)
@@ -24,6 +25,7 @@ def main():
     ans = np.sum(B) // 2 - sum(will_subtract)
     return int(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

@@ -2,6 +2,7 @@ import sys
 
 n = int(sys.stdin.readline().rstrip())
 
+
 def main():
     flag = False
     r = n
@@ -31,8 +32,9 @@ def main():
 
         cnt += 1
 
-    return 'Takahashi' if flag else 'Aoki'
+    return "Takahashi" if flag else "Aoki"
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

@@ -10,10 +10,10 @@ else:
     for i in range(len(a)):
         if a[i] != b[i]:
             if a[i] > b[i]:
-                ans = 'GREATER'
+                ans = "GREATER"
                 break
             else:
-                ans = 'LESS'
+                ans = "LESS"
                 break
 
 print(ans)

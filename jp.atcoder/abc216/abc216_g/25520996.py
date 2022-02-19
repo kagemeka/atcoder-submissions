@@ -1,9 +1,8 @@
-import typing
 import sys
-import numpy as np
+import typing
+
 import numba as nb
-
-
+import numpy as np
 
 T = typing.TypeVar('T')
 @nb.njit

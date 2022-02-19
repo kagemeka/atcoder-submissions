@@ -1,5 +1,6 @@
 import typing
 
+
 def tree_bfs(
     tree_edges: typing.List[typing.Tuple[int, int]],
     root: int,
@@ -56,7 +57,9 @@ def lca_binary_lifting(
 
 def main() -> None:
     n = int(input())
-    edges = [tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(n - 1)]
+    edges = [
+        tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(n - 1)
+    ]
     _, depth = tree_bfs(edges, 0)
     get = lca_binary_lifting(edges, 0)
 
@@ -71,6 +74,7 @@ def main() -> None:
         v -= 1
         res.append(dist(u, v) + 1)
 
-    print(*res, sep='\n')
+    print(*res, sep="\n")
+
 
 main()

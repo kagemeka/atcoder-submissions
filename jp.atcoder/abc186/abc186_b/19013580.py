@@ -28,6 +28,8 @@ def read_ints():
 
 
 import numpy as np
+
+
 def solve(a: np.ndarray) -> None:
   print(a.sum() - a.min()*a.size)
 

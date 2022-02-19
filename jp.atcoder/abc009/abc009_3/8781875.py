@@ -7,16 +7,18 @@ import sys
 n, k = map(int, sys.stdin.readline().split())
 s = [ord(c) - 97 for c in sys.stdin.readline().rstrip()]
 
+
 def swap(i, j):
     s[i], s[j] = s[j], s[i]
+
 
 def main():
     r = k
     changed = [False] * n
 
-    for i in range(n-1):
-        m = min(s[i+1:])
-        if m < s[i]: # swapしたい
+    for i in range(n - 1):
+        m = min(s[i + 1 :])
+        if m < s[i]:  # swapしたい
             # for j in range(n-1, i, -1):
             for j in range(i + 1, n):
                 if s[j] == m:
@@ -35,8 +37,9 @@ def main():
                     r -= 2
                     changed[i], changed[j] = True, True
 
-    ans = ''.join([chr(o + 97) for o in s])
+    ans = "".join([chr(o + 97) for o in s])
     print(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

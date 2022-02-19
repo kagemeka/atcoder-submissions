@@ -1,5 +1,7 @@
-import typing
+import cmath
 import sys
+import typing
+
 # import numpy as np
 
 
@@ -53,7 +55,6 @@ import sys
 #     self.__a = self.__a[j]
 
 
-import cmath
 
 def fft(
   a: typing.List[int],

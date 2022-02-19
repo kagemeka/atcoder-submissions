@@ -1,5 +1,6 @@
-import sys
 import math
+import sys
+
 
 def main():
     a, b, k = map(int, sys.stdin.readline().split())
@@ -15,6 +16,7 @@ def main():
 
     for i in res:
         print(i)
+
 
 if __name__ == "__main__":
     main()

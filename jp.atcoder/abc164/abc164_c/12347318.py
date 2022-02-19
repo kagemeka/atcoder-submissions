@@ -1,6 +1,5 @@
 import sys
 
-
 n, *s = sys.stdin.read().split()
 def main():
     print(len(set(s)))

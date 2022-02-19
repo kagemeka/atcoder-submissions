@@ -1,6 +1,7 @@
 # 2019-11-23 21:00:35(JST)
-import sys
 import itertools
+import sys
+
 
 def main():
     n, *A = map(int, sys.stdin.read().split())

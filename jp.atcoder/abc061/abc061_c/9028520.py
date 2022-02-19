@@ -4,6 +4,7 @@ from collections import defaultdict
 n, k, *ab = map(int, sys.stdin.read().split())
 ab = zip(*[iter(ab)] * 2)
 
+
 def main():
     cnt = defaultdict(int)
     for a, b in ab:
@@ -15,6 +16,7 @@ def main():
         if s >= k:
             return v
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

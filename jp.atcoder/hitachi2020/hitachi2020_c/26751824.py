@@ -1,8 +1,9 @@
 # bipartite graph on tree
-import typing
 import sys
-import numpy as np
+import typing
+
 import numba as nb
+import numpy as np
 
 
 @nb.njit

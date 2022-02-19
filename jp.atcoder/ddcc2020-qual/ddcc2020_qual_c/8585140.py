@@ -1,6 +1,7 @@
 # 2019-11-23 21:00:35(JST)
 import sys
 
+
 def main():
     H, W, K = map(int, sys.stdin.readline().split())
     s = ['.' * (W+1)] + ['.' + sys.stdin.readline().rstrip() for _ in range(H)]

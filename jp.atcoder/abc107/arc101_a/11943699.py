@@ -2,8 +2,9 @@ import sys
 
 n, k, *x = map(int, sys.stdin.read().split())
 
+
 def main():
-    res = float('inf')
+    res = float("inf")
     for i in range(n - k + 1):
         j = i + k - 1
         if x[i] < 0:
@@ -13,5 +14,6 @@ def main():
         res = min(res, d)
     print(res)
 
-if __name__ ==  '__main__':
+
+if __name__ == "__main__":
     main()

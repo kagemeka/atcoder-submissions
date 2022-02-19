@@ -2,7 +2,7 @@ x, y = [int(i) for i in input().split()]
 
 times = 0
 while x >= 2 or y >= 2:
-    if x >= y : # xから選ぶ
+    if x >= y:  # xから選ぶ
         if x % 2 == 0:
             y += x // 2
             x = 0

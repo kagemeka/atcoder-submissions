@@ -1,4 +1,5 @@
 import sys
+
 read = sys.stdin.buffer.read
 # readline = sys.stdin.buffer.readline
 # readlines = sys.stdin.buffer.readlines
@@ -10,10 +11,13 @@ read = sys.stdin.buffer.read
 # import itertools
 # import statistics
 
+
 def main():
     a, t, b = (int(x) for x in read().split())
-    if a * t >= b: print(b)
-    else: print(a * t)
+    if a * t >= b:
+        print(b)
+    else:
+        print(a * t)
 
 
 if __name__ == "__main__":

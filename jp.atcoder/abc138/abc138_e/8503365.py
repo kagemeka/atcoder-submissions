@@ -1,5 +1,5 @@
-from collections import defaultdict
 from bisect import bisect_left
+from collections import defaultdict
 
 
 def main():

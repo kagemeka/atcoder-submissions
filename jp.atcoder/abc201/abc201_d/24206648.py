@@ -1,7 +1,6 @@
 import typing
 
 
-
 class ReadStdin:
   def __call__(
     self,
@@ -43,12 +42,8 @@ class ReadStdin:
     return b.decode()
 
 
-from abc import (
-  ABC,
-  abstractmethod,
-)
 import typing
-
+from abc import ABC, abstractmethod
 
 
 class Solver(
@@ -82,13 +77,9 @@ class Solver(
 
 
 
-import typing
-from typing import (
-  List,
-  Optional,
-)
 import dataclasses
-
+import typing
+from typing import List, Optional
 
 
 @dataclasses.dataclass
@@ -153,7 +144,6 @@ class Graph:
 
 
 import typing
-
 
 
 @dataclasses.dataclass

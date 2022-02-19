@@ -1,4 +1,4 @@
-mod = 10 ** 9 + 7
+mod = 10**9 + 7
 N = int(input())
 A = [int(a) for a in input().split()]
 
@@ -16,8 +16,8 @@ if N % 2 != 0:
         print(0)
         exit()
 
-    #order_count = 1
-    #for i in range((N - 1) // 2):
+        # order_count = 1
+        # for i in range((N - 1) // 2):
         order_count = 2 ** ((N - 1) // 2) % mod
 
 else:
@@ -25,8 +25,8 @@ else:
         if A.count(i) != 2:
             print(0)
             exit()
-    #order_count = 1
-    #for i in range(N // 2):
+        # order_count = 1
+        # for i in range(N // 2):
         order_count = 2 ** (N // 2) % mod
 
 print(order_count)

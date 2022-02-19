@@ -8,6 +8,7 @@ for _ in range(n):
     v.append([int(x) - 1 for x in vi])
     w.append(wi)
 
+
 def main():
     for lengths in list(product(range(1, 4), repeat=k)):
         for i in range(n):
@@ -22,7 +23,7 @@ def main():
                 cur = 0
                 letters = w[i]
                 for j in v[i]:
-                    res = letters[cur:cur + lengths[j]]
+                    res = letters[cur : cur + lengths[j]]
                     if not convert[j]:
                         convert[j] = res
                     else:
@@ -35,6 +36,7 @@ def main():
             else:
                 return convert
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
-    print(*ans, sep='\n')
+    print(*ans, sep="\n")

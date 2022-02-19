@@ -3,6 +3,7 @@
 ### modules
 ## from standard library
 import sys
+
 # import collections
 # import math
 # import string
@@ -17,10 +18,10 @@ import sys
 # import scipy.misc
 # import numpy as np
 
+
 def main():
     n, k = (int(x) for x in sys.stdin.readline().split())
     print(0 if n % k == 0 else 1)
-
 
 
 if __name__ == "__main__":

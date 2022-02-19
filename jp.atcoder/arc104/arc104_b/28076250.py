@@ -1,5 +1,6 @@
 import typing
 
+
 def main() -> typing.NoReturn:
     n, s = input().split()
     n = int(n)

@@ -1,4 +1,5 @@
 import sys
+
 import numpy as np
 
 read = sys.stdin.buffer.read

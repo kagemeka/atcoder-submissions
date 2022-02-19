@@ -1,6 +1,7 @@
-import typing
 import itertools
 import math
+import typing
+
 
 def main() -> typing.NoReturn:
     n = int(input())

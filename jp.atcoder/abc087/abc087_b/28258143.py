@@ -15,4 +15,5 @@ def main() -> typing.NoReturn:
             cnt += 0 <= k <= c
     print(cnt)
 
+
 main()

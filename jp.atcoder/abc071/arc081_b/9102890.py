@@ -1,9 +1,10 @@
 import sys
 
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 
 n = int(sys.stdin.readline().rstrip())
 s1, s2 = sys.stdin.read().split()
+
 
 def main():
     if s1[0] == s2[0]:
@@ -32,6 +33,7 @@ def main():
             i += 2
     return res
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

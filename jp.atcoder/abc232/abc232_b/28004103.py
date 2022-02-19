@@ -1,5 +1,6 @@
-import typing
 import string
+import typing
+
 
 def main() -> typing.NoReturn:
     s = input()

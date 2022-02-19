@@ -1,6 +1,7 @@
 #                         author:  kagemeka
 #                         created: 2019-11-06 14:53:37(JST)
 import sys
+
 # import collections
 # import math
 # import string
@@ -9,11 +10,11 @@ import sys
 # import itertools
 # import statistics
 
+
 def main():
     x, a, b = (int(i) for i in sys.stdin.read().split())
     ans = (x - a) % b
     print(ans)
-
 
 
 if __name__ == "__main__":

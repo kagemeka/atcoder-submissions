@@ -1,5 +1,8 @@
 # 2019-11-19 10:28:31(JST)
 import sys
+
+import numpy as np
+
 # import collections
 # import math
 # from string import ascii_lowercase, ascii_uppercase, digits
@@ -13,7 +16,6 @@ import sys
 # from scipy.misc import comb # (default: exact=False)
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import floyd_warshall
-import numpy as np
 
 
 def main():

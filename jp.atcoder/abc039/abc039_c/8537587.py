@@ -1,5 +1,6 @@
 # 2019-11-20 20:43:05(JST)
 import sys
+
 # import collections
 # import math
 # from string import ascii_lowercase, ascii_uppercase, digits
@@ -13,29 +14,28 @@ import sys
 # from scipy.misc import comb # (default: exact=False)
 # import numpy as np
 
-keyboard = 'WBWBWWBWBWBW' * 2
+keyboard = "WBWBWWBWBWBW" * 2
+
 
 def main():
     s = sys.stdin.readline().rstrip()
     ind = keyboard.find(s[:11])
     if ind == 0:
-        ans = 'Do'
+        ans = "Do"
     elif ind == 2:
-        ans = 'Re'
+        ans = "Re"
     elif ind == 4:
-        ans = 'Mi'
+        ans = "Mi"
     elif ind == 5:
-        ans = 'Fa'
+        ans = "Fa"
     elif ind == 7:
-        ans = 'So'
+        ans = "So"
     elif ind == 9:
-        ans = 'Ra'
+        ans = "Ra"
     elif ind == 11:
-        ans == 'Si'
+        ans == "Si"
 
     print(ans)
-
-
 
 
 if __name__ == "__main__":

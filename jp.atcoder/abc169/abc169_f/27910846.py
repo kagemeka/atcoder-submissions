@@ -1,5 +1,6 @@
 import typing
 
+
 def main() -> typing.NoReturn:
     n, s = map(int, input().split())
     k = 1 << 12

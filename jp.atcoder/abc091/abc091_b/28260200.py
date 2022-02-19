@@ -1,5 +1,6 @@
-import typing
 import collections
+import typing
+
 
 def main() -> typing.NoReturn:
     n = int(input())
@@ -15,5 +16,6 @@ def main() -> typing.NoReturn:
         cnt[s] -= 1
 
     print(max(0, *cnt.values()))
+
 
 main()

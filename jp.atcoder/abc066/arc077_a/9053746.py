@@ -3,6 +3,7 @@ from collections import deque
 
 n, *a = map(int, sys.stdin.read().split())
 
+
 def main():
     b = deque()
     for i in range(n):
@@ -16,6 +17,7 @@ def main():
 
     return res
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
-    print(*ans, sep=' ')
+    print(*ans, sep=" ")

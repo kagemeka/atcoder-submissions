@@ -1,8 +1,10 @@
-import sys
 import math
+import sys
+
 from scipy.special import comb
 
 n, d, x, y = map(int, sys.stdin.read().split())
+
 
 def main(n, d, x, y):
     x, y = abs(x), abs(y)
@@ -26,9 +28,15 @@ def main(n, d, x, y):
         d = i
         l = (r - 2 * i) // 2
 
-        res += math.pow(1 / 4, n) * comb(n, u, exact=True) * comb(n - u, d, exact = True) * comb(n - u - d, l, exact=True)
+        res += (
+            math.pow(1 / 4, n)
+            * comb(n, u, exact=True)
+            * comb(n - u, d, exact=True)
+            * comb(n - u - d, l, exact=True)
+        )
 
     return res
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     print(main(n, d, x, y))

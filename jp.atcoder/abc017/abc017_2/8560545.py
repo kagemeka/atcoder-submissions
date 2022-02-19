@@ -5,16 +5,16 @@ import sys
 def main():
     s = sys.stdin.readline().rstrip()
 
-
-    end = ['ch', 'o', 'k', 'u']
+    end = ["ch", "o", "k", "u"]
     for char in end:
-        s = s.replace(char, '')
+        s = s.replace(char, "")
     if s:
-        ans = 'NO'
+        ans = "NO"
     else:
-        ans = 'YES'
+        ans = "YES"
 
     print(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

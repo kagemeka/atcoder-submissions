@@ -1,5 +1,6 @@
 import sys
 
+
 def A():
   n = int(sys.stdin.readline().rstrip())
   charge = (n+999)//1000 * 1000 - n
@@ -7,6 +8,8 @@ def A():
   pass
 
 from collections import Counter
+
+
 def B():
   n, *s = sys.stdin.read().split()
   c = Counter(s)

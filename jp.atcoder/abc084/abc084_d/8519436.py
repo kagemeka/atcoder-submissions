@@ -1,4 +1,5 @@
 import sys
+
 # import collections
 # import math
 # import string
@@ -7,8 +8,10 @@ import sys
 # import itertools
 # import statistics
 
+
 def primeNums(n):
     from math import floor, sqrt
+
     sieve = set(range(2, n + 1))
     if 2 in sieve:
         not_prime = set(range(2 * 2, n + 1, 2))
@@ -19,10 +22,12 @@ def primeNums(n):
             sieve -= not_prime
     return sieve
 
-limit = 10 ** 5
+
+limit = 10**5
 prime_table = [0 for _ in range(limit + 1)]
 for p in primeNums(limit):
     prime_table[p] = 1
+
 
 def main():
 
@@ -32,7 +37,7 @@ def main():
     for l, r in zip(m, m):
         res = 0
         for i in range(l if l % 2 == 1 else l + 1, r + 1, 2):
-            res += (prime_table[(i + 1) // 2] if prime_table[i] else 0)
+            res += prime_table[(i + 1) // 2] if prime_table[i] else 0
 
         print(res)
 

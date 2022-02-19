@@ -1,6 +1,7 @@
 import sys
 from itertools import combinations
 
+
 def main():
     n, s = sys.stdin.read().split()
     n = int(n)

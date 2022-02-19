@@ -1,7 +1,5 @@
 import typing
-from collections import (
-  Counter,
-)
+from collections import Counter
 
 
 def solve(

@@ -1,4 +1,5 @@
 import sys
+
 import numpy as np
 
 n = int(sys.stdin.readline().rstrip())

@@ -8,10 +8,10 @@ for a in range(n - m + 1):
     isok = True
     while isok and not flag:
         for b in range(m):
-            if img_b[b] in img_a[b+a][border:]:
+            if img_b[b] in img_a[b + a][border:]:
                 if b == 0:
                     index = img_a[a].index(img_b[0], border)
-                current_index = img_a[b+a].index(img_b[b], border)
+                current_index = img_a[b + a].index(img_b[b], border)
                 if current_index == index:
                     continue
                 elif current_index > index:
@@ -20,17 +20,17 @@ for a in range(n - m + 1):
                 else:
                     border = index
                     break
-            else:   # if not substring in string.
+            else:  # if not substring in string.
                 isok = False
                 break
 
-        else: # if not loop broken.
+        else:  # if not loop broken.
             ans = "Yes"
             found = True
             break
     if found:
         break
-else: # if not 'found==True' even after last loop, then it means B is not in A.
+else:  # if not 'found==True' even after last loop, then it means B is not in A.
     ans = "No"
 
 print(ans)

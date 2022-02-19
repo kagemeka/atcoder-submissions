@@ -1,4 +1,5 @@
 import sys
+
 # import collections
 # import math
 # import string
@@ -7,10 +8,11 @@ import sys
 # import itertools
 # import statistics
 
+
 def main():
     s = list(sys.stdin.readline().rstrip())
-    s[3] = '8'
-    print(''.join(s))
+    s[3] = "8"
+    print("".join(s))
 
 
 if __name__ == "__main__":

@@ -1,5 +1,6 @@
 import sys
 
+
 def main():
     n, m = map(int, sys.stdin.readline().split())
     cnt = [0, 0, 0]
@@ -30,7 +31,8 @@ def main():
 
     cnt[0] += (n - q) * 2
     cnt[2] += q * 2 - n
-    print(*cnt, sep=' ')
+    print(*cnt, sep=" ")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

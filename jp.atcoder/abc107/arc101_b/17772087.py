@@ -1,12 +1,14 @@
-import sys
-from heapq import heappush, heappop, heapify
-from bisect import bisect_left as bi_l, bisect_right as bi_r
-from collections import deque, Counter, defaultdict
 import itertools
-import string
 import math
-from operator import xor, or_
+import string
+import sys
+from bisect import bisect_left as bi_l
+from bisect import bisect_right as bi_r
+from collections import Counter, defaultdict, deque
 from functools import lru_cache, reduce
+from heapq import heapify, heappop, heappush
+from operator import or_, xor
+
 sys.setrecursionlimit(10**7)
 inf = float('inf')
 # MOD = 10**9+7
@@ -15,6 +17,7 @@ MOD = 998244353
 
 using_numpy = 1
 import numpy as np
+
 # from scipy.sparse.csgraph import (
 #   shortest_path, csgraph_to_dense, maximum_flow, minimum_spanning_tree,
 #   connected_components

@@ -1,5 +1,6 @@
-import typing
 import sys
+import typing
+
 import numpy as np
 import scipy
 from scipy import signal

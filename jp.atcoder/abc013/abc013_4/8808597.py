@@ -2,18 +2,20 @@ import sys
 
 n, m, d, *A = map(int, sys.stdin.read().split())
 
-res = list(range(n+1))
+res = list(range(n + 1))
+
 
 def swap(i, j):
     res[i], res[j] = res[j], res[i]
 
+
 def main():
     for a in reversed(A):
-        swap(a, a+1)
+        swap(a, a + 1)
 
     rot = [None] * (n + 1)
     checked = set()
-    for i in range(1, n+1):
+    for i in range(1, n + 1):
         if not i in checked:
             group = [i]
             cur = res[i]
@@ -31,6 +33,7 @@ def main():
 
     return rot
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
-    print(*ans[1:], sep='\n')
+    print(*ans[1:], sep="\n")

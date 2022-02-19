@@ -11,10 +11,10 @@ for i in range(m):
 ans = "No"
 for a in range(n - m + 1):
     for b in range(m):
-        if img_b[b] in img_a[b+a]:
+        if img_b[b] in img_a[b + a]:
             if b == 0:
                 index = img_a[a].index(img_b[0])
-            current_index = img_a[b+a].index(img_b[b])
+            current_index = img_a[b + a].index(img_b[b])
 
             if current_index != index:
                 break

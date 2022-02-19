@@ -1,5 +1,6 @@
 import typing
 
+
 def main() -> typing.NoReturn:
     n, k = map(int, input().split())
     a = [[] for _ in range(n)]

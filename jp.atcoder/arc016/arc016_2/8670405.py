@@ -1,6 +1,7 @@
 # 2019-11-27 14:53:01(JST)
 import sys
 
+
 def main():
     n = int(sys.stdin.readline().rstrip())
     code = sys.stdin.read().split()

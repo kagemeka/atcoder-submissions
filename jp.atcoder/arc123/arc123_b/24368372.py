@@ -1,6 +1,4 @@
-from bisect import (
-  bisect_right,
-)
+from bisect import bisect_right
 
 
 def main():

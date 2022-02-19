@@ -11,12 +11,14 @@ for c in set(chars):
         used_in_all.append(c)
 
 if not used_in_all:
-    print('')
+    print("")
     exit()
 
 used_in_all.sort()
 
-accepted_chars_of_each_string = [[c for c in s if c in used_in_all] for s in strings]
+accepted_chars_of_each_string = [
+    [c for c in s if c in used_in_all] for s in strings
+]
 counts = dict([(c, 0) for c in used_in_all])
 
 for c in used_in_all:
@@ -27,7 +29,7 @@ for c in used_in_all:
         m = min(m, count)
     counts[c] = m
 
-ans = ''
+ans = ""
 for c, m in counts.items():
     ans += c * m
 

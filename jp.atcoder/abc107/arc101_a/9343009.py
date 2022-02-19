@@ -2,9 +2,11 @@ import sys
 
 n, k, *x = map(int, sys.stdin.read().split())
 
+
 def main():
-    l = 0; r = k - 1
-    ans = float('inf')
+    l = 0
+    r = k - 1
+    ans = float("inf")
     while r < n:
         if x[r] <= 0:
             res = abs(x[l])
@@ -13,10 +15,12 @@ def main():
         else:
             res = x[r]
         ans = min(ans, res)
-        l += 1; r += 1
+        l += 1
+        r += 1
 
     return ans
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

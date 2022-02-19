@@ -1,2 +1,2 @@
 a, b = [int(x) for x in input().split()]
-print((a+b) % 24)
+print((a + b) % 24)

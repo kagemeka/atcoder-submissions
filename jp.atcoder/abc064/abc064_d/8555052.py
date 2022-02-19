@@ -9,7 +9,7 @@ def main():
     count = 0
     flag = False
     for i in range(len(s)):
-        if s[i] == ')':
+        if s[i] == ")":
             if not flag:
                 count += 1
             else:
@@ -21,13 +21,13 @@ def main():
             else:
                 break
 
-    s = '(' * count + s
+    s = "(" * count + s
 
     # 右から
     count = 0
     flag = False
-    for i in range(len(s)-1, -1, -1):
-        if s[i] == '(':
+    for i in range(len(s) - 1, -1, -1):
+        if s[i] == "(":
             if not flag:
                 count += 1
             else:
@@ -39,9 +39,10 @@ def main():
             else:
                 break
 
-    s = s + ')' * count
+    s = s + ")" * count
 
     print(s)
+
 
 if __name__ == "__main__":
     main()

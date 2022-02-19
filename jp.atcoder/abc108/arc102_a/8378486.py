@@ -1,7 +1,8 @@
+import math
 import sys
 from functools import reduce
 from operator import mul
-import math
+
 
 def nCr(n, r):
     r = min(r, n-r)

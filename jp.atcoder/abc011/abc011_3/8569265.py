@@ -1,11 +1,12 @@
 # 2019-11-23 18:41:55(JST)
 import sys
 
+
 def main():
     n, *ng = map(int, sys.stdin.read().split())
     ng.sort()
     if n in ng:
-        print('NO')
+        print("NO")
         sys.exit()
 
     count = 0
@@ -20,15 +21,16 @@ def main():
             n -= 1
             count += 1
         else:
-            ans = 'NO'
+            ans = "NO"
             break
     else:
         if count > 100:
-            ans = 'NO'
+            ans = "NO"
         else:
-            ans = 'YES'
+            ans = "YES"
 
     print(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

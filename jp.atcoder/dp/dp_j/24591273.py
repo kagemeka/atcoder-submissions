@@ -1,8 +1,10 @@
-import typing
 import sys
+import typing
+
+import numba as nb
+
 # sys.setrecursionlimit(1 << 25)
 import numpy as np
-import numba as nb
 
 
 @nb.njit

@@ -4,5 +4,5 @@ for i in range(n):
     words.append(input())
 words.sort()
 
-ans = ''.join(words)
+ans = "".join(words)
 print(ans)

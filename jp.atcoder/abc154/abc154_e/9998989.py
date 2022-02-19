@@ -1,5 +1,6 @@
 import sys
 
+
 def comb(n, r):
     if r > n or r < 0: return 0
     r = min(r, n - r)

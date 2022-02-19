@@ -2,6 +2,7 @@ import sys
 
 n, k, *a = map(int, sys.stdin.read().split())
 
+
 def main():
     a.append(k + 1)
     for x in a:
@@ -22,5 +23,6 @@ def main():
                     break
     print(res)
 
-if __name__ ==  '__main__':
+
+if __name__ == "__main__":
     main()

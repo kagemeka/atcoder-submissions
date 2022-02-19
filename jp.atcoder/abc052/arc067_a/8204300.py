@@ -1,9 +1,11 @@
 import math
-mod = int(1e9+7)
+
+mod = int(1e9 + 7)
 
 N = int(input())
 
 factorial_of_n = math.factorial(N)
+
 
 def countOfPrimeFactors(n):
     # when n > factorial(196), system may overflows
@@ -33,6 +35,7 @@ def countOfPrimeFactors(n):
         return count_of_prime_factors
     else:
         return {}
+
 
 ans = 1
 for prime_factor, count in countOfPrimeFactors(factorial_of_n).items():

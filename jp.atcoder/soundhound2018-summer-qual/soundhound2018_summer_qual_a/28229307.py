@@ -5,10 +5,11 @@ def main() -> typing.NoReturn:
     a, b = map(int, input().split())
 
     if a + b == 15:
-        print('+')
+        print("+")
     elif a * b == 15:
-        print('*')
+        print("*")
     else:
-        print('x')
+        print("x")
+
 
 main()

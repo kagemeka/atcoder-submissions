@@ -1,5 +1,6 @@
-import typing
 import itertools
+import typing
+
 
 def main() -> None:
     n = int(input())

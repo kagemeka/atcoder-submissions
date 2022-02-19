@@ -1,6 +1,7 @@
-import numpy as np
-import numba as nb
 import typing
+
+import numba as nb
+import numpy as np
 
 
 @nb.njit
@@ -130,6 +131,7 @@ def cc_export(f, signature):
 
 from numba import i8
 from numba.pycc import CC
+
 cc = CC('my_module')
 cc_export(
   solve,

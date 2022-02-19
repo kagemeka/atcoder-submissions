@@ -1,4 +1,5 @@
 import sys
+
 MOD = 2019
 
 l, r = map(int, sys.stdin.readline().split())

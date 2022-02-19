@@ -2,6 +2,7 @@
 #                         created: 2019-11-08 14:51:29(JST)
 ## internal modules
 import sys
+
 # import collections
 # import math
 # import string
@@ -15,11 +16,12 @@ import sys
 # import scipy.special   # if use comb function on AtCoder,
 # import scipy.misc      # select scipy.misc.comb (old version)
 
+
 def main():
     n, *a = (int(x) for x in sys.stdin.read().split())
 
     for i in range(n):
-        a[i] -= (i + 1)
+        a[i] -= i + 1
 
     a.sort()
     if n % 2 != 0:

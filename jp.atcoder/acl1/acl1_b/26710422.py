@@ -1,9 +1,9 @@
 
 
 import typing
-import numpy as np
-import numba as nb
 
+import numba as nb
+import numpy as np
 
 # @nb.njit
 # def extgcd(a: int, b: int) -> typing.Tuple[int, int, int]:

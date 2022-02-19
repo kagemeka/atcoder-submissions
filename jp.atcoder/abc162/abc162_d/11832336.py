@@ -1,5 +1,6 @@
 import sys
-from bisect import bisect_right as bi_r, bisect_left as bi_l
+from bisect import bisect_left as bi_l
+from bisect import bisect_right as bi_r
 
 n, s = sys.stdin.read().split()
 n = int(n)

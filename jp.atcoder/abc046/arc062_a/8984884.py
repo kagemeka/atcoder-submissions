@@ -4,6 +4,7 @@ n = int(sys.stdin.readline().rstrip())
 ab = map(int, sys.stdin.read().split())
 ab = zip(ab, ab)
 
+
 def main():
     c_a = c_b = 1
     for a, b in ab:
@@ -16,6 +17,7 @@ def main():
     ans = c_a + c_b
     return ans
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

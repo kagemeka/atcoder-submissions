@@ -1,7 +1,6 @@
 import typing
 
 
-
 class SADoubling():
   def __call__(
     self,

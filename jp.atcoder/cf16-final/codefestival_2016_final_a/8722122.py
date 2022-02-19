@@ -1,6 +1,8 @@
 import sys
-import numpy as np
 from string import ascii_uppercase as alphabet
+
+import numpy as np
+
 
 def main():
     H, W = map(int, sys.stdin.readline().split())

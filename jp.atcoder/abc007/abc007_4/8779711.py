@@ -1,5 +1,6 @@
 import sys
 
+
 def ngCnt(n):
     a = n
     n = str(n)
@@ -21,10 +22,12 @@ def ngCnt(n):
 
     return a - ok_cnt
 
+
 def main():
     l, r = map(int, sys.stdin.readline().split())
-    ans = ngCnt(r+1) - ngCnt(l)
+    ans = ngCnt(r + 1) - ngCnt(l)
     print(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

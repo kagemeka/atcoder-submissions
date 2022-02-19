@@ -1,5 +1,7 @@
 # 2019-11-26 17:11:55(JST)
 import sys
+
+
 def main():
     n, *a = map(int, sys.stdin.read().split())
     a = [None] + a

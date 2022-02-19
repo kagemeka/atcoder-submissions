@@ -1,7 +1,8 @@
-import typing
-import numpy as np
-import sys
 import itertools
+import sys
+import typing
+
+import numpy as np
 
 
 def main() -> typing.NoReturn:

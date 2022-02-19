@@ -1,5 +1,7 @@
 # 2019-11-27 17:10:30(JST)
 import sys
+
+
 def main():
     n, m, s = map(int, sys.stdin.readline().split())
     uv = map(int, sys.stdin.read().split())

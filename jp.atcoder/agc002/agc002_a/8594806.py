@@ -1,5 +1,6 @@
 # 2019-11-24 12:12:53(JST)
 import sys
+
 # import numpy as np
 
 def main():

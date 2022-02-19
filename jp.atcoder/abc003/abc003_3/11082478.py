@@ -1,7 +1,8 @@
 import sys
 
 n, k, *r = map(int, sys.stdin.read().split())
-r = sorted(r)[n-k:]
+r = sorted(r)[n - k :]
+
 
 def main():
     rate = 0
@@ -9,6 +10,7 @@ def main():
         rate = (rate + i) / 2
     return rate
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

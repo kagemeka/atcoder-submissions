@@ -2,11 +2,12 @@
 #                         created: 2019-11-09 16:39:51(JST)
 ### modules
 ## from standard library
-import sys
 # import collections
 # import math
 # import string
 import bisect
+import sys
+
 # import re
 # import itertools
 # import statistics
@@ -16,6 +17,7 @@ import bisect
 # import scipy.special
 # import scipy.misc
 # import numpy as np
+
 
 def main():
     n, k, *x = (int(i) for i in sys.stdin.read().split())

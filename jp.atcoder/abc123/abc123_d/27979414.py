@@ -1,5 +1,6 @@
-import typing
 import bisect
+import typing
+
 
 def main() -> typing.NoReturn:
     x, y, z, k = map(int, input().split())

@@ -1,17 +1,22 @@
-import sys
-import numpy as np
-from scipy.sparse.csgraph import shortest_path
-from scipy.sparse import csr_matrix
-from scipy import optimize
-# from numba import jit
-from heapq import heappush, heappop
-from bisect import bisect_left as bi_l, bisect_right as bi_r
-from collections import deque, Counter, defaultdict
-from itertools import combinations, product, accumulate
-import string
 import math
+import string
+import sys
+from bisect import bisect_left as bi_l
+from bisect import bisect_right as bi_r
+from collections import Counter, defaultdict, deque
+
+# from numba import jit
+from heapq import heappop, heappush
+from itertools import accumulate, combinations, product
+
+import numpy as np
+from scipy import optimize
+from scipy.sparse import csr_matrix
+from scipy.sparse.csgraph import shortest_path
+
 inf = float('inf')
 from functools import lru_cache, reduce
+
 sys.setrecursionlimit(10**7)
 MOD = 10**9+7
 # MOD = 998244353

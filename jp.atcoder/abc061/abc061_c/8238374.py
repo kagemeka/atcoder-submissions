@@ -7,7 +7,7 @@ for _ in range(N):
     else:
         arr.update({a: b})
 
-s_a = {}# sorted arr
+s_a = {}  # sorted arr
 for key in sorted(arr.keys()):
     s_a.update({key: arr[key]})
 

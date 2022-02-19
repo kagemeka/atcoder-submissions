@@ -1,5 +1,6 @@
 import sys
 
+
 def sum_bincount(n):
     l = 0
     r = n

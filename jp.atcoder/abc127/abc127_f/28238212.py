@@ -1,5 +1,6 @@
-import typing
 import heapq
+import typing
+
 
 def main() -> typing.NoReturn:
     # median

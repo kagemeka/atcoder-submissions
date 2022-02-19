@@ -1,7 +1,6 @@
 import typing
 
 
-
 class ReadStdin:
   def __call__(
     self,
@@ -43,12 +42,8 @@ class ReadStdin:
     return b.decode()
 
 
-from abc import (
-  ABC,
-  abstractmethod,
-)
 import typing
-
+from abc import ABC, abstractmethod
 
 
 class Solver(
@@ -82,12 +77,9 @@ class Solver(
 
 
 import typing
-from itertools import (
-  permutations,
-)
+from itertools import permutations
+
 import numpy as np
-
-
 
 
 class Problem(

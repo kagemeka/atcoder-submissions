@@ -3,6 +3,7 @@
 ### modules
 ## from standard library
 import sys
+
 # import collections
 # import math
 # import string
@@ -16,6 +17,7 @@ import sys
 # import scipy.special
 # import scipy.misc
 # import numpy as np
+
 
 def main():
     n, y = (int(i) for i in sys.stdin.readline().split())
@@ -33,6 +35,7 @@ def main():
                 exit()
 
     print(-1, -1, -1)
+
 
 if __name__ == "__main__":
     # execute only if run as a script

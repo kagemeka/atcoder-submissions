@@ -2,6 +2,7 @@ import sys
 
 x = int(sys.stdin.readline().rstrip())
 
+
 def main():
     q, r = divmod(x, 11)
     if r == 0:
@@ -11,6 +12,7 @@ def main():
     else:
         return 2 * (q + 1)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

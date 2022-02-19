@@ -1,5 +1,6 @@
 import sys
 
+
 def main():
     s = sys.stdin.readline().rstrip()
 

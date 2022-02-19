@@ -5,21 +5,25 @@ s = list(s)
 
 possible_indexes = []
 for i in range(len(s) - len(t) + 1):
-    substring = s[i: i+len(t)]
+    substring = s[i : i + len(t)]
     for j in range(len(t)):
-        if substring[j] == t[j] or substring[j] == '?': continue
-        else: break
+        if substring[j] == t[j] or substring[j] == "?":
+            continue
+        else:
+            break
     else:
         possible_indexes.append(i)
 
-if not possible_indexes: print('UNRESTORABLE'); exit()
+if not possible_indexes:
+    print("UNRESTORABLE")
+    exit()
 
 ma = min(possible_indexes)
 for j in range(len(t)):
-    s[ma+j] = t[j]
+    s[ma + j] = t[j]
     print(s)
 
-s = ''.join(s)
+s = "".join(s)
 
-s = s.replace('?', 'a')
+s = s.replace("?", "a")
 print(s)

@@ -17,7 +17,7 @@ for a in alphabets:
     else:
         counts.append((a, m))
 
-ans = ''
+ans = ""
 # for count in counts:
 #     ans += count[0] * count[1]
 

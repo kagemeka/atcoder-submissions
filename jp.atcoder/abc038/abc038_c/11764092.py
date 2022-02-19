@@ -3,6 +3,7 @@ import sys
 n, *a = map(int, sys.stdin.read().split())
 a += [0]
 
+
 def main():
     prev = 1001001001
     cnt = 0
@@ -16,5 +17,6 @@ def main():
         prev = x
     print(res)
 
-if __name__ ==  '__main__':
+
+if __name__ == "__main__":
     main()

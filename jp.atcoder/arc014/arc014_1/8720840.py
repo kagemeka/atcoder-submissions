@@ -1,4 +1,6 @@
 import sys
+
+
 def main():
     n = int(sys.stdin.readline().rstrip())
     if n % 2 == 0:

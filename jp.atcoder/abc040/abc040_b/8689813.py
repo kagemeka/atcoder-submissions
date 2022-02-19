@@ -1,5 +1,7 @@
 import sys
 from math import floor, sqrt
+
+
 def main():
     n = int(sys.stdin.readline().rstrip())
 
@@ -11,5 +13,7 @@ def main():
         res = min(res, cost)
 
     print(res)
-if __name__ == '__main__':
+
+
+if __name__ == "__main__":
     main()

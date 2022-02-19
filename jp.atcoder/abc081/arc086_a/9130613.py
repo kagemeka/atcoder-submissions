@@ -3,6 +3,7 @@ from collections import Counter
 
 n, k, *a = map(int, sys.stdin.read().split())
 
+
 def main():
     c = Counter(a)
     l = len(c)
@@ -16,6 +17,7 @@ def main():
 
     return res
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

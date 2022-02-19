@@ -1,12 +1,14 @@
 import sys
-from math import log2, floor
+from math import floor, log2
 
 n = int(sys.stdin.readline().rstrip())
 
+
 def main():
     x = floor(log2(n))
-    return 2 ** x
+    return 2**x
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

@@ -1,6 +1,7 @@
 import sys
 from collections import defaultdict
 
+
 def main():
     n, *p = map(int, sys.stdin.read().split())
     p = [None] + p
@@ -22,5 +23,6 @@ def main():
             ans += v * (k - 1)
     print(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

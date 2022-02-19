@@ -1,31 +1,32 @@
 import sys
 
+
 def A():
-  x, y = map(int, sys.stdin.readline().split())
-  print(max(x, y))
+    x, y = map(int, sys.stdin.readline().split())
+    print(max(x, y))
 
 
 def B():
-  vowels = set('aeiou')
-  s = sys.stdin.readline().rstrip()
-  t = ''
-  for c in s:
-    if c in vowels: continue
-    t += c
-  print(t)
-
+    vowels = set("aeiou")
+    s = sys.stdin.readline().rstrip()
+    t = ""
+    for c in s:
+        if c in vowels:
+            continue
+        t += c
+    print(t)
 
 
 def C():
-  pass
+    pass
 
 
 def D():
-  pass
+    pass
 
 
 if __name__ == "__main__":
-  # A()
-  B()
-  C()
-  D()
+    # A()
+    B()
+    C()
+    D()

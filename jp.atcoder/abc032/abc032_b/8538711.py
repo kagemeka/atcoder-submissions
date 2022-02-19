@@ -1,5 +1,6 @@
 # 2019-11-20 22:09:02(JST)
 import sys
+
 # import collections
 # import math
 # from string import ascii_lowercase, ascii_uppercase, digits
@@ -23,10 +24,12 @@ def main():
         sys.exit()
 
     cand = set()
-    for i in range(n-k+1): # prefix
-        sub = s[i:i+k]
+    for i in range(n - k + 1):  # prefix
+        sub = s[i : i + k]
         cand.add(sub)
 
     print(len(cand))
+
+
 if __name__ == "__main__":
     main()

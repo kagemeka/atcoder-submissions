@@ -1,5 +1,5 @@
-from socket import if_nameindex
 import typing
+from socket import if_nameindex
 
 
 def compress_array(

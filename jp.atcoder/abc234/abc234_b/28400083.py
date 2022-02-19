@@ -1,6 +1,6 @@
+import math
 import typing
 
-import math
 
 def dist(x0: int, y0: int, x1: int, y1: int) -> float:
     return math.sqrt((x1 - x0) ** 2 + (y1 - y0) ** 2)

@@ -1,7 +1,6 @@
 import typing
 
 
-
 def sa_is(a: typing.List[int]) -> typing.List[int]:
     mn = min(a)
     a = [x - mn + 1 for x in a] + [0]

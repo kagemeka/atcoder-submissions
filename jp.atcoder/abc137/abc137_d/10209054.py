@@ -1,5 +1,5 @@
 import sys
-from heapq import heappush, heappop
+from heapq import heappop, heappush
 
 n, m, *ab = map(int, sys.stdin.read().split())
 ab = sorted(zip(*[iter(ab)] * 2))

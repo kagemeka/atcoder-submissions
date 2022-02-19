@@ -1,22 +1,28 @@
 import sys
-import numpy as np
-from heapq import heappush, heappop
-from bisect import bisect_left as bi_l, bisect_right as bi_r
-from collections import deque, Counter, defaultdict
+from bisect import bisect_left as bi_l
+from bisect import bisect_right as bi_r
+from collections import Counter, defaultdict, deque
+from heapq import heappop, heappush
 from itertools import combinations, product
+
+import numpy as np
+
 inf = float('inf')
 MOD = 10**9+7
 # MOD = 998244353
 
 import sys
+from bisect import bisect_left as bi_l
+from bisect import bisect_right as bi_r
+from collections import Counter, defaultdict, deque
+from functools import lru_cache
+from heapq import heappop, heappush
+from itertools import combinations, permutations, product
+from math import acos, asin, atan, cos, sin, tan
+
 import numpy as np
 import scipy
-from heapq import heappush, heappop
-from bisect import bisect_left as bi_l, bisect_right as bi_r
-from collections import deque, Counter, defaultdict
-from itertools import combinations, permutations, product
-from functools import lru_cache
-from math import sin, cos, tan, asin, acos, atan
+
 inf = float('inf')
 MOD = 10**9+7
 # MOD = 998244353

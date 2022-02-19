@@ -1,6 +1,7 @@
-import typing
 import bisect
 import itertools
+import typing
+
 
 def main() -> typing.NoReturn:
     n = int(input())

@@ -1,7 +1,6 @@
 import typing
 
 
-
 class Fenwick():
   def __init__(
     self,
@@ -34,6 +33,7 @@ class Fenwick():
 
 
 import sys
+
 
 def main() -> typing.NoReturn:
   n, q = map(

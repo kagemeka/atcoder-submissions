@@ -27,6 +27,7 @@ class UnionFind():
 import itertools
 import math
 
+
 def main() -> typing.NoReturn:
     N = 400
     M = 1995

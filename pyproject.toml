@@ -9,8 +9,8 @@ packages = [
 version = "0.1.0"
 
 [tool.poetry.dependencies]
-atcoder-api = "0.3.3"
-# filesystem-python = "0.1.0"
+atcoder = "0.1.2"
+filesystem-python = "0.2.0"
 PyYAML = "^"
 python = ">=3.9,<3.11"
 

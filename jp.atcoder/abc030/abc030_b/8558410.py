@@ -9,5 +9,6 @@ def main():
     angle_diff = min(abs(nn - mm), 360 - abs(nn - mm))
     print(angle_diff)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

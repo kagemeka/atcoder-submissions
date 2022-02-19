@@ -14,4 +14,4 @@ while True:
     else:
         break
 
-print(''.join(res))
+print("".join(res))

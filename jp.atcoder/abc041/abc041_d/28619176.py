@@ -24,4 +24,5 @@ def main() -> None:
                 dp[s] += dp[t]
     print(dp[-1])
 
+
 main()

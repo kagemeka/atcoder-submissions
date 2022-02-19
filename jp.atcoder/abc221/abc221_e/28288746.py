@@ -1,7 +1,6 @@
 import typing
 
 
-
 def compress(a: typing.List[int]) -> typing.Tuple[(typing.List[int], ) * 2]:
     import bisect
     v = sorted(set(a))

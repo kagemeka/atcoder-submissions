@@ -1,6 +1,7 @@
 import sys
 from math import ceil
 
+
 def main():
     n, *capacity = map(int, sys.stdin.read().split())
 

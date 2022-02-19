@@ -1,5 +1,6 @@
 import sys
 
+
 def gcd(a, b): return gcd(b, a % b) if b else abs(a)
 def lcm(a, b): return abs(a // gcd(a, b) * b)
 

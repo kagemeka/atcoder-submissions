@@ -1,9 +1,11 @@
 # 2019-11-16 14:51:41(JST)
 import sys
+
 # import collections
 # import math
 # from string import ascii_lowercase, ascii_uppercase, digits
 from bisect import insort_left as in_l
+
 # import itertools
 # from functools import reduce
 # import operator as op

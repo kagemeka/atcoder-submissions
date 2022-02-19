@@ -1,7 +1,6 @@
 import typing
 
 
-
 def compress_array(a: list[int]) -> tuple[(list[int], ) * 2]:
     r"""Compress array.
 
@@ -15,7 +14,6 @@ def compress_array(a: list[int]) -> tuple[(list[int], ) * 2]:
 
 
 import typing
-
 
 
 class FenwickTree():
@@ -74,6 +72,7 @@ def count_inversion(a: list[int]) -> int:
 
 
 import collections
+
 
 def main() -> typing.NoReturn:
     n = int(input())

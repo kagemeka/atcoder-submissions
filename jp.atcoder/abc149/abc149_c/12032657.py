@@ -1,6 +1,7 @@
 import sys
 from bisect import bisect_left as bi_l
 
+
 def sieve_of_eratosthenes(n=5 * 10 ** 6):
   sieve = [1] * (n + 1); sieve[0] = sieve[1] = 0
   for i in range(2, int(n ** 0.5) + 1):

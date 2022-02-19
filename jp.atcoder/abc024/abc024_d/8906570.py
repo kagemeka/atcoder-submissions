@@ -1,7 +1,8 @@
 import sys
 
-P = 10 ** 9 + 7
+P = 10**9 + 7
 A, B, C = map(int, sys.stdin.read().split())
+
 
 def main():
     upper_r = (B * C % P - A * C % P) % P
@@ -12,6 +13,7 @@ def main():
     c = upper_c * inv_lower % P
     return r, c
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
-    print(*ans, sep=' ')
+    print(*ans, sep=" ")

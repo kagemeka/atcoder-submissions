@@ -1,12 +1,7 @@
-import typing
 import sys
-import numpy as np
-
-
-
-import numpy as np
 import typing
 
+import numpy as np
 
 
 class CompressArray():

@@ -1,5 +1,7 @@
-import numpy as np
 import typing
+
+import numpy as np
+
 # import numba as nb
 
 
@@ -102,7 +104,7 @@ import sys
 
 def aot_compile(
 ) -> typing.NoReturn:
-  from numba import njit, i8
+  from numba import i8, njit
   global \
     cumprod, mpow, factorial, \
     inv_factorial
@@ -132,4 +134,5 @@ if (
 
 
 from my_module import solve
+
 main()

@@ -2,12 +2,13 @@ import sys
 
 n = int(sys.stdin.readline().rstrip())
 
+
 def main():
     bit6 = [0] * 8
     bit9 = [0] * 7
     b = n
     for i in range(5, -1, -1):
-        q, r = divmod(b, 9 ** i)
+        q, r = divmod(b, 9**i)
         bit9[i] = q
         b = r
 
@@ -36,6 +37,7 @@ def main():
 
     return res
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

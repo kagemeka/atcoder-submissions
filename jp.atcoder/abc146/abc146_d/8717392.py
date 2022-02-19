@@ -1,6 +1,8 @@
 import sys
 from collections import deque
+
 import numpy as np
+
 
 def main():
     n = int(sys.stdin.readline().rstrip())

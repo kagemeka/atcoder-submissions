@@ -3,6 +3,7 @@
 ### modules
 ## from standard library
 import sys
+
 # import collections
 # import math
 # import string
@@ -16,8 +17,9 @@ import sys
 # import scipy.special   # if use comb function on AtCoder,
 # import scipy.misc      # select scipy.misc.comb (old version)
 
+
 def main():
-    *n, = (int(x) for x in sys.stdin.readline().split())
+    (*n,) = (int(x) for x in sys.stdin.readline().split())
     n.sort()
     print(n[-1] - n[0])
 

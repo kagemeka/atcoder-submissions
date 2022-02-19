@@ -1,5 +1,5 @@
-import typing
 import sys
+import typing
 
 
 def solve(x: int, y: int, a: typing.Tuple[int]) -> typing.NoReturn:

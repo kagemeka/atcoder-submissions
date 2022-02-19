@@ -1,8 +1,5 @@
 import sys
-from collections import (
-  defaultdict,
-)
-
+from collections import defaultdict
 
 mod = 10 ** 9 + 7
 

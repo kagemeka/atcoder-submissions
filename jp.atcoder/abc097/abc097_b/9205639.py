@@ -3,6 +3,7 @@ from math import floor
 
 x = int(sys.stdin.readline().rstrip())
 
+
 def main():
     res = [1]
     i = 2
@@ -12,6 +13,7 @@ def main():
 
     return max(res)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

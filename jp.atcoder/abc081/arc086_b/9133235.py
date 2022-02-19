@@ -2,6 +2,7 @@ import sys
 
 n, *a = map(int, sys.stdin.read().split())
 
+
 def main():
     ma = 0
     idx = 0
@@ -18,22 +19,23 @@ def main():
     procedures = []
     for i in range(n):
         a[i] += a[idx]
-        procedures.append('{0} {1}'.format(idx+1, i+1))
+        procedures.append("{0} {1}".format(idx + 1, i + 1))
 
     if a[idx] > 0:
-        for i in range(n-1):
-            if a[i] > a[i+1]:
-                a[i+1] += a[i]
-                procedures.append('{0} {1}'.format(i+1, i+2))
+        for i in range(n - 1):
+            if a[i] > a[i + 1]:
+                a[i + 1] += a[i]
+                procedures.append("{0} {1}".format(i + 1, i + 2))
     else:
-        for i in range(n-1, 0, -1):
-            if a[i] < a[i-1]:
-                a[i-1] += a[i]
-                procedures.append('{0} {1}'.format(i+1, i))
+        for i in range(n - 1, 0, -1):
+            if a[i] < a[i - 1]:
+                a[i - 1] += a[i]
+                procedures.append("{0} {1}".format(i + 1, i))
 
     procedures = [len(procedures)] + procedures
     return procedures
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
-    print(*ans, sep='\n')
+    print(*ans, sep="\n")

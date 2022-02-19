@@ -4,10 +4,11 @@ from heapq import *
 
 n, *a = map(int, sys.stdin.read().split())
 
+
 def main():
     first = a[:n]
-    last = a[n*2:]
-    cand = deque(a[n:n*2])
+    last = a[n * 2 :]
+    cand = deque(a[n : n * 2])
 
     heapify(first)
     for i in range(n):
@@ -28,6 +29,7 @@ def main():
 
     return sum(first) - (-sum(last))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

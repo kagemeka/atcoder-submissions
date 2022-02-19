@@ -1,6 +1,6 @@
-import typing
-import sys
 import bisect
+import sys
+import typing
 
 
 def main() -> typing.NoReturn:

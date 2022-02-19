@@ -1,4 +1,5 @@
 import sys
+
 import numpy as np
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import dijkstra
@@ -8,6 +9,7 @@ n, m = I[:2]
 u, v, l = I[2:].reshape(-1, 3).T
 u -= 1
 v -= 1
+
 
 def main():
     G = np.zeros((n, n))
@@ -27,6 +29,7 @@ def main():
     else:
         return int(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

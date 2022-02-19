@@ -1,5 +1,6 @@
 import sys
 
+
 def main():
     n, *a = map(int, sys.stdin.read().split())
     a.sort()

@@ -2,6 +2,7 @@ import sys
 
 n, T, *t = map(int, sys.stdin.read().split())
 
+
 def main():
     start = 0
     will_stop = T
@@ -18,6 +19,7 @@ def main():
 
     return running_time
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

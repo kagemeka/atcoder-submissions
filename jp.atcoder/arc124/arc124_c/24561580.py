@@ -1,12 +1,8 @@
-import typing
 import sys
-from math import (
-  gcd,
-  lcm,
-)
-from functools import (
-  lru_cache,
-)
+import typing
+from functools import lru_cache
+from math import gcd, lcm
+
 sys.setrecursionlimit(1 << 20)
 
 

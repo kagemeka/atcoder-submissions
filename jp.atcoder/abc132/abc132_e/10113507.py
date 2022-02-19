@@ -1,5 +1,5 @@
 import sys
-from heapq import heappush,heappop
+from heapq import heappop, heappush
 
 inf = float('inf')
 

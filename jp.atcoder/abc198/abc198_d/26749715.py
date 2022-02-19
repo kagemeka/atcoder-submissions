@@ -1,8 +1,8 @@
-import typing
-import itertools
 import bisect
-import operator
 import functools
+import itertools
+import operator
+import typing
 
 
 def verbal_arithemetic(
@@ -48,6 +48,7 @@ def verbal_arithemetic(
 
 
 import sys
+
 
 def main() -> typing.NoReturn:
     s = sys.stdin.read().split()

@@ -2,24 +2,26 @@ import sys
 
 a, b, c = map(int, sys.stdin.readline().split())
 
+
 def main():
     res1 = False
     if a + b == c:
-        res1 =  True
+        res1 = True
 
     res2 = False
     if a - b == c:
-        res2 =  True
+        res2 = True
 
     if res1 and res2:
-        return '?'
+        return "?"
     elif res1:
-        return '+'
+        return "+"
     elif res2:
-        return '-'
+        return "-"
     else:
-        return '!'
+        return "!"
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

@@ -1,5 +1,6 @@
 import typing
 
+
 def main() -> typing.NoReturn:
     # n = 3
     deg = [0] * 4

@@ -1,5 +1,6 @@
 import typing
 
+
 def find_divisors(n: int) -> typing.List[int]:
     divs = []
     i = 1

@@ -1,6 +1,7 @@
 #                         author:  kagemeka
 #                         created: 2019-11-06 16:52:04(JST)
 import sys
+
 # import collections
 # import math
 # import string
@@ -9,11 +10,14 @@ import sys
 # import itertools
 # import statistics
 
+
 def main():
     n, *s = sys.stdin.read().split()
     l = len(set(s))
-    if l == 3: ans = 'Three'
-    else: ans = 'Four'
+    if l == 3:
+        ans = "Three"
+    else:
+        ans = "Four"
     print(ans)
 
 

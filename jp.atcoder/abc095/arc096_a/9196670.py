@@ -6,6 +6,7 @@ if x < y:
     x, y = y, x
     a, b = b, a
 
+
 def main():
 
     if a + b <= c * 2:
@@ -18,6 +19,7 @@ def main():
             cost += c * 2 * (x - y)
     return cost
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

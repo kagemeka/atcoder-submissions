@@ -2,6 +2,7 @@ import sys
 
 a, d = map(int, sys.stdin.readline().split())
 
+
 def main():
     if a <= d:
         a += 1
@@ -9,6 +10,7 @@ def main():
         b += 1
     return a * b
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

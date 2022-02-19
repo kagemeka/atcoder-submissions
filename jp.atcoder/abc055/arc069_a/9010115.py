@@ -2,6 +2,7 @@ import sys
 
 n, m = map(int, sys.stdin.readline().split())
 
+
 def main():
     s = n
     c = m
@@ -14,6 +15,7 @@ def main():
     res += c // 4
     return res
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

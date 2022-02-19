@@ -1,10 +1,7 @@
 from __future__ import annotations
-import typing
+
 import dataclasses
-
-
-
-
+import typing
 
 T = typing.TypeVar('T')
 @dataclasses.dataclass
@@ -90,6 +87,7 @@ def solve(
 
 
 import sys
+
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())

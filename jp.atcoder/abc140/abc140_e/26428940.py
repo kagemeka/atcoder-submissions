@@ -1,10 +1,9 @@
 # binary search on Fenwick Tree
-import typing
 import sys
-import numpy as np
+import typing
+
 import numba as nb
-
-
+import numpy as np
 
 S = typing.TypeVar('S')
 @nb.njit

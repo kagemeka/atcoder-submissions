@@ -2,6 +2,7 @@
 #                         created: 2019-11-08 12:38:16(JST)
 ## internal modules
 import sys
+
 # import collections
 # import math
 # import string
@@ -15,9 +16,10 @@ import sys
 # import scipy.special   # if use comb function on AtCoder,
 # import scipy.misc      # select scipy.misc.comb (old version)
 
+
 def main():
     d, n = (int(x) for x in sys.stdin.readline().split())
-    ans = n * 100 ** d
+    ans = n * 100**d
     print(ans)
 
 

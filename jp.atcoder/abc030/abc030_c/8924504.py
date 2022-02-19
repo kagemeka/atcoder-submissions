@@ -1,10 +1,11 @@
 import sys
 from bisect import bisect_left as bi_l
 
-*I, = map(int, sys.stdin.read().split())
+(*I,) = map(int, sys.stdin.read().split())
 n, m, x, y = I[:4]
-a = I[4:4+n]
-b = I[4+n:]
+a = I[4 : 4 + n]
+b = I[4 + n :]
+
 
 def main():
     cnt = 0
@@ -26,6 +27,7 @@ def main():
             flag = False
     return cnt
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

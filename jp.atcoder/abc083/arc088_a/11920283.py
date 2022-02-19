@@ -2,6 +2,7 @@ import sys
 
 x, y = map(int, sys.stdin.readline().split())
 
+
 def main(x):
     cnt = 0
     while x <= y:
@@ -9,5 +10,6 @@ def main(x):
         x *= 2
     print(cnt)
 
-if __name__ ==  '__main__':
+
+if __name__ == "__main__":
     main(x)

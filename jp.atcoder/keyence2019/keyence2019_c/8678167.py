@@ -1,6 +1,8 @@
 # 2019-11-28 00:55:58(JST)
 import sys
+
 import numpy as np
+
 
 def main():
     n = int(sys.stdin.readline().rstrip())

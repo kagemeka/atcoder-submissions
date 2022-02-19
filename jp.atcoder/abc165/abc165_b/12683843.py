@@ -1,6 +1,5 @@
 import sys
 
-
 x = int(sys.stdin.readline().rstrip())
 def main():
     y = 100

@@ -2,6 +2,7 @@
 import sys
 from collections import deque
 
+
 def main():
     n, m = map(int, sys.stdin.readline().split())
     xy = map(int, sys.stdin.read().split())

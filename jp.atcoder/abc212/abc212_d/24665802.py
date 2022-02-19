@@ -1,7 +1,5 @@
 import typing
-from heapq import (
-  heappush, heappop,
-)
+from heapq import heappop, heappush
 
 
 def main() -> typing.NoReturn:

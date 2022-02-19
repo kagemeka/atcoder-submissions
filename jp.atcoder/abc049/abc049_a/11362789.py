@@ -1,12 +1,14 @@
 import sys
 
-vowels = set('aeiuo')
+vowels = set("aeiuo")
 
 c = sys.stdin.readline().rstrip()
 
+
 def main():
-    ans = 'vowel' if c in vowels else 'consonant'
+    ans = "vowel" if c in vowels else "consonant"
     print(ans)
 
-if __name__ ==  '__main__':
+
+if __name__ == "__main__":
     main()

@@ -1,8 +1,8 @@
-import typing
 import sys
-import numpy as np
-import numba as nb
+import typing
 
+import numba as nb
+import numpy as np
 
 
 def rps(a: str, b: str) -> int:

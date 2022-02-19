@@ -1,9 +1,10 @@
+import sys
 import typing
+
+import numba as nb
+
 # import bisect
 import numpy as np
-import numba as nb
-import sys
-
 
 
 @nb.njit((nb.i8, nb.i8[:, :]), cache=True)

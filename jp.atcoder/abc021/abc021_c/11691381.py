@@ -1,14 +1,17 @@
 import sys
-import numpy as np
-from scipy.sparse.csgraph import dijkstra, csgraph_to_dense
-from scipy.sparse import csr_matrix
 
-MOD = 10 ** 9 + 7
+import numpy as np
+from scipy.sparse import csr_matrix
+from scipy.sparse.csgraph import csgraph_to_dense, dijkstra
+
+MOD = 10**9 + 7
 n, a, b, m, *uv = map(int, sys.stdin.read().split())
-a -= 1; b -= 1
+a -= 1
+b -= 1
 u, v = np.array(uv, dtype=np.int8).reshape(-1, 2).T - 1
 graph = csgraph_to_dense(csr_matrix((np.ones(m), (u, v)), shape=(n, n)))
 graph = np.logical_or(graph, graph.T)
+
 
 def main():
     dist = dijkstra(csgraph=graph, indices=a, directed=False).astype(np.int8)
@@ -22,5 +25,6 @@ def main():
 
     print(paths[b])
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

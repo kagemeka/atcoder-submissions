@@ -1,9 +1,12 @@
 import sys
-import numpy as np
-from heapq import heappush, heappop
-from bisect import bisect_left as bi_l, bisect_right as bi_r
-from collections import deque, Counter, defaultdict
+from bisect import bisect_left as bi_l
+from bisect import bisect_right as bi_r
+from collections import Counter, defaultdict, deque
+from heapq import heappop, heappush
 from itertools import combinations, product
+
+import numpy as np
+
 inf = float('inf')
 MOD = 10**9+7
 # MOD = 998244353

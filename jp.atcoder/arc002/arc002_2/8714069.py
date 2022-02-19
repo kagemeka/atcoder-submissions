@@ -1,5 +1,6 @@
-import sys
 import datetime
+import sys
+
 
 def main():
     y, m, d = map(int, sys.stdin.readline().rstrip().split('/'))

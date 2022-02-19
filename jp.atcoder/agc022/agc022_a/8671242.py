@@ -1,7 +1,7 @@
 # 2019-11-27 15:57:35(JST)
 import sys
-from string import ascii_lowercase as alphabet
 from bisect import bisect_left as bi_l
+from string import ascii_lowercase as alphabet
 
 index = dict((a, i) for i, a in enumerate(alphabet))
 

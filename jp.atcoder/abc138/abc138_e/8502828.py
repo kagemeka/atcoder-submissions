@@ -1,8 +1,8 @@
-import sys
 import bisect
+import sys
+
 bi_l = bisect.bisect_left
 import collections
-
 
 s, t = sys.stdin.read().split()
 if set(t) - set(s):

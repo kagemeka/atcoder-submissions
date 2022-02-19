@@ -1,8 +1,7 @@
-import typing
-import sys
-
 # import itertools
 import functools
+import sys
+import typing
 
 sys.setrecursionlimit(1 << 20)
 

@@ -1,15 +1,16 @@
 import sys
-from heapq import heappush, heappop
+from heapq import heappop, heappush
 
-INF = 10 ** 7
+INF = 10**7
 
 n, m = map(int, sys.stdin.readline().split())
 abc = map(int, sys.stdin.read().split())
 abc = zip(*[abc] * 3)
 graph = [[] for _ in range(n)]
 for a, b, c in abc:
-    graph[a-1].append((b-1, c))
-    graph[b-1].append((a-1, c))
+    graph[a - 1].append((b - 1, c))
+    graph[b - 1].append((a - 1, c))
+
 
 def dijkstra(v):
     used_edges = [set() for _ in range(n)]
@@ -41,12 +42,13 @@ def dijkstra(v):
         for (y, c) in graph[x]:
             if y in pars[x] or pars[y]:
                 continue
-            heappush(hq, (d+c, y, x))
+            heappush(hq, (d + c, y, x))
 
     res = set()
     for i in range(n):
         res |= used_edges[i]
     return res
+
 
 def main():
     res = set()
@@ -56,6 +58,7 @@ def main():
     ans = m - len(res)
     return ans
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

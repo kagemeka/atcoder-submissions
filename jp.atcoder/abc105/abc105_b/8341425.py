@@ -3,6 +3,7 @@
 ### modules
 ## from standard library
 import sys
+
 # import collections
 # import math
 # import string
@@ -17,14 +18,15 @@ import sys
 # import scipy.misc
 # import numpy as np
 
+
 def main():
     n = int(sys.stdin.readline().rstrip())
 
     for x in range(n // 7 + 1):
         if (n - 7 * x) % 4 == 0:
-            print('Yes')
+            print("Yes")
             exit()
-    print('No')
+    print("No")
 
 
 if __name__ == "__main__":

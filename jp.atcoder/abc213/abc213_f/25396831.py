@@ -1,6 +1,7 @@
-import typing
-import numpy as np
 import sys
+import typing
+
+import numpy as np
 
 
 def sa_is(
@@ -178,4 +179,5 @@ if sys.argv[-1] == OJ:
 
 
 from my_module import solve
+
 main()

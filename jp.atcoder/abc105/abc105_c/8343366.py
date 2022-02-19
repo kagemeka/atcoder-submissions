@@ -3,6 +3,7 @@
 ### modules
 ## from standard library
 import sys
+
 # import collections
 # import math
 # import string
@@ -20,21 +21,23 @@ import sys
 
 def baseConvert(n, base):
     if n == 0:
-        return ''
+        return ""
     else:
         for i in range(abs(base)):
             if n % abs(base) == i:
                 return baseConvert((n - i) // base, base) + str(i)
+
 
 def main():
     n = int(sys.stdin.readline().rstrip())
     base = -2
 
     if n == 0:
-        ans = '0'
+        ans = "0"
     else:
         ans = baseConvert(n, base)
     print(ans)
+
 
 if __name__ == "__main__":
     # execute only if run as a script

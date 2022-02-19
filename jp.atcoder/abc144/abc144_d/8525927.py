@@ -1,7 +1,9 @@
 # 2019-11-19 19:43:48(JST)
 import sys
+
 # import collections
-from math import pi, atan2
+from math import atan2, pi
+
 # from string import ascii_lowercase, ascii_uppercase, digits
 # from bisect import bisect_left as bi_l, bisect_right as bi_r
 # import itertools

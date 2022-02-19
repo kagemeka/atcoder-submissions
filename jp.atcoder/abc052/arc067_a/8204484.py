@@ -1,5 +1,6 @@
 import math
-mod = int(1e9+7)
+
+mod = int(1e9 + 7)
 
 N = int(input())
 n = math.factorial(N)
@@ -16,7 +17,7 @@ while True:
         if n == 1:
             break
 
-        for i in range(3, N+1, 2):
+        for i in range(3, N + 1, 2):
             count = 0
             while n % i == 0:
                 n //= i

@@ -1,5 +1,6 @@
-import typing
 import sys
+import typing
+
 import numpy as np
 
 
@@ -65,4 +66,5 @@ if sys.argv[-1] == OJ:
 
 
 from my_module import solve
+
 main()

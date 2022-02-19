@@ -1,5 +1,7 @@
 # 2019-11-25 15:34:15(JST)
 import sys
+
+
 def main():
     x, y = map(int, sys.stdin.readline().split())
 

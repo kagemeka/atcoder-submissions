@@ -1,5 +1,6 @@
 # 2019-11-20 12:21:36(JST)
 import sys
+
 # import collections
 # import math
 # from string import ascii_lowercase, ascii_uppercase, digits
@@ -18,9 +19,9 @@ def main():
     s = sys.stdin.readline().rstrip()
 
     count = 0
-    for i in range(len(s)-1):
-        if s[i+1] != s[i]:
-            count+= 1
+    for i in range(len(s) - 1):
+        if s[i + 1] != s[i]:
+            count += 1
 
     print(count)
 

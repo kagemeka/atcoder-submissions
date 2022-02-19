@@ -1,6 +1,7 @@
 #                         author:  kagemeka
 #                         created: 2019-11-06 22:04:18(JST)
 import sys
+
 # import collections
 # import math
 # import string
@@ -11,15 +12,15 @@ import sys
 # import functools
 # import operator
 
+
 def main():
     a, b, c = (int(x) for x in sys.stdin.read().split())
     if c <= a + b:
-        ans = 'Yes'
+        ans = "Yes"
     else:
-        ans = 'No'
+        ans = "No"
 
     print(ans)
-
 
 
 if __name__ == "__main__":

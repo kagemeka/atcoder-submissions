@@ -1,6 +1,6 @@
-import typing
-import sys
 import math
+import sys
+import typing
 
 
 def solve(n: int, s: int, k: int) -> typing.NoReturn:

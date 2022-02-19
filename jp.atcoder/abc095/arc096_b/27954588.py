@@ -41,9 +41,7 @@ def main() -> typing.NoReturn:
     for i in range(n, 0, -1):
         res = max(res, vr[i] + sl[i - 1])
 
-
     print(res)
-
 
 
 main()

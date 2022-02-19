@@ -1,5 +1,6 @@
-import typing
 import functools
+import typing
+
 
 def main() -> typing.NoReturn:
     n, x = map(int, input().split())

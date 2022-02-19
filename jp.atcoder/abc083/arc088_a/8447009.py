@@ -1,7 +1,7 @@
-import sys
 import math
+import sys
 
 x, y = [int(x) for x in sys.stdin.readline().split()]
 
-ans = 1 + math.floor(math.log2(y/x))
+ans = 1 + math.floor(math.log2(y / x))
 print(ans)

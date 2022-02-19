@@ -1,6 +1,7 @@
 #                         author:  kagemeka
 #                         created: 2019-11-07 13:09:56(JST)
 import sys
+
 # import collections
 # import math
 # import string
@@ -10,6 +11,7 @@ import sys
 # import statistics
 # import functools
 # import operator
+
 
 def main():
     a, b = (int(x) for x in sys.stdin.readline().split())

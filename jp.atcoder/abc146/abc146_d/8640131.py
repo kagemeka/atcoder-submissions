@@ -1,6 +1,7 @@
 # 2019-11-24 20:59:47(JST)
 import sys
 
+
 def main():
     n = int(sys.stdin.readline().rstrip())
     m = map(int, sys.stdin.read().split())

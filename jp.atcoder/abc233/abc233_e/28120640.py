@@ -1,5 +1,6 @@
 import typing
 
+
 def main() -> typing.NoReturn:
     x = list(map(int, input()))
     n = len(x)

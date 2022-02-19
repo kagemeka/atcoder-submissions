@@ -1,6 +1,7 @@
 from __future__ import annotations
-import typing
+
 import dataclasses
+import typing
 
 
 class Order(typing.Protocol):

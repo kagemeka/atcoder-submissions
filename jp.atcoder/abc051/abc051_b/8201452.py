@@ -1,6 +1,6 @@
 K, S = [int(x) for x in input().split()]
 count = 0
-for x in range(K+1):
+for x in range(K + 1):
     # y + z = S - x
     if 0 <= S - x <= K:
         count += S - x + 1

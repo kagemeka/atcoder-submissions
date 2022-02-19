@@ -1,10 +1,12 @@
 import sys
-from bisect import bisect_left as bi_l, bisect_right as bi_r
+from bisect import bisect_left as bi_l
+from bisect import bisect_right as bi_r
 from itertools import accumulate
 
 n, H, *ab = map(int, sys.stdin.read().split())
 a = ab[::2]
 b = ab[1::2]
+
 
 def main():
     a_max = max(a)
@@ -24,6 +26,7 @@ def main():
     remain = H - total[-1]
     return m + (remain + a_max - 1) // a_max
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

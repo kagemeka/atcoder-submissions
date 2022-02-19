@@ -1,5 +1,6 @@
-import typing
 import collections
+import typing
+
 
 def main() -> typing.NoReturn:
     n, m = map(int, input().split())
@@ -14,5 +15,6 @@ def main() -> typing.NoReturn:
         tot += cnt[s[i]]
         cnt[s[i]] += 1
     print(tot)
+
 
 main()

@@ -1,7 +1,6 @@
 import sys
 
 
-
 def main():
   a, b, c = map(
     int,

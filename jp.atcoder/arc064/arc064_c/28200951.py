@@ -1,6 +1,5 @@
-import typing
 import math
-
+import typing
 
 
 def compute_dist(x0: int, y0: int, x1: int, y1: int) -> float:

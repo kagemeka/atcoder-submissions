@@ -1,7 +1,6 @@
 import sys
 from collections import Counter
 
-import sys
 sys.setrecursionlimit(10**6)
 table = dict()
 def choose(n, r, mod=None): # not mod, or mod ≠ prime

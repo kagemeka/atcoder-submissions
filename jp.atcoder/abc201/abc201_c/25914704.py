@@ -1,6 +1,5 @@
-import typing
 import itertools
-
+import typing
 
 
 def solve(s: str) -> typing.NoReturn:

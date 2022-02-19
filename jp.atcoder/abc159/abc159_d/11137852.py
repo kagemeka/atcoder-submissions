@@ -1,6 +1,7 @@
 import sys
 from collections import Counter
 
+
 def comb(n):
     return n * (n - 1) // 2
 

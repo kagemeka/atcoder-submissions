@@ -1,6 +1,8 @@
-import typing
-import numpy as np
 import sys
+import typing
+
+import numpy as np
+
 # import numba as nb
 
 
@@ -69,7 +71,7 @@ if (
   sys.argv[-1]
   == 'ONLINE_JUDGE'
 ):
-  from numba import njit, i8
+  from numba import i8, njit
 
   divisors = njit(divisors)
   signature = (
@@ -91,4 +93,5 @@ if (
 
 
 from my_module import solve
+
 main()

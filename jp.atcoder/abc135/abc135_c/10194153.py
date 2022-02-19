@@ -1,8 +1,9 @@
 import sys
 
 n = int(sys.stdin.readline().rstrip())
-*a, = map(int, sys.stdin.readline().split())
-*b, = map(int, sys.stdin.readline().split())
+(*a,) = map(int, sys.stdin.readline().split())
+(*b,) = map(int, sys.stdin.readline().split())
+
 
 def attack(i, j, cnt):
     if b[i] <= a[j]:
@@ -15,13 +16,15 @@ def attack(i, j, cnt):
         a[j] = 0
     return cnt
 
+
 def main():
     cnt = 0
     for i in range(n):
         cnt = attack(i, i, cnt)
-        cnt = attack(i, i+1, cnt)
+        cnt = attack(i, i + 1, cnt)
     return cnt
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

@@ -1,7 +1,6 @@
 import typing
 
 
-
 def zero_one_bfs(
     g: typing.List[typing.List[typing.Tuple[int, int]]],
     src: int,

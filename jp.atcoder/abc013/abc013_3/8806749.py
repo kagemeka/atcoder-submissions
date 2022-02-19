@@ -2,8 +2,10 @@ import sys
 
 n, h, a, b, c, d, e = map(int, sys.stdin.read().split())
 
+
 def cost(x, y):
     return a * x + c * y
+
 
 def main():
     costs = []
@@ -14,6 +16,7 @@ def main():
 
     return min(costs) if costs else d * n
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

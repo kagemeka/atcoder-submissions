@@ -1,17 +1,13 @@
-import itertools
-import pprint
-import aiohttp
-import asyncio
+from __future__ import annotations
 
-import os
-import sys
-import glob
+import asyncio
 import logging
+import os
+
+import aiohttp
 import atcoder.contest
-import typing
 import atcoder.submission
-import pandas as pd
-import dataclasses
+import filesystem.path
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -27,85 +23,75 @@ logging.basicConfig(
 ROOT_DIRECTORY = "jp.atcoder"
 
 
-async def _fetch_submissions_for_contest(
+async def _fetch_detail_and_save(
+    session: aiohttp.ClientSession,
+    contest_id: str,
+    submission_id: str,
+) -> None:
+    result = await atcoder.submission.fetch_submission_details(
+        session,
+        contest_id,
+        submission_id,
+    )
+    _save_submission_result(contest_id, result)
+
+
+async def _fetch_contest_submissions(
     session: aiohttp.ClientSession,
     contest_id: str,
     username: str = "kagemeka",
-) -> typing.AsyncIterator[atcoder.submission.SubmissionResult]:
+) -> None:
     params = atcoder.submission.SubmissionsSearchParams(username=username)
-    async for submission in atcoder.submission.fetch_all_submission_results(
+    # save_tasks = []
+    async for submission in atcoder.submission.fetch_all_submissions(
         session,
         contest_id,
         params,
     ):
-        await asyncio.sleep(0.03)
-        yield submission
-
-
-@dataclasses.dataclass(frozen=True)
-class Submission:
-    contest_id: str
-    task_id: str
-    submission_id: str
-
-
-def _get_path(submission: Submission) -> str:
-    return (
-        f"{ROOT_DIRECTORY}/{submission.contest_id}/{submission.task_id}/"
-        f"{submission.submission_id}"
-    )
-
-
-async def _fetch_all_submissions() -> typing.List[Submission]:
-    async with aiohttp.ClientSession() as session:
-        submissions = []
-        contests = []
-        async for contest in atcoder.contest.fetch_all_contests(session):
-            contests.append(contest)
-
-        print(len(contests))
-        cnt = 0
-        for contest in contests:
-            async for submission in _fetch_submissions_for_contest(
-                session,
-                contest.id,
-            ):
-                submissions.append(
-                    Submission(
-                        contest.id,
-                        submission.summary.task_id,
-                        submission.id,
-                    )
-                )
-                await asyncio.sleep(0.01)
-                cnt += 1
-                print(cnt, end="\r")
-        return submissions
-
-
-def _find_local_files() -> typing.List[str]:
-    return glob.glob(f"{ROOT_DIRECTORY}/**/*.*", recursive=True)
-
-
-def _prepare_dir(filepath: str) -> None:
-    directory = os.path.dirname(os.path.abspath(filepath))
-    os.makedirs(directory, exist_ok=True)
-
-
-def _filter_submissions(
-    submissions: typing.List[Submission],
-) -> typing.List[atcoder.submission.SubmissionResult]:
-    files = set(
-        map(
-            lambda file: os.path.splitext(file)[0],
-            _find_local_files(),
+        # await asyncio.sleep(0.03)
+        await asyncio.sleep(0.2)
+        save_path = _get_save_path(contest_id, submission)
+        # print(save_path)
+        if os.path.exists(save_path):
+            continue
+        await _fetch_detail_and_save(
+            session,
+            contest_id,
+            submission.id,
         )
+    #     save_tasks.append(
+    #         asyncio.create_task(
+    #             _fetch_detail_and_save(
+    #                 session,
+    #                 contest_id,
+    #                 submission.id,
+    #             )
+    #         )
+    #     )
+    # await asyncio.gather(*save_tasks)
+
+
+async def _fetch_submissions() -> None:
+    async with aiohttp.ClientSession() as session:
+        # tasks = []
+        async for contest in atcoder.contest.fetch_all_contests(session):
+            await _fetch_contest_submissions(session, contest.id)
+        #     tasks.append(
+        #         asyncio.create_task(
+        #             _fetch_contest_submissions(session, contest.id)
+        #         )
+        #     )
+        # await asyncio.gather(*tasks)
+
+
+def _get_save_path(
+    contest_id: str,
+    result: atcoder.submission.SubmissionResult,
+) -> str:
+    return (
+        f"{ROOT_DIRECTORY}/{contest_id}/{result.summary.task_id}/"
+        f"{result.id}.{result.summary.language.file_extensions[0]}"
     )
-    return [
-        submission
-        for submission in submissions
-        if _get_path(submission) not in files
-    ]
 
 
 def _save_submission_result(
@@ -113,57 +99,16 @@ def _save_submission_result(
     result: atcoder.submission.SubmissionResult,
 ) -> None:
     code = result.details.code
-    language = result.summary.language
-    extension = language.file_extensions[0]
-    submission = Submission(
-        contest_id,
-        result.summary.task_id,
-        result.id,
-    )
-    path = f"{_get_path(submission)}.{extension}"
-    _prepare_dir(path)
-    # _LOGGER.info(f'save {path}')
+    path = _get_save_path(contest_id, result)
+    filesystem.path.prepare_directory(path)
+    _LOGGER.info(f"save {path}")
     with open(path, mode="w") as f:
         f.write(code)
 
 
-async def _fetch_detailed_submissions(
-    submissions: typing.List[Submission],
-) -> None:
-    CHUNK_SIZE = 4
-    n = len(submissions)
-    async with aiohttp.ClientSession() as session:
-        for i in range(0, n, CHUNK_SIZE):
-            fetches = []
-            contest_ids = []
-            for submission in submissions[i : i + CHUNK_SIZE]:
-                task = asyncio.create_task(
-                    atcoder.submission.fetch_submission_details(
-                        session,
-                        submission.contest_id,
-                        submission.submission_id,
-                    )
-                )
-                fetches.append(task)
-                contest_ids.append(submission.contest_id)
-            results = await asyncio.gather(*fetches)
-            await asyncio.sleep(0)
-            for contest_id, result in zip(contest_ids, results):
-                _save_submission_result(contest_id, result)
-
-
 async def main() -> None:
-    submissions = await _fetch_all_submissions()
-    print(len(submissions))
-    df = pd.DataFrame(submissions)
-    # df.to_csv("data.csv", index=False)
-    # df: pd.DataFrame = pd.read_csv("data.csv")
-    submissions = [
-        Submission(**submission) for submission in df.to_dict(orient="records")
-    ]
-    submissions = _filter_submissions(submissions)
-    await _fetch_detailed_submissions(submissions)
+    await _fetch_submissions()
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    raise SystemExit(asyncio.run(main()))

@@ -1,7 +1,6 @@
 import typing
 
 
-
 class UnionFind():
     def __init__(self, n: int) -> typing.NoReturn:
         self.__data = [-1] * n
@@ -20,6 +19,7 @@ class UnionFind():
         self.__data[v] = u
 
 import itertools
+
 
 def main() -> typing.NoReturn:
     a = [[x == '#' for x in input()] for _ in range(2)]

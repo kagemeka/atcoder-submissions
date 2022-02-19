@@ -1,5 +1,6 @@
 import sys
 from collections import Counter
+
 import numpy as np
 
 n, *s = sys.stdin.read().split()

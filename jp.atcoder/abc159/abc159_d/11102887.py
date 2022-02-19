@@ -1,6 +1,7 @@
 import sys
 from collections import Counter
 
+
 def comb(n, r):
     if r > n:
         return 0

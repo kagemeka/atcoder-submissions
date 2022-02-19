@@ -1,6 +1,7 @@
 import sys
-from bisect import bisect_left as bi_l, bisect_right as bi_r
-from math import floor, ceil
+from bisect import bisect_left as bi_l
+from bisect import bisect_right as bi_r
+from math import ceil, floor
 
 n, k, *a = map(int, sys.stdin.read().split())
 a.sort()

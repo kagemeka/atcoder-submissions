@@ -1,7 +1,6 @@
 import typing
 
 
-
 def main() -> typing.NoReturn:
     a, b = input().split()
     n = min(len(a), len(b))

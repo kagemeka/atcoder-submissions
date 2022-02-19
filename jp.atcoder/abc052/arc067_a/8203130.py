@@ -10,11 +10,11 @@ def primeFactorize(n):
 
         # n cannot be a even number at this point.
         # so range is from 3 to int(n**0.5), but step is 2.
-        for i in range(3, int(n**0.5)+1, 2):
+        for i in range(3, int(n**0.5) + 1, 2):
             while n % i == 0:
                 n //= i
                 prime_factors.append(i)
-            if n == 1: # otherwise, n > i.
+            if n == 1:  # otherwise, n > i.
                 return prime_factors
         # if n != 1, n > i(int(n**0.5) or int(n**0.5)-1).
         # (i == int(n**0.5) if int(n**0.5) is an odd number.)
@@ -28,7 +28,7 @@ def primeFactorize(n):
 def findPrimeNumbers(n):
     # return a list of prime numbers less than or equal to n.
     prime_numbers = [2]
-    for i in range(3, n+1, 2):
+    for i in range(3, n + 1, 2):
 
         for j in prime_numbers:
             if i % j == 0:
@@ -38,11 +38,12 @@ def findPrimeNumbers(n):
 
     return prime_numbers
 
-mod = 10 ** 9 + 7
+
+mod = 10**9 + 7
 N = int(input())
 
 prime_factors_of_the_factorial_of_n = []
-for i in range(1, N+1):
+for i in range(1, N + 1):
     prime_factors_of_the_factorial_of_n += primeFactorize(i)
 
 count_of_each_prime_number = []

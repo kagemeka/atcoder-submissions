@@ -4,8 +4,10 @@ n, m = map(int, sys.stdin.readline().split())
 graph = [[False] * n for _ in range(n)]
 for _ in range(m):
     x, y = map(int, sys.stdin.readline().split())
-    x -= 1; y -= 1
+    x -= 1
+    y -= 1
     graph[x][y] = graph[y][x] = True
+
 
 def main():
     res = 1
@@ -14,12 +16,15 @@ def main():
         m = len(comb)
         for j in range(m - 1):
             for k in range(j + 1, m):
-                if not graph[comb[j]][comb[k]]: break
-            else: continue
+                if not graph[comb[j]][comb[k]]:
+                    break
+            else:
+                continue
             break
         else:
             res = max(res, m)
     print(res)
 
-if __name__ ==  '__main__':
+
+if __name__ == "__main__":
     main()

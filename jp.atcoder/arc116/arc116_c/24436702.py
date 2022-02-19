@@ -1,5 +1,7 @@
 import typing
+
 import numpy as np
+
 # import numba as nb
 
 
@@ -118,7 +120,7 @@ def aot_compile(
   global \
     cumprod, mpow, factorial, \
     inv_factorial, lpf
-  from numba import njit, i8
+  from numba import i8, njit
   cumprod = njit(cumprod)
   mpow = njit(mpow)
   factorial = njit(factorial)
@@ -140,6 +142,7 @@ def aot_compile(
 
 
 import sys
+
 if (
   sys.argv[-1]
   == 'ONLINE_JUDGE'
@@ -149,4 +152,5 @@ if (
 
 
 from my_module import solve
+
 main()

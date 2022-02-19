@@ -1,7 +1,5 @@
 import typing
-from collections import (
-  deque,
-)
+from collections import deque
 
 
 def main() -> typing.NoReturn:

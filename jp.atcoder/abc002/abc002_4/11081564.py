@@ -3,9 +3,10 @@ from itertools import combinations
 
 n, m, *xy = map(int, sys.stdin.read().split())
 xy = zip(*[iter(xy)] * 2)
-g = [set() for _ in range(n+1)]
+g = [set() for _ in range(n + 1)]
 for x, y in xy:
-    g[x-1].add(y-1)
+    g[x - 1].add(y - 1)
+
 
 def main():
     res = 1
@@ -18,6 +19,7 @@ def main():
             res = max(res, len(group))
     return res
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

@@ -1,20 +1,21 @@
 import sys
 
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 
 n = int(sys.stdin.readline().rstrip())
 ab = map(int, sys.stdin.read().split())
 ab = list(zip(ab, ab))
 
-G = [[] for _ in range(n+1)]
+G = [[] for _ in range(n + 1)]
 for a, b in ab:
     G[a].append(b)
     G[b].append(a)
 
+
 def main():
     rank = [set() for _ in range(n)]
     stack = [(1, 0)]
-    childs = [set() for _ in range(n+1)]
+    childs = [set() for _ in range(n + 1)]
     while stack:
         i, r = stack.pop()
         rank[r].add(i)
@@ -38,6 +39,7 @@ def main():
     ans = sum(res[1]) % MOD
     return ans
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

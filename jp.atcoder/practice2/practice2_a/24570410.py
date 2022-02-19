@@ -1,5 +1,5 @@
-import typing
 import dataclasses
+import typing
 
 
 @dataclasses.dataclass
@@ -60,6 +60,7 @@ class UnionFind():
 
 
 import sys
+
 
 def main() -> typing.NoReturn:
   n, q = map(

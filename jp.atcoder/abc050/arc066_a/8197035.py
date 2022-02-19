@@ -1,4 +1,4 @@
-mod = 10 ** 7 + 1
+mod = 10**7 + 1
 N = int(input())
 A = [int(a) for a in input().split()]
 A.sort()

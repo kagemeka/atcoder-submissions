@@ -1,6 +1,5 @@
 import typing
 
-
 T = typing.TypeVar('T')
 class LCS(
   typing.Generic[T],

@@ -1,5 +1,6 @@
 import sys
 
+
 def cumxor(n):
     q, r = divmod(n+1, 2)
     return q & 1 ^ (n * r)

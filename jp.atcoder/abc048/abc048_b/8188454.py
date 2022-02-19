@@ -4,7 +4,7 @@ if x > b:
     ans = 0
 elif a <= x:
     ans = b // x
-else :
+else:
     ans = b // x - (a - 1) // x
 
 if a == 0:

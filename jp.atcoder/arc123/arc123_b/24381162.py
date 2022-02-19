@@ -1,7 +1,6 @@
 import sys
 
 
-
 def read_ints():
   a = sys.stdin.readline()
   *a, = map(int, a.split())

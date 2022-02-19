@@ -1,6 +1,7 @@
 import sys
 from string import digits
 
+
 def main():
     n, s = sys.stdin.read().split()
     n = int(n)

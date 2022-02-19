@@ -1,8 +1,7 @@
-import typing
-from collections import (
-  Counter,
-)
 import sys
+import typing
+from collections import Counter
+
 sys.setrecursionlimit(1 << 25)
 
 

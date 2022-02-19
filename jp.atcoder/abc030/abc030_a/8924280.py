@@ -2,16 +2,18 @@ import sys
 
 a, b, c, d = map(int, sys.stdin.readline().split())
 
+
 def main():
     T = b / a
     A = d / c
     if T == A:
-        return 'DRAW'
+        return "DRAW"
     elif T > A:
-        return 'TAKAHASHI'
+        return "TAKAHASHI"
     else:
-        return 'AOKI'
+        return "AOKI"
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

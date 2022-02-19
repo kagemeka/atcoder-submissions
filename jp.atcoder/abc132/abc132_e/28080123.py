@@ -1,7 +1,6 @@
 import typing
 
 
-
 def main() -> typing.NoReturn:
     # dist[r][i] := shortest dist to i such that d % 3 == r
     # bfs

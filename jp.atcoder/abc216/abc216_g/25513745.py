@@ -104,6 +104,7 @@ class ShortestDistDijkstra():
 
 import sys
 
+
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())
   lrx = map(

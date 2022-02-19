@@ -10,5 +10,5 @@ for letter in letters:
     else:
         res.append(letter)
 
-ans = ''.join(res)
+ans = "".join(res)
 print(ans)

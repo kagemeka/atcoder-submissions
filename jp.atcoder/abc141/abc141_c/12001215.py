@@ -1,4 +1,5 @@
 import sys
+
 import numpy as np
 
 I = np.array(sys.stdin.read().split(), dtype=np.int32)

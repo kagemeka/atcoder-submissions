@@ -1,24 +1,29 @@
 import sys
-from heapq import heappush, heappop
+from heapq import heappop, heappush
+
 import numpy as np
+
 # 方針: A*, binary-search
 
 H, W, T = map(int, sys.stdin.readline().split())
 grid = np.array([list(s) for s in sys.stdin.read().split()])
-grid = np.pad(grid, 1, 'constant')
-sy, sx = np.argwhere(grid == 'S')[0]
-gy, gx = np.argwhere(grid == 'G')[0]
-grid[sy, sx] = '.'
-grid[gy, gx] = '.'
+grid = np.pad(grid, 1, "constant")
+sy, sx = np.argwhere(grid == "S")[0]
+gy, gx = np.argwhere(grid == "G")[0]
+grid[sy, sx] = "."
+grid[gy, gx] = "."
+
 
 def heuristic_cost(y, x):
     return abs(gy - y) + abs(gx - x)
+
 
 heap = []
 h0 = heuristic_cost(sy, sx)
 c0 = 0
 s0 = h0 + c0
 heappush(heap, (s0, c0, sy, sx))
+
 
 def a_star(cost):
     q = heap.copy()
@@ -35,13 +40,14 @@ def a_star(cost):
             j = x + dx
             if not (i, j) in visited:
                 h = heuristic_cost(i, j)
-                if grid[y, x] == '.':
+                if grid[y, x] == ".":
                     s = h + c + 1
-                    heappush(q, (s, c+1, i, j))
-                elif grid[y, x] == '#':
+                    heappush(q, (s, c + 1, i, j))
+                elif grid[y, x] == "#":
                     s = h + c + cost
-                    heappush(q, (s, c+cost, i, j))
+                    heappush(q, (s, c + cost, i, j))
     return c
+
 
 def main():
     lo, hi = 1, T
@@ -53,6 +59,7 @@ def main():
             lo = m + 1
     return hi
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

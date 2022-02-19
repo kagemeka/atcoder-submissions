@@ -21,8 +21,9 @@ class UnionFind():
 
 
 
-import itertools
 import collections
+import itertools
+
 
 def main() -> typing.NoReturn:
     h, w, a, b = map(int, input().split())

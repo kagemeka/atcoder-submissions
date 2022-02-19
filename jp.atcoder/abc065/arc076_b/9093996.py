@@ -1,4 +1,5 @@
 import sys
+
 import numpy as np
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import minimum_spanning_tree
@@ -6,6 +7,7 @@ from scipy.sparse.csgraph import minimum_spanning_tree
 n = int(sys.stdin.readline().rstrip())
 xy = np.array(sys.stdin.read().split(), dtype=np.int64).reshape(-1, 2)
 xy = np.transpose(xy)
+
 
 def main():
     indices1, indices2 = np.argsort(xy)
@@ -25,6 +27,7 @@ def main():
     ans = np.sum(res)
     return int(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

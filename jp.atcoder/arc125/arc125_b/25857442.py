@@ -1,6 +1,6 @@
 import typing
-import numba as nb
 
+import numba as nb
 
 
 @nb.njit((nb.i8, ), cache=True)

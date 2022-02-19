@@ -2,6 +2,7 @@
 import sys
 from collections import defaultdict
 
+
 def main():
     n, m, *a = map(int, sys.stdin.read().split())
 

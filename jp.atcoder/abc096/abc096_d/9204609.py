@@ -1,6 +1,7 @@
 import sys
 from math import floor, sqrt
 
+
 def prime_nums(n):
     sieve = set(range(2, n + 1))
     non_prime = set(range(2 * 2, n + 1, 2))
@@ -10,6 +11,7 @@ def prime_nums(n):
             non_prime = set(range(i * 2, n + 1, i))
             sieve -= non_prime
     return sieve
+
 
 ps = prime_nums(55555)
 
@@ -21,9 +23,11 @@ for p in ps:
 
 n = int(sys.stdin.readline().rstrip())
 
+
 def main():
     return cand[:n]
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
-    print(*ans, sep=' ')
+    print(*ans, sep=" ")

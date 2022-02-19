@@ -1,9 +1,10 @@
 import sys
-from collections import defaultdict, Counter
+from collections import Counter, defaultdict
 
 h, w, n = map(int, sys.stdin.readline().split())
 ab = map(int, sys.stdin.read().split())
 ab = zip(ab, ab)
+
 
 def main():
     c = defaultdict(int)
@@ -25,6 +26,7 @@ def main():
         else:
             yield 0
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
-    print(*ans, sep='\n')
+    print(*ans, sep="\n")

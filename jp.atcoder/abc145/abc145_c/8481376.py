@@ -1,10 +1,12 @@
 # 2019-11-16 21:01:15(JST)
-import sys
-# import collections
-import math
 # from string import ascii_lowercase, ascii_uppercase, digits
 # from bisect import bisect_left as bi_l, bisect_right as bi_r
 import itertools
+
+# import collections
+import math
+import sys
+
 # from functools import reduce
 # import operator as op
 # from scipy.misc import comb # float

@@ -1,8 +1,7 @@
-import typing
 import collections
+import typing
 
 from numba.cuda.api import default_stream
-
 
 
 class SieveOfEratosthenes():

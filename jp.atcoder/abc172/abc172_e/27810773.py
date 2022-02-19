@@ -1,8 +1,6 @@
 import typing
 
 
-
-
 def cumprod(mod: int, a: typing.List[int]) -> typing.NoReturn:
     """Compute cumprod over modular in place.
 

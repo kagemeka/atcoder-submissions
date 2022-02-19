@@ -1,5 +1,5 @@
-import typing
 import dataclasses
+import typing
 
 S = typing.TypeVar("S")
 
@@ -77,7 +77,9 @@ def query_on_path_binary_lifting(
 
 def main() -> None:
     n = int(input())
-    edges = [tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(n - 1)]
+    edges = [
+        tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(n - 1)
+    ]
     q = int(input())
     res = []
 
@@ -92,7 +94,7 @@ def main() -> None:
         v -= 1
         res.append(get(u, v) + 1)
 
+    print(*res, sep="\n")
 
-    print(*res, sep='\n')
 
 main()

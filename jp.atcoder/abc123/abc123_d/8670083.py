@@ -1,5 +1,7 @@
 import sys
+
 import numpy as np
+
 
 # sum of deliciousness が border以上の組み合わせが K個以上あればTrue
 def is_ok(a, b, c, X, Y, Z, K, border):

@@ -36,4 +36,5 @@ def main() -> None:
         graph[x].append(y)
     print(count_toposort(graph))
 
+
 main()

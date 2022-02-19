@@ -2,6 +2,7 @@ import sys
 
 n, *a = map(int, sys.stdin.read().split())
 
+
 def main():
     res = set()
     for i in range(n):
@@ -11,6 +12,7 @@ def main():
 
     return len(res)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

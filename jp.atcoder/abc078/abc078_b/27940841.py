@@ -6,4 +6,5 @@ def main() -> typing.NoReturn:
     n = (x - z) // (y + z)
     print(n)
 
+
 main()

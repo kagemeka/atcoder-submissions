@@ -1,5 +1,6 @@
-import typing
 import sys
+import typing
+
 sys.setrecursionlimit(1 << 25)
 
 

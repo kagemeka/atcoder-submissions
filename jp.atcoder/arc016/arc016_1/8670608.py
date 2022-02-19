@@ -1,5 +1,7 @@
 # 2019-11-27 14:53:01(JST)
 import sys
+
+
 def main():
     n, m = map(int, sys.stdin.readline().split())
     if m != 1:

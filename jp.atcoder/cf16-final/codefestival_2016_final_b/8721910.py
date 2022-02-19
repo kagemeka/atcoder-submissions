@@ -1,6 +1,7 @@
 import sys
 from math import floor, sqrt
 
+
 def main():
     n = int(sys.stdin.readline().rstrip())
     m = floor(sqrt(2 * n))

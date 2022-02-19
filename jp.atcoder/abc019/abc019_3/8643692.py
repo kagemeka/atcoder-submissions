@@ -1,5 +1,7 @@
 # 2019-11-25 12:34:24(JST)
 import sys
+
+
 def main():
     n, *a = map(int, sys.stdin.read().split())
     # aの各要素を奇数になるまで割り続けて、残った奇数の種類が答え
@@ -11,5 +13,6 @@ def main():
 
     print(len(res))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

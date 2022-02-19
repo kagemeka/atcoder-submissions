@@ -1,5 +1,6 @@
 import sys
-from bisect import bisect_left as bi_l, bisect_right as bi_r
+from bisect import bisect_left as bi_l
+from bisect import bisect_right as bi_r
 from itertools import accumulate
 
 n, m, *a = map(int, sys.stdin.read().split())

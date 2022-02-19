@@ -1,7 +1,6 @@
-import typing
-import heapq
 import collections
-
+import heapq
+import typing
 
 
 def main() -> typing.NoReturn:

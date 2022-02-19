@@ -1,5 +1,5 @@
 import sys
-from itertools import product, combinations
+from itertools import combinations, product
 
 n = int(sys.stdin.readline().rstrip())
 happiness = []

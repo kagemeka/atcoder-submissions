@@ -1,11 +1,12 @@
 import sys
 from collections import deque
-*I, = map(int, sys.stdin.read().split())
+
+(*I,) = map(int, sys.stdin.read().split())
 T = I[0]
 n = I[1]
-a = deque(I[2:n+2])
-m = I[n+2]
-b = I[n+3:]
+a = deque(I[2 : n + 2])
+m = I[n + 2]
+b = I[n + 3 :]
 
 
 def main():
@@ -27,12 +28,13 @@ def main():
             else:
                 cannot = True
         if cannot:
-            ans = 'no'
+            ans = "no"
             break
     else:
-        ans = 'yes'
+        ans = "yes"
 
     print(ans)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

@@ -1,5 +1,6 @@
 import sys
 
+
 def main():
     n = int(sys.stdin.readline().rstrip())
     x = int(n / 1.08) # 切り捨て

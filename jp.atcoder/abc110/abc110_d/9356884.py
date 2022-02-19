@@ -22,6 +22,8 @@ def comb(n, r, mod=MOD):
 
 from collections import defaultdict
 from math import floor, sqrt
+
+
 def prime_factorize(n):
     res = defaultdict(int)
     while n % 2 == 0:

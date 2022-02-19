@@ -2,6 +2,7 @@
 import sys
 from collections import deque
 
+
 def main():
     n, *b = map(int, sys.stdin.read().split())
     b = [None] + b

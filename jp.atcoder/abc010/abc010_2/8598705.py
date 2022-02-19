@@ -1,6 +1,8 @@
 # 2019-11-24 13:14:50(JST)
 import sys
+
 import numpy as np
+
 
 def main():
     n, *a = map(int, sys.stdin.read().split())
@@ -19,5 +21,6 @@ def main():
                 ok = True
     print(count)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

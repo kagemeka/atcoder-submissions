@@ -2,14 +2,16 @@ import sys
 
 x, y = sys.stdin.readline().split()
 
+
 def main():
     if x > y:
-        return '>'
+        return ">"
     elif x < y:
-        return '<'
+        return "<"
     else:
-        return '='
+        return "="
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

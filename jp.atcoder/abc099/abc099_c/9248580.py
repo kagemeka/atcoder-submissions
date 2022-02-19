@@ -1,14 +1,15 @@
 import sys
-from math import log, floor
+from math import floor, log
 
 n = int(sys.stdin.readline().rstrip())
+
 
 def main():
     bit6 = [0] * floor(log(n, 6) + 1)
     bit9 = [0] * floor(log(n, 9) + 1)
     b = n
     for i in range(floor(log(n, 9)), -1, -1):
-        q, r = divmod(b, 9 ** i)
+        q, r = divmod(b, 9**i)
         bit9[i] = q
         b = r
 
@@ -37,6 +38,7 @@ def main():
 
     return res
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

@@ -1,5 +1,6 @@
 import typing
 
+
 def tree_bfs(
     tree_edges: typing.List[typing.Tuple[int, int]],
     root: int,
@@ -92,7 +93,8 @@ def lca_tarjan_offline(
     dfs(root)
     return lca
 
-class UnionFind():
+
+class UnionFind:
     def __init__(self, n: int) -> None:
         self.__data = [-1] * n
 
@@ -122,7 +124,9 @@ class UnionFind():
 
 def main() -> None:
     n = int(input())
-    edges = [tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(n - 1)]
+    edges = [
+        tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(n - 1)
+    ]
     q = int(input())
     res = []
 
@@ -138,13 +142,15 @@ def main() -> None:
     #     v -= 1
     #     res.append(dist(u, v) + 1)
 
-    queries = [tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(q)]
+    queries = [
+        tuple(map(lambda x: int(x) - 1, input().split())) for _ in range(q)
+    ]
     lca = lca_tarjan_offline(edges, 0, queries)
     for i in range(q):
         u, v = queries[i]
         res.append(depth[u] + depth[v] - 2 * depth[lca[i]] + 1)
 
+    print(*res, sep="\n")
 
-    print(*res, sep='\n')
 
 main()

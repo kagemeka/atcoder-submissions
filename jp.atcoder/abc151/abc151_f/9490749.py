@@ -1,5 +1,5 @@
-import sys
 import cmath
+import sys
 from itertools import combinations
 
 inf = float('inf')

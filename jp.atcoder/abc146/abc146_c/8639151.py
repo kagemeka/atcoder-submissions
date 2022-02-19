@@ -24,6 +24,7 @@
 
 import sys
 
+
 def main():
     A, B, X = map(int, sys.stdin.readline().split())
     # binary search

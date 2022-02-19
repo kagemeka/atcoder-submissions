@@ -1,9 +1,8 @@
 import typing
 
 
-
 def main() -> typing.NoReturn:
-  print(input() + 's')
+    print(input() + "s")
 
 
 main()

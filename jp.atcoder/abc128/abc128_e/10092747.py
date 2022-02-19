@@ -1,5 +1,5 @@
 import sys
-from heapq import heappush, heappop
+from heapq import heappop, heappush
 
 n, q = map(int, sys.stdin.readline().split())
 stx = [tuple(map(int, sys.stdin.readline().split())) for _ in range(n)]

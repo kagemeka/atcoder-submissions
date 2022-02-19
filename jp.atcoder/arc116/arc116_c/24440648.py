@@ -1,6 +1,7 @@
-import numpy as np
 import typing
+
 import numba as nb
+import numpy as np
 
 
 @nb.njit
@@ -98,7 +99,6 @@ def main() -> typing.NoReturn:
 
 
 import sys
-
 
 # def aot_compile(
 # ) -> typing.NoReturn:

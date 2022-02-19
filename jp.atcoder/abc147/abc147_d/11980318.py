@@ -1,5 +1,7 @@
 import sys
+
 import numpy as np
+
 MOD = 10 ** 9 + 7
 
 n = int(sys.stdin.readline().rstrip())

@@ -1,10 +1,12 @@
 import sys
-import numpy as np
 from itertools import product
+
+import numpy as np
 
 I = np.array(sys.stdin.read().split(), dtype=np.int64)
 n, m = I[:2]
 x, y, z = I[2:].reshape(n, 3).T
+
 
 def main():
     ans = 0
@@ -15,6 +17,7 @@ def main():
 
     return ans
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     ans = main()
     print(ans)

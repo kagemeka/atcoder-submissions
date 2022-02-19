@@ -1,6 +1,8 @@
 import sys
 
 import numpy as np
+
+
 def sieve_of_eratosthenes(n=10 ** 7):
   sieve = np.ones(n + 1); sieve[:2] = 0
   for i in range(2, int(np.sqrt(n)) + 1):

@@ -1,7 +1,7 @@
 n, m = [int(x) for x in input().split()]
 edges = [[int(x) for x in input().split()] for _ in range(m)]
 
-if m < n -1:
+if m < n - 1:
     print(0)
     exit()
 
@@ -30,7 +30,7 @@ while still_possible:
                     passed.append(e[0])
                     current = e[0]
                     break
-        else: # if e all in edges are not accepted
+        else:  # if e all in edges are not accepted
             if passed == [1]:
                 still_possible = False
             break

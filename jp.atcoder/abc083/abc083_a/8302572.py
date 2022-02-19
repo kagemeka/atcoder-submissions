@@ -1,4 +1,5 @@
 import sys
+
 # import collections
 # import math
 # import string
@@ -7,13 +8,17 @@ import sys
 # import itertools
 # import statistics
 
+
 def main():
     a, b, c, d = (int(x) for x in sys.stdin.read().split())
     left = a + b
     right = c + d
-    if left > right: ans = "Left"
-    elif right > left: ans = 'Right'
-    else: ans = 'Balanced'
+    if left > right:
+        ans = "Left"
+    elif right > left:
+        ans = "Right"
+    else:
+        ans = "Balanced"
     print(ans)
 
 

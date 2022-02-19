@@ -1,6 +1,7 @@
 # 2019-11-26 14:51:37(JST)
 import sys
 
+
 def main():
     n, m, *a = map(int, sys.stdin.read().split())
 

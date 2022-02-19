@@ -1,4 +1,5 @@
 import sys
+
 s = [s for s in sys.stdin.readline().rstrip()]
 
 ans = 0

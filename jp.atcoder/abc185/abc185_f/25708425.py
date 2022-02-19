@@ -1,6 +1,6 @@
 from __future__ import annotations
-import typing
 
+import typing
 
 
 class FenwickTree():
@@ -66,6 +66,7 @@ def solve(
 
 
 import sys
+
 
 def main() -> typing.NoReturn:
   n, m = map(int, input().split())

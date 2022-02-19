@@ -1,7 +1,9 @@
 import sys
+
 import numpy as np
 
-MOD = 10 ** 4 + 7
+MOD = 10**4 + 7
+
 
 def matrix_pow_mod(x, n, mod):
     if n == 0:
@@ -21,12 +23,15 @@ def matrix_pow_mod(x, n, mod):
 
     return res % mod
 
+
 n = int(sys.stdin.readline().rstrip())
+
 
 def main():
     A = np.array([[1, 1, 1], [1, 0, 0], [0, 1, 0]])
     res = matrix_pow_mod(A, n, MOD).dot(np.array([0, 0, 1]))
     print(int(res[-1]))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

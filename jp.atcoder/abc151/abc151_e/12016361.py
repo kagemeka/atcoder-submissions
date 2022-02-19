@@ -1,6 +1,7 @@
 import sys
 
 import numpy as np
+
 MOD = 10 ** 9 + 7
 def cumprod(a, p):
   l = len(a); sql = int(np.sqrt(l) + 1)

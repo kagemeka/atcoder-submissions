@@ -1,4 +1,5 @@
 import bisect
+
 n = int(input())
 ls = list(map(int, input().split())).sort()
 count = 0

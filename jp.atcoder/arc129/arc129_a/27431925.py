@@ -1,9 +1,6 @@
 import typing
 
 
-
-
-
 def main() -> typing.NoReturn:
     n, l, r = map(int, input().split())
 

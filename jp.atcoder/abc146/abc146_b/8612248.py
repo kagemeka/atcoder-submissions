@@ -1,5 +1,6 @@
 # 2019-11-24 20:59:47(JST)
 import sys
+
 # import numpy as np
 from string import ascii_uppercase as alphabet
 

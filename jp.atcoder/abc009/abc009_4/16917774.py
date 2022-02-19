@@ -1,16 +1,13 @@
 package main
 
-import (
-	"fmt"
-	"bufio"
-	"os"
-	"sort"
-	"strconv"
-	"strings"
-	"math"
-	"container/heap"
-)
-
+import "bufio"
+import "container/heap"
+import "fmt"
+import "math"
+import "os"
+import "sort"
+import "strconv"
+import "strings"
 
 type contest map[string]func()
 type proconSite struct {contests map[string]contest; problems map[string]func()}

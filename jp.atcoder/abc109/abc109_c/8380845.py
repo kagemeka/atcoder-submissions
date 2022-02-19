@@ -2,7 +2,6 @@
 #                         created: 2019-11-10 12:28:14(JST)
 ### modules
 ## from standard library
-import sys
 # import collections
 # import math
 # import string
@@ -11,6 +10,8 @@ import sys
 # import itertools
 # import statistics
 import functools
+import sys
+
 # import operator
 ## from external libraries
 # import scipy.special

@@ -1,7 +1,6 @@
 import typing
 
 
-
 def cumprod(mod: int, a: typing.List[int]) -> typing.List[int]:
     a = a.copy()
     for i in range(len(a) - 1):

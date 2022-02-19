@@ -22,22 +22,22 @@ times2 = 0
 if a[0] < 0:
     times1 += abs(1 + abs(a[0]) - a[1])
     times2 += 1 - a[0] + abs(-2 - a[1])
-    for i in range(3, n+1):
+    for i in range(3, n + 1):
         if i % 2 != 0:
-            times1 += abs(-2 - a[i-1])
-            times2 += abs(2 - a[i-1])
+            times1 += abs(-2 - a[i - 1])
+            times2 += abs(2 - a[i - 1])
         else:
-            times1 += abs(2 - a[i-1])
-            times2 += abs(-2 - a[i-1])
+            times1 += abs(2 - a[i - 1])
+            times2 += abs(-2 - a[i - 1])
 else:
     times1 += abs(-(1 + a[0]) - a[1])
     times2 += abs(-1 - a[0]) + abs(2 - a[1])
-    for i in range(3, n+1):
+    for i in range(3, n + 1):
         if i % 2 != 0:
-            times1 += abs(2 - a[i-1])
-            times2 += abs(-2 - a[i-1])
+            times1 += abs(2 - a[i - 1])
+            times2 += abs(-2 - a[i - 1])
         else:
-            times1 += abs(-2 - a[i-1])
-            times2 += abs(2 - a[i-1])
+            times1 += abs(-2 - a[i - 1])
+            times2 += abs(2 - a[i - 1])
 
 print(min(times1, times2))

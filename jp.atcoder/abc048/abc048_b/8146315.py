@@ -1,7 +1,8 @@
 a, b, x = map(int, input().split())
 
+
 def f(n, x):
-    if n < 0:   # a == 0
+    if n < 0:  # a == 0
         return 0
     elif n == 0:
         return 1
@@ -10,6 +11,7 @@ def f(n, x):
     else:
         return n // x
 
-count = f(b, x) - f(a-1, x)
+
+count = f(b, x) - f(a - 1, x)
 
 print(count)

@@ -1,5 +1,7 @@
 import typing
+
 import numpy as np
+
 # import numba as nb
 
 
@@ -113,13 +115,12 @@ def main():
 
 import sys
 
-
 if (
   sys.argv[-1]
   == 'ONLINE_JUDGE'
 ):
   import numba
-  from numba import njit, i8
+  from numba import i8, njit
   from numba.pycc import CC
   cc = CC('my_module')
 

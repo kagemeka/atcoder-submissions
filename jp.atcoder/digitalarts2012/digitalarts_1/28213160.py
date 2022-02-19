@@ -1,7 +1,6 @@
 import typing
 
 
-
 def match(s: str, t: str) -> bool:
     n = len(s)
     if len(t) != n: return False

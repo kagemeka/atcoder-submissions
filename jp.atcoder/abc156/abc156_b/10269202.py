@@ -1,5 +1,6 @@
 import sys
 
+
 def base_convert(n, b):
     res = ''
     q = n
