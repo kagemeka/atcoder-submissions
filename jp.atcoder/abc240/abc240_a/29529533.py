@@ -1,0 +1,7 @@
+def main() -> None:
+    a, b = map(int, input().split())
+    print("Yes" if b - a == 1 or b - a == 9 else "No")
+
+
+if __name__ == "__main__":
+    main()
