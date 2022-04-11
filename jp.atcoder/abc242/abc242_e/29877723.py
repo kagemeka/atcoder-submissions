@@ -11,9 +11,9 @@ def solve() -> int:
         dp[i + 1] = dp[i] * 26 % MOD + s[i]
     dp[-1] %= MOD
     cnt = dp[-1]
-    
+
     cnt += s[:m] <= s[-m:][::-1]
-    return cnt 
+    return cnt
     # same/small
 
 

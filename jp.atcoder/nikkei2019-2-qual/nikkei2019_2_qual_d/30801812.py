@@ -4,7 +4,7 @@ def main() -> None:
     # greedy
     # dp
     n, m = map(int, input().split())
-    
+
     g = [[] for _ in range(n)]
     for _ in range(m):
         l, r, c = map(int, input().split())
@@ -14,8 +14,8 @@ def main() -> None:
 
     inf = 1 << 60
     dist = [inf] * n
-    dist[0] = 0 
-    
+    dist[0] = 0
+
     hq = [(0, 0)]
     for i in range(n):
         while hq and hq[0][1] < i:

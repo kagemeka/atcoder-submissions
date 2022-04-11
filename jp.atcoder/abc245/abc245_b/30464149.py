@@ -4,7 +4,7 @@ def main() -> None:
     appeared = [False] * 2001
     for x in a:
         appeared[x] = True
-    
+
     for i in range(2001):
         if appeared[i]:
             continue
