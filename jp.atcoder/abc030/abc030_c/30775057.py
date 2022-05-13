@@ -3,9 +3,9 @@ def main() -> None:
     x, y = map(int, input().split())
     a = list(map(int, input().split()))
     b = list(map(int, input().split()))
-    
+
     i = j = 0
-    t = 0 
+    t = 0
     count = 0
     while True:
         while i < n and a[i] < t:
@@ -20,7 +20,7 @@ def main() -> None:
         t = b[j] + y
         count += 1
     print(count)
-    
+
 
 if __name__ == '__main__':
     main()

@@ -23,8 +23,8 @@ def main() -> None:
     # mn = [inf] * n
     # mx = [-inf] * n
     label = 1
-    
-    
+
+
 
     def dfs(u: int, parent: int) -> typing.Tuple[int, int]:
         mx = -inf

@@ -7,7 +7,7 @@ def main() -> None:
     same = 0
     for i in range(n):
         same += a[i] == b[i]
-    
+
     different = both - same
     print(same)
     print(different)
