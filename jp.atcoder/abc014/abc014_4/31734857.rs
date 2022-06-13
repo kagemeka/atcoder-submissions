@@ -1762,12 +1762,12 @@ where
         // only msb of l \xor r is important.
         // because,
         // for each bit j (checking in descending order from top bit),
-        // if for any k in 2^j..=|data| (step 2^{j + 1}), l < k <= r, 
+        // if for any k in 2^j..=|data| (step 2^{j + 1}), l < k <= r,
         // then j-th bit of l \xor r is gonna be 1.
         // so the query can be dealed with j-th row.
         // <->
-        // if j-th bit of l \xor r is 0, 
-        // then for all k in 2^j..=|data| (step 2^{j + 1}), 
+        // if j-th bit of l \xor r is 0,
+        // then for all k in 2^j..=|data| (step 2^{j + 1}),
         // k <= l < r or l < r < k.
         // so the query cannot be dealed with j-th row.
         // then, check {j-1}-th bit next...

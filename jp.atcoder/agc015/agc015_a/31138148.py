@@ -2,7 +2,7 @@ def main() -> None:
     n, a, b = map(int, input().split())
     if a == b:
         print(1)
-        return 
+        return
     if n == 1 or a > b:
         print(0)
         return

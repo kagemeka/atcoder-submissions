@@ -13,7 +13,7 @@ def main() -> None:
     for x in a:
         count_1 += sum(count[x + 1 :])
 
-    MOD = 10 ** 9 + 7 
+    MOD = 10 ** 9 + 7
     print((count_0 * k % MOD + k * (k - 1) // 2 % MOD * count_1) % MOD)
 
 
