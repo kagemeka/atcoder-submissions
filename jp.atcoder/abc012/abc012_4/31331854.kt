@@ -31,7 +31,7 @@ fun main() {
             }
         }
     }
-  
+
   	println(g.map { it.max()!! }.min())
 
 }

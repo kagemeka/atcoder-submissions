@@ -18,7 +18,7 @@ def main() -> None:
         if n & 1:
             b = [b[i] for i in a]
         return b
-    
+
     b = pow(a, k)
     print(b[0] + 1)
 

@@ -25,7 +25,7 @@ def main() -> None:
         j = rem[i] * pow_10[n - i] % p
         tot += count[j]
         count[j] += 1
-    
+
     # exception p = 2, 5
     # if p == 2 or p == 5:
         # hack test case

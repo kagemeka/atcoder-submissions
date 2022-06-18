@@ -1,5 +1,5 @@
 def main() -> None:
-    import collections 
+    import collections
     n = int(input())
     count = collections.Counter(input() for _ in range(n))
     order = sorted(count.items(), key=lambda x: x[1])
