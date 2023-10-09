@@ -58,7 +58,7 @@ auto main() -> int {
       if(eid_v == eid_u) continue;
       // cout << u + 1 << ' ' << v + 1 << " a\n\n";
       k = dfs(v, eid_v);
-      // if  (k == u) 
+      // if  (k == u)
       if (k != -1) on_cycle[u] = true;
       // if(on_stack[v] && on_cycle[]) on_cycle[u] = true;
     }

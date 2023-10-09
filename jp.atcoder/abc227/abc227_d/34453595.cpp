@@ -21,7 +21,7 @@ auto main() -> int {
     }
     s += a[i];
     i++;
-    c++;    
+    c++;
   }
   cout << s / c << endl;
 }

@@ -21,15 +21,15 @@ def main() -> None:
     n, k, q = map(int, input().split())
     a = list(map(int, input().split()))
     l = list(map(int, input().split()))
-    
+
     x = [-1] * (n + 1)
     for i in range(k):
         x[a[i]] = i
-    
+
     for i in range(q):
         j = l[i] - 1
         if a[j] == n:
-            continue        
+            continue
         if x[a[j] + 1] != -1:
             continue
         x[a[j] + 1] = j

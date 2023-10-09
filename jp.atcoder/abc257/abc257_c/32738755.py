@@ -31,7 +31,7 @@ def main() -> None:
     mx = cnt
     # i = 0
     # while i < n:
-        
+
     #     while i
     for i in range(n):
         if s[i] == 1:

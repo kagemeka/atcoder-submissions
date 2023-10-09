@@ -26,7 +26,7 @@ auto main() -> int {
       ok = false;
       break;
     }
-    if (ok) mn = min(mn, cost);    
+    if (ok) mn = min(mn, cost);
   }
-  cout << (mn == inf ? -1 : mn) << endl;  
+  cout << (mn == inf ? -1 : mn) << endl;
 }
