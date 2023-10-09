@@ -98,7 +98,7 @@ pub fn suffix_array(a: &[usize]) -> Vec<usize> {
             key_10[i] = a[sa_1[i]];
         }
         let sa_10 = counting_argsort(&key_10);
-        
+
         for i in 0..n {
             sa[i] = sa_1[sa_10[i]];
             key[i] = key_10[sa_10[i]] << 30 | key_1[sa[i]];
